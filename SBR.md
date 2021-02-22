@@ -61,7 +61,19 @@ The CA/Browser Forum is a voluntary organization of Certification Authorities an
 ### 1.3.1  Certification authorities
 Certification Authority (CA) is defined in Section 1.6.1. Current CA Members of the CA/Browser Forum are listed here: https://cabforum.org/members.
 ### 1.3.2  Registration authorities
-As defined in Section 1.6.1.
+With the exception of sections __, the CA MAY delegate the performance of all, or any part, of Section 3.2 requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of Section 3.2.
+
+Before the CA authorizes a Delegated Third Party to perform a delegated function, the CA SHALL contractually require the Delegated Third Party to:
+
+1. Meet the qualification requirements of Section 5.3.1, when applicable to the delegated function;
+2. Retain documentation in accordance with Section 5.5.2;
+3. Abide by the other provisions of these Requirements that are applicable to the delegated function; and
+4. Comply with (a) the CA's Certificate Policy/Certification Practice Statement or (b) the Delegated Third Party's practice statement that the CA has verified complies with these Requirements.
+
+The CA MAY designate an Enterprise RA to verify certificate requests from the Enterprise RA's own organization.  The CA SHALL NOT accept certificate requests authorized by an Enterprise RA unless the following requirements are satisfied:
+
+1. The CA SHALL confirm that the requested Fully-Qualified Domain Name(s) are within the Enterprise RA's verified Domain Namespace.
+2. If the certificate request includes a Subject name of a type other than a Fully-Qualified Domain Name, the CA SHALL confirm that the name is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated (see Section 3.2) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested Subject FQDN falls within the Domain Namespace of ABC Co.'s Registered Domain Name.
 ### 1.3.3  Subscribers
 As defined in Section 1.6.1.
 ### 1.3.4 Relying parties
@@ -71,22 +83,22 @@ Other groups that have participated in the development of these Requirements inc
 ## 1.4  Certificate usage
 The primary goal of these Requirements is to provide a framework where “reasonable assurance” may be provided to senders and recipients of email messages that the party identified in an S/MIME Certificate has control of the domain or email address being asserted. A variation of this use case is where an individual or organization digitally signs email to establish its authenticity and source of origin.  
 ### 1.4.1  Appropriate certificate uses
-
+The primary goal of these Requirements is to enable efficient and secure S/MIME communication, while addressing user concerns about the trustworthiness of Certificates. These Requirements also serve to inform users and help them to make informed decisions when relying on Certificates.
 ### 1.4.2 Prohibited certificate uses
-
+No stipulation.
 ## 1.5  Policy administration
 This document may be revised from time to time, as appropriate, in accordance with procedures adopted by the CA/Browser Forum.  The CA/Browser Forum welcomes recommendations and suggestions regarding this standard by email at questions@cabforum.org. 
 ### 1.5.1  Organization administering the document
-Contact information for the CA/Browser Forum is available here: https://cabforum.org/leadership/. In this section of a CA’s CPS, the CA shall provide a link to a web page or an email address for contacting the person or persons responsible for operation of the CA, including contact information for entities wishing to submit a Certificate Problem Report.
+No stipulation.
 ### 1.5.2  Contact person
-
+Contact information for the CA/Browser Forum is available here: https://cabforum.org/leadership/. In this section of a CA’s CPS, the CA shall provide a link to a web page or an email address for contacting the person or persons responsible for operation of the CA, including contact information for entities wishing to submit a Certificate Problem Report.
 ### 1.5.3  Person determining CPS suitability for the policy
-
+No stipulation.
 ### 1.5.4  CPS approval procedures
-
+No stipulation.
 ## 1.6  Definitions and acronyms
 ###  1.6.1 Definitions
-
+TBD
 ###  1.6.2 Acronyms
 
 |Acronym   |Meaning                                                            |
@@ -112,21 +124,31 @@ Contact information for the CA/Browser Forum is available here: https://cabforum
 |S/MIME	   |Secure MIME (Multipurpose Internet Mail Extensions)|
 |TLS	   |Transport Layer Security|
 ###  1.6.3 References
-
+TBD
 ###  1.6.4 Conventions
 
 The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in these Requirements shall be interpreted in accordance with RFC 2119.
 
 # 2. PUBLICATION AND REPOSITORY RESPONSIBILITIES
-
+The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement that describes in detail how the CA implements the latest version of these Requirements.
 ## 2.1  Repositories
-
+The CA SHALL make revocation information for Subordinate CA Certificates and Subscriber Certificates available in accordance with this Policy.
 ## 2.2  Publication of certification information
+The CA SHALL publicly disclose its Certificate Policy and/or Certification Practice Statement through an appropriate and readily accessible online means that is available on a 24x7 basis. The CA SHALL publicly disclose its CA business practices to the extent required by the CA's selected audit scheme (see Section 8.1).
 
+The Certificate Policy and/or Certification Practice Statement MUST be structured in accordance with RFC 3647 and MUST include all material required by RFC 3647.
+
+<u>EDITS REQ'D:  Section 4.2 of a CA's Certificate Policy and/or Certification Practice Statement SHALL state the CA's policy or practice on processing CAA Records for Fully Qualified Domain Names; that policy shall be consistent with these Requirements. It shall clearly specify the set of Issuer Domain Names that the CA recognizes in CAA "issue" or "issuewild" records as permitting it to issue. The CA SHALL log all actions taken, if any, consistent with its processing practice.</u>
+
+The CA SHALL publicly give effect to these Requirements and represent that it will adhere to the latest published version. The CA MAY fulfill this requirement by incorporating these Requirements directly into its Certificate Policy and/or Certification Practice Statements or by incorporating them by reference using a clause such as the following (which MUST include a link to the official version of these Requirements):
+
+> [Name of CA] conforms to the current version of the Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates published at http://www.cabforum.org. In the event of any inconsistency between this document and those Requirements, those Requirements take precedence over this document.
+
+<u>EDITS REQUIRED: How about a requirement for TEST CERTS?</u>
 ## 2.3  Time or frequency of publication
-
+The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL indicate conformance with this requirement by incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
 ## 2.4  Access controls on repositories
-
+The CA shall make its Repository publicly available in a read-only manner.
 # 3. IDENTIFICATION AND AUTHENTICATION (11)
 
 ## 3.1  Naming
