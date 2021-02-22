@@ -12,31 +12,72 @@ copyright: |
 # 1.  INTRODUCTION
 
 ## 1.1  Overview
+This document describes an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements that are necessary for the issuance and management of Publicly-Trusted S/MIME Certificates
+
+**Notice for Readers**
+
+An S/MIME Certificate contains a public key bound to an email address, and may also contain the identity of a natural person or legal entity that controls such email address. The key pair can then be used to sign, verify, encrypt, and decrypt email. An S/MIME Certificate can be identified by the existence of an Extended Key Usage (EKU) Object Identifier (OID) of 1.3.6.1.5.5.7.3.4 for `emailProtection`.
+
+The CP for the Issuance and Management of Publicly-Trusted S/MIME Certificates describes a subset of the requirements that a Certification Authority must meet in order to issue Publicly Trusted S/MIME Certificates. This document serves two purposes: to specify Baseline Requirements and to provide guidance and requirements for what a CA should include in its CPS. Except where explicitly stated otherwise, these Requirements apply only to relevant events that occur on or after DATE (the original effective date of these requirements).
+
+These Requirements do not address all of the issues relevant to the issuance and management of Publicly-Trusted S/MIME Certificates. In accordance with RFC 3647 and to facilitate a comparison of other certificate policies and CPSs (e.g. for policy mapping), this document includes all sections of the RFC 3647 framework. However, rather than beginning with a “no stipulation” comment in all empty sections, the CA/Browser Forum initially leaves sections blank until a decision of “no stipulation” is made. The CA/Browser Forum may update these Requirements from time to time.
+
+These Requirements do not address the issuance or management of Certificates by enterprises that operate their own Public Key Infrastructure for internal purposes only, and for which the Root Certificate is not distributed by any Application Software Supplier. These Requirements are applicable to all Certification Authorities within a chain of trust. They are to be flowed down from the Root Certification Authority through successive Subordinate Certification Authorities.
 
 ## 1.2  Document name and identification
+This Certificate Policy (CP) contains the requirements for the issuance and management of Publicly-Trusted S/MIME Certificates, as adopted by the CA/Browser Forum.
 
+The following Certificate Policy identifiers are reserved for use by CAs as a means of asserting compliance with this document (OID arc 2.23.140.1.5.x.y) as follows:
+
+`{joint-iso-itu-t(2) international-organizations(23) ca-browser-forum(140) certificate-policies(1) smime-baseline(5)`
+
+Where x may represent:
+
+*  `mailbox-validation (1)`
+
+*  `organization-validation (2)`
+
+*  `sponsored-validation (3)`
+
+*  `individual-validation (4)`
+
+Where y may represent:
+
+*  `strict (1)`
+
+*  `multipurpose (2)`
+
+*  `legacy (3)`
+
+### 1.2.1  Revisions
+
+|Version| Ballot|Description                       | Adopted  | Effective\*  |
+|-------|-------|----------------------------------|----------| -----------|
+|00     |       |Working draft                     |TBD       |TBD         |
+\* Effective Date and Additionally Relevant Compliance Date(s)
+  
 ## 1.3  PKI participants
-
+The CA/Browser Forum is a voluntary organization of Certification Authorities and suppliers of Internet browser and other relying-party software applications including mail user agents (web-based or application based) and email service providers that process S/MIME Certificates.
 ### 1.3.1  Certification authorities
-
+Certification Authority (CA) is defined in Section 1.6.1. Current CA Members of the CA/Browser Forum are listed here: https://cabforum.org/members.
 ### 1.3.2  Registration authorities
-
+As defined in Section 1.6.1.
 ### 1.3.3  Subscribers
-
+As defined in Section 1.6.1.
 ### 1.3.4 Relying parties
-
+“Relying Party” and “Application Software Supplier” are defined in Section 1.6.1. Current Members of the CA/Browser Forum who are Application Software Suppliers are listed here: https://cabforum.org/members.
 ### 1.3.5  Other participants
-
+Other groups that have participated in the development of these Requirements include the AICPA/CICA WebTrust for Certification Authorities task force and the Accredited Conformity Assessment Bodies' Council (ACAB'c). Participation by such groups does not imply their endorsement, recommendation, or approval of the final product.
 ## 1.4  Certificate usage
-
+The primary goal of these Requirements is to provide a framework where “reasonable assurance” may be provided to senders and recipients of email messages that the party identified in an S/MIME Certificate has control of the domain or email address being asserted. A variation of this use case is where an individual or organization digitally signs email to establish its authenticity and source of origin.  
 ### 1.4.1  Appropriate certificate uses
 
 ### 1.4.2 Prohibited certificate uses
 
 ## 1.5  Policy administration
-
+This document may be revised from time to time, as appropriate, in accordance with procedures adopted by the CA/Browser Forum.  The CA/Browser Forum welcomes recommendations and suggestions regarding this standard by email at questions@cabforum.org. 
 ### 1.5.1  Organization administering the document
-
+Contact information for the CA/Browser Forum is available here: https://cabforum.org/leadership/. In this section of a CA’s CPS, the CA shall provide a link to a web page or an email address for contacting the person or persons responsible for operation of the CA, including contact information for entities wishing to submit a Certificate Problem Report.
 ### 1.5.2  Contact person
 
 ### 1.5.3  Person determining CPS suitability for the policy
@@ -44,6 +85,37 @@ copyright: |
 ### 1.5.4  CPS approval procedures
 
 ## 1.6  Definitions and acronyms
+###  1.6.1 Definitions
+
+###  1.6.2 Acronyms
+
+|Acronym   |Meaning                                                            |
+|----------|-------------------------------------------------------------------|
+|AICPA	   |American Institute of Certified Public Accountants |
+|CA	       |Certification Authority |
+|CAA	   |Certification Authority Authorization |
+|CICA	   |Canadian Institute of Chartered Accountants |
+|CP	       |Certificate Policy |
+|CPS	   |Certification Practice Statement |
+|CRL	   |Certificate Revocation List|
+|DBA	   |Doing Business As |
+|DNS	   |Domain Name System |
+|FIPS	   |(US Government) Federal Information Processing Standard|
+|IANA	   |Internet Assigned Numbers Authority |
+|ICANN	   |Internet Corporation for Assigned Names and Numbers|
+|ISO	   |International Organization for Standardization |
+|NIST	   |(US Government) National Institute of Standards and Technology
+|OCSP	   |Online Certificate Status Protocol|
+|OID	   |Object Identifier|
+|PKI	   |Public Key Infrastructure|
+|RA	       |Registration Authority|
+|S/MIME	   |Secure MIME (Multipurpose Internet Mail Extensions)|
+|TLS	   |Transport Layer Security|
+###  1.6.3 References
+
+###  1.6.4 Conventions
+
+The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in these Requirements shall be interpreted in accordance with RFC 2119.
 
 # 2. PUBLICATION AND REPOSITORY RESPONSIBILITIES
 
@@ -75,8 +147,39 @@ copyright: |
 
 ### 3.2.1  Method to prove possession of private key
 
-### 3.2.2  Authentication of organization identity
+### 3.2.2  Authentication of organization and domain identity
+#### 3.2.2.1  Authentication of organization identity
+#### 3.2.2.2  Validation of domain authorization or control
+This section defines the permitted processes and procedures for confirming the Applicant's control of the email addresses to be included in issued Certificates. 
 
+The CA MUST verify that Applicant controls the email accounts associated with all email addresses referenced in the Certificate or has been authorized by the email account holder to act on the account holder’s behalf. 
+
+<b>Note:</b> Email addresses may be listed in Subscriber Certificates using Rfc822Names in the subjectAltName extension or in Subordinate CA Certificates via Rfc822Names in
+permittedSubtrees within the Name Constraints extension.
+
+The CA's CP/CPS MUST specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which domain validation method, including relevant BR or SBR version number, used to validate every domain or email address in issued Certificates.
+##### 3.2.2.2.1  Validating authority over email address via domain
+Confirming the Applicant has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
+
+The CA SHALL use only the approved methods in Section 3.2.2.4 of Version 1.7.3 of the BR to perform this verification
+
+The CA SHALL NOT delegate validation of the domain portion of an email address.
+
+Completed validations of Applicant authority may be valid for the issuance of multiple Certificates over time. In all cases, the validation must have been initiated within the time period specified in the relevant requirement (such as Section 4.2.1 of this document) prior to Certificate issuance. 
+
+For purposes of domain validation, the term Applicant includes the Applicant's Parent Company, Subsidiary Company, or Affiliate.
+##### 3.2.2.2.2  Validating control over email address via email
+Confirming the Applicant's control over the email address by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. The Random Value MUST be sent only to the address being validated and SHALL not be shared in any other way. 
+
+The Random Value SHALL be unique in each email. 
+
+The CA MAY resend the email in its entirety, including re-use of the Random Value, provided that the entire contents and recipient email address of the communication remain unchanged.
+
+The Random Value SHALL remain valid for use in a confirming response for no more than 30 days from its creation. The CPS MAY specify a shorter validity period for Random Values, in which case the CA MUST follow its CPS.
+
+Completed validations of Applicant control over the email address must be performed for each Certificate issuance.
+
+#### 3.2.2.3  CAA Records
 ### 3.2.3  Authentication of individual identity
 
 ### 3.2.4  Non-verified subscriber information
