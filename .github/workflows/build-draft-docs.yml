@@ -5,9 +5,7 @@ jobs:
     strategy:
       matrix:
         document:
-          - 'BR.md'
-          - 'EVG.md'
-          - 'NSR.md'
+          - 'SBR.md'
     name: Build ${{ matrix.document }}
     runs-on: ubuntu-20.04
     steps:
@@ -21,8 +19,8 @@ jobs:
       - uses: cabforum/build-guidelines-action@v2.0.0
         id: build_doc
         with:
-          markdown_file: docs/${{ matrix.document }}
-          diff_file: old/docs/${{ matrix.document }}
+          markdown_file: ${{ matrix.document }}
+          diff_file: old/${{ matrix.document }}
           pdf: true
           docx: true
           lint: true
