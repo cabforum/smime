@@ -138,7 +138,7 @@ The CA SHALL publicly disclose its Certificate Policy and/or Certification Pract
 
 The Certificate Policy and/or Certification Practice Statement MUST be structured in accordance with RFC 3647 and MUST include all material required by RFC 3647.
 
-<u>EDITS REQ'D:  Section 4.2 of a CA's Certificate Policy and/or Certification Practice Statement SHALL state the CA's policy or practice on processing CAA Records for Fully Qualified Domain Names; that policy shall be consistent with these Requirements. It shall clearly specify the set of Issuer Domain Names that the CA recognizes in CAA "issue" or "issuewild" records as permitting it to issue. The CA SHALL log all actions taken, if any, consistent with its processing practice.</u>
+<u>EDITS REQUIRED:  Section 4.2 of a CA's Certificate Policy and/or Certification Practice Statement SHALL state the CA's policy or practice on processing CAA Records for Fully Qualified Domain Names; that policy shall be consistent with these Requirements. It shall clearly specify the set of Issuer Domain Names that the CA recognizes in CAA "issue" or "issuewild" records as permitting it to issue. The CA SHALL log all actions taken, if any, consistent with its processing practice.</u>
 
 The CA SHALL publicly give effect to these Requirements and represent that it will adhere to the latest published version. The CA MAY fulfill this requirement by incorporating these Requirements directly into its Certificate Policy and/or Certification Practice Statements or by incorporating them by reference using a clause such as the following (which MUST include a link to the official version of these Requirements):
 
@@ -352,7 +352,7 @@ Completed validations of Applicant control over the email address must be perfor
 
 ### 4.12.2 Session key encapsulation and recovery policy and practices
 
-# 5. FACILITY, MANAGEMENT, AND OPERATIONAL CONTROLS (11)
+# 5. FACILITY, MANAGEMENT, AND OPERATIONAL CONTROLS
 
 ## 5.1  Physical controls
 
@@ -446,7 +446,7 @@ Completed validations of Applicant control over the email address must be perfor
 
 ## 5.8  CA or RA termination
 
-# 6.  TECHNICAL SECURITY CONTROLS (11)
+# 6.  TECHNICAL SECURITY CONTROLS
 
 ## 6.1  Key pair generation and installation
 
