@@ -29,7 +29,7 @@ This Certificate Policy (CP) contains the requirements for the issuance and mana
 
 The following Certificate Policy identifiers are reserved for use by CAs as a means of asserting compliance with this document (OID arc 2.23.140.1.5.x.y) as follows:
 
-`{joint-iso-itu-t(2) international-organizations(23) ca-browser-forum(140) certificate-policies(1) smime-baseline(5)`
+`{joint-iso-itu-t(2) international-organizations(23) ca-browser-forum(140) certificate-policies(1) smime-baseline(5)}`
 
 Where x may represent:
 
@@ -502,9 +502,77 @@ Completed validations of Applicant control over the email address must be perfor
 
 ## 7.1  Certificate profile
 
-### 7.1.1  Version number(s)
+### 7.1.1  All certificates
+
+All Certificates MUST Have a Certificate structure with the following fields as follows:
+​
+|Name|ASN.1 Type and Constraints|Permitted Values|References|
+|----|--------------------------|----------------|----------|
+|tbsCertificate|`TBSCertificate`|See Section 7.1.1.1|[RFC 5280, Section 4.1.1.1](https://tools.ietf.org/html/rfc5280#section-4.1.1.1)|
+|signatureAlgorithm|`AlgorithmIdentifier`|See Section 7.1.3.2 for permitted values. The value MUST be equal to the `signature` field value of the TBSCertificate structure as defined in Section 7.1.1.1.|[RFC 5280, Section 4.1.1.2](https://tools.ietf.org/html/rfc5280#section-4.1.1.2)|
+|signatureValue|`BIT STRING`|The digital signature computed upon the ASN.1 DER encoding of the `tbsCertificate` field|[RFC 5280, Section 4.1.1.3](https://tools.ietf.org/html/rfc5280#section-4.1.1.3)|
+
+#### 7.1.1.1  TBSCertificate Structure    
+
+All Certificates MUST Have a TBSCertificate structure with the following fields:
+​
+|Name|ASN.1 Type and Constraints|Permitted Value(s)|References|
+|----|--------------------------|------------------|----------|
+|version|`INTEGER`|MUST be v3(2)|[RFC 5280, Section 4.1.2.1](https://tools.ietf.org/html/rfc5280#section-4.1.2.1)|
+|serialNumber|`INTEGER`<br>Encoded value MUST be no longer than 20 octets|MUST be a positive value that contains at least 64 bits of output from a CSPRNG|[RFC 5280, Section 4.1.2.2](https://tools.ietf.org/html/rfc5280#section-4.1.2.2)|
+|signature|`AlgorithmIdentifier`|See Section 7.1.3.2 for permitted values. The value MUST be equal to the `signatureAlgorithm` field value of the Certificate structure as defined in Section 7.1.1.|[RFC 5280, Section 4.1.2.3](https://tools.ietf.org/html/rfc5280#section-4.1.2.3)|
+|issuer|`Name`|MUST be byte-for-byte equal to the encoding of the `subject` field value of the issuing CA's Certificate|[RFC 5280, Section 4.1.2.4](https://tools.ietf.org/html/rfc5280#section-4.1.2.4)|
+|validity|`Validity`|See Section 6.3.2.|[RFC 5280, Section 4.1.2.5](https://tools.ietf.org/html/rfc5280#section-4.1.2.5)|
+|subject|`Name`|For Root and Subordinate CA Certificates, see Section 7.1.4.2.<br>For Subscriber Certificates, see Section 7.1.4.3.|[RFC 5280, Section 4.1.2.6](https://tools.ietf.org/html/rfc5280#section-4.1.2.6)|
+|subjectPublicKeyInfo|`SubjectPublicKeyInfo`|See Sections 6.1.5, 6.1.6, and 7.1.3.1.|[RFC 5280, Section 4.1.2.7](https://tools.ietf.org/html/rfc5280#section-4.1.2.7)|
+|issuerUniqueID|`BIT STRING`|MUST NOT be present|[RFC 5280, Section 4.1.2.8](https://tools.ietf.org/html/rfc5280#section-4.1.2.8)|
+|subjectUniqueID|`BIT STRING`|MUST NOT be present|[RFC 5280, Section 4.1.2.8](https://tools.ietf.org/html/rfc5280#section-4.1.2.8)|
+|extensions|`Extensions`|For Root Certificates, see Section 7.1.2.1.<br>For Subordinate CA Certificates, see Section 7.1.2.2.<br>For Subscriber Certificates, see Section 7.1.2.3.|[RFC 5280, Section 4.1.2.9](https://tools.ietf.org/html/rfc5280#section-4.1.2.9)|
+
 
 ### 7.1.2  Certificate extensions
+#### 7.1.2.1  Root Certificates
+To do
+
+#### 7.1.2.2  Subordinate CA Certificates
+To do
+
+#### 7.1.2.3  Subscriber Certificates
+
+The Section specifies the requirements for extensions included in Subscriber Certificates.
+
+|Extension ID|Required?|Critical?|Permitted Value(s)|References|
+|------------|---------|-----------|------------------|----------|
+|authorityKeyIdentifier|Yes|No|The `keyIdentifer` field MUST be present. `authorityCertIssuer` and `authorityCertSerialNumber` fields MUST NOT be present.|[RFC 5280, Section 4.2.1.1](https://tools.ietf.org/html/rfc5280#section-4.2.1.1)|
+|certificatePolicies|Yes|SHOULD NOT be critical|See Section 7.1.6.4 for the permitted `policyIdentifiers`.<br>For each included `policyIdentifer`, the CA MAY include `policyQualifiers`. If the `id-qt-cps` policyQualifier is included, then it MUST contain a HTTP/HTTPS URL for the issuing CA's  Certification Practice Statement, Relying Party Agreement or other pointer to online information provided by the CA.|[RFC 5280, Section 4.2.1.4](https://tools.ietf.org/html/rfc5280#section-4.2.1.4)|
+|subjectAlternateName|Yes|Yes if the `subject` is an empty sequence; otherwise, SHOULD NOT be critical|MUST contain at least one `rfc822Name` value. MUST NOT contain values of type: <ul><li> `dNSName`</li><li>`iPAddress`</li><li>`uniformResourceIdentifier`</li></ul>`otherName` values (such as Microsoft UPN) MAY be included if the value is identical to an `rfc822Name` expressed in the SAN extension.  Each `rfc822Name` and `otherName` value must be verified with publicly documented and audited measures in accordance with Section 3.2.2.|[RFC 5280, Section 4.2.1.6](https://tools.ietf.org/html/rfc5280#section-4.2.1.6)|
+|extendedKeyUsage|Yes|No|`id-kp-emailProtection` MUST be present.<br>`ip-kp-clientAuth` and/or `id-ms-kp-document-signing` MAY be present.<br>Other values SHOULD NOT be present.<br>`id-kp-serverauth` or `id-kp-codeSigning` or `id-kp-timeStamping` or `id-kp-ocspSigning` or `anyExtendedKeyUsage` MUST NOT be present.|[RFC 5280, Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)|
+|authorityInfoAccess|Optional|No|SHOULD contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the issuing CA's OCSP responder. Additional `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified.<br>SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the HTTP URI of the issuing CA's Certificate. Additional `id-ad-caIssuers` LDAP, FTP, or HTTP URIs MAY be specified.|[RFC 5280, Section 4.2.2.1](https://tools.ietf.org/html/rfc5280#section-4.2.2.1)|
+|subjectKeyIdentifer|No, but SHOULD be included|No|A string that identifies the Public Key encoded in the Certificate's `subjectPublicKeyInfo`.|[RFC 5280, Section 4.2.1.2](https://tools.ietf.org/html/rfc5280#section-4.2.1.2)|
+|keyUsage|Yes|Yes|If the `subjectPublicKeyInfo` encoded in the Certificate is of type `rsaEncryption`, then the following bits MAY be asserted:<ul><li>`digitalSignature`</li><li>`nonRepudiation`</li><li>`keyEncipherment`</li><li>`dataEncipherment`</li></ul>If the `subjectPublicKeyInfo` encoded in the Certificate is of type `id-ecPublicKey`, then the following bits MAY also be asserted:<ul><li>`digitalSignature`</li><li>`nonRepudiation`</li><li>`keyAgreement`</li><li>`encipherOnly` or `decipherOnly` only if `keyAgreement` is set</li></ul>Other bits MUST NOT be asserted.|[RFC 5280, Section 4.2.1.3](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)<br>[RFC 3279, Section 2.3.1](https://tools.ietf.org/html/rfc3279#section-2.3.1)<br>[RFC 5480, Section 3](https://tools.ietf.org/html/rfc5480#section-3) as updated by [RFC 8813, Section 3](https://tools.ietf.org/html/rfc8813#section-3)|
+|basicConstraints|Optional|Either|The `cA` field MUST NOT be set true. `pathLenConstraint` field MUST NOT be present.|[RFC 5280, Section 4.2.1.9](https://tools.ietf.org/html/rfc5280#section-4.2.1.9)|
+|crlDistributionPoints|Yes|No|MUST contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `URI` that includes a HTTP URI where the issuing CA's CRL can be retrieved.<br>Following additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.|[RFC 5280, Section 4.2.1.13](https://tools.ietf.org/html/rfc5280#section-4.2.1.13)|
+|subjectDirectoryAttributes |No |No |May contain verified attributes which are not part of the Subject's Distinguished Name such as dateOfBirth, placeOfBirth, gender, countryOfCitizenship, or countryOfResidence.|[RFC 3739 Section 3.2.2](https://tools.ietf.org/html/rfc3739#section-3.2.2) |
+|qcStatements|No |No |Indicates a Certificate that is issued as Qualified within a defined legal framework from an identified country or set of countries. |[RFC 3739 Section 3.2.6](https://tools.ietf.org/html/rfc3739#section-3.2.6) <br> ETSI EN 319 412-5, Section 4 |
+|Legal Entity Identifier | No|No | A verified Legal Entity Identifier data record for LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2). | ISO 17442-1:2020, Clause 6 <br>ISO 17442-2:2020, Clause 4| 
+
+#### 7.1.2.3.1  Key Usages
+The keyUsage extension SHALL be present and SHALL contain one (and only one) type of the following key usage settings.  
+
+|Type|`nonRepudiation`|`digitalSignature`|`keyEncipherment` <br /> or `keyAgreement`|
+|:-:|:-:|:-:|:-:|
+A | X |  |  |  
+B | X |X |  |  
+C |   |X |  |  
+D |   |X |X |  
+E |   |  |X |  
+F | X |X |X |  
+
+Type A, C, or E SHOULD be used to avoid mixed usage of keys.  
+
+Certificates used to validate commitment to signed content SHALL be limited to type A, B, or F; of these alternatives type A SHOULD be used.
+
+Certificates where the Private Key is escrowed by the Certificate Authority SHALL be limited to type D, E, or F; of these alternatives type E SHOULD be used.
 
 ### 7.1.3  Algorithm object identifiers
 
@@ -513,6 +581,8 @@ Completed validations of Applicant control over the email address must be perfor
 ### 7.1.5  Name constraints
 
 ### 7.1.6  Certificate policy object identifier
+The following Certificate Policy identifiers are reserved for use by CAs as an optional means of asserting compliance with these Requirements as follows:
+
 
 ### 7.1.7  Usage of Policy Constraints extension
 
@@ -597,7 +667,19 @@ Completed validations of Applicant control over the email address must be perfor
 ## 9.6  Representations and warranties
 
 ### 9.6.1  CA representations and warranties
-
+For any Certificate in a hierarchy capable of being used for S/MIME, CAs MUST revoke Certificates upon the occurrence of any of the following events:
+1.  the Subscriber indicates that the original Certificate request was not authorized and does not retroactively grant authorization;
+2.  the CA obtains reasonable evidence that the Subscriber’s Private Key (corresponding to the Public Key in the Certificate) has been compromised or is suspected of compromise;
+3. the CA obtains reasonable evidence that the Certificate has been used for a purpose outside of that indicated in the Certificate or in the CA's Subscriber agreement;
+4. the CA receives notice or otherwise becomes aware that a Subscriber has violated one or more of its material obligations under the Subscriber agreement;
+5. the CA receives notice or otherwise becomes aware of any circumstance indicating that use of the email address in the Certificate is no longer legally permitted;
+6. the CA receives notice or otherwise becomes aware of a material change in the information contained in the Certificate;
+7. a determination that the Certificate was not issued in accordance with the CA’s Certificate Policy or Certification Practice Statement;
+8. the CA determines that any of the information appearing in the Certificate is not accurate;
+9. the CA ceases operations for any reason and has not arranged for another CA to provide revocation support for the Certificate;
+10. the CA Private Key used in issuing the Certificate is suspected to have been compromised;
+11. such additional revocation events as the CA publishes in its policy documentation; or
+12. the Certificate was issued in violation of the then-current version of these requirements.
 ### 9.6.2  RA representations and warranties
 
 ### 9.6.3  Subscriber representations and warranties
@@ -643,6 +725,11 @@ Completed validations of Applicant control over the email address must be perfor
 ### 9.16.2  Assignment
 
 ### 9.16.3  Severability
+In the event of a conflict between these Requirements and a law, regulation or government order (hereinafter ‘Law’) of any jurisdiction in which a CA operates or issues certificates, a CA MAY modify any conflicting requirement to the minimum extent necessary to make the requirement valid and legal in the jurisdiction. This applies only to operations or certificate issuances that are subject to that Law. In such event, the CA SHALL immediately (and prior to issuing a certificate under the modified requirement) include in Section 9.16.3 of the CA’s CPS a detailed reference to the Law requiring a modification of these Requirements under this section, and the specific modification to these Requirements implemented by the CA.
+
+The CA MUST also (prior to issuing a certificate under the modified requirement) notify the CA/Browser Forum of the relevant information newly added to its CPS by sending a message to questions@cabforum.org and receiving confirmation that it has been posted to the Public Mailing List and is indexed in the Public Mail Archives available at https://cabforum.org/pipermail/public/ (or such other email addresses and links as the Forum may designate), so that the CA/Browser Forum may consider possible revisions to these Requirements accordingly.
+
+Any modification to CA practice enabled under this section MUST be discontinued if and when the Law no longer applies, or these Requirements are modified to make it possible to comply with both them and the Law simultaneously. An appropriate change in practice, modification to the CA’s CPS and a notice to the CA/Browser Forum, as outlined above, MUST be made within 90 days.
 
 ### 9.16.4  Enforcement (attorneys' fees and waiver of rights)
 
