@@ -176,18 +176,17 @@ This section defines the permitted processes and procedures for confirming the A
 
 The CA MUST verify that Applicant controls the email accounts associated with all email addresses referenced in the Certificate or has been authorized by the email account holder to act on the account holder’s behalf. 
 
-<b>Note:</b> Email addresses may be listed in Subscriber Certificates using Rfc822Names in the subjectAltName extension or in Subordinate CA Certificates via Rfc822Names in
-permittedSubtrees within the Name Constraints extension.
+<b>Note:</b> Email addresses may be listed in Subscriber Certificates using Rfc822Names in the subjectAltName extension or in Subordinate CA Certificates via Rfc822Names in permittedSubtrees within the Name Constraints extension.
 
 The CA's CP/CPS MUST specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which domain validation method, including relevant BR or SBR version number, used to validate every domain or email address in issued Certificates.
+
+Completed validations of Applicant authority may be valid for the issuance of multiple Certificates over time. In all cases, the validation must have been initiated within the time period specified in the relevant requirement (such as Section 4.2.1 of this document) prior to Certificate issuance.
 ##### 3.2.2.2.1  Validating authority over email address via domain
 Confirming the Applicant has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
 
 The CA SHALL use only the approved methods in Section 3.2.2.4 of Version 1.7.3 of the BR to perform this verification
 
-The CA SHALL NOT delegate validation of the domain portion of an email address.
-
-Completed validations of Applicant authority may be valid for the issuance of multiple Certificates over time. In all cases, the validation must have been initiated within the time period specified in the relevant requirement (such as Section 4.2.1 of this document) prior to Certificate issuance. 
+The CA SHALL NOT delegate validation of the domain portion of an email address. 
 
 For purposes of domain validation, the term Applicant includes the Applicant's Parent Company, Subsidiary Company, or Affiliate.
 ##### 3.2.2.2.2  Validating control over email address via email
@@ -198,8 +197,6 @@ The Random Value SHALL be unique in each email.
 The CA MAY resend the email in its entirety, including re-use of the Random Value, provided that the entire contents and recipient email address of the communication remain unchanged.
 
 The Random Value SHALL remain valid for use in a confirming response for no more than 30 days from its creation. The CPS MAY specify a shorter validity period for Random Values, in which case the CA MUST follow its CPS.
-
-Completed validations of Applicant control over the email address must be performed for each Certificate issuance.
 
 #### 3.2.2.3  CAA Records
 ### 3.2.3  Authentication of individual identity
@@ -625,6 +622,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as an o
 ### 7.3.2  OCSP extensions
 
 # 8. COMPLIANCE AUDIT AND OTHER ASSESSMENTS
+
 
 ## 8.1  Frequency or circumstances of assessment
 
