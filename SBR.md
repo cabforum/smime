@@ -226,7 +226,13 @@ The Random Value SHALL remain valid for use in a confirming response for no more
 ## 4.2 Certificate application processing
 
 ### 4.2.1 Performing identification and authentication functions
+Applicant information MUST include, but not be limited to, at least one email address to be included in the Certificate's subjectAltName extension.
 
+Section 6.3.2 limits the validity period of Subscriber Certificates. The CA MAY use the documents and data provided in Section 3.2 to verify certificate information, or may reuse previous validations themselves, provided that the CA obtained the data or document from a source specified under Section 3.2 or completed the validation itself no more than 398 days prior to issuing the Certificate.
+
+In no case may a prior validation be reused if any data or document used in the prior validation was obtained more than the maximum time permitted for reuse of the data or document prior to issuing the Certificate.
+
+After the change to any validation method specified in the Baseline Requirements or EV Guidelines, a CA may continue to reuse validation data or documents collected prior to the change, or the validation itself, for the period stated in this BR 4.2.1 unless otherwise specifically provided in a ballot.
 ### 4.2.2 Approval or rejection of certificate applications
 
 ### 4.2.3  Time to process certificate applications
