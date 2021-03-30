@@ -662,7 +662,7 @@ The CA's audit SHALL be performed by a Qualified Auditor. A Qualified Auditor me
 ## 8.4  Topics covered by assessment
 The CA SHALL undergo an audit in accordance with one of the following schemes:
 
-1. “WebTrust for CAs v2.1 or newer” AND “__ or newer”; or
+1. “WebTrust for CAs v2.1 or newer” AND “XXXX or newer”; or
 2. ETSI EN 319 411-1 v1.2.2, which includes normative references to ETSI EN 319 401 (the latest version of the referenced ETSI documents should be applied); or
 3. If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either
    a. encompasses all requirements of one of the above schemes or
@@ -699,13 +699,12 @@ An authoritative English language version of the publicly available audit inform
 
 The Audit Report MUST be available as a PDF, and SHALL be text searchable for all information required. Each SHA-256 fingerprint within the Audit Report MUST be uppercase letters and MUST NOT contain colons, spaces, or line feeds.
 
-## 8.7 Self-Audits
+## 8.7 Review of Delegated Third Party
 
-During the period in which the CA issues Certificates, the CA SHALL monitor adherence to its Certificate Policy, Certification Practice Statement and these Requirements and strictly control its service quality by performing self audits on at least a quarterly basis against a randomly selected sample of the greater of one certificate or at least three percent of the Certificates issued by it during the period commencing immediately after the previous self-audit sample was taken. Except for Delegated Third Parties that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL strictly control the service quality of Certificates issued or containing information verified by a Delegated Third Party by having a Validation Specialist employed by the CA perform ongoing quarterly audits against a randomly selected sample of at least the greater of one certificate or three percent of the Certificates verified by the Delegated Third Party in the period beginning immediately after the last sample was taken. The CA SHALL review each Delegated Third Party's practices and procedures to ensure that the Delegated Third Party is in compliance with these Requirements and the relevant Certificate Policy and/or Certification Practice Statement.
+The CA SHALL review the practices and procedures of each Delegated Third Party or Technically Constrained Subordinate CA to ensure that the Delegated Third Party or Technically Constrained Subordinate CA is in compliance with these Requirements and the relevant Certificate Policy and/or Certification Practice Statement.
 
-The CA SHALL internally audit each Delegated Third Party's compliance with these Requirements on an annual basis.
+The CA SHALL internally audit the compliance of each Delegated Third Party and Technically Constrained Subordinate CA with these Requirements on an annual basis.
 
-During the period in which a Technically Constrained Subordinate CA issues Certificates, the CA which signed the Subordinate CA SHALL monitor adherence to the CA's Certificate Policy and the Subordinate CA's Certification Practice Statement. On at least a quarterly basis, against a randomly selected sample of the greater of one certificate or at least three percent of the Certificates issued by the Subordinate CA, during the period commencing immediately after the previous audit sample was taken, the CA shall ensure all applicable CP are met.
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
 ## 9.1  Fees
