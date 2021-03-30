@@ -85,7 +85,7 @@ Other groups that have participated in the development of these Requirements inc
 ## 1.4  Certificate usage
 The primary goal of these Requirements is to provide a framework where “reasonable assurance” may be provided to senders and recipients of email messages that the party identified in an S/MIME Certificate has control of the domain or email address being asserted. A variation of this use case is where an individual or organization digitally signs email to establish its authenticity and source of origin.  
 ### 1.4.1  Appropriate certificate uses
-The primary goal of these Requirements is to enable efficient and secure S/MIME communication, while addressing user concerns about the trustworthiness of Certificates. These Requirements also serve to inform users and help them to make informed decisions when relying on Certificates.
+The primary goal of these Requirements is to describe an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements for the issuance and management of Publicly-Trusted S/MIME Certificates. These Requirements also serve to inform users and help them to make informed decisions when relying on Certificates.
 ### 1.4.2 Prohibited certificate uses
 No stipulation.
 ## 1.5  Policy administration
