@@ -699,11 +699,11 @@ An authoritative English language version of the publicly available audit inform
 
 The Audit Report MUST be available as a PDF, and SHALL be text searchable for all information required. Each SHA-256 fingerprint within the Audit Report MUST be uppercase letters and MUST NOT contain colons, spaces, or line feeds.
 
-## 8.7 Review of Delegated Third Party
+## 8.7 Review of Enterprise RA or Technically Constrained Subordinate CA
 
-The CA SHALL review the practices and procedures of each Delegated Third Party or Technically Constrained Subordinate CA to ensure that the Delegated Third Party or Technically Constrained Subordinate CA is in compliance with these Requirements and the relevant Certificate Policy and/or Certification Practice Statement.
+The CA SHALL review the practices and procedures of each Enterprise RA or Technically Constrained Subordinate CA to ensure that each such entity is in compliance with these Requirements and the relevant Certificate Policy and/or Certification Practice Statement.
 
-The CA SHALL internally audit the compliance of each Delegated Third Party and Technically Constrained Subordinate CA with these Requirements on an annual basis.
+The CA SHALL internally audit the compliance of each Enterprise RA or Technically Constrained Subordinate CA with these Requirements on an annual basis.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
