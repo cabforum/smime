@@ -10,6 +10,7 @@ copyright: |
 ---
 
 # 1.  INTRODUCTION
+
 **This is a pre-release draft of the S/MIME Baseline Requirements (SBR) and is undergoing active editing.  It has not yet been balloted to to become a CA/Browser Forum standard.**
 ## 1.1  Overview
 This document describes an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements that are necessary for the issuance and management of Publicly-Trusted S/MIME Certificates.
@@ -149,6 +150,7 @@ The CA SHALL publicly give effect to these Requirements and represent that it wi
 The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL indicate conformance with this requirement by incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
 ## 2.4  Access controls on repositories
 The CA shall make its Repository publicly available in a read-only manner.
+
 # 3. IDENTIFICATION AND AUTHENTICATION (11)
 
 ## 3.1  Naming
@@ -199,6 +201,7 @@ The CA MAY resend the email in its entirety, including re-use of the Random Valu
 The Random Value SHALL remain valid for use in a confirming response for no more than 30 days from its creation. The CPS MAY specify a shorter validity period for Random Values, in which case the CA SHALL follow its CPS.
 
 #### 3.2.2.3  CAA Records
+
 ### 3.2.3  Authentication of individual identity
 
 ### 3.2.4  Non-verified subscriber information
@@ -224,6 +227,7 @@ The Random Value SHALL remain valid for use in a confirming response for no more
 ### 4.1.2  Enrollment process and responsibilities
 
 ## 4.2 Certificate application processing
+
 <u>EDITS REQUIRED:  Section 4.2 of a CA's Certificate Policy and/or Certification Practice Statement SHALL state the CA's policy or practice on processing CAA Records for Fully Qualified Domain Names; that policy shall be consistent with these Requirements. It shall clearly specify the set of Issuer Domain Names that the CA recognizes in CAA "issue" or "issuewild" records as permitting it to issue. The CA SHALL log all actions taken, if any, consistent with its processing practice.</u>
 ### 4.2.1 Performing identification and authentication functions
 Applicant information SHALL include, but not be limited to, at least one rfc822Name email address to be included in the Certificate's subjectAltName extension.
@@ -233,6 +237,7 @@ Section 6.3.2 limits the validity period of Subscriber Certificates. The CA MAY 
 In no case may a prior validation be reused if any data or document used in the prior validation was obtained more than the maximum time permitted for reuse of the data or document prior to issuing the Certificate.
 
 After the change to any validation method specified in the Baseline Requirements or EV Guidelines, a CA may continue to reuse validation data or documents collected prior to the change, or the validation itself, for the period stated in this BR 4.2.1 unless otherwise specifically provided in a ballot.
+
 ### 4.2.2 Approval or rejection of certificate applications
 
 ### 4.2.3  Time to process certificate applications
@@ -308,6 +313,7 @@ After the change to any validation method specified in the Baseline Requirements
 ## 4.9  Certificate revocation and suspension
 
 ### 4.9.1  Circumstances for revocation
+
 #### 4.9.1.1 Reasons for Revoking a Subscriber Certificate
 The CA SHALL revoke a Certificate within 24 hours if one or more of the following occurs:
 1. The Subscriber requests in writing that the CA revoke the Certificate;
@@ -376,6 +382,7 @@ OCSP responses MUST conform to RFC6960 and/or RFC5019. OCSP responses MUST eithe
 revocation status is being checked.
 In the latter case, the OCSP signing Certificate MUST contain an extension of type `id-pkix-ocsp-nocheck`, as
 defined by RFC6960.
+
 ### 4.9.10 On-line revocation checking requirements
 
 ### 4.9.11 Other forms of revocation advertisements available
@@ -577,6 +584,7 @@ defined by RFC6960.
 # 7.  CERTIFICATE, CRL, AND OCSP PROFILES
 
 ## 7.1  Certificate profile
+
 **Editor's Note:  The format of Section 7 will undergo significant change from this version.**
 ### 7.1.1  All certificates
 
@@ -657,8 +665,8 @@ Certificates where the Private Key is escrowed by the Certificate Authority SHAL
 ### 7.1.5  Name constraints
 
 ### 7.1.6  Certificate policy object identifier
-The following Certificate Policy identifiers are reserved for use by CAs as an optional means of asserting compliance with these Requirements as follows:
 
+The following Certificate Policy identifiers are reserved for use by CAs as an optional means of asserting compliance with these Requirements as follows:
 
 ### 7.1.7  Usage of Policy Constraints extension
 
@@ -805,6 +813,7 @@ The CA SHALL internally audit the compliance of each Enterprise RA or Technicall
 ## 9.6  Representations and warranties
 
 ### 9.6.1  CA representations and warranties
+
 For any Certificate in a hierarchy capable of being used for S/MIME, CAs SHALL revoke Certificates upon the occurrence of any of the following events:
 1.  the Subscriber indicates that the original Certificate request was not authorized and does not retroactively grant authorization;
 2.  the CA obtains reasonable evidence that the Subscriber’s Private Key (corresponding to the Public Key in the Certificate) has been compromised or is suspected of compromise;
@@ -818,6 +827,7 @@ For any Certificate in a hierarchy capable of being used for S/MIME, CAs SHALL r
 10. the CA Private Key used in issuing the Certificate is suspected to have been compromised;
 11. such additional revocation events as the CA publishes in its policy documentation; or
 12. the Certificate was issued in violation of the then-current version of these requirements.
+
 ### 9.6.2  RA representations and warranties
 
 ### 9.6.3  Subscriber representations and warranties
@@ -834,6 +844,7 @@ For delegated tasks, the CA and any Delegated Third Party MAY allocate liability
 If the CA has issued and managed the Certificate in compliance with these Requirements and its Certificate Policy and/or Certification Practice Statement, the CA MAY disclaim liability to the Certificate Beneficiaries or any other third parties for any losses suffered as a result of use or reliance on such Certificate beyond those specified in the CA's Certificate Policy and/or Certification Practice Statement. If the CA has not issued or managed the Certificate in compliance with these Requirements and its Certificate Policy and/or Certification Practice Statement, the CA MAY seek to limit its liability to the Subscriber and to Relying Parties, regardless of the cause of action or legal theory involved, for any and all claims, losses or damages suffered as a result of the use or reliance on such Certificate by any appropriate means that the CA desires. If the CA chooses to limit its liability for Certificates that are not issued or managed in compliance with these Requirements or its Certificate Policy and/or Certification Practice Statement, then the CA SHALL include the limitations on liability in the CA's Certificate Policy and/or Certification Practice Statement.
 ## 9.9  Indemnities
 Notwithstanding any limitations on its liability to Subscribers and Relying Parties, the CA understands and acknowledges that the Application Software Suppliers who have a Root Certificate distribution agreement in place with the Root CA do not assume any obligation or potential liability of the CA under these Requirements or that otherwise might exist because of the issuance or maintenance of Certificates or reliance thereon by Relying Parties or others. Thus, except in the case where the CA is a government entity, the CA SHALL defend, indemnify, and hold harmless each Application Software Supplier for any and all claims, damages, and losses suffered by such Application Software Supplier related to a Certificate issued by the CA, regardless of the cause of action or legal theory involved. This does not apply, however, to any claim, damages, or loss suffered by such Application Software Supplier related to a Certificate issued by the CA where such claim, damage, or loss was directly caused by such Application Software Supplier's software displaying as not trustworthy a Certificate that is still valid, or displaying as trustworthy: (1) a Certificate that has expired, or (2) a Certificate that has been revoked (but only in cases where the revocation status is currently available from the CA online, and the application software either failed to check such status or ignored an indication of revoked status).
+
 ## 9.10  Term and termination
 
 ### 9.10.1  Term
@@ -865,6 +876,7 @@ Notwithstanding any limitations on its liability to Subscribers and Relying Part
 ### 9.16.2  Assignment
 
 ### 9.16.3  Severability
+
 In the event of a conflict between these Requirements and a law, regulation or government order (hereinafter ‘Law’) of any jurisdiction in which a CA operates or issues certificates, a CA MAY modify any conflicting requirement to the minimum extent necessary to make the requirement valid and legal in the jurisdiction. This applies only to operations or certificate issuances that are subject to that Law. In such event, the CA SHALL immediately (and prior to issuing a certificate under the modified requirement) include in Section 9.16.3 of the CA’s CPS a detailed reference to the Law requiring a modification of these Requirements under this section, and the specific modification to these Requirements implemented by the CA.
 
 The CA SHALL also (prior to issuing a certificate under the modified requirement) notify the CA/Browser Forum of the relevant information newly added to its CPS by sending a message to questions@cabforum.org and receiving confirmation that it has been posted to the Public Mailing List and is indexed in the Public Mail Archives available at https://cabforum.org/pipermail/public/ (or such other email addresses and links as the Forum may designate), so that the CA/Browser Forum may consider possible revisions to these Requirements accordingly.
