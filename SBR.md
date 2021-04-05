@@ -577,7 +577,7 @@ defined by RFC6960.
 # 7.  CERTIFICATE, CRL, AND OCSP PROFILES
 
 ## 7.1  Certificate profile
-
+**Editor's Note:  The format of Section 7 will undergo significant change from this version.**
 ### 7.1.1  All certificates
 
 All Certificates SHALL Have a Certificate structure with the following fields as follows:
