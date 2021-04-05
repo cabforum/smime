@@ -10,9 +10,9 @@ copyright: |
 ---
 
 # 1.  INTRODUCTION
-
+**This is a pre-release draft of the S/MIME Baseline Requirements (SBR).  It has not yet been balloted to to become a CA/Browser Forum standard.**
 ## 1.1  Overview
-This document describes an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements that are necessary for the issuance and management of Publicly-Trusted S/MIME Certificates
+This document describes an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements that are necessary for the issuance and management of Publicly-Trusted S/MIME Certificates.
 
 **Notice for Readers**
 
@@ -140,8 +140,6 @@ The CA SHALL publicly disclose its Certificate Policy and/or Certification Pract
 
 The Certificate Policy and/or Certification Practice Statement SHALL be structured in accordance with RFC 3647 and SHALL include all material required by RFC 3647.
 
-<u>EDITS REQUIRED:  Section 4.2 of a CA's Certificate Policy and/or Certification Practice Statement SHALL state the CA's policy or practice on processing CAA Records for Fully Qualified Domain Names; that policy shall be consistent with these Requirements. It shall clearly specify the set of Issuer Domain Names that the CA recognizes in CAA "issue" or "issuewild" records as permitting it to issue. The CA SHALL log all actions taken, if any, consistent with its processing practice.</u>
-
 The CA SHALL publicly give effect to these Requirements and represent that it will adhere to the latest published version. The CA MAY fulfill this requirement by incorporating these Requirements directly into its Certificate Policy and/or Certification Practice Statements or by incorporating them by reference using a clause such as the following (which SHALL include a link to the official version of these Requirements):
 
 > [Name of CA] conforms to the current version of the Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates published at http://www.cabforum.org. In the event of any inconsistency between this document and those Requirements, those Requirements take precedence over this document.
@@ -186,13 +184,13 @@ Completed validations of Applicant authority may be valid for the issuance of mu
 ##### 3.2.2.2.1  Validating authority over email address via domain
 Confirming the Applicant has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
 
-The CA SHALL use only the approved methods in Section 3.2.2.4 of Version 1.7.3 of the Baseline Requirements to perform this verification
+The CA SHALL use only the approved methods in Section 3.2.2.4 of Version 1.7.3 of the Baseline Requirements to perform this verification.
 
 The CA SHALL NOT delegate validation of the domain portion of an email address. 
 
 For purposes of domain validation, the term Applicant includes the Applicant's Parent Company, Subsidiary Company, or Affiliate.
 ##### 3.2.2.2.2  Validating control over email address via email
-Confirming the Applicant's control over the email address by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. The Random Value SHALL be sent only to the address being validated and SHALL not be shared in any other way. 
+Confirming the Applicant's control over the rfc822Name email address by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
 
 The Random Value SHALL be unique in each email. 
 
@@ -226,9 +224,9 @@ The Random Value SHALL remain valid for use in a confirming response for no more
 ### 4.1.2  Enrollment process and responsibilities
 
 ## 4.2 Certificate application processing
-
+<u>EDITS REQUIRED:  Section 4.2 of a CA's Certificate Policy and/or Certification Practice Statement SHALL state the CA's policy or practice on processing CAA Records for Fully Qualified Domain Names; that policy shall be consistent with these Requirements. It shall clearly specify the set of Issuer Domain Names that the CA recognizes in CAA "issue" or "issuewild" records as permitting it to issue. The CA SHALL log all actions taken, if any, consistent with its processing practice.</u>
 ### 4.2.1 Performing identification and authentication functions
-Applicant information SHALL include, but not be limited to, at least one email address to be included in the Certificate's subjectAltName extension.
+Applicant information SHALL include, but not be limited to, at least one rfc822Name email address to be included in the Certificate's subjectAltName extension.
 
 Section 6.3.2 limits the validity period of Subscriber Certificates. The CA MAY use the documents and data provided in Section 3.2 to verify certificate information, or may reuse previous validations themselves, provided that the CA obtained the data or document from a source specified under Section 3.2 or completed the validation itself no more than 398 days prior to issuing the Certificate.
 
