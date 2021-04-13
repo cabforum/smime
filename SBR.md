@@ -662,7 +662,7 @@ Certificates where the Private Key is escrowed by the Certificate Authority SHAL
 
 #### 7.1.3.1 SubjectPublicKeyInfo
 
-The following requirements apply to the `subjectPublicKeyInfo` field within a Certificate or Precertificate. No other encodings are permitted.
+The following requirements apply to the `subjectPublicKeyInfo` field within a Certificate. No other encodings are permitted.
 
 ##### 7.1.3.1.1 RSA
 
@@ -691,8 +691,8 @@ All objects signed by a CA Private Key MUST conform to these requirements on the
 
 In particular, it applies to all of the following objects and fields:
 
-* The `signatureAlgorithm` field of a Certificate or Precertificate.
-* The `signature` field of a TBSCertificate (for example, as used by either a Certificate or Precertificate).
+* The `signatureAlgorithm` field of a Certificate.
+* The `signature` field of a TBSCertificate (for example, as used by a Certificate).
 * The `signatureAlgorithm` field of a CertificateList
 * The `signature` field of a TBSCertList
 * The `signatureAlgorithm` field of a BasicOCSPResponse.
@@ -747,30 +747,6 @@ The CA SHALL use one of the following signature algorithms and encodings. When e
   0500a11c301a06092a864886f70d010108300d0609608648016503040203
   0500a203020140
   ```
-
-In addition, the CA MAY use the following signature algorithm and encoding if all of the following conditions are met:
-
-* If used within a Certificate, such as the `signatureAlgorithm` field of a Certificate or the `signature` field of a TBSCertificate:
-  * The new Certificate is a Root CA Certificate or Subordinate CA Certificate that is a Cross-Certificate; and,
-  * There is an existing Certificate, issued by the same issuing CA Certificate, using the following encoding for the signature algorithm; and,
-  * The existing Certificate has a `serialNumber` that is at least 64-bits long; and,
-  * The only differences between the new Certificate and existing Certificate are one of the following:
-    * A new `subjectPublicKey` within the `subjectPublicKeyInfo`, using the same algorithm and key size; and/or,
-    * A new `serialNumber`, of the same encoded length as the existing Certificate; and/or
-    * The new Certificate's `extKeyUsage` extension is present, has at least one key purpose specified, and none of the key purposes specified are the id-kp-serverAuth (OID: 1.3.6.1.5.5.7.3.1) or the anyExtendedKeyUsage (OID: 2.5.2937.0) key purposes; and/or
-    * The new Certificate's `basicConstraints` extension has a pathLenConstraint that is zero.
-* If used within an OCSP response, such as the `signatureAlgorithm` of a BasicOCSPResponse:
-  * All unexpired, un-revoked Certificates that contain the Public Key of the CA Key Pair and that have the same Subject Name MUST also contain an `extKeyUsage` extension with the only key usage present being the id-kp-ocspSigning (OID: 1.3.6.1.5.5.7.3.9) key usage.
-* If used within a CRL, such as the `signatureAlgorithm` field of a CertificateList or the `signature` field of a TBSCertList:
-  * The CRL is referenced by one or more Root CA or Subordinate CA Certificates; and,
-  * The Root CA or Subordinate CA Certificate has issued one or more Certificates using the following encoding for the signature algorithm.
-
-**Note**: The above requirements do not permit a CA to sign a Precertificate with this encoding.
-
-* RSASSA-PKCS1-v1_5 with SHA-1:
-
-  Encoding:
-  `300d06092a864886f70d0101050500`
 
 ##### 7.1.3.2.2 ECDSA
 
