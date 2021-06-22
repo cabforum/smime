@@ -685,6 +685,20 @@ When encoded, the `AlgorithmIdentifier` for ECDSA keys MUST be byte-for-byte ide
 * For P-384 keys, `301006072a8648ce3d020106052b81040022`.
 * For P-521 keys, `301006072a8648ce3d020106052b81040023`.
 
+##### 7.1.3.1.3 EdDSA
+.
+The CA SHALL indicate an EdDSA key using one of the following algorithm identifiers below:
+
+* For curve25519 keys, the `algorithm` MUST be id-Ed25519 (OID: 1.3.101.112).
+* For curve448 keys, the `algorithm` MUST be id-Ed448 (OID: 1.3.101.113).
+
+The parameters for EdDSA keys MUST be absent.
+
+When encoded, the `AlgorithmIdentifier` for EdDSA keys MUST be byte-for-byte identical with the following hex-encoded bytes:
+
+* For Curve25519 keys, `300506032b6570`.
+* For Curve448 keys, `300506032b6571`.
+
 #### 7.1.3.2 Signature AlgorithmIdentifier
 
 All objects signed by a CA Private Key MUST conform to these requirements on the use of the `AlgorithmIdentifier` or `AlgorithmIdentifier`-derived type in the context of signatures.
@@ -757,6 +771,14 @@ If the signing key is P-256, the signature MUST use ECDSA with SHA-256. When enc
 If the signing key is P-384, the signature MUST use ECDSA with SHA-384. When encoded, the `AlgorithmIdentifier` MUST be byte-for-byte identical with the following hex-encoded bytes: `300a06082a8648ce3d040303`.
 
 If the signing key is P-521, the signature MUST use ECDSA with SHA-512. When encoded, the `AlgorithmIdentifier` MUST be byte-for-byte identical with the following hex-encoded bytes: `300a06082a8648ce3d040304`.
+
+##### 7.1.3.2.3 EdDSA
+
+The CA SHALL use the appropriate signature algorithm and encoding based upon the signing key used.
+
+If the signing key is Curve25519, the signature algorithm MUST be id-Ed25519 (OID: 1.3.101.112). When encoded, the `AlgorithmIdentifier` MUST be byte-for-byte identical with the following hex-encoded bytes: `300506032b6570`.
+
+If the signing key is Curve448, the signature algorithm MUST be id-Ed448 (OID: 1.3.101.113). When encoded, the `AlgorithmIdentifier` MUST be byte-for-byte identical with the following hex-encoded bytes: `300506032b6571`.
 
 ### 7.1.4  Name forms
 
