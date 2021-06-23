@@ -686,7 +686,7 @@ When encoded, the `AlgorithmIdentifier` for ECDSA keys MUST be byte-for-byte ide
 * For P-521 keys, `301006072a8648ce3d020106052b81040023`.
 
 ##### 7.1.3.1.3 EdDSA
-.
+
 The CA SHALL indicate an EdDSA key using one of the following algorithm identifiers below:
 
 * For curve25519 keys, the `algorithm` MUST be id-Ed25519 (OID: 1.3.101.112).
