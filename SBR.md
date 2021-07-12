@@ -44,11 +44,11 @@ Where x may represent:
 
 Where y may represent:
 
-*  `Legacy (1)`
+*  `legacy (1)`
 
-*  `Multipurpose (2)`
+*  `multipurpose (2)`
 
-*  `Strict (3)`
+*  `strict (3)`
 
 ### 1.2.1  Revisions
 
