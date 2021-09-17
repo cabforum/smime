@@ -880,7 +880,7 @@ The Audit Report MUST be available as a PDF, and SHALL be text searchable for al
 
 ## 8.7 Review of Enterprise RA or Technically Constrained Subordinate CA
 
-The CA SHALL ensure the practices and procedures of each Enterprise RA or Technically Constrained Subordinate CA is in compliance with these Requirements and the relevant Certificate Policy and/or Certification Practice Statement.
+The CA SHALL ensure the practices and procedures of each Enterprise RA or Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant Certificate Policy and/or Certification Practice Statement.
 
 The CA SHALL internally audit the compliance of Enterprise RAs or Technically Constrained Subordinate CAs with these Requirements on an annual basis.
 
