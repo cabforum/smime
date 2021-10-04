@@ -592,6 +592,7 @@ The CA SHALL meet the technical requirements set forth in [Section 2.2 - Publica
 CAs SHALL generate non-sequential Certificate serial numbers greater than zero (0) containing at least 64 bits of output from a CSPRNG.
 
 **Editor's Note:  The format of Section 7 will undergo significant change from this version.**
+
 ### 7.1.1 Version number(s)
 
 Certificates MUST be of type X.509 v3.
@@ -852,7 +853,7 @@ This section describes the content requirements for the Root CA, Subordinate CA,
 
 The following Certificate Policy identifiers are reserved for use by CAs to assert that a Certificate complies with these Requirements.
 
-| Validation Level | Generation | Object Identifier |
+| Validation Level | Generation | Policy Identifier |
 | ---------------- | ---------- | ----------------- |
 | Mailbox | Legacy | `2.23.140.1.5.1.1` |
 | Mailbox | Multipurpose | `2.23.140.1.5.1.2` |
@@ -874,10 +875,12 @@ A Root CA Certificate SHOULD NOT contain the `certificatePolicies` extension. If
 #### 7.1.6.3 Subordinate CA Certificates
 
 A Certificate issued to a Subordinate CA that is not an Affiliate of the Issuing CA:
+
 1. MUST include one or more explicit policy identifiers defined in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) that indicate the Subordinate CA's adherence to and compliance with these Requirements and MAY contain one or more identifiers documented by the Subordinate CA in its Certificate Policy and/or Certification Practice Statement; and
 2. MUST NOT contain the `anyPolicy` identifier (2.5.29.32.0).
 
 A Certificate issued to a Subordinate CA that is an affiliate of the Issuing CA MUST include a set of policy identifiers from one of the two options below:
+
 1. MUST include one or more explicit policy identifiers defined in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) that indicate the Subordinate CA's adherence to and compliance with these Requirements and MAY contain one or more identifiers documented by the Subordinate CA in its Certificate Policy and/or Certification Practice Statement; or
 2. MUST contain the `anyPolicy` identifier (2.5.29.32.0).
 
