@@ -587,41 +587,86 @@ For the purpose of calculations, a day is measured as 86,400 seconds. Any amount
 
 ## 7.1  Certificate profile
 
+The CA SHALL meet the technical requirements set forth in [Section 2.2 - Publication of Information](#22-publication-of-information), [Section 6.1.5 - Key Sizes](#615-key-sizes), and [Section 6.1.6 - Public Key Parameters Generation and Quality Checking](#616-public-key-parameters-generation-and-quality-checking).
+
+CAs SHALL generate non-sequential Certificate serial numbers greater than zero (0) containing at least 64 bits of output from a CSPRNG.
+
 **Editor's Note:  The format of Section 7 will undergo significant change from this version.**
-### 7.1.1  All certificates
+### 7.1.1 Version number(s)
 
-All Certificates SHALL Have a Certificate structure with the following fields as follows:
-​
-|Name|ASN.1 Type and Constraints|Permitted Values|References|
-|----|--------------------------|----------------|----------|
-|tbsCertificate|`TBSCertificate`|See Section 7.1.1.1|[RFC 5280, Section 4.1.1.1](https://tools.ietf.org/html/rfc5280#section-4.1.1.1)|
-|signatureAlgorithm|`AlgorithmIdentifier`|See Section 7.1.3.2 for permitted values. The value SHALL be equal to the `signature` field value of the TBSCertificate structure as defined in Section 7.1.1.1.|[RFC 5280, Section 4.1.1.2](https://tools.ietf.org/html/rfc5280#section-4.1.1.2)|
-|signatureValue|`BIT STRING`|The digital signature computed upon the ASN.1 DER encoding of the `tbsCertificate` field|[RFC 5280, Section 4.1.1.3](https://tools.ietf.org/html/rfc5280#section-4.1.1.3)|
+Certificates MUST be of type X.509 v3.
 
-#### 7.1.1.1  TBSCertificate Structure    
+### 7.1.2 Certificate Content and Extensions; Application of RFC 6818
 
-All Certificates SHALL Have a TBSCertificate structure with the following fields:
-​
-|Name|ASN.1 Type and Constraints|Permitted Value(s)|References|
-|----|--------------------------|------------------|----------|
-|version|`INTEGER`|SHALL be v3(2)|[RFC 5280, Section 4.1.2.1](https://tools.ietf.org/html/rfc5280#section-4.1.2.1)|
-|serialNumber|`INTEGER`<br>Encoded value SHALL be no longer than 20 octets|SHALL be a positive value that contains at least 64 bits of output from a CSPRNG|[RFC 5280, Section 4.1.2.2](https://tools.ietf.org/html/rfc5280#section-4.1.2.2)|
-|signature|`AlgorithmIdentifier`|See Section 7.1.3.2 for permitted values. The value SHALL be equal to the `signatureAlgorithm` field value of the Certificate structure as defined in Section 7.1.1.|[RFC 5280, Section 4.1.2.3](https://tools.ietf.org/html/rfc5280#section-4.1.2.3)|
-|issuer|`Name`|SHALL be byte-for-byte equal to the encoding of the `subject` field value of the issuing CA's Certificate|[RFC 5280, Section 4.1.2.4](https://tools.ietf.org/html/rfc5280#section-4.1.2.4)|
-|validity|`Validity`|See Section 6.3.2.|[RFC 5280, Section 4.1.2.5](https://tools.ietf.org/html/rfc5280#section-4.1.2.5)|
-|subject|`Name`|For Root and Subordinate CA Certificates, see Section 7.1.4.2.<br>For Subscriber Certificates, see Section 7.1.4.3.|[RFC 5280, Section 4.1.2.6](https://tools.ietf.org/html/rfc5280#section-4.1.2.6)|
-|subjectPublicKeyInfo|`SubjectPublicKeyInfo`|See Sections 6.1.5, 6.1.6, and 7.1.3.1.|[RFC 5280, Section 4.1.2.7](https://tools.ietf.org/html/rfc5280#section-4.1.2.7)|
-|issuerUniqueID|`BIT STRING`|SHALL NOT be present|[RFC 5280, Section 4.1.2.8](https://tools.ietf.org/html/rfc5280#section-4.1.2.8)|
-|subjectUniqueID|`BIT STRING`|SHALL NOT be present|[RFC 5280, Section 4.1.2.8](https://tools.ietf.org/html/rfc5280#section-4.1.2.8)|
-|extensions|`Extensions`|For Root Certificates, see Section 7.1.2.1.<br>For Subordinate CA Certificates, see Section 7.1.2.2.<br>For Subscriber Certificates, see Section 7.1.2.3.|[RFC 5280, Section 4.1.2.9](https://tools.ietf.org/html/rfc5280#section-4.1.2.9)|
+This section specifies the additional requirements for Certificate content and extensions for Certificates.
 
+#### 7.1.2.1 Root CA Certificate
 
-### 7.1.2  Certificate extensions
-#### 7.1.2.1  Root Certificates
-To do
+a. `basicConstraints`
 
-#### 7.1.2.2  Subordinate CA Certificates
-To do
+   This extension MUST appear as a critical extension. The `cA` field MUST be set true. The `pathLenConstraint` field SHOULD NOT be present.
+
+b. `keyUsage`
+
+   This extension MUST be present and MUST be marked critical. Bit positions for `keyCertSign` and `cRLSign` MUST be set. If the Root CA Private Key is used for signing OCSP responses, then the `digitalSignature` bit MUST be set.
+
+c. `certificatePolicies`
+
+   This extension SHOULD NOT be present.
+
+d. `extKeyUsage`
+
+   This extension MUST NOT be present.
+
+#### 7.1.2.2 Subordinate CA Certificate
+
+a. `certificatePolicies`
+
+   This extension MUST be present and SHOULD NOT be marked critical.
+
+   If the value of this extension includes a `PolicyInformation` which contains a qualifier of type `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1), then the value of the qualifier MUST be a HTTP or HTTPS URL for the Issuing CA's Certificate Policies, Certification Practice Statement, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA.
+
+b. `cRLDistributionPoints`
+
+   This extension MUST be present and MUST NOT be marked critical. It MUST contain the HTTP URL of the CA's CRL service.
+
+c. `authorityInformationAccess`
+
+   This extension SHOULD be present. It MUST NOT be marked critical.
+
+   It SHOULD contain the HTTP URL of the Issuing CA's certificate (`accessMethod` = 1.3.6.1.5.5.7.48.2).
+   It MAY contain the HTTP URL of the Issuing CA's OCSP responder (`accessMethod` = 1.3.6.1.5.5.7.48.1).
+
+d. `basicConstraints`
+
+   This extension MUST be present and MUST be marked critical. The `cA` field MUST be set true. The `pathLenConstraint` field MAY be present.
+
+e. `keyUsage`
+
+   This extension MUST be present and MUST be marked critical. Bit positions for `keyCertSign` and `cRLSign` MUST be set. If the Subordinate CA Private Key is used for signing OCSP responses, then the `digitalSignature` bit MUST be set.
+
+f. `nameConstraints` (optional)
+
+   If present, this extension SHOULD be marked critical[^*].
+
+[^*]: Non-critical Name Constraints are an exception to RFC 5280 (4.2.1.10), however, they MAY be used until the Name Constraints extension is supported by Application Software Suppliers whose software is used by a substantial portion of Relying Parties worldwide.
+
+g. `extKeyUsage` (optional/required)
+
+   For Cross Certificates that share a Subject Distinguished Name and Subject Public Key with a Root Certificate operated in accordance with these Requirements, this extension MAY be present. If present, this extension SHOULD NOT be marked critical. This extension MUST only contain usages for which the issuing CA has verified the Cross Certificate is authorized to assert. This extension MUST NOT contain the `anyExtendedKeyUsage` [RFC5280] usage.
+
+   For all other Subordinate CA Certificates, including Technically Constrained Subordinate CA Certificates:
+
+   This extension MUST be present and SHOULD NOT be marked critical[^**].
+
+   For Subordinate CA Certificates that will be used to issue S/MIME certificates, the value `id-kp-emailProtection` [RFC5280] MUST be present. The values `id-kp-serverAuth` [RFC5280], `id-kp-codeSigning` [RFC5280], `id-kp-timeStamping` [RFC5280], and `anyExtendedKeyUsage` [RFC5280] MUST NOT be present. Other values MAY be present.
+
+[^**]: While RFC 5280, Section 4.2.1.12, notes that this extension will generally only appear within end-entity certificates, these Requirements make use of this extension to further protect relying parties by limiting the scope of subordinate certificates, as implemented by a number of Application Software Suppliers.
+
+h. `authorityKeyIdentifier` (required)
+
+   This extension MUST be present and MUST NOT be marked critical. It MUST contain a `keyIdentifier` field and it MUST NOT contain a `authorityCertIssuer` or `authorityCertSerialNumber` field.
+
 
 #### 7.1.2.3  Subscriber Certificates
 
@@ -784,11 +829,61 @@ If the signing key is Curve448, the signature algorithm MUST be id-Ed448 (OID: 1
 
 ### 7.1.4  Name forms
 
+For every valid Certification Path (as defined by RFC 5280, Section 6):
+
+* For each Certificate in the Certification Path, the encoded content of the Issuer Distinguished Name field of a Certificate SHALL be byte-for-byte identical with the encoded form of the Subject Distinguished Name field of the Issuing CA certificate.
+* For each CA Certificate in the Certification Path, the encoded content of the Subject Distinguished Name field of a Certificate SHALL be byte-for-byte identical among all Certificates whose Subject Distinguished Names can be compared as equal according to RFC 5280, Section 7.1, and including expired and revoked Certificates.
+
 ### 7.1.5  Name constraints
 
-### 7.1.6  Certificate policy object identifier
+For a Subordinate CA Certificate to be considered Technically Constrained, the certificate MUST include an Extended Key Usage (EKU) extension specifying all extended key usages that the Subordinate CA Certificate is authorized to issue certificates for. The `anyExtendedKeyUsage` KeyPurposeId MUST NOT appear within this extension.
 
-The following Certificate Policy identifiers are reserved for use by CAs as an optional means of asserting compliance with these Requirements as follows:
+If the Subordinate CA Certificate includes the `id-kp-emailProtection` extended key usage, then the Subordinate CA Certificate MUST include the Name Constraints X.509v3 extension with constraints on `rfc822Name` and `directoryName` as follows:
+
+a. For each `rfc822Name` in `permittedSubtrees`:
+  i. Each `rfc822Name` MUST contain either a FQDN or a U+002E FULL STOP (".") character followed by a FQDN. The `rfc822Name` MUST NOT contain an email address. The CA MUST confirm that the Applicant has registered the FQDN contained in the `rfc822Name` or has been authorized by the domain registrant to act on the registrant's behalf in line with the verification practices of [Section 3.2.2.4](#3224-validation-of-domain-authorization-or-control).
+b. For each `directoryName` in `permittedSubtrees`, the CA MUST confirm the Applicant's and/or Subsidiary's Organizational name and location such that end entity certificates issued from the subordinate CA Certificate will be in compliance with [Section 7.1.2.4](#7124-all-certificates).
+
+### 7.1.6 Certificate policy object identifier
+
+This section describes the content requirements for the Root CA, Subordinate CA, and Subscriber Certificates, as they relate to the identification of Certificate Policy.
+
+#### 7.1.6.1 Reserved Certificate Policy Identifiers
+
+The following Certificate Policy identifiers are reserved for use by CAs to assert that a Certificate complies with these Requirements.
+
+| Validation Level | Generation | Object Identifier |
+| ---------------- | ---------- | ----------------- |
+| Mailbox | Legacy | `2.23.140.1.5.1.1` |
+| Mailbox | Multipurpose | `2.23.140.1.5.1.2` |
+| Mailbox | Strict | `2.23.140.1.5.1.3` |
+| Organization | Legacy | `2.23.140.1.5.2.1` |
+| Organization | Multipurpose | `2.23.140.1.5.2.2` |
+| Organization | Strict | `2.23.140.1.5.2.3` |
+| Sponsored | Legacy | `2.23.140.1.5.3.1` |
+| Sponsored | Multipurpose | `2.23.140.1.5.3.2` |
+| Sponsored | Strict | `2.23.140.1.5.3.3` |
+| Individual | Legacy | `2.23.140.1.5.4.1` |
+| Individual | Multipurpose | `2.23.140.1.5.4.2` |
+| Individual | Strict | `2.23.140.1.5.4.3` |
+
+#### 7.1.6.2 Root CA Certificates
+
+A Root CA Certificate SHOULD NOT contain the `certificatePolicies` extension. If present, the extension MUST conform to the requirements set forth for Certificates issued to Subordinate CAs in [Section 7.1.6.3](#7163-subordinate-ca-certificates).
+
+#### 7.1.6.3 Subordinate CA Certificates
+
+A Certificate issued to a Subordinate CA that is not an Affiliate of the Issuing CA:
+1. MUST include one or more explicit policy identifiers defined in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) that indicate the Subordinate CA's adherence to and compliance with these Requirements and MAY contain one or more identifiers documented by the Subordinate CA in its Certificate Policy and/or Certification Practice Statement; and
+2. MUST NOT contain the `anyPolicy` identifier (2.5.29.32.0).
+
+A Certificate issued to a Subordinate CA that is an affiliate of the Issuing CA MUST include a set of policy identifiers from one of the two options below:
+1. MUST include one or more explicit policy identifiers defined in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) that indicate the Subordinate CA's adherence to and compliance with these Requirements and MAY contain one or more identifiers documented by the Subordinate CA in its Certificate Policy and/or Certification Practice Statement; or
+2. MUST contain the `anyPolicy` identifier (2.5.29.32.0).
+
+The Subordinate CA and the Issuing CA SHALL represent, in their Certificate Policy and/or Certification Practice Statement, that all Certificates containing a policy identifier indicating compliance with these Requirements are issued and managed in accordance with these Requirements.
+
+#### 7.1.6.4 Subscriber Certificates
 
 ### 7.1.7  Usage of Policy Constraints extension
 
