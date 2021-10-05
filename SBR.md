@@ -830,10 +830,35 @@ If the signing key is Curve448, the signature algorithm MUST be id-Ed448 (OID: 1
 
 ### 7.1.4  Name forms
 
+#### 7.1.4.1 Name Encoding
+
 For every valid Certification Path (as defined by RFC 5280, Section 6):
 
 * For each Certificate in the Certification Path, the encoded content of the Issuer Distinguished Name field of a Certificate SHALL be byte-for-byte identical with the encoded form of the Subject Distinguished Name field of the Issuing CA certificate.
 * For each CA Certificate in the Certification Path, the encoded content of the Subject Distinguished Name field of a Certificate SHALL be byte-for-byte identical among all Certificates whose Subject Distinguished Names can be compared as equal according to RFC 5280, Section 7.1, and including expired and revoked Certificates.
+
+#### 7.1.4.2 Subject Information - Subscriber Certificates
+
+#### 7.1.4.3 Subject Information - Root Certificates and Subordinate CA Certificates
+
+By issuing a Subordinate CA Certificate, the CA represents that it followed the procedure set forth in its Certificate Policy and/or Certification Practice Statement to verify that, as of the Certificate's issuance date, all of the Subject Information was accurate.
+
+##### 7.1.4.3.1 Subject Distinguished Name Fields
+
+a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
+   __Required/Optional:__ Required  
+   __Contents:__ This field MUST be present and the contents SHOULD be an identifier for the certificate such that the certificate's Name is unique across all certificates issued by the issuing certificate.
+
+b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
+   __Required/Optional:__ Required  
+   __Contents:__ This field MUST be present and the contents MUST contain either the Subject CA's name or DBA as verified under [Section 3.2.2.2](#3222-dbatradename). The CA may include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name".
+
+c. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)  
+   __Required/Optional:__ Required  
+   __Contents:__ This field MUST contain the two‐letter ISO 3166‐1 country code for the country in which the CA's place of business is located.
+
+d. Other Subject Attributes  
+   Other attributes MAY be present within the subject field. If present, other attributes MUST contain information that has been verified by the CA.
 
 ### 7.1.5  Name constraints
 
