@@ -154,7 +154,6 @@ The CA SHALL publicly give effect to these Requirements and represent that it wi
 
 > [Name of CA] conforms to the current version of the Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates published at http://www.cabforum.org. In the event of any inconsistency between this document and those Requirements, those Requirements take precedence over this document.
 
-<u>EDITS REQUIRED: How about a requirement for TEST CERTS?</u>
 ## 2.3  Time or frequency of publication
 The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL indicate conformance with this requirement by incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
 ## 2.4  Access controls on repositories
@@ -676,21 +675,77 @@ The business continuity plan MUST include:
 ## 6.1  Key pair generation and installation
 
 ### 6.1.1  Key pair generation
+#### 6.1.1.1 CA Key Pair Generation
+
+For CA Key Pairs that are either
+
+  i. used as a CA Key Pair for a Root Certificate or
+  ii. used as a CA Key Pair for a Subordinate CA Certificate, where the Subordinate CA is not the operator of the Root CA or an Affiliate of the Root CA,
+
+the CA SHALL:
+
+1. prepare and follow a Key Generation Script,
+2. have a Qualified Auditor witness the CA Key Pair generation process or record a video of the entire CA Key Pair generation process, and
+3. have a Qualified Auditor issue a report opining that the CA followed its key ceremony during its Key and Certificate generation process and the controls used to ensure the integrity and confidentiality of the Key Pair.
+
+For other CA Key Pairs that are for the operator of the Root CA or an Affiliate of the Root CA, the CA SHOULD:
+
+1. prepare and follow a Key Generation Script and
+2. have a Qualified Auditor witness the CA Key Pair generation process or record a video of the entire CA Key Pair generation process.
+
+In all cases, the CA SHALL:
+
+1. generate the CA Key Pair in a physically secured environment as described in the CA's Certificate Policy and/or Certification Practice Statement;
+2. generate the CA Key Pair using personnel in Trusted Roles under the principles of multiple person control and split knowledge;
+3. generate the CA Key Pair within cryptographic modules meeting the applicable technical and business requirements as disclosed in the CA's Certificate Policy and/or Certification Practice Statement;
+4. log its CA Key Pair generation activities; and
+5. maintain effective controls to provide reasonable assurance that the Private Key was generated and protected in conformance with the procedures described in its Certificate Policy and/or Certification Practice Statement and (if applicable) its Key Generation Script.
+
+#### 6.1.1.2 RA Key Pair Generation
+
+#### 6.1.1.3 Subscriber Key Pair Generation
+
+The CA SHALL reject a certificate request if one or more of the following conditions are met:
+
+1. The Key Pair does not meet the requirements set forth in [Section 6.1.5](#615-key-sizes) and/or [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking);
+2. There is clear evidence that the specific method used to generate the Private Key was flawed;
+3. The CA is aware of a demonstrated or proven method that exposes the Applicant's Private Key to compromise;
+4. The CA has previously been made aware that the Applicant's Private Key has suffered a Key Compromise, such as through the provisions of [Section 4.9.1.1](#4911-reasons-for-revoking-a-subscriber-certificate);
+5. The CA is aware of a demonstrated or proven method to easily compute the Applicant's Private Key based on the Public Key (such as a Debian weak key, see <https://wiki.debian.org/SSLkeys>).
 
 ### 6.1.2  Private key delivery to subscriber
+Parties other than the Subscriber SHALL NOT archive the Subscriber Private Key without authorization by the Subscriber.
 
+If the CA or any of its designated RAs become aware that a Subscriber's Private Key has been communicated to an unauthorized person or an organization not affiliated with the Subscriber, then the CA SHALL revoke all certificates that include the Public Key corresponding to the communicated Private Key.
 ### 6.1.3  Public key delivery to certificate issuer
 
 ### 6.1.4  CA public key delivery to relying parties
 
 ### 6.1.5  Key sizes
+For RSA key pairs the CA SHALL:
+
+* Ensure that the modulus size, when encoded, is at least 2048 bits, and;
+* Ensure that the modulus size, in bits, is evenly divisible by 8.
+
+For ECDSA key pairs, the CA SHALL:
+
+* Ensure that the key represents a valid point on the NIST P-256, NIST P-384 or NIST P-521 elliptic curve.
+
+No other algorithms or key sizes are permitted.
 
 ### 6.1.6  Public key parameters generation and quality checking
+RSA: The CA SHALL confirm that the value of the public exponent is an odd number equal to 3 or more. Additionally, the public exponent SHOULD be in the range between 2^16 + 1 and 2^256 - 1. The modulus SHOULD also have the following characteristics: an odd number, not the power of a prime, and have no factors smaller than 752. [Source: Section 5.3.3, NIST SP 800-89]
 
+ECDSA: The CA SHOULD confirm the validity of all keys using either the ECC Full Public Key Validation Routine or the ECC Partial Public Key Validation Routine. [Source: Sections 5.6.2.3.2 and 5.6.2.3.3, respectively, of NIST SP 800-56A: Revision 2]
 ### 6.1.7  Key usage purposes (as per X.509 v3 key usage field)
+Private Keys corresponding to Root Certificates MUST NOT be used to sign Certificates except in the following cases:
 
+1. Self-signed Certificates to represent the Root CA itself;
+2. Certificates for Subordinate CAs and Cross Certificates;
+3. Certificates for infrastructure purposes (administrative role certificates, internal CA operational device certificates); and
+4. Certificates for OCSP Response verification.
 ## 6.2  Private Key Protection and Cryptographic Module Engineering Controls
-
+The CA SHALL implement physical and logical safeguards to prevent unauthorized certificate issuance. Protection of the CA Private Key outside the validated system or device specified above MUST consist of physical security, encryption, or a combination of both, implemented in a manner that prevents disclosure of the Private Key. The CA SHALL encrypt its Private Key with an algorithm and key-length that, according to the state of the art, are capable of withstanding cryptanalytic attacks for the residual life of the encrypted key or key part.
 ### 6.2.1  Cryptographic module standards and controls
 
 ### 6.2.2  Private key (n out of m) multi-person control
@@ -699,7 +754,9 @@ The business continuity plan MUST include:
 
 ### 6.2.4  Private key backup
 
+See [Section 5.2.2](#522-number-of-individuals-required-per-task).
 ### 6.2.5  Private key archival
+Parties other than the Subordinate CA SHALL NOT archive the Subordinate CA Private Keys without authorization by the Subordinate CA.
 
 ### 6.2.6  Private key transfer into or from a cryptographic module
 
@@ -718,7 +775,7 @@ The business continuity plan MUST include:
 ### 6.3.1  Public key archival
 
 ### 6.3.2  Certificate operational periods and key pair usage periods
-Subscriber Certificates issued on or after XXX SHOULD NOT have a Validity Period greater than 824 days and MUST NOT have a Validity Period greater than 825 days.
+Subscriber Certificates SHOULD NOT have a Validity Period greater than 824 days and MUST NOT have a Validity Period greater than 825 days.
 
 For the purpose of calculations, a day is measured as 86,400 seconds. Any amount of time greater than this, including fractional seconds and/or leap seconds, shall represent an additional day. For this reason, Subscriber Certificates SHOULD NOT be issued for the maximum permissible time by default, in order to account for such adjustments.
 ## 6.4  Activation data
