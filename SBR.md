@@ -916,6 +916,7 @@ The Section specifies the requirements for extensions included in Subscriber Cer
 |Legal Entity Identifier | No|No | A verified Legal Entity Identifier data record for LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2). | ISO 17442-1:2020, Clause 6 <br>ISO 17442-2:2020, Clause 4| 
 
 #### 7.1.2.3.1  Key Usages
+
 **DRAFT**
 
 The keyUsage extension SHALL be present and SHALL contain one (and only one) type of the following key usage settings.
