@@ -245,7 +245,7 @@ The CA SHALL disclose all Cross Certificates that identify the CA as the Subject
 
 ## 4.2 Certificate application processing
 
-<u>EDITS REQUIRED:  Section 4.2 of a CA's Certificate Policy and/or Certification Practice Statement SHALL state the CA's policy or practice on processing CAA Records for Fully Qualified Domain Names; that policy shall be consistent with these Requirements. It shall clearly specify the set of Issuer Domain Names that the CA recognizes in CAA "issue" or "issuewild" records as permitting it to issue. The CA SHALL log all actions taken, if any, consistent with its processing practice.</u>
+
 ### 4.2.1 Performing identification and authentication functions
 Applicant information SHALL include, but not be limited to, at least one rfc822Name email address to be included in the Certificate's subjectAltName extension.
 
@@ -259,8 +259,10 @@ After the change to any validation method specified in the Baseline Requirements
 
 ### 4.2.3  Time to process certificate applications
 
-## 4.3  Certificate issuance
+No stipulation.
 
+## 4.3  Certificate issuance
+Certificate issuance by the Root CA SHALL require an individual authorized by the CA (i.e. the CA system operator, system officer, or PKI administrator) to deliberately issue a direct command in order for the Root CA to perform a certificate signing operation.
 ### 4.3.1  CA actions during certificate issuance
 
 ### 4.3.2  Notification to subscriber by the CA of issuance of certificate
@@ -282,50 +284,69 @@ After the change to any validation method specified in the Baseline Requirements
 ## 4.6  Certificate renewal
 
 ### 4.6.1  Circumstance for certificate renewal
+No stipulation.
 
 ### 4.6.2  Who may request renewal
 
+No stipulation.
 ### 4.6.3  Processing certificate renewal requests
+No stipulation.
 
 ### 4.6.4  Notification of new certificate issuance to subscriber
+No stipulation.
 
 ### 4.6.5  Conduct constituting acceptance of a renewal certificate
+No stipulation.
 
 ### 4.6.6  Publication of the renewal certificate by the CA
+No stipulation.
 
 ### 4.6.7  Notification of certificate issuance by the CA to other entities
+No stipulation.
 
 ## 4.7  Certificate re-key
 
 ### 4.7.1  Circumstance for certificate re-key
+No stipulation.
 
 ### 4.7.2  Who may request certification of a new public key
+No stipulation.
 
 ### 4.7.3  Processing certificate re-keying requests
+No stipulation.
 
 ### 4.7.4  Notification of new certificate issuance to subscriber
+No stipulation.
 
 ### 4.7.5  Conduct constituting acceptance of a re-keyed certificate
+No stipulation.
 
 ### 4.7.6  Publication of the re-keyed certificate by the CA
+No stipulation.
 
 ### 4.7.7  Notification of certificate issuance by the CA to other entities
+No stipulation.
 
 ## 4.8  Certificate modification
 
 ### 4.8.1  Circumstance for certificate modification
+No stipulation.
 
 ### 4.8.2  Who may request certificate modification
-
 ### 4.8.3  Processing certificate modification requests
+No stipulation.
 
 ### 4.8.4  Notification of new certificate issuance to subscriber
+No stipulation.
 
 ### 4.8.5  Conduct constituting acceptance of modified certificate
+No stipulation.
 
 ### 4.8.6  Publication of the modified certificate by the CA
+No stipulation.
 
 ### 4.8.7  Notification of certificate issuance by the CA to other entities
+No stipulation.
 
 ## 4.9  Certificate revocation and suspension
 
@@ -401,28 +422,58 @@ In the latter case, the OCSP signing Certificate MUST contain an extension of ty
 defined by RFC6960.
 
 ### 4.9.10 On-line revocation checking requirements
+OCSP responders operated by the CA SHALL support the HTTP GET method, as described in RFC 6960 and/or RFC 5019.
 
+The validity interval of an OCSP response is the difference in time between the thisUpdate and nextUpdate field, inclusive. For purposes of computing differences, a difference of 3,600 seconds shall be equal to one hour, and a difference of 86,400 seconds shall be equal to one day, ignoring leap-seconds.
+
+For the status of Subscriber Certificates:
+
+1. OCSP responses MUST have a validity interval greater than or equal to eight hours;
+2. OCSP responses MUST have a validity interval less than or equal to ten days;
+3. For OCSP responses with validity intervals less than sixteen hours, then the CA SHALL update the information provided via an Online Certificate Status Protocol prior to one-half of the validity period before the nextUpdate; and
+4. For OCSP responses with validity intervals greater than or equal to sixteen hours, then the CA SHALL update the information provided via an Online Certificate Status Protocol at least eight hours prior to the nextUpdate, and no later than four days after the thisUpdate.
+   
+For the status of Subordinate CA Certificates, the CA SHALL update information provided via OCSP:
+
+1. at least every twelve months; and
+2. within 24 hours after revoking a Subordinate CA Certificate.
+
+If the OCSP responder receives a request for the status of a certificate serial number that is "unused", then the responder SHOULD NOT respond with a "good" status. If the OCSP responder is for a CA that is not Technically Constrained in line with Section 7.1.5, the responder MUST NOT respond with a "good" status for such requests.
+
+The CA SHOULD monitor the OCSP responder for requests for "unused" serial numbers as part of its security response procedures.
+
+A certificate serial number within an OCSP request is one of the following three options:
+
+1. "assigned" if a Certificate with that serial number has been issued by the Issuing CA, using any current or previous key associated with that CA subject; or
+2. "reserved" if a Precertificate [RFC6962] with that serial number has been issued by a. the Issuing CA; or b. a Precertificate Signing Certificate [RFC6962] associated with the Issuing CA; or
+3. "unused" if neither of the previous conditions are met.
 ### 4.9.11 Other forms of revocation advertisements available
-
+No Stipulation.
 ### 4.9.12 Special requirements re key compromise
-
+See [Section 4.9.1](#491-circumstances-for-revocation).
 ### 4.9.13 Circumstances for suspension
-
+The Repository MUST NOT include entries that indicate that a Certificate is suspended.
 ### 4.9.14 Who can request suspension
-
+Not applicable.
 ### 4.9.15 Procedure for suspension request
-
+Not applicable.
 ### 4.9.16 Limits on suspension period
-
+Not applicable.
 ## 4.10  Certificate status services
 
 ### 4.10.1 Operational characteristics
-
+Revocation entries on a CRL or OCSP Response MUST NOT be removed until after the Expiry Date of the revoked Certificate.
 ### 4.10.2 Service availability
+The CA SHALL operate and maintain its CRL and OCSP capability with resources sufficient to provide a response time of ten seconds or less under normal operating conditions.
 
+The CA SHALL maintain an online 24x7 Repository that application software can use to automatically check the current status of all unexpired Certificates issued by the CA.
+
+The CA SHALL maintain a continuous 24x7 ability to respond internally to a high-priority Certificate Problem Report, and where appropriate, forward such a complaint to law enforcement authorities, and/or revoke a Certificate that is the subject of such a complaint.
 ### 4.10.3 Optional features
+No stipulation.
 
 ## 4.11  End of subscription
+No stipulation.
 
 ## 4.12  Key escrow and recovery
 
