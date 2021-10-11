@@ -731,6 +731,10 @@ For ECDSA key pairs, the CA SHALL:
 
 * Ensure that the key represents a valid point on the NIST P-256, NIST P-384 or NIST P-521 elliptic curve.
 
+For EdDSA key pairs, the CA SHALL:
+
+* Ensure that the key represents a valid point on the curve25519 or curve 448 elliptic curve.
+  
 No other algorithms or key sizes are permitted.
 
 ### 6.1.6  Public key parameters generation and quality checking
@@ -910,6 +914,8 @@ The Section specifies the requirements for extensions included in Subscriber Cer
 |Legal Entity Identifier | No|No | A verified Legal Entity Identifier data record for LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2). | ISO 17442-1:2020, Clause 6 <br>ISO 17442-2:2020, Clause 4| 
 
 #### 7.1.2.3.1  Key Usages
+**DRAFT**
+
 The keyUsage extension SHALL be present and SHALL contain one (and only one) type of the following key usage settings.
 
 |Type|`nonRepudiation`|`digitalSignature`|`keyEncipherment` <br /> or `keyAgreement`|
