@@ -482,7 +482,31 @@ No stipulation.
 ### 4.12.2 Session key encapsulation and recovery policy and practices
 
 # 5. FACILITY, MANAGEMENT, AND OPERATIONAL CONTROLS
+The CA/Browser Forum's Network and Certificate System Security Requirements are incorporated by reference as if fully set forth herein.
 
+The CA SHALL develop, implement, and maintain a comprehensive security program designed to:
+
+1. Protect the confidentiality, integrity, and availability of Certificate Data and Certificate Management Processes;
+2. Protect against anticipated threats or hazards to the confidentiality, integrity, and availability of the Certificate Data and Certificate Management Processes;
+3. Protect against unauthorized or unlawful access, use, disclosure, alteration, or destruction of any Certificate Data or Certificate Management Processes;
+4. Protect against accidental loss or destruction of, or damage to, any Certificate Data or Certificate Management Processes; and
+5. Comply with all other security requirements applicable to the CA by law.
+
+The Certificate Management Process MUST include:
+
+1. physical security and environmental controls;
+2. system integrity controls, including configuration management, integrity maintenance of trusted code, and malware detection/prevention;
+3. network security and firewall management, including port restrictions and IP address filtering;
+4. user management, separate trusted-role assignments, education, awareness, and training; and
+5. logical access controls, activity logging, and inactivity time-outs to provide individual accountability.
+
+The CA's security program MUST include an annual Risk Assessment that:
+
+1. Identifies foreseeable internal and external threats that could result in unauthorized access, disclosure, misuse, alteration, or destruction of any Certificate Data or Certificate Management Processes;
+2. Assesses the likelihood and potential damage of these threats, taking into consideration the sensitivity of the Certificate Data and Certificate Management Processes; and
+3. Assesses the sufficiency of the policies, procedures, information systems, technology, and other arrangements that the CA has in place to counter such threats.
+
+Based on the Risk Assessment, the CA SHALL develop, implement, and maintain a security plan consisting of security procedures, measures, and products designed to achieve the objectives set forth above and to manage and control the risks identified during the Risk Assessment, commensurate with the sensitivity of the Certificate Data and Certificate Management Processes. The security plan MUST include administrative, organizational, technical, and physical safeguards appropriate to the sensitivity of the Certificate Data and Certificate Management Processes. The security plan MUST also take into account then-available technology and the cost of implementing the specific measures, and SHALL implement a reasonable level of security appropriate to the harm that might result from a breach of security and the nature of the data to be protected.
 ## 5.1  Physical controls
 
 ### 5.1.2  Physical access
@@ -504,7 +528,7 @@ No stipulation.
 ### 5.2.1  Trusted roles
 
 ### 5.2.2  Number of persons required per task
-
+The CA Private Key SHALL be backed up, stored, and recovered only by personnel in trusted roles using, at least, dual control in a physically secured environment.
 ### 5.2.3  Identification and authentication for each role
 
 ### 5.2.4  Roles requiring separation of duties
@@ -512,28 +536,76 @@ No stipulation.
 ## 5.3  Personnel controls
 
 ### 5.3.1  Qualifications, experience, and clearance requirements
+Prior to the engagement of any person in the Certificate Management Process, whether as an employee, agent, or an independent contractor of the CA, the CA SHALL verify the identity and trustworthiness of such person.
 
 ### 5.3.2  Background check procedures
 
 ### 5.3.3  Training requirements
+The CA SHALL provide all personnel performing information verification duties with skills-training that covers basic Public Key Infrastructure knowledge, authentication and vetting policies and procedures (including the CA's Certificate Policy and/or Certification Practice Statement), common threats to the information verification process (including phishing and other social engineering tactics), and these Requirements.
 
+The CA SHALL maintain records of such training and ensure that personnel entrusted with Validation Specialist duties maintain a skill level that enables them to perform such duties satisfactorily.
+
+The CA SHALL document that each Validation Specialist possesses the skills required by a task before allowing the Validation Specialist to perform that task.
+
+The CA SHALL require all Validation Specialists to pass an examination provided by the CA on the information verification requirements outlined in these Requirements.
 ### 5.3.4  Retraining frequency and requirements
+All personnel in Trusted roles SHALL maintain skill levels consistent with the CA's training and performance programs.
 
 ### 5.3.5  Job rotation frequency and sequence
 
 ### 5.3.6  Sanctions for unauthorized actions
 
 ### 5.3.7  Independent contractor requirements
+The CA SHALL verify that the Delegated Third Party's personnel involved in the issuance of a Certificate meet the training and skills requirements of [Section 5.3.3](#533-training-requirements-and-procedures) and the document retention and event logging requirements of [Section 5.4.1](#541-types-of-events-recorded).
 
 ### 5.3.8  Documentation supplied to personnel
 
 ## 5.4  Audit logging procedures
 
 ### 5.4.1  Types of events recorded
+The CA and each Delegated Third Party SHALL record details of the actions taken to process a certificate request and to issue a Certificate, including all information generated and documentation received in connection with the certificate request; the time and date; and the personnel involved. The CA SHALL make these records available to its Qualified Auditor as proof of the CA’s compliance with these Requirements.
 
+The CA SHALL record at least the following events:
+
+1. CA certificate and key lifecycle events, including:
+   1. Key generation, backup, storage, recovery, archival, and destruction;
+   2. Certificate requests, renewal, and re-key requests, and revocation;
+   3. Approval and rejection of certificate requests;
+   4. Cryptographic device lifecycle management events;
+   5. Generation of Certificate Revocation Lists and OCSP entries;
+   6. Introduction of new Certificate Profiles and retirement of existing Certificate Profiles.
+
+2. Subscriber Certificate lifecycle management events, including:
+   1. Certificate requests, renewal, and re-key requests, and revocation;
+   2. All verification activities stipulated in these Requirements and the CA's Certification Practice Statement;
+   3. Approval and rejection of certificate requests;
+   4. Issuance of Certificates; and
+   5. Generation of Certificate Revocation Lists and OCSP entries.
+
+3. Security events, including:
+   1. Successful and unsuccessful PKI system access attempts;
+   2. PKI and security system actions performed;
+   3. Security profile changes;
+   4. Installation, update and removal of software on a Certificate System;
+   5. System crashes, hardware failures, and other anomalies;
+   6. Firewall and router activities; and
+   7. Entries to and exits from the CA facility.
+
+Log records MUST include the following elements:
+
+1. Date and time of record;
+2. Identity of the person making the journal record; and
+3. Description of the record.
 ### 5.4.2  Frequency of processing log
 
 ### 5.4.3  Retention period for audit log
+The CA SHALL retain, for at least two years:
+
+  1. CA certificate and key lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (1)) after the later occurrence of:
+     1. the destruction of the CA Private Key; or
+     2. the revocation or expiration of the final CA Certificate in that set of Certificates that have an X.509v3 `basicConstraints` extension with the `cA` field set to true and which share a common Public Key corresponding to the CA Private Key;
+  2. Subscriber Certificate lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (2)) after the revocation or expiration of the Subscriber Certificate;
+  3. Any security event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (3)) after the event occurred.
 
 ### 5.4.4  Protection of audit log
 
@@ -544,13 +616,17 @@ No stipulation.
 ### 5.4.7  Notification to event-causing subject
 
 ### 5.4.8  Vulnerability assessments
+Additionally, the CA's security program MUST include an annual Risk Assessment that:
 
+1. Identifies foreseeable internal and external threats that could result in unauthorized access, disclosure, misuse, alteration, or destruction of any Certificate Data or Certificate Management Processes;
+2. Assesses the likelihood and potential damage of these threats, taking into consideration the sensitivity of the Certificate Data and Certificate Management Processes; and
+3. Assesses the sufficiency of the policies, procedures, information systems, technology, and other arrangements that the CA has in place to counter such threats.
 ## 5.5  Records archival
 
 ### 5.5.1  Types of records archived
 
 ### 5.5.2  Retention period for archive
-
+The CA SHALL retain all documentation relating to certificate requests and the verification thereof, and all Certificates and revocation thereof, for at least seven years after any Certificate based on that documentation ceases to be valid.
 ### 5.5.3  Protection of archive
 
 ### 5.5.4  Archive backup procedures
@@ -566,7 +642,27 @@ No stipulation.
 ## 5.7  Compromise and disaster recovery
 
 ### 5.7.1  Incident and compromise handling procedures
+CA organizations shall have an Incident Response Plan and a Disaster Recovery Plan.
 
+The CA SHALL document a business continuity and disaster recovery procedures designed to notify and reasonably protect Application Software Suppliers, Subscribers, and Relying Parties in the event of a disaster, security compromise, or business failure. The CA is not required to publicly disclose its business continuity plans but SHALL make its business continuity plan and security plans available to the CA's auditors upon request. The CA SHALL annually test, review, and update these procedures.
+
+The business continuity plan MUST include:
+
+1. The conditions for activating the plan,
+2. Emergency procedures,
+3. Fallback procedures,
+4. Resumption procedures,
+5. A maintenance schedule for the plan;
+6. Awareness and education requirements;
+7. The responsibilities of the individuals;
+8. Recovery time objective (RTO);
+9. Regular testing of contingency plans.
+10. The CA's plan to maintain or restore the CA's business operations in a timely manner following interruption to or failure of critical business processes
+11. A requirement to store critical cryptographic materials (i.e., secure cryptographic device and activation materials) at an alternate location;
+12. What constitutes an acceptable system outage and recovery time
+13. How frequently backup copies of essential business information and software are taken;
+14. The distance of recovery facilities to the CA's main site; and
+15. Procedures for securing its facility to the extent possible during the period of time following a disaster and prior to restoring a secure environment either at the original or a remote site.
 ### 5.7.2  Computing resources, software, and/or data are corrupted
 
 ### 5.7.3  Entity private key compromise procedures
