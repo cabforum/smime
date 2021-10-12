@@ -69,7 +69,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 ## 1.3  PKI participants
 The CA/Browser Forum is a voluntary organization of Certification Authorities and suppliers of Internet browser and other relying-party software applications including mail user agents (web-based or application based) and email service providers that process S/MIME Certificates.
 ### 1.3.1  Certification authorities
-Certification Authority (CA) is defined in [Section 1.6.1](#161-definitions). Current CA Members of the CA/Browser Forum are listed here: https://cabforum.org/members.
+Certification Authority (CA) is defined in [Section 1.6.1](#161-definitions). Current CA Members of the CA/Browser Forum are listed at https://cabforum.org/members.
 ### 1.3.2  Registration authorities
 With the exception of [Section 3.2.3](#3222--validation-of-domain-authorization-or-control), the CA MAY delegate the performance of all, or any part, of [Section 3.2](#32--initial-identity-validation) requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of [Section 3.2](#32--initial-identity-validation).
 
@@ -82,7 +82,7 @@ Before the CA authorizes a Delegated Third Party to perform a delegated function
 
 The CA MAY designate an Enterprise RA to verify certificate requests from the Enterprise RA's own organization.  The CA SHALL NOT accept certificate requests authorized by an Enterprise RA unless the following requirements are satisfied:
 
-1. 1.	If the certificate request is for an Organization-validated, Sponsor-validated, or Individual-validated policy, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.2.1](#32221--validating-authority-over-email-address-via-domain). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated [Section 3.2](#32--initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the Domain Namespace of ABC Co.'s Registered Domain Name.
+1. 1.	If the certificate request is for an Organization-validated, Sponsor-validated, or Individual-validated policy, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.2.1](#32221--validating-authority-over-email-address-via-domain). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32--initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the Domain Namespace of ABC Co.'s Registered Domain Name.
 
 2. If the certificate request is for a Mailbox-validated policy, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2.2](#32222--validating-control-over-email-address-via-email)
 
@@ -90,7 +90,7 @@ The CA SHALL impose these limitations as a contractual requirement on the Enterp
 ### 1.3.3  Subscribers
 As defined in [Section 1.6.1](#16-definitions-and-acronyms).
 ### 1.3.4 Relying parties
-“Relying Party” and “Application Software Supplier” are defined in [Section 1.6.1](#16-definitions-and-acronyms). Current Members of the CA/Browser Forum who are Application Software Suppliers are listed here: https://cabforum.org/members.
+“Relying Party” and “Application Software Supplier” are defined in [Section 1.6.1](#16-definitions-and-acronyms). Current Members of the CA/Browser Forum who are Application Software Suppliers are listed at https://cabforum.org/members.
 ### 1.3.5  Other participants
 Other groups that have participated in the development of these Requirements include the AICPA/CICA WebTrust for Certification Authorities task force and the Accredited Conformity Assessment Bodies' Council (ACAB'c). Participation by such groups does not imply their endorsement, recommendation, or approval of the final product.
 ## 1.4  Certificate usage
@@ -104,7 +104,7 @@ This document may be revised from time to time, as appropriate, in accordance wi
 ### 1.5.1  Organization administering the document
 No stipulation.
 ### 1.5.2  Contact person
-Contact information for the CA/Browser Forum is available here: https://cabforum.org/leadership/. In this section of a CA’s CPS, the CA shall provide a link to a web page or an email address for contacting the person or persons responsible for operation of the CA, including contact information for entities wishing to submit a Certificate Problem Report.
+Contact information for the CA/Browser Forum is available at https://cabforum.org/leadership/. In this section of a CA’s CPS, the CA shall provide a link to a web page or an email address for contacting the person or persons responsible for operation of the CA, including contact information for entities wishing to submit a Certificate Problem Report.
 ### 1.5.3  Person determining CPS suitability for the policy
 No stipulation.
 ### 1.5.4  CPS approval procedures
@@ -160,7 +160,7 @@ The CA SHALL develop, implement, enforce, and annually update a CP and/or CPS th
 ## 2.4  Access controls on repositories
 The CA shall make its Repository publicly available in a read-only manner.
 
-# 3. IDENTIFICATION AND AUTHENTICATION (11)
+# 3. IDENTIFICATION AND AUTHENTICATION
 
 ## 3.1  Naming
 
@@ -899,6 +899,8 @@ h. `authorityKeyIdentifier` (required)
 
 #### 7.1.2.3  Subscriber Certificates
 
+**DRAFT - undergoing changes**
+
 The Section specifies the requirements for extensions included in Subscriber Certificates.
 
 |Extension ID|Required?|Critical?|Permitted Value(s)|References|
@@ -918,7 +920,7 @@ The Section specifies the requirements for extensions included in Subscriber Cer
 
 #### 7.1.2.3.1  Key Usages
 
-**DRAFT**
+**DRAFT - undergoing changes**
 
 The keyUsage extension SHALL be present and SHALL contain one (and only one) type of the following key usage settings.
 
