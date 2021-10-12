@@ -970,6 +970,7 @@ qcStatements (optional)
    This extension MAY be present and MUST NOT be marked critical. Indicates a Certificate that is issued as Qualified within a defined legal framework from an identified country or set of countries. [RFC 3739 Section 3.2.6](https://tools.ietf.org/html/rfc3739#section-3.2.6) and ETSI EN 319 412-5, Section 4 
 
 Legal Entity Identifier (optional)
+
    This extension MAY be present and MUST NOT be marked critical. A verified Legal Entity Identifier data record for LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2). ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4
 
 ### 7.1.3 Algorithm object identifiers
