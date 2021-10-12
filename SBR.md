@@ -187,7 +187,7 @@ This section defines the permitted processes and procedures for confirming the A
 
 The CA SHALL verify that Applicant controls the email accounts associated with all email addresses referenced in the Certificate or has been authorized by the email account holder to act on the account holder’s behalf. 
 
-<b>Note:</b> Email addresses may be listed in Subscriber Certificates using Rfc822Names or otherNames of type id-on-SmtpUTF8Mailbox in the subjectAltName extension or in Subordinate CA Certificates via Rfc822Names in permittedSubtrees within the Name Constraints extension.
+<b>Note:</b> Email addresses may be listed in Subscriber Certificates using `Rfc822Names` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the subjectAltName extension or in Subordinate CA Certificates via `Rfc822Names` in permittedSubtrees within the Name Constraints extension.
 
 The CA's CP/CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which domain validation method, including the relevant version number from the Baseline Requirements or S/MIME Baseline Requirements, used to validate every domain or email address in issued Certificates.
 
@@ -201,7 +201,7 @@ The CA SHALL NOT delegate validation of the domain portion of an email address.
 
 For purposes of domain validation, the term Applicant includes the Applicant's Parent Company, Subsidiary Company, or Affiliate.
 ##### 3.2.2.2.2  Validating control over email address via email
-Confirming the Applicant's control over the rfc822Name email address by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
+Confirming the Applicant's control over the `rfc822Name` email address by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
 
 The Random Value SHALL be unique in each email. 
 
@@ -782,7 +782,11 @@ Parties other than the Subordinate CA SHALL NOT archive the Subordinate CA Priva
 ### 6.3.1  Public key archival
 
 ### 6.3.2  Certificate operational periods and key pair usage periods
-Subscriber Certificates SHOULD NOT have a Validity Period greater than 824 days and MUST NOT have a Validity Period greater than 825 days.
+
+| Type | extendedKeyUsage      | 
+|------|-----------------------|
+| Strict and Multipurpose | Subscriber Certificates SHOULD NOT have a Validity Period greater than 824 days and MUST NOT have a Validity Period greater than 825 days. |
+| Legacy | Subscriber Certificates SHOULD NOT have a Validity Period greater than 1094 days and MUST NOT have a Validity Period greater than 1095 days. |
 
 For the purpose of calculations, a day is measured as 86,400 seconds. Any amount of time greater than this, including fractional seconds and/or leap seconds, shall represent an additional day. For this reason, Subscriber Certificates SHOULD NOT be issued for the maximum permissible time by default, in order to account for such adjustments.
 ## 6.4  Activation data
@@ -951,7 +955,7 @@ i. `subjectAlternativeName` (required)
 | Type | `subjectAlternativeName`      | 
 |------|-----------------------|
 | Strict | All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, `otherName` values other than type `id-on-SmtpUTF8Mailbox`, or `uniformResourceIdentifier`.|
-| Multipurpose<br>and Legacy |All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of any other type MUST be validated in accordance with the CA's CPS. |
+| Multipurpose<br>and Legacy |All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, or `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of any other type MUST be validated in accordance with the CA's CPS. |
 
 `otherName` values of type `id-on-SmtpUTF8Mailbox` MUST be validated in accordance with RFC 8398.
 
