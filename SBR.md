@@ -951,7 +951,7 @@ i. `subjectAlternativeName` (required)
 | Type | `subjectAlternativeName`      | 
 |------|-----------------------|
 | Strict | All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, `otherName` values other than type `id-on-SmtpUTF8Mailbox`, or `uniformResourceIdentifier`.|
-| Multipurpose<br>and Legacy |All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of type `id-on-SmtpUTF8Mailbox` MUST be validated in accordance with RFC 8398.  `otherName` values of any other type MUST be validated in accordance with the CA's CPS. |
+| Multipurpose<br>and Legacy |All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of any other type MUST be validated in accordance with the CA's CPS. |
 
 `otherName` values of type `id-on-SmtpUTF8Mailbox` MUST be validated in accordance with RFC 8398.
 
