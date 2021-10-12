@@ -15,8 +15,6 @@ copyright: |
 ## 1.1  Overview
 This document describes an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements that are necessary for the issuance and management of Publicly-Trusted S/MIME Certificates.
 
-An S/MIME Certificate for the purposes of this document can be identified by the existence of an Extended Key Usage (EKU) Object Identifier (OID) of 1.3.6.1.5.5.7.3.4 for `emailProtection` and the inclusion of an email address in the Subject, an Rfc822Name, or an otherName of type id-on-SmtpUTF8Mailbox in the subjectAltName extension.
-
 **Notice for Readers**
 
 An S/MIME Certificate contains a public key bound to an email address and may also contain the identity of a natural person or legal entity that controls such email address. The key pair can then be used to sign, verify, encrypt, and decrypt email. 
@@ -73,7 +71,7 @@ The CA/Browser Forum is a voluntary organization of Certification Authorities an
 ### 1.3.1  Certification authorities
 Certification Authority (CA) is defined in [Section 1.6.1](#161-definitions). Current CA Members of the CA/Browser Forum are listed here: https://cabforum.org/members.
 ### 1.3.2  Registration authorities
-With the exception of sections __, the CA MAY delegate the performance of all, or any part, of [Section 3.2](#32--initial-identity-validation) requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of [Section 3.2](#32--initial-identity-validation).
+With the exception of [Section 3.2.3](#3222--validation-of-domain-authorization-or-control), the CA MAY delegate the performance of all, or any part, of [Section 3.2](#32--initial-identity-validation) requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of [Section 3.2](#32--initial-identity-validation).
 
 Before the CA authorizes a Delegated Third Party to perform a delegated function, the CA SHALL contractually require the Delegated Third Party to:
 
@@ -449,7 +447,7 @@ A certificate serial number within an OCSP request is one of the following three
 2. "reserved" if a Precertificate [RFC6962] with that serial number has been issued by a. the Issuing CA; or b. a Precertificate Signing Certificate [RFC6962] associated with the Issuing CA; or
 3. "unused" if neither of the previous conditions are met.
 ### 4.9.11 Other forms of revocation advertisements available
-No Stipulation.
+No stipulation.
 ### 4.9.12 Special requirements re key compromise
 See [Section 4.9.1](#491-circumstances-for-revocation).
 ### 4.9.13 Circumstances for suspension
