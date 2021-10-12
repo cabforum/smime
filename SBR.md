@@ -901,43 +901,78 @@ h. `authorityKeyIdentifier` (required)
 
 **DRAFT - undergoing changes**
 
-The Section specifies the requirements for extensions included in Subscriber Certificates.
+a. `certificatePolicies` (required)
 
-|Extension ID|Required?|Critical?|Permitted Value(s)|References|
-|------------|---------|-----------|------------------|----------|
-|authorityKeyIdentifier|Yes|No|The `keyIdentifer` field SHALL be present. `authorityCertIssuer` and `authorityCertSerialNumber` fields SHALL NOT be present.|[RFC 5280, Section 4.2.1.1](https://tools.ietf.org/html/rfc5280#section-4.2.1.1)|
-|certificatePolicies|Yes|SHOULD NOT be critical|See Section 7.1.6.4 for the permitted `policyIdentifiers`.<br>For each included `policyIdentifer`, the CA MAY include `policyQualifiers`. If the `id-qt-cps` policyQualifier is included, then it SHALL contain a HTTP/HTTPS URL for the issuing CA's  CP and/or CPS, Relying Party Agreement or other pointer to online information provided by the CA.|[RFC 5280, Section 4.2.1.4](https://tools.ietf.org/html/rfc5280#section-4.2.1.4)|
-|subjectAlternativeName|Yes|Yes if the `subject` is an empty sequence; otherwise, SHOULD NOT be critical|SHALL contain at least one `rfc822Name` value. SHALL NOT contain values of type: <ul><li> `dNSName`</li><li>`iPAddress`</li><li>`uniformResourceIdentifier`</li></ul>`otherName` values (such as Microsoft UPN) MAY be included if the value is identical to an `rfc822Name` expressed in the SAN extension.  Each `rfc822Name` and `otherName` value must be verified with publicly documented and audited measures in accordance with Section 3.2.2.|[RFC 5280, Section 4.2.1.6](https://tools.ietf.org/html/rfc5280#section-4.2.1.6)|
-|extendedKeyUsage|Yes|No|`id-kp-emailProtection` SHALL be present.<br>`ip-kp-clientAuth` and/or `id-ms-kp-document-signing` MAY be present.<br>Other values SHOULD NOT be present.<br>`id-kp-serverauth` or `id-kp-codeSigning` or `id-kp-timeStamping` or `id-kp-ocspSigning` or `anyExtendedKeyUsage` SHALL NOT be present.|[RFC 5280, Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)|
-|authorityInfoAccess|Optional|No|SHOULD contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the issuing CA's OCSP responder. Additional `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified.<br>SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the HTTP URI of the issuing CA's Certificate. Additional `id-ad-caIssuers` LDAP, FTP, or HTTP URIs MAY be specified.|[RFC 5280, Section 4.2.2.1](https://tools.ietf.org/html/rfc5280#section-4.2.2.1)|
-|subjectKeyIdentifer|No, but SHOULD be included|No|A string that identifies the Public Key encoded in the Certificate's `subjectPublicKeyInfo`.|[RFC 5280, Section 4.2.1.2](https://tools.ietf.org/html/rfc5280#section-4.2.1.2)|
-|keyUsage|Yes|Yes|If the `subjectPublicKeyInfo` encoded in the Certificate is of type `rsaEncryption`, then the following bits MAY be asserted:<ul><li>`digitalSignature`</li><li>`nonRepudiation`</li><li>`keyEncipherment`</li><li>`dataEncipherment`</li></ul>If the `subjectPublicKeyInfo` encoded in the Certificate is of type `id-ecPublicKey`, then the following bits MAY also be asserted:<ul><li>`digitalSignature`</li><li>`nonRepudiation`</li><li>`keyAgreement`</li><li>`encipherOnly` or `decipherOnly` only if `keyAgreement` is set</li></ul>Other bits SHALL NOT be asserted.|[RFC 5280, Section 4.2.1.3](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)<br>[RFC 3279, Section 2.3.1](https://tools.ietf.org/html/rfc3279#section-2.3.1)<br>[RFC 5480, Section 3](https://tools.ietf.org/html/rfc5480#section-3) as updated by [RFC 8813, Section 3](https://tools.ietf.org/html/rfc8813#section-3)|
-|basicConstraints|Optional|Either|The `cA` field SHALL NOT be set true. `pathLenConstraint` field SHALL NOT be present.|[RFC 5280, Section 4.2.1.9](https://tools.ietf.org/html/rfc5280#section-4.2.1.9)|
-|crlDistributionPoints|Yes|No|SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `URI` that includes a HTTP URI where the issuing CA's CRL can be retrieved.<br>Following additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.|[RFC 5280, Section 4.2.1.13](https://tools.ietf.org/html/rfc5280#section-4.2.1.13)|
-|subjectDirectoryAttributes |No |No |May contain verified attributes which are not part of the Subject's Distinguished Name such as dateOfBirth, placeOfBirth, gender, countryOfCitizenship, or countryOfResidence.|[RFC 3739 Section 3.2.2](https://tools.ietf.org/html/rfc3739#section-3.2.2) |
-|qcStatements|No |No |Indicates a Certificate that is issued as Qualified within a defined legal framework from an identified country or set of countries. |[RFC 3739 Section 3.2.6](https://tools.ietf.org/html/rfc3739#section-3.2.6) <br> ETSI EN 319 412-5, Section 4 |
-|Legal Entity Identifier | No|No | A verified Legal Entity Identifier data record for LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2). | ISO 17442-1:2020, Clause 6 <br>ISO 17442-2:2020, Clause 4| 
+   This extension MUST be present and SHOULD NOT be marked critical.  It must include only one of the permitted `policyIdentifiers` in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers). For each included `policyIdentifer`, the CA MAY include `policyQualifiers`. If the `id-qt-cps` policyQualifier is included, then it SHALL contain a HTTP/HTTPS URL for the issuing CA's CP and/or CPS, Relying Party Agreement or other pointer to online information provided by the CA.
 
-#### 7.1.2.3.1  Key Usages
+b. `cRLDistributionPoints` (required)
+
+   This extension MUST be present and SHOULD NOT be marked critical.  It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `URI` that includes a HTTP URI where the issuing CA's CRL can be retrieved. Following additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
+
+c. `authorityInformationAccess` (required)
+
+   This extension MUST be present. It MUST NOT be marked critical, and it MUST contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the issuing CA's OCSP responder. Additional `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified. It SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the HTTP URI of the issuing CA's Certificate. Additional `id-ad-caIssuers` LDAP, FTP, or HTTP URIs MAY be specified.
+
+d. `basicConstraints` (optional)
+
+   The `cA` field MUST NOT be true. `pathLenConstraint` field SHALL NOT be present.
+
+e. `keyUsage` (required)
+   This extension MUST be present and SHOULD be marked critical.  
+
+   | Type | `rsaEncryption`       | `id-ecPublicKey`            |
+   |------|-----------------------|-----------------------------|
+   | Strict | For signing only, bit positions MUST be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions MUST be set for `keyEncipherment`.<br>For dual use, bit positions MUST be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation`. |For signing only, bit positions MUST be set for `digitalSignature` and MAY be set for `nonRepudiation`.<<br>For key management only, bit positions MUST be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions MUST be set for `digitalSignature` and `keyAgreement` and MAY be set for `nonRepudiation` and for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).|
+   | Multipurpose | For signing only, bit positions MUST be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions MUST be set for `keyEncipherment` and MAY be set for `dataEncipherment`.<br>For dual use, bit positions MUST be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation` and `dataEncipherment`. |For signing only, bit positions MUST be set for `digitalSignature` and MAY be set for `nonRepudiation`.<<br>For key management only, bit positions MUST be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions MUST be set for `digitalSignature` and `keyAgreement` and MAY be set for `nonRepudiation` and for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).|
+   | Legacy | For signing only, bit positions MUST be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions MUST be set for `keyEncipherment` and MAY be set for `dataEncipherment`.<br>For dual use, bit positions MUST be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation` and `dataEncipherment`. |For signing only, bit positions MUST be set for `digitalSignature` and MAY be set for `nonRepudiation`.<<br>For key management only, bit positions MUST be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions MUST be set for `digitalSignature` and `keyAgreement` and MAY be set for `nonRepudiation` and for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).|
+
+
+   Other bit positions MUST NOT be set.
+
+f. `extKeyUsage` (required)
+
+| Type | extendedKeyUsage      | 
+|------|-----------------------|
+| Strict | `id-kp-emailProtection` [RFC5280] MUST be present. Other values MUST NOT be present. |
+| Multipurpose<br>and Legacy |`id-kp-emailProtection` [RFC5280] MUST be present. Other values MAY be present. |
+
+The value `anyExtendedKeyUsage` MUST NOT be present.
+
+g. `authorityKeyIdentifier` (required)
+
+   This extension MUST be present and MUST NOT be marked critical. The `keyIdentifer` field SHALL be present. `authorityCertIssuer` and `authorityCertSerialNumber` fields SHALL NOT be present.
+
+h. `subjectPublicKeyInfo` (optional)
+
+   This extension SHOULD be present and MUST NOT be marked critical.
+
+i. `subjectAlternativeName` (required)
+
+   This extension MUST be present and SHOULD NOT be marked critical unless the Subject is an empty sequence. 
+
+| Type | `subjectAlternativeName`      | 
+|------|-----------------------|
+| Strict | All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, `otherName` values other than type `id-on-SmtpUTF8Mailbox`, or `uniformResourceIdentifier`.|
+| Multipurpose<br>and Legacy |All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of type `id-on-SmtpUTF8Mailbox` MUST be validated in accordance with RFC 8398.  `otherName` values of any other type MUST be validated in accordance with the CA's CPS. |
+
+`otherName` values of type `id-on-SmtpUTF8Mailbox` MUST be validated in accordance with RFC 8398.
+
+j. S/MIME Capabilities (optional)
+
+   This extension, defined in [RFC 4262](https://datatracker.ietf.org/doc/html/rfc4262), MAY be present and MUST NOT be marked critical. 
 
 **DRAFT - undergoing changes**
 
-The keyUsage extension SHALL be present and SHALL contain one (and only one) type of the following key usage settings.
+subjectDirectoryAttributes (optional)
 
-|Type|`nonRepudiation`|`digitalSignature`|`keyEncipherment` <br /> or `keyAgreement`|
-|:-:|:-:|:-:|:-:|
-A | X |  |  |  
-B | X |X |  |  
-C |   |X |  |  
-D |   |X |X |  
-E |   |  |X |  
-F | X |X |X |  
+   This extension MAY be present and MUST NOT be marked critical. May contain verified attributes which are not part of the Subject's Distinguished Name such as dateOfBirth, placeOfBirth, gender, countryOfCitizenship, or countryOfResidence. [RFC 3739 Section 3.2.2](https://tools.ietf.org/html/rfc3739#section-3.2.2) 
 
-Type A, C, or E SHOULD be used to avoid mixed usage of keys.  
+qcStatements (optional)
 
-Certificates used to validate commitment to signed content SHALL be limited to type A, B, or F; of these alternatives type A SHOULD be used.
+   This extension MAY be present and MUST NOT be marked critical. Indicates a Certificate that is issued as Qualified within a defined legal framework from an identified country or set of countries. [RFC 3739 Section 3.2.6](https://tools.ietf.org/html/rfc3739#section-3.2.6) and ETSI EN 319 412-5, Section 4 
 
-Certificates where the Private Key is escrowed by the Certificate Authority SHALL be limited to type D, E, or F; of these alternatives type E SHOULD be used.
+Legal Entity Identifier (optional)
+   This extension MAY be present and MUST NOT be marked critical. A verified Legal Entity Identifier data record for LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2). ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4
 
 ### 7.1.3 Algorithm object identifiers
 
