@@ -680,8 +680,8 @@ The business continuity plan MUST include:
 
 For CA Key Pairs that are either
 
-  i. used as a CA Key Pair for a Root Certificate or
-  ii. used as a CA Key Pair for a Subordinate CA Certificate, where the Subordinate CA is not the operator of the Root CA or an Affiliate of the Root CA,
+  1. used as a CA Key Pair for a Root Certificate or
+  2. used as a CA Key Pair for a Subordinate CA Certificate, where the Subordinate CA is not the operator of the Root CA or an Affiliate of the Root CA,
 
 the CA SHALL:
 
@@ -906,19 +906,15 @@ h. `authorityKeyIdentifier` (required)
 **DRAFT - undergoing changes**
 
 a. `certificatePolicies` (required)
-
    This extension MUST be present and SHOULD NOT be marked critical.  It must include only one of the permitted `policyIdentifiers` in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers). For each included `policyIdentifer`, the CA MAY include `policyQualifiers`. If the `id-qt-cps` policyQualifier is included, then it SHALL contain a HTTP/HTTPS URL for the issuing CA's CP and/or CPS, Relying Party Agreement or other pointer to online information provided by the CA.
 
 b. `cRLDistributionPoints` (required)
-
    This extension MUST be present and SHOULD NOT be marked critical.  It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `URI` that includes a HTTP URI where the issuing CA's CRL can be retrieved. Following additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
 
 c. `authorityInformationAccess` (required)
-
    This extension MUST be present. It MUST NOT be marked critical, and it MUST contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the issuing CA's OCSP responder. Additional `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified. It SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the HTTP URI of the issuing CA's Certificate. Additional `id-ad-caIssuers` LDAP, FTP, or HTTP URIs MAY be specified.
 
 d. `basicConstraints` (optional)
-
    The `cA` field MUST NOT be true. `pathLenConstraint` field SHALL NOT be present.
 
 e. `keyUsage` (required)
@@ -932,51 +928,69 @@ e. `keyUsage` (required)
    Other bit positions MUST NOT be set.
 
 f. `extKeyUsage` (required)
+  | Type | `extendedKeyUsage`      | 
+  |------|-----------------------|
+  | Strict | `id-kp-emailProtection` [RFC5280] MUST be present. Other values MUST NOT be present. |
+  | Multipurpose<br>and Legacy |`id-kp-emailProtection` [RFC5280] MUST be present. Other values MAY be present. |
 
-| Type | extendedKeyUsage      | 
-|------|-----------------------|
-| Strict | `id-kp-emailProtection` [RFC5280] MUST be present. Other values MUST NOT be present. |
-| Multipurpose<br>and Legacy |`id-kp-emailProtection` [RFC5280] MUST be present. Other values MAY be present. |
-
-The value `anyExtendedKeyUsage` MUST NOT be present.
+  The value `anyExtendedKeyUsage` MUST NOT be present.
 
 g. `authorityKeyIdentifier` (required)
-
    This extension MUST be present and MUST NOT be marked critical. The `keyIdentifer` field SHALL be present. `authorityCertIssuer` and `authorityCertSerialNumber` fields SHALL NOT be present.
 
-h. `subjectPublicKeyInfo` (optional)
-
-   This extension SHOULD be present and MUST NOT be marked critical.
-
-i. `subjectAlternativeName` (required)
-
+h. `subjectAlternativeName` (required)
    This extension MUST be present and SHOULD NOT be marked critical unless the Subject is an empty sequence. 
 
-| Type | `subjectAlternativeName`      | 
-|------|-----------------------|
-| Strict | All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, `otherName` values other than type `id-on-SmtpUTF8Mailbox`, or `uniformResourceIdentifier`.|
-| Multipurpose<br>and Legacy |All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, or `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of any other type MUST be validated in accordance with the CA's CPS. |
+  | Type | `subjectAlternativeName`      | 
+  |------|-----------------------|
+  | Strict | All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, `otherName` values other than type `id-on-SmtpUTF8Mailbox`, or `uniformResourceIdentifier`.|
+  | Multipurpose<br>and Legacy |All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, or `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of any other type MUST be validated in accordance with the CA's CPS. |
 
-`otherName` values of type `id-on-SmtpUTF8Mailbox` MUST be validated in accordance with RFC 8398.
+  `otherName` values of type `id-on-SmtpUTF8Mailbox` MUST be validated in accordance with RFC 8398.
 
-j. S/MIME Capabilities (optional)
+i. `smimeCapabilities` (optional)
+   This extension MAY be present and MUST NOT be marked critical. May indicate cryptographic capabilities of the sender of a signed S/MIME message, defined in [RFC 4262](https://datatracker.ietf.org/doc/html/rfc4262).
 
-   This extension, defined in [RFC 4262](https://datatracker.ietf.org/doc/html/rfc4262), MAY be present and MUST NOT be marked critical. 
+j. `subjectDirectoryAttributes` (optional)
 
-**DRAFT - undergoing changes**
+  | Type | `subjectDirectoryAttributes`      | 
+  |------|-----------------------|
+  | Strict and<br>Multipurpose | Prohibited |
+  | Legacy | MAY be present and MUST NOT be marked critical.  |
 
-subjectDirectoryAttributes (optional)
+   May contain verified attributes which are not part of the Subject's Distinguished Name such as dateOfBirth, placeOfBirth, gender, countryOfCitizenship, or countryOfResidence in accordance with [RFC 3739 Section 3.2.2](https://tools.ietf.org/html/rfc3739#section-3.2.2). 
 
-   This extension MAY be present and MUST NOT be marked critical. May contain verified attributes which are not part of the Subject's Distinguished Name such as dateOfBirth, placeOfBirth, gender, countryOfCitizenship, or countryOfResidence. [RFC 3739 Section 3.2.2](https://tools.ietf.org/html/rfc3739#section-3.2.2) 
+k. qcStatements (optional)
+   This extension MAY be present and MUST NOT be marked critical. Indicates a Certificate that is issued as Qualified within a defined legal framework from an identified country or set of countries in accordance with [RFC 3739 Section 3.2.6](https://tools.ietf.org/html/rfc3739#section-3.2.6) and ETSI EN 319 412-5, Section 4.
 
-qcStatements (optional)
+l. Legal Entity Identifier (optional)
 
-   This extension MAY be present and MUST NOT be marked critical. Indicates a Certificate that is issued as Qualified within a defined legal framework from an identified country or set of countries. [RFC 3739 Section 3.2.6](https://tools.ietf.org/html/rfc3739#section-3.2.6) and ETSI EN 319 412-5, Section 4 
+  | Type | LEI      | 
+  |------|-----------------------|
+  | Mailbox | Prohibited |
+  | Organisation | MAY be present and MUST NOT be marked critical.  |
+  | Sponsored | MAY be present and MUST NOT be marked critical.  |
+  | Individual | Prohibited |
 
-Legal Entity Identifier (optional)
+  May include a verified Legal Entity Identifier data record for LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) in accordance with ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4.
 
-   This extension MAY be present and MUST NOT be marked critical. A verified Legal Entity Identifier data record for LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2). ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4
+m. Adobe Exensions (optional)
 
+  | Type | Adobe Exensions      | 
+  |------|-----------------------|
+  | Strict<br> | Prohibited |
+  | Multipurpose<br>and Legacy | MAY be present and MUST NOT be marked critical.  May include the Adobe Time-stamp X509 extension (1.2.840.113583.1.1.9.1) or the Adobe ArchiveRevInfo extension (1.2.840.113583.1.1.9.2) |
+
+#### 7.1.2.4 All Certificates
+**DRAFT**
+All other fields and extensions MUST be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123-subscriber-certificate) unless the CA is aware of a reason for including the data in the Certificate.
+
+CAs SHALL NOT issue a Certificate with:
+
+1. Extensions that do not apply in the context of the public Internet (such as an extKeyUsage value for a service that is only valid in the context of a privately managed network), unless:<br>
+   i. such value falls within an OID arc for which the Applicant demonstrates ownership, or<br>
+   ii. the Applicant can otherwise demonstrate the right to assert the data in a public context; or
+2. semantics that, if included, will mislead a Relying Party about the certificate information verified by the CA (such as including an `extKeyUsage` value for a smart card, where the CA is not able to verify that the corresponding Private Key is confined to such hardware due to remote issuance).
 ### 7.1.3 Algorithm object identifiers
 
 #### 7.1.3.1 SubjectPublicKeyInfo
