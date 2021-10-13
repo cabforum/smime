@@ -910,11 +910,15 @@ h. `authorityKeyIdentifier` (required)
 
 a. `certificatePolicies` (required)
 
-   This extension MUST be present and SHOULD NOT be marked critical.  It must include only one of the permitted `policyIdentifiers` in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers). For each included `policyIdentifer`, the CA MAY include `policyQualifiers`. If the `id-qt-cps` policyQualifier is included, then it SHALL contain a HTTP/HTTPS URL for the issuing CA's CP and/or CPS, Relying Party Agreement or other pointer to online information provided by the CA.
+   This extension MUST be present and SHOULD NOT be marked critical. It must include only one of the permitted `policyIdentifiers` in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers). 
+
+   If the value of this extension includes a `PolicyInformation` which contains a qualifier of type `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1), then the value of the qualifier MUST be a HTTP or HTTPS URL for the Issuing CA's CP and/or CPS, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA.
 
 b. `cRLDistributionPoints` (required)
 
-   This extension MUST be present and SHOULD NOT be marked critical.  It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `URI` that includes a HTTP URI where the issuing CA's CRL can be retrieved. Following additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
+   This extension MUST be present and SHOULD NOT be marked critical.  It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `URI` that includes a HTTP URI where the issuing CA's CRL can be retrieved. 
+   
+   For Legacy profiles only, following additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
 
 c. `authorityInformationAccess` (required)
 
