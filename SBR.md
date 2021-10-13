@@ -909,18 +909,23 @@ h. `authorityKeyIdentifier` (required)
 **DRAFT - undergoing changes**
 
 a. `certificatePolicies` (required)
+
    This extension MUST be present and SHOULD NOT be marked critical.  It must include only one of the permitted `policyIdentifiers` in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers). For each included `policyIdentifer`, the CA MAY include `policyQualifiers`. If the `id-qt-cps` policyQualifier is included, then it SHALL contain a HTTP/HTTPS URL for the issuing CA's CP and/or CPS, Relying Party Agreement or other pointer to online information provided by the CA.
 
 b. `cRLDistributionPoints` (required)
+
    This extension MUST be present and SHOULD NOT be marked critical.  It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `URI` that includes a HTTP URI where the issuing CA's CRL can be retrieved. Following additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
 
 c. `authorityInformationAccess` (required)
+
    This extension MUST be present. It MUST NOT be marked critical, and it MUST contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the issuing CA's OCSP responder. Additional `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified. It SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the HTTP URI of the issuing CA's Certificate. Additional `id-ad-caIssuers` LDAP, FTP, or HTTP URIs MAY be specified.
 
 d. `basicConstraints` (optional)
+
    The `cA` field MUST NOT be true. `pathLenConstraint` field SHALL NOT be present.
 
 e. `keyUsage` (required)
+
    This extension MUST be present and SHOULD be marked critical.  
 
    | Type | `rsaEncryption`       | `id-ecPublicKey`            |
@@ -931,6 +936,7 @@ e. `keyUsage` (required)
    Other bit positions MUST NOT be set.
 
 f. `extKeyUsage` (required)
+
   | Type | `extendedKeyUsage`      | 
   |------|-----------------------|
   | Strict | `id-kp-emailProtection` [RFC5280] MUST be present. Other values MUST NOT be present. |
@@ -939,9 +945,11 @@ f. `extKeyUsage` (required)
   The value `anyExtendedKeyUsage` MUST NOT be present.
 
 g. `authorityKeyIdentifier` (required)
+
    This extension MUST be present and MUST NOT be marked critical. The `keyIdentifer` field SHALL be present. `authorityCertIssuer` and `authorityCertSerialNumber` fields SHALL NOT be present.
 
 h. `subjectAlternativeName` (required)
+
    This extension MUST be present and SHOULD NOT be marked critical unless the Subject is an empty sequence. 
 
   | Type | `subjectAlternativeName`      | 
@@ -952,6 +960,7 @@ h. `subjectAlternativeName` (required)
   `otherName` values of type `id-on-SmtpUTF8Mailbox` MUST be validated in accordance with RFC 8398.
 
 i. `smimeCapabilities` (optional)
+
    This extension MAY be present and MUST NOT be marked critical. May indicate cryptographic capabilities of the sender of a signed S/MIME message, defined in [RFC 4262](https://datatracker.ietf.org/doc/html/rfc4262).
 
 j. `subjectDirectoryAttributes` (optional)
@@ -964,6 +973,7 @@ j. `subjectDirectoryAttributes` (optional)
    May contain verified attributes which are not part of the Subject's Distinguished Name such as dateOfBirth, placeOfBirth, gender, countryOfCitizenship, or countryOfResidence in accordance with [RFC 3739 Section 3.2.2](https://tools.ietf.org/html/rfc3739#section-3.2.2). 
 
 k. qcStatements (optional)
+
    This extension MAY be present and MUST NOT be marked critical. Indicates a Certificate that is issued as Qualified within a defined legal framework from an identified country or set of countries in accordance with [RFC 3739 Section 3.2.6](https://tools.ietf.org/html/rfc3739#section-3.2.6) and ETSI EN 319 412-5, Section 4.
 
 l. Legal Entity Identifier (optional)
