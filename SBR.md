@@ -838,56 +838,56 @@ This section specifies the additional requirements for Certificate content and e
 
 #### 7.1.2.1 Root CA Certificate
 
-a. `basicConstraints`
+a. `basicConstraints` (MUST be present)
 
-   This extension MUST appear as a critical extension. The `cA` field MUST be set true. The `pathLenConstraint` field SHOULD NOT be present.
+   This extension MUST be marked critical. The `cA` field MUST be set true. The `pathLenConstraint` field SHOULD NOT be present.
 
-b. `keyUsage`
+b. `keyUsage` (MUST be present)
 
-   This extension MUST be present and MUST be marked critical. Bit positions for `keyCertSign` and `cRLSign` MUST be set. If the Root CA Private Key is used for signing OCSP responses, then the `digitalSignature` bit MUST be set.
+   This extension MUST be marked critical. Bit positions for `keyCertSign` and `cRLSign` MUST be set. If the Root CA Private Key is used for signing OCSP responses, then the `digitalSignature` bit MUST be set.
 
-c. `certificatePolicies`
+c. `certificatePolicies` (SHOULD NOT be present)
 
    This extension SHOULD NOT be present.
 
-d. `extKeyUsage`
+d. `extKeyUsage` (MUST NOT be present)
 
    This extension MUST NOT be present.
 
 #### 7.1.2.2 Subordinate CA Certificate
 
-a. `certificatePolicies`
+a. `certificatePolicies` (MUST be present)
 
-   This extension MUST be present and SHOULD NOT be marked critical.
+   This extension SHOULD NOT be marked critical.
 
    If the value of this extension includes a `PolicyInformation` which contains a qualifier of type `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1), then the value of the qualifier MUST be a HTTP or HTTPS URL for the Issuing CA's CP and/or CPS, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA.
 
-b. `cRLDistributionPoints`
+b. `cRLDistributionPoints` (MUST be present)
 
    This extension MUST be present and MUST NOT be marked critical. It MUST contain the HTTP URL of the CA's CRL service.
 
-c. `authorityInformationAccess`
+c. `authorityInformationAccess` (SHOULD be present)
 
-   This extension SHOULD be present. It MUST NOT be marked critical.
+   This extension MUST NOT be marked critical.
 
    It SHOULD contain the HTTP URL of the Issuing CA's certificate (`accessMethod` = 1.3.6.1.5.5.7.48.2).
    It MAY contain the HTTP URL of the Issuing CA's OCSP responder (`accessMethod` = 1.3.6.1.5.5.7.48.1).
 
-d. `basicConstraints`
+d. `basicConstraints` (MUST be present)
 
-   This extension MUST be present and MUST be marked critical. The `cA` field MUST be set true. The `pathLenConstraint` field MAY be present.
+   This extension MUST be marked critical. The `cA` field MUST be set true. The `pathLenConstraint` field MAY be present.
 
-e. `keyUsage`
+e. `keyUsage` (MUST be present)
 
-   This extension MUST be present and MUST be marked critical. Bit positions for `keyCertSign` and `cRLSign` MUST be set. If the Subordinate CA Private Key is used for signing OCSP responses, then the `digitalSignature` bit MUST be set.
+   This extension MUST be marked critical. Bit positions for `keyCertSign` and `cRLSign` MUST be set. If the Subordinate CA Private Key is used for signing OCSP responses, then the `digitalSignature` bit MUST be set.
 
-f. `nameConstraints` (optional)
+f. `nameConstraints` (MAY be present)
 
-   If present, this extension SHOULD be marked critical[^*].
+   This extension SHOULD be marked critical[^*].
 
 [^*]: Non-critical Name Constraints are an exception to RFC 5280 (4.2.1.10), however, they MAY be used until the Name Constraints extension is supported by Application Software Suppliers whose software is used by a substantial portion of Relying Parties worldwide.
 
-g. `extKeyUsage` (optional/required)
+g. `extKeyUsage` (MAY be present for Cross Certificates; MUST be present otherwise)
 
    For Cross Certificates that share a Subject Distinguished Name and Subject Public Key with a Root Certificate operated in accordance with these Requirements, this extension MAY be present. If present, this extension SHOULD NOT be marked critical. This extension MUST only contain usages for which the issuing CA has verified the Cross Certificate is authorized to assert. This extension MUST NOT contain the `anyExtendedKeyUsage` [RFC5280] usage.
 
@@ -899,7 +899,7 @@ g. `extKeyUsage` (optional/required)
 
 [^**]: While RFC 5280, Section 4.2.1.12, notes that this extension will generally only appear within end-entity certificates, these Requirements make use of this extension to further protect relying parties by limiting the scope of subordinate certificates, as implemented by a number of Application Software Suppliers.
 
-h. `authorityKeyIdentifier` (required)
+h. `authorityKeyIdentifier` (MUST be present)
 
    This extension MUST be present and MUST NOT be marked critical. It MUST contain a `keyIdentifier` field and it MUST NOT contain a `authorityCertIssuer` or `authorityCertSerialNumber` field.
 
@@ -916,7 +916,7 @@ a. `certificatePolicies` (required)
 
 b. `cRLDistributionPoints` (required)
 
-   This extension MUST be present and SHOULD NOT be marked critical.  It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `URI` that includes a HTTP URI where the issuing CA's CRL can be retrieved. 
+   This extension MUST be present and SHOULD NOT be marked critical.  It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the issuing CA's CRL can be retrieved. 
    
    For Legacy profiles only, following additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
 
