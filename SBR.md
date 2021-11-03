@@ -946,7 +946,7 @@ f. `extKeyUsage` (required)
 
 g. `authorityKeyIdentifier` (required)
 
-   This extension MUST be present and MUST NOT be marked critical. The `keyIdentifer` field SHALL be present. `authorityCertIssuer` and `authorityCertSerialNumber` fields SHALL NOT be present.
+   This extension MUST be present and MUST NOT be marked critical. The `keyIdentifier` field SHALL be present. `authorityCertIssuer` and `authorityCertSerialNumber` fields SHALL NOT be present.
 
 h. `subjectAlternativeName` (required)
 
@@ -981,15 +981,15 @@ l. Legal Entity Identifier (optional)
   | Type | LEI      | 
   |------|-----------------------|
   | Mailbox | Prohibited |
-  | Organisation | MAY be present and MUST NOT be marked critical.  |
+  | Organization | MAY be present and MUST NOT be marked critical.  |
   | Sponsored | MAY be present and MUST NOT be marked critical.  |
   | Individual | Prohibited |
 
   May include a verified Legal Entity Identifier data record for LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) in accordance with ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4.
 
-m. Adobe Exensions (optional)
+m. Adobe Extensions (optional)
 
-  | Type | Adobe Exensions      | 
+  | Type | Adobe Extensions      | 
   |------|-----------------------|
   | Strict<br> | Prohibited |
   | Multipurpose<br>and Legacy | MAY be present and MUST NOT be marked critical.  May include the Adobe Time-stamp X509 extension (1.2.840.113583.1.1.9.1) or the Adobe ArchiveRevInfo extension (1.2.840.113583.1.1.9.2) |
