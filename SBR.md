@@ -95,7 +95,7 @@ As defined in [Section 1.6.1](#16-definitions-and-acronyms).
 ### 1.3.4 Relying parties
 “Relying Party” and “Application Software Supplier” are defined in [Section 1.6.1](#16-definitions-and-acronyms). Current Members of the CA/Browser Forum who are Application Software Suppliers are listed at https://cabforum.org/members.
 ### 1.3.5  Other participants
-Other groups that have participated in the development of these Requirements include the AICPA/CICA WebTrust for Certification Authorities task force and the Accredited Conformity Assessment Bodies' Council (ACAB'c). Participation by such groups does not imply their endorsement, recommendation, or approval of the final product.
+Other groups that have participated in the development of these Requirements include the CPA Canada WebTrust for Certification Authorities task force.  Participation by CPA Canada does not imply its endorsement, recommendation, or approval of the final product.
 ## 1.4  Certificate usage
 The primary goal of these Requirements is to provide a framework where “reasonable assurance” may be provided to senders and recipients of email messages that the party identified in an S/MIME Certificate has control of the domain or email address being asserted. A variation of this use case is where an individual or organization digitally signs email to establish its authenticity and source of origin.  
 ### 1.4.1  Appropriate certificate uses
