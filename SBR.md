@@ -12,6 +12,7 @@ copyright: |
 # 1.  INTRODUCTION
 
 **This is a pre-release draft of the S/MIME Baseline Requirements (SBR) and is undergoing active editing.  It has not yet been balloted to become a CA/Browser Forum standard.**
+
 ## 1.1  Overview
 This S/MIME Baseline Requirements document describes an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements that are necessary for the issuance and management of Publicly-Trusted S/MIME Certificates.
 
@@ -70,9 +71,10 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
   
 ## 1.3  PKI participants
 The CA/Browser Forum is a voluntary organization of Certification Authorities and suppliers of Internet browser and other relying-party software applications including mail user agents (web-based or application based) and email service providers that process S/MIME Certificates.
-### 1.3.1  Certification authorities
 
+### 1.3.1  Certification authorities
 Certification Authority (CA) is defined in [Section 1.6.1](#161-definitions). Current CA Members of the CA/Browser Forum are listed at https://cabforum.org/members.
+
 ### 1.3.2  Registration authorities
 With the exception of [Section 3.2.3](#3222--validation-of-domain-authorization-or-control), the CA MAY delegate the performance of all, or any part, of [Section 3.2](#32--initial-identity-validation) requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of [Section 3.2](#32--initial-identity-validation).
 
@@ -90,28 +92,40 @@ The CA MAY designate an Enterprise Registration Authority (RA) to verify certifi
 2. If the certificate request is for a Mailbox-validated policy, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2.2](#32222--validating-control-over-email-address-via-email)
 
 The CA SHALL impose these limitations as a contractual requirement on the Enterprise RA and monitor compliance by the Enterprise RA.
+
 ### 1.3.3  Subscribers
 As defined in [Section 1.6.1](#16-definitions-and-acronyms).
+
 ### 1.3.4 Relying parties
 “Relying Party” and “Application Software Supplier” are defined in [Section 1.6.1](#16-definitions-and-acronyms). Current Members of the CA/Browser Forum who are Application Software Suppliers are listed at https://cabforum.org/members.
+
 ### 1.3.5  Other participants
 Other groups that have participated in the development of these Requirements include the AICPA/CICA WebTrust for Certification Authorities task force and the Accredited Conformity Assessment Bodies' Council (ACAB'c). Participation by such groups does not imply their endorsement, recommendation, or approval of the final product.
+
 ## 1.4  Certificate usage
 The primary goal of these Requirements is to provide a framework where “reasonable assurance” may be provided to senders and recipients of email messages that the party identified in an S/MIME Certificate has control of the domain or email address being asserted. A variation of this use case is where an individual or organization digitally signs email to establish its authenticity and source of origin.  
+
 ### 1.4.1  Appropriate certificate uses
 The primary goal of these Requirements is to describe an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements for the issuance and management of Publicly-Trusted S/MIME Certificates. These Requirements also serve to inform users and help them to make informed decisions when relying on Certificates.
+
 ### 1.4.2 Prohibited certificate uses
 No stipulation.
+
 ## 1.5  Policy administration
 This document may be revised from time to time, as appropriate, in accordance with procedures adopted by the CA/Browser Forum.  The CA/Browser Forum welcomes recommendations and suggestions regarding this standard by email at questions@cabforum.org. 
+
 ### 1.5.1  Organization administering the document
 No stipulation.
+
 ### 1.5.2  Contact person
 Contact information for the CA/Browser Forum is available at https://cabforum.org/leadership/. In this section of a CA’s CPS, the CA shall provide a link to a web page or an email address for contacting the person or persons responsible for operation of the CA, including contact information for entities wishing to submit a Certificate Problem Report.
+
 ### 1.5.3  Person determining CPS suitability for the policy
 No stipulation.
+
 ### 1.5.4  CPS approval procedures
 No stipulation.
+
 ## 1.6  Definitions and acronyms
 ###  1.6.1 Definitions
 
@@ -364,16 +378,20 @@ The script outputs:
 |RA	       |Registration Authority|
 |S/MIME	   |Secure MIME (Multipurpose Internet Mail Extensions)|
 |TLS	   |Transport Layer Security|
+
 ###  1.6.3 References
 TBD
+
 ###  1.6.4 Conventions
 
 The key words “SHALL”, “SHALL NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in these Requirements shall be interpreted in accordance with RFC 2119.
 
 # 2. PUBLICATION AND REPOSITORY RESPONSIBILITIES
 The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements.
+
 ## 2.1  Repositories
 The CA SHALL make revocation information for Subordinate CA Certificates and Subscriber Certificates available in accordance with this Policy.
+
 ## 2.2  Publication of certification information
 The CA SHALL publicly disclose its CP and/or CPS through an appropriate and readily accessible online means that is available on a 24x7 basis. The CA SHALL publicly disclose its CA business practices to the extent required by the CA's selected audit scheme (see [Section 8](#8-compliance-audit-and-other-assessments)).
 
@@ -385,6 +403,7 @@ The CA SHALL publicly give effect to these Requirements and represent that it wi
 
 ## 2.3  Time or frequency of publication
 The CA SHALL develop, implement, enforce, and annually update a CP and/or CPS that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL indicate conformance with this requirement by incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
+
 ## 2.4  Access controls on repositories
 The CA shall make its Repository publicly available in a read-only manner.
 
@@ -420,6 +439,7 @@ The CA SHALL verify that Applicant controls the email accounts associated with a
 The CA's CP/CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which domain validation method, including the relevant version number from the Baseline Requirements or S/MIME Baseline Requirements, used to validate every domain or email address in issued Certificates.
 
 Completed validations of Applicant authority may be valid for the issuance of multiple Certificates over time. In all cases, the validation SHALL have been initiated within the time period specified in the relevant requirement (such as [Section 4.2.1](#421-performing-identification-and-authentication-functions)) prior to Certificate issuance.
+
 ##### 3.2.2.2.1  Validating authority over email address via domain
 Confirming the Applicant has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
 
@@ -449,6 +469,7 @@ The CA SHALL verify the Applicant's name using a legible copy, which discernibly
 The CA SHALL verify the Applicant's address using a form of identification that the CA determines to be reliable, such as a government ID, utility bill, or bank or credit card statement. The CA MAY rely on the same government-issued ID that was used to verify the Applicant's name.
 
 The CA SHALL verify the certificate request with the Applicant using a Reliable Method of Communication.
+
 ### 3.2.4  Non-verified subscriber information
 
 ### 3.2.5 Validation of authority
@@ -456,6 +477,7 @@ The CA SHALL verify the certificate request with the Applicant using a Reliable 
 ### 3.2.6  Criteria for interoperation
 
 The CA SHALL disclose all Cross Certificates that identify the CA as the Subject, provided that the CA arranged for or accepted the establishment of the trust relationship (i.e. the Cross Certificate at issue).
+
 ## 3.3  Identification and authentication for re-key requests
 
 ### 3.3.1  Identification and authentication for routine re-key
@@ -492,6 +514,7 @@ No stipulation.
 
 ## 4.3  Certificate issuance
 Certificate issuance by the Root CA SHALL require an individual authorized by the CA (i.e. the CA system operator, system officer, or PKI administrator) to deliberately issue a direct command in order for the Root CA to perform a certificate signing operation.
+
 ### 4.3.1  CA actions during certificate issuance
 
 ### 4.3.2  Notification to subscriber by the CA of issuance of certificate
@@ -518,6 +541,7 @@ No stipulation.
 ### 4.6.2  Who may request renewal
 
 No stipulation.
+
 ### 4.6.3  Processing certificate renewal requests
 No stipulation.
 
@@ -583,6 +607,7 @@ No stipulation.
 
 #### 4.9.1.1 Reasons for Revoking a Subscriber Certificate
 The CA SHALL revoke a Certificate within 24 hours if one or more of the following occurs:
+
 1. The Subscriber requests in writing that the CA revoke the Certificate;
 2. The Subscriber notifies the CA that the original certificate request was not authorized and does not retroactively grant authorization;
 3. The CA obtains evidence that the Subscriber's Private Key corresponding to the Public Key in the Certificate suffered a Key Compromise;
@@ -590,6 +615,7 @@ The CA SHALL revoke a Certificate within 24 hours if one or more of the followin
 5. The CA obtains evidence that the validation of domain authorization or mailbox control for any email address in the Certificate should not be relied upon.
 
 The CA SHOULD revoke a certificate within 24 hours and MUST revoke a Certificate within 5 days if one or more of the following occurs:
+
 1. The Certificate no longer complies with the requirements of [Section 6.1.5](#615-key-sizes) and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking);
 2. The CA obtains evidence that the Certificate was misused;
 3. The CA is made aware that a Subscriber has violated one or more of its material obligations under the Subscriber Agreement or Terms of Use;
@@ -600,8 +626,10 @@ The CA SHOULD revoke a certificate within 24 hours and MUST revoke a Certificate
 8. The CA's right to issue Certificates under these Requirements expires or is revoked or terminated, unless the CA has made arrangements to continue maintaining the CRL/OCSP Repository;
 9.  Revocation is required by the CA's CP and/or CPS; or
 10. The CA is made aware of a demonstrated or proven method that exposes the Subscriber's Private Key to compromise or if there is clear evidence that the specific method used to generate the Private Key was flawed.
+
 #### 4.9.1.2 Reasons for Revoking a Subordinate CA Certificate
 The Issuing CA SHALL revoke a Subordinate CA Certificate within seven (7) days if one or more of the following occurs:
+
 1. The Subordinate CA requests revocation in writing;
 2. The Subordinate CA notifies the Issuing CA that the original certificate request was not authorized and does not retroactively grant authorization;
 3. The Issuing CA obtains evidence that the Subordinate CA's Private Key corresponding to the Public Key in the Certificate suffered a Key Compromise or no longer complies with the requirements of [Section 6.1.5](#615-key-sizes) and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking);
@@ -613,16 +641,20 @@ The Issuing CA SHALL revoke a Subordinate CA Certificate within seven (7) days i
 9. Revocation is required by the Issuing CA's CP and/or CPS.
 ### 4.9.2  Who can request revocation
 The Subscriber, RA, or Issuing CA can initiate revocation. Additionally, Subscribers, Relying Parties, Application Software Suppliers, and other third parties may submit Certificate Problem Reports informing the issuing CA of reasonable cause to revoke the certificate.
+
 ### 4.9.3  Procedure for revocation request
 The CA SHALL provide a process for Subscribers to request revocation of their own Certificates. The process MUST be described in the CA's CP and/or CPS. The CA SHALL maintain a continuous 24x7 ability to accept and respond to revocation requests and Certificate Problem Reports.
 
 The CA SHALL provide Subscribers, Relying Parties, Application Software Suppliers, and other third parties with clear instructions for reporting suspected Private Key Compromise, Certificate misuse, or other types of fraud, compromise, misuse, inappropriate conduct, or any other matter related to Certificates. The CA SHALL publicly disclose the instructions through a readily accessible online means and in Section 1.5.2 of their CPS.
+
 ### 4.9.4  Revocation request grace period
 No stipulation.
 
 ### 4.9.5  Time within which CA must process the revocation request
 Within 24 hours after receiving a Certificate Problem Report, the CA SHALL investigate the facts and circumstances related to a Certificate Problem Report and provide a preliminary report on its findings to both the Subscriber and the entity who filed the Certificate Problem Report.
+
 After reviewing the facts and circumstances, the CA SHALL work with the Subscriber and any entity reporting the Certificate Problem Report or other revocation-related notice to establish whether or not the certificate will be revoked, and if so, a date which the CA will revoke the certificate. The period from receipt of the Certificate Problem Report or revocation-related notice to published revocation MUST NOT exceed the time frame set forth in [Section 4.9.1.1](#4911-reasons-for-revoking-a-subscriber-certificate). The date selected by the CA SHOULD consider the following criteria:
+
 1. The nature of the alleged problem (scope, context, severity, magnitude, risk of harm);
 2. The consequences of revocation (direct and collateral impacts to Subscribers and Relying Parties);
 3. The number of Certificate Problem Reports received about a particular Certificate or Subscriber;
@@ -632,23 +664,30 @@ After reviewing the facts and circumstances, the CA SHALL work with the Subscrib
 No stipulation.
 
 **Note**: Following certificate issuance, a certificate may be revoked for reasons stated in [Section 4.9](#49-certificate-revocation-and-suspension). Therefore, relying parties should check the revocation status of all certificates that contain a CDP or OCSP pointer.
+
 ### 4.9.7 CRL issuance frequency
 For the status of Subscriber Certificates:
+
 If the CA publishes a CRL, then the CA SHALL update and reissue CRLs at least once every seven days, and the value of the `nextUpdate` field MUST NOT be more than ten days beyond the value of the `thisUpdate` field.
+
 For the status of Subordinate CA Certificates:
+
 The CA SHALL update and reissue CRLs at least:
-  i. once every twelve months; and
-  ii. within 24 hours after revoking a Subordinate CA Certificate.
+   i. once every twelve months; and
+   ii. within 24 hours after revoking a Subordinate CA Certificate.
+
 The value of the `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field.
+
 ### 4.9.8 Maximum latency for CRLs
 No stipulation.
+
 ### 4.9.9  On-line revocation/status checking availability
 OCSP responses MUST conform to RFC6960 and/or RFC5019. OCSP responses MUST either:
+
 1. Be signed by the CA that issued the Certificates whose revocation status is being checked, or
-2. Be signed by an OCSP Responder whose Certificate is signed by the CA that issued the Certificate whose
-revocation status is being checked.
-In the latter case, the OCSP signing Certificate MUST contain an extension of type `id-pkix-ocsp-nocheck`, as
-defined by RFC6960.
+2. Be signed by an OCSP Responder whose Certificate is signed by the CA that issued the Certificate whose revocation status is being checked.
+   
+In the latter case, the OCSP signing Certificate MUST contain an extension of type `id-pkix-ocsp-nocheck`, as defined by RFC6960.
 
 ### 4.9.10 On-line revocation checking requirements
 OCSP responders operated by the CA SHALL support the HTTP GET method, as described in RFC 6960 and/or RFC 5019.
@@ -674,30 +713,41 @@ The CA SHOULD monitor the OCSP responder for requests for "unused" serial number
 A certificate serial number within an OCSP request is one of the following three options:
 
 1. "assigned" if a Certificate with that serial number has been issued by the Issuing CA, using any current or previous key associated with that CA subject; or
-2. "reserved" if a Precertificate [RFC6962] with that serial number has been issued by a. the Issuing CA; or b. a Precertificate Signing Certificate [RFC6962] associated with the Issuing CA; or
+2. "reserved" if a Precertificate [RFC6962] with that serial number has been issued by 
+   i. the Issuing CA; or 
+   ii. a Precertificate Signing Certificate [RFC6962] associated with the Issuing CA; or
 3. "unused" if neither of the previous conditions are met.
+
 ### 4.9.11 Other forms of revocation advertisements available
 No stipulation.
+
 ### 4.9.12 Special requirements re key compromise
 See [Section 4.9.1](#491-circumstances-for-revocation).
+
 ### 4.9.13 Circumstances for suspension
 The Repository MUST NOT include entries that indicate that a Certificate is suspended.
+
 ### 4.9.14 Who can request suspension
 Not applicable.
+
 ### 4.9.15 Procedure for suspension request
 Not applicable.
+
 ### 4.9.16 Limits on suspension period
 Not applicable.
+
 ## 4.10  Certificate status services
 
 ### 4.10.1 Operational characteristics
 Revocation entries on a CRL or OCSP Response MUST NOT be removed until after the Expiry Date of the revoked Certificate.
+
 ### 4.10.2 Service availability
 The CA SHALL operate and maintain its CRL and OCSP capability with resources sufficient to provide a response time of ten seconds or less under normal operating conditions.
 
 The CA SHALL maintain an online 24x7 Repository that application software can use to automatically check the current status of all unexpired Certificates issued by the CA.
 
 The CA SHALL maintain a continuous 24x7 ability to respond internally to a high-priority Certificate Problem Report, and where appropriate, forward such a complaint to law enforcement authorities, and/or revoke a Certificate that is the subject of such a complaint.
+
 ### 4.10.3 Optional features
 No stipulation.
 
@@ -736,6 +786,7 @@ The CA's security program MUST include an annual Risk Assessment that:
 3. Assesses the sufficiency of the policies, procedures, information systems, technology, and other arrangements that the CA has in place to counter such threats.
 
 Based on the Risk Assessment, the CA SHALL develop, implement, and maintain a security plan consisting of security procedures, measures, and products designed to achieve the objectives set forth above and to manage and control the risks identified during the Risk Assessment, commensurate with the sensitivity of the Certificate Data and Certificate Management Processes. The security plan MUST include administrative, organizational, technical, and physical safeguards appropriate to the sensitivity of the Certificate Data and Certificate Management Processes. The security plan MUST also take into account then-available technology and the cost of implementing the specific measures, and SHALL implement a reasonable level of security appropriate to the harm that might result from a breach of security and the nature of the data to be protected.
+
 ## 5.1  Physical controls
 
 ### 5.1.2  Physical access
@@ -758,6 +809,7 @@ Based on the Risk Assessment, the CA SHALL develop, implement, and maintain a se
 
 ### 5.2.2  Number of persons required per task
 The CA Private Key SHALL be backed up, stored, and recovered only by personnel in trusted roles using, at least, dual control in a physically secured environment.
+
 ### 5.2.3  Identification and authentication for each role
 
 ### 5.2.4  Roles requiring separation of duties
@@ -777,6 +829,7 @@ The CA SHALL maintain records of such training and ensure that personnel entrust
 The CA SHALL document that each Validation Specialist possesses the skills required by a task before allowing the Validation Specialist to perform that task.
 
 The CA SHALL require all Validation Specialists to pass an examination provided by the CA on the information verification requirements outlined in these Requirements.
+
 ### 5.3.4  Retraining frequency and requirements
 All personnel in Trusted roles SHALL maintain skill levels consistent with the CA's training and performance programs.
 
@@ -825,6 +878,7 @@ Log records MUST include the following elements:
 1. Date and time of record;
 2. Identity of the person making the journal record; and
 3. Description of the record.
+   
 ### 5.4.2  Frequency of processing log
 
 ### 5.4.3  Retention period for audit log
@@ -850,12 +904,14 @@ Additionally, the CA's security program MUST include an annual Risk Assessment t
 1. Identifies foreseeable internal and external threats that could result in unauthorized access, disclosure, misuse, alteration, or destruction of any Certificate Data or Certificate Management Processes;
 2. Assesses the likelihood and potential damage of these threats, taking into consideration the sensitivity of the Certificate Data and Certificate Management Processes; and
 3. Assesses the sufficiency of the policies, procedures, information systems, technology, and other arrangements that the CA has in place to counter such threats.
+4. 
 ## 5.5  Records archival
 
 ### 5.5.1  Types of records archived
 
 ### 5.5.2  Retention period for archive
 The CA SHALL retain all documentation relating to certificate requests and the verification thereof, and all Certificates and revocation thereof, for at least seven years after any Certificate based on that documentation ceases to be valid.
+
 ### 5.5.3  Protection of archive
 
 ### 5.5.4  Archive backup procedures
@@ -892,6 +948,7 @@ The business continuity plan MUST include:
 13. How frequently backup copies of essential business information and software are taken;
 14. The distance of recovery facilities to the CA's main site; and
 15. Procedures for securing its facility to the extent possible during the period of time following a disaster and prior to restoring a secure environment either at the original or a remote site.
+16. 
 ### 5.7.2  Computing resources, software, and/or data are corrupted
 
 ### 5.7.3  Entity private key compromise procedures
@@ -947,6 +1004,7 @@ The CA SHALL reject a certificate request if one or more of the following condit
 Parties other than the Subscriber SHALL NOT archive the Subscriber Private Key without authorization by the Subscriber.
 
 If the CA or any of its designated RAs become aware that a Subscriber's Private Key has been communicated to an unauthorized person or an organization not affiliated with the Subscriber, then the CA SHALL revoke all certificates that include the Public Key corresponding to the communicated Private Key.
+
 ### 6.1.3  Public key delivery to certificate issuer
 
 ### 6.1.4  CA public key delivery to relying parties
@@ -980,8 +1038,10 @@ Private Keys corresponding to Root Certificates MUST NOT be used to sign Certifi
 2. Certificates for Subordinate CAs and Cross Certificates;
 3. Certificates for infrastructure purposes (administrative role certificates, internal CA operational device certificates); and
 4. Certificates for OCSP Response verification.
+5. 
 ## 6.2  Private Key Protection and Cryptographic Module Engineering Controls
 The CA SHALL implement physical and logical safeguards to prevent unauthorized certificate issuance. Protection of the CA Private Key outside the validated system or device specified above MUST consist of physical security, encryption, or a combination of both, implemented in a manner that prevents disclosure of the Private Key. The CA SHALL encrypt its Private Key with an algorithm and key-length that, according to the state of the art, are capable of withstanding cryptanalytic attacks for the residual life of the encrypted key or key part.
+
 ### 6.2.1  Cryptographic module standards and controls
 
 ### 6.2.2  Private key (n out of m) multi-person control
@@ -990,7 +1050,8 @@ The CA SHALL implement physical and logical safeguards to prevent unauthorized c
 
 ### 6.2.4  Private key backup
 
-See [Section 5.2.2](#522-number-of-individuals-required-per-task).
+See [Section 5.2.2](#522-number-of-persons-required-per-task).
+
 ### 6.2.5  Private key archival
 Parties other than the Subordinate CA SHALL NOT archive the Subordinate CA Private Keys without authorization by the Subordinate CA.
 
@@ -1018,6 +1079,7 @@ Parties other than the Subordinate CA SHALL NOT archive the Subordinate CA Priva
 | Legacy | 1095 days |
 
 For the purpose of calculations, a day is measured as 86,400 seconds. Any amount of time greater than this, including fractional seconds and/or leap seconds, shall represent an additional day. For this reason, Subscriber Certificates SHOULD NOT be issued for the maximum permissible time by default, in order to account for such adjustments.
+
 ## 6.4  Activation data
 
 ### 6.4.1  Activation data generation and installation
@@ -1047,6 +1109,7 @@ For the purpose of calculations, a day is measured as 86,400 seconds. Any amount
 # 7.  CERTIFICATE, CRL, AND OCSP PROFILES
 
 **Editor's Note:  The format of Section 7 is undergoing significant change.**
+
 ## 7.1  Certificate profile
 
 The CA SHALL meet the technical requirements set forth in [Section 2.2 - Publication of Information](#22-publication-of-information), [Section 6.1.5 - Key Sizes](#615-key-sizes), and [Section 6.1.6 - Public Key Parameters Generation and Quality Checking](#616-public-key-parameters-generation-and-quality-checking).
@@ -1163,12 +1226,12 @@ e. `keyUsage` (required)
 
 f. `extKeyUsage` (required)
 
-  | Type | `extendedKeyUsage`      | 
-  |------|-----------------------|
-  | Strict | `id-kp-emailProtection` [RFC5280] MUST be present. Other values MUST NOT be present. |
-  | Multipurpose<br>and Legacy |`id-kp-emailProtection` [RFC5280] MUST be present. Other values MAY be present. |
+   | Type | `extendedKeyUsage`      | 
+   |------|-----------------------|
+   | Strict | `id-kp-emailProtection` [RFC5280] MUST be present. Other values MUST NOT be present. |
+  | Multipurpose and Legacy |`id-kp-emailProtection` [RFC5280] MUST be present. Other values MAY be present. |
 
-  The value `anyExtendedKeyUsage` MUST NOT be present.
+   The value `anyExtendedKeyUsage` MUST NOT be present.
 
 g. `authorityKeyIdentifier` (required)
 
@@ -1178,12 +1241,12 @@ h. `subjectAlternativeName` (required)
 
    This extension MUST be present and SHOULD NOT be marked critical unless the Subject is an empty sequence. 
 
-  | Type | `subjectAlternativeName`      | 
-  |------|-----------------------|
-  | Strict | All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, `otherName` values other than type `id-on-SmtpUTF8Mailbox`, or `uniformResourceIdentifier`.|
-  | Multipurpose<br>and Legacy |All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, or `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of any other type MUST be validated in accordance with the CA's CPS. |
+   | Type | `subjectAlternativeName`      | 
+   |------|-----------------------|
+   | Strict | All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, `otherName` values other than type `id-on-SmtpUTF8Mailbox`, or `uniformResourceIdentifier`.|
+   | Multipurpose and Legacy |All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, or `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of any other type MUST be validated in accordance with the CA's CPS. |
 
-  `otherName` values of type `id-on-SmtpUTF8Mailbox` MUST be validated in accordance with RFC 8398.
+   `otherName` values of type `id-on-SmtpUTF8Mailbox` MUST be validated in accordance with RFC 8398.
 
 i. `smimeCapabilities` (optional)
 
@@ -1191,10 +1254,10 @@ i. `smimeCapabilities` (optional)
 
 j. `subjectDirectoryAttributes` (optional)
 
-  | Type | `subjectDirectoryAttributes`      | 
-  |------|-----------------------|
-  | Strict and<br>Multipurpose | Prohibited |
-  | Legacy | MAY be present and MUST NOT be marked critical.  |
+   | Type | `subjectDirectoryAttributes`      | 
+   |------|-----------------------|
+   | Strict and Multipurpose | Prohibited |
+   | Legacy | MAY be present and MUST NOT be marked critical.  |
 
    May contain verified attributes which are not part of the Subject's Distinguished Name such as dateOfBirth, placeOfBirth, gender, countryOfCitizenship, or countryOfResidence in accordance with [RFC 3739 Section 3.2.2](https://tools.ietf.org/html/rfc3739#section-3.2.2). 
 
@@ -1204,21 +1267,21 @@ k. qcStatements (optional)
 
 l. Legal Entity Identifier (optional)
 
-  | Type | LEI      | 
-  |------|-----------------------|
-  | Mailbox | Prohibited |
-  | Organization | MAY be present and MUST NOT be marked critical.  |
-  | Sponsored | MAY be present and MUST NOT be marked critical.  |
-  | Individual | Prohibited |
+   | Type | LEI      | 
+   |------|-----------------------|
+   | Mailbox | Prohibited |
+   | Organization | MAY be present and MUST NOT be marked critical.  |
+   | Sponsored | MAY be present and MUST NOT be marked critical.  |
+   | Individual | Prohibited |
 
-  May include a verified Legal Entity Identifier data record for LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) in accordance with ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4.
+   May include a verified Legal Entity Identifier data record for LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) in accordance with ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4.
 
 m. Adobe Extensions (optional)
 
-  | Type | Adobe Extensions      | 
-  |------|-----------------------|
-  | Strict<br> | Prohibited |
-  | Multipurpose<br>and Legacy | MAY be present and MUST NOT be marked critical.  May include the Adobe Time-stamp X509 extension (1.2.840.113583.1.1.9.1) or the Adobe ArchiveRevInfo extension (1.2.840.113583.1.1.9.2) |
+   | Type | Adobe Extensions      | 
+   |------|-----------------------|
+   | Strict<br> | Prohibited |
+   | Multipurpose<br>and Legacy | MAY be present and MUST NOT be marked critical.  May include the Adobe Time-stamp X509 extension (1.2.840.113583.1.1.9.1) or the Adobe ArchiveRevInfo extension (1.2.840.113583.1.1.9.2) |
 
 #### 7.1.2.4 All Certificates
 **DRAFT**
@@ -1230,6 +1293,7 @@ CAs SHALL NOT issue a Certificate with:
    i. such value falls within an OID arc for which the Applicant demonstrates ownership, or<br>
    ii. the Applicant can otherwise demonstrate the right to assert the data in a public context; or
 2. semantics that, if included, will mislead a Relying Party about the certificate information verified by the CA (such as including an `extKeyUsage` value for a smart card, where the CA is not able to verify that the corresponding Private Key is confined to such hardware due to remote issuance).
+3. 
 ### 7.1.3 Algorithm object identifiers
 
 #### 7.1.3.1 SubjectPublicKeyInfo
@@ -1483,6 +1547,7 @@ The CA's audit SHALL be performed by a Qualified Auditor. A Qualified Auditor me
 5. (For audits conducted in accordance with the WebTrust standard) licensed by WebTrust;
 6. Bound by law, government regulation, or professional code of ethics; and
 7. Except in the case of an Internal Government Auditing Agency, maintains Professional Liability/Errors & Omissions insurance with policy limits of at least one million US dollars in coverage.
+   
 ## 8.3  Assessor's relationship to assessed entity
 
 ## 8.4  Topics covered by assessment
@@ -1500,6 +1565,7 @@ The audit MUST be conducted by a Qualified Auditor, as specified in [Section 8.2
 For Delegated Third Parties which are not Enterprise RAs, then the CA SHALL obtain an audit report, issued under the auditing standards that underlie the accepted audit schemes found in [Section 8.4](#84-topics-covered-by-assessment), that provides an opinion whether the Delegated Third Party's performance complies with either the Delegated Third Party's practice statement or the CA's CP and/or CPS. If the opinion is that the Delegated Third Party does not comply, then the CA SHALL not allow the Delegated Third Party to continue performing delegated functions.
 
 The audit period for the Delegated Third Party SHALL NOT exceed one year (ideally aligned with the CA's audit). However, if the CA or Delegated Third Party is under the operation, control, or supervision of a Government Entity and the audit scheme is completed over multiple years, then the annual audit MUST cover at least the core controls that are required to be audited annually by such scheme plus that portion of all non-core controls that are allowed to be conducted less frequently, but in no case may any non-core control be audited less often than once every three years.
+
 ## 8.5  Actions taken as a result of deficiency
 
 ## 8.6  Communication of results
@@ -1584,6 +1650,7 @@ The CA SHALL internally audit the compliance of Enterprise RAs or Technically Co
 ### 9.6.1  CA representations and warranties
 
 For any Certificate in a hierarchy capable of being used for S/MIME, CAs SHALL revoke Certificates upon the occurrence of any of the following events:
+
 1.  the Subscriber indicates that the original certificate request was not authorized and does not retroactively grant authorization;
 2.  the CA obtains reasonable evidence that the Subscriber’s Private Key (corresponding to the Public Key in the Certificate) has been compromised or is suspected of compromise;
 3. the CA obtains reasonable evidence that the Certificate has been used for a purpose outside of that indicated in the Certificate or in the CA's Subscriber agreement;
@@ -1611,6 +1678,7 @@ For any Certificate in a hierarchy capable of being used for S/MIME, CAs SHALL r
 For delegated tasks, the CA and any Delegated Third Party MAY allocate liability between themselves contractually as they determine, but the CA SHALL remain fully responsible for the performance of all parties in accordance with these Requirements, as if the tasks had not been delegated.
 
 If the CA has issued and managed the Certificate in compliance with these Requirements and its CP and/or CPS, the CA MAY disclaim liability to the Certificate Beneficiaries or any other third parties for any losses suffered as a result of use or reliance on such Certificate beyond those specified in the CA's CP and/or CPS. If the CA has not issued or managed the Certificate in compliance with these Requirements and its CP and/or CPS, the CA MAY seek to limit its liability to the Subscriber and to Relying Parties, regardless of the cause of action or legal theory involved, for any and all claims, losses or damages suffered as a result of the use or reliance on such Certificate by any appropriate means that the CA desires. If the CA chooses to limit its liability for Certificates that are not issued or managed in compliance with these Requirements or its CP and/or CPS, then the CA SHALL include the limitations on liability in the CA's CP and/or CPS.
+
 ## 9.9  Indemnities
 Notwithstanding any limitations on its liability to Subscribers and Relying Parties, the CA understands and acknowledges that the Application Software Suppliers who have a Root Certificate distribution agreement in place with the Root CA do not assume any obligation or potential liability of the CA under these Requirements or that otherwise might exist because of the issuance or maintenance of Certificates or reliance thereon by Relying Parties or others. Thus, except in the case where the CA is a government entity, the CA SHALL defend, indemnify, and hold harmless each Application Software Supplier for any and all claims, damages, and losses suffered by such Application Software Supplier related to a Certificate issued by the CA, regardless of the cause of action or legal theory involved. This does not apply, however, to any claim, damages, or loss suffered by such Application Software Supplier related to a Certificate issued by the CA where such claim, damage, or loss was directly caused by such Application Software Supplier's software displaying as not trustworthy a Certificate that is still valid, or displaying as trustworthy: (1) a Certificate that has expired, or (2) a Certificate that has been revoked (but only in cases where the revocation status is currently available from the CA online, and the application software either failed to check such status or ignored an indication of revoked status).
 
