@@ -1440,6 +1440,16 @@ All Subject email attribute values contained in the Subject MUST be repeated in 
 
 This extension MUST NOT contain items of type `dNSName`, `iPAddress`,  `uniformResourceIdentifier`, or `GeneralNames` of any other type.
 
+##### 7.1.4.2.2 Subject Distinguished Name Fields
+listing all the fields
+
+##### 7.1.4.2.3 Mailbox
+
+##### 7.1.4.2.3 Organization
+
+##### 7.1.4.2.4 Sponsored
+
+
 #### 7.1.4.3 Subject Information - Root Certificates and Subordinate CA Certificates
 
 By issuing a Subordinate CA Certificate, the CA represents that it followed the procedure set forth in its CP and/or CPS to verify that, as of the Certificate's issuance date, all of the Subject Information was accurate.
