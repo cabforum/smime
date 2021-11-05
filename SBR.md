@@ -1493,6 +1493,10 @@ The Subordinate CA and the Issuing CA SHALL represent, in their CP and/or CPS, t
 
 #### 7.1.6.4 Subscriber Certificates
 
+A Certificate issued to a Subscriber MUST contain, within the Certificate's `certificatePolicies` extension, a policy identifier that is specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers).
+
+The certificate MAY also contain additional policy identifier(s) defined by the Issuing CA. The issuing CA SHALL document in its CP and/or CPS that the Certificates it issues containing the specified policy identifier(s) are managed in accordance with these requirements.
+
 ### 7.1.7  Usage of Policy Constraints extension
 
 ### 7.1.8  Policy qualifiers syntax and semantics
