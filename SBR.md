@@ -61,7 +61,6 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 
 `{joint-iso-itu-t(2) international-organizations(23) ca-browser-forum(140) certificate-policies(1) smime-baseline(5) individual-validated (4) strict (3)}` (2.23.140.1.5.4.3). 
 
-
 ### 1.2.1  Revisions
 
 |Version| Ballot|Description                       | Adopted  | Effective\*  |
@@ -1419,6 +1418,26 @@ For every valid Certification Path (as defined by RFC 5280, Section 6):
 
 #### 7.1.4.2 Subject Information - Subscriber Certificates
 
+By issuing the Certificate, the CA represents that it followed the procedure set forth in its CP and/or CPS to verify that, as of the Certificate's issuance date, all of the Subject Information was accurate. CAs SHALL NOT include an email address in a Subject attribute except as specified in [Section 3.2.2.2](#3222-validation-of-mailbox-authorization-or-control).
+
+Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable.
+
+##### 7.1.4.2.1 Subject Alternative Name Extension
+
+__Certificate Field:__ `extensions:subjectAltName`  
+__Required/Optional:__ Required  
+__Contents:__ This extension MUST contain at least one entry of the following types:
+
+* `Rfc822Name` and/or
+* `otherName` of type `id-on-SmtpUTF8Mailbox`
+
+All email addresses contained in the Subject MUST be repeated in this extension. This extension MUST NOT contain items of type `dNSName`, `iPAddress`, or `uniformResourceIdentifier`.  In addition the following apply:
+
+   | Type | `keyUsage`      | 
+   |------|-----------------------|
+   | Strict | MUST NOT contain `otherNames` other than type `id-on-SmtpUTF8Mailbox`. |
+   | Multipurpose and Legacy | `otherName` values MAY be included. `otherNames` of type `id-on-SmtpUTF8Mailbox` MUST be validated in accordance with RFC 8398.  `otherNames` of any other type MUST be validated in accordance with procedures documented in the CA's CP and/or CPS.|
+
 #### 7.1.4.3 Subject Information - Root Certificates and Subordinate CA Certificates
 
 By issuing a Subordinate CA Certificate, the CA represents that it followed the procedure set forth in its CP and/or CPS to verify that, as of the Certificate's issuance date, all of the Subject Information was accurate.
@@ -1458,7 +1477,7 @@ This section describes the content requirements for the Root CA, Subordinate CA,
 
 The following Certificate Policy identifiers are reserved for use by CAs to assert that a Certificate complies with these Requirements.
 
-| Validation Level | Generation | Policy Identifier |
+| Validation Type | Generation | Policy Identifier |
 | ---------------- | ---------- | ----------------- |
 | Mailbox | Legacy | `2.23.140.1.5.1.1` |
 | Mailbox | Multipurpose | `2.23.140.1.5.1.2` |
