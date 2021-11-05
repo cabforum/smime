@@ -1431,12 +1431,14 @@ __Contents:__ This extension MUST contain at least one entry of the following ty
 * `Rfc822Name` and/or
 * `otherName` of type `id-on-SmtpUTF8Mailbox`
 
-All email addresses contained in the Subject MUST be repeated in this extension. This extension MUST NOT contain items of type `dNSName`, `iPAddress`, or `uniformResourceIdentifier`.  In addition the following apply:
+All Subject email attribute values contained in the Subject MUST be repeated in this extension. In addition the following apply:
 
    | Type | `keyUsage`      | 
    |------|-----------------------|
    | Strict | MUST NOT contain `otherNames` other than type `id-on-SmtpUTF8Mailbox`. |
-   | Multipurpose and Legacy | `otherName` values MAY be included. `otherNames` of type `id-on-SmtpUTF8Mailbox` MUST be validated in accordance with RFC 8398.  `otherNames` of any other type MUST be validated in accordance with procedures documented in the CA's CP and/or CPS.|
+   | Multipurpose and Legacy | `otherName` values MAY be included. `otherNames` of type `id-on-SmtpUTF8Mailbox` MUST be encoded in accordance with RFC 8398.  `otherNames` MUST be validated in accordance with procedures documented in the CA's CP and/or CPS.|
+
+This extension MUST NOT contain items of type `dNSName`, `iPAddress`,  `uniformResourceIdentifier`, or `GeneralNames` of any other type.
 
 #### 7.1.4.3 Subject Information - Root Certificates and Subordinate CA Certificates
 
