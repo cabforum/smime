@@ -75,20 +75,20 @@ The CA/Browser Forum is a voluntary organization of Certification Authorities an
 Certification Authority (CA) is defined in [Section 1.6.1](#161-definitions). Current CA Members of the CA/Browser Forum are listed at https://cabforum.org/members.
 
 ### 1.3.2  Registration authorities
-With the exception of [Section 3.2.3](#3222--validation-of-mailbox-authorization-or-control), the CA MAY delegate the performance of all, or any part, of [Section 3.2](#32--initial-identity-validation) requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of [Section 3.2](#32--initial-identity-validation).
+With the exception of [Section 3.2.3](#3222-validation-of-mailbox-authorization-or-control), the CA MAY delegate the performance of all, or any part, of [Section 3.2](#32-initial-identity-validation) requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of [Section 3.2](#32-initial-identity-validation).
 
 Before the CA authorizes a Delegated Third Party to perform a delegated function, the CA SHALL contractually require the Delegated Third Party to:
 
-1. Meet the qualification requirements of [Section 5.3.1](#531--qualifications-experience-and-clearance-requirements), when applicable to the delegated function;
-2. Retain documentation in accordance with [Section 5.5.2](#552--retention-period-for-archive);
+1. Meet the qualification requirements of [Section 5.3.1](#531-qualifications-experience-and-clearance-requirements), when applicable to the delegated function;
+2. Retain documentation in accordance with [Section 5.5.2](#552-retention-period-for-archive);
 3. Abide by the other provisions of these Requirements that are applicable to the delegated function; and
 4. Comply with (a) the CA's CP and/or CPS or (b) the Delegated Third Party's practice statement that the CA has verified complies with these Requirements.
 
 The CA MAY designate an Enterprise Registration Authority (RA) to verify certificate requests from the Enterprise RA's own organization.  The CA SHALL NOT accept certificate requests authorized by an Enterprise RA unless the following requirements are satisfied:
 
-1. 1.	If the certificate request is for an Organization-validated, Sponsor-validated, or Individual-validated policy, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.2.1](#32221--validating-authority-over-email-address-via-domain). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32--initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
+1. 1.	If the certificate request is for an Organization-validated, Sponsor-validated, or Individual-validated policy, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.2.1](#32221-validating-authority-over-email-address-via-domain). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
 
-2. If the certificate request is for a Mailbox-validated policy, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2.2](#32222--validating-control-over-email-address-via-email)
+2. If the certificate request is for a Mailbox-validated policy, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2.2](#32222-validating-control-over-email-address-via-email)
 
 The CA SHALL impose these limitations as a contractual requirement on the Enterprise RA and monitor compliance by the Enterprise RA.
 
@@ -491,7 +491,7 @@ The CA SHALL disclose all Cross Certificates that identify the CA as the Subject
 ### 4.2.1 Performing identification and authentication functions
 Applicant information SHALL include, but not be limited to, at least one rfc822Name email address to be included in the Certificate's subjectAltName extension.
 
-[Section 6.3.2](#632--certificate-operational-periods-and-key-pair-usage-periods) limits the validity period of Subscriber Certificates. The CA MAY use the documents and data provided in [Section 3.2](#323--authentication-of-individual-identity) to verify certificate information, or may reuse previous validations themselves, provided that the CA obtained the data or document from a source specified under [Section 3.2](#323--authentication-of-individual-identity) or completed the validation itself no more than 398 days prior to issuing the Certificate.
+[Section 6.3.2](#632-certificate-operational-periods-and-key-pair-usage-periods) limits the validity period of Subscriber Certificates. The CA MAY use the documents and data provided in [Section 3.2](#323-authentication-of-individual-identity) to verify certificate information, or may reuse previous validations themselves, provided that the CA obtained the data or document from a source specified under [Section 3.2](#323-authentication-of-individual-identity) or completed the validation itself no more than 398 days prior to issuing the Certificate.
 
 In no case may a prior validation be reused if any data or document used in the prior validation was obtained more than the maximum time permitted for reuse of the data or document prior to issuing the Certificate.
 
@@ -697,7 +697,7 @@ For the status of Subordinate CA Certificates, the CA SHALL update information p
 1. at least every twelve months; and
 2. within 24 hours after revoking a Subordinate CA Certificate.
 
-If the OCSP responder receives a request for the status of a certificate serial number that is "unused", then the responder SHOULD NOT respond with a "good" status. If the OCSP responder is for a CA that is not Technically Constrained in line with [Section 7.1.5](#715--name-constraints), the responder MUST NOT respond with a "good" status for such requests.
+If the OCSP responder receives a request for the status of a certificate serial number that is "unused", then the responder SHOULD NOT respond with a "good" status. If the OCSP responder is for a CA that is not Technically Constrained in line with [Section 7.1.5](#715-name-constraints), the responder MUST NOT respond with a "good" status for such requests.
 
 The CA SHOULD monitor the OCSP responder for requests for "unused" serial numbers as part of its security response procedures.
 
