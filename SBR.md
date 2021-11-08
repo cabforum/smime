@@ -1420,7 +1420,7 @@ For every valid Certification Path (as defined by RFC 5280, Section 6):
 
 By issuing the Certificate, the CA represents that it followed the procedure set forth in its CP and/or CPS to verify that, as of the Certificate's issuance date, all of the Subject Information was accurate. CAs SHALL NOT include an email address in a Subject attribute except as specified in [Section 3.2.2.2](#3222-validation-of-mailbox-authorization-or-control).
 
-Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable.
+Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable. 
 
 ##### 7.1.4.2.1 Subject Alternative Name Extension
 
@@ -1441,14 +1441,166 @@ All Subject email attribute values contained in the Subject MUST be repeated in 
 This extension MUST NOT contain items of type `dNSName`, `iPAddress`,  `uniformResourceIdentifier`, or `GeneralNames` of any other type.
 
 ##### 7.1.4.2.2 Subject Distinguished Name Fields
-listing all the fields
+
+a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
+   __Required/Optional:__ __Deprecated__ (Discouraged, but not prohibited)  
+   __Contents:__ If present, this field MUST contain one of the following values verified in accordance with [Section 3.2.2.1](#3221-identity).
+
+| Type    | Contents |
+|---------|----------|
+| Mailbox | `subject:email` |
+| Organization | `subject:organizationName` or `subject:email` |
+| Sponsored | `subject:givenName` and/or `subject:surname`, or `subject:email` |
+| Individual | `subject:givenName` and/or `subject:surname`, or `subject:email` |
+
+b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
+   __Required/Optional:__ __Optional__.  
+   __Contents:__ If present, the `subject:organizationName` field MUST contain either the Subject's name or DBA as verified under [Section 3.2.2.2](#3222-dbatradename). The CA may include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
+
+c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)  
+   __Required/Optional:__ __Deprecated__. 
+   __Prohibited__ if the `subject:organizationName` is absent or the certificate is issued on or after September 1, 2022.
+   __Contents__: The CA SHALL implement a process that prevents an OU attribute from including a name, DBA, tradename, trademark, address, location, or other text that refers to a specific natural person or Legal Entity unless the CA has verified this information in accordance with [Section 3.2](#32-initial-identity-validation) and the Certificate also contains `subject:organizationName`, `subject:givenName`, `subject:surname`, `subject:localityName`, and `subject:countryName` attributes, also verified in accordance with [Section 3.2.2.1](#3221-identity).
+
+d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
+   __Required/Optional:__ __Optional__.  
+   __Contents:__ 
+
+e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
+   __Required/Optional:__ __Optional__.  
+   __Contents:__ If present, the `subject:givenName` field and `subject:surname` field MUST contain a natural person Subject’s name as verified under [Section 3.2.3](#323-authentication-of-individual-identity). 
+
+f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65) 
+   __Required/Optional:__ __Optional__.  
+   __Contents:__ 
+
+g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
+   __Required/Optional:__ __Optional__.  
+   __Contents:__ 
+
+h. __Certificate Field:__ `subject:email` (1.2.840.113549.1.9.1) 
+   __Required/Optional:__ __Optional__.  
+   __Contents:__ 
+
+i. __Certificate Field:__ `subject:title` (2.5.4.12) 
+   __Required/Optional:__ __Optional__.  
+   __Contents:__ 
+
+j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4.9)  
+   __Required/Optional:__  
+   __Optional__ if the `subject:organizationName` field, `subject:givenName` field, or `subject:surname` field are present.  
+   __Prohibited__ if the `subject:organizationName` field, `subject:givenName`, and `subject:surname` field are absent.  
+   __Contents:__ If present, the `subject:streetAddress` field MUST contain the Subject's street address information as verified under [Section 3.2.2.1](#3221-identity).
+
+k. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)  
+   __Required/Optional:__  
+   __Required__ if the `subject:organizationName` field, `subject:givenName` field, or `subject:surname` field are present and the `subject:stateOrProvinceName` field is absent.  
+   __Optional__ if the `subject:stateOrProvinceName` field and the `subject:organizationName` field, `subject:givenName` field, or `subject:surname` field are present.  
+   __Prohibited__ if the `subject:organizationName` field, `subject:givenName`, and `subject:surname` field are absent.  
+   __Contents:__ If present, the `subject:localityName` field MUST contain the Subject's locality information as verified under [Section 3.2.2.1](#3221-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `localityName` field MAY contain the Subject's locality and/or state or province information as verified under [Section 3.2.2.1](#3221-identity).
+
+l. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)  
+   __Required/Optional:__  
+   __Required__ if the `subject:organizationName` field, `subject:givenName` field, or `subject:surname` field are present and `subject:localityName` field is absent.  
+   __Optional__ if the `subject:localityName` field and the `subject:organizationName` field, the `subject:givenName` field, or the `subject:surname` field are present.  
+   __Prohibited__ if the `subject:organizationName` field, the `subject:givenName` field, or `subject:surname` field are absent.  
+   __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under [Section 3.2.2.1](#3221-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information as verified under [Section 3.2.2.1](#3221-identity).
+
+m. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)  
+   __Required/Optional:__  
+   __Optional__ if the `subject:organizationName`, `subject:givenName` field, or `subject:surname` fields are present.  
+   __Prohibited__ if the `subject:organizationName` field, `subject:givenName` field, or `subject:surname` field are absent.  
+   __Contents:__ If present, the `subject:postalCode` field MUST contain the Subject's zip or postal information as verified under [Section 3.2.2.1](#3221-identity).
+
+n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)  
+   __Required/Optional:__  
+   __Required__ if the `subject:organizationName` field, `subject:givenName`, or `subject:surname` field are present.  
+   __Optional__ if the `subject:organizationName` field, `subject:givenName` field, and `subject:surname` field are absent.  
+   __Contents:__ If the `subject:organizationName` field is present, the `subject:countryName` MUST contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under [Section 3.2.2.1](#3221-identity). If the `subject:organizationName` field is absent, the `subject:countryName` field MAY contain the two-letter ISO 3166-1 country code associated with the Subject as verified in accordance with [Section 3.2.2.3](#3223-verification-of-country). If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of XX indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
 
 ##### 7.1.4.2.3 Mailbox
 
+| Attribute | Legacy | Multipurpose | Strict |
+|-----------|--------|--------------|--------|
+| `subject:commonName` | MAY  | MAY | MAY |
+| `subject:organizationName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationIdentifier` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:givenName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:surname` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:serialNumber` | MAY | MAY | MAY |
+| `subject:email` | MAY | MAY | MAY |
+| `subject:title` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:streetAddress` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:localityName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:stateOrProvinceName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:postalCode` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:countryName` | MUST NOT | MUST NOT | MUST NOT |
+| Other | MUST NOT | MUST NOT | MUST NOT |
+
 ##### 7.1.4.2.3 Organization
+
+| Attribute | Legacy | Multipurpose | Strict |
+|-----------|--------|--------------|--------|
+| `subject:commonName` | MAY  | MAY | MAY |
+| `subject:organizationName` | MUST | MUST | MUST |
+| `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationIdentifier` | MUST | MUST | MUST |
+| `subject:givenName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:surname` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:serialNumber` | MAY | MAY | MAY |
+| `subject:email` | MAY | MAY | MAY |
+| `subject:title` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:streetAddress` | MUST NOT | MAY | MAY |
+| `subject:localityName` | MAY | MAY | MAY |
+| `subject:stateOrProvinceName` | MAY | MAY | MAY |
+| `subject:postalCode` | MUST NOT | MAY | MAY |
+| `subject:countryName` | MUST | MUST | MAY |
+| Other | MUST NOT | MUST NOT | MAY |
 
 ##### 7.1.4.2.4 Sponsored
 
+| Attribute | Legacy | Multipurpose | Strict |
+|-----------|--------|--------------|--------|
+| `subject:commonName` | MAY  | MAY | MAY |
+| `subject:organizationName` | MUST | MUST | MUST |
+| `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationIdentifier` | MUST | MUST | MUST |
+| `subject:givenName` | MAY  | MAY | MAY |
+| `subject:surname` | MAY  | MAY | MAY |
+| `subject:pseudonym` | MAY  | MAY | MAY |
+| `subject:serialNumber` | MAY | MAY | MAY |
+| `subject:email` | MAY | MAY | MAY |
+| `subject:title` | MAY  | MAY | MAY |
+| `subject:streetAddress` | MUST NOT | MAY | MAY |
+| `subject:localityName` | MAY | MAY | MAY |
+| `subject:stateOrProvinceName` | MAY | MAY | MAY |
+| `subject:postalCode` | MUST NOT | MAY | MAY |
+| `subject:countryName` | MUST | MUST | MAY |
+| Other | MUST NOT | MUST NOT | MAY |
+
+##### 7.1.4.2.5 Individual
+
+| Attribute | Legacy | Multipurpose   | Strict |
+|-----------|--------|----------------|--------|
+| `subject:commonName` | MAY  | MAY | MAY |
+| `subject:organizationName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationIdentifier` | MUST | MUST | MUST |
+| `subject:givenName` | MUST  | MUST | MAY |
+| `subject:surname` | MUST  | MUST | MAY |
+| `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:serialNumber` | MAY | MAY | MAY |
+| `subject:email` | MAY | MAY | MAY |
+| `subject:title` | MAY  | MAY | MAY |
+| `subject:streetAddress` | MUST NOT | MAY | MAY |
+| `subject:localityName` | MAY | MAY | MAY |
+| `subject:stateOrProvinceName` | MAY | MAY | MAY |
+| `subject:postalCode` | MUST NOT | MAY | MAY |
+| `subject:countryName` | MUST | MUST | MAY |
+| Other | MUST NOT | MUST NOT | MAY |
 
 #### 7.1.4.3 Subject Information - Root Certificates and Subordinate CA Certificates
 
