@@ -651,6 +651,7 @@ After reviewing the facts and circumstances, the CA SHALL work with the Subscrib
 3. The number of Certificate Problem Reports received about a particular Certificate or Subscriber;
 4. The entity making the complaint (for example, a complaint from a law enforcement official that a Web site is engaged in illegal activities should carry more weight than a complaint from a consumer alleging that they didn't receive the goods they ordered); and
 5. Relevant legislation.
+   
 ### 4.9.6  Revocation checking requirement for relying parties
 No stipulation.
 
@@ -895,7 +896,7 @@ Additionally, the CA's security program MUST include an annual Risk Assessment t
 1. Identifies foreseeable internal and external threats that could result in unauthorized access, disclosure, misuse, alteration, or destruction of any Certificate Data or Certificate Management Processes;
 2. Assesses the likelihood and potential damage of these threats, taking into consideration the sensitivity of the Certificate Data and Certificate Management Processes; and
 3. Assesses the sufficiency of the policies, procedures, information systems, technology, and other arrangements that the CA has in place to counter such threats.
-4. 
+
 ## 5.5  Records archival
 
 ### 5.5.1  Types of records archived
@@ -924,22 +925,22 @@ The CA SHALL document a business continuity and disaster recovery procedures des
 
 The business continuity plan MUST include:
 
-1. The conditions for activating the plan,
-2. Emergency procedures,
-3. Fallback procedures,
-4. Resumption procedures,
+1. The conditions for activating the plan;
+2. Emergency procedures;
+3. Fallback procedures;
+4. Resumption procedures;
 5. A maintenance schedule for the plan;
 6. Awareness and education requirements;
 7. The responsibilities of the individuals;
 8. Recovery time objective (RTO);
-9. Regular testing of contingency plans.
-10. The CA's plan to maintain or restore the CA's business operations in a timely manner following interruption to or failure of critical business processes
+9. Regular testing of contingency plans;
+10. The CA's plan to maintain or restore the CA's business operations in a timely manner following interruption to or failure of critical business processes;
 11. A requirement to store critical cryptographic materials (i.e., secure cryptographic device and activation materials) at an alternate location;
-12. What constitutes an acceptable system outage and recovery time
+12. What constitutes an acceptable system outage and recovery time;
 13. How frequently backup copies of essential business information and software are taken;
 14. The distance of recovery facilities to the CA's main site; and
 15. Procedures for securing its facility to the extent possible during the period of time following a disaster and prior to restoring a secure environment either at the original or a remote site.
-16. 
+
 ### 5.7.2  Computing resources, software, and/or data are corrupted
 
 ### 5.7.3  Entity private key compromise procedures
@@ -1029,7 +1030,7 @@ Private Keys corresponding to Root Certificates MUST NOT be used to sign Certifi
 2. Certificates for Subordinate CAs and Cross Certificates;
 3. Certificates for infrastructure purposes (administrative role certificates, internal CA operational device certificates); and
 4. Certificates for OCSP Response verification.
-5. 
+
 ## 6.2  Private Key Protection and Cryptographic Module Engineering Controls
 The CA SHALL implement physical and logical safeguards to prevent unauthorized certificate issuance. Protection of the CA Private Key outside the validated system or device specified above MUST consist of physical security, encryption, or a combination of both, implemented in a manner that prevents disclosure of the Private Key. The CA SHALL encrypt its Private Key with an algorithm and key-length that, according to the state of the art, are capable of withstanding cryptanalytic attacks for the residual life of the encrypted key or key part.
 
@@ -1275,8 +1276,8 @@ m. Adobe Extensions (optional)
    | Multipurpose and Legacy | MAY be present and MUST NOT be marked critical.  May include the Adobe Time-stamp X509 extension (1.2.840.113583.1.1.9.1) or the Adobe ArchiveRevInfo extension (1.2.840.113583.1.1.9.2) |
 
 #### 7.1.2.4 All Certificates
-**DRAFT**
-All other fields and extensions MUST be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123--subscriber-certificates) unless the CA is aware of a reason for including the data in the Certificate.
+
+All fields and extensions MUST be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123--subscriber-certificates) unless the CA is aware of a reason for including the data in the Certificate.
 
 CAs SHALL NOT issue a Certificate with:
 
@@ -1456,9 +1457,7 @@ b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)
    __Contents:__ If present, the `subject:organizationName` field MUST contain either the Subject's name or DBA as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity). The CA may include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
 
 c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)  
-   __Required/Optional:__ __Deprecated__. 
-   __Prohibited__ if the `subject:organizationName` is absent or the certificate is issued on or after September 1, 2022.
-   __Contents__: The CA SHALL implement a process that prevents an OU attribute from including a name, DBA, tradename, trademark, address, location, or other text that refers to a specific natural person or Legal Entity unless the CA has verified this information in accordance with [Section 3.2](#32-initial-identity-validation) and the Certificate also contains `subject:organizationName`, `subject:givenName`, `subject:surname`, `subject:localityName`, and `subject:countryName` attributes, also verified in accordance with .
+   __Prohibited__ 
 
 d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
    __Contents:__ 
@@ -1470,13 +1469,13 @@ f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)
    __Contents:__ The pseudonym attribute MUST NOT be present if the givenName and/or surname attribute are present. If present, the `subject:pseudonym` field field MUST be verified according to [Section 3.2.3](#323--authentication-of-individual-identity).
 
 g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
-   __Contents:__ 
+   __Contents:__ If present, the `subject:serialNumber` may be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber.
 
 h. __Certificate Field:__ `subject:email` (1.2.840.113549.1.9.1) 
-   __Contents:__ 
+   __Contents:__ If present, the `subject:email` MUST contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2.2](#3222--validation-of-mailbox-authorization-or-control).
 
 i. __Certificate Field:__ `subject:title` (2.5.4.12) 
-   __Contents:__ If present, the `subject:title` field field MUST contain a natural person Subject’s name as verified under [Section 3.2.3](#323--authentication-of-individual-identity).
+   __Contents:__ If present, the `subject:title` field field MUST contain a natural person Subject’s name as verified according to [Section 3.2.3](#323--authentication-of-individual-identity).
 
 j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4.9)  
  __Contents:__ If present, the `subject:streetAddress` field MUST contain the Subject's street address information as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity).
