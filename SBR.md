@@ -75,20 +75,20 @@ The CA/Browser Forum is a voluntary organization of Certification Authorities an
 Certification Authority (CA) is defined in [Section 1.6.1](#161-definitions). Current CA Members of the CA/Browser Forum are listed at https://cabforum.org/members.
 
 ### 1.3.2  Registration authorities
-With the exception of [Section 3.2.3](#3222--validation-of-mailbox-authorization-or-control), the CA MAY delegate the performance of all, or any part, of [Section 3.2](#32--initial-identity-validation) requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of [Section 3.2](#32--initial-identity-validation).
+With the exception of [Section 3.2.3](#3222-validation-of-mailbox-authorization-or-control), the CA MAY delegate the performance of all, or any part, of [Section 3.2](#32-initial-identity-validation) requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of [Section 3.2](#32-initial-identity-validation).
 
 Before the CA authorizes a Delegated Third Party to perform a delegated function, the CA SHALL contractually require the Delegated Third Party to:
 
-1. Meet the qualification requirements of [Section 5.3.1](#531--qualifications-experience-and-clearance-requirements), when applicable to the delegated function;
-2. Retain documentation in accordance with [Section 5.5.2](#552--retention-period-for-archive);
+1. Meet the qualification requirements of [Section 5.3.1](#531-qualifications-experience-and-clearance-requirements), when applicable to the delegated function;
+2. Retain documentation in accordance with [Section 5.5.2](#552-retention-period-for-archive);
 3. Abide by the other provisions of these Requirements that are applicable to the delegated function; and
 4. Comply with (a) the CA's CP and/or CPS or (b) the Delegated Third Party's practice statement that the CA has verified complies with these Requirements.
 
 The CA MAY designate an Enterprise Registration Authority (RA) to verify certificate requests from the Enterprise RA's own organization.  The CA SHALL NOT accept certificate requests authorized by an Enterprise RA unless the following requirements are satisfied:
 
-1. 1.	If the certificate request is for an Organization-validated, Sponsor-validated, or Individual-validated policy, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.2.1](#32221--validating-authority-over-email-address-via-domain). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32--initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
+1. 1.	If the certificate request is for an Organization-validated, Sponsor-validated, or Individual-validated policy, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.2.1](#32221-validating-authority-over-email-address-via-domain). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
 
-2. If the certificate request is for a Mailbox-validated policy, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2.2](#32222--validating-control-over-email-address-via-email)
+2. If the certificate request is for a Mailbox-validated policy, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2.2](#32222-validating-control-over-email-address-via-email)
 
 The CA SHALL impose these limitations as a contractual requirement on the Enterprise RA and monitor compliance by the Enterprise RA.
 
@@ -142,7 +142,7 @@ No stipulation.
 
 **Attestation Letter**: A letter attesting that Subject Information is correct written by an accountant, lawyer, government official, or other reliable third party customarily relied upon for such information.
 
-**Audit Period**: In a period-of-time audit, the period between the first day (start) and the last day of operations (end) covered by the auditors in their engagement. (This is not the same as the period of time when the auditors are on-site at the CA.) The coverage rules and maximum length of audit periods are defined in [Section 8.1](#81-frequency-or-circumstances-of-assessment).
+**Audit Period**: In a period-of-time audit, the period between the first day (start) and the last day of operations (end) covered by the auditors in their engagement. (This is not the same as the period of time when the auditors are on-site at the CA.) The coverage rules and maximum length of audit periods are defined in [Section 8.1](#81--frequency-or-circumstances-of-assessment).
 
 **Audit Report**: A report from a Qualified Auditor stating the Qualified Auditor's opinion on whether an entity's processes and controls comply with the mandatory provisions of these Requirements.
 
@@ -491,7 +491,7 @@ The CA SHALL disclose all Cross Certificates that identify the CA as the Subject
 ### 4.2.1 Performing identification and authentication functions
 Applicant information SHALL include, but not be limited to, at least one rfc822Name email address to be included in the Certificate's subjectAltName extension.
 
-[Section 6.3.2](#632--certificate-operational-periods-and-key-pair-usage-periods) limits the validity period of Subscriber Certificates. The CA MAY use the documents and data provided in [Section 3.2](#323--authentication-of-individual-identity) to verify certificate information, or may reuse previous validations themselves, provided that the CA obtained the data or document from a source specified under [Section 3.2](#323--authentication-of-individual-identity) or completed the validation itself no more than 398 days prior to issuing the Certificate.
+[Section 6.3.2](#632-certificate-operational-periods-and-key-pair-usage-periods) limits the validity period of Subscriber Certificates. The CA MAY use the documents and data provided in [Section 3.2](#323-authentication-of-individual-identity) to verify certificate information, or may reuse previous validations themselves, provided that the CA obtained the data or document from a source specified under [Section 3.2](#323-authentication-of-individual-identity) or completed the validation itself no more than 398 days prior to issuing the Certificate.
 
 In no case may a prior validation be reused if any data or document used in the prior validation was obtained more than the maximum time permitted for reuse of the data or document prior to issuing the Certificate.
 
@@ -651,6 +651,7 @@ After reviewing the facts and circumstances, the CA SHALL work with the Subscrib
 3. The number of Certificate Problem Reports received about a particular Certificate or Subscriber;
 4. The entity making the complaint (for example, a complaint from a law enforcement official that a Web site is engaged in illegal activities should carry more weight than a complaint from a consumer alleging that they didn't receive the goods they ordered); and
 5. Relevant legislation.
+   
 ### 4.9.6  Revocation checking requirement for relying parties
 No stipulation.
 
@@ -697,7 +698,7 @@ For the status of Subordinate CA Certificates, the CA SHALL update information p
 1. at least every twelve months; and
 2. within 24 hours after revoking a Subordinate CA Certificate.
 
-If the OCSP responder receives a request for the status of a certificate serial number that is "unused", then the responder SHOULD NOT respond with a "good" status. If the OCSP responder is for a CA that is not Technically Constrained in line with [Section 7.1.5](#715--name-constraints), the responder MUST NOT respond with a "good" status for such requests.
+If the OCSP responder receives a request for the status of a certificate serial number that is "unused", then the responder SHOULD NOT respond with a "good" status. If the OCSP responder is for a CA that is not Technically Constrained in line with [Section 7.1.5](#715-name-constraints), the responder MUST NOT respond with a "good" status for such requests.
 
 The CA SHOULD monitor the OCSP responder for requests for "unused" serial numbers as part of its security response procedures.
 
@@ -829,7 +830,7 @@ All personnel in Trusted roles SHALL maintain skill levels consistent with the C
 ### 5.3.6  Sanctions for unauthorized actions
 
 ### 5.3.7  Independent contractor requirements
-The CA SHALL verify that the Delegated Third Party's personnel involved in the issuance of a Certificate meet the training and skills requirements of [Section 5.3.3](#533-training-requirements-and-procedures) and the document retention and event logging requirements of [Section 5.4.1](#541-types-of-events-recorded).
+The CA SHALL verify that the Delegated Third Party's personnel involved in the issuance of a Certificate meet the training and skills requirements of [Section 5.3.3](#533--training-requirements) and the document retention and event logging requirements of [Section 5.4.1](#541-types-of-events-recorded).
 
 ### 5.3.8  Documentation supplied to personnel
 
@@ -895,7 +896,7 @@ Additionally, the CA's security program MUST include an annual Risk Assessment t
 1. Identifies foreseeable internal and external threats that could result in unauthorized access, disclosure, misuse, alteration, or destruction of any Certificate Data or Certificate Management Processes;
 2. Assesses the likelihood and potential damage of these threats, taking into consideration the sensitivity of the Certificate Data and Certificate Management Processes; and
 3. Assesses the sufficiency of the policies, procedures, information systems, technology, and other arrangements that the CA has in place to counter such threats.
-4. 
+
 ## 5.5  Records archival
 
 ### 5.5.1  Types of records archived
@@ -924,22 +925,22 @@ The CA SHALL document a business continuity and disaster recovery procedures des
 
 The business continuity plan MUST include:
 
-1. The conditions for activating the plan,
-2. Emergency procedures,
-3. Fallback procedures,
-4. Resumption procedures,
+1. The conditions for activating the plan;
+2. Emergency procedures;
+3. Fallback procedures;
+4. Resumption procedures;
 5. A maintenance schedule for the plan;
 6. Awareness and education requirements;
 7. The responsibilities of the individuals;
 8. Recovery time objective (RTO);
-9. Regular testing of contingency plans.
-10. The CA's plan to maintain or restore the CA's business operations in a timely manner following interruption to or failure of critical business processes
+9. Regular testing of contingency plans;
+10. The CA's plan to maintain or restore the CA's business operations in a timely manner following interruption to or failure of critical business processes;
 11. A requirement to store critical cryptographic materials (i.e., secure cryptographic device and activation materials) at an alternate location;
-12. What constitutes an acceptable system outage and recovery time
+12. What constitutes an acceptable system outage and recovery time;
 13. How frequently backup copies of essential business information and software are taken;
 14. The distance of recovery facilities to the CA's main site; and
 15. Procedures for securing its facility to the extent possible during the period of time following a disaster and prior to restoring a secure environment either at the original or a remote site.
-16. 
+
 ### 5.7.2  Computing resources, software, and/or data are corrupted
 
 ### 5.7.3  Entity private key compromise procedures
@@ -1029,7 +1030,7 @@ Private Keys corresponding to Root Certificates MUST NOT be used to sign Certifi
 2. Certificates for Subordinate CAs and Cross Certificates;
 3. Certificates for infrastructure purposes (administrative role certificates, internal CA operational device certificates); and
 4. Certificates for OCSP Response verification.
-5. 
+
 ## 6.2  Private Key Protection and Cryptographic Module Engineering Controls
 The CA SHALL implement physical and logical safeguards to prevent unauthorized certificate issuance. Protection of the CA Private Key outside the validated system or device specified above MUST consist of physical security, encryption, or a combination of both, implemented in a manner that prevents disclosure of the Private Key. The CA SHALL encrypt its Private Key with an algorithm and key-length that, according to the state of the art, are capable of withstanding cryptanalytic attacks for the residual life of the encrypted key or key part.
 
@@ -1103,7 +1104,7 @@ For the purpose of calculations, a day is measured as 86,400 seconds. Any amount
 
 ## 7.1  Certificate profile
 
-The CA SHALL meet the technical requirements set forth in [Section 2.2 - Publication of Information](#22-publication-of-information), [Section 6.1.5 - Key Sizes](#615-key-sizes), and [Section 6.1.6 - Public Key Parameters Generation and Quality Checking](#616-public-key-parameters-generation-and-quality-checking).
+The CA SHALL meet the technical requirements set forth in [Section 2.2](#22--publication-of-certification-information), [Section 6.1.5](#615-key-sizes), and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking).
 
 CAs SHALL generate non-sequential Certificate serial numbers greater than zero (0) containing at least 64 bits of output from a CSPRNG.
 
@@ -1275,8 +1276,8 @@ m. Adobe Extensions (optional)
    | Multipurpose and Legacy | MAY be present and MUST NOT be marked critical.  May include the Adobe Time-stamp X509 extension (1.2.840.113583.1.1.9.1) or the Adobe ArchiveRevInfo extension (1.2.840.113583.1.1.9.2) |
 
 #### 7.1.2.4 All Certificates
-**DRAFT**
-All other fields and extensions MUST be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123-subscriber-certificate) unless the CA is aware of a reason for including the data in the Certificate.
+
+All fields and extensions MUST be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123--subscriber-certificates) unless the CA is aware of a reason for including the data in the Certificate.
 
 CAs SHALL NOT issue a Certificate with:
 
@@ -1420,7 +1421,7 @@ For every valid Certification Path (as defined by RFC 5280, Section 6):
 
 By issuing the Certificate, the CA represents that it followed the procedure set forth in its CP and/or CPS to verify that, as of the Certificate's issuance date, all of the Subject Information was accurate. CAs SHALL NOT include an email address in a Subject attribute except as specified in [Section 3.2.2.2](#3222-validation-of-mailbox-authorization-or-control).
 
-Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable.
+Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable. 
 
 ##### 7.1.4.2.1 Subject Alternative Name Extension
 
@@ -1439,6 +1440,145 @@ All Subject email attribute values contained in the Subject MUST be repeated in 
    | Multipurpose and Legacy | `otherName` values MAY be included. `otherNames` of type `id-on-SmtpUTF8Mailbox` MUST be encoded in accordance with RFC 8398.  `otherNames` MUST be validated in accordance with procedures documented in the CA's CP and/or CPS.|
 
 This extension MUST NOT contain items of type `dNSName`, `iPAddress`,  `uniformResourceIdentifier`, or `GeneralNames` of any other type.
+
+##### 7.1.4.2.2 Subject Distinguished Name Fields
+
+a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
+   __Contents:__ If present, this field MUST contain one of the following values verified in accordance with [Section 3.2](#32--initial-identity-validation).
+
+| Type    | Contents |
+|---------|----------|
+| Mailbox | `subject:email` |
+| Organization | `subject:organizationName` or `subject:email` |
+| Sponsored | `subject:givenName` and/or `subject:surname`, `subject:pseudonym`, or `subject:email` |
+| Individual | `subject:givenName` and/or `subject:surname`, or `subject:email` |
+
+b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
+   __Contents:__ If present, the `subject:organizationName` field MUST contain either the Subject's name or DBA as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity). The CA may include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
+
+c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)  
+   __Prohibited__ 
+
+d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
+   __Contents:__ 
+
+e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
+   __Contents:__ If present, the `subject:givenName` field and `subject:surname` field MUST contain a natural person Subject’s name as verified under [Section 3.2.3](#323-authentication-of-individual-identity). 
+
+f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)  
+   __Contents:__ The pseudonym attribute MUST NOT be present if the givenName and/or surname attribute are present. If present, the `subject:pseudonym` field field MUST be verified according to [Section 3.2.3](#323--authentication-of-individual-identity).
+
+g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
+   __Contents:__ If present, the `subject:serialNumber` may be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber.
+
+h. __Certificate Field:__ `subject:email` (1.2.840.113549.1.9.1) 
+   __Contents:__ If present, the `subject:email` MUST contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2.2](#3222--validation-of-mailbox-authorization-or-control).
+
+i. __Certificate Field:__ `subject:title` (2.5.4.12) 
+   __Contents:__ If present, the `subject:title` field field MUST contain a natural person Subject’s name as verified according to [Section 3.2.3](#323--authentication-of-individual-identity).
+
+j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4.9)  
+ __Contents:__ If present, the `subject:streetAddress` field MUST contain the Subject's street address information as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity).
+
+k. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)  
+   __Required__ if the `subject:stateOrProvinceName` field is absent.  
+   __Optional__ if the `subject:stateOrProvinceName` field is present.  
+   __Contents:__ If present, the `subject:localityName` field MUST contain the Subject's locality information as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `localityName` field MAY contain the Subject's locality and/or state or province information.
+
+l. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)  
+   __Required__ if `subject:localityName` field is absent.  
+   __Optional__ if the `subject:localityName` field is present.  
+   __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
+
+m. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)  
+   __Contents:__ If present, the `subject:postalCode` field MUST contain the Subject's zip or postal information as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity).
+
+n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)  
+   __Contents:__ If present, the `subject:countryName` MUST contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity). If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of XX indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
+
+##### 7.1.4.2.3 Mailbox
+
+| Attribute | Legacy | Multipurpose | Strict |
+|-----------|--------|--------------|--------|
+| `subject:commonName` | MAY  | MAY | MAY |
+| `subject:organizationName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationIdentifier` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:givenName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:surname` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:serialNumber` | MAY | MAY | MAY |
+| `subject:email` | MAY | MAY | MAY |
+| `subject:title` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:streetAddress` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:localityName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:stateOrProvinceName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:postalCode` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:countryName` | MUST NOT | MUST NOT | MUST NOT |
+| Other | MUST NOT | MUST NOT | MUST NOT |
+
+##### 7.1.4.2.3 Organization
+
+| Attribute | Legacy | Multipurpose | Strict |
+|-----------|--------|--------------|--------|
+| `subject:commonName` | MAY  | MAY | MAY |
+| `subject:organizationName` | MUST | MUST | MUST |
+| `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationIdentifier` | MUST | MUST | MUST |
+| `subject:givenName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:surname` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:serialNumber` | MAY | MAY | MAY |
+| `subject:email` | MAY | MAY | MAY |
+| `subject:title` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:streetAddress` | MUST NOT | MAY | MAY |
+| `subject:localityName` | MAY | MAY | MAY |
+| `subject:stateOrProvinceName` | MAY | MAY | MAY |
+| `subject:postalCode` | MUST NOT | MAY | MAY |
+| `subject:countryName` | MUST | MUST | MAY |
+| Other | MUST NOT | MUST NOT | MAY |
+
+##### 7.1.4.2.4 Sponsored
+
+| Attribute | Legacy | Multipurpose | Strict |
+|-----------|--------|--------------|--------|
+| `subject:commonName` | MAY  | MAY | MAY |
+| `subject:organizationName` | MUST | MUST | MUST |
+| `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationIdentifier` | MUST | MUST | MUST |
+| `subject:givenName` | MAY  | MAY | MAY |
+| `subject:surname` | MAY  | MAY | MAY |
+| `subject:pseudonym` | MAY  | MAY | MAY |
+| `subject:serialNumber` | MAY | MAY | MAY |
+| `subject:email` | MAY | MAY | MAY |
+| `subject:title` | MAY  | MAY | MAY |
+| `subject:streetAddress` | MUST NOT | MAY | MAY |
+| `subject:localityName` | MAY | MAY | MAY |
+| `subject:stateOrProvinceName` | MAY | MAY | MAY |
+| `subject:postalCode` | MUST NOT | MAY | MAY |
+| `subject:countryName` | MUST | MUST | MAY |
+| Other | MUST NOT | MUST NOT | MAY |
+
+##### 7.1.4.2.5 Individual
+
+| Attribute | Legacy | Multipurpose   | Strict |
+|-----------|--------|----------------|--------|
+| `subject:commonName` | MAY  | MAY | MAY |
+| `subject:organizationName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationIdentifier` | MUST | MUST | MUST |
+| `subject:givenName` | MUST  | MUST | MAY |
+| `subject:surname` | MUST  | MUST | MAY |
+| `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:serialNumber` | MAY | MAY | MAY |
+| `subject:email` | MAY | MAY | MAY |
+| `subject:title` | MAY  | MAY | MAY |
+| `subject:streetAddress` | MUST NOT | MAY | MAY |
+| `subject:localityName` | MAY | MAY | MAY |
+| `subject:stateOrProvinceName` | MAY | MAY | MAY |
+| `subject:postalCode` | MUST NOT | MAY | MAY |
+| `subject:countryName` | MUST | MUST | MAY |
+| Other | MUST NOT | MUST NOT | MAY |
 
 #### 7.1.4.3 Subject Information - Root Certificates and Subordinate CA Certificates
 
