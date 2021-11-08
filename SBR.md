@@ -142,7 +142,7 @@ No stipulation.
 
 **Attestation Letter**: A letter attesting that Subject Information is correct written by an accountant, lawyer, government official, or other reliable third party customarily relied upon for such information.
 
-**Audit Period**: In a period-of-time audit, the period between the first day (start) and the last day of operations (end) covered by the auditors in their engagement. (This is not the same as the period of time when the auditors are on-site at the CA.) The coverage rules and maximum length of audit periods are defined in [Section 8.1](#81-frequency-or-circumstances-of-assessment).
+**Audit Period**: In a period-of-time audit, the period between the first day (start) and the last day of operations (end) covered by the auditors in their engagement. (This is not the same as the period of time when the auditors are on-site at the CA.) The coverage rules and maximum length of audit periods are defined in [Section 8.1](#81--frequency-or-circumstances-of-assessment).
 
 **Audit Report**: A report from a Qualified Auditor stating the Qualified Auditor's opinion on whether an entity's processes and controls comply with the mandatory provisions of these Requirements.
 
@@ -829,7 +829,7 @@ All personnel in Trusted roles SHALL maintain skill levels consistent with the C
 ### 5.3.6  Sanctions for unauthorized actions
 
 ### 5.3.7  Independent contractor requirements
-The CA SHALL verify that the Delegated Third Party's personnel involved in the issuance of a Certificate meet the training and skills requirements of [Section 5.3.3](#533-training-requirements-and-procedures) and the document retention and event logging requirements of [Section 5.4.1](#541-types-of-events-recorded).
+The CA SHALL verify that the Delegated Third Party's personnel involved in the issuance of a Certificate meet the training and skills requirements of [Section 5.3.3](#533--training-requirements) and the document retention and event logging requirements of [Section 5.4.1](#541-types-of-events-recorded).
 
 ### 5.3.8  Documentation supplied to personnel
 
@@ -1103,7 +1103,7 @@ For the purpose of calculations, a day is measured as 86,400 seconds. Any amount
 
 ## 7.1  Certificate profile
 
-The CA SHALL meet the technical requirements set forth in [Section 2.2 - Publication of Information](#22-publication-of-information), [Section 6.1.5 - Key Sizes](#615-key-sizes), and [Section 6.1.6 - Public Key Parameters Generation and Quality Checking](#616-public-key-parameters-generation-and-quality-checking).
+The CA SHALL meet the technical requirements set forth in [Section 2.2](#22--publication-of-certification-information), [Section 6.1.5](#615-key-sizes), and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking).
 
 CAs SHALL generate non-sequential Certificate serial numbers greater than zero (0) containing at least 64 bits of output from a CSPRNG.
 
@@ -1276,7 +1276,7 @@ m. Adobe Extensions (optional)
 
 #### 7.1.2.4 All Certificates
 **DRAFT**
-All other fields and extensions MUST be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123-subscriber-certificate) unless the CA is aware of a reason for including the data in the Certificate.
+All other fields and extensions MUST be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123--subscriber-certificates) unless the CA is aware of a reason for including the data in the Certificate.
 
 CAs SHALL NOT issue a Certificate with:
 
@@ -1443,80 +1443,59 @@ This extension MUST NOT contain items of type `dNSName`, `iPAddress`,  `uniformR
 ##### 7.1.4.2.2 Subject Distinguished Name Fields
 
 a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
-   __Required/Optional:__ __Deprecated__ (Discouraged, but not prohibited)  
-   __Contents:__ If present, this field MUST contain one of the following values verified in accordance with [Section 3.2.2.1](#3221-identity).
+   __Contents:__ If present, this field MUST contain one of the following values verified in accordance with [Section 3.2](#32--initial-identity-validation).
 
 | Type    | Contents |
 |---------|----------|
 | Mailbox | `subject:email` |
 | Organization | `subject:organizationName` or `subject:email` |
-| Sponsored | `subject:givenName` and/or `subject:surname`, or `subject:email` |
+| Sponsored | `subject:givenName` and/or `subject:surname`, `subject:pseudonym`, or `subject:email` |
 | Individual | `subject:givenName` and/or `subject:surname`, or `subject:email` |
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
-   __Required/Optional:__ __Optional__.  
-   __Contents:__ If present, the `subject:organizationName` field MUST contain either the Subject's name or DBA as verified under [Section 3.2.2.2](#3222-dbatradename). The CA may include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
+   __Contents:__ If present, the `subject:organizationName` field MUST contain either the Subject's name or DBA as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity). The CA may include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
 
 c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)  
    __Required/Optional:__ __Deprecated__. 
    __Prohibited__ if the `subject:organizationName` is absent or the certificate is issued on or after September 1, 2022.
-   __Contents__: The CA SHALL implement a process that prevents an OU attribute from including a name, DBA, tradename, trademark, address, location, or other text that refers to a specific natural person or Legal Entity unless the CA has verified this information in accordance with [Section 3.2](#32-initial-identity-validation) and the Certificate also contains `subject:organizationName`, `subject:givenName`, `subject:surname`, `subject:localityName`, and `subject:countryName` attributes, also verified in accordance with [Section 3.2.2.1](#3221-identity).
+   __Contents__: The CA SHALL implement a process that prevents an OU attribute from including a name, DBA, tradename, trademark, address, location, or other text that refers to a specific natural person or Legal Entity unless the CA has verified this information in accordance with [Section 3.2](#32-initial-identity-validation) and the Certificate also contains `subject:organizationName`, `subject:givenName`, `subject:surname`, `subject:localityName`, and `subject:countryName` attributes, also verified in accordance with .
 
 d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
-   __Required/Optional:__ __Optional__.  
    __Contents:__ 
 
 e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
-   __Required/Optional:__ __Optional__.  
    __Contents:__ If present, the `subject:givenName` field and `subject:surname` field MUST contain a natural person Subject’s name as verified under [Section 3.2.3](#323-authentication-of-individual-identity). 
 
-f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65) 
-   __Required/Optional:__ __Optional__.  
-   __Contents:__ 
+f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)  
+   __Contents:__ The pseudonym attribute MUST NOT be present if the givenName and/or surname attribute are present. If present, the `subject:pseudonym` field field MUST be verified according to [Section 3.2.3](#323--authentication-of-individual-identity).
 
 g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
-   __Required/Optional:__ __Optional__.  
    __Contents:__ 
 
 h. __Certificate Field:__ `subject:email` (1.2.840.113549.1.9.1) 
-   __Required/Optional:__ __Optional__.  
    __Contents:__ 
 
 i. __Certificate Field:__ `subject:title` (2.5.4.12) 
-   __Required/Optional:__ __Optional__.  
-   __Contents:__ 
+   __Contents:__ If present, the `subject:title` field field MUST contain a natural person Subject’s name as verified under [Section 3.2.3](#323--authentication-of-individual-identity).
 
 j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4.9)  
-   __Required/Optional:__  
-   __Optional__ if the `subject:organizationName` field, `subject:givenName` field, or `subject:surname` field are present.  
-   __Prohibited__ if the `subject:organizationName` field, `subject:givenName`, and `subject:surname` field are absent.  
-   __Contents:__ If present, the `subject:streetAddress` field MUST contain the Subject's street address information as verified under [Section 3.2.2.1](#3221-identity).
+ __Contents:__ If present, the `subject:streetAddress` field MUST contain the Subject's street address information as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity).
 
 k. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)  
-   __Required/Optional:__  
-   __Required__ if the `subject:organizationName` field, `subject:givenName` field, or `subject:surname` field are present and the `subject:stateOrProvinceName` field is absent.  
-   __Optional__ if the `subject:stateOrProvinceName` field and the `subject:organizationName` field, `subject:givenName` field, or `subject:surname` field are present.  
-   __Prohibited__ if the `subject:organizationName` field, `subject:givenName`, and `subject:surname` field are absent.  
-   __Contents:__ If present, the `subject:localityName` field MUST contain the Subject's locality information as verified under [Section 3.2.2.1](#3221-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `localityName` field MAY contain the Subject's locality and/or state or province information as verified under [Section 3.2.2.1](#3221-identity).
+   __Required__ if the `subject:stateOrProvinceName` field is absent.  
+   __Optional__ if the `subject:stateOrProvinceName` field is present.  
+   __Contents:__ If present, the `subject:localityName` field MUST contain the Subject's locality information as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `localityName` field MAY contain the Subject's locality and/or state or province information.
 
 l. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)  
-   __Required/Optional:__  
-   __Required__ if the `subject:organizationName` field, `subject:givenName` field, or `subject:surname` field are present and `subject:localityName` field is absent.  
-   __Optional__ if the `subject:localityName` field and the `subject:organizationName` field, the `subject:givenName` field, or the `subject:surname` field are present.  
-   __Prohibited__ if the `subject:organizationName` field, the `subject:givenName` field, or `subject:surname` field are absent.  
-   __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under [Section 3.2.2.1](#3221-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information as verified under [Section 3.2.2.1](#3221-identity).
+   __Required__ if `subject:localityName` field is absent.  
+   __Optional__ if the `subject:localityName` field is present.  
+   __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
 
 m. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)  
-   __Required/Optional:__  
-   __Optional__ if the `subject:organizationName`, `subject:givenName` field, or `subject:surname` fields are present.  
-   __Prohibited__ if the `subject:organizationName` field, `subject:givenName` field, or `subject:surname` field are absent.  
-   __Contents:__ If present, the `subject:postalCode` field MUST contain the Subject's zip or postal information as verified under [Section 3.2.2.1](#3221-identity).
+   __Contents:__ If present, the `subject:postalCode` field MUST contain the Subject's zip or postal information as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity).
 
 n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)  
-   __Required/Optional:__  
-   __Required__ if the `subject:organizationName` field, `subject:givenName`, or `subject:surname` field are present.  
-   __Optional__ if the `subject:organizationName` field, `subject:givenName` field, and `subject:surname` field are absent.  
-   __Contents:__ If the `subject:organizationName` field is present, the `subject:countryName` MUST contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under [Section 3.2.2.1](#3221-identity). If the `subject:organizationName` field is absent, the `subject:countryName` field MAY contain the two-letter ISO 3166-1 country code associated with the Subject as verified in accordance with [Section 3.2.2.3](#3223-verification-of-country). If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of XX indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
+   __Contents:__ If present, the `subject:countryName` MUST contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity). If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of XX indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
 
 ##### 7.1.4.2.3 Mailbox
 
