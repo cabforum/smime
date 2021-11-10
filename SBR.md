@@ -86,7 +86,7 @@ Before the CA authorizes a Delegated Third Party to perform a delegated function
 
 The CA MAY designate an Enterprise Registration Authority (RA) to verify certificate requests from the Enterprise RA's own organization.  The CA SHALL NOT accept certificate requests authorized by an Enterprise RA unless the following requirements are satisfied:
 
-1. 1.	If the certificate request is for an Organization-validated, Sponsor-validated, or Individual-validated policy, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.2.1](#32221-validating-authority-over-email-address-via-domain). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
+1. If the certificate request is for an Organization-validated, Sponsor-validated, or Individual-validated policy, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.2.1](#32221-validating-authority-over-email-address-via-domain). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
 
 2. If the certificate request is for a Mailbox-validated policy, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2.2](#32222-validating-control-over-email-address-via-email)
 
@@ -1750,9 +1750,9 @@ The Audit Report MUST be available as a PDF, and SHALL be text searchable for al
 
 ## 8.7 Review of Enterprise RA or Technically Constrained Subordinate CA
 
-The CA SHALL ensure the practices and procedures of each Enterprise RA or Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS.
+The CA SHALL ensure the practices and procedures of each Enterprise RA or Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS before Certificates may be approved by the Enterprise RA or issued by the Technically Constrained Subordinate CA.
 
-The CA SHALL internally audit the compliance of Enterprise RAs or Technically Constrained Subordinate CAs with these Requirements on an annual basis.
+The CA SHALL internally audit the compliance of Enterprise RAs or Technically Constrained Subordinate CAs with these Requirements on an annual basis, and SHALL include review of an appropriate quarterly sample of issued Certificates.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
