@@ -75,7 +75,7 @@ The CA/Browser Forum is a voluntary organization of Certification Authorities an
 Certification Authority (CA) is defined in [Section 1.6.1](#161-definitions). Current CA Members of the CA/Browser Forum are listed at https://cabforum.org/members.
 
 ### 1.3.2  Registration authorities
-With the exception of [Section 3.2.3](#3222-validation-of-mailbox-authorization-or-control), the CA MAY delegate the performance of all, or any part, of [Section 3.2](#32-initial-identity-validation) requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of [Section 3.2](#32-initial-identity-validation).
+With the exception of [Section 3.2.2.2](#3222--validation-of-mailbox-authorization-or-control), the CA MAY delegate the performance of all, or any part, of [Section 3.2](#32-initial-identity-validation) requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of [Section 3.2](#32-initial-identity-validation).
 
 Before the CA authorizes a Delegated Third Party to perform a delegated function, the CA SHALL contractually require the Delegated Third Party to:
 
@@ -1065,7 +1065,7 @@ Parties other than the Subordinate CA SHALL NOT archive the Subordinate CA Priva
 
 ### 6.3.2  Certificate operational periods and key pair usage periods
 
-| Type | Maximum Validity Period      | 
+| Generation | Maximum Validity Period      | 
 |------|-----------------------|
 | Strict and Multipurpose | 825 days |
 | Legacy | 1095 days |
@@ -1209,7 +1209,7 @@ e. `keyUsage` (required)
 
    This extension MUST be present and SHOULD be marked critical.  
 
-   | Type | `rsaEncryption`       | `id-ecPublicKey`            |
+   | Generation | `rsaEncryption`       | `id-ecPublicKey`            |
    |------|-----------------------|-----------------------------|
    | Strict | For signing only, bit positions MUST be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions MUST be set for `keyEncipherment`.<br>For dual use, bit positions MUST be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation`. |For signing only, bit positions MUST be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions MUST be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions MUST be set for `digitalSignature` and `keyAgreement` and MAY be set for `nonRepudiation` and for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).|
    | Multipurpose<br> and Legacy | For signing only, bit positions MUST be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions MUST be set for `keyEncipherment` and MAY be set for `dataEncipherment`.<br>For dual use, bit positions MUST be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation` and `dataEncipherment`. |For signing only, bit positions MUST be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions MUST be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions MUST be set for `digitalSignature` and `keyAgreement` and MAY be set for `nonRepudiation` and for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).|
@@ -1218,7 +1218,7 @@ e. `keyUsage` (required)
 
 f. `extKeyUsage` (required)
 
-   | Type | `extendedKeyUsage`      | 
+   | Generation | `extendedKeyUsage`      | 
    |------|-----------------------|
    | Strict | `id-kp-emailProtection` [RFC5280] MUST be present. Other values MUST NOT be present. |
   | Multipurpose and Legacy |`id-kp-emailProtection` [RFC5280] MUST be present. Other values MAY be present. |
@@ -1233,7 +1233,7 @@ h. `subjectAlternativeName` (required)
 
    This extension MUST be present and SHOULD NOT be marked critical unless the Subject is an empty sequence. 
 
-   | Type | `subjectAlternativeName`      | 
+   | Generation | `subjectAlternativeName`      | 
    |------|-----------------------|
    | Strict | All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, `otherName` values other than type `id-on-SmtpUTF8Mailbox`, or `uniformResourceIdentifier`.|
    | Multipurpose and Legacy |All email addresses in Subject must be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, or `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of any other type MUST be validated in accordance with the CA's CPS. |
@@ -1246,7 +1246,7 @@ i. `smimeCapabilities` (optional)
 
 j. `subjectDirectoryAttributes` (optional)
 
-   | Type | `subjectDirectoryAttributes`      | 
+   | Generation | `subjectDirectoryAttributes`      | 
    |------|-----------------------|
    | Strict and Multipurpose | Prohibited |
    | Legacy | MAY be present and MUST NOT be marked critical.  |
@@ -1259,7 +1259,7 @@ k. qcStatements (optional)
 
 l. Legal Entity Identifier (optional)
 
-   | Type | LEI      | 
+   | Generation | LEI      | 
    |------|-----------------------|
    | Mailbox | Prohibited |
    | Organization | MAY be present and MUST NOT be marked critical.  |
@@ -1270,7 +1270,7 @@ l. Legal Entity Identifier (optional)
 
 m. Adobe Extensions (optional)
 
-   | Type | Adobe Extensions      | 
+   | Generation | Adobe Extensions      | 
    |------|-----------------------|
    | Strict | Prohibited |
    | Multipurpose and Legacy | MAY be present and MUST NOT be marked critical.  May include the Adobe Time-stamp X509 extension (1.2.840.113583.1.1.9.1) or the Adobe ArchiveRevInfo extension (1.2.840.113583.1.1.9.2) |
@@ -1434,7 +1434,7 @@ __Contents:__ This extension MUST contain at least one entry of the following ty
 
 All Subject email attribute values contained in the Subject MUST be repeated in this extension. In addition the following apply:
 
-   | Type | `keyUsage`      | 
+   | Generation | `keyUsage`      | 
    |------|-----------------------|
    | Strict | MUST NOT contain `otherNames` other than type `id-on-SmtpUTF8Mailbox`. |
    | Multipurpose and Legacy | `otherName` values MAY be included. `otherNames` of type `id-on-SmtpUTF8Mailbox` MUST be encoded in accordance with RFC 8398.  `otherNames` MUST be validated in accordance with procedures documented in the CA's CP and/or CPS.|
@@ -1446,7 +1446,7 @@ This extension MUST NOT contain items of type `dNSName`, `iPAddress`,  `uniformR
 a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
    __Contents:__ If present, this field MUST contain one of the following values verified in accordance with [Section 3.2](#32--initial-identity-validation).
 
-| Type    | Contents |
+| Generation    | Contents |
 |---------|----------|
 | Mailbox | `subject:email` |
 | Organization | `subject:organizationName` or `subject:email` |
@@ -1873,7 +1873,7 @@ Notwithstanding any limitations on its liability to Subscribers and Relying Part
 
 In the event of a conflict between these Requirements and a law, regulation or government order (hereinafter ‘Law’) of any jurisdiction in which a CA operates or issues certificates, a CA MAY modify any conflicting requirement to the minimum extent necessary to make the requirement valid and legal in the jurisdiction. This applies only to operations or certificate issuances that are subject to that Law. In such event, the CA SHALL immediately (and prior to issuing a certificate under the modified requirement) include in Section 9.16.3 of the CA’s CPS a detailed reference to the Law requiring a modification of these Requirements under this section, and the specific modification to these Requirements implemented by the CA.
 
-The CA SHALL also (prior to issuing a certificate under the modified requirement) notify the CA/Browser Forum of the relevant information newly added to its CPS by sending a message to questions@cabforum.org and receiving confirmation that it has been posted to the Public Mailing List and is indexed in the Public Mail Archives available at https://cabforum.org/pipermail/public/ (or such other email addresses and links as the Forum may designate), so that the CA/Browser Forum may consider possible revisions to these Requirements accordingly.
+The CA SHALL also (prior to issuing a certificate under the modified requirement) notify the CA/Browser Forum of the relevant information newly added to its CPS by sending a message to questions@cabforum.org and receiving confirmation that it has been posted to the Public Mailing List and is indexed in the Public Mail Archives available at [https://cabforum.org/pipermail/public/](https://cabforum.org/pipermail/public/) (or such other email addresses and links as the Forum may designate), so that the CA/Browser Forum may consider possible revisions to these Requirements accordingly.
 
 Any modification to CA practice enabled under this section SHALL be discontinued if and when the Law no longer applies, or these Requirements are modified to make it possible to comply with both them and the Law simultaneously. An appropriate change in practice, modification to the CA’s CPS and a notice to the CA/Browser Forum, as outlined above, SHALL be made within 90 days.
 
