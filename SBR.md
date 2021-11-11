@@ -1686,7 +1686,7 @@ The CA SHALL at all times:
 
 **Implementers' Note**: The CA/Browser Forum continues to improve the S/MIME Baseline Requirements while WebTrust and ETSI also continue to update their audit criteria. We encourage all CAs to conform to each revision herein on the date specified without awaiting a corresponding update to an applicable audit criterion. In the event of a conflict between an existing audit criterion and a guideline revision, we will communicate with the audit community and attempt to resolve any uncertainty, and we will respond to implementation questions directed to <questions@cabforum.org>. 
 ## 8.1  Frequency or circumstances of assessment
-Certificates that are capable of being used to issue new certificates MUST either be Technically Constrained in line with [Section 7.1.5](#715-name-constraints) and audited in line with [Section 8.7](#87-self-audits) only, or Unconstrained and fully audited in line with all remaining requirements from this section. A Certificate is deemed as capable of being used to issue new certificates if it contains an X.509v3 `basicConstraints` extension, with the `cA` boolean set to true and is therefore by definition a Root CA Certificate or a Subordinate CA Certificate.
+Certificates that are capable of being used to issue new certificates MUST either be Technically Constrained in line with [Section 7.1.5](#715-name-constraints) and audited in line with [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca) only, or Unconstrained and fully audited in line with all remaining requirements from this section. A Certificate is deemed as capable of being used to issue new certificates if it contains an X.509v3 `basicConstraints` extension, with the `cA` boolean set to true and is therefore by definition a Root CA Certificate or a Subordinate CA Certificate.
 
 The period during which the CA issues Certificates SHALL be divided into an unbroken sequence of audit periods. An audit period MUST NOT exceed one year in duration.
 
@@ -1748,11 +1748,15 @@ An authoritative English language version of the publicly available audit inform
 
 The Audit Report MUST be available as a PDF, and SHALL be text searchable for all information required. Each SHA-256 fingerprint within the Audit Report MUST be uppercase letters and MUST NOT contain colons, spaces, or line feeds.
 
-## 8.7 Review of Enterprise RA or Technically Constrained Subordinate CA
+## 8.7 Self Audits
 
-The CA SHALL ensure the practices and procedures of each Enterprise RA or Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS before Certificates may be approved by the Enterprise RA or issued by the Technically Constrained Subordinate CA.
+During the period in which the CA issues Certificates, the CA SHALL monitor adherence to its CP and/or CPS and these Requirements and strictly control its service quality by performing self audits on at least a quarterly basis against a randomly selected sample of Certificates issued by it during the period commencing immediately after the previous self-audit sample was taken. 
 
-The CA SHALL internally audit the compliance of Enterprise RAs or Technically Constrained Subordinate CAs with these Requirements on an annual basis, and SHALL include review of an appropriate quarterly sample of issued Certificates.
+## 8.8 Review of Enterprise RA or Technically Constrained Subordinate CA
+
+Except for Delegated Third Parties that undergo an annual audit that meets the criteria specified in [Section 8.4](#84--topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of each Delegated Third Party, Enterprise RA, and Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS,
+
+The CA SHALL internally audit the compliance of Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs with these Requirements on an annual basis, and SHALL include having a Validation Specialist employed by the CA perform ongoing quarterly audits against a randomly selected sample of the Certificates verified or issued by those parties in the period beginning immediately after the last sample was taken.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
