@@ -1531,12 +1531,12 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:email` | MAY | MAY | MAY |
 | `subject:title` | MUST NOT | MUST NOT | MUST NOT |
-| `subject:streetAddress` | MUST NOT | MAY | MAY |
+| `subject:streetAddress` | MAY | MAY | MUST NOT |
 | `subject:localityName` | MAY | MAY | MAY |
 | `subject:stateOrProvinceName` | MAY | MAY | MAY |
-| `subject:postalCode` | MUST NOT | MAY | MAY |
-| `subject:countryName` | MUST | MUST | MAY |
-| Other | MUST NOT | MUST NOT | MAY |
+| `subject:postalCode` | MAY | MAY | MUST NOT |
+| `subject:countryName` | MAY | MUST | MUST |
+| Other | MAY | MUST NOT | MUST NOT |
 
 ##### 7.1.4.2.4 Sponsored
 
@@ -1552,12 +1552,12 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:email` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
-| `subject:streetAddress` | MUST NOT | MAY | MAY |
+| `subject:streetAddress` | MAY | MAY | MUST NOT |
 | `subject:localityName` | MAY | MAY | MAY |
 | `subject:stateOrProvinceName` | MAY | MAY | MAY |
-| `subject:postalCode` | MUST NOT | MAY | MAY |
-| `subject:countryName` | MUST | MUST | MAY |
-| Other | MUST NOT | MUST NOT | MAY |
+| `subject:postalCode` | MAY | MAY | MUST NOT |
+| `subject:countryName` | MAY | MUST | MUST |
+| Other | MAY | MUST NOT | MUST NOT |
 
 ##### 7.1.4.2.5 Individual
 
@@ -1566,19 +1566,19 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:commonName` | MAY  | MAY | MAY |
 | `subject:organizationName` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
-| `subject:organizationIdentifier` | MUST | MUST | MUST |
-| `subject:givenName` | MUST  | MUST | MAY |
-| `subject:surname` | MUST  | MUST | MAY |
+| `subject:organizationIdentifier` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:givenName` | MAY  | MUST | MUST |
+| `subject:surname` | MAY  | MUST | MUST |
 | `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:email` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
-| `subject:streetAddress` | MUST NOT | MAY | MAY |
+| `subject:streetAddress` | MAY | MAY | MUST NOT |
 | `subject:localityName` | MAY | MAY | MAY |
 | `subject:stateOrProvinceName` | MAY | MAY | MAY |
-| `subject:postalCode` | MUST NOT | MAY | MAY |
-| `subject:countryName` | MUST | MUST | MAY |
-| Other | MUST NOT | MUST NOT | MAY |
+| `subject:postalCode` | MAY | MAY | MUST NOT |
+| `subject:countryName` | MAY | MUST | MUST |
+| Other | MAY | MUST NOT | MUST NOT |
 
 #### 7.1.4.3 Subject Information - Root Certificates and Subordinate CA Certificates
 
