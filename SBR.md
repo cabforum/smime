@@ -1532,12 +1532,12 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:email` | MAY | MAY | MAY |
 | `subject:title` | MUST NOT | MUST NOT | MUST NOT |
-| `subject:streetAddress` | MUST NOT | MAY | MAY |
+| `subject:streetAddress` | MAY | MAY | MUST NOT |
 | `subject:localityName` | MAY | MAY | MAY |
 | `subject:stateOrProvinceName` | MAY | MAY | MAY |
-| `subject:postalCode` | MUST NOT | MAY | MAY |
-| `subject:countryName` | MUST | MUST | MAY |
-| Other | MUST NOT | MUST NOT | MAY |
+| `subject:postalCode` | MAY | MAY | MUST NOT |
+| `subject:countryName` | MAY | MUST | MUST |
+| Other | MAY | MUST NOT | MUST NOT |
 
 ##### 7.1.4.2.4 Sponsored
 
@@ -1553,12 +1553,12 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:email` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
-| `subject:streetAddress` | MUST NOT | MAY | MAY |
+| `subject:streetAddress` | MAY | MAY | MUST NOT |
 | `subject:localityName` | MAY | MAY | MAY |
 | `subject:stateOrProvinceName` | MAY | MAY | MAY |
-| `subject:postalCode` | MUST NOT | MAY | MAY |
-| `subject:countryName` | MUST | MUST | MAY |
-| Other | MUST NOT | MUST NOT | MAY |
+| `subject:postalCode` | MAY | MAY | MUST NOT |
+| `subject:countryName` | MAY | MUST | MUST |
+| Other | MAY | MUST NOT | MUST NOT |
 
 ##### 7.1.4.2.5 Individual
 
@@ -1567,19 +1567,19 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:commonName` | MAY  | MAY | MAY |
 | `subject:organizationName` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
-| `subject:organizationIdentifier` | MUST | MUST | MUST |
-| `subject:givenName` | MUST  | MUST | MAY |
-| `subject:surname` | MUST  | MUST | MAY |
+| `subject:organizationIdentifier` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:givenName` | MAY  | MUST | MUST |
+| `subject:surname` | MAY  | MUST | MUST |
 | `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:email` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
-| `subject:streetAddress` | MUST NOT | MAY | MAY |
+| `subject:streetAddress` | MAY | MAY | MUST NOT |
 | `subject:localityName` | MAY | MAY | MAY |
 | `subject:stateOrProvinceName` | MAY | MAY | MAY |
-| `subject:postalCode` | MUST NOT | MAY | MAY |
-| `subject:countryName` | MUST | MUST | MAY |
-| Other | MUST NOT | MUST NOT | MAY |
+| `subject:postalCode` | MAY | MAY | MUST NOT |
+| `subject:countryName` | MAY | MUST | MUST |
+| Other | MAY | MUST NOT | MUST NOT |
 
 #### 7.1.4.3 Subject Information - Root Certificates and Subordinate CA Certificates
 
@@ -1751,13 +1751,13 @@ The Audit Report MUST be available as a PDF, and SHALL be text searchable for al
 
 ## 8.7 Self Audits
 
-During the period in which the CA issues Certificates, the CA SHALL monitor adherence to its CP and/or CPS and these Requirements and strictly control its service quality by performing self audits on at least a quarterly basis against a randomly selected sample of Certificates issued by it during the period commencing immediately after the previous self-audit sample was taken. 
+During the period in which the CA issues Certificates, the CA SHALL monitor adherence to its CP and/or CPS and these Requirements and strictly control its service quality by performing self audits on at least a quarterly basis against a randomly selected sample of the greater of one certificate or at least three percent of the Certificates issued by it during the period commencing immediately after the previous self-audit sample was taken. 
 
 ## 8.8 Review of Enterprise RA or Technically Constrained Subordinate CA
 
 Except for Delegated Third Parties that undergo an annual audit that meets the criteria specified in [Section 8.4](#84--topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of each Delegated Third Party, Enterprise RA, and Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS,
 
-The CA SHALL internally audit the compliance of Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs with these Requirements on an annual basis, and SHALL include having a Validation Specialist employed by the CA perform ongoing quarterly audits against a randomly selected sample of the Certificates verified or issued by those parties in the period beginning immediately after the last sample was taken.
+The CA SHALL internally audit the compliance of Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs with these Requirements on an annual basis, and SHALL include having a Validation Specialist employed by the CA perform ongoing quarterly audits against a randomly selected sample of at least the greater of one certificate or three percent of the Certificates verified or issued by those parties in the period beginning immediately after the last sample was taken.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
