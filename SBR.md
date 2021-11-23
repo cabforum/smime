@@ -421,9 +421,7 @@ The CA shall make its Repository publicly available in a read-only manner.
 
 ### 3.2.2  Authentication of organization and mailbox identity
 
-The CA MAY only include the `subject:organizationName` attribute in Certificates for Applicants verified to meet the requirements of one of the following Subject types.
-
-The CA SHALL NOT issue a Certificate if:
+The CA MAY only include the `subject:organizationName` attribute in Certificates for Applicants verified to meet the requirements of one of the following Subject types. The CA SHALL NOT issue a Certificate if:
 
    1. The entity's Jurisdiction of Incorporation, Registration, Charter, or License, its Place of Business, or the identified Principal Individual associated with the entity are located or residing in any country where the CA is prohibited from doing business or issuing a certificate by the laws of the CA's jurisdiction; or
    2. The entity or the identified Principal Individual associated with the entity are listed on any government denial list or prohibited list (e.g., trade embargo) under the laws of the CA's jurisdiction.
@@ -435,7 +433,7 @@ a. __Private Organization Subjects__
   1. The entity's legal existence is created or recognized by a by a filing with (or an act of) the Incorporating or Registration Agency in its Jurisdiction of Incorporation or Registration (e.g., by issuance of a certificate of incorporation, registration number, etc.) or created or recognized by a Government Agency (e.g. under a charter, treaty, convention, or equivalent recognition instrument);
   2. The entity designated with the Incorporating or Registration Agency a Registered Agent, a Registered Office (as required under the laws of the Jurisdiction of Incorporation or Registration), or an equivalent facility;
   3. The entity is not designated on the records of the Incorporating or Registration Agency by labels such as "inactive," "invalid," "not current," or the equivalent; and
-  4. The entity has a verifiable physical existence and business presence;
+  4. The entity has a verifiable physical existence and business presence.
 
 b. __Government Entity Subjects__
 
@@ -447,10 +445,9 @@ An Applicant qualifies as a Business Entity if:
 
    1. The entity is a legally recognized entity that filed certain forms with a Registration Agency in its jurisdiction, the Registration Agency issued or approved the entity's charter, certificate, or license, and the entity's existence can be verified with that Registration Agency;
    2. The entity has a verifiable physical existence and business presence;
-   3. At least one Principal Individual associated with the entity is identified and validated by the CA; and
-   4. The identified Principal Individual attests to the representations made in the Subscriber Agreement;
-   5. The CA verifies the entity's use of any assumed name used to represent the entity pursuant to the requirements of [Section X];
- 
+   3. At least one Principal Individual associated with the entity is identified and validated by the CA; 
+   4. The identified Principal Individual attests to the representations made in the Subscriber Agreement; and
+   5. The CA verifies the entity's use of any assumed name used to represent the entity pursuant to the requirements of [Section X].
 
    d. __Non-Commercial Entity Subjects__
 
