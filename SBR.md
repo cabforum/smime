@@ -491,7 +491,7 @@ For purposes of domain validation, the term Applicant includes the Applicant's P
 ##### 3.2.2.2.2  Validating control over email address via email
 The CA may confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
 
-The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
+Control over each email address SHALL be confirmed using a unique Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
 
 The Random Value SHALL be unique in each email. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CPS MAY specify a shorter validity period for Random Values, in which case the CA SHALL follow its CPS.  
 
