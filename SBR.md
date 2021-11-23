@@ -420,11 +420,60 @@ The CA shall make its Repository publicly available in a read-only manner.
 ### 3.2.1  Method to prove possession of private key
 
 ### 3.2.2  Authentication of organization and mailbox identity
+
+The CA MAY only include the `subject:organizationName` attribute in Certificates for Applicants verified to meet the requirements of one of the following Subject types.
+
+a. __Private Organization Subjects__
+   
+  An Applicant qualifies as a Private Organization if:
+
+  1. The entity's legal existence is created or recognized by a by a filing with (or an act of) the Incorporating or Registration Agency in its Jurisdiction of Incorporation or Registration (e.g., by issuance of a certificate of incorporation, registration number, etc.) or created or recognized by a Government Agency (e.g. under a charter, treaty, convention, or equivalent recognition instrument);
+  2. The entity designated with the Incorporating or Registration Agency a Registered Agent, a Registered Office (as required under the laws of the Jurisdiction of Incorporation or Registration), or an equivalent facility;
+  3. The entity is not designated on the records of the Incorporating or Registration Agency by labels such as "inactive," "invalid," "not current," or the equivalent;
+  4. The entity has a verifiable physical existence and business presence;
+  5. The entity's Jurisdiction of Incorporation, Registration, Charter, or License, and/or its Place of Business is not in any country where the CA is prohibited from doing business or issuing a certificate by the laws of the CA's jurisdiction; and
+  6. The entity is not listed on any government denial list or prohibited list (e.g., trade embargo) under the laws of the CA's jurisdiction.
+
+b. __Government Entity Subjects__
+
+An Applicant qualifies as a Government Entity if:
+
+   1. The entity's legal existence was established by the political subdivision in which the entity operates;
+   2. The entity is not in any country where the CA is prohibited from doing business or issuing a certificate by the laws of the CA's jurisdiction; and
+   3. The entity is not listed on any government denial list or prohibited list (e.g., trade embargo) under the laws of the CA's jurisdiction.
+
+c. __Business Entity Subjects__
+
+An Applicant qualifies as a Business Entity if:
+
+   1. The entity is a legally recognized entity that filed certain forms with a Registration Agency in its jurisdiction, the Registration Agency issued or approved the entity's charter, certificate, or license, and the entity's existence can be verified with that Registration Agency;
+   2. The entity has a verifiable physical existence and business presence;
+   3. At least one Principal Individual associated with the entity is identified and validated by the CA;
+   4. The identified Principal Individual attests to the representations made in the Subscriber Agreement;
+   5. The CA verifies the entity's use of any assumed name used to represent the entity pursuant to the requirements of [Section X];
+   6. The entity and the identified Principal Individual associated with the entity are not located or residing in any country where the CA is prohibited from doing business or issuing a certificate by the laws of the CA's jurisdiction; and
+   7. The entity and the identified Principal Individual associated with the entity are not listed on any government denial list or prohibited list (e.g., trade embargo) under the laws of the CA's jurisdiction.
+
+d. __Non-Commercial Entity Subjects__
+
+An Applicant qualifies as a Non-Commercial Entity if:
+
+   1. The Applicant is an International Organization Entity, created under a charter, treaty, convention or equivalent instrument that was signed by, or on behalf of, more than one country's government.  The CA/Browser Forum may publish a listing of Applicants that qualify as an International Organization; and
+   2. The Applicant is not headquartered in any country where the CA is prohibited from doing business or issuing a certificate by the laws of the CA's jurisdiction; and
+   3. The Applicant is not listed on any government denial list or prohibited list (e.g., trade embargo) under the laws of the CA's jurisdiction.
+
+Subsidiary organizations or agencies of an entity that qualifies as a Non-Commercial Entity also qualify for Certificates as a Non-Commercial Entity.
+
 #### 3.2.2.1  Authentication of organization identity
+
+
+
 #### 3.2.2.2  Validation of mailbox authorization or control
 This section defines the permitted processes and procedures for confirming the Applicant's control of the email addresses to be included in issued Certificates. 
 
 The CA SHALL verify that Applicant controls the email accounts associated with all email addresses referenced in the Certificate or has been authorized by the email account holder to act on the account holder’s behalf. 
+
+The CA SHALL NOT delegate the verification of mailbox authorization or control.
 
 <b>Note:</b> Email addresses may be listed in Subscriber Certificates using `rfc822Names` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the subjectAltName extension or in Subordinate CA Certificates via `rfc822Names` in permittedSubtrees within the Name Constraints extension.
 
@@ -433,22 +482,20 @@ The CA's CP/CPS SHALL specify the procedures that the CA employs to perform this
 Completed validations of Applicant authority may be valid for the issuance of multiple Certificates over time. In all cases, the validation SHALL have been initiated within the time period specified in the relevant requirement (such as [Section 4.2.1](#421-performing-identification-and-authentication-functions)) prior to Certificate issuance.
 
 ##### 3.2.2.2.1  Validating authority over email address via domain
-Confirming the Applicant has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
+The CA may confirm the Applicant has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
 
 The CA SHALL use only the approved methods in Section 3.2.2.4 of Version 1.8 of the Baseline Requirements to perform this verification.
-
-The CA SHALL NOT delegate validation of the domain portion of an email address. 
 
 For purposes of domain validation, the term Applicant includes the Applicant's Parent Company, Subsidiary Company, or Affiliate.
 
 ##### 3.2.2.2.2  Validating control over email address via email
-Confirming the Applicant's control over the `rfc822Name` email address by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
+The CA may confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
 
-The Random Value SHALL be unique in each email. 
+Control over each email address SHALL be confirmed using a unique Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
 
-The CA MAY resend the email in its entirety, including re-use of the Random Value, provided that the entire contents and recipient email address of the communication remain unchanged.
+The Random Value SHALL be unique in each email. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CA MAY specify a shorter validity period for Random Values in its CP and/or CPS.  
 
-The Random Value SHALL remain valid for use in a confirming response for no more than 30 days from its creation. The CPS MAY specify a shorter validity period for Random Values, in which case the CA SHALL follow its CPS.
+The Random Value SHALL be reset upon each instance of the email sent by the CA and, if intended for additional use as an authentication factor, upon first use.  
 
 #### 3.2.2.3  CAA Records
 This version of the S/MIME Baseline Requirements does not require the CA to check for CAA records.  The CAA property tags for issue, issuewild, and iodef as specified in RFC 8659 are not recognized for the issuance of S/MIME Certificates.
