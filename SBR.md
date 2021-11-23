@@ -421,9 +421,7 @@ The CA shall make its Repository publicly available in a read-only manner.
 
 ### 3.2.2  Authentication of organization and mailbox identity
 
-#### 3.2.2.1  Authentication of organization identity
-
-The CA MAY only use the `subject:organizationName` attribute in Certificates for Applicants that meet the Private Organization, Government Entity, Business Entity and Non-Commercial Entity requirements specified below.
+The CA MAY only include the `subject:organizationName` attribute in Certificates for Applicants verified to meet the requirements of one of the following Subject types.
 
 a. __Private Organization Subjects__
    
@@ -460,11 +458,15 @@ d. __Non-Commercial Entity Subjects__
 
 An Applicant qualifies as a Non-Commercial Entity if:
 
-   1. The Applicant is an International Organization Entity, created under a charter, treaty, convention or equivalent instrument that was signed by, or on behalf of, more than one country's government.  The CA/Browser Forum may publish a listing of Applicants who qualify as an International Organization; and
+   1. The Applicant is an International Organization Entity, created under a charter, treaty, convention or equivalent instrument that was signed by, or on behalf of, more than one country's government.  The CA/Browser Forum may publish a listing of Applicants that qualify as an International Organization; and
    2. The Applicant is not headquartered in any country where the CA is prohibited from doing business or issuing a certificate by the laws of the CA's jurisdiction; and
    3. The Applicant is not listed on any government denial list or prohibited list (e.g., trade embargo) under the laws of the CA's jurisdiction.
 
 Subsidiary organizations or agencies of an entity that qualifies as a Non-Commercial Entity also qualify for Certificates as a Non-Commercial Entity.
+
+#### 3.2.2.1  Authentication of organization identity
+
+
 
 #### 3.2.2.2  Validation of mailbox authorization or control
 This section defines the permitted processes and procedures for confirming the Applicant's control of the email addresses to be included in issued Certificates. 
@@ -478,7 +480,7 @@ The CA's CP/CPS SHALL specify the procedures that the CA employs to perform this
 Completed validations of Applicant authority may be valid for the issuance of multiple Certificates over time. In all cases, the validation SHALL have been initiated within the time period specified in the relevant requirement (such as [Section 4.2.1](#421-performing-identification-and-authentication-functions)) prior to Certificate issuance.
 
 ##### 3.2.2.2.1  Validating authority over email address via domain
-Confirming the Applicant has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
+The CA may confirm the Applicant has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
 
 The CA SHALL use only the approved methods in Section 3.2.2.4 of Version 1.8 of the Baseline Requirements to perform this verification.
 
@@ -487,13 +489,13 @@ The CA SHALL NOT delegate validation of the domain portion of an email address.
 For purposes of domain validation, the term Applicant includes the Applicant's Parent Company, Subsidiary Company, or Affiliate.
 
 ##### 3.2.2.2.2  Validating control over email address via email
-Confirming the Applicant's control over the `rfc822Name` email address by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
+The CA may confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
 
-The Random Value SHALL be unique in each email. 
+The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
 
-The CA MAY resend the email in its entirety, including re-use of the Random Value, provided that the entire contents and recipient email address of the communication remain unchanged.
+The Random Value SHALL be unique in each email. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CPS MAY specify a shorter validity period for Random Values, in which case the CA SHALL follow its CPS.  
 
-The Random Value SHALL remain valid for use in a confirming response for no more than 30 days from its creation. The CPS MAY specify a shorter validity period for Random Values, in which case the CA SHALL follow its CPS.
+The Random Value SHALL be reset upon each instance of the email sent by the CA and upon first use.  
 
 #### 3.2.2.3  CAA Records
 This version of the S/MIME Baseline Requirements does not require the CA to check for CAA records.  The CAA property tags for issue, issuewild, and iodef as specified in RFC 8659 are not recognized for the issuance of S/MIME Certificates.
