@@ -493,7 +493,7 @@ The CA may confirm the Applicant's control over each `rfc822Name` or `otherName`
 
 Control over each email address SHALL be confirmed using a unique Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
 
-The Random Value SHALL be unique in each email. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CPS MAY specify a shorter validity period for Random Values, in which case the CA SHALL follow its CPS.  
+The Random Value SHALL be unique in each email. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CA MAY specify a shorter validity period for Random Values in its CP and/or CPS.  
 
 The Random Value SHALL be reset upon each instance of the email sent by the CA and upon first use.  
 
