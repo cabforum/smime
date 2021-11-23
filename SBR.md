@@ -495,7 +495,7 @@ Control over each email address SHALL be confirmed using a unique Random Value. 
 
 The Random Value SHALL be unique in each email. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CA MAY specify a shorter validity period for Random Values in its CP and/or CPS.  
 
-The Random Value SHALL be reset upon each instance of the email sent by the CA and upon first use.  
+The Random Value SHALL be reset upon each instance of the email sent by the CA and, if intended for additional use as an authentication factor, upon first use.  
 
 #### 3.2.2.3  CAA Records
 This version of the S/MIME Baseline Requirements does not require the CA to check for CAA records.  The CAA property tags for issue, issuewild, and iodef as specified in RFC 8659 are not recognized for the issuance of S/MIME Certificates.
