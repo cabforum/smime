@@ -473,6 +473,8 @@ This section defines the permitted processes and procedures for confirming the A
 
 The CA SHALL verify that Applicant controls the email accounts associated with all email addresses referenced in the Certificate or has been authorized by the email account holder to act on the account holder’s behalf. 
 
+The CA SHALL NOT delegate the verification of mailbox authorization or control.
+
 <b>Note:</b> Email addresses may be listed in Subscriber Certificates using `rfc822Names` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the subjectAltName extension or in Subordinate CA Certificates via `rfc822Names` in permittedSubtrees within the Name Constraints extension.
 
 The CA's CP/CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which domain validation method, including the relevant version number from the Baseline Requirements or S/MIME Baseline Requirements, used to validate every domain or email address in issued Certificates.
@@ -483,8 +485,6 @@ Completed validations of Applicant authority may be valid for the issuance of mu
 The CA may confirm the Applicant has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
 
 The CA SHALL use only the approved methods in Section 3.2.2.4 of Version 1.8 of the Baseline Requirements to perform this verification.
-
-The CA SHALL NOT delegate validation of the domain portion of an email address. 
 
 For purposes of domain validation, the term Applicant includes the Applicant's Parent Company, Subsidiary Company, or Affiliate.
 
