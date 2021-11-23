@@ -457,6 +457,182 @@ Subsidiary organizations or agencies of an entity that qualifies as a Non-Commer
 
 #### 3.2.2.1  Authentication of organization identity
 
+The CA MUST ensure that all Subject Organization information to be included in Certificates conforms to the requirements of, and is verified in accordance with, these Requirements and matches the information confirmed and documented by the CA pursuant to its verification processes.  Such verification processes are intended to accomplish the following:
+
+1. Verify Applicant's existence and identity, including;
+
+   A.  Verify the Applicant's legal existence and identity (as more fully set forth in [Section X]),
+
+   B.  Verify the Applicant's physical existence (business presence at a physical address), and
+
+   C.  Verify the Applicant's operational existence (business activity).
+
+2. Verify a reliable means of communication with the entity to be named as the Subject in the Certificate;
+
+3. Verify the Applicant's authorization for the Certificate, including;
+
+   A.  Verify the name, title, and authority of the Contract Signer, Certificate Approver, and Certificate Requester,
+
+   B.  Verify that a Contract Signer signed the Subscriber Agreement or that a duly authorized Applicant Representative acknowledged and agreed to the Terms of Use; and
+
+   C.  Verify that a Certificate Approver has signed or otherwise approved the Certificate Request.
+
+The Acceptable Methods of Verification set forth in this Section are considered to be the minimum acceptable level of verification required of the CA.  In all cases, however, the CA is responsible for taking any additional verification steps that may be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement.
+
+The CA SHALL disclose the Incorporating Agency or Registration Agency sources used to fulfill these verification requirements in accordance with Section 11.1.3 of the EV Guidelines.
+
+#### 3.2.2.2 Verification of Applicant's Legal Existence and Identity
+
+##### 3.2.2.2.1 Verification Requirements
+
+To verify the Applicant's legal existence and identity, the CA MUST do the following.
+
+1. **Private Organization Subjects**
+
+   A.  **Legal Existence**: Verify that the Applicant is a legally recognized entity, in existence and validly formed (e.g., incorporated) with the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration, and not designated on the records of the Incorporating or Registration Agency by labels such as "inactive", "invalid", "not current", or the equivalent.
+   B.  **Organization Name**: Verify that the Applicant's formal legal name as recorded with the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration matches the Applicant's name in the EV Certificate Request.
+   C.  **Registration Number**: Obtain the specific Registration Number assigned to the Applicant by the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration.  Where the Incorporating or Registration Agency does not assign a Registration Number, the CA SHALL obtain the Applicant's date of Incorporation or Registration.
+   D.  **Registered Agent**: Obtain the identity and address of the Applicant's Registered Agent or Registered Office (as applicable in the Applicant's Jurisdiction of Incorporation or Registration).
+
+2. **Government Entity Subjects**
+
+   A.  **Legal Existence**: Verify that the Applicant is a legally recognized Government Entity, in existence in the political subdivision in which such Government Entity operates.
+   B.  **Entity Name**: Verify that the Applicant's formal legal name matches the Applicant's name in the EV Certificate Request.
+   C.  **Registration Number**: The CA MUST attempt to obtain the Applicant's date of incorporation, registration, or formation, or the identifier for the legislative act that created the Government Entity.  In circumstances where this information is not available, the CA MUST enter appropriate language to indicate that the Subject is a Government Entity.
+
+3. **Business Entity Subjects**
+
+   A.  **Legal Existence**: Verify that the Applicant is engaged in business under the name submitted by the Applicant in the Application.
+   B.  **Organization Name**: Verify that the Applicant's formal legal name as recognized by the Registration Agency in the Applicant's Jurisdiction of Registration matches the Applicant's name in the EV Certificate Request.
+   C.  **Registration Number**: Attempt to obtain the specific unique Registration Number assigned to the Applicant by the Registration Agency in the Applicant's Jurisdiction of Registration.  Where the Registration Agency does not assign a Registration Number, the CA SHALL obtain the Applicant's date of Registration.
+   D.  **Principal Individual**: Verify the identity of the identified Principal Individual.
+
+4. **Non-Commercial Entity Subjects (International Organizations)**
+
+   A.  **Legal Existence**: Verify that the Applicant is a legally recognized International Organization Entity.
+   B.  **Entity Name**: Verify that the Applicant's formal legal name matches the Applicant's name in the EV Certificate Request.
+   C.  **Registration Number**: The CA MUST attempt to obtain the Applicant's date of formation, or the identifier for the legislative act that created the International Organization Entity.  In circumstances where this information is not available, the CA MUST enter appropriate language to indicate that the Subject is an International Organization Entity.
+
+##### 3.2.2.2.2 Acceptable Method of Verification
+
+1. **Private Organization Subjects**: Unless verified under subsection (6), all items listed in [Section 11.2.1](#1121-verification-requirements) (1) MUST be verified directly with, or obtained directly from, the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration. Such verification MAY be through use of a Qualified Government Information Source operated by, or on behalf of, the Incorporating or Registration Agency, or by direct contact with the Incorporating or Registration Agency in person or via mail, e-mail, Web address, or telephone, using an address or phone number obtained directly from the Qualified Government Information Source, Incorporating or Registration Agency, or from a Qualified Independent Information Source.
+
+2. **Government Entity Subjects**: Unless verified under subsection (6), all items listed in [Section 11.2.1](#1121-verification-requirements) (2) MUST either be verified directly with, or obtained directly from, one of the following:
+   i. a Qualified Government Information Source in the political subdivision in which such Government Entity operates;
+   ii. a superior governing Government Entity in the same political subdivision as the Applicant (e.g. a Secretary of State may verify the legal existence of a specific State Department), or
+   iii. from a judge that is an active member of the federal, state or local judiciary within that political subdivision.
+
+   Any communication from a judge SHALL be verified in the same manner as is used for verifying factual assertions that are asserted by an Attorney as set forth in [Section 11.11.1](#11111-verified-legal-opinion).
+
+   Such verification MAY be by direct contact with the appropriate Government Entity in person or via mail, e-mail, Web address, or telephone, using an address or phone number obtained from a Qualified Independent Information Source.
+
+3. **Business Entity Subjects**: Unless verified under subsection (6), Items listed in [Section 11.2.1](#1121-verification-requirements) (3) (A) through (C) above, MUST be verified directly with, or obtained directly from, the Registration Agency in the Applicant's Jurisdiction of Registration. Such verification MAY be performed by means of a Qualified Government Information Source, a Qualified Governmental Tax Information Source, or by direct contact with the Registration Agency in person or via mail, e-mail, Web address, or telephone, using an address or phone number obtained directly from the Qualified Government Information Source, Qualified Governmental Tax Information Source or Registration Agency, or from a Qualified Independent Information Source. In addition, the CA MUST validate a Principal Individual associated with the Business Entity pursuant to the requirements in subsection (4), below.
+
+4. **Principal Individual**: A Principal Individual associated with the Business Entity MUST be validated in a face-to-face setting.  The CA MAY rely upon a face-to-face validation of the Principal Individual performed by the Registration Agency, provided that the CA has evaluated the validation procedure and concluded that it satisfies the requirements of the Guidelines for face-to-face validation procedures.  Where no face-to-face validation was conducted by the Registration Agency, or the Registration Agency's face-to-face validation procedure does not satisfy the requirements of the Guidelines, the CA SHALL perform face-to-face validation.
+
+   A.  **Face-To-Face Validation**: The face-to-face validation MUST be conducted before either an employee of the CA, a Latin Notary, a Notary (or equivalent in the Applicant's jurisdiction), a Lawyer, or Accountant (Third-Party Validator).  The Principal Individual(s) MUST present the following documentation (Vetting Documents) directly to the Third-Party Validator:
+
+       i. A Personal Statement that includes the following information:
+
+          1. Full name or names by which a person is, or has been, known (including all other names used);
+          2. Residential Address at which he/she can be located;
+          3. Date of birth; and
+          4. An affirmation that all of the information contained in the Certificate Request is true and correct.
+
+       ii. A current signed government-issued identification document that includes a photo of the Individual and is signed by the Individual such as:
+
+           1. A passport;
+           2. A driver's license;
+           3. A personal identification card;
+           4. A concealed weapons permit; or
+           5. A military ID.
+
+       iii. At least two secondary documentary evidences to establish his/her identity that include the name of the Individual, one of which MUST be from a financial institution.
+
+            1. Acceptable financial institution documents include:
+
+               a. A major credit card, provided that it contains an expiration date and it has not expired'
+               b. A debit card from a regulated financial institution, provided that it contains an expiration date and it has not expired,
+               c. A mortgage statement from a recognizable lender that is less than six months old,
+               d. A bank statement from a regulated financial institution that is less than six months old.
+
+            2. Acceptable non-financial documents include:
+
+               a. Recent original utility bills or certificates from a utility company confirming the arrangement to pay for the services at a fixed address (not a mobile/cellular telephone bill),
+               b. A copy of a statement for payment of a lease, provided that the statement is dated within the past six months,
+               c. A certified copy of a birth certificate,
+               d. A local authority tax bill for the current year,
+               e. A certified copy of a court order, such as a divorce certificate, annulment papers, or adoption papers.
+
+       The Third-Party Validator performing the face-to-face validation MUST:
+
+         i. Attest to the signing of the Personal Statement and the identity of the signer; and
+         ii. Identify the original Vetting Documents used to perform the identification.  In addition, the Third-Party Validator MUST attest on a copy of the current signed government-issued photo identification document that it is a full, true, and accurate reproduction of the original.
+
+   B.  **Verification of Third-Party Validator**: The CA MUST independently verify that the Third-Party Validator is a legally-qualified Latin Notary or Notary (or legal equivalent in the Applicant's jurisdiction), lawyer, or accountant in the jurisdiction of the Individual's residency, and that the Third-Party Validator actually did perform the services and did attest to the signature of the Individual.
+
+   C.  **Cross-checking of Information**: The CA MUST obtain the signed and attested Personal Statement together with the attested copy of the current signed government-issued photo identification document.  The CA MUST review the documentation to determine that the information is consistent, matches the information in the application, and identifies the Individual.  The CA MAY rely on electronic copies of this documentation, provided that:
+
+       i. the CA confirms their authenticity (not improperly modified when compared with the underlying original) with the Third-Party Validator; and
+       ii. electronic copies of similar kinds of documents are recognized as legal substitutes for originals under the laws of the CA's jurisdiction.
+
+5. **Non-Commercial Entity Subjects (International Organization)**: Unless verified under subsection (6), all items listed in [Section 11.2.1](#1121-verification-requirements) (4) MUST be verified either:
+
+   A.  With reference to the constituent document under which the International Organization was formed; or
+   B.  Directly with a signatory country's government in which the CA is permitted to do business.  Such verification may be obtained from an appropriate government agency or from the laws of that country, or by verifying that the country's government has a mission to represent it at the International Organization; or
+   C.  Directly against any current list of qualified entities that the CA/Browser Forum may maintain at www.cabforum.org.
+   D.  In cases where the International Organization applying for the EV Certificate is an organ or agency - including a non-governmental organization of a verified International Organization, then the CA may verify the International Organization Applicant directly with the verified umbrella International Organization of which the Applicant is an organ or agency.
+
+6. The CA may rely on a Verified Professional Letter to establish the Applicant's information listed in (1)-(5) above if:
+
+   i. the Verified Professional Letter includes a copy of supporting documentation used to establish the Applicant's legal existence, such as a certificate of registration, articles of incorporation, operating agreement, statute, or regulatory act, and
+   ii. the CA confirms the Applicant's organization name specified in the Verified Professional Letter with a QIIS or QGIS.
+
+#### 3.2.2.3 Verification of Applicant's Legal Existence and Identity – Assumed Name
+
+###### 3.2.2.3.1 Verification Requirements
+
+If, in addition to the Applicant's formal legal name, as recorded with the applicable Incorporating Agency or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration, the Applicant's identity, as asserted in the EV Certificate, is to contain any assumed name (also known as "doing business as", "DBA", or "d/b/a" in the US, and "trading as" in the UK) under which the Applicant conducts business, the CA MUST verify that:
+
+   i. the Applicant has registered its use of the assumed name with the appropriate government agency for such filings in the jurisdiction of its Place of Business (as verified in accordance with these Guidelines), and
+   ii. that such filing continues to be valid.
+
+###### 3.2.2.3.2 Acceptable Method of Verification
+
+To verify any assumed name under which the Applicant conducts business:
+
+1. The CA MAY verify the assumed name through use of a Qualified Government Information Source operated by, or on behalf of, an appropriate government agency in the jurisdiction of the Applicant's Place of Business, or by direct contact with such government agency in person or via mail, e-mail, Web address, or telephone; or
+2. The CA MAY verify the assumed name through use of a Qualified Independent Information Source provided that the QIIS has verified the assumed name with the appropriate government agency.
+3. The CA MAY rely on a Verified Professional Letter  that indicates the assumed name under which the Applicant conducts business, the government agency with which the assumed name is registered, and that such filing continues to be valid.
+
+#### 3.2.2.4 Verification of Applicant's Physical Existence
+
+##### 3.2.2.4.1 Verification Requirements
+To verify the Applicant's physical existence and business presence, the CA MUST verify that the physical address provided by the Applicant is an address where the Applicant or a Parent/Subsidiary Company conducts business operations (not, for example, a mail drop or P.O. box, or 'care of' (C/O) address, such as an address for an agent of the Organization), and is the address of the Applicant's Place of Business.
+
+##### 3.2.2.4.2 Acceptable Method of Verification
+
+   A.  **Place of Business in the Country of Incorporation or Registration**
+
+       i. For Applicants whose Place of Business is in the same country as the Applicant's Jurisdiction of Incorporation or Registration and whose Place of Business is NOT the same as that indicated in the relevant Qualified Government Information Source used in [Section 11.2](#112-verification-of-applicants-legal-existence-and-identity) to verify legal existence:
+
+          1. For Applicants listed at the same Place of Business address in the current version of either at least one QGIS (other than that used to verify legal existence), QIIS or QTIS, the CA MUST confirm that the Applicant's address, as listed in the EV Certificate Request, is a valid business address for the Applicant or a Parent/Subsidiary Company by reference to such QGIS, QIIS, or QTIS, and MAY rely on the Applicant's representation that such address is its Place of Business;
+
+          2. For Applicants who are not listed at the same Place of Business address in the current version of either at least one QIIS or QTIS, the CA MUST confirm that the address provided by the Applicant in the EV Certificate Request is the Applicant's or a Parent/Subsidiary Company's business address, by obtaining documentation of a site visit to the business address, which MUST be performed by a reliable individual or firm.  The documentation of the site visit MUST:
+
+             a. Verify that the Applicant's business is located at the exact address stated in the EV Certificate Request (e.g., via permanent signage, employee confirmation, etc.),
+             b. Identify the type of facility (e.g., office in a commercial building, private residence, storefront, etc.) and whether it appears to be a permanent business location,
+             c. Indicate whether there is a permanent sign (that cannot be moved) that identifies the Applicant,
+             d. Indicate whether there is evidence that the Applicant is conducting ongoing business activities at the site (not that it is just, for example, a mail drop, P.O. box, etc.), and
+             e. Include one or more photos of
+                i. the exterior of the site (showing signage indicating the Applicant's name, if present, and showing the street address if possible), and
+                ii. the interior reception area or workspace.
+
+       ii. For all Applicants, the CA MAY alternatively rely on a Verified Professional Letter that indicates the address of the Applicant's or a Parent/Subsidiary Company's Place of Business and that business operations are conducted there.
+       iii. For Government Entity Applicants, the CA MAY rely on the address contained in the records of the QGIS in the Applicant's jurisdiction.
+       iv. For Applicants whose Place of Business is in the same country as the Applicant's Jurisdiction of Incorporation or Registration and where the QGIS used in [Section 11.2](#112-verification-of-applicants-legal-existence-and-identity) to verify legal existence contains a business address for the Applicant, the CA MAY rely on the address in the QGIS to confirm the Applicant's or a Parent/Subsidiary Company's address as listed in the EV Certificate Request, and MAY rely on the Applicant's representation that such address is its Place of Business.
+
+   B.  **Place of Business not in the Country of Incorporation or Registration**: The CA MUST rely on a Verified Professional Letter that indicates the address of the Applicant's Place of Business and that business operations are conducted there.
 
 
 #### 3.2.2.2  Validation of mailbox authorization or control
