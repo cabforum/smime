@@ -2254,6 +2254,10 @@ Nothing in these Guidelines shall prohibit the use of third-party vendors to obt
 
 A Qualified Government Tax Information Source is a Qualified Government Information Source that specifically contains tax information relating to Private Organizations, Business Entities or Individuals (e.g., the IRS in the United States).
 
+### A.1.4 Regulated Professions Database
+
+A regulated professions database is a Qualified Government Information Source that contains information on information on regulated professions (e.g., where access and exercise of a Title is subject to the possession of a specific professional qualification).
+ 
 ## A.2 CAA Methods
 
 ### A.2.1 CAA contactemail Property
