@@ -532,9 +532,9 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
 
 ##### 3.2.2.2.2 Acceptable method of verification
 
-1. **Private Organization Subjects**: Unless verified under subsection (6), all items listed in [Section 11.2.1](#1121-verification-requirements) (1) MUST be verified directly with, or obtained directly from, the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration. Such verification MAY be through use of a Qualified Government Information Source operated by, or on behalf of, the Incorporating or Registration Agency, or by direct contact with the Incorporating or Registration Agency in person or via mail, e-mail, Web address, or telephone, using an address or phone number obtained directly from the Qualified Government Information Source, Incorporating or Registration Agency, or from a Qualified Independent Information Source.
+1. **Private Organization Subjects**: Unless verified under subsection (6) below, all items listed in [Section 3.2.2.2.1](#32221-verification-requirements) (1) MUST be verified directly with, or obtained directly from, the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration. Such verification MAY be through use of a Qualified Government Information Source operated by, or on behalf of, the Incorporating or Registration Agency, or by direct contact with the Incorporating or Registration Agency in person or via mail, e-mail, Web address, or telephone, using an address or phone number obtained directly from the Qualified Government Information Source, Incorporating or Registration Agency, or from a Qualified Independent Information Source.
 
-2. **Government Entity Subjects**: Unless verified under subsection (6), all items listed in [Section 11.2.1](#1121-verification-requirements) (2) MUST either be verified directly with, or obtained directly from, one of the following:
+2. **Government Entity Subjects**: Unless verified under subsection (6) below, all items listed in [Section 3.2.2.2.1](#32221-verification-requirements) (2) MUST either be verified directly with, or obtained directly from, one of the following:
    i. a Qualified Government Information Source in the political subdivision in which such Government Entity operates;
    ii. a superior governing Government Entity in the same political subdivision as the Applicant (e.g. a Secretary of State may verify the legal existence of a specific State Department), or
    iii. from a judge that is an active member of the federal, state or local judiciary within that political subdivision.
@@ -543,7 +543,7 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
 
    Such verification MAY be by direct contact with the appropriate Government Entity in person or via mail, e-mail, Web address, or telephone, using an address or phone number obtained from a Qualified Independent Information Source.
 
-3. **Business Entity Subjects**: Unless verified under subsection (6), Items listed in [Section 11.2.1](#1121-verification-requirements) (3) (A) through (C) above, MUST be verified directly with, or obtained directly from, the Registration Agency in the Applicant's Jurisdiction of Registration. Such verification MAY be performed by means of a Qualified Government Information Source, a Qualified Governmental Tax Information Source, or by direct contact with the Registration Agency in person or via mail, e-mail, Web address, or telephone, using an address or phone number obtained directly from the Qualified Government Information Source, Qualified Governmental Tax Information Source or Registration Agency, or from a Qualified Independent Information Source. In addition, the CA MUST validate a Principal Individual associated with the Business Entity pursuant to the requirements in subsection (4), below.
+3. **Business Entity Subjects**: Unless verified under subsection (6) below, Items listed in [Section 3.2.2.2.1](#32221-verification-requirements) (3) (A) through (C) above, MUST be verified directly with, or obtained directly from, the Registration Agency in the Applicant's Jurisdiction of Registration. Such verification MAY be performed by means of a Qualified Government Information Source, a Qualified Governmental Tax Information Source, or by direct contact with the Registration Agency in person or via mail, e-mail, Web address, or telephone, using an address or phone number obtained directly from the Qualified Government Information Source, Qualified Governmental Tax Information Source or Registration Agency, or from a Qualified Independent Information Source. In addition, the CA MUST validate a Principal Individual associated with the Business Entity pursuant to the requirements in subsection (4), below.
 
 4. **Principal Individual**: A Principal Individual associated with the Business Entity MUST be validated in a face-to-face setting.  The CA MAY rely upon a face-to-face validation of the Principal Individual performed by the Registration Agency, provided that the CA has evaluated the validation procedure and concluded that it satisfies the requirements of the Guidelines for face-to-face validation procedures.  Where no face-to-face validation was conducted by the Registration Agency, or the Registration Agency's face-to-face validation procedure does not satisfy the requirements of the Guidelines, the CA SHALL perform face-to-face validation.
 
@@ -593,7 +593,7 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
        i. the CA confirms their authenticity (not improperly modified when compared with the underlying original) with the Third-Party Validator; and
        ii. electronic copies of similar kinds of documents are recognized as legal substitutes for originals under the laws of the CA's jurisdiction.
 
-5. **Non-Commercial Entity Subjects (International Organization)**: Unless verified under subsection (6), all items listed in [Section 11.2.1](#1121-verification-requirements) (4) MUST be verified either:
+5. **Non-Commercial Entity Subjects (International Organization)**: Unless verified under subsection (6) below, all items listed in [Section 3.2.2.2.1](#32221-verification-requirements) (4) MUST be verified either:
 
    A.  With reference to the constituent document under which the International Organization was formed; or
 
@@ -613,7 +613,7 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
 
 ###### 3.2.2.3.1 Verification requirements
 
-If, in addition to the Applicant's formal legal name, as recorded with the applicable Incorporating Agency or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration, the Applicant's identity, as asserted in the EV Certificate, is to contain any assumed name (also known as "doing business as", "DBA", or "d/b/a" in the US, and "trading as" in the UK) under which the Applicant conducts business, the CA MUST verify that:
+If, in addition to the Applicant's formal legal name, as recorded with the applicable Incorporating Agency or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration, the Applicant's identity, as asserted in the Certificate, is to contain any assumed name (also known as "doing business as", "DBA", or "d/b/a" in the US, and "trading as" in the UK) under which the Applicant conducts business, the CA MUST verify that:
 
    1. the Applicant has registered its use of the assumed name with the appropriate government agency for such filings in the jurisdiction of its Place of Business (as verified in accordance with these Guidelines); and
    2. that such filing continues to be valid.
@@ -667,9 +667,11 @@ To verify a Verified Method of Communication with the Applicant, the CA MUST:
 
 1.  Verify that the Verified Method of Communication belongs to the Applicant, or a Parent/Subsidiary or Affiliate of the Applicant, by matching it with one of the Applicant's Parent/Subsidiary or Affiliate's Places of Business in:
 
-  A. records provided by the applicable phone company;
-  B. a QGIS, QTIS, or QIIS; or
-  C. a Verified Professional Letter; and
+   A. records provided by the applicable phone company;
+
+   B. a QGIS, QTIS, or QIIS; or
+
+   C. a Verified Professional Letter; and
 
 2.  Confirm the Verified Method of Communication by using it to obtain an affirmative response sufficient to enable a reasonable person to conclude that the Applicant, or a Parent/Subsidiary or Affiliate of Applicant, can be contacted reliably by using the Verified Method of Communication.
 
@@ -677,7 +679,7 @@ To verify a Verified Method of Communication with the Applicant, the CA MUST:
 
 ##### 3.2.2.6.1 Verification requirements
 
-The CA MUST verify that the Applicant has the ability to engage in business by verifying the Applicant's, or Affiliate/Parent/Subsidiary Company's, operational existence.  The CA MAY rely on its verification of a Government Entity's legal existence under [Section 11.2](#112-verification-of-applicants-legal-existence-and-identity) as verification of a Government Entity's operational existence.
+The CA MUST verify that the Applicant has the ability to engage in business by verifying the Applicant's, or Affiliate/Parent/Subsidiary Company's, operational existence.  The CA MAY rely on its verification of a Government Entity's legal existence under [Section 3.2.2.2.2](#32222-acceptable-method-of-verification) as verification of a Government Entity's operational existence.
 
 ##### 3.2.2.6.2 Acceptable method of verification
 
@@ -779,7 +781,8 @@ Such an agreement MUST provide that the Applicant shall be obligated under the S
 Both the Subscriber Agreement and each non-pre-authorized EV Certificate Request MUST be signed.  The Subscriber Agreement MUST be signed by an authorized Contract Signer.  The EV Certificate Request MUST be signed by the Certificate Requester submitting the document, unless the Certificate Request has been pre-authorized in line with [Section 11.8.4](#1184-pre-authorized-certificate-approver).  If the Certificate Requester is not also an authorized Certificate Approver, then an authorized Certificate Approver MUST independently approve the EV Certificate Request.  In all cases, applicable signatures MUST be a legally valid and contain an enforceable seal or handwritten signature (for a paper Subscriber Agreement and/or EV Certificate Request), or a legally valid and enforceable electronic signature (for an electronic Subscriber Agreement and/or EV Certificate Request), that binds the Applicant to the terms of each respective document.
 
 NUMBERING IS WRONG AFTER THIS**
-#### 3.2.2.2  Validation of mailbox authorization or control
+#### 3.2.2.8  Validation of mailbox authorization or control
+
 This section defines the permitted processes and procedures for confirming the Applicant's control of the email addresses to be included in issued Certificates. 
 
 The CA SHALL verify that Applicant controls the email accounts associated with all email addresses referenced in the Certificate or has been authorized by the email account holder to act on the account holder’s behalf. 
@@ -792,14 +795,16 @@ The CA's CP/CPS SHALL specify the procedures that the CA employs to perform this
 
 Completed validations of Applicant authority may be valid for the issuance of multiple Certificates over time. In all cases, the validation SHALL have been initiated within the time period specified in the relevant requirement (such as [Section 4.2.1](#421-performing-identification-and-authentication-functions)) prior to Certificate issuance.
 
-##### 3.2.2.2.1  Validating authority over email address via domain
+##### 3.2.2.8.1  Validating authority over mailbox via domain
+
 The CA may confirm the Applicant, such as an Enterprise RA, has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
 
 The CA SHALL use only the approved methods in Section 3.2.2.4 of Version 1.8 of the Baseline Requirements to perform this verification.
 
 For purposes of domain validation, the term Applicant includes the Applicant's Parent Company, Subsidiary Company, or Affiliate.
 
-##### 3.2.2.2.2  Validating control over email address via email
+##### 3.2.2.8.2  Validating control over mailbox via email
+
 The CA may confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
 
 Control over each email address SHALL be confirmed using a unique Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
@@ -808,10 +813,12 @@ The Random Value SHALL be unique in each email. The Random Value SHALL remain va
 
 The Random Value SHALL be reset upon each instance of the email sent by the CA and, if intended for additional use as an authentication factor, upon first use.  
 
-#### 3.2.2.3  CAA Records
+#### 3.2.2.9  CAA Records
+
 This version of the S/MIME Baseline Requirements does not require the CA to check for CAA records.  The CAA property tags for issue, issuewild, and iodef as specified in RFC 8659 are not recognized for the issuance of S/MIME Certificates.
 
 ### 3.2.3  Authentication of individual identity
+
 If an Applicant is a natural person, then the CA SHALL verify the Applicant's name, Applicant's address, and the authenticity of the certificate request.
 
 The CA SHALL verify the Applicant's name using a legible copy, which discernibly shows the Applicant's face, of at least one currently valid government-issued photo ID (passport, drivers license, military ID, national ID, or equivalent document type). The CA SHALL inspect the copy for any indication of alteration or falsification.
