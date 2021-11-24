@@ -428,8 +428,11 @@ The CA MAY only include the `subject:organizationName` attribute in Certificates
    An Applicant qualifies as a Private Organization if:
 
      A. The entity's legal existence is created or recognized by a by a filing with (or an act of) the Incorporating or Registration Agency in its Jurisdiction of Incorporation or Registration (e.g., by issuance of a certificate of incorporation, registration number, etc.) or created or recognized by a Government Agency (e.g. under a charter, treaty, convention, or equivalent recognition instrument);
+
      B. The entity designated with the Incorporating or Registration Agency a Registered Agent, a Registered Office (as required under the laws of the Jurisdiction of Incorporation or Registration), or an equivalent facility;
+     
      C. The entity is not designated on the records of the Incorporating or Registration Agency by labels such as "inactive," "invalid," "not current," or the equivalent; and
+     
      D. The entity has a verifiable physical existence and business presence.
 
 2. **Government Entity Subjects**
@@ -441,12 +444,16 @@ The CA MAY only include the `subject:organizationName` attribute in Certificates
    An Applicant qualifies as a Business Entity if:
 
       A. The entity is a legally recognized entity that filed certain forms with a Registration Agency in its jurisdiction, the Registration Agency issued or approved the entity's charter, certificate, or license, and the entity's existence can be verified with that Registration Agency;
+
       B. The entity has a verifiable physical existence and business presence;
+
       C. At least one Principal Individual associated with the entity is identified and validated by the CA; 
+
       D. The identified Principal Individual attests to the representations made in the Subscriber Agreement; and
+
       E. The CA verifies the entity's use of any assumed name used to represent the entity pursuant to the requirements of [Section X].
 
-4. **Non-Commercial Entity Subjects**
+4. **Non-Commercial Entity Subjects (International Organizations)**
 
    An Applicant qualifies as a Non-Commercial Entity if the Applicant is an International Organization Entity, created under a charter, treaty, convention or equivalent instrument that was signed by, or on behalf of, more than one country's government.  The CA/Browser Forum may publish a listing of Applicants that qualify as an International Organization
 
@@ -463,9 +470,9 @@ The CA MUST ensure that all Subject Organization information to be included in C
 
 1. Verify Applicant's existence and identity, including;
 
-   A.  Verify the Applicant's legal existence and identity (as more fully set forth in [Section X]),
+   A.  Verify the Applicant's legal existence and identity;
 
-   B.  Verify the Applicant's physical existence (business presence at a physical address), and
+   B.  Verify the Applicant's physical existence (business presence at a physical address); and
 
    C.  Verify the Applicant's operational existence (business activity).
 
@@ -473,15 +480,13 @@ The CA MUST ensure that all Subject Organization information to be included in C
 
 3. Verify the Applicant's authorization for the Certificate, including;
 
-   A.  Verify the name, title, and authority of the Contract Signer, Certificate Approver, and Certificate Requester,
+   A.  Verify the name, title, and authority of the Contract Signer, Certificate Approver, and Certificate Requester;
 
    B.  Verify that a Contract Signer signed the Subscriber Agreement or that a duly authorized Applicant Representative acknowledged and agreed to the Terms of Use; and
 
    C.  Verify that a Certificate Approver has signed or otherwise approved the Certificate Request.
 
 The Acceptable Methods of Verification set forth in this Section are considered to be the minimum acceptable level of verification required of the CA.  In all cases, however, the CA is responsible for taking any additional verification steps that may be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement.
-
-The CA SHALL disclose the Incorporating Agency or Registration Agency sources used to fulfill these verification requirements in accordance with Section 11.1.3 of the EV Guidelines.
 
 #### 3.2.2.2 Verification of organization's legal existence and identity
 
@@ -492,27 +497,37 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
 1. **Private Organization Subjects**
 
    A.  **Legal Existence**: Verify that the Applicant is a legally recognized entity, in existence and validly formed (e.g., incorporated) with the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration, and not designated on the records of the Incorporating or Registration Agency by labels such as "inactive", "invalid", "not current", or the equivalent.
+
    B.  **Organization Name**: Verify that the Applicant's formal legal name as recorded with the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration matches the Applicant's name in the EV Certificate Request.
+
    C.  **Registration Number**: Obtain the specific Registration Number assigned to the Applicant by the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration.  Where the Incorporating or Registration Agency does not assign a Registration Number, the CA SHALL obtain the Applicant's date of Incorporation or Registration.
+
    D.  **Registered Agent**: Obtain the identity and address of the Applicant's Registered Agent or Registered Office (as applicable in the Applicant's Jurisdiction of Incorporation or Registration).
 
 2. **Government Entity Subjects**
 
    A.  **Legal Existence**: Verify that the Applicant is a legally recognized Government Entity, in existence in the political subdivision in which such Government Entity operates.
+
    B.  **Entity Name**: Verify that the Applicant's formal legal name matches the Applicant's name in the EV Certificate Request.
+
    C.  **Registration Number**: The CA MUST attempt to obtain the Applicant's date of incorporation, registration, or formation, or the identifier for the legislative act that created the Government Entity.  In circumstances where this information is not available, the CA MUST enter appropriate language to indicate that the Subject is a Government Entity.
 
 3. **Business Entity Subjects**
 
    A.  **Legal Existence**: Verify that the Applicant is engaged in business under the name submitted by the Applicant in the Application.
-   B.  **Organization Name**: Verify that the Applicant's formal legal name as recognized by the Registration Agency in the Applicant's Jurisdiction of Registration matches the Applicant's name in the EV Certificate Request.
+
+   B.  **Organization Name**: Verify that the Applicant's formal legal name as recognized by the Registration Agency in the Applicant's Jurisdiction of Registration matches the Applicant's name in the Certificate Request.
+
    C.  **Registration Number**: Attempt to obtain the specific unique Registration Number assigned to the Applicant by the Registration Agency in the Applicant's Jurisdiction of Registration.  Where the Registration Agency does not assign a Registration Number, the CA SHALL obtain the Applicant's date of Registration.
+
    D.  **Principal Individual**: Verify the identity of the identified Principal Individual.
 
 4. **Non-Commercial Entity Subjects (International Organizations)**
 
    A.  **Legal Existence**: Verify that the Applicant is a legally recognized International Organization Entity.
-   B.  **Entity Name**: Verify that the Applicant's formal legal name matches the Applicant's name in the EV Certificate Request.
+
+   B.  **Entity Name**: Verify that the Applicant's formal legal name matches the Applicant's name in the Certificate Request.
+
    C.  **Registration Number**: The CA MUST attempt to obtain the Applicant's date of formation, or the identifier for the legislative act that created the International Organization Entity.  In circumstances where this information is not available, the CA MUST enter appropriate language to indicate that the Subject is an International Organization Entity.
 
 ##### 3.2.2.2.2 Acceptable method of verification
@@ -581,14 +596,18 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
 5. **Non-Commercial Entity Subjects (International Organization)**: Unless verified under subsection (6), all items listed in [Section 11.2.1](#1121-verification-requirements) (4) MUST be verified either:
 
    A.  With reference to the constituent document under which the International Organization was formed; or
+
    B.  Directly with a signatory country's government in which the CA is permitted to do business.  Such verification may be obtained from an appropriate government agency or from the laws of that country, or by verifying that the country's government has a mission to represent it at the International Organization; or
+
    C.  Directly against any current list of qualified entities that the CA/Browser Forum may maintain at www.cabforum.org.
+
    D.  In cases where the International Organization applying for the EV Certificate is an organ or agency - including a non-governmental organization of a verified International Organization, then the CA may verify the International Organization Applicant directly with the verified umbrella International Organization of which the Applicant is an organ or agency.
 
 6. The CA may rely on a Verified Professional Letter to establish the Applicant's information listed in (1)-(5) above if:
 
-   i. the Verified Professional Letter includes a copy of supporting documentation used to establish the Applicant's legal existence, such as a certificate of registration, articles of incorporation, operating agreement, statute, or regulatory act, and
-   ii. the CA confirms the Applicant's organization name specified in the Verified Professional Letter with a QIIS or QGIS.
+   A. the Verified Professional Letter includes a copy of supporting documentation used to establish the Applicant's legal existence, such as a certificate of registration, articles of incorporation, operating agreement, statute, or regulatory act, and
+
+   B. the CA confirms the Applicant's organization name specified in the Verified Professional Letter with a QIIS or QGIS.
 
 #### 3.2.2.3 Verification of assumed name
 
@@ -596,15 +615,15 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
 
 If, in addition to the Applicant's formal legal name, as recorded with the applicable Incorporating Agency or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration, the Applicant's identity, as asserted in the EV Certificate, is to contain any assumed name (also known as "doing business as", "DBA", or "d/b/a" in the US, and "trading as" in the UK) under which the Applicant conducts business, the CA MUST verify that:
 
-   i. the Applicant has registered its use of the assumed name with the appropriate government agency for such filings in the jurisdiction of its Place of Business (as verified in accordance with these Guidelines), and
-   ii. that such filing continues to be valid.
+   1. the Applicant has registered its use of the assumed name with the appropriate government agency for such filings in the jurisdiction of its Place of Business (as verified in accordance with these Guidelines); and
+   2. that such filing continues to be valid.
 
 ###### 3.2.2.3.2 Acceptable method of verification
 
 To verify any assumed name under which the Applicant conducts business:
 
 1. The CA MAY verify the assumed name through use of a Qualified Government Information Source operated by, or on behalf of, an appropriate government agency in the jurisdiction of the Applicant's Place of Business, or by direct contact with such government agency in person or via mail, e-mail, Web address, or telephone; or
-2. The CA MAY verify the assumed name through use of a Qualified Independent Information Source provided that the QIIS has verified the assumed name with the appropriate government agency.
+2. The CA MAY verify the assumed name through use of a Qualified Independent Information Source provided that the QIIS has verified the assumed name with the appropriate government agency; or
 3. The CA MAY rely on a Verified Professional Letter  that indicates the assumed name under which the Applicant conducts business, the government agency with which the assumed name is registered, and that such filing continues to be valid.
 
 #### 3.2.2.4 Verification of applicant's physical existence
@@ -2254,9 +2273,9 @@ Nothing in these Guidelines shall prohibit the use of third-party vendors to obt
 
 A Qualified Government Tax Information Source is a Qualified Government Information Source that specifically contains tax information relating to Private Organizations, Business Entities or Individuals (e.g., the IRS in the United States).
 
-### A.1.4 Regulated Professions Database
+### A.1.4 Regulated Professions Information Source
 
-A regulated professions database is a Qualified Government Information Source that contains information on information on regulated professions (e.g., where access and exercise of a Title is subject to the possession of a specific professional qualification).
+A Regulated Professions Information Source is a Qualified Government Information Source that contains information on information on regulated professions (e.g., where access and exercise of a Title is subject to the possession of a specific professional qualification).
  
 ## A.2 CAA Methods
 
