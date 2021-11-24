@@ -759,7 +759,7 @@ Such an agreement MUST provide that the Applicant shall be obligated under the S
 
 Both the Subscriber Agreement and each non-pre-authorized EV Certificate Request MUST be signed.  The Subscriber Agreement MUST be signed by an authorized Contract Signer.  The EV Certificate Request MUST be signed by the Certificate Requester submitting the document, unless the Certificate Request has been pre-authorized in line with [Section 11.8.4](#1184-pre-authorized-certificate-approver).  If the Certificate Requester is not also an authorized Certificate Approver, then an authorized Certificate Approver MUST independently approve the EV Certificate Request.  In all cases, applicable signatures MUST be a legally valid and contain an enforceable seal or handwritten signature (for a paper Subscriber Agreement and/or EV Certificate Request), or a legally valid and enforceable electronic signature (for an electronic Subscriber Agreement and/or EV Certificate Request), that binds the Applicant to the terms of each respective document.
 
-**NUMBERING IS WRONG AFTER THIS**
+NUMBERING IS WRONG AFTER THIS**
 #### 3.2.2.2  Validation of mailbox authorization or control
 This section defines the permitted processes and procedures for confirming the Applicant's control of the email addresses to be included in issued Certificates. 
 
@@ -2227,9 +2227,36 @@ Any modification to CA practice enabled under this section SHALL be discontinued
 
 ## 9.17  Other provisions
 
-## A.1. CAA Methods
+## A.1 Reference Sources
 
-### A.1.1. CAA contactemail Property
+### A.1.1 Qualified Independent Information Source
+
+A Qualified Independent Information Source (QIIS) is a regularly-updated and publicly available database that is generally recognized as a dependable source for certain information.  A database qualifies as a QIIS if the CA determines that:
+
+1. Industries other than the certificate industry rely on the database for accurate location, contact, or other information; and
+
+2. The database provider updates its data on at least an annual basis.
+
+The CA SHALL use a documented process to check the accuracy of the database and ensure its data is acceptable, including reviewing the database provider's terms of use. The CA SHALL NOT use any data in a QIIS that the CA knows is
+
+  i. self-reported and
+  ii. not verified by the QIIS as accurate.
+
+Databases in which the CA or its owners or affiliated companies maintain a controlling interest, or in which any Registration Authorities or subcontractors to whom the CA has outsourced any portion of the vetting process (or their owners or affiliated companies) maintain any ownership or beneficial interest, do not qualify as a QIIS.
+
+### A.1.2 Qualified Government Information Source
+
+A Qualified Government Information Source (QGIS) is a regularly-updated and current, publicly available, database designed for the purpose of accurately providing the information for which it is consulted, and which is generally recognized as a dependable source of such information provided that it is maintained by a Government Entity, the reporting of data is required by law, and false or misleading reporting is punishable with criminal or civil penalties. 
+
+Nothing in these Guidelines shall prohibit the use of third-party vendors to obtain the information from the Government Entity provided that the third party obtains the information directly from the Government Entity.
+
+### A.1.3 Qualified Government Tax Information Source
+
+A Qualified Government Tax Information Source is a Qualified Government Information Source that specifically contains tax information relating to Private Organizations, Business Entities or Individuals (e.g., the IRS in the United States).
+
+## A.2 CAA Methods
+
+### A.2.1 CAA contactemail Property
 
 SYNTAX: `contactemail <rfc6532emailaddress>`
 
@@ -2244,7 +2271,7 @@ $ORIGIN example.com.
 
 The contactemail property MAY be critical, if the domain owner does not want CAs who do not understand it to issue certificates for the domain.
 
-### A.1.2. CAA contactphone Property
+### A.2.2 CAA contactphone Property
 
 SYNTAX: `contactphone <rfc3966 Global Number>`
 
@@ -2259,12 +2286,12 @@ $ORIGIN example.com.
 
 The contactphone property MAY be critical if the domain owner does not want CAs who do not understand it to issue certificates for the domain.
 
-## A.2. DNS TXT Methods
+## A.3 DNS TXT Methods
 
-### A.2.1. DNS TXT Record Email Contact
+### A.3.1 DNS TXT Record Email Contact
 
 The DNS TXT record MUST be placed on the "`_validation-contactemail`" subdomain of the domain being validated. The entire RDATA value of this TXT record MUST be a valid email address as defined in RFC 6532, Section 3.2, with no additional padding or structure, or it cannot be used.
 
-### A.2.2. DNS TXT Record Phone Contact
+### A.3.2 DNS TXT Record Phone Contact
 
 The DNS TXT record MUST be placed on the "`_validation-contactphone`" subdomain of the domain being validated. The entire RDATA value of this TXT record MUST be a valid Global Number as defined in RFC 3966, Section 5.1.4, or it cannot be used.
