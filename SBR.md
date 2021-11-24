@@ -781,7 +781,8 @@ Such an agreement MUST provide that the Applicant shall be obligated under the S
 Both the Subscriber Agreement and each non-pre-authorized EV Certificate Request MUST be signed.  The Subscriber Agreement MUST be signed by an authorized Contract Signer.  The EV Certificate Request MUST be signed by the Certificate Requester submitting the document, unless the Certificate Request has been pre-authorized in line with [Section 11.8.4](#1184-pre-authorized-certificate-approver).  If the Certificate Requester is not also an authorized Certificate Approver, then an authorized Certificate Approver MUST independently approve the EV Certificate Request.  In all cases, applicable signatures MUST be a legally valid and contain an enforceable seal or handwritten signature (for a paper Subscriber Agreement and/or EV Certificate Request), or a legally valid and enforceable electronic signature (for an electronic Subscriber Agreement and/or EV Certificate Request), that binds the Applicant to the terms of each respective document.
 
 NUMBERING IS WRONG AFTER THIS**
-#### 3.2.2.8  Validation of mailbox authorization or control
+
+#### 3.2.3  Validation of mailbox authorization or control
 
 This section defines the permitted processes and procedures for confirming the Applicant's control of the email addresses to be included in issued Certificates. 
 
@@ -795,7 +796,7 @@ The CA's CP/CPS SHALL specify the procedures that the CA employs to perform this
 
 Completed validations of Applicant authority may be valid for the issuance of multiple Certificates over time. In all cases, the validation SHALL have been initiated within the time period specified in the relevant requirement (such as [Section 4.2.1](#421-performing-identification-and-authentication-functions)) prior to Certificate issuance.
 
-##### 3.2.2.8.1  Validating authority over mailbox via domain
+##### 3.2.3.1  Validating authority over mailbox via domain
 
 The CA may confirm the Applicant, such as an Enterprise RA, has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
 
@@ -803,7 +804,7 @@ The CA SHALL use only the approved methods in Section 3.2.2.4 of Version 1.8 of 
 
 For purposes of domain validation, the term Applicant includes the Applicant's Parent Company, Subsidiary Company, or Affiliate.
 
-##### 3.2.2.8.2  Validating control over mailbox via email
+##### 3.2.3.2  Validating control over mailbox via email
 
 The CA may confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
 
@@ -813,11 +814,11 @@ The Random Value SHALL be unique in each email. The Random Value SHALL remain va
 
 The Random Value SHALL be reset upon each instance of the email sent by the CA and, if intended for additional use as an authentication factor, upon first use.  
 
-#### 3.2.2.9  CAA Records
+#### 3.2.3.3  CAA Records
 
 This version of the S/MIME Baseline Requirements does not require the CA to check for CAA records.  The CAA property tags for issue, issuewild, and iodef as specified in RFC 8659 are not recognized for the issuance of S/MIME Certificates.
 
-### 3.2.3  Authentication of individual identity
+### 3.2.4  Authentication of individual identity
 
 If an Applicant is a natural person, then the CA SHALL verify the Applicant's name, Applicant's address, and the authenticity of the certificate request.
 
@@ -827,11 +828,11 @@ The CA SHALL verify the Applicant's address using a form of identification that 
 
 The CA SHALL verify the certificate request with the Applicant using a Reliable Method of Communication.
 
-### 3.2.4  Non-verified subscriber information
+### 3.2.5  Non-verified subscriber information
 
-### 3.2.5 Validation of authority
+### 3.2.6 Validation of authority
 
-### 3.2.6  Criteria for interoperation
+### 3.2.7  Criteria for interoperation
 
 The CA SHALL disclose all Cross Certificates that identify the CA as the Subject, provided that the CA arranged for or accepted the establishment of the trust relationship (i.e. the Cross Certificate at issue).
 
