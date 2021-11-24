@@ -421,39 +421,41 @@ The CA shall make its Repository publicly available in a read-only manner.
 
 ### 3.2.2  Authentication of organization and mailbox identity
 
-The CA MAY only include the `subject:organizationName` attribute in Certificates for Applicants verified to meet the requirements of one of the following Subject types. The CA SHALL NOT issue a Certificate if:
+The CA MAY only include the `subject:organizationName` attribute in Certificates for Applicants verified to meet the requirements of one of the following Subject types. 
+
+1. **Private Organization Subjects**
+   
+   An Applicant qualifies as a Private Organization if:
+
+     a. The entity's legal existence is created or recognized by a by a filing with (or an act of) the Incorporating or Registration Agency in its Jurisdiction of Incorporation or Registration (e.g., by issuance of a certificate of incorporation, registration number, etc.) or created or recognized by a Government Agency (e.g. under a charter, treaty, convention, or equivalent recognition instrument);
+     b. The entity designated with the Incorporating or Registration Agency a Registered Agent, a Registered Office (as required under the laws of the Jurisdiction of Incorporation or Registration), or an equivalent facility;
+     c. The entity is not designated on the records of the Incorporating or Registration Agency by labels such as "inactive," "invalid," "not current," or the equivalent; and
+     d. The entity has a verifiable physical existence and business presence.
+
+2. **Government Entity Subjects**
+
+   An Applicant qualifies as a Government Entity if the entity's legal existence was established by the political subdivision in which the entity operates. 
+
+3. **Business Entity Subjects**
+
+   An Applicant qualifies as a Business Entity if:
+
+      a. The entity is a legally recognized entity that filed certain forms with a Registration Agency in its jurisdiction, the Registration Agency issued or approved the entity's charter, certificate, or license, and the entity's existence can be verified with that Registration Agency;
+      b. The entity has a verifiable physical existence and business presence;
+      c. At least one Principal Individual associated with the entity is identified and validated by the CA; 
+      d. The identified Principal Individual attests to the representations made in the Subscriber Agreement; and
+      e. The CA verifies the entity's use of any assumed name used to represent the entity pursuant to the requirements of [Section X].
+
+4. **Non-Commercial Entity Subjects**
+
+   An Applicant qualifies as a Non-Commercial Entity if the Applicant is an International Organization Entity, created under a charter, treaty, convention or equivalent instrument that was signed by, or on behalf of, more than one country's government.  The CA/Browser Forum may publish a listing of Applicants that qualify as an International Organization
+
+   Subsidiary organizations or agencies of an entity that qualifies as a Non-Commercial Entity also qualify for Certificates as a Non-Commercial Entity.
+
+The CA SHALL NOT issue a Certificate if:
 
    1. The entity's Jurisdiction of Incorporation, Registration, Charter, or License, its Place of Business, or the identified Principal Individual associated with the entity are located or residing in any country where the CA is prohibited from doing business or issuing a certificate by the laws of the CA's jurisdiction; or
    2. The entity or the identified Principal Individual associated with the entity are listed on any government denial list or prohibited list (e.g., trade embargo) under the laws of the CA's jurisdiction.
-
-a. __Private Organization Subjects__
-   
-  An Applicant qualifies as a Private Organization if:
-
-  1. The entity's legal existence is created or recognized by a by a filing with (or an act of) the Incorporating or Registration Agency in its Jurisdiction of Incorporation or Registration (e.g., by issuance of a certificate of incorporation, registration number, etc.) or created or recognized by a Government Agency (e.g. under a charter, treaty, convention, or equivalent recognition instrument);
-  2. The entity designated with the Incorporating or Registration Agency a Registered Agent, a Registered Office (as required under the laws of the Jurisdiction of Incorporation or Registration), or an equivalent facility;
-  3. The entity is not designated on the records of the Incorporating or Registration Agency by labels such as "inactive," "invalid," "not current," or the equivalent; and
-  4. The entity has a verifiable physical existence and business presence.
-
-b. __Government Entity Subjects__
-
-An Applicant qualifies as a Government Entity if the entity's legal existence was established by the political subdivision in which the entity operates. 
-
-c. __Business Entity Subjects__
-
-An Applicant qualifies as a Business Entity if:
-
-   1. The entity is a legally recognized entity that filed certain forms with a Registration Agency in its jurisdiction, the Registration Agency issued or approved the entity's charter, certificate, or license, and the entity's existence can be verified with that Registration Agency;
-   2. The entity has a verifiable physical existence and business presence;
-   3. At least one Principal Individual associated with the entity is identified and validated by the CA; 
-   4. The identified Principal Individual attests to the representations made in the Subscriber Agreement; and
-   5. The CA verifies the entity's use of any assumed name used to represent the entity pursuant to the requirements of [Section X].
-
-   d. __Non-Commercial Entity Subjects__
-
-An Applicant qualifies as a Non-Commercial Entity if the Applicant is an International Organization Entity, created under a charter, treaty, convention or equivalent instrument that was signed by, or on behalf of, more than one country's government.  The CA/Browser Forum may publish a listing of Applicants that qualify as an International Organization
-
-Subsidiary organizations or agencies of an entity that qualifies as a Non-Commercial Entity also qualify for Certificates as a Non-Commercial Entity.
 
 #### 3.2.2.1  Authentication of organization identity
 
@@ -481,9 +483,9 @@ The Acceptable Methods of Verification set forth in this Section are considered 
 
 The CA SHALL disclose the Incorporating Agency or Registration Agency sources used to fulfill these verification requirements in accordance with Section 11.1.3 of the EV Guidelines.
 
-#### 3.2.2.2 Verification of Applicant's Legal Existence and Identity
+#### 3.2.2.2 Verification of organization's legal existence and identity
 
-##### 3.2.2.2.1 Verification Requirements
+##### 3.2.2.2.1 Verification requirements
 
 To verify the Applicant's legal existence and identity, the CA MUST do the following.
 
@@ -634,7 +636,130 @@ To verify the Applicant's physical existence and business presence, the CA MUST 
 
    B.  **Place of Business not in the Country of Incorporation or Registration**: The CA MUST rely on a Verified Professional Letter that indicates the address of the Applicant's Place of Business and that business operations are conducted there.
 
+#### 3.2.2.5 Verified Method of Communication
 
+##### 3.2.2.5.1 Verification Requirements
+
+To assist in communicating with the Applicant and confirming that the Applicant is aware of and approves issuance, the CA MUST verify a telephone number, fax number, email address, or postal delivery address as a Verified Method of Communication with the Applicant.
+
+##### 3.2.2.5.2 Acceptable Method of Verification
+
+To verify a Verified Method of Communication with the Applicant, the CA MUST:
+
+A.  Verify that the Verified Method of Communication belongs to the Applicant, or a Parent/Subsidiary or Affiliate of the Applicant, by matching it with one of the Applicant's Parent/Subsidiary or Affiliate's Places of Business in:
+
+  i. records provided by the applicable phone company;
+  ii. a QGIS, QTIS, or QIIS; or
+  iii. a Verified Professional Letter; and
+
+B.  Confirm the Verified Method of Communication by using it to obtain an affirmative response sufficient to enable a reasonable person to conclude that the Applicant, or a Parent/Subsidiary or Affiliate of Applicant, can be contacted reliably by using the Verified Method of Communication.
+
+#### 3.2.2.6 Verification of Applicant's Operational Existence
+
+#### 3.2.2.6.1 Verification Requirements
+
+The CA MUST verify that the Applicant has the ability to engage in business by verifying the Applicant's, or Affiliate/Parent/Subsidiary Company's, operational existence.  The CA MAY rely on its verification of a Government Entity's legal existence under [Section 11.2](#112-verification-of-applicants-legal-existence-and-identity) as verification of a Government Entity's operational existence.
+
+#### 3.2.2.6.2 Acceptable Method of Verification
+
+To verify the Applicant's ability to engage in business, the CA MUST verify the operational existence of the Applicant, or its Affiliate/Parent/Subsidiary Company, by:
+
+1. Verifying that the Applicant, Affiliate, Parent Company, or Subsidiary Company has been in existence for at least three years, as indicated by the records of an Incorporating Agency or Registration Agency;
+
+2. Verifying that the Applicant, Affiliate, Parent Company, or Subsidiary Company is listed in either a current QIIS or QTIS;
+
+3. Verifying that the Applicant, Affiliate, Parent Company, or Subsidiary Company has an active current Demand Deposit Account with a Regulated Financial Institution by receiving authenticated documentation of the Applicant's, Affiliate's, Parent Company's, or Subsidiary Company's Demand Deposit Account directly from a Regulated Financial Institution; or
+
+4. Relying on a Verified Professional Letter to the effect that the Applicant has an active current Demand Deposit Account with a Regulated Financial Institution.
+
+#### 3.2.2.7 Verification of Name, Title, and Authority of Contract Signer and Certificate Approver
+
+##### 3.2.2.7.1 Verification Requirements
+
+For both the Contract Signer and the Certificate Approver, the CA MUST verify the following.
+
+1. **Name, Title and Agency**: The CA MUST verify the name and title of the Contract Signer and the Certificate Approver, as applicable.  The CA MUST also verify that the Contract Signer and the Certificate Approver are agents representing the Applicant.
+2. **Signing Authority of Contract Signer**: The CA MUST verify that the Contract Signer is authorized by the Applicant to enter into the Subscriber Agreement (and any other relevant contractual obligations) on behalf of the Applicant, including a contract that designates one or more Certificate Approvers on behalf of the Applicant.
+3. **EV Authority of Certificate Approver**: The CA MUST verify, through a source other than the Certificate Approver him- or herself, that the Certificate Approver is expressly authorized by the Applicant to do the following, as of the date of the EV Certificate Request:
+
+   A.  Submit, and, if applicable, authorize a Certificate Requester to submit, the EV Certificate Request on behalf of the Applicant; and
+   B.  Provide, and, if applicable, authorize a Certificate Requester to provide, the information requested from the Applicant by the CA for issuance of the EV Certificate; and
+   C.  Approve EV Certificate Requests submitted by a Certificate Requester.
+
+##### 3.2.2.7.2 Acceptable Methods of Verification – Name, Title and Agency
+
+Acceptable methods of verification of the name, title, and agency status of the Contract Signer and the Certificate Approver include the following.
+
+1. **Name and Title**: The CA MAY verify the name and title of the Contract Signer and the Certificate Approver by any appropriate method designed to provide reasonable assurance that a person claiming to act in such a role is in fact the named person designated to act in such role.
+
+2. **Agency**: The CA MAY verify the agency of the Contract Signer and the Certificate Approver by:
+
+   A.  Contacting the Applicant using a Verified Method of Communication for the Applicant, and obtaining confirmation that the Contract Signer and/or the Certificate Approver, as applicable, is an employee;
+   B.  Obtaining an Independent Confirmation From the Applicant (as described in [Section 11.11.4](#11114-independent-confirmation-from-applicant)), or a Verified Professional Letter verifying that the Contract Signer and/or the Certificate Approver, as applicable, is either an employee or has otherwise been appointed as an agent of the Applicant; or
+   C.  Obtaining confirmation from a QIIS or QGIS that the Contract Signer and/or Certificate Approver is an employee of the Applicant.
+
+   The CA MAY also verify the agency of the Certificate Approver via a certification from the Contract Signer (including in a contract between the CA and the Applicant signed by the Contract Signer), provided that the employment or agency status and Signing Authority of the Contract Signer has been verified.
+
+##### 3.2.2.7.3 Acceptable Methods of Verification – Authority
+
+Acceptable methods of verification of the Signing Authority of the Contract Signer, and the EV Authority of the Certificate Approver, as applicable, include:
+
+1. **Verified Professional Letter**: The Signing Authority of the Contract Signer, and/or the EV Authority of the Certificate Approver, MAY be verified by reliance on a Verified Professional Letter;
+2. **Corporate Resolution**: The Signing Authority of the Contract Signer, and/or the EV Authority of the Certificate Approver, MAY be verified by reliance on a properly authenticated corporate resolution that confirms that the person has been granted such Signing Authority, provided that such resolution is
+
+   i. certified by the appropriate corporate officer (e.g., secretary), and
+   ii. the CA can reliably verify that the certification was validly signed by such person, and that such person does have the requisite authority to provide such certification;
+
+3. **Independent Confirmation from Applicant**: The Signing Authority of the Contract Signer, and/or the EV Authority of the Certificate Approver, MAY be verified by obtaining an Independent Confirmation from the Applicant (as described in [Section 11.11.4](#11114-independent-confirmation-from-applicant));
+4. **Contract between CA and Applicant**: The EV Authority of the Certificate Approver MAY be verified by reliance on a contract between the CA and the Applicant that designates the Certificate Approver with such EV Authority, provided that the contract is signed by the Contract Signer and provided that the agency and Signing Authority of the Contract Signer have been verified;
+5. **Prior Equivalent Authority**: The signing authority of the Contract Signer, and/or the EV authority of the Certificate Approver, MAY be verified by relying on a demonstration of Prior Equivalent Authority.
+
+   A.  Prior Equivalent Authority of a Contract Signer MAY be relied upon for confirmation or verification of the signing authority of the Contract Signer when the Contract Signer has executed a binding contract between the CA and the Applicant with a legally valid and enforceable seal or handwritten signature and only when the contract was executed more than 90 days prior to the EV Certificate application.  The CA MUST record sufficient details of the previous agreement to correctly identify it and associate it with the EV application.  Such details MAY include any of the following:
+
+       i. Agreement title,
+       ii. Date of Contract Signer's signature,
+       iii. Contract reference number, and
+       iv. Filing location.
+
+   B.  Prior Equivalent Authority of a Certificate Approver MAY be relied upon for confirmation or verification of the EV Authority of the Certificate Approver when the Certificate Approver has performed one or more of the following:
+
+       i. Under contract to the CA, has served (or is serving) as an Enterprise RA for the Applicant, or
+       ii. Has participated in the approval of one or more certificate requests, for certificates issued by the CA and which are currently and verifiably in use by the Applicant.  In this case the CA MUST have contacted the Certificate Approver by phone at a previously validated phone number or have accepted a signed and notarized letter approving the certificate request.
+
+6. **QIIS or QGIS**: The Signing Authority of the Contract Signer, and/or the EV Authority of the Certificate Approver, MAY be verified by a QIIS or QGIS that identifies the Contract Signer and/or the Certificate Approver as a corporate officer, sole proprietor, or other senior official of the Applicant.
+
+7. **Contract Signer's Representation/Warranty**: Provided that the CA verifies that the Contract Signer is an employee or agent of the Applicant, the CA MAY rely on the signing authority of the Contract Signer by obtaining a duly executed representation or warranty from the Contract Signer that includes the following acknowledgments:
+
+   A.  That the Applicant authorizes the Contract Signer to sign the Subscriber Agreement on the Applicant's behalf,
+   B.  That the Subscriber Agreement is a legally valid and enforceable agreement,
+   C.  That, upon execution of the Subscriber Agreement, the Applicant will be bound by all of its terms and conditions,
+   D.  That serious consequences attach to the misuse of an EV certificate, and
+   E.  The contract signer has the authority to obtain the digital equivalent of a corporate seal, stamp or officer's signature to establish the authenticity of the company's Web site.
+
+Note: An example of an acceptable representation/warranty appears in [Appendix E](#appendix-e---sample-contract-signers-representationwarranty-informative).
+
+##### 3.2.2.7.4 Pre-Authorized Certificate Approver
+
+Where the CA and Applicant contemplate the submission of multiple future EV Certificate Requests, then, after the CA:
+
+1. Has verified the name and title of the Contract Signer and that he/she is an employee or agent of the Applicant; and
+
+2. Has verified the Signing Authority of such Contract Signer in accordance with one of the procedures in [Section 11.8.3](#1183-acceptable-methods-of-verification--authority).
+
+The CA and the Applicant MAY enter into a written agreement, signed by the Contract Signer on behalf of the Applicant, whereby, for a specified term, the Applicant expressly authorizes one or more Certificate Approver(s) designated in such agreement to exercise EV Authority with respect to each future EV Certificate Request submitted on behalf of the Applicant and properly authenticated as originating with, or otherwise being approved by, such Certificate Approver(s).
+
+Such an agreement MUST provide that the Applicant shall be obligated under the Subscriber Agreement for all EV Certificates issued at the request of, or approved by, such Certificate Approver(s) until such EV Authority is revoked, and MUST include mutually agreed-upon provisions for:
+
+   i. authenticating the Certificate Approver when EV Certificate Requests are approved,
+   ii. periodic re-confirmation of the EV Authority of the Certificate Approver,
+   iii. secure procedures by which the Applicant can notify the CA that the EV Authority of any such Certificate Approver is revoked, and
+   iv. such other appropriate precautions as are reasonably necessary.
+
+##### 3.2.2.7.5 Verification of Signature on Subscriber Agreement and EV Certificate Requests
+
+Both the Subscriber Agreement and each non-pre-authorized EV Certificate Request MUST be signed.  The Subscriber Agreement MUST be signed by an authorized Contract Signer.  The EV Certificate Request MUST be signed by the Certificate Requester submitting the document, unless the Certificate Request has been pre-authorized in line with [Section 11.8.4](#1184-pre-authorized-certificate-approver).  If the Certificate Requester is not also an authorized Certificate Approver, then an authorized Certificate Approver MUST independently approve the EV Certificate Request.  In all cases, applicable signatures MUST be a legally valid and contain an enforceable seal or handwritten signature (for a paper Subscriber Agreement and/or EV Certificate Request), or a legally valid and enforceable electronic signature (for an electronic Subscriber Agreement and/or EV Certificate Request), that binds the Applicant to the terms of each respective document.
+
+UGHHH
 #### 3.2.2.2  Validation of mailbox authorization or control
 This section defines the permitted processes and procedures for confirming the Applicant's control of the email addresses to be included in issued Certificates. 
 
