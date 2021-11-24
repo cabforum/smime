@@ -419,9 +419,9 @@ The CA shall make its Repository publicly available in a read-only manner.
 
 ### 3.2.1  Method to prove possession of private key
 
-### 3.2.2  Authentication of organization and mailbox identity
+### 3.2.2  Authentication of organization identity
 
-The CA MAY only include the `subject:organizationName` attribute in Certificates for Applicants verified to meet the requirements of one of the following Subject types. 
+The CA MAY only include the `subject:organizationName` attribute in Certificates for Applicants that have been verified to meet the requirements of one of the following Subject types. 
 
 1. **Private Organization Subjects**
    
@@ -487,6 +487,19 @@ The CA MUST ensure that all Subject Organization information to be included in C
    C.  Verify that a Certificate Approver has signed or otherwise approved the Certificate Request.
 
 The Acceptable Methods of Verification set forth in this Section are considered to be the minimum acceptable level of verification required of the CA.  In all cases, however, the CA is responsible for taking any additional verification steps that may be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement.
+
+#### 3.2.2.1.1  Disclosure of Verification Sources
+
+Prior to the use of an Incorporating Agency or Registration Agency to fulfill these verification requirements, the CA MUST publicly disclose Agency Information about the Incorporating Agency or Registration Agency. This disclosure SHALL be through an appropriate and readily accessible online means.
+
+This Agency Information SHALL include at least the following:
+
+* Sufficient information to unambiguously identify the Incorporating Agency or Registration Agency (such as a name, jurisdiction, and website); and,
+* The accepted value or values for each of the `subject:jurisdictionLocalityName` (OID: 1.3.6.1.4.1.311.60.2.1.1), `subject:jurisdictionStateOrProvinceName` (OID: 1.3.6.1.4.1.311.60.2.1.2), and `subject:jurisdictionCountryName` (OID: 1.3.6.1.4.1.311.60.2.1.3) fields, when a certificate is issued using information from that Incorporating Agency or Registration Agency, indicating the jurisdiction(s) that the Agency is appropriate for; and,
+* The acceptable form or syntax of Registration Numbers used by the Incorporating Agency or Registration Agency, if the CA restricts such Numbers to an acceptable form or syntax; and,
+* A revision history that includes a unique version number and date of publication for any additions, modifications, and/or removals from this list.
+
+The CA MUST document where to obtain this information within Section 3.2 of the CA's CP and/or CPS.
 
 #### 3.2.2.2 Verification of organization's legal existence and identity
 
@@ -780,8 +793,6 @@ Such an agreement MUST provide that the Applicant shall be obligated under the S
 
 Both the Subscriber Agreement and each non-pre-authorized EV Certificate Request MUST be signed.  The Subscriber Agreement MUST be signed by an authorized Contract Signer.  The EV Certificate Request MUST be signed by the Certificate Requester submitting the document, unless the Certificate Request has been pre-authorized in line with [Section 11.8.4](#1184-pre-authorized-certificate-approver).  If the Certificate Requester is not also an authorized Certificate Approver, then an authorized Certificate Approver MUST independently approve the EV Certificate Request.  In all cases, applicable signatures MUST be a legally valid and contain an enforceable seal or handwritten signature (for a paper Subscriber Agreement and/or EV Certificate Request), or a legally valid and enforceable electronic signature (for an electronic Subscriber Agreement and/or EV Certificate Request), that binds the Applicant to the terms of each respective document.
 
-NUMBERING IS WRONG AFTER THIS**
-
 #### 3.2.3  Validation of mailbox authorization or control
 
 This section defines the permitted processes and procedures for confirming the Applicant's control of the email addresses to be included in issued Certificates. 
@@ -790,7 +801,7 @@ The CA SHALL verify that Applicant controls the email accounts associated with a
 
 The CA SHALL NOT delegate the verification of mailbox authorization or control.
 
-<b>Note:</b> Email addresses may be listed in Subscriber Certificates using `rfc822Names` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the subjectAltName extension or in Subordinate CA Certificates via `rfc822Names` in permittedSubtrees within the Name Constraints extension.
+**Note:** Email addresses may be listed in Subscriber Certificates using `rfc822Names` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the subjectAltName extension or in Subordinate CA Certificates via `rfc822Names` in permittedSubtrees within the Name Constraints extension.
 
 The CA's CP/CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which domain validation method, including the relevant version number from the Baseline Requirements or S/MIME Baseline Requirements, used to validate every domain or email address in issued Certificates.
 
@@ -820,13 +831,10 @@ This version of the S/MIME Baseline Requirements does not require the CA to chec
 
 ### 3.2.4  Authentication of individual identity
 
-If an Applicant is a natural person, then the CA SHALL verify the Applicant's name, Applicant's address, and the authenticity of the certificate request.
+The following procedures must be performed to authenticate individual identity included in the `sponsor-validated` and `individual-validated` Certificate types.
 
-The CA SHALL verify the Applicant's name using a legible copy, which discernibly shows the Applicant's face, of at least one currently valid government-issued photo ID (passport, drivers license, military ID, national ID, or equivalent document type). The CA SHALL inspect the copy for any indication of alteration or falsification.
+#### 3.2.4.1 Verification requirements
 
-The CA SHALL verify the Applicant's address using a form of identification that the CA determines to be reliable, such as a government ID, utility bill, or bank or credit card statement. The CA MAY rely on the same government-issued ID that was used to verify the Applicant's name.
-
-The CA SHALL verify the certificate request with the Applicant using a Reliable Method of Communication.
 
 ### 3.2.5  Non-verified subscriber information
 
