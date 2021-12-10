@@ -2291,7 +2291,7 @@ A Qualified Government Tax Information Source is a Qualified Government Informat
 
 ### A.1.4 Regulated Professions Information Source
 
-A Regulated Professions Information Source is a Qualified Government Information Source that contains information on information on regulated professions (e.g., where access and exercise of a Title is subject to the possession of a specific professional qualification).
+A Regulated Professions Information Source is a Qualified Government Information Source or other authoritative, regularly-updated, and publicly available database that contains information on information on regulated professions (e.g., where access and exercise of a professional Title is subject to the possession of a specific professional qualification).
  
 ## A.2 CAA Methods
 
