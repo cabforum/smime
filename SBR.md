@@ -417,6 +417,17 @@ The CA shall make its Repository publicly available in a read-only manner.
 
 ## 3.2  Initial identity validation
 
+The CA SHALL authenticate the identity attributes of the Subject and their control over the email addresses to be included in the S/MIME Certificate according to the requirements of the following sections:
+
+| Type    | Email Control | Organization Identity | Individual Identity | Affiliation |
+|---------|----------|----------|----------|----------|
+| Mailbox | Section 3.2.3  | NA | NA | NA |
+| Organization |  Section 3.2.3  | Section 3.2.2 | NA | NA |
+| Sponsored | Section 3.2.3 | Section 3.2.2 | Section 3.2.4 | Section 3.2.X |
+| Individual | Section 3.2.3 | NA | Section 3.2.4 | NA |
+
+Affiliation describes an Individual Subscriber purporting to represent an Organization, or being identified in the context of an Organization.
+
 ### 3.2.1  Method to prove possession of private key
 
 ### 3.2.2  Authentication of organization identity
@@ -789,9 +800,9 @@ Such an agreement MUST provide that the Applicant shall be obligated under the S
    iii. secure procedures by which the Applicant can notify the CA that the S/MIME Authority of any such Certificate Approver is revoked, and
    iv. such other appropriate precautions as are reasonably necessary.
 
-##### 3.2.2.7.5 Verification of signature on subscriber agreement and Certificate Requests
+##### 3.2.2.7.5 Verification of signature on subscriber agreement and certificate requests
 
-Both the Subscriber Agreement and each non-pre-authorized S/MIME Certificate Request MUST be signed.  The Subscriber Agreement MUST be signed by an authorized Contract Signer.  The S/MIME Certificate Request MUST be signed by the Certificate Requester submitting the document, unless the Certificate Request has been pre-authorized in line with [Section 11.8.4](#1184-pre-authorized-certificate-approver).  If the Certificate Requester is not also an authorized Certificate Approver, then an authorized Certificate Approver MUST independently approve the S/MIME Certificate Request.  In all cases, applicable signatures MUST be a legally valid and contain an enforceable seal or handwritten signature (for a paper Subscriber Agreement and/or S/MIME Certificate Request), or a legally valid and enforceable electronic signature (for an electronic Subscriber Agreement and/or S/MIME Certificate Request), that binds the Applicant to the terms of each respective document.
+Both the Subscriber Agreement and each non-pre-authorized S/MIME Certificate Request MUST be signed.  The Subscriber Agreement MUST be signed by an authorized Contract Signer.  The S/MIME Certificate Request MUST be signed by the Certificate Requester submitting the document, unless the Certificate Request has been pre-authorized in line with [Section 3.2.2.7.4](#32274-pre-authorized-certificate-approver).  If the Certificate Requester is not also an authorized Certificate Approver, then an authorized Certificate Approver MUST independently approve the S/MIME Certificate Request.  In all cases, applicable signatures MUST be a legally valid and contain an enforceable seal or handwritten signature (for a paper Subscriber Agreement and/or S/MIME Certificate Request), or a legally valid and enforceable electronic signature (for an electronic Subscriber Agreement and/or S/MIME Certificate Request), that binds the Applicant to the terms of each respective document.
 
 #### 3.2.3  Validation of mailbox authorization or control
 
@@ -837,6 +848,8 @@ The following procedures must be performed to authenticate individual identity i
 
 
 ### 3.2.5  Non-verified subscriber information
+
+Subscriber information that has not been verified in accordance with these requirements shall not be included in S/MIME Certificates.
 
 ### 3.2.6 Validation of authority
 
@@ -1821,7 +1834,7 @@ This extension MUST NOT contain items of type `dNSName`, `iPAddress`,  `uniformR
 a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
    __Contents:__ If present, this field MUST contain one of the following values verified in accordance with [Section 3.2](#32--initial-identity-validation).
 
-| Generation    | Contents |
+| Type    | Contents |
 |---------|----------|
 | Mailbox | `subject:email` |
 | Organization | `subject:organizationName` or `subject:email` |
