@@ -488,7 +488,7 @@ The CA MAY include an assumed name (also known as "doing business as" in the US 
 
 #### 3.2.3.3 Verification of authority
 
-(COREY: should go here of seperately in 3.2.6 per the RFC order?)
+(COREY: should go here or seperately in 3.2.6 per the RFC order?)
 - Authorised Rep
 - Delegation
 - Committing the company vs approving affiliation of subscriber
