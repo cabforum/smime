@@ -446,7 +446,7 @@ Completed validations of Applicant authority may be valid for the issuance of mu
 
 The CA may confirm the Applicant, such as an Enterprise RA, has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
 
-The CA SHALL use only the approved methods in Section 3.2.2.4 of Version 1.8 of the TLS Baseline Requirements to perform this verification.
+The CA SHALL use only the approved methods in Section 3.2.2.4 of the TLS Baseline Requirements to perform this verification.
 
 For purposes of domain validation, the term Applicant includes the Applicant's Parent Company, Subsidiary Company, or Affiliate.
 
@@ -464,14 +464,30 @@ The Random Value SHALL be reset upon each instance of the email sent by the CA a
 
 This version of the S/MIME Baseline Requirements does not require the CA to check for CAA records.  The CAA property tags for issue, issuewild, and iodef as specified in RFC 8659 are not recognized for the issuance of S/MIME Certificates.
 
-### 3.2.4  Authentication of organization identity
+### 3.2.3  Authentication of organization identity
 
-The following requirements must be fulfilled to Organization identity included in the `organization-validated` and `sponsor-validated` Certificate types.
+The following requirements must be fulfilled to authenticate Organization identity included in the `organization-validated` and `sponsor-validated` Certificate types.
 
-The CA MAY only include the `subject:organizationName` attribute in Certificates for Applicants when the following attributes have been collected and verified by the CA:
-1)	the formal legal name of the Organization;
-2)	the jurisdiction of and agency responsible for the Organization’s legal creation, existence, or recognition;
-3)	a unique identifier and type of identifier for the Organization’s (unless such identifier does not exist). Examples of unique identifier include national registration number, tax number, VAT number, or LEI (Legal Entity Identifier).
+The CA MAY only include the `subject:organizationName` attribute in Certificates for Applicants when the following information, at a minimum, has been collected and verified by the CA:
+
+1. the formal legal name and address of the Organization;
+2.	the agency responsible for the Organization’s legal creation, existence, or recognition;
+3.	a unique identifier for the Organization (unless such identifier does not exist). 
+
+#### 3.2.3.1 Verification of organization legal existence
+
+Examples of unique identifier include national registration number, tax number, VAT number, or LEI (Legal Entity Identifier).
+
+#### 3.2.3.2 Verification of organization assumed name
+
+The CA MAY include an assumed name (also known as "doing business as" in the US and "trading as" in the UK) in addition to the Applicant's formal legal name in Certificates. The CA MUST verify that the assumed name is currently valid for the Applicant using one of the following methods:
+
+1. The CA MAY verify the assumed name through use of a Qualified Government Information Source operated by, or on behalf of, an appropriate government agency in the jurisdiction of the Applicant's Place of Business, or by direct contact with the government agency responsible for the management of such assumed names; 
+2. The CA MAY verify the assumed name through use of a Qualified Independent Information Source provided that the QIIS has verified the assumed name with the appropriate government agency; or
+3. The CA MAY rely on a Verified Professional Letter that indicates the assumed name under which the Applicant conducts business, the government agency with which the assumed name is registered, and that such filing continues to be valid.
+
+#### 3.2.3.3 Verification of authority
+
 
 ### 3.2.4  Authentication of individual identity
 
@@ -488,6 +504,10 @@ Subscriber information that has not been verified in accordance with these requi
 
 The CA SHALL disclose all Cross Certificates that identify the CA as the Subject, provided that the CA arranged for or accepted the establishment of the trust relationship (i.e. the Cross Certificate at issue).
 
+#### 3.2.8 Disclosure of authorised sources
+
+
+#### 3.2.9 Disclosure of communication methods
 ## 3.3  Identification and authentication for re-key requests
 
 ### 3.3.1  Identification and authentication for routine re-key
@@ -1473,7 +1493,9 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 | Individual | `subject:givenName` and/or `subject:surname`, or `subject:email` |
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
-   __Contents:__ If present, the `subject:organizationName` field MUST contain either the Subject's name or DBA as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity). The CA may include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
+   __Contents:__ If present, the `subject:organizationName` field MUST contain the Subject's full legal organization name as verified under [Section 3.2.3](#323--authentication-of-organization-identity). The CA may include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
+   
+   An assumed name used by the Subject as verified under [Section 3.2.3.2](#3232-verification-of-organization-assumed-name) may be included at the beginning of this field, provided that it is followed by the full legal organization name in parenthesis.
 
 c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)  
    __Prohibited__ 
