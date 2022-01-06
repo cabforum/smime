@@ -471,7 +471,7 @@ The following requirements must be fulfilled to authenticate Organization identi
 The CA MAY only include the `subject:organizationName` attribute in Certificates for Applicants when the following information, at a minimum, has been collected and verified by the CA:
 
 1. the formal legal name and address of the Organization;
-2.	the agency responsible for the Organization’s legal creation, existence, or recognition;
+2.	the government agency responsible for the Organization’s legal creation, existence, or recognition;
 3.	a unique identifier for the Organization (unless such identifier does not exist). 
 
 #### 3.2.3.1 Verification of organization legal existence
@@ -488,7 +488,10 @@ The CA MAY include an assumed name (also known as "doing business as" in the US 
 
 #### 3.2.3.3 Verification of authority
 
-
+(COREY: should go here of seperately in 3.2.6 per the RFC order?)
+- Authorised Rep
+- Delegation
+- Committing the company vs approving affiliation of subscriber
 ### 3.2.4  Authentication of individual identity
 
 The following requirements must be fulfilled to authenticate individual identity included in the `sponsor-validated` and `individual-validated` Certificate types.
