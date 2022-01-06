@@ -482,7 +482,7 @@ Examples of unique identifier include national registration number, tax number, 
 
 The CA MAY include an assumed name (also known as "doing business as" in the US and "trading as" in the UK) in addition to the Applicant's formal legal name in Certificates. The CA MUST verify that the assumed name is currently valid for the Applicant using one of the following methods:
 
-1. The CA MAY verify the assumed name through use of a Qualified Government Information Source operated by, or on behalf of, an appropriate government agency in the jurisdiction of the Applicant's Place of Business, or by direct contact with the government agency responsible for the management of such assumed names; 
+1. The CA MAY verify the assumed name through use of a Qualified Government Information Source operated by, or on behalf of, the government agency responsible for the management of such assumed names in the jurisdiction of the Applicant's Place of Business, or by direct contact with the government agency; 
 2. The CA MAY verify the assumed name through use of a Qualified Independent Information Source provided that the QIIS has verified the assumed name with the appropriate government agency; or
 3. The CA MAY rely on a Verified Professional Letter that indicates the assumed name under which the Applicant conducts business, the government agency with which the assumed name is registered, and that such filing continues to be valid.
 
