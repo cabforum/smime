@@ -475,54 +475,6 @@ The CA MUST collect and verify the following information, at a minimum, when the
 3. the address of the Applicant's Place of Business to be included in the Certificate; and
 4. authority and approval of an authorised representative or their delegate for the Certificate to be issued.
 
-#### 3.2.3.1 Verification of organization name and legal existence
-
-The CA MUST verify that the Applicant is a legally recognized entity by, or is suitably registered with, the appropriate Incorporating or Registration Agency in the jurisdiction of the Applicant's Place of Business.  
-
-The CA MUST verify that the Applicant is not designated on the records of the Incorporating or Registration Agency by labels such as "inactive", "invalid", "not current", or the equivalent.
-
-The CA MUST verify that the Applicant's formal legal name as recorded with the Incorporating or Registration Agency matches the Applicant's name in the Certificate Request.
-
-This verification MUST be performed:
-1. by direct contact with the Incorporating or Registration Agency; 
-2. though use of a Qualified Government Information Source or Qualified Governmental Tax Information Source operated by, or on behalf of, the Incorporating or Registration Agency (see additional requirements in [Section 3.2.8](#328-disclosure-of-verification-sources)); or
-3. By reference to an Verified Professional Letter. 
-   
-Certain public sector entities may not be recorded in traditional Incorporating or Registration Agency records.  
-
-1. Government Entity Subjects: the CA MAY also verify existence with a superior governing Government Entity in the same political subdivision as the Applicant (e.g. a Secretary of State may verify the legal existence of a specific State Department), or from a judge that is an active member of the federal, state or local judiciary within that political subdivision.
-2. International Organization Subjects: the CA MAY A. make reference to the constituent document under which the International Organization was formed; or B. Directly with a signatory country's government in which the CA is permitted to do business. Such verification may be obtained from an appropriate government agency or from the laws of that country, or by verifying that the country's government has a mission to represent it at the International Organization; or C. Directly against any current list of qualified entities that the CA/Browser Forum may maintain at www.cabforum.org. D. In cases where the International Organization applying for the Certificate is an organ or agency - including a non-governmental organization of a verified International Organization - then the CA may verify the International Organization Applicant directly with the verified umbrella International Organization of which the Applicant is an organ or agency.
-
-#### 3.2.3.1 Verification of unique identifier for organization 
-
-The CA MUST collect and verify a unique identifier asigned to the Applicant's Organization
-
-Examples of unique identifier include national registration number, tax or VAT number, or LEI (Legal Entity Identifier).
-
-Where the Incorporating or Registration Agency does not assign a Registration Number, the CA SHALL obtain the Applicant's date of Incorporation or Registration. 
-
-For Government entity subjects, the CA MUST attempt to obtain the Applicant's date of incorporation, registration, or formation, or the identifier for the legislative act that created the entity. In circumstances where this information is not available, the CA MUST enter appropriate language to indicate that the Subject is a Government Entity.
-
-For International Organization subjects, the CA MUST attempt to obtain the Applicant's date of formation, or the identifier for the legislative act that created the entity. In circumstances where this information is not available, the CA MUST enter appropriate language to indicate that the Subject is an International Organization Entity.
-
-
-
-#### 3.2.3.2 Verification of organization assumed name
-
-The CA MAY include an assumed name (also known as "doing business as" in the US and "trading as" in the UK) in addition to the Applicant's formal legal name in Certificates. The CA MUST verify that the assumed name is currently valid for the Applicant using one of the following methods:
-
-1. The CA MAY verify the assumed name through use of a Qualified Government Information Source operated by, or on behalf of, the government agency responsible for the management of such assumed names in the jurisdiction of the Applicant's Place of Business, or by direct contact with the government agency; 
-2. The CA MAY verify the assumed name through use of a Qualified Independent Information Source provided that the QIIS has verified the assumed name with the appropriate government agency; or
-3. The CA MAY rely on a Verified Professional Letter that indicates the assumed name under which the Applicant conducts business, the government agency with which the assumed name is registered, and that such filing continues to be valid.
-
-#### 3.2.3.3 Verification of organization address 
-
-#### 3.2.3.4 Verification of authority
-
-(COREY: should go here or seperately in 3.2.6 per the RFC order?)
-- Authorised Rep
-- Delegation
-- Committing the company vs approving affiliation of subscriber
 ### 3.2.4  Authentication of individual identity
 
 The following requirements must be fulfilled to authenticate individual identity included in the `sponsor-validated` and `individual-validated` Certificate types.
