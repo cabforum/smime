@@ -710,20 +710,6 @@ Subscriber information that has not been verified in accordance with these requi
 
 The CA SHALL disclose all Cross Certificates that identify the CA as the Subject, provided that the CA arranged for or accepted the establishment of the trust relationship (i.e. the Cross Certificate at issue).
 
-#### 3.2.8 Disclosure of verification sources
-
-Prior to the use of an Incorporating Agency or Registration Agency to fulfill these verification requirements, the CA MUST publicly disclose Agency Information about the Incorporating Agency or Registration Agency. This disclosure SHALL be through an appropriate and readily accessible online means.
-
-This Agency Information SHALL include at least the following:
-
-* Sufficient information to unambiguously identify the Incorporating Agency or Registration Agency (such as a name, jurisdiction, and website); 
-* The accepted value or values indicating the jurisdiction(s) that the Agency is appropriate for; 
-* The acceptable form or syntax of Registration Numbers used by the Incorporating Agency or Registration Agency, if the CA restricts such Numbers to an acceptable form or syntax; and
-* A revision history that includes a unique version number and date of publication for any additions, modifications, and/or removals from this list.
-  
-The CA MUST document where to obtain this information within Section 3.2 of the CA's Certificate Policy and/or Certification Practice Statement.
-
-#### 3.2.9 Disclosure of communication methods
 ## 3.3  Identification and authentication for re-key requests
 
 ### 3.3.1  Identification and authentication for routine re-key
