@@ -442,7 +442,7 @@ The CA's CP/CPS SHALL specify the procedures that the CA employs to perform this
 
 Completed validations of Applicant authority may be valid for the issuance of multiple Certificates over time. In all cases, the validation SHALL have been initiated within the time period specified in the relevant requirement (such as [Section 4.2.1](#421-performing-identification-and-authentication-functions)) prior to Certificate issuance.
 
-##### 3.2.2.1  Validating authority over mailbox via domain
+#### 3.2.2.1  Validating authority over mailbox via domain
 
 The CA may confirm the Applicant, such as an Enterprise RA, has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
 
@@ -450,7 +450,7 @@ The CA SHALL use only the approved methods in Section 3.2.2.4 of the TLS Baselin
 
 For purposes of domain validation, the term Applicant includes the Applicant's Parent Company, Subsidiary Company, or Affiliate.
 
-##### 3.2.2.2  Validating control over mailbox via email
+#### 3.2.2.2  Validating control over mailbox via email
 
 The CA may confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
 
