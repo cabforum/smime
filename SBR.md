@@ -463,7 +463,7 @@ The Random Value SHALL be reset upon each instance of the email sent by the CA a
 
 #### 3.2.2.3 Validating applicant as operator of associated mail server(s)
 
-Confirming the Applicant's control over the rfc822Name email address by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN MUST be identified using the address resolution algorithm defined in RFC 5321 Section 5.1 which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDNs have been discovered, the CA MUST verify control of an SMTP FQDN following the selection process at RFC 5321 Section 5.1.
+Confirming the Applicant's control over the `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` email address by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN MUST be identified using the address resolution algorithm defined in RFC 5321 Section 5.1 which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDNs have been discovered, the CA MUST verify control of an SMTP FQDN following the selection process at RFC 5321 Section 5.1.
 
 When confirming the Applicant's control of the SMTP FQDN, the CA MUST use the methods in Section 3.2.2.4 of the Baseline Requirements for the Issuance and Management of Publicly‐Trusted Certificates.
 
