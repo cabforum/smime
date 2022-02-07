@@ -706,21 +706,92 @@ To verify the Applicant's ability to engage in business, the CA MUST verify the 
 
 ### 3.2.4 Authentication of individual identity
 
-The following requirements must be fulfilled to authenticate individual identity included in the `sponsor-validated` and `individual-validated` Certificate types.
+The following requirements MUST be fulfilled to authenticate Individual identity included in the `sponsor-validated` and `individual-validated` Certificate types.
 
-The CA MUST verify the Applicant's identity using one of the following processes:
+The CA or RA MUST collect the following identity attributes for the Individual Applicant:
 
-1.  The CA MUST obtain a legible copy, which discernibly shows the Requester's face, of at least one currently valid government-issued photo ID (passport, driver's license, military ID, national ID, or equivalent document type). The CA MUST inspect the copy for any indication of alteration or falsification. The CA MUST also verify the address of the Requester using (i) a government-issued photo ID, (ii) a QIIS or QGIS, or (iii) an access code to activate the Certificate where the access code was physically mailed to the Requester; OR
-2.  The CA MUST have the Requester digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: eIDAS Qualified Certificates issued pursuant to ETSI TS 101 862, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+1. Given name(s) and surname(s), which should be current names;
+2. Pseudonym (optional); 
+3. Address (if displayed in Subject); and
+4. Further information as needed to uniquely identify the Applicant.
 
-### 3.2.4.1 Authenticity of Certificate requests for Individual Applicants
+#### 3.2.4.1 Attribute collection of individual identity
 
-The CA MUST verify the authenticity of the Certificate Request using one of the following:
+The CA MUST document and publish the means used to collect identity Individual attributes.
 
-1.  Having the Requester provide a photo of the Requester holding the submitted government-issued photo ID where the photo is of sufficient quality to read both the name listed on the photo ID and the issuing authority; OR
-2.  Having the CA perform an in-person or web camera-based verification of the Requester where an employee or contractor of the CA can see the Requester, review the Requester's photo ID, and confirm that the Requester is the individual identified in the submitted photo ID; OR
-3.  Having the CA obtain an executed Declaration of Identity of the Requester that includes at least one unique biometric identifier (such as a fingerprint or handwritten signature). The CA MUST confirm the document's authenticity directly with the Verifying Person using contact information confirmed with a QIIS or QGIS; OR
-4.  Verifying that the digital signature used to sign the Request under item (2) of [Section 3.2.4](#324-authentication-of-individual-identity) is a valid signature and originated from a Certificate issued at the appropriate level of assurance as evidenced by the certificate chain. Acceptable verification under this section includes validation that the Certificate was issued by a CA qualified by the entity responsible for adopting, enforcing, or maintaining the adopted standard and chains to an intermediate certificate or root certificate designated as complying with such standard.
+1.	**From a physical identity document** 
+
+If physical identity documents are used as evidence, only government-issued passports, national identity cards, and other official identity documents of comparable reliability (such as drivers license or military ID) shall be accepted. The CA MUST document and publish the accepted identity documents or document types.
+
+The document used as evidence MUST contain a face photo and/or other information that   can be compared with the applicant's physical appearance.
+
+2.	**From a digital identity document** 
+
+If digital identity documents are used as evidence only eMRTD digital identity documents according to ICAO 9303 part 10 shall be accepted.
+
+3.	**From a certificate supporting a digital signature applied by the Applicant** 
+
+If a digital signature is to be used as evidence, the CA MUST have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: eIDAS Qualified Certificates validated according to ETSI TS 119 172-4, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+
+NOTE: The CA should consider requirements to avoid issuance of a consecutive certificates that are issued based on a preceding certificate, where the original verification of the certificate Subject may have been conducted in the distant past.
+
+4.	**From Enterprise RA records** 
+
+In the case of Sponsor-validation certificates approved by an Enterprise RA, records maintained by the Enterprise RA shall be accepted as evidence of individual identity. The Enterprise RA MUST maintain records to satisfy the requirements of Section 8.8.
+
+5. **From authorized reference sources as supplementary evidence** 
+   
+Evidence for individual identity attributes can be additionally verified using authorized reference sources such QGIS, GTIS, Regulated Professions Information Source, or national population registers.
+
+Only official national or nationally approved registers can be accepted. The CA MUST document and publish the accepted authorized reference sources.
+
+6. **From a Verified Professional Letter** 
+
+Evidence for individual identity attributes can be additionally verified using a Verified Professional Letter.
+
+#### 3.2.4.2 Validation of individual identity
+
+All identity attributes of the Individual to be included in the Certificate must be validated.
+
+If the evidence has an explicit validity period, the CA MUST verify that the time of the identity validation is within this validity period. In context this can include the valid from and valid to attributes of a digital signature certificate or date of expiry of an identity document.
+
+NOTE: Existing evidence can be re-used to validate the identity if the evidence remains valid at the subsequent validation event.
+
+1.	**Validation of a physical identity document** 
+
+The physical identity document must be presented in its original form.  The CA MUST employ procedures to ensure presented by the Applicant is a genuine identity document that is not counterfeited or falsified/modified.
+
+The CA can use manual (in person) or remote procedures.  A remote process shall ensure that the Applicant has the document in hand and presents the document in real-time in front of a camera.
+
+The CA or RA registration agent MUST make a visual comparison of the physical appearance of the Applicant and the face photo and/or other information on the physical identity document.
+
+The CA or RA registration agents shall have access to authoritative sources of information on document appearance and validation for forms of identity document accepted by the CA.  
+
+The CA or RA MUST retain information sufficient to evidence the fulfilment of the identity validation process and the verified attributes.  In addition to identity attributes, the following information shall be recorded: issuer, validity period, and the document's unique identification number.
+
+Automated and manual processes may be used in combination (for example using automated support for  a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
+
+2.	**Validation of a digital identity document**
+
+Digital identity documents shall only be accepted if the issuer's digital signature on the document is successfully validated.
+
+Information obtained from the digital identity document shall be recorded to evidence the identity proofing process. In addition to identity attributes and face photo, the following information shall be recorded: issuer, validity period, and the document's unique identification number.
+
+The CA or RA registration agent MUST make a visual comparison of the physical appearance of the Applicant and the face photo and/or other information on the digital identity document.
+
+Automated and manual processes may be used in combination (for example using automated support for  a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
+
+3.	**Validation of digital signature with certificate** 
+
+If a digital signature with certificate is used as evidence, the signature MUST be created as part of the identity validation process.
+
+The CA or RA MUST validate the digital signature and the signing certificate shall only be used as evidence for   identity attributes if the signature is valid.
+
+If required identity attributes to be collected are not present in the certificate, these attributes shall be collected from other sources and validated.
+
+4.	**Validation of a verified professional letter**
+
+TBD
    
 ### 3.2.5 Non-verified subscriber information
 
