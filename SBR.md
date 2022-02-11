@@ -11,7 +11,7 @@ copyright: |
 
 # 1.  INTRODUCTION
 
-**This is a pre-release draft of the S/MIME Baseline Requirements (SBR) and is undergoing active editing.  It has not yet been balloted to become a CA/Browser Forum standard.**
+**This is a pre-release draft of the S/MIME Baseline Requirements (SBR) and is undergoing active editing. Section numbering may be incorrect. This draft has not yet been balloted to become a CA/Browser Forum standard.**
 
 ## 1.1 Overview
 This S/MIME Baseline Requirements document describes an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements that are necessary for the issuance and management of Publicly-Trusted S/MIME Certificates.
@@ -76,7 +76,7 @@ Certification Authority (CA) is defined in [Section 1.6.1](#161-definitions). Cu
 
 ### 1.3.2 Registration authorities
 
-With the exception of [Section 3.2.2](#322--validation-of-mailbox-authorization-or-control), the CA MAY delegate the performance of all, or any part, of [Section 3.2](#32-initial-identity-validation) requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of [Section 3.2](#32-initial-identity-validation).
+With the exception of [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control), the CA MAY delegate the performance of all, or any part, of [Section 3.2](#32-initial-identity-validation) requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of [Section 3.2](#32-initial-identity-validation).
 
 Before the CA authorizes a Delegated Third Party to perform a delegated function, the CA SHALL contractually require the Delegated Third Party to:
 
@@ -87,9 +87,9 @@ Before the CA authorizes a Delegated Third Party to perform a delegated function
 
 The CA MAY designate an Enterprise Registration Authority (RA) to verify Certificate Requests from the Enterprise RA's own organization.  The CA SHALL NOT accept Certificate Requests authorized by an Enterprise RA unless the following requirements are satisfied:
 
-1. If the Certificate Request is for an Organization-validated or Sponsor-validated, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.1](#3221--validating-authority-over-mailbox-via-domain). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
+1. If the Certificate Request is for an Organization-validated or Sponsor-validated policy, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
 
-2. If the Certificate Request is for a Mailbox-validated policy, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2](#3222--validating-control-over-mailbox-via-email).
+2. If the Certificate Request is for a Mailbox-validated policy, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
 
 The CA SHALL impose these limitations as a contractual requirement on the Enterprise RA and monitor compliance by the Enterprise RA in accordance with [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca).
 
@@ -706,9 +706,93 @@ To verify the Applicant's ability to engage in business, the CA MUST verify the 
 
 ### 3.2.4 Authentication of individual identity
 
-The following requirements must be fulfilled to authenticate individual identity included in the `sponsor-validated` and `individual-validated` Certificate types.
+The following requirements MUST be fulfilled to authenticate Individual identity included in the `sponsor-validated` and `individual-validated` Certificate types.
 
+The CA or RA MUST collect the following identity attributes for the Individual Applicant:
 
+1. Given name(s) and surname(s), which should be current names;
+2. Pseudonym (optional); 
+3. Address (if displayed in Subject); and
+4. Further information as needed to uniquely identify the Applicant.
+
+#### 3.2.4.1 Attribute collection of individual identity
+
+The CA MUST document and publish the means used to collect identity Individual attributes.
+
+1.	**From a physical identity document** 
+
+If physical identity documents are used as evidence, only government-issued passports, national identity cards, and other official identity documents of comparable reliability (such as drivers license or military ID) shall be accepted. The CA MUST document and publish the accepted identity documents or document types.
+
+The document used as evidence MUST contain a face photo and/or other information that   can be compared with the applicant's physical appearance.
+
+2.	**From a digital identity document** 
+
+If digital identity documents are used as evidence only eMRTD digital identity documents according to ICAO 9303 part 10 shall be accepted.
+
+3.	**From a certificate supporting a digital signature applied by the Applicant** 
+
+If a digital signature is to be used as evidence, the CA MUST have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: eIDAS Qualified Certificates validated according to ETSI TS 119 172-4, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+
+NOTE: The CA should consider requirements to avoid issuance of a consecutive certificates that are issued based on a preceding certificate, where the original verification of the certificate Subject may have been conducted in the distant past.
+
+4.	**From Enterprise RA records** 
+
+In the case of Sponsor-validation certificates approved by an Enterprise RA, records maintained by the Enterprise RA shall be accepted as evidence of individual identity. The Enterprise RA MUST maintain records to satisfy the requirements of Section 8.8.
+
+5. **From authorized reference sources as supplementary evidence** 
+   
+Evidence for individual identity attributes can be additionally verified using authorized reference sources such QGIS, GTIS, Regulated Professions Information Source, or national population registers.
+
+Only official national or nationally approved registers can be accepted. The CA MUST document and publish the accepted authorized reference sources.
+
+6. **From a Verified Professional Letter** 
+
+Evidence for individual identity attributes can be additionally verified using a Verified Professional Letter.
+
+#### 3.2.4.2 Validation of individual identity
+
+All identity attributes of the Individual to be included in the Certificate must be validated.
+
+If the evidence has an explicit validity period, the CA MUST verify that the time of the identity validation is within this validity period. In context this can include the valid from and valid to attributes of a digital signature certificate or date of expiry of an identity document.
+
+NOTE: Existing evidence can be re-used to validate the identity if the evidence remains valid at the subsequent validation event.
+
+1.	**Validation of a physical identity document** 
+
+The physical identity document must be presented in its original form.  The CA MUST employ procedures to ensure presented by the Applicant is a genuine identity document that is not counterfeited or falsified/modified.
+
+The CA can use manual (in person) or remote procedures.  A remote process shall ensure that the Applicant has the document in hand and presents the document in real-time in front of a camera.
+
+The CA or RA registration agent MUST make a visual comparison of the physical appearance of the Applicant and the face photo and/or other information on the physical identity document.
+
+The CA or RA registration agents shall have access to authoritative sources of information on document appearance and validation for forms of identity document accepted by the CA.  
+
+The CA or RA MUST retain information sufficient to evidence the fulfilment of the identity validation process and the verified attributes.  In addition to identity attributes, the following information shall be recorded: issuer, validity period, and the document's unique identification number.
+
+Automated and manual processes may be used in combination (for example using automated support for  a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
+
+2.	**Validation of a digital identity document**
+
+Digital identity documents shall only be accepted if the issuer's digital signature on the document is successfully validated.
+
+Information obtained from the digital identity document shall be recorded to evidence the identity proofing process. In addition to identity attributes and face photo, the following information shall be recorded: issuer, validity period, and the document's unique identification number.
+
+The CA or RA registration agent MUST make a visual comparison of the physical appearance of the Applicant and the face photo and/or other information on the digital identity document.
+
+Automated and manual processes may be used in combination (for example using automated support for  a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
+
+3.	**Validation of digital signature with certificate** 
+
+If a digital signature with certificate is used as evidence, the signature MUST be created as part of the identity validation process.
+
+The CA or RA MUST validate the digital signature and the signing certificate shall only be used as evidence for   identity attributes if the signature is valid.
+
+If required identity attributes to be collected are not present in the certificate, these attributes shall be collected from other sources and validated.
+
+4.	**Validation of a verified professional letter**
+
+TBD
+   
 ### 3.2.5 Non-verified subscriber information
 
 Subscriber information that has not been verified in accordance with these requirements shall not be included in S/MIME Certificates.
@@ -1524,7 +1608,7 @@ m. Adobe Extensions (optional)
 
 #### 7.1.2.4 All Certificates
 
-All fields and extensions MUST be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123--subscriber-certificates) unless the CA is aware of a reason for including the data in the Certificate.
+All fields and extensions MUST be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123-subscriber-certificates) unless the CA is aware of a reason for including the data in the Certificate.
 
 CAs SHALL NOT issue a Certificate with:
 
@@ -1691,7 +1775,7 @@ This extension MUST NOT contain items of type `dNSName`, `iPAddress`,  `uniformR
 ##### 7.1.4.2.2 Subject Distinguished Name Fields
 
 a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
-   __Contents:__ If present, this field MUST contain one of the following values verified in accordance with [Section 3.2](#32--initial-identity-validation).
+   __Contents:__ If present, this field MUST contain one of the following values verified in accordance with [Section 3.2](#32-initial-identity-validation).
 
 | Type    | Contents |
 |---------|----------|
@@ -1701,7 +1785,7 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 | Individual | `subject:givenName` and/or `subject:surname`, or `subject:email` |
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
-   __Contents:__ If present, the `subject:organizationName` field MUST contain the Subject's full legal organization name as verified under [Section 3.2.3](#323--authentication-of-organization-identity). The CA may include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
+   __Contents:__ If present, the `subject:organizationName` field MUST contain the Subject's full legal organization name as verified under [Section 3.2.3](#323-authentication-of-organization-identity). The CA may include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
    
    An assumed name used by the Subject as verified under [Section 3.2.3.2](#3232-verification-of-organization-assumed-name) may be included at the beginning of this field, provided that it is followed by the full legal organization name in parenthesis.
 
@@ -1715,35 +1799,35 @@ e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname
    __Contents:__ If present, the `subject:givenName` field and `subject:surname` field MUST contain a natural person Subject’s name as verified under [Section 3.2.3](#323-authentication-of-individual-identity). 
 
 f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)  
-   __Contents:__ The pseudonym attribute MUST NOT be present if the givenName and/or surname attribute are present. If present, the `subject:pseudonym` field field MUST be verified according to [Section 3.2.3](#323--authentication-of-individual-identity).
+   __Contents:__ The pseudonym attribute MUST NOT be present if the givenName and/or surname attribute are present. If present, the `subject:pseudonym` field field MUST be verified according to [Section 3.2.3](#323-authentication-of-individual-identity).
 
 g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
    __Contents:__ If present, the `subject:serialNumber` may be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber.
 
 h. __Certificate Field:__ `subject:email` (1.2.840.113549.1.9.1) 
-   __Contents:__ If present, the `subject:email` MUST contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2.2](#3222--validation-of-mailbox-authorization-or-control).
+   __Contents:__ If present, the `subject:email` MUST contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2.2](#3222-validation-of-mailbox-authorization-or-control).
 
 i. __Certificate Field:__ `subject:title` (2.5.4.12) 
-   __Contents:__ If present, the `subject:title` field field MUST contain a natural person Subject’s name as verified according to [Section 3.2.3](#323--authentication-of-individual-identity).
+   __Contents:__ If present, the `subject:title` field field MUST contain a natural person Subject’s name as verified according to [Section 3.2.3](#323-authentication-of-individual-identity).
 
 j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4.9)  
- __Contents:__ If present, the `subject:streetAddress` field MUST contain the Subject's street address information as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity).
+ __Contents:__ If present, the `subject:streetAddress` field MUST contain the Subject's street address information as verified under [Section 3.2.2.1](#3221-authentication-of-organization-identity) or [Section 3.2.3](#323-authentication-of-individual-identity).
 
 k. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)  
    __Required__ if the `subject:stateOrProvinceName` field is absent.  
    __Optional__ if the `subject:stateOrProvinceName` field is present.  
-   __Contents:__ If present, the `subject:localityName` field MUST contain the Subject's locality information as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `localityName` field MAY contain the Subject's locality and/or state or province information.
+   __Contents:__ If present, the `subject:localityName` field MUST contain the Subject's locality information as verified under [Section 3.2.2.1](#3221-authentication-of-organization-identity) or [Section 3.2.3](#323-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `localityName` field MAY contain the Subject's locality and/or state or province information.
 
 l. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)  
    __Required__ if `subject:localityName` field is absent.  
    __Optional__ if the `subject:localityName` field is present.  
-   __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
+   __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under [Section 3.2.2.1](#3221-authentication-of-organization-identity) or [Section 3.2.3](#323-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
 
 m. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)  
-   __Contents:__ If present, the `subject:postalCode` field MUST contain the Subject's zip or postal information as verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity).
+   __Contents:__ If present, the `subject:postalCode` field MUST contain the Subject's zip or postal information as verified under [Section 3.2.2.1](#3221-authentication-of-organization-identity) or [Section 3.2.3](#323-authentication-of-individual-identity).
 
 n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)  
-   __Contents:__ If present, the `subject:countryName` MUST contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under [Section 3.2.2.1](#3221--authentication-of-organization-identity) or [Section 3.2.3](#323--authentication-of-individual-identity). If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of XX indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
+   __Contents:__ If present, the `subject:countryName` MUST contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under [Section 3.2.2.1](#3221-authentication-of-organization-identity) or [Section 3.2.3](#323-authentication-of-individual-identity). If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of XX indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
 
 ##### 7.1.4.2.3 Mailbox
 
@@ -2003,7 +2087,7 @@ During the period in which the CA issues Certificates, the CA SHALL monitor adhe
 
 ## 8.8 Review of Enterprise RA or Technically Constrained Subordinate CA
 
-Except for Delegated Third Parties that undergo an annual audit that meets the criteria specified in [Section 8.4](#84--topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of each Delegated Third Party, Enterprise RA, and Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS,
+Except for Delegated Third Parties that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of each Delegated Third Party, Enterprise RA, and Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS,
 
 The CA SHALL internally audit the compliance of Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs with these Requirements on an annual basis, and SHALL include having a Validation Specialist employed by the CA perform ongoing quarterly audits against a randomly selected sample of at least the greater of one certificate or three percent of the Certificates verified or issued by those parties in the period beginning immediately after the last sample was taken.
 
