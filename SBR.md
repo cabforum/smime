@@ -369,11 +369,11 @@ The script outputs:
 
 **Validity Period**: From RFC 5280 (<http://tools.ietf.org/html/rfc5280>): "The period of time from notBefore through notAfter, inclusive."
 
-**Verified Accountant Letter**: A document meeting the requirements specified in [Section 11.11.2](#11112-verified-accountant-letter).
+**Verified Accountant Letter**: A document meeting the requirements specified in [Section 3.2.8.2](#3282-verified-accountant-letter).
 
-**Verified Legal Opinion**: A document meeting the requirements specified in [Section 11.11.1](#11111-verified-legal-opinion).
+**Verified Legal Opinion**: A document meeting the requirements specified in [Section 3.2.8.1](#3281-verified-legal-opinion).
 
-**Verified Method of Communication**: The use of a telephone number, a fax number, an email address, or postal delivery address, confirmed by the CA in accordance with [Section 11.5](#115-verified-method-of-communication) as a reliable way of communicating with the Applicant.
+**Verified Method of Communication**: The use of a telephone number, a fax number, an email address, or postal delivery address, confirmed by the CA in accordance with [Section 3.2.3.5](#3235-verified-method-of-communication) as a reliable way of communicating with the Applicant.
 
 **Verified Professional Letter**: A Verified Accountant Letter or Verified Legal Opinion.
 
