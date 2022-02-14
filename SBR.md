@@ -2528,6 +2528,8 @@ The following Registration Schemes are recognized as valid under these guideline
 
   For an identifier allocated by a national trade register to a Legal Entity. The country code used in the Registration Scheme identifier SHALL match that of the subject’s jurisdiction in the `subject:countryName` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
 
+
+
 * **VAT**:
 
   For an identifier allocated by the national tax authorities to a Legal Entity. This information SHALL be validated using information provided by the national tax authority for the entity named in the `subject:organizationName` within the context of the subject’s jurisdiction in the `subject:countryName` as specified in as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
@@ -2549,4 +2551,5 @@ The following Registration Schemes are recognized as valid under these guideline
 
 * **LEI**:
 
-  For a global Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields). The 2 character ISO 3166 [2] country code shall be set to 'XG'. 
+  For a global Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields). The 2 character ISO 3166 country code SHALL be set to 'XG'. 
+  
