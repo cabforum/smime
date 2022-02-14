@@ -16,7 +16,7 @@ copyright: |
 ## 1.1 Overview
 This S/MIME Baseline Requirements document describes an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements that are necessary for the issuance and management of Publicly-Trusted S/MIME Certificates.
 
-An S/MIME Certificate for the purposes of this document can be identified by the existence of an Extended Key Usage (EKU) Object Identifier (OID) of 1.3.6.1.5.5.7.3.4 for `emailProtection` and the inclusion of an email address in the Subject, an `Rfc822Name`, or an `otherName` of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension.
+An S/MIME Certificate for the purposes of this document can be identified by the existence of an Extended Key Usage (EKU) Object Identifier (OID) of 1.3.6.1.5.5.7.3.4 for `emailProtection` and the inclusion of an email address in the Subject, or an `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension.
 
 **Notice for Readers**
 
@@ -1052,7 +1052,7 @@ A Regulated Professions Information Source is a Qualified Government Information
 
 
 ### 4.2.1 Performing identification and authentication functions
-Applicant information SHALL include, but not be limited to, at least one rfc822Name email address to be included in the Certificate's subjectAltName extension.
+Applicant information SHALL include, but not be limited to, at least one `rfc822Name` or one `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in the Certificate's subjectAltName extension.
 
 [Section 6.3.2](#632-certificate-operational-periods-and-key-pair-usage-periods) limits the validity period of Subscriber Certificates. The CA MAY use the documents and data provided in [Section 3.2](#323-authentication-of-individual-identity) to verify certificate information, or may reuse previous validations themselves, provided that the CA obtained the data or document from a source specified under [Section 3.2](#323-authentication-of-individual-identity). For methods validating the control of a mail server, any reused data, document, or completed validation MUST be obtained no more than 398 days prior to issuing the Certificate. For methods validating the control of a mailbox, any reused data, document, or completed validation MUST be obtained no more than 31 days prior to issuing the Certificate.
 
