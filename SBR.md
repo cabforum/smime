@@ -2022,7 +2022,35 @@ c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)
    __Prohibited__ 
 
 d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
-   __Contents:__ 
+   __Contents:__ If present, the `subject:organizationIdentifier` field MUST contain MUST contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. 
+
+The organizationIdentifier MUST be encoded as a PrintableString or UTF8String.
+
+The Registration Scheme MUST be identified using the using the following structure in the presented order:
+
+* 3 character Registration Scheme identifier;
+* 2 character ISO 3166 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally ISO 3166 code "XG" shall be used;
+* For the NTR Registration Scheme identifier, if required under [Section 9.2.4](#924-subject-jurisdiction-of-incorporation-or-registration-field), a 2 character ISO 3166-2 identifier for the subdivision (state or province) of the nation in which the Registration Scheme is operated, preceded by plus "+" (0x2B (ASCII), U+002B (UTF-8));
+* a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
+* Registration Reference allocated in accordance with the identified Registration Scheme
+
+Note: Registration References MAY contain hyphens, but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not.  Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference.
+
+Examples:
+
+* `NTRGB-12345678` (NTR scheme, Great Britain, Unique Identifier at Country level is 12345678)
+* `NTRUS+CA-12345678` (NTR Scheme, United States - California, Unique identifier at State level is 12345678)
+* `VATDE-123456789` (VAT Scheme, Germany, Unique Identifier at Country Level is 12345678)
+* `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, NCA's identifier is NBB, Subject Unique Identifier assigned by the NCA is 1234.567.890)
+
+Registration Schemes listed in Appendix B are recognized as valid under these guidelines.
+
+The CA SHALL:
+
+1. confirm that the organization represented by the Registration Reference is the same as the organization named in the `organizationName` field as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields);
+2. further verify the Registration Reference matches other information verified in accordance with [Section 3.2.3](#323-authentication-of-organization-identity);
+3. take appropriate measures to disambiguate between different organizations as described in [Appendix B](#appendix-b---registration-schemes) for each Registration Scheme;
+4. Apply the validation rules relevant to the Registration Scheme as specified in [Appendix B](#appendix-b---registration-schemes).
 
 e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
    __Contents:__ If present, the `subject:givenName` field and `subject:surname` field MUST contain a natural person Subject’s name as verified under [Section 3.2.3](#323-authentication-of-individual-identity). 
@@ -2449,8 +2477,9 @@ Any modification to CA practice enabled under this section SHALL be discontinued
 
 ## 9.17 Other provisions
  
-## A.1 CAA Methods
+# Appendix A - CAA Contact Tag
 
+## A.1 CAA Methods
 ### A.1.1 CAA contactemail Property
 
 SYNTAX: `contactemail <rfc6532emailaddress>`
@@ -2490,3 +2519,34 @@ The DNS TXT record MUST be placed on the "`_validation-contactemail`" subdomain 
 ### A.2.2 DNS TXT Record Phone Contact
 
 The DNS TXT record MUST be placed on the "`_validation-contactphone`" subdomain of the domain being validated. The entire RDATA value of this TXT record MUST be a valid Global Number as defined in RFC 3966, Section 5.1.4, or it cannot be used.
+
+# APPENDIX B - Registration Schemes
+
+The following Registration Schemes are recognized as valid under these guidelines:
+
+* **NTR**:
+
+  For an identifier allocated by a national trade register to a Legal Entity. The country code used in the Registration Scheme identifier SHALL match that of the subject’s jurisdiction in the `subject:countryName` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
+
+* **VAT**:
+
+  For an identifier allocated by the national tax authorities to a Legal Entity. This information SHALL be validated using information provided by the national tax authority for the entity named in the `subject:organizationName` within the context of the subject’s jurisdiction in the `subject:countryName` as specified in as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
+
+* **PSD**:
+
+  For an authorization number as specified in ETSI TS 119 495 clause 4.4
+  allocated to a payment service provider and containing the information as
+  specified in ETSI TS 119 495 clause 5.2.1.  This information SHALL be
+  obtained directly from the national competent authority register for
+  payment services or from an information source approved by a government
+  agency, regulatory body, or legislation for this purpose.  
+  
+  This information SHALL be validated for the entity named in the `subject:organizationName` and registration number within the context of the subject’s jurisdiction in the `subject:countryName` as specified in as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
+  
+  This information SHALL be validated by being matched directly or indirectly (for example, by matching a globally unique registration number) against the entity named in the `subject:organizationName` within the context of the subject’s jurisdiction in the `subject:countryName` as specified in as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
+  The stated address of the organization combined with the organization name
+  SHALL NOT be the only information used to disambiguate the organization.
+
+* **LEI**:
+
+  For a global Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields). The 2 character ISO 3166 [2] country code shall be set to 'XG'. 
