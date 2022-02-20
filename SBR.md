@@ -1700,7 +1700,7 @@ a. `certificatePolicies` (MUST be present)
 
    This extension SHOULD NOT be marked critical.
 
-   If the value of this extension includes a `PolicyInformation` which contains a qualifier of type `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1), then the value of the qualifier MUST be a HTTP or HTTPS URL for the Issuing CA's CP and/or CPS, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA.
+   If the value of this extension includes a `PolicyInformation` which contains a qualifier of type `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1), then the value of the qualifier MUST be a HTTP or HTTPS URL for the Issuing CA's CP and/or CPS, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA.  If a qualifier of type `id-qt-unotice` (OID: 1.3.6.1.5.5.7.2.2) is included, then it MUST contain `explicitText` and MUST NOT contain `noticeRef`. 
 
 b. `cRLDistributionPoints` (MUST be present)
 
@@ -1745,19 +1745,19 @@ h. `authorityKeyIdentifier` (MUST be present)
 
 #### 7.1.2.3 Subscriber Certificates
 
-a. `certificatePolicies` (required)
+a. `certificatePolicies` (MUST be present)
 
    This extension MUST be present and SHOULD NOT be marked critical. It must include only one of the permitted `policyIdentifiers` in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers). 
 
-   If the value of this extension includes a `PolicyInformation` which contains a qualifier of type `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1), then the value of the qualifier MUST be a HTTP or HTTPS URL for the Issuing CA's CP and/or CPS, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA.
+   If the value of this extension includes a `PolicyInformation` which contains a qualifier of type `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1), then the value of the qualifier MUST be a HTTP or HTTPS URL for the Issuing CA's CP and/or CPS, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA.  If a qualifier of type `id-qt-unotice` (OID: 1.3.6.1.5.5.7.2.2) is included, then it MUST contain `explicitText` and MUST NOT contain `noticeRef`. 
 
-b. `cRLDistributionPoints` (required)
+b. `cRLDistributionPoints` (MUST be present)
 
    This extension MUST be present and SHOULD NOT be marked critical.  It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the issuing CA's CRL can be retrieved. 
    
    For Legacy profiles only, following additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
 
-c. `authorityInformationAccess` (required)
+c. `authorityInformationAccess` (MUST be present)
 
    This extension MUST be present. It MUST NOT be marked critical, and it MUST contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the issuing CA's OCSP responder. Additional `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified. It SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the HTTP URI of the issuing CA's Certificate. Additional `id-ad-caIssuers` LDAP, FTP, or HTTP URIs MAY be specified.
 
@@ -1765,7 +1765,7 @@ d. `basicConstraints` (optional)
 
    The `cA` field MUST NOT be true. `pathLenConstraint` field SHALL NOT be present.
 
-e. `keyUsage` (required)
+e. `keyUsage` (MUST be present)
 
    This extension MUST be present and SHOULD be marked critical.  
 
@@ -1776,7 +1776,7 @@ e. `keyUsage` (required)
 
    Other bit positions MUST NOT be set.
 
-f. `extKeyUsage` (required)
+f. `extKeyUsage` (MUST be present)
 
    | Generation | `extendedKeyUsage`      | 
    |------|-----------------------|
@@ -1785,11 +1785,11 @@ f. `extKeyUsage` (required)
 
    The value `anyExtendedKeyUsage` MUST NOT be present.
 
-g. `authorityKeyIdentifier` (required)
+g. `authorityKeyIdentifier` (MUST be present)
 
    This extension MUST be present and MUST NOT be marked critical. The `keyIdentifier` field SHALL be present. `authorityCertIssuer` and `authorityCertSerialNumber` fields SHALL NOT be present.
 
-h. `subjectAlternativeName` (required)
+h. `subjectAlternativeName` (MUST be present)
 
    This extension MUST be present and SHOULD NOT be marked critical unless the Subject is an empty sequence. 
 
@@ -1986,7 +1986,7 @@ Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e
 ##### 7.1.4.2.1 Subject Alternative Name Extension
 
 __Certificate Field:__ `extensions:subjectAltName`  
-__Required/Optional:__ Required  
+__Required/Optional:__ MUST be present  
 __Contents:__ This extension MUST contain at least one entry of the following types:
 
 * `Rfc822Name` and/or
@@ -2177,15 +2177,15 @@ By issuing a Subordinate CA Certificate, the CA represents that it followed the 
 ##### 7.1.4.3.1 Subject Distinguished Name Fields
 
 a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
-   __Required/Optional:__ Required  
+   __Required/Optional:__ MUST be present  
    __Contents:__ This field MUST be present and the contents SHOULD be an identifier for the certificate such that the certificate's Name is unique across all certificates issued by the issuing certificate.
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
-   __Required/Optional:__ Required  
+   __Required/Optional:__ MUST be present  
    __Contents:__ This field MUST be present and the contents MUST contain either the Subject CA's name or DBA as verified under [Section 3.2.2.2](#3222-dbatradename). The CA may include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name".
 
 c. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)  
-   __Required/Optional:__ Required  
+   __Required/Optional:__ MUST be present  
    __Contents:__ This field MUST contain the two‐letter ISO 3166‐1 country code for the country in which the CA's place of business is located.
 
 d. Other Subject Attributes  
@@ -2477,7 +2477,7 @@ Any modification to CA practice enabled under this section SHALL be discontinued
 
 ## 9.17 Other provisions
  
-# Appendix A - CAA Contact Tag
+# Appendix A - Using DNS
 
 ## A.1 CAA Methods
 ### A.1.1 CAA contactemail Property
@@ -2514,11 +2514,11 @@ The contactphone property MAY be critical if the domain owner does not want CAs 
 
 ### A.2.1 DNS TXT Record Email Contact
 
-The DNS TXT record MUST be placed on the "`_validation-contactemail`" subdomain of the domain being validated. The entire RDATA value of this TXT record MUST be a valid email address as defined in RFC 6532, Section 3.2, with no additional padding or structure, or it cannot be used.
+The DNS TXT record MUST be placed on the `_validation-contactemail` subdomain of the domain being validated. The entire RDATA value of this TXT record MUST be a valid email address as defined in RFC 6532, Section 3.2, with no additional padding or structure, or it cannot be used.
 
 ### A.2.2 DNS TXT Record Phone Contact
 
-The DNS TXT record MUST be placed on the "`_validation-contactphone`" subdomain of the domain being validated. The entire RDATA value of this TXT record MUST be a valid Global Number as defined in RFC 3966, Section 5.1.4, or it cannot be used.
+The DNS TXT record MUST be placed on the `_validation-contactphone` subdomain of the domain being validated. The entire RDATA value of this TXT record MUST be a valid Global Number as defined in RFC 3966, Section 5.1.4, or it cannot be used.
 
 # APPENDIX B - Registration Schemes
 
@@ -2527,8 +2527,6 @@ The following Registration Schemes are recognized as valid under these guideline
 * **NTR**:
 
   For an identifier allocated by a national trade register to a Legal Entity. The country code used in the Registration Scheme identifier SHALL match that of the subject’s jurisdiction in the `subject:countryName` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
-
-
 
 * **VAT**:
 
@@ -2552,4 +2550,8 @@ The following Registration Schemes are recognized as valid under these guideline
 * **LEI**:
 
   For a global Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields). The 2 character ISO 3166 country code SHALL be set to 'XG'. 
+  
+  The CA MUST verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  An LEI shall only be used if the ValidationSources entry is FULLY_CORROBORATED; an LEI MUST NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
+
+
   
