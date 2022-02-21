@@ -2559,7 +2559,7 @@ The following Registration Schemes are recognized as valid under these guideline
 
   The CA MUST verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  An LEI shall only be used if the ValidationSources entry is FULLY_CORROBORATED; an LEI MUST NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
- # Appendix C - Country-Specific Interpretative Guidelines (Normative)
+# Appendix C - Country-Specific Interpretative Guidelines (Normative)
 
 NOTE: This appendix provides alternative interpretations of these Requirements for countries that have a language, cultural, technical, or legal reason for deviating from a strict interpretation of these Requirements.  More specific information for particular countries may be added to this appendix in the future.
 
