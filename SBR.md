@@ -9,7 +9,7 @@ copyright: |
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
 
-# 1.  INTRODUCTION
+# 1. INTRODUCTION
 
 **This is a pre-release draft of the S/MIME Baseline Requirements (SBR) and is undergoing active editing. Section numbering may be incorrect. This draft has not yet been balloted to become a CA/Browser Forum standard.**
 
@@ -1040,7 +1040,7 @@ A Regulated Professions Information Source is a Qualified Government Information
 
 ## 3.4 Identification and authentication for revocation request
 
-# 4.  CERTIFICATE LIFE-CYCLE OPERATIONAL REQUIREMENTS
+# 4. CERTIFICATE LIFE-CYCLE OPERATIONAL REQUIREMENTS
 
 ## 4.1 Certificate Application
 
@@ -1509,7 +1509,7 @@ The business continuity plan MUST include:
 
 ## 5.8 CA or RA termination
 
-# 6.  TECHNICAL SECURITY CONTROLS
+# 6. TECHNICAL SECURITY CONTROLS
 
 ## 6.1 Key pair generation and installation
 
@@ -1658,7 +1658,7 @@ For the purpose of calculations, a day is measured as 86,400 seconds. Any amount
 
 ## 6.8 Time-stamping
 
-# 7.  CERTIFICATE, CRL, AND OCSP PROFILES
+# 7. CERTIFICATE, CRL, AND OCSP PROFILES
 
 **Editor's Note:  The format of Section 7 is undergoing significant change.**
 
