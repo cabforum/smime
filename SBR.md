@@ -418,7 +418,7 @@ RFC 5321, Request for Comments: 5321, Simple Mail Transfer Protocol, J. Klensin,
 
 ###  1.6.4 Conventions
 
-The key words “SHALL”, “SHALL NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in these Requirements shall be interpreted in accordance with RFC 2119.
+The key words “SHALL”, “SHALL NOT”, “REQUIRED”, “MUST”, MUST NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in these Requirements shall be interpreted in accordance with RFC 2119.
 
 # 2. PUBLICATION AND REPOSITORY RESPONSIBILITIES
 The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements.
@@ -461,7 +461,7 @@ The CA shall make its Repository publicly available in a read-only manner.
 
 The CA SHALL authenticate the identity attributes of the Subject and their control over the email addresses to be included in the S/MIME Certificate according to the requirements of the following sections:
 
-| Type    | Email Control | Organization Identity | Individual Identity | 
+| Type    | Mailbox Control | Organization Identity | Individual Identity | 
 |---------|----------|----------|----------|
 | Mailbox | Section 3.2.2  | NA | NA | 
 | Organization |  Section 3.2.2  | Section 3.2.3 | NA |
@@ -2629,3 +2629,4 @@ As interpretation of the procedures set out above:
        - the Japan Federation of Administrative Solicitors ([http://www.gyosei.or.jp](http://www.gyosei.or.jp/)),
        - the Japan National Notaries Association ([http://www.koshonin.gr.jp](http://www.koshonin.gr.jp/)), or
        - any other authoritative source recognized by the Japanese Ministry of Justice ([http://www.moj.go.jp](http://www.moj.go.jp/)) as providing the current registration status of such professionals.
+
