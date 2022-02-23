@@ -412,7 +412,7 @@ RFC 5321, Request for Comments: 5321, Simple Mail Transfer Protocol, J. Klensin,
 
 ###  1.6.4 Conventions
 
-The key words “SHALL”, “SHALL NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in these Requirements shall be interpreted in accordance with RFC 2119.
+The key words “SHALL”, “SHALL NOT”, “REQUIRED”, “MUST”, MUST NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in these Requirements shall be interpreted in accordance with RFC 2119.
 
 # 2. PUBLICATION AND REPOSITORY RESPONSIBILITIES
 The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements.
@@ -455,7 +455,7 @@ The CA shall make its Repository publicly available in a read-only manner.
 
 The CA SHALL authenticate the identity attributes of the Subject and their control over the email addresses to be included in the S/MIME Certificate according to the requirements of the following sections:
 
-| Type    | Email Control | Organization Identity | Individual Identity | 
+| Type    | Mailbox Control | Organization Identity | Individual Identity | 
 |---------|----------|----------|----------|
 | Mailbox | Section 3.2.2  | NA | NA | 
 | Organization |  Section 3.2.2  | Section 3.2.3 | NA |
@@ -2553,6 +2553,6 @@ The following Registration Schemes are recognized as valid under these guideline
 
   For a global Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields). The 2 character ISO 3166 country code SHALL be set to 'XG'. 
   
-  The CA MUST verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  An LEI shall only be used if the ValidationSources entry is FULLY_CORROBORATED; an LEI MUST NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
+  The CA MUST verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  An LEI shall only be used if the ValidationSources entry is FULLY_CORROBORATED; an LEI MUST NOT be used if the ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
   
