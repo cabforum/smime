@@ -85,9 +85,11 @@ Before the CA authorizes a Delegated Third Party to perform a delegated function
 3. Abide by the other provisions of these Requirements that are applicable to the delegated function; and
 4. Comply with (a) the CA's CP and/or CPS or (b) the Delegated Third Party's practice statement that the CA has verified complies with these Requirements.
 
+#### 1.3.2.1 Enterprise RA
+
 The CA MAY designate an Enterprise Registration Authority (RA) to verify Certificate Requests from the Enterprise RA's own organization.  The CA SHALL NOT accept Certificate Requests authorized by an Enterprise RA unless the following requirements are satisfied:
 
-1. If the Certificate Request is for an Organization-validated or Sponsor-validated policy, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
+1. If the Certificate Request is for an Organization-validated or Sponsor-validated profile, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
 
 2. If the Certificate Request is for a Mailbox-validated policy, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
 
@@ -757,9 +759,9 @@ To verify the Applicant's ability to engage in business, the CA MUST verify the 
 
 ### 3.2.4 Authentication of individual identity
 
-The following requirements MUST be fulfilled to authenticate Individual identity included in the `sponsor-validated` and `individual-validated` Certificate types.
+The following requirements MUST be fulfilled to authenticate Individual identity attributes included in `sponsor-validated` and `individual-validated` Certificate profiles.
 
-The CA or RA MUST collect the following identity attributes for the Individual Applicant:
+The CA or RA MUST collect evidence supporting the following identity attributes for the Individual Applicant:
 
 1. Given name(s) and surname(s), which should be current names;
 2. Pseudonym (optional); 
@@ -768,13 +770,13 @@ The CA or RA MUST collect the following identity attributes for the Individual A
 
 #### 3.2.4.1 Attribute collection of individual identity
 
-The CA MUST document and publish the means used to collect identity Individual attributes.
+The CA MUST document and publish the means used to collect Individual identity attributes.
 
 1.	**From a physical identity document** 
 
-If physical identity documents are used as evidence, the CA or RA SHALL accept only government-issued passports, national identity cards, and other official identity documents of comparable reliability (such as drivers license or military ID). The CA MUST document and publish the accepted identity documents or document types.
+If physical identity documents are used as evidence, the CA or RA SHALL accept only government-issued passports or identity cards, and other official identity documents of comparable reliability (such as drivers license or military ID). The CA MUST document and publish the accepted identity documents or document types.
 
-The document used as evidence MUST contain a face photo and/or other information that   can be compared with the applicant's physical appearance.
+The document used as evidence MUST contain a face photo and/or other information that can be compared with the Applicant's physical appearance.
 
 2.	**From a digital identity document** 
 
@@ -788,7 +790,7 @@ The CA SHOULD consider requirements to avoid issuance of a consecutive certifica
 
 4.	**From Enterprise RA records** 
 
-In the case of Sponsor-validation certificates approved by an Enterprise RA, records maintained by the Enterprise RA SHALL be accepted as evidence of individual identity. The Enterprise RA MUST maintain records to satisfy the requirements of Section 8.8.
+In the case of Sponsor-validation certificates approved by an Enterprise RA, records maintained by the Enterprise RA SHALL be accepted as evidence of individual identity. The Enterprise RA MUST maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca)
 
 1. **From authorized reference sources as supplementary evidence** 
    
@@ -2345,15 +2347,24 @@ No stipulation.
 No stipulation.
 
 ### 7.2.2 CRL and CRL entry extensions
-No stipulation.
+If present, the `reasonCode` (OID 2.5.29.21) extension MUST NOT be marked critical.
+
+If a CRL entry is for a Root CA or Subordinate CA Certificate, including Cross Certificates, this CRL entry extension MUST be present. If a CRL entry is for a Certificate not technically capable of causing issuance, this CRL entry extension SHOULD be present, but MAY be omitted, subject to the following requirements.
+
+The `CRLReason` indicated MUST NOT be unspecified (0). If the reason for revocation is unspecified, CAs MUST omit `reasonCode` entry extension. The `CRLReason` MUST NOT be certificateHold (6).
+
+If a `reasonCode` CRL entry extension is present, the `CRLReason` MUST indicate the most appropriate reason for revocation of the certificate, as defined by the CA within its CP/CPS.
 
 ## 7.3 OCSP profile
+If an OCSP response is for a Root CA or Subordinate CA Certificate, including Cross Certificates, and that Certificate has been revoked, then the `revocationReason` field within the `RevokedInfo` of the `CertStatus` MUST be present.
+
+The `CRLReason` indicated MUST contain a value permitted for CRLs, as specified in [Section 7.2.2](#722-crl-and-crl-entry-extensions).
 
 ### 7.3.1 Version number(s)
-
+No stipulation.
 
 ### 7.3.2 OCSP extensions
-
+The `singleExtensions` of an OCSP response MUST NOT contain the `reasonCode` (OID 2.5.29.21) CRL entry extension.
 
 # 8. COMPLIANCE AUDIT AND OTHER ASSESSMENTS
 The CA SHALL at all times:
