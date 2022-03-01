@@ -1090,14 +1090,19 @@ No stipulation.
 
 Prior to the issuance of a Certificate, the CA SHALL obtain the following documentation from the Applicant:
 
-1. A Certificate Request in a form prescribed by the CA and that complies with these Requirements; and
+1. A Certificate Request; and
 2. An executed Subscriber Agreement or Terms of Use.
 
-The Certificate Request and Subscriber Agreement or Terms of Use MUST comply with these Requirements and MAY be made, submitted, and/or signed electronically. The CA SHOULD obtain any additional documentation the CA determines necessary to fulfil these Requirements.
+The Certificate Request and Subscriber Agreement or Terms of Use MUST be in a form prescribed by the CA and MUST comply with these Requirements. They MAY be made, submitted, and/or signed electronically. The CA SHOULD obtain any additional documentation the CA determines necessary to fulfil these Requirements.
 
 The Certificate Request MUST contain a request from, or on behalf of, the Applicant for the issuance of a Certificate, and a certification by, or on behalf of, the Applicant that all of the information contained therein is correct.
 
 One Certificate Request MAY suffice for multiple Certificates to be issued to the same Applicant, subject to the validation reuse periods described in [Section 4.2.1](#421-performing-identification-and-authentication-functions), provided that each Certificate is supported by a valid, current Certificate Request signed by the appropriate Applicant Representative on behalf of the Applicant. 
+
+A CA may rely on a previously verified Certificate Request to issue a replacement certificate if:
+1.  The previous Certificate being referenced was not revoked;
+2.  The expiration date of the replacement Certificate is the same as the previous Certificate being referenced; and
+3.  The Subject Information of the Certificate is the same as the previous Certificate being referenced.
 
 ## 4.2 Certificate application processing
 
@@ -1105,11 +1110,29 @@ One Certificate Request MAY suffice for multiple Certificates to be issued to th
 
 Applicant information SHALL include, but not be limited to, at least one `rfc822Name` or one `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in the Certificate's `subjectAltName` extension.
 
-[Section 6.3.2](#632-certificate-operational-periods-and-key-pair-usage-periods) limits the validity period of Subscriber Certificates. The CA MAY use the documents and data provided in [Section 3.2](#323-authentication-of-individual-identity) to verify Certificate information, or MAY reuse previous validations themselves, provided that the CA obtained the data or document from a source specified under [Section 3.2](#323-authentication-of-individual-identity). For methods validating the control of a mail server, any reused data, document, or completed validation MUST be obtained no more than 398 days prior to issuing the Certificate. For methods validating the control of a mailbox, any reused data, document, or completed validation MUST be obtained no more than 31 days prior to issuing the Certificate.
+[Section 6.3.2](#632-certificate-operational-periods-and-key-pair-usage-periods) limits the validity period of Subscriber Certificates. 
+
+The CA MAY reuse completed validations and/or supporting evidence performed in accordance with [Section 3.2](#32-initial-identity-validation) within the following limits:
+
+1.  **Validation of mailbox authorization or control**
+   
+   Completed validation of the control of a mail server in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers) MUST be obtained no more than 398 days prior to issuing the Certificate. 
+   
+   In the event of changes to the TLS Baseline Requirements methods specified in [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain), a CA MAY continue to reuse completed validations and/or supporting evidence for the period stated in this section unless otherwise directed in a ballot.
+
+   Completed validation of control of a mailbox in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email) MUST be obtained no more than 31 days prior to issuing the Certificate.
+
+2.  **Authentication of organization identity**
+   
+ Completed validation of organization identity in accordance with [Section 3.2.3](#323-authentication-of-organization-identity) MUST be obtained no more than 398 days prior to issuing the Certificate. 
+ 
+ Validation of authority in in accordance with [Section 3.2.6](#326-validation-of-authority) MUST be obtained no more than 398 days prior to issuing the Certificate, unless a contract between the CA and the Applicant specifies a different term. For example, the contract MAY include the perpetual assignment of roles until revoked by the Applicant or CA, or until the contract expires or is terminated.
+
+3.  **Authentication of individual identity**
+   
+   Completed validation of individual identity in accordance with [Section 3.2.2](#324-authentication-of-individual-identity) MUST be obtained no more than 825 days prior to issuing the Certificate. 
 
 A prior validation SHALL NOT be reused if any data or document used in the prior validation was obtained more than the maximum time permitted for reuse of the data or document prior to issuing the Certificate.
-
-After the change to any validation method specified in the TLS Baseline Requirements or EV Guidelines, a CA MAY continue to reuse validation data or documents collected prior to the change, or the validation itself, for the period stated in this section unless otherwise specifically provided in a ballot.
 
 ### 4.2.2 Approval or rejection of certificate applications
 
