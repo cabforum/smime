@@ -1130,7 +1130,7 @@ The CA MAY reuse completed validations and/or supporting evidence performed in a
 
 3.  **Authentication of individual identity**
    
-   Completed validation of individual identity in accordance with [Section 3.2.2](#324-authentication-of-individual-identity) MUST be obtained no more than 825 days prior to issuing the Certificate. 
+   Completed validation of individual identity in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) MUST be obtained no more than 825 days prior to issuing the Certificate. 
 
 A prior validation SHALL NOT be reused if any data or document used in the prior validation was obtained more than the maximum time permitted for reuse of the data or document prior to issuing the Certificate.
 
