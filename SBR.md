@@ -23,7 +23,7 @@ An S/MIME Certificate for the purposes of this document can be identified by the
 
 An S/MIME Certificate contains a public key bound to an email address and MAY also contain the identity of a natural person or legal entity that controls such email address. The key pair can then be used to sign, verify, encrypt, and decrypt email. 
 
-This Certificate Policy (CP) describes a subset of the requirements that a CA MUST meet in order to issue Publicly-Trusted S/MIME Certificates. This document serves two purposes: to specify Baseline Requirements and to provide guidance and requirements for what a CA should include in its Certification Practice Statement (CPS). These Requirements apply only to relevant events that occur on or after DATE (the original effective date of these requirements).
+This Certificate Policy (CP) describes a subset of the requirements that a CA MUST meet in order to issue Publicly-Trusted S/MIME Certificates. This document serves two purposes: to specify Baseline Requirements and to provide guidance and requirements for what a CA should include in its Certification Practice Statement (CPS). These Requirements apply only to relevant events that occur on or after DATE (the original effective date of these Requirements).
 
 These Requirements do not address all of the issues relevant to the issuance and management of Publicly-Trusted S/MIME Certificates. In accordance with RFC 3647 and to facilitate a comparison of other CP and/or CPS (e.g., for policy mapping), this document includes all sections of the RFC 3647 framework. The CA/Browser Forum MAY update these Requirements from time to time.
 
@@ -175,7 +175,7 @@ No stipulation.
 
 **Business Entity**: Any entity that is not a Private Organization, Government Entity, or Non-Commercial Entity as defined herein. Examples include, but are not limited to, general partnerships, unincorporated associations, sole proprietorships, etc.
 
-**CAA**: From RFC 8659 (<http://tools.ietf.org/html/rfc8659>): "The Certification Authority Authorization (CAA) DNS Resource Record allows a DNS domain name holder to specify one or more Certification Authorities (CAs) authorized to issue certificates for that domain name. CAA Resource Records allow a public CA to implement additional controls to reduce the risk of unintended certificate mis-issue."
+**CAA**: From RFC 8659 (<http://tools.ietf.org/html/rfc8659>): "The Certification Authority Authorization (CAA) DNS Resource Record allows a DNS domain name holder to specify one or more Certification Authorities (CAs) authorized to issue Certificates for that domain name. CAA Resource Records allow a public CA to implement additional controls to reduce the risk of unintended Certificate mis-issue."
 
 **CA Key Pair**: A Key Pair where the Public Key appears as the Subject Public Key Info in one or more Root CA Certificate(s) and/or Subordinate CA Certificate(s).
 
@@ -200,7 +200,7 @@ No stipulation.
 
 **Certification Practice Statement**: One of several documents forming the governance framework in which Certificates are created, issued, managed, and used.
 
-**Certificate Profile**: A set of documents or files that defines requirements for Certificate content and Certificate extensions in accordance with [Section 7](#7-certificate-crl-and-ocsp-profiles). e.g. a Section in a CA’s CPS or a certificate template file used by CA software.
+**Certificate Profile**: A set of documents or files that defines requirements for Certificate content and Certificate extensions in accordance with [Section 7](#7-certificate-crl-and-ocsp-profiles). e.g. a Section in a CA’s CPS or a Certificate template file used by CA software.
 
 **Certificate Requester**: A natural person who is either the Applicant, employed by the Applicant, an authorized agent who has express authority to represent the Applicant, or a third party that completes and submits a Certificate Request on behalf of the Applicant.
 
@@ -210,7 +210,7 @@ No stipulation.
 
 **Country**: Either a member of the United Nations OR a geographic region recognized as a Sovereign State by at least two UN member nations.
 
-**Cross Certificate**: A certificate that is used to establish a trust relationship between two Root CAs.
+**Cross Certificate**: A Certificate that is used to establish a trust relationship between two Root CAs.
 
 **CSPRNG**: A random number generator intended for use in cryptographic system.
 
@@ -379,7 +379,7 @@ The script outputs:
 
 **Subsidiary Company**: A company that is controlled by a Parent Company.
 
-**Technically Constrained Subordinate CA Certificate**: A Subordinate CA certificate which uses a combination of Extended Key Usage settings and Name Constraint settings to limit the scope within which the Subordinate CA Certificate MAY issue Subscriber or additional Subordinate CA Certificates.
+**Technically Constrained Subordinate CA Certificate**: A Subordinate CA Certificate which uses a combination of Extended Key Usage settings and Name Constraint settings to limit the scope within which the Subordinate CA Certificate MAY issue Subscriber or additional Subordinate CA Certificates.
 
 **Terms of Use**: Provisions regarding the safekeeping and acceptable uses of a Certificate issued in accordance with these Requirements when the Applicant/Subscriber is an Affiliate of the CA or is the CA.
 
@@ -507,7 +507,7 @@ The CA SHALL NOT delegate the verification of mailbox authorization or control.
 
 **Note:** Email addresses MAY be listed in Subscriber Certificates using `rfc822Names` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension or in Subordinate CA Certificates via `rfc822Names` in permittedSubtrees within the `nameConstraints` extension.
 
-The CA's CP/CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which domain validation method, including the relevant version number from the Baseline Requirements or S/MIME Baseline Requirements, used to validate every domain or email address in issued Certificates.
+The CA's CP and/or CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which domain validation method, including the relevant version number from the Baseline Requirements or S/MIME Baseline Requirements, used to validate every domain or email address in issued Certificates.
 
 Completed validations of Applicant authority MAY be valid for the issuance of multiple Certificates over time. In all cases, the validation SHALL have been initiated within the time period specified in the relevant requirement (such as [Section 4.2.1](#421-performing-identification-and-authentication-functions)) prior to Certificate issuance.
 
@@ -543,7 +543,7 @@ This version of the S/MIME Baseline Requirements does not require the CA to chec
 
 ### 3.2.3 Authentication of organization identity
 
-The following requirements MUST be fulfilled to authenticate Organization identity included in the `organization-validated` and `sponsor-validated` Certificate types.
+The following requirements MUST be fulfilled to authenticate Organization identity included in the `Organization-validated` and `Sponsor-validated` Certificate types.
 
 #### 3.2.3.1 Verification requirements – overview
 
@@ -576,7 +576,7 @@ Prior to the use of an Incorporating Agency or Registration Agency to fulfill th
 This Agency Information SHALL include at least the following:
 
 * Sufficient information to unambiguously identify the Incorporating Agency or Registration Agency (such as a name, jurisdiction, and website); 
-* The accepted value or values for each of the `subject:jurisdictionLocalityName` (OID: 1.3.6.1.4.1.311.60.2.1.1), `subject:jurisdictionStateOrProvinceName` (OID: 1.3.6.1.4.1.311.60.2.1.2), and `subject:jurisdictionCountryName` (OID: 1.3.6.1.4.1.311.60.2.1.3) fields, when a certificate is issued using information from that Incorporating Agency or Registration Agency, indicating the jurisdiction(s) that the Agency is appropriate for; 
+* The accepted value or values for each of the `subject:jurisdictionLocalityName` (OID: 1.3.6.1.4.1.311.60.2.1.1), `subject:jurisdictionStateOrProvinceName` (OID: 1.3.6.1.4.1.311.60.2.1.2), and `subject:jurisdictionCountryName` (OID: 1.3.6.1.4.1.311.60.2.1.3) fields, when a Certificate is issued using information from that Incorporating Agency or Registration Agency, indicating the jurisdiction(s) that the Agency is appropriate for; 
 * The acceptable form or syntax of Registration Numbers used by the Incorporating Agency or Registration Agency, if the CA restricts such Numbers to an acceptable form or syntax; and
 * A revision history that includes a unique version number and date of publication for any additions, modifications, and/or removals from this list.
 
@@ -629,7 +629,7 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
 
 3. **Business Entity Subjects**: Unless verified under subsection (6), Items listed in [Section 3.2.3.2.1](#32321-verification-requirements) (3) (A) through (C) above, MUST be verified directly with, or obtained directly from, the Registration Agency in the Applicant's Jurisdiction of Registration. Such verification MAY be performed by means of a Qualified Government Information Source, a Qualified Governmental Tax Information Source, or by direct contact with the Registration Agency in person or via mail, e-mail, Web address, or telephone, using an address or phone number obtained directly from the Qualified Government Information Source, Qualified Governmental Tax Information Source or Registration Agency, or from a Qualified Independent Information Source. In addition, the CA MUST validate a Principal Individual associated with the Business Entity pursuant to the requirements in subsection (4), below.
 
-4. **Principal Individual**: A Principal Individual associated with the Business Entity MUST be validated in a face-to-face setting.  The CA MAY rely upon a face-to-face validation of the Principal Individual performed by the Registration Agency, provided that the CA has evaluated the validation procedure and concluded that it satisfies the requirements of the Guidelines for face-to-face validation procedures.  Where no face-to-face validation was conducted by the Registration Agency, or the Registration Agency's face-to-face validation procedure does not satisfy the requirements of the Guidelines, the CA SHALL perform face-to-face validation.
+4. **Principal Individual**: A Principal Individual associated with the Business Entity MUST be validated in a face-to-face setting.  The CA MAY rely upon a face-to-face validation of the Principal Individual performed by the Registration Agency, provided that the CA has evaluated the validation procedure and concluded that it satisfies the requirements for face-to-face validation procedures.  Where no face-to-face validation was conducted by the Registration Agency, or the Registration Agency's face-to-face validation procedure does not comply with this Requirement, the CA SHALL perform face-to-face validation.
 
    A.  **Face-To-Face Validation**: The face-to-face validation MUST be conducted before either an employee of the CA, a Latin Notary, a Notary (or equivalent in the Applicant's jurisdiction), a Lawyer, or Accountant (Third-Party Validator).  The Principal Individual(s) MUST present the following documentation (Vetting Documents) directly to the Third-Party Validator:
 
@@ -774,7 +774,7 @@ To verify the Applicant's ability to engage in business, the CA MUST verify the 
 
 ### 3.2.4 Authentication of individual identity
 
-The following requirements MUST be fulfilled to authenticate Individual identity attributes included in `sponsor-validated` and `individual-validated` Certificate profiles.
+The following requirements MUST be fulfilled to authenticate Individual identity attributes included in `Sponsor-validated` and `Individual-validated` Certificate profiles.
 
 The CA or RA MUST collect evidence supporting the following identity attributes for the Individual Applicant:
 
@@ -801,11 +801,11 @@ If digital identity documents are used as evidence the CA or RA SHALL only accep
 
 If a digital signature is to be used as evidence, the CA MUST have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: eIDAS Qualified Certificates validated according to ETSI TS 119 172-4, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
 
-The CA SHOULD consider requirements to avoid issuance of a consecutive certificates that are issued based on a preceding certificate, where the original verification of the certificate Subject may have been conducted in the distant past.
+The CA SHOULD consider requirements to avoid issuance of a consecutive Certificates that are issued based on a preceding Certificate, where the original verification of the Subject may have been conducted in the distant past.
 
 4.	**From Enterprise RA records** 
 
-In the case of Sponsor-validation certificates approved by an Enterprise RA, records maintained by the Enterprise RA SHALL be accepted as evidence of individual identity. The Enterprise RA MUST maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca)
+In the case of `Sponsor-validation` Certificates approved by an Enterprise RA, records maintained by the Enterprise RA SHALL be accepted as evidence of individual identity. The Enterprise RA MUST maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca)
 
 1. **From authorized reference sources as supplementary evidence** 
    
@@ -821,9 +821,9 @@ Evidence for individual identity attributes can be additionally verified using a
 
 The CA or RA SHALL validate all identity attributes of the Individual to be included in the Certificate.
 
-If the evidence has an explicit validity period, the CA MUST verify that the time of the identity validation is within this validity period. In context this can include the valid from and valid to attributes of a digital signature certificate or date of expiry of an identity document.
+If the evidence has an explicit validity period, the CA MUST verify that the time of the identity validation is within this validity period. In context this can include the `validFrom` and `validTo` attributes of a digital signature Certificate or date of expiry of an identity document.
 
-NOTE: Existing evidence can be re-used to validate the identity if the evidence remains valid at the subsequent validation event.
+Existing evidence can be re-used to validate the identity if the evidence remains valid at the subsequent validation event.
 
 1.	**Validation of a physical identity document** 
 
@@ -851,11 +851,11 @@ Automated and manual processes MAY be used in combination (for example using aut
 
 3.	**Validation of digital signature with certificate** 
 
-If a digital signature with certificate is used as evidence, the signature MUST be created as part of the identity validation process.
+If a digital signature with Certificate is used as evidence, the signature MUST be created as part of the identity validation process.
 
-The CA or RA MUST validate the digital signature and SHALL only use the signing certificate as evidence for identity attributes if the signature is valid.
+The CA or RA MUST validate the digital signature and SHALL only use the signing Certificate as evidence for identity attributes if the signature is valid.
 
-If required identity attributes to be collected are not present in the certificate, the CA or RA SHALL collect these attributes from other sources and validated.
+If required identity attributes to be collected are not present in the Certificate, the CA or RA SHALL collect these attributes from other sources and validated.
 
 4.	**Validation of a verified professional letter**
 
@@ -863,11 +863,11 @@ TBD
    
 ### 3.2.5 Non-verified subscriber information
 
-Subscriber information that has not been verified in accordance with these requirements SHALL NOT be included in S/MIME Certificates.
+Subscriber information that has not been verified in accordance with these Requirements SHALL NOT be included in Publicly-Trusted S/MIME Certificates.
 
 ### 3.2.6 Validation of authority
 
-If the Certificate Request corresponds to a `organization-validated` or `sponsor-validated` Certificate, then for both the Contract Signer and the Certificate Approver, the CA MUST verify the following:
+If the Certificate Request corresponds to a `Organization-validated` or `Sponsor-validated` Certificate, then for both the Contract Signer and the Certificate Approver, the CA MUST verify the following:
 
 1. **Name, Title and Agency**: The CA MUST verify the name and title of the Contract Signer and the Certificate Approver, as applicable.  The CA MUST also verify that the Contract Signer and the Certificate Approver are agents representing the Applicant.
 2. **Signing Authority of Contract Signer**: The CA MUST verify that the Contract Signer is authorized by the Applicant to enter into the Subscriber Agreement (and any other relevant contractual obligations) on behalf of the Applicant, including a contract that designates one or more Certificate Approvers on behalf of the Applicant.
@@ -905,25 +905,25 @@ Acceptable methods of verification of the Signing Authority of the Contract Sign
 
    A.  Prior Equivalent Authority of a Contract Signer MAY be relied upon for confirmation or verification of the signing authority of the Contract Signer when the Contract Signer has executed a binding contract between the CA and the Applicant with a legally valid and enforceable seal or handwritten signature and only when the contract was executed more than 90 days prior to the Certificate application.  The CA MUST record sufficient details of the previous agreement to correctly identify it and associate it with the application.  Such details MAY include any of the following:
 
-       i. Agreement title,
-       ii. Date of Contract Signer's signature,
-       iii. Contract reference number, and
+       i. Agreement title;
+       ii. Date of Contract Signer's signature;
+       iii. Contract reference number; and
        iv. Filing location.
 
    B.  Prior Equivalent Authority of a Certificate Approver MAY be relied upon for confirmation or verification of the Authority of the Certificate Approver when the Certificate Approver has performed one or more of the following:
 
-       i. Under contract to the CA, has served (or is serving) as an Enterprise RA for the Applicant, or
-       ii. Has participated in the approval of one or more certificate requests, for certificates issued by the CA and which are currently and verifiably in use by the Applicant.  In this case the CA MUST have contacted the Certificate Approver by phone at a previously validated phone number or have accepted a signed and notarized letter approving the certificate request.
+       i. Under contract to the CA, has served (or is serving) as an Enterprise RA for the Applicant; or
+       ii. Has participated in the approval of one or more Certificate Requests, for Certificates issued by the CA and which are currently and verifiably in use by the Applicant.  In this case the CA MUST have contacted the Certificate Approver by phone at a previously validated phone number or have accepted a signed and notarized letter approving the Certificate Request.
 
 6. **QIIS or QGIS**: The Signing Authority of the Contract Signer, and/or the Authority of the Certificate Approver, MAY be verified by a QIIS or QGIS that identifies the Contract Signer and/or the Certificate Approver as a corporate officer, sole proprietor, or other senior official of the Applicant.
 
 7. **Contract Signer's Representation/Warranty**: Provided that the CA verifies that the Contract Signer is an employee or agent of the Applicant, the CA MAY rely on the signing authority of the Contract Signer by obtaining a duly executed representation or warranty from the Contract Signer that includes the following acknowledgments:
 
-   A.  That the Applicant authorizes the Contract Signer to sign the Subscriber Agreement on the Applicant's behalf,
-   B.  That the Subscriber Agreement is a legally valid and enforceable agreement,
-   C.  That, upon execution of the Subscriber Agreement, the Applicant will be bound by all of its terms and conditions,
-   D.  That serious consequences attach to the misuse of an certificate, and
-   E.  The contract signer has the authority to obtain the digital equivalent of a corporate seal, stamp or officer's signature to establish the authenticity of the company's Web site.
+   A.  That the Applicant authorizes the Contract Signer to sign the Subscriber Agreement on the Applicant's behalf;
+   B.  That the Subscriber Agreement is a legally valid and enforceable agreement;
+   C.  That, upon execution of the Subscriber Agreement, the Applicant will be bound by all of its terms and conditions;
+   D.  That serious consequences attach to the misuse of a Certificate; and
+   E.  The contract signer has the authority to obtain the digital equivalent of a corporate seal, stamp or officer's signature to approve the issuance of S/MIME Certificates on behalf of the Applicant.
 
 #### 3.2.6.3 Pre-authorized certificate approver
 
@@ -1041,7 +1041,7 @@ An Independent Confirmation from the Applicant MAY be obtained via the following
 
 A Qualified Independent Information Source (QIIS) is a regularly-updated and publicly available database that is generally recognized as a dependable source for certain information.  A database qualifies as a QIIS if the CA determines that:
 
-1. Industries other than the certificate industry rely on the database for accurate location, contact, or other information; and
+1. Industries other than the CA sector rely on the database for accurate location, contact, or other information; and
 
 2. The database provider updates its data on at least an annual basis.
 
@@ -1067,12 +1067,15 @@ A Regulated Professions Information Source is a Qualified Government Information
 ## 3.3 Identification and authentication for re-key requests
 
 ### 3.3.1 Identification and authentication for routine re-key
+
 No stipulation.
 
 ### 3.3.2 Identification and authentication for re-key after revocation
+
 No stipulation.
 
 ## 3.4 Identification and authentication for revocation request
+
 No stipulation.
 
 # 4. CERTIFICATE LIFE-CYCLE OPERATIONAL REQUIREMENTS
@@ -1080,6 +1083,7 @@ No stipulation.
 ## 4.1 Certificate application
 
 ### 4.1.1 Who can submit a certificate application
+
 No stipulation.
 
 ### 4.1.2 Enrollment process and responsibilities
@@ -1090,93 +1094,120 @@ TBD.
 
 
 ### 4.2.1 Performing identification and authentication functions
+
 Applicant information SHALL include, but not be limited to, at least one `rfc822Name` or one `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in the Certificate's `subjectAltName` extension.
 
-[Section 6.3.2](#632-certificate-operational-periods-and-key-pair-usage-periods) limits the validity period of Subscriber Certificates. The CA MAY use the documents and data provided in [Section 3.2](#323-authentication-of-individual-identity) to verify certificate information, or MAY reuse previous validations themselves, provided that the CA obtained the data or document from a source specified under [Section 3.2](#323-authentication-of-individual-identity). For methods validating the control of a mail server, any reused data, document, or completed validation MUST be obtained no more than 398 days prior to issuing the Certificate. For methods validating the control of a mailbox, any reused data, document, or completed validation MUST be obtained no more than 31 days prior to issuing the Certificate.
+[Section 6.3.2](#632-certificate-operational-periods-and-key-pair-usage-periods) limits the validity period of Subscriber Certificates. The CA MAY use the documents and data provided in [Section 3.2](#323-authentication-of-individual-identity) to verify Certificate information, or MAY reuse previous validations themselves, provided that the CA obtained the data or document from a source specified under [Section 3.2](#323-authentication-of-individual-identity). For methods validating the control of a mail server, any reused data, document, or completed validation MUST be obtained no more than 398 days prior to issuing the Certificate. For methods validating the control of a mailbox, any reused data, document, or completed validation MUST be obtained no more than 31 days prior to issuing the Certificate.
 
 A prior validation SHALL NOT be reused if any data or document used in the prior validation was obtained more than the maximum time permitted for reuse of the data or document prior to issuing the Certificate.
 
 After the change to any validation method specified in the TLS Baseline Requirements or EV Guidelines, a CA MAY continue to reuse validation data or documents collected prior to the change, or the validation itself, for the period stated in this section unless otherwise specifically provided in a ballot.
 
 ### 4.2.2 Approval or rejection of certificate applications
+
 No stipulation.
 
 ### 4.2.3 Time to process certificate applications
+
 No stipulation.
 
 ## 4.3 Certificate issuance
-Certificate issuance by the Root CA SHALL require an individual authorized by the CA (i.e. the CA system operator, system officer, or PKI administrator) to deliberately issue a direct command in order for the Root CA to perform a certificate signing operation.
+
+Certificate issuance by the Root CA SHALL require an individual authorized by the CA (i.e. the CA system operator, system officer, or PKI administrator) to deliberately issue a direct command in order for the Root CA to perform a Certificate signing operation.
 
 ### 4.3.1 CA actions during certificate issuance
+
 No stipulation.
 
 ### 4.3.2 Notification to subscriber by the CA of issuance of certificate
+
 No stipulation.
 
 ## 4.4 Certificate acceptance
 
 ### 4.4.1 Conduct constituting certificate acceptance
+
 No stipulation.
 
 ### 4.4.2 Publication of the certificate by the CA
+
 No stipulation.
 
 ### 4.4.3 Notification of certificate issuance by the CA to other entities
+
 No stipulation.
 
 ## 4.5 Key pair and certificate usage
+
 No stipulation.
 
 ### 4.5.1 Subscriber private key and certificate usage
+
 No stipulation.
 
 ### 4.5.2 Relying party public key and certificate usage
+
 No stipulation.
+
 
 ## 4.6 Certificate renewal
 
 ### 4.6.1 Circumstance for certificate renewal
+
 No stipulation.
 
 ### 4.6.2 Who may request renewal
+
 No stipulation.
 
 ### 4.6.3 Processing certificate renewal requests
+
 No stipulation.
 
 ### 4.6.4 Notification of new certificate issuance to subscriber
+
 No stipulation.
 
 ### 4.6.5 Conduct constituting acceptance of a renewal certificate
+
 No stipulation.
 
 ### 4.6.6 Publication of the renewal certificate by the CA
+
 No stipulation.
 
 ### 4.6.7 Notification of certificate issuance by the CA to other entities
+
 No stipulation.
 
 ## 4.7 Certificate re-key
 
 ### 4.7.1 Circumstance for certificate re-key
+
 No stipulation.
 
 ### 4.7.2 Who may request certification of a new public key
+
 No stipulation.
 
 ### 4.7.3 Processing certificate re-keying requests
+
 No stipulation.
 
 ### 4.7.4 Notification of new certificate issuance to subscriber
+
 No stipulation.
 
 ### 4.7.5 Conduct constituting acceptance of a re-keyed certificate
+
 No stipulation.
 
 ### 4.7.6 Publication of the re-keyed certificate by the CA
+
 No stipulation.
 
 ### 4.7.7 Notification of certificate issuance by the CA to other entities
+
 No stipulation.
 
 ## 4.8 Certificate modification
@@ -1185,19 +1216,27 @@ No stipulation.
 No stipulation.
 
 ### 4.8.2 Who may request certificate modification
+
+No stipulation.
+
 ### 4.8.3 Processing certificate modification requests
+
 No stipulation.
 
 ### 4.8.4 Notification of new certificate issuance to subscriber
+
 No stipulation.
 
 ### 4.8.5 Conduct constituting acceptance of modified certificate
+
 No stipulation.
 
 ### 4.8.6 Publication of the modified certificate by the CA
+
 No stipulation.
 
 ### 4.8.7 Notification of certificate issuance by the CA to other entities
+
 No stipulation.
 
 ## 4.9 Certificate revocation and suspension
@@ -1205,6 +1244,7 @@ No stipulation.
 ### 4.9.1 Circumstances for revocation
 
 #### 4.9.1.1 Reasons for revoking a subscriber certificate
+
 The CA SHALL revoke a Certificate within 24 hours if one or more of the following occurs:
 
 1. The Subscriber requests in writing that the CA revoke the Certificate;
@@ -1213,7 +1253,7 @@ The CA SHALL revoke a Certificate within 24 hours if one or more of the followin
 4. The CA is made aware of a demonstrated or proven method that can easily compute the Subscriber's Private Key based on the Public Key in the Certificate (such as a Debian weak key, see <https://wiki.debian.org/SSLkeys>);
 5. The CA obtains evidence that the validation of domain authorization or mailbox control for any email address in the Certificate should not be relied upon.
 
-The CA SHOULD revoke a certificate within 24 hours and MUST revoke a Certificate within 5 days if one or more of the following occurs:
+The CA SHOULD revoke a Certificate within 24 hours and MUST revoke a Certificate within 5 days if one or more of the following occurs:
 
 1. The Certificate no longer complies with the requirements of [Section 6.1.5](#615-key-sizes) and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking);
 2. The CA obtains evidence that the Certificate was misused;
@@ -1227,6 +1267,7 @@ The CA SHOULD revoke a certificate within 24 hours and MUST revoke a Certificate
 10. The CA is made aware of a demonstrated or proven method that exposes the Subscriber's Private Key to compromise or if there is clear evidence that the specific method used to generate the Private Key was flawed.
 
 #### 4.9.1.2 Reasons for revoking a subordinate CA certificate
+
 The Issuing CA SHALL revoke a Subordinate CA Certificate within seven (7) days if one or more of the following occurs:
 
 1. The Subordinate CA requests revocation in writing;
@@ -1239,20 +1280,24 @@ The Issuing CA SHALL revoke a Subordinate CA Certificate within seven (7) days i
 8. The Issuing CA's or Subordinate CA's right to issue Certificates under these Requirements expires or is revoked or terminated, unless the Issuing CA has made arrangements to continue maintaining the CRL/OCSP Repository; or
 9. Revocation is required by the Issuing CA's CP and/or CPS.
 ### 4.9.2 Who can request revocation
-The Subscriber, RA, or Issuing CA can initiate revocation. Additionally, Subscribers, Relying Parties, Application Software Suppliers, and other third parties MAY submit Certificate Problem Reports informing the issuing CA of reasonable cause to revoke the certificate.
+
+The Subscriber, RA, or Issuing CA can initiate revocation. Additionally, Subscribers, Relying Parties, Application Software Suppliers, and other third parties MAY submit Certificate Problem Reports informing the Issuing CA of reasonable cause to revoke a Certificate.
 
 ### 4.9.3 Procedure for revocation request
+
 The CA SHALL provide a process for Subscribers to request revocation of their own Certificates. The process MUST be described in the CA's CP and/or CPS. The CA SHALL maintain a continuous 24x7 ability to accept and respond to revocation requests and Certificate Problem Reports.
 
-The CA SHALL provide Subscribers, Relying Parties, Application Software Suppliers, and other third parties with clear instructions for reporting suspected Private Key Compromise, Certificate misuse, or other types of fraud, compromise, misuse, inappropriate conduct, or any other matter related to Certificates. The CA SHALL publicly disclose the instructions through a readily accessible online means and in Section 1.5.2 of their CPS.
+The CA SHALL provide clear instructions for reporting suspected Private Key Compromise, Certificate misuse, or other types of fraud, compromise, misuse, inappropriate conduct, or any other matter related to Certificates. The CA SHALL publicly disclose the instructions through a readily accessible online means and in Section 1.5.2 of their CPS.
 
 ### 4.9.4 Revocation request grace period
+
 No stipulation.
 
 ### 4.9.5 Time within which CA must process the revocation request
+
 Within 24 hours after receiving a Certificate Problem Report, the CA SHALL investigate the facts and circumstances related to a Certificate Problem Report and provide a preliminary report on its findings to both the Subscriber and the entity who filed the Certificate Problem Report.
 
-After reviewing the facts and circumstances, the CA SHALL work with the Subscriber and any entity reporting the Certificate Problem Report or other revocation-related notice to establish whether or not the certificate will be revoked, and if so, a date which the CA will revoke the certificate. The period from receipt of the Certificate Problem Report or revocation-related notice to published revocation MUST NOT exceed the time frame set forth in [Section 4.9.1.1](#4911-reasons-for-revoking-a-subscriber-certificate). The date selected by the CA SHOULD consider the following criteria:
+After reviewing the facts and circumstances, the CA SHALL work with the Subscriber and any entity reporting the Certificate Problem Report or other revocation-related notice to establish whether or not the Certificate will be revoked, and if so, a date which the CA will revoke the Certificate. The period from receipt of the Certificate Problem Report or revocation-related notice to published revocation MUST NOT exceed the time frame set forth in [Section 4.9.1.1](#4911-reasons-for-revoking-a-subscriber-certificate). The date selected by the CA SHOULD consider the following criteria:
 
 1. The nature of the alleged problem (scope, context, severity, magnitude, risk of harm);
 2. The consequences of revocation (direct and collateral impacts to Subscribers and Relying Parties);
@@ -1261,9 +1306,10 @@ After reviewing the facts and circumstances, the CA SHALL work with the Subscrib
 5. Relevant legislation.
    
 ### 4.9.6 Revocation checking requirement for relying parties
+
 No stipulation.
 
-**Note**: Following certificate issuance, a certificate MAY be revoked for reasons stated in [Section 4.9](#49-certificate-revocation-and-suspension). Therefore, relying parties should check the revocation status of all certificates that contain a CDP or OCSP pointer.
+**Note**: Following Certificate issuance, a Certificate MAY be revoked for reasons stated in [Section 4.9](#49-certificate-revocation-and-suspension). Therefore, Relying Parties SHOULD check the revocation status of all Certificates that contain a CDP or OCSP pointer.
 
 ### 4.9.7 CRL issuance frequency
 For the status of Subscriber Certificates: if the CA publishes a CRL, then the CA SHALL update and reissue CRLs at least once every seven days, and the value of the `nextUpdate` field MUST NOT be more than ten days beyond the value of the `thisUpdate` field.
@@ -1303,11 +1349,11 @@ For the status of Subordinate CA Certificates, the CA SHALL update information p
 1. at least every twelve months; and
 2. within 24 hours after revoking a Subordinate CA Certificate.
 
-If the OCSP responder receives a request for the status of a certificate serial number that is "unused", then the responder SHOULD NOT respond with a "good" status. If the OCSP responder is for a CA that is not Technically Constrained in line with [Section 7.1.5](#715-name-constraints), the responder MUST NOT respond with a "good" status for such requests.
+If the OCSP responder receives a request for the status of a Certificate serial number that is "unused", then the responder SHOULD NOT respond with a "good" status. If the OCSP responder is for a CA that is not Technically Constrained in line with [Section 7.1.5](#715-name-constraints), the responder MUST NOT respond with a "good" status for such requests.
 
 The CA SHOULD monitor the OCSP responder for requests for "unused" serial numbers as part of its security response procedures.
 
-A certificate serial number within an OCSP request is one of the following three options:
+A Certificate serial number within an OCSP request is one of the following three options:
 
 1. "assigned" if a Certificate with that serial number has been issued by the Issuing CA, using any current or previous key associated with that CA subject; or
 2. "reserved" if a Precertificate [RFC6962] with that serial number has been issued by 
@@ -1495,7 +1541,7 @@ The CA and each Delegated Third Party SHALL record details of the actions taken 
 
 The CA SHALL record at least the following events:
 
-1. CA certificate and key lifecycle events, including:
+1. CA Certificate and key lifecycle events, including:
    1. Key generation, backup, storage, recovery, archival, and destruction;
    2. Certificate requests, renewal, and re-key requests, and revocation;
    3. Approval and rejection of Certificate Requests;
@@ -1533,7 +1579,7 @@ No stipulation.
 
 The CA SHALL retain, for at least two years:
 
-  1. CA certificate and key lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (1)) after the later occurrence of:
+  1. CA Certificate and key lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (1)) after the later occurrence of:
      1. the destruction of the CA Private Key; or
      2. the revocation or expiration of the final CA Certificate in that set of Certificates that have an X.509v3 `basicConstraints` extension with the `cA` field set to true and which share a common Public Key corresponding to the CA Private Key;
   2. Subscriber Certificate lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (2)) after the revocation or expiration of the Subscriber Certificate;
@@ -1688,7 +1734,7 @@ The CA SHALL reject a Certificate Request if one or more of the following condit
 
 Parties other than the Subscriber SHALL NOT archive the Subscriber Private Key without authorization by the Subscriber.
 
-If the CA or any of its designated RAs become aware that a Subscriber's Private Key has been communicated to a person or organization not authorized by the Subscriber, then the CA SHALL revoke all certificates that include the Public Key corresponding to the communicated Private Key.
+If the CA or any of its designated RAs become aware that a Subscriber's Private Key has been communicated to a person or organization not authorized by the Subscriber, then the CA SHALL revoke all Certificates that include the Public Key corresponding to the communicated Private Key.
 
 ### 6.1.3 Public key delivery to certificate issuer
 
@@ -1732,7 +1778,7 @@ Private Keys corresponding to Root Certificates MUST NOT be used to sign Certifi
 
 ## 6.2 Private key protection and cryptographic module engineering controls
 
-The CA SHALL implement physical and logical safeguards to prevent unauthorized certificate issuance. Protection of the CA Private Key outside the validated system or device specified above MUST consist of physical security, encryption, or a combination of both, implemented in a manner that prevents disclosure of the Private Key. The CA SHALL encrypt its Private Key with an algorithm and key-length that, according to the state of the art, are capable of withstanding cryptanalytic attacks for the residual life of the encrypted key or key part.
+The CA SHALL implement physical and logical safeguards to prevent unauthorized Certificate issuance. Protection of the CA Private Key outside the validated system or device specified above MUST consist of physical security, encryption, or a combination of both, implemented in a manner that prevents disclosure of the Private Key. The CA SHALL encrypt its Private Key with an algorithm and key-length that, according to the state of the art, are capable of withstanding cryptanalytic attacks for the residual life of the encrypted key or key part.
 
 ### 6.2.1 Cryptographic module standards and controls
 
@@ -1889,8 +1935,8 @@ c. `authorityInformationAccess` (SHOULD be present)
 
    This extension MUST NOT be marked critical.
 
-   It SHOULD contain the HTTP URL of the Issuing CA's certificate (`accessMethod` = 1.3.6.1.5.5.7.48.2).
-   It MAY contain the HTTP URL of the Issuing CA's OCSP responder (`accessMethod` = 1.3.6.1.5.5.7.48.1).
+   It SHOULD contain the HTTP URL of the Issuing CA Certificate (`accessMethod` = 1.3.6.1.5.5.7.48.2).
+   It MAY contain the HTTP URL of the Issuing CA OCSP responder (`accessMethod` = 1.3.6.1.5.5.7.48.1).
 
 d. `basicConstraints` (MUST be present)
 
@@ -1908,15 +1954,15 @@ f. `nameConstraints` (MAY be present)
 
 g. `extKeyUsage` (MAY be present for Cross Certificates; MUST be present otherwise)
 
-   For Cross Certificates that share a Subject Distinguished Name and Subject Public Key with a Root Certificate operated in accordance with these Requirements, this extension MAY be present. If present, this extension SHOULD NOT be marked critical. This extension MUST only contain usages for which the issuing CA has verified the Cross Certificate is authorized to assert. This extension MUST NOT contain the `anyExtendedKeyUsage` [RFC5280] usage.
+   For Cross Certificates that share a Subject Distinguished Name and Subject Public Key with a Root Certificate operated in accordance with these Requirements, this extension MAY be present. If present, this extension SHOULD NOT be marked critical. This extension MUST only contain usages for which the Issuing CA has verified the Cross Certificate is authorized to assert. This extension MUST NOT contain the `anyExtendedKeyUsage` [RFC5280] usage.
 
    For all other Subordinate CA Certificates, including Technically Constrained Subordinate CA Certificates:
 
    This extension MUST be present and SHOULD NOT be marked critical[^**].
 
-   For Subordinate CA Certificates that will be used to issue S/MIME certificates, the value `id-kp-emailProtection` [RFC5280] MUST be present. The values `id-kp-serverAuth` [RFC5280], `id-kp-codeSigning` [RFC5280], `id-kp-timeStamping` [RFC5280], and `anyExtendedKeyUsage` [RFC5280] MUST NOT be present. Other values MAY be present.
+   For Subordinate CA Certificates that will be used to issue S/MIME Certificates, the value `id-kp-emailProtection` [RFC5280] MUST be present. The values `id-kp-serverAuth` [RFC5280], `id-kp-codeSigning` [RFC5280], `id-kp-timeStamping` [RFC5280], and `anyExtendedKeyUsage` [RFC5280] MUST NOT be present. Other values MAY be present.
 
-[^**]: While RFC 5280, Section 4.2.1.12, notes that this extension will generally only appear within end-entity certificates, these Requirements make use of this extension to further protect relying parties by limiting the scope of subordinate certificates, as implemented by a number of Application Software Suppliers.
+[^**]: While RFC 5280, Section 4.2.1.12, notes that this extension will generally only appear within end-entity Certificates, these Requirements make use of this extension to further protect relying parties by limiting the scope of Subordinate Certificates, as implemented by a number of Application Software Suppliers.
 
 h. `authorityKeyIdentifier` (MUST be present)
 
@@ -1932,13 +1978,13 @@ a. `certificatePolicies` (MUST be present)
 
 b. `cRLDistributionPoints` (MUST be present)
 
-   This extension MUST be present and SHOULD NOT be marked critical.  It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the issuing CA's CRL can be retrieved. 
+   This extension MUST be present and SHOULD NOT be marked critical.  It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the Issuing CA's CRL can be retrieved. 
    
    For Legacy profiles only, following additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
 
 c. `authorityInformationAccess` (MUST be present)
 
-   This extension MUST be present. It MUST NOT be marked critical, and it MUST contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the issuing CA's OCSP responder. Additional `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified. It SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the HTTP URI of the issuing CA's Certificate. Additional `id-ad-caIssuers` LDAP, FTP, or HTTP URIs MAY be specified.
+   This extension MUST be present. It MUST NOT be marked critical, and it MUST contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the Issuing CA's OCSP responder. Additional `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified. It SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the HTTP URI of the Issuing CA's Certificate. Additional `id-ad-caIssuers` LDAP, FTP, or HTTP URIs MAY be specified.
 
 d. `basicConstraints` (optional)
 
@@ -2023,7 +2069,7 @@ CAs SHALL NOT issue a Certificate with:
 1. Extensions that do not apply in the context of the public Internet (such as an extKeyUsage value for a service that is only valid in the context of a privately managed network), unless:<br>
    i. such value falls within an OID arc for which the Applicant demonstrates ownership, or<br>
    ii. the Applicant can otherwise demonstrate the right to assert the data in a public context; or
-2. semantics that, if included, will mislead a Relying Party about the certificate information verified by the CA (such as including an `extKeyUsage` value for a smart card, where the CA is not able to verify that the corresponding Private Key is confined to such hardware due to remote issuance).
+2. semantics that, if included, will mislead a Relying Party about the Certificate information verified by the CA (such as including an `extKeyUsage` value for a smart card, where the CA is not able to verify that the corresponding Private Key is confined to such hardware due to remote issuance).
    
 ### 7.1.3 Algorithm object identifiers
 
@@ -2153,7 +2199,7 @@ If the signing key is Curve448, the signature algorithm MUST be id-Ed448 (OID: 1
 
 For every valid Certification Path (as defined by RFC 5280, Section 6):
 
-* For each Certificate in the Certification Path, the encoded content of the Issuer Distinguished Name field of a Certificate SHALL be byte-for-byte identical with the encoded form of the Subject Distinguished Name field of the Issuing CA certificate.
+* For each Certificate in the Certification Path, the encoded content of the Issuer Distinguished Name field of a Certificate SHALL be byte-for-byte identical with the encoded form of the Subject Distinguished Name field of the Issuing CA Certificate.
 * For each CA Certificate in the Certification Path, the encoded content of the Subject Distinguished Name field of a Certificate SHALL be byte-for-byte identical among all Certificates whose Subject Distinguished Names can be compared as equal according to RFC 5280, Section 7.1, and including expired and revoked Certificates.
 
 #### 7.1.4.2 Subject information - subscriber certificates
@@ -2359,7 +2405,7 @@ By issuing a Subordinate CA Certificate, the CA represents that it followed the 
 
 a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
    __Required/Optional:__ MUST be present  
-   __Contents:__ This field MUST be present and the contents SHOULD be an identifier for the certificate such that the certificate's Name is unique across all certificates issued by the issuing certificate.
+   __Contents:__ This field MUST be present and the contents SHOULD be an identifier for the Certificate such that the Certificate's Name is unique across all Certificates issued by the Issuing CA.
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
    __Required/Optional:__ MUST be present  
@@ -2374,17 +2420,17 @@ d. Other Subject Attributes
 
 ### 7.1.5 Name constraints
 
-For a Subordinate CA Certificate to be considered Technically Constrained, the certificate MUST include an Extended Key Usage (EKU) extension specifying all extended key usages that the Subordinate CA Certificate is authorized to issue certificates for. The `anyExtendedKeyUsage` KeyPurposeId MUST NOT appear within this extension.
+For a Subordinate CA Certificate to be considered Technically Constrained, the Certificate MUST include an Extended Key Usage (EKU) extension specifying all extended key usages for which the Subordinate CA Certificate is authorized to issue Certificates. The `anyExtendedKeyUsage` KeyPurposeId MUST NOT appear within this extension.
 
 If the Subordinate CA Certificate includes the `id-kp-emailProtection` extended key usage, then the Subordinate CA Certificate MUST include the `nameConstraints` X.509v3 extension with constraints on `rfc822Name` and `directoryName` as follows:
 
    1. For each `rfc822Name` in `permittedSubtrees`, each `rfc822Name` MUST contain either a FQDN or a U+002E FULL STOP (".") character followed by a FQDN. The `rfc822Name` MUST NOT contain an email address. The CA MUST confirm that the Applicant has registered the FQDN contained in the `rfc822Name` or has been authorized by the domain registrant to act on the registrant's behalf in line with the verification practices of [Section 3.2.2.4](#3224-validation-of-domain-authorization-or-control).
 
-   2. For each `directoryName` in `permittedSubtrees`, the CA MUST confirm the Applicant's and/or Subsidiary's Organizational name and location such that end entity certificates issued from the subordinate CA Certificate will be in compliance with [Section 7.1.2.4](#7124-all-certificates).
+   2. For each `directoryName` in `permittedSubtrees`, the CA MUST confirm the Applicant's and/or Subsidiary's Organizational name and location such that end entity Certificates issued from the Subordinate CA Certificate will be in compliance with [Section 7.1.2.4](#7124-all-certificates).
 
 ### 7.1.6 Certificate policy object identifier
 
-This section describes the content requirements for the Root CA, Subordinate CA, and Subscriber Certificates, as they relate to the identification of Certificate Policy.
+This section describes the content requirements for the Root CA, Subordinate CA, and Subscriber Certificates as they relate to the identification of Certificate Policy.
 
 #### 7.1.6.1 Reserved certificate policy identifiers
 
@@ -2427,7 +2473,7 @@ The Subordinate CA and the Issuing CA SHALL represent, in their CP and/or CPS, t
 
 A Certificate issued to a Subscriber MUST contain, within the Certificate's `certificatePolicies` extension, a policy identifier that is specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers).
 
-The certificate MAY also contain additional policy identifier(s) defined by the Issuing CA. The issuing CA SHALL document in its CP and/or CPS that the Certificates it issues containing the specified policy identifier(s) are managed in accordance with these requirements.
+The Certificate MAY also contain additional policy identifier(s) defined by the Issuing CA. The Issuing CA SHALL document in its CP and/or CPS that the Certificates it issues containing the specified policy identifier(s) are managed in accordance with these Requirements.
 
 ### 7.1.7 Usage of policy constraints extension
 
@@ -2455,7 +2501,7 @@ If a CRL entry is for a Root CA or Subordinate CA Certificate, including Cross C
 
 The `CRLReason` indicated MUST NOT be unspecified (0). If the reason for revocation is unspecified, CAs MUST omit `reasonCode` entry extension. The `CRLReason` MUST NOT be certificateHold (6).
 
-If a `reasonCode` CRL entry extension is present, the `CRLReason` MUST indicate the most appropriate reason for revocation of the certificate, as defined by the CA within its CP/CPS.
+If a `reasonCode` CRL entry extension is present, the `CRLReason` MUST indicate the most appropriate reason for revocation of the Certificate, as defined by the CA within its CP/CPS.
 
 ## 7.3 OCSP profile
 
@@ -2484,13 +2530,13 @@ The CA SHALL at all times:
 
 ## 8.1 Frequency or circumstances of assessment
 
-Certificates that are capable of being used to issue new Certificates MUST either be Technically Constrained in line with [Section 7.1.5](#715-name-constraints) and audited in line with [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca) only, or Unconstrained and fully audited in line with all remaining requirements from this section. A Certificate is deemed as capable of being used to issue new certificates if it contains an X.509v3 `basicConstraints` extension, with the `cA` boolean set to true and is therefore by definition a Root CA Certificate or a Subordinate CA Certificate.
+Certificates that are capable of being used to issue new Certificates MUST either be Technically Constrained in line with [Section 7.1.5](#715-name-constraints) and audited in line with [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca) only, or Unconstrained and fully audited in line with all remaining requirements from this section. A Certificate is deemed as capable of being used to issue new Certificates if it contains an X.509v3 `basicConstraints` extension, with the `cA` boolean set to true and is therefore by definition a Root CA Certificate or a Subordinate CA Certificate.
 
 The period during which the CA issues Certificates SHALL be divided into an unbroken sequence of audit periods. An audit period MUST NOT exceed one year in duration.
 
 If the CA has a currently valid Audit Report indicating compliance with an audit scheme listed in [Section 8.4](#84-topics-covered-by-assessment), then no pre-issuance readiness assessment is necessary.
 
-If the CA does not have a currently valid Audit Report indicating compliance with one of the audit schemes listed in [Section 8.4](#84-topics-covered-by-assessment), then, before issuing Publicly-Trusted Certificates, the CA SHALL successfully complete a point-in-time readiness assessment performed in accordance with applicable standards under one of the audit schemes listed in [Section 8.4](#84-topics-covered-by-assessment). The point-in-time readiness assessment SHALL be completed no earlier than twelve (12) months prior to issuing Publicly-Trusted Certificates and SHALL be followed by a complete audit under such scheme within ninety (90) days of issuing the first Publicly-Trusted Certificate.
+If the CA does not have a currently valid Audit Report indicating compliance with one of the audit schemes listed in [Section 8.4](#84-topics-covered-by-assessment), then, before issuing Publicly-Trusted S/MIME Certificates, the CA SHALL successfully complete a point-in-time readiness assessment performed in accordance with applicable standards under one of the audit schemes listed in [Section 8.4](#84-topics-covered-by-assessment). The point-in-time readiness assessment SHALL be completed no earlier than twelve (12) months prior to issuing Publicly-Trusted S/MIME Certificates and SHALL be followed by a complete audit under such scheme within ninety (90) days of issuing the first Publicly-Trusted S/MIME Certificate.
 
 ## 8.2 Identity/qualifications of assessor
 
@@ -2536,7 +2582,7 @@ The Audit Report MUST contain at least the following clearly-labelled informatio
 1. Name of the organization being audited;
 2. Name and address of the organization performing the audit;
 3. The SHA-256 fingerprint of all Roots and Subordinate CA Certificates, including Cross Certificates, that were in-scope of the audit;
-4. Audit criteria, with version number(s), that were used to audit each of the certificates (and associated keys);
+4. Audit criteria, with version number(s), that were used to audit each of the Certificates (and associated keys);
 5. A list of the CA policy documents, with version numbers, referenced during the audit;
 6. Whether the audit assessed a period of time or a point in time;
 7. The start date and end date of the Audit Period, for those that cover a period of time;
@@ -2551,13 +2597,13 @@ The Audit Report MUST be available as a PDF, and SHALL be text searchable for al
 
 ## 8.7 Self Audits
 
-During the period in which the CA issues Certificates, the CA SHALL monitor adherence to its CP and/or CPS and these Requirements and strictly control its service quality by performing self audits on at least a quarterly basis against a randomly selected sample of the greater of one certificate or at least three percent of the Certificates issued by it during the period commencing immediately after the previous self-audit sample was taken. 
+During the period in which the CA issues Certificates, the CA SHALL monitor adherence to its CP and/or CPS and these Requirements and strictly control its service quality by performing self audits on at least a quarterly basis against a randomly selected sample of the greater of one Certificate or at least three percent of the Certificates issued by it during the period commencing immediately after the previous self-audit sample was taken. 
 
 ## 8.8 Review of enterprise RA or technically constrained subordinate CA
 
 Except for Delegated Third Parties that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of each Delegated Third Party, Enterprise RA, and Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS,
 
-The CA SHALL internally audit the compliance of Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs with these Requirements on an annual basis, and SHALL include having a Validation Specialist employed by the CA perform ongoing quarterly audits against a randomly selected sample of at least the greater of one certificate or three percent of the Certificates verified or issued by those parties in the period beginning immediately after the last sample was taken.
+The CA SHALL internally audit the compliance of Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs with these Requirements on an annual basis, and SHALL include having a Validation Specialist employed by the CA perform ongoing quarterly audits against a randomly selected sample of at least the greater of one Certificate or three percent of the Certificates verified or issued by those parties in the period beginning immediately after the last sample was taken.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
@@ -2662,7 +2708,7 @@ For any Certificate in a hierarchy capable of being used for S/MIME, CAs SHALL r
 9. the CA ceases operations for any reason and has not arranged for another CA to provide revocation support for the Certificate;
 10. the CA Private Key used in issuing the Certificate is suspected to have been compromised;
 11. such additional revocation events as the CA publishes in its policy documentation; or
-12. the Certificate was issued in violation of the then-current version of these requirements.
+12. the Certificate was issued in violation of the then-current version of these Requirements.
 
 ### 9.6.2 RA representations and warranties
 
@@ -2750,9 +2796,9 @@ No stipulation.
 
 ### 9.16.3 Severability
 
-In the event of a conflict between these Requirements and a law, regulation or government order (hereinafter ‘Law’) of any jurisdiction in which a CA operates or issues certificates, a CA MAY modify any conflicting requirement to the minimum extent necessary to make the requirement valid and legal in the jurisdiction. This applies only to operations or certificate issuances that are subject to that Law. In such event, the CA SHALL immediately (and prior to issuing a certificate under the modified requirement) include in Section 9.16.3 of the CA’s CPS a detailed reference to the Law requiring a modification of these Requirements under this section, and the specific modification to these Requirements implemented by the CA.
+In the event of a conflict between these Requirements and a law, regulation or government order (hereinafter ‘Law’) of any jurisdiction in which a CA operates or issues Certificates, a CA MAY modify any conflicting requirement to the minimum extent necessary to make the requirement valid and legal in the jurisdiction. This applies only to operations or Certificate issuances that are subject to that Law. In such event, the CA SHALL immediately (and prior to issuing a Certificate under the modified requirement) include in Section 9.16.3 of the CA’s CPS a detailed reference to the Law requiring a modification of these Requirements under this section, and the specific modification to these Requirements implemented by the CA.
 
-The CA SHALL also (prior to issuing a certificate under the modified requirement) notify the CA/Browser Forum of the relevant information newly added to its CPS by sending a message to questions@cabforum.org and receiving confirmation that it has been posted to the Public Mailing List and is indexed in the Public Mail Archives available at [https://cabforum.org/pipermail/public/](https://cabforum.org/pipermail/public/) (or such other email addresses and links as the Forum may designate), so that the CA/Browser Forum may consider possible revisions to these Requirements accordingly.
+The CA SHALL also (prior to issuing a Certificate under the modified requirement) notify the CA/Browser Forum of the relevant information newly added to its CPS by sending a message to questions@cabforum.org and receiving confirmation that it has been posted to the Public Mailing List and is indexed in the Public Mail Archives available at [https://cabforum.org/pipermail/public/](https://cabforum.org/pipermail/public/) (or such other email addresses and links as the Forum may designate), so that the CA/Browser Forum may consider possible revisions to these Requirements accordingly.
 
 Any modification to CA practice enabled under this section SHALL be discontinued if and when the Law no longer applies, or these Requirements are modified to make it possible to comply with both them and the Law simultaneously. An appropriate change in practice, modification to the CA’s CPS and a notice to the CA/Browser Forum, as outlined above, SHALL be made within 90 days.
 
@@ -2784,7 +2830,7 @@ $ORIGIN example.com.
                CAA 0 contactemail "domainowner@example.com"
 ```
 
-The contactemail property MAY be critical, if the domain owner does not want CAs who do not understand it to issue certificates for the domain.
+The contactemail property MAY be critical, if the domain owner does not want CAs who do not understand it to issue Certificates for the domain.
 
 ### A.1.2 CAA contactphone property
 
@@ -2799,7 +2845,7 @@ $ORIGIN example.com.
                CAA 0 contactphone "+1 (555) 123-4567"
 ```
 
-The contactphone property MAY be critical if the domain owner does not want CAs who do not understand it to issue certificates for the domain.
+The contactphone property MAY be critical if the domain owner does not want CAs who do not understand it to issue Certificates for the domain.
 
 ## A.2 DNS TXT methods
 
