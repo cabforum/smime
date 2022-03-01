@@ -2739,20 +2739,38 @@ No stipulation.
 
 ### 9.6.1 CA representations and warranties
 
-For any Certificate in a hierarchy capable of being used for S/MIME, CAs SHALL revoke Certificates upon the occurrence of any of the following events:
+By issuing a Certificate, the CA makes the warranties listed herein to the following Certificate Beneficiaries:
 
-1.  the Subscriber indicates that the original Certificate Request was not authorized and does not retroactively grant authorization;
-2.  the CA obtains reasonable evidence that the Subscriber’s Private Key (corresponding to the Public Key in the Certificate) has been compromised or is suspected of compromise;
-3. the CA obtains reasonable evidence that the Certificate has been used for a purpose outside of that indicated in the Certificate or in the CA's Subscriber agreement;
-4. the CA receives notice or otherwise becomes aware that a Subscriber has violated one or more of its material obligations under the Subscriber agreement;
-5. the CA receives notice or otherwise becomes aware of any circumstance indicating that use of the email address in the Certificate is no longer legally permitted;
-6. the CA receives notice or otherwise becomes aware of a material change in the information contained in the Certificate;
-7. a determination that the Certificate was not issued in accordance with the CA’s CP and/or CPS;
-8. the CA determines that any of the information appearing in the Certificate is not accurate;
-9. the CA ceases operations for any reason and has not arranged for another CA to provide revocation support for the Certificate;
-10. the CA Private Key used in issuing the Certificate is suspected to have been compromised;
-11. such additional revocation events as the CA publishes in its policy documentation; or
-12. the Certificate was issued in violation of the then-current version of these Requirements.
+1.  The Subscriber that is a party to the Subscriber Agreement or Terms of Use for the Certificate;
+2.  All Application Software Suppliers with whom the Root CA has entered into a contract for inclusion of its Root CA Certificate in software distributed by such Application Software Supplier; and
+3.  All Relying Parties who reasonably rely on a Valid Certificate. 
+
+The CA represents and warrants to the Certificate Beneficiaries that, during the period when the Certificate is valid, the CA has complied with these Requirements and its CP and/or CPS in issuing and managing the Certificate.
+
+The Certificate Warranties specifically include, but are not limited to, the following:
+
+1. **Right to Use Domain Name or Email Address**: That, at the time of issuance, the CA:
+   i. implemented a procedure for verifying that the Applicant either had the right to use, or had control of, the Domain Name(s) and email mailbox(es) listed in the Certificate's `subject` field and `subjectAltName` extension (or was delegated such right or control by someone who had such right to use or control);
+   ii. followed the procedure when issuing the Certificate; and
+   iii. accurately described the procedure in the CA's CP and/or CPS;
+2. **Authorization for Certificate**: That, at the time of issuance, the CA:
+   i. implemented a procedure for verifying that the Subject authorized the issuance of the Certificate and that the Applicant Representative is authorized to request the Certificate on behalf of the Subject;
+   ii. followed the procedure when issuing the Certificate; and
+   iii. accurately described the procedure in the CA's CP and/or CPS;
+3. **Accuracy of Information**: That, at the time of issuance, the CA:
+   i. implemented a procedure for verifying the accuracy of all of the information contained in the Certificate (with the exception of the subject:organizationalUnitName attribute);
+   ii. followed the procedure when issuing the Certificate; and
+   iii. accurately described the procedure in the CA's CP and/or CPS;
+4. **No Misleading Information**: TBD
+5. **Identity of Applicant**: That, if the Certificate contains Subject Identity Information, the CA:
+   i. implemented a procedure to verify the identity of the Applicant in accordance with [Section 3.2](#32-initial-identity-validation) and [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields);
+   ii. followed the procedure when issuing the Certificate; and
+   iii. accurately described the procedure in the CA's CP and/or CPS;
+6. **Subscriber Agreement**: That, if the CA and Subscriber are not Affiliated, the Subscriber and CA are parties to a legally valid and enforceable Subscriber Agreement that satisfies these Requirements, or, if the CA and Subscriber are the same entity or are Affiliated, the Applicant Representative acknowledged the Terms of Use;
+7. **Status**: That the CA maintains a 24 x 7 publicly-accessible Repository with current information regarding the status (Valid or Revoked) of all unexpired Certificates; and
+8. **Revocation**: That the CA will revoke the Certificate for any of the reasons specified in these Requirements.
+
+The Root CA SHALL be responsible for the performance and warranties, compliance with these Requirements, and for all liabilities and indemnification obligations of the Subordinate CA under these Requirements, as if the Root CA were the Subordinate CA issuing the Certificates
 
 ### 9.6.2 RA representations and warranties
 
