@@ -520,7 +520,7 @@ When confirming the Applicant's control of the SMTP FQDN, the CA SHALL use only 
 
 This method is suitable for validating control of all email addresses under a single domain.
 
-#### 3.2.2.4 CAA Records
+#### 3.2.2.4 CAA records
 
 This version of the S/MIME Baseline Requirements does not require the CA to check for CAA records.  The CAA property tags for issue, issuewild, and iodef as specified in RFC 8659 are not recognized for the issuance of S/MIME Certificates.
 
@@ -528,7 +528,7 @@ This version of the S/MIME Baseline Requirements does not require the CA to chec
 
 The following requirements must be fulfilled to authenticate Organization identity included in the `organization-validated` and `sponsor-validated` Certificate types.
 
-#### 3.2.3.1 Verification Requirements – Overview
+#### 3.2.3.1 Verification requirements – overview
 
 The CA MUST implement verification processes to confirm and document the following requirements associated with the `subject:organizationName` attribute:
 
@@ -552,7 +552,7 @@ The CA MUST implement verification processes to confirm and document the followi
 
 As a general rule, the CA is responsible for taking all verification steps reasonably necessary to satisfy each of the Verification Requirements set forth in the subsections below.  The Acceptable Methods of Verification set forth in each of Sections XX through XX (which usually include alternatives) are considered to be the minimum acceptable level of verification required of the CA.  In all cases, however, the CA is responsible for taking any additional verification steps that may be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement.
 
-##### 3.2.3.1.1 Disclosure of Verification Sources
+##### 3.2.3.1.1 Disclosure of verification sources
 
 Prior to the use of an Incorporating Agency or Registration Agency to fulfill these verification requirements, the CA MUST publicly disclose Agency Information about the Incorporating Agency or Registration Agency. This disclosure SHALL be through an appropriate and readily accessible online means.
 
@@ -565,9 +565,9 @@ This Agency Information SHALL include at least the following:
 
 The CA MUST document where to obtain this information within Section 3.2 of the CA's CP and/or CPS.
 
-#### 3.2.3.2 Verification of Applicant's Legal Existence and Identity
+#### 3.2.3.2 Verification of applicant's legal existence and identity
 
-##### 3.2.3.2.1 Verification Requirements
+##### 3.2.3.2.1 Verification requirements
 
 To verify the Applicant's legal existence and identity, the CA MUST do the following.
 
@@ -597,7 +597,7 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
    B.  **Entity Name**: Verify that the Applicant's formal legal name matches the Applicant's name in the S/MIME Certificate Request.
    C.  **Registration Number**: The CA MUST attempt to obtain the Applicant's date of formation, or the identifier for the legislative act that created the International Organization Entity.  In circumstances where this information is not available, the CA MUST enter appropriate language to indicate that the Subject is an International Organization Entity.
 
-##### 3.2.3.2.2 Acceptable Method of Verification
+##### 3.2.3.2.2 Acceptable methods of verification
 
 1. **Private Organization Subjects**: Unless verified under subsection (6), all items listed in [Section 3.2.3.2.1](#32321-verification-requirements) (1) MUST be verified directly with, or obtained directly from, the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration. Such verification MAY be through use of a Qualified Government Information Source operated by, or on behalf of, the Incorporating or Registration Agency, or by direct contact with the Incorporating or Registration Agency in person or via mail, e-mail, Web address, or telephone, using an address or phone number obtained directly from the Qualified Government Information Source, Incorporating or Registration Agency, or from a Qualified Independent Information Source.
 
@@ -672,26 +672,26 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
    i. the Verified Professional Letter includes a copy of supporting documentation used to establish the Applicant's legal existence, such as a certificate of registration, articles of incorporation, operating agreement, statute, or regulatory act, and
    ii. the CA confirms the Applicant's organization name specified in the Verified Professional Letter with a QIIS or QGIS.
 
-#### 3.2.3.3 Verification of Applicant's Legal Existence and Identity – Assumed Name
+#### 3.2.3.3 Verification of applicant's legal existence and identity – assumed name
 
-##### 3.2.3.3.1 Verification Requirements
+##### 3.2.3.3.1 Verification requirements
 
 If, in addition to the Applicant's formal legal name, as recorded with the applicable Incorporating Agency or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration, the Applicant's identity, as asserted in the S/MIME Certificate, is to contain any assumed name (also known as "doing business as", "DBA", or "d/b/a" in the US, and "trading as" in the UK) under which the Applicant conducts business, the CA MUST verify that:
 
    i. the Applicant has registered its use of the assumed name with the appropriate government agency for such filings in the jurisdiction of its Place of Business (as verified in accordance with the S/MIME Baseline Requirements); and
    ii. that such filing continues to be valid.
 
-##### 3.2.3.3.2 Acceptable Method of Verification
+##### 3.2.3.3.2 Acceptable methods of verification
 
 To verify any assumed name under which the Applicant conducts business:
 
-1. The CA MAY verify the assumed name through use of a Qualified Government Information Source operated by, or on behalf of, an appropriate government agency in the jurisdiction of the Applicant's Place of Business, or by direct contact with such government agency in person or via mail, e-mail, Web address, or telephone; or
-2. The CA MAY verify the assumed name through use of a Qualified Independent Information Source provided that the QIIS has verified the assumed name with the appropriate government agency.
+1. The CA MAY verify the assumed name through use of a Qualified Government Information Source operated by, or on behalf of, an appropriate government agency in the jurisdiction of the Applicant's Place of Business, or by direct contact with such government agency in person or via mail, e-mail, Web address, or telephone; 
+2. The CA MAY verify the assumed name through use of a Qualified Independent Information Source provided that the QIIS has verified the assumed name with the appropriate government agency; or
 3. The CA MAY rely on a Verified Professional Letter  that indicates the assumed name under which the Applicant conducts business, the government agency with which the assumed name is registered, and that such filing continues to be valid.
 
-#### 3.2.3.4 Verification of Applicant's Physical Existence
+#### 3.2.3.4 Verification of applicant's physical existence
 
-##### 3.2.3.4.1 Address of Applicant's Place of Business
+##### 3.2.3.4.1 Address of applicant's place of business
 
 1. **Verification Requirements**: To verify the Applicant's physical existence and business presence, the CA MUST verify that the physical address provided by the Applicant is an address where the Applicant or a Parent/Subsidiary Company conducts business operations (not, for example, a mail drop or P.O. box, or 'care of' (C/O) address, such as an address for an agent of the Organization), and is the address of the Applicant's Place of Business.
 
@@ -719,13 +719,13 @@ To verify any assumed name under which the Applicant conducts business:
 
    B.  **Place of Business not in the Country of Incorporation or Registration**: The CA MUST rely on a Verified Professional Letter that indicates the address of the Applicant's Place of Business and that business operations are conducted there.
 
-#### 3.2.3.5 Verified Method of Communication
+#### 3.2.3.5 Verified method of communication
 
-##### 3.2.3.5.1 Verification Requirements
+##### 3.2.3.5.1 Verification requirements
 
 To assist in communicating with the Applicant and confirming that the Applicant is aware of and approves issuance, the CA MUST verify a telephone number, fax number, email address, or postal delivery address as a Verified Method of Communication with the Applicant.
 
-##### 3.2.3.5.2 Acceptable Methods of Verification
+##### 3.2.3.5.2 Acceptable methods of verification
 
 To verify a Verified Method of Communication with the Applicant, the CA MUST:
 
@@ -737,13 +737,13 @@ A.  Verify that the Verified Method of Communication belongs to the Applicant, o
 
 B.  Confirm the Verified Method of Communication by using it to obtain an affirmative response sufficient to enable a reasonable person to conclude that the Applicant, or a Parent/Subsidiary or Affiliate of Applicant, can be contacted reliably by using the Verified Method of Communication.
 
-#### 3.2.3.6 Verification of Applicant's Operational Existence
+#### 3.2.3.6 Verification of applicant's operational existence
 
-##### 3.2.3.6.1 Verification Requirements
+##### 3.2.3.6.1 Verification requirements
 
 The CA MUST verify that the Applicant has the ability to engage in business by verifying the Applicant's, or Affiliate/Parent/Subsidiary Company's, operational existence.  The CA MAY rely on its verification of a Government Entity's legal existence under [Section 3.2.3.2](#3232-verification-of-applicants-legal-existence-and-identity) as verification of a Government Entity's operational existence.
 
-##### 3.2.3.6.2 Acceptable Methods of Verification
+##### 3.2.3.6.2 Acceptable methods of verification
 
 To verify the Applicant's ability to engage in business, the CA MUST verify the operational existence of the Applicant, or its Affiliate/Parent/Subsidiary Company, by:
 
@@ -860,7 +860,7 @@ If the Certificate Request corresponds to a `organization-validated` or `sponsor
    B.  Provide, and, if applicable, authorize a Certificate Requester to provide, the information requested from the Applicant by the CA for issuance of the  Certificate; and
    C.  Approve Certificate Requests submitted by a Certificate Requester.
 
-#### 3.2.6.1 Acceptable Methods of Verification – Name, Title and Agency
+#### 3.2.6.1 Acceptable methods of verification – name, title and agency
 
 1. **Name and Title**: The CA MAY verify the name and title of the Contract Signer and the Certificate Approver by any appropriate method designed to provide reasonable assurance that a person claiming to act in such a role is in fact the named person designated to act in such role.
 
@@ -872,7 +872,7 @@ If the Certificate Request corresponds to a `organization-validated` or `sponsor
 
    The CA MAY also verify the agency of the Certificate Approver via a certification from the Contract Signer (including in a contract between the CA and the Applicant signed by the Contract Signer), provided that the employment or agency status and Signing Authority of the Contract Signer has been verified.
 
-#### 3.2.6.2 Acceptable Methods of Verification – Authority
+#### 3.2.6.2 Acceptable methods of verification – authority
 
 Acceptable methods of verification of the Signing Authority of the Contract Signer, and the Authority of the Certificate Approver, as applicable, include:
 
@@ -908,7 +908,7 @@ Acceptable methods of verification of the Signing Authority of the Contract Sign
    D.  That serious consequences attach to the misuse of an certificate, and
    E.  The contract signer has the authority to obtain the digital equivalent of a corporate seal, stamp or officer's signature to establish the authenticity of the company's Web site.
 
-#### 3.2.6.3 Pre-Authorized Certificate Approver
+#### 3.2.6.3 Pre-authorized certificate approver
 
 Where the CA and Applicant contemplate the submission of multiple future Certificate Requests, then, after the CA:
 
@@ -930,11 +930,11 @@ Such an agreement MUST provide that the Applicant shall be obligated under the S
 
 The CA SHALL disclose all Cross Certificates that identify the CA as the Subject, provided that the CA arranged for or accepted the establishment of the trust relationship (i.e. the Cross Certificate at issue).
 
-### 3.2.8 Reliability of Verification Sources
+### 3.2.8 Reliability of verification sources
 
 Before relying on a source of verification data to validate Certificate Requests, the CA SHALL verify the reliability of the verification source according to the type of verification source as described in this section.
 
-### 3.2.8.1 Verified Legal Opinion
+### 3.2.8.1 Verified legal opinion
 
 1. **Verification Requirements**: Before relying on a legal opinion submitted to the CA, the CA MUST verify that such legal opinion meets the following requirements:
 
@@ -954,7 +954,7 @@ Before relying on a source of verification data to validate Certificate Requests
 
        In circumstances where the opinion is digitally signed, in a manner that confirms the authenticity of the document and the identity of the signer, as verified by the CA in [Section 3.2.8.1](#3281-verified-legal-opinion) (2)(A), no further verification of authenticity is required.
 
-### 3.2.8.2 Verified Accountant Letter
+### 3.2.8.2 Verified accountant letter
 
 1. **Verification Requirements**: Before relying on an accountant letter submitted to the CA, the CA MUST verify that such accountant letter meets the following requirements:
 
@@ -970,7 +970,7 @@ Before relying on a source of verification data to validate Certificate Requests
 
       In circumstances where the opinion is digitally signed, in a manner that confirms the authenticity of the document and the identity of the signer, as verified by the CA in [Section 3.2.8.2](#3282-verified-accountant-letter) (2)(A), no further verification of authenticity is required.
 
-### 3.2.8.3 Face-to-Face Validation
+### 3.2.8.3 Face-to-face validation
 
 1. **Verification Requirements**: Before relying on face-to-face vetting documents submitted to the CA, the CA MUST verify that the Third-Party Validator meets the following requirements:
 
@@ -984,7 +984,7 @@ Before relying on a source of verification data to validate Certificate Requests
    B.  **Document Chain of Custody**: The Third-Party Validator MUST submit a statement to the CA which attests that they obtained the Vetting Documents submitted to the CA for the individual during a face-to-face meeting with the individual;
    C.  **Verification of Attestation**: If the Third-Party Validator is not a Latin Notary, then the CA MUST confirm the authenticity of the vetting documents received from the Third-Party Validator.  The CA MUST make a telephone call to the Third-Party Validator and obtain confirmation from them or their assistant that they performed the face-to-face validation.  The CA MAY rely upon self-reported information obtained from the Third-Party Validator for the sole purpose of performing this verification process.  In circumstances where the attestation is digitally signed, in a manner that confirms the authenticity of the documents, and the identity of the signer as verified by the CA in [Section 3.2.8.3](#3283-face-to-face-validation) (1)(A), no further verification of authenticity is required.
 
-### 3.2.8.4 Independent Confirmation From Applicant
+### 3.2.8.4 Independent confirmation From applicant
 
 An Independent Confirmation from the Applicant is a confirmation of a particular fact (e.g., confirmation of the employee or agency status of a Contract Signer or Certificate Approver, confirmation of the Authority of a Certificate Approver, etc.) that is:
 
@@ -1021,7 +1021,7 @@ An Independent Confirmation from the Applicant MAY be obtained via the following
    A.  The domain of the e-mail address is owned by the Applicant and is the Confirming Person's own e-mail address and not a group e-mail alias;
    B.  The Confirming Person's telephone/fax number is verified by the CA to be a telephone number that is part of the organization's telephone system, and is not the personal phone number for the person.
 
-### 3.2.8.5 Qualified Independent Information Source
+### 3.2.8.5 Qualified independent information source
 
 A Qualified Independent Information Source (QIIS) is a regularly-updated and publicly available database that is generally recognized as a dependable source for certain information.  A database qualifies as a QIIS if the CA determines that:
 
@@ -1036,17 +1036,17 @@ The CA SHALL use a documented process to check the accuracy of the database and 
 
 Databases in which the CA or its owners or affiliated companies maintain a controlling interest, or in which any Registration Authorities or subcontractors to whom the CA has outsourced any portion of the vetting process (or their owners or affiliated companies) maintain any ownership or beneficial interest, do not qualify as a QIIS.
 
-### 3.2.8.6 Qualified Government Information Source
+### 3.2.8.6 Qualified government information source
 
 A Qualified Government Information Source (QGIS) is a regularly-updated and current, publicly available, database designed for the purpose of accurately providing the information for which it is consulted, and which is generally recognized as a dependable source of such information provided that it is maintained by a Government Entity, the reporting of data is required by law, and false or misleading reporting is punishable with criminal or civil penalties. Nothing in these Guidelines shall prohibit the use of third-party vendors to obtain the information from the Government Entity provided that the third party obtains the information directly from the Government Entity.
 
-### 3.2.8.7 Qualified Government Tax Information Source
+### 3.2.8.7 Qualified government tax information source
 
 A Qualified Government Tax Information Source is a Qualified Government Information Source that specifically contains tax information relating to Private Organizations, Business Entities or Individuals (e.g., the IRS in the United States).
 
-### 3.2.8.8 Regulated Professions Information Source
+### 3.2.8.8 Regulated professions information source
 
-A Regulated Professions Information Source is a Qualified Government Information Source or other authoritative, regularly-updated, and publicly available database that contains information on information on regulated professions (e.g., where access and exercise of a professional Title is subject to the possession of a specific professional qualification).
+A Regulated Professions Information Source is a Qualified Government Information Source or other government-approved, regularly-updated, and publicly available database that contains information on information on regulated professions (e.g., where access and exercise of a professional Title is subject to the possession of a specific professional qualification).
 
 ## 3.3 Identification and authentication for re-key requests
 
@@ -1061,7 +1061,7 @@ No stipulation.
 
 # 4. CERTIFICATE LIFE-CYCLE OPERATIONAL REQUIREMENTS
 
-## 4.1 Certificate Application
+## 4.1 Certificate application
 
 ### 4.1.1 Who can submit a certificate application
 No stipulation.
@@ -1188,7 +1188,7 @@ No stipulation.
 
 ### 4.9.1 Circumstances for revocation
 
-#### 4.9.1.1 Reasons for Revoking a Subscriber Certificate
+#### 4.9.1.1 Reasons for revoking a subscriber certificate
 The CA SHALL revoke a Certificate within 24 hours if one or more of the following occurs:
 
 1. The Subscriber requests in writing that the CA revoke the Certificate;
@@ -1210,7 +1210,7 @@ The CA SHOULD revoke a certificate within 24 hours and MUST revoke a Certificate
 9.  Revocation is required by the CA's CP and/or CPS; or
 10. The CA is made aware of a demonstrated or proven method that exposes the Subscriber's Private Key to compromise or if there is clear evidence that the specific method used to generate the Private Key was flawed.
 
-#### 4.9.1.2 Reasons for Revoking a Subordinate CA Certificate
+#### 4.9.1.2 Reasons for revoking a subordinate CA certificate
 The Issuing CA SHALL revoke a Subordinate CA Certificate within seven (7) days if one or more of the following occurs:
 
 1. The Subordinate CA requests revocation in writing;
@@ -1575,7 +1575,7 @@ No stipulation.
 ## 6.1 Key pair generation and installation
 
 ### 6.1.1 Key pair generation
-#### 6.1.1.1 CA Key Pair Generation
+#### 6.1.1.1 CA key pair generation
 
 For CA Key Pairs that are either
 
@@ -1601,10 +1601,10 @@ In all cases, the CA SHALL:
 4. log its CA Key Pair generation activities; and
 5. maintain effective controls to provide reasonable assurance that the Private Key was generated and protected in conformance with the procedures described in its CP and/or CPS and (if applicable) its Key Generation Script.
 
-#### 6.1.1.2 RA Key Pair Generation
+#### 6.1.1.2 RA key pair generation
 No stipulation.
 
-#### 6.1.1.3 Subscriber Key Pair Generation
+#### 6.1.1.3 Subscriber key pair generation
 
 The CA SHALL reject a Certificate Request if one or more of the following conditions are met:
 
@@ -1655,7 +1655,7 @@ Private Keys corresponding to Root Certificates MUST NOT be used to sign Certifi
 3. Certificates for infrastructure purposes (administrative role certificates, internal CA operational device certificates); and
 4. Certificates for OCSP Response verification.
 
-## 6.2 Private Key Protection and Cryptographic Module Engineering Controls
+## 6.2 Private key protection and cryptographic module engineering controls
 The CA SHALL implement physical and logical safeguards to prevent unauthorized certificate issuance. Protection of the CA Private Key outside the validated system or device specified above MUST consist of physical security, encryption, or a combination of both, implemented in a manner that prevents disclosure of the Private Key. The CA SHALL encrypt its Private Key with an algorithm and key-length that, according to the state of the art, are capable of withstanding cryptanalytic attacks for the residual life of the encrypted key or key part.
 
 ### 6.2.1 Cryptographic module standards and controls
@@ -1689,7 +1689,7 @@ No stipulation.
 ### 6.2.10 Method of destroying private key
 No stipulation.
 
-### 6.2.11 Cryptographic Module Rating
+### 6.2.11 Cryptographic module rating
 No stipulation.
 
 ## 6.3 Other aspects of key pair management
@@ -1754,11 +1754,11 @@ CAs SHALL generate non-sequential Certificate serial numbers greater than zero (
 
 Certificates MUST be of type X.509 v3.
 
-### 7.1.2 Certificate Content and Extensions; Application of RFC 6818
+### 7.1.2 Certificate content and extensions; application of RFC 6818
 
 This section specifies the additional requirements for Certificate content and extensions for Certificates.
 
-#### 7.1.2.1 Root CA Certificate
+#### 7.1.2.1 Root CA certificates
 
 a. `basicConstraints` (MUST be present)
 
@@ -1776,7 +1776,7 @@ d. `extKeyUsage` (MUST NOT be present)
 
    This extension MUST NOT be present.
 
-#### 7.1.2.2 Subordinate CA Certificate
+#### 7.1.2.2 Subordinate CA certificates
 
 a. `certificatePolicies` (MUST be present)
 
@@ -1825,7 +1825,7 @@ h. `authorityKeyIdentifier` (MUST be present)
 
    This extension MUST be present and MUST NOT be marked critical. It MUST contain a `keyIdentifier` field and it MUST NOT contain a `authorityCertIssuer` or `authorityCertSerialNumber` field.
 
-#### 7.1.2.3 Subscriber Certificates
+#### 7.1.2.3 Subscriber certificates
 
 a. `certificatePolicies` (MUST be present)
 
@@ -1917,7 +1917,7 @@ m. Adobe Extensions (optional)
    | Strict | Prohibited |
    | Multipurpose and Legacy | MAY be present and MUST NOT be marked critical.  May include the Adobe Time-stamp X509 extension (1.2.840.113583.1.1.9.1) or the Adobe ArchiveRevInfo extension (1.2.840.113583.1.1.9.2) |
 
-#### 7.1.2.4 All Certificates
+#### 7.1.2.4 All certificates
 
 All fields and extensions MUST be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123-subscriber-certificates) unless the CA is aware of a reason for including the data in the Certificate.
 
@@ -2052,20 +2052,20 @@ If the signing key is Curve448, the signature algorithm MUST be id-Ed448 (OID: 1
 
 ### 7.1.4 Name forms
 
-#### 7.1.4.1 Name Encoding
+#### 7.1.4.1 Name encoding
 
 For every valid Certification Path (as defined by RFC 5280, Section 6):
 
 * For each Certificate in the Certification Path, the encoded content of the Issuer Distinguished Name field of a Certificate SHALL be byte-for-byte identical with the encoded form of the Subject Distinguished Name field of the Issuing CA certificate.
 * For each CA Certificate in the Certification Path, the encoded content of the Subject Distinguished Name field of a Certificate SHALL be byte-for-byte identical among all Certificates whose Subject Distinguished Names can be compared as equal according to RFC 5280, Section 7.1, and including expired and revoked Certificates.
 
-#### 7.1.4.2 Subject Information - Subscriber Certificates
+#### 7.1.4.2 Subject information - subscriber certificates
 
-By issuing the Certificate, the CA represents that it followed the procedure set forth in its CP and/or CPS to verify that, as of the Certificate's issuance date, all of the Subject Information was accurate. CAs SHALL NOT include an email address in a Subject attribute except as specified in [Section 3.2.2.2](#3222-validation-of-mailbox-authorization-or-control).
+By issuing the Certificate, the CA represents that it followed the procedure set forth in its CP and/or CPS to verify that, as of the Certificate's issuance date, all of the Subject Information was accurate. CAs SHALL NOT include an email address in a Subject attribute except as verified in accordance with [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)
 
 Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable. 
 
-##### 7.1.4.2.1 Subject Alternative Name Extension
+##### 7.1.4.2.1 Subject alternative name extension
 
 __Certificate Field:__ `extensions:subjectAltName`  
 __Required/Optional:__ MUST be present  
@@ -2083,7 +2083,7 @@ All Subject email attribute values contained in the Subject MUST be repeated in 
 
 This extension MUST NOT contain items of type `dNSName`, `iPAddress`,  `uniformResourceIdentifier`, or `GeneralNames` of any other type.
 
-##### 7.1.4.2.2 Subject Distinguished Name Fields
+##### 7.1.4.2.2 Subject distinguished name fields
 
 a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
    __Contents:__ If present, this field MUST contain one of the following values verified in accordance with [Section 3.2](#32-initial-identity-validation).
@@ -2168,7 +2168,7 @@ m. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)
 n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)  
    __Contents:__ If present, the `subject:countryName` MUST contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under [Section 3.2.2.1](#3221-authentication-of-organization-identity) or [Section 3.2.3](#323-authentication-of-individual-identity). If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of XX indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
 
-##### 7.1.4.2.3 Mailbox
+##### 7.1.4.2.3 Subject DN attributes for mailbox-validated profile
 
 | Attribute | Legacy | Multipurpose | Strict |
 |-----------|--------|--------------|--------|
@@ -2189,7 +2189,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:countryName` | MUST NOT | MUST NOT | MUST NOT |
 | Other | MUST NOT | MUST NOT | MUST NOT |
 
-##### 7.1.4.2.3 Organization
+##### 7.1.4.2.3 Subject DN attributes for organization-validated profile
 
 | Attribute | Legacy | Multipurpose | Strict |
 |-----------|--------|--------------|--------|
@@ -2210,7 +2210,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:countryName` | MAY | MUST | MUST |
 | Other | MAY | MUST NOT | MUST NOT |
 
-##### 7.1.4.2.4 Sponsored
+##### 7.1.4.2.4 Subject DN attributes for sponsor-validated profile
 
 | Attribute | Legacy | Multipurpose | Strict |
 |-----------|--------|--------------|--------|
@@ -2231,7 +2231,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:countryName` | MAY | MUST | MUST |
 | Other | MAY | MUST NOT | MUST NOT |
 
-##### 7.1.4.2.5 Individual
+##### 7.1.4.2.5 Subject DN attributes for individual-validated profile
 
 | Attribute | Legacy | Multipurpose   | Strict |
 |-----------|--------|----------------|--------|
@@ -2252,11 +2252,11 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:countryName` | MAY | MUST | MUST |
 | Other | MAY | MUST NOT | MUST NOT |
 
-#### 7.1.4.3 Subject Information - Root Certificates and Subordinate CA Certificates
+#### 7.1.4.3 Subject information - root certificates and subordinate CA certificates
 
 By issuing a Subordinate CA Certificate, the CA represents that it followed the procedure set forth in its CP and/or CPS to verify that, as of the Certificate's issuance date, all of the Subject Information was accurate.
 
-##### 7.1.4.3.1 Subject Distinguished Name Fields
+##### 7.1.4.3.1 Subject distinguished name fields
 
 a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
    __Required/Optional:__ MUST be present  
@@ -2287,7 +2287,7 @@ If the Subordinate CA Certificate includes the `id-kp-emailProtection` extended 
 
 This section describes the content requirements for the Root CA, Subordinate CA, and Subscriber Certificates, as they relate to the identification of Certificate Policy.
 
-#### 7.1.6.1 Reserved Certificate Policy Identifiers
+#### 7.1.6.1 Reserved certificate policy identifiers
 
 The following Certificate Policy identifiers are reserved for use by CAs to assert that a Certificate complies with these Requirements.
 
@@ -2306,11 +2306,11 @@ The following Certificate Policy identifiers are reserved for use by CAs to asse
 | Individual | Multipurpose | `2.23.140.1.5.4.2` |
 | Individual | Strict | `2.23.140.1.5.4.3` |
 
-#### 7.1.6.2 Root CA Certificates
+#### 7.1.6.2 Root CA certificates
 
 A Root CA Certificate SHOULD NOT contain the `certificatePolicies` extension. If present, the extension MUST conform to the requirements set forth for Certificates issued to Subordinate CAs in [Section 7.1.6.3](#7163-subordinate-ca-certificates).
 
-#### 7.1.6.3 Subordinate CA Certificates
+#### 7.1.6.3 Subordinate CA certificates
 
 A Certificate issued to a Subordinate CA that is not an Affiliate of the Issuing CA:
 
@@ -2324,19 +2324,19 @@ A Certificate issued to a Subordinate CA that is an affiliate of the Issuing CA 
 
 The Subordinate CA and the Issuing CA SHALL represent, in their CP and/or CPS, that all Certificates containing a policy identifier indicating compliance with these Requirements are issued and managed in accordance with these Requirements.
 
-#### 7.1.6.4 Subscriber Certificates
+#### 7.1.6.4 Subscriber certificates
 
 A Certificate issued to a Subscriber MUST contain, within the Certificate's `certificatePolicies` extension, a policy identifier that is specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers).
 
 The certificate MAY also contain additional policy identifier(s) defined by the Issuing CA. The issuing CA SHALL document in its CP and/or CPS that the Certificates it issues containing the specified policy identifier(s) are managed in accordance with these requirements.
 
-### 7.1.7 Usage of Policy Constraints extension
+### 7.1.7 Usage of policy constraints extension
 No stipulation.
 
 ### 7.1.8 Policy qualifiers syntax and semantics
 No stipulation.
 
-### 7.1.9 Processing semantics for the critical Certificate Policies extension
+### 7.1.9 Processing semantics for the critical certificate policies extension
 No stipulation.
 
 ## 7.2 CRL profile
@@ -2431,7 +2431,7 @@ The Audit Report MUST be available as a PDF, and SHALL be text searchable for al
 
 During the period in which the CA issues Certificates, the CA SHALL monitor adherence to its CP and/or CPS and these Requirements and strictly control its service quality by performing self audits on at least a quarterly basis against a randomly selected sample of the greater of one certificate or at least three percent of the Certificates issued by it during the period commencing immediately after the previous self-audit sample was taken. 
 
-## 8.8 Review of Enterprise RA or Technically Constrained Subordinate CA
+## 8.8 Review of enterprise RA or technically constrained subordinate CA
 
 Except for Delegated Third Parties that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of each Delegated Third Party, Enterprise RA, and Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS,
 
@@ -2600,7 +2600,7 @@ Any modification to CA practice enabled under this section SHALL be discontinued
 ### 9.16.4 Enforcement (attorneys' fees and waiver of rights)
 No stipulation.
 
-### 9.16.5 Force Majeure
+### 9.16.5 Force majeure
 No stipulation.
 
 ## 9.17 Other provisions
@@ -2608,8 +2608,8 @@ No stipulation.
 
 # Appendix A - Using DNS
 
-## A.1 CAA Methods
-### A.1.1 CAA contactemail Property
+## A.1 CAA methods
+### A.1.1 CAA contactemail property
 
 SYNTAX: `contactemail <rfc6532emailaddress>`
 
@@ -2624,7 +2624,7 @@ $ORIGIN example.com.
 
 The contactemail property MAY be critical, if the domain owner does not want CAs who do not understand it to issue certificates for the domain.
 
-### A.1.2 CAA contactphone Property
+### A.1.2 CAA contactphone property
 
 SYNTAX: `contactphone <rfc3966 Global Number>`
 
@@ -2639,17 +2639,17 @@ $ORIGIN example.com.
 
 The contactphone property MAY be critical if the domain owner does not want CAs who do not understand it to issue certificates for the domain.
 
-## A.2 DNS TXT Methods
+## A.2 DNS TXT methods
 
-### A.2.1 DNS TXT Record Email Contact
+### A.2.1 DNS TXT record email contact
 
 The DNS TXT record MUST be placed on the `_validation-contactemail` subdomain of the domain being validated. The entire RDATA value of this TXT record MUST be a valid email address as defined in RFC 6532, Section 3.2, with no additional padding or structure, or it cannot be used.
 
-### A.2.2 DNS TXT Record Phone Contact
+### A.2.2 DNS TXT record phone contact
 
 The DNS TXT record MUST be placed on the `_validation-contactphone` subdomain of the domain being validated. The entire RDATA value of this TXT record MUST be a valid Global Number as defined in RFC 3966, Section 5.1.4, or it cannot be used.
 
-# APPENDIX B - Registration Schemes
+# APPENDIX B - Registration schemes
 
 The following Registration Schemes are recognized as valid under these guidelines:
 
@@ -2682,17 +2682,17 @@ The following Registration Schemes are recognized as valid under these guideline
 
   The CA MUST verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  An LEI shall only be used if the ValidationSources entry is FULLY_CORROBORATED; an LEI MUST NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
-# Appendix C - Country-Specific Interpretative Guidelines (Normative)
+# Appendix C - Country-specific interpretative guidelines (normative)
 
 NOTE: This appendix provides alternative interpretations of these Requirements for countries that have a language, cultural, technical, or legal reason for deviating from a strict interpretation of these Requirements.  More specific information for particular countries may be added to this appendix in the future.
 
-## 1. Organization Names
+## 1. Organization names
 
-1. Non-Latin Organization Name
+1. **Non-Latin Organization Name**
 
    Where an Applicant's organization name is not registered with a QGIS in _Latin_ characters and the Applicant's non-Latin character organization name and registration have been verified with a QGIS in accordance with these Requirements, a CA MAY include a Latin character organization name in the Certificate.  In such a case, the CA MUST follow the procedures laid down in this section.
 
-2. Romanized Names
+2. **Romanized Names**
 
    In order to include a transliteration/Romanization of the registered name, the Romanization MUST be verified by the CA using a system officially recognized by the Government in the Applicant's Jurisdiction of Incorporation.
 
@@ -2702,7 +2702,7 @@ NOTE: This appendix provides alternative interpretations of these Requirements f
    B.  A system recognized by the United Nations; or
    C.  A Lawyer's Opinion or Accountant's Letter confirming the proper Romanization of the registered name.
 
-3. Translated Name
+3. **Translated Name**
 
    In order to include a Latin character name in the Certificate that is not a direct Romanization of the registered name (e.g. an English Name)  the CA MUST verify that the Latin character name is:
 
@@ -2711,13 +2711,13 @@ NOTE: This appendix provides alternative interpretations of these Requirements f
    C.  Confirmed with a QIIS to be the name associated with the registered organization; or
    D.  Confirmed by a Verified Legal Opinion or Accountant's Letter to be a translated trading name associated with the registered organization.
 
-### Country-Specific Procedures
+### Country-specific procedures
 
 #### C-1. Japan
 
 As interpretation of the procedures set out above:
 
-1. Organization Names
+1. **Organization Names**
 
    A.  The Revised Hepburn method of Romanization, as well as Kunrei-shiki and Nihon-shiki methods described in ISO 3602, are acceptable for Japanese Romanizations.
    B.  The CA MAY verify the Romanized transliteration, language translation (e.g. English name), or other recognized Roman-letter substitute of the Applicant's formal legal name with either a QIIS, Verified Legal Opinion, or Verified Accountant Letter.
@@ -2725,14 +2725,14 @@ As interpretation of the procedures set out above:
    D.  When relying on Articles of Incorporation to verify a Romanized, translated, or other recognized Roman-letter substitute name, the Articles of Incorporation MUST be accompanied either: by a document, signed with the original Japanese Corporate Stamp, that proves that the Articles of Incorporation are authentic and current, or by a Verified Legal Opinion or a Verified Accountant Letter.  The CA MUST verify the authenticity of the Corporate Stamp.
    E.  A Romanized, translated, or other recognized Roman-lettered substitute name confirmed in accordance with this [Appendix C-1](#c-1-japan) stored in the ROBINS database operated by JIPDEC MAY be relied upon by a CA for determining the allowed organization name during any issuance or renewal process of a Certificate without the need to re-perform the above procedures.
 
-2. Accounting Practitioner
+2. **Accounting Practitioner**
 
    In Japan:
 
    A.  Accounting Practitioner includes either a certified public accountant (公認会計士 - Konin-kaikei-shi) or a licensed tax accountant (税理士 – Zei-ri-shi).
    B.  The CA MUST verify the professional status of the Accounting Practitioner through direct contact with the relevant local member association that is affiliated with either the Japanese Institute of Certified Public Accountants ([http://www.hp.jicpa.or.jp](http://www.hp.jicpa.or.jp/)), the Japan Federation of Certified Tax Accountant's Associations ([http://www.nichizeiren.or.jp](http://www.nichizeiren.or.jp/)), or any other authoritative source recognized by the Japanese Ministry of Finance ([http://www.mof.go.jp](http://www.mof.go.jp/)) as providing the current registration status of such professionals.
 
-3. Legal Practitioner
+3. **Legal Practitioner**
 
    In Japan:
 
