@@ -112,10 +112,6 @@ As defined in [Section 1.6.1](#16-definitions-and-acronyms).
 Other groups that have participated in the development of these Requirements include the CPA Canada WebTrust for Certification Authorities task force and the  Accredited Conformity Assessment Bodies’ Council (ACAB’C).  Participation by these groups does not imply their endorsement, recommendation, or approval of the final product.
 
 ## 1.4 Certificate usage
-<<<<<<< HEAD
-=======
-
->>>>>>> sdavidson/preSBR
 The primary goal of these Requirements is to provide a framework where “reasonable assurance” can be provided to senders and recipients of email messages that the party identified in an S/MIME Certificate has control of the domain or email address being asserted. A variation of this use case is where an individual or organization digitally signs email to establish its authenticity and source of origin.  
 
 ### 1.4.1 Appropriate certificate uses
@@ -127,10 +123,6 @@ The primary goal of these Requirements is to describe an integrated set of techn
 No stipulation.
 
 ## 1.5 Policy administration
-<<<<<<< HEAD
-=======
-
->>>>>>> sdavidson/preSBR
 This document MAY be revised from time to time, as appropriate, in accordance with procedures adopted by the CA/Browser Forum.  The CA/Browser Forum welcomes recommendations and suggestions regarding this standard by email at questions@cabforum.org. 
 
 ### 1.5.1 Organization administering the document
@@ -138,10 +130,6 @@ This document MAY be revised from time to time, as appropriate, in accordance wi
 No stipulation.
 
 ### 1.5.2 Contact person
-<<<<<<< HEAD
-=======
-
->>>>>>> sdavidson/preSBR
 Contact information for the CA/Browser Forum is available at https://cabforum.org/leadership/. In this section of a CA’s CPS, the CA SHALL provide a link to a web page or an email address for contacting the person or persons responsible for operation of the CA, including contact information for entities wishing to submit a Certificate Problem Report.
 
 ### 1.5.3 Person determining CPS suitability for the policy
