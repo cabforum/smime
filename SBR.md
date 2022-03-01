@@ -112,6 +112,7 @@ As defined in [Section 1.6.1](#16-definitions-and-acronyms).
 Other groups that have participated in the development of these Requirements include the CPA Canada WebTrust for Certification Authorities task force and the  Accredited Conformity Assessment Bodies’ Council (ACAB’C).  Participation by these groups does not imply their endorsement, recommendation, or approval of the final product.
 
 ## 1.4 Certificate usage
+
 The primary goal of these Requirements is to provide a framework where “reasonable assurance” can be provided to senders and recipients of email messages that the party identified in an S/MIME Certificate has control of the domain or email address being asserted. A variation of this use case is where an individual or organization digitally signs email to establish its authenticity and source of origin.  
 
 ### 1.4.1 Appropriate certificate uses
@@ -123,6 +124,7 @@ The primary goal of these Requirements is to describe an integrated set of techn
 No stipulation.
 
 ## 1.5 Policy administration
+
 This document MAY be revised from time to time, as appropriate, in accordance with procedures adopted by the CA/Browser Forum.  The CA/Browser Forum welcomes recommendations and suggestions regarding this standard by email at questions@cabforum.org. 
 
 ### 1.5.1 Organization administering the document
@@ -130,6 +132,7 @@ This document MAY be revised from time to time, as appropriate, in accordance wi
 No stipulation.
 
 ### 1.5.2 Contact person
+
 Contact information for the CA/Browser Forum is available at https://cabforum.org/leadership/. In this section of a CA’s CPS, the CA SHALL provide a link to a web page or an email address for contacting the person or persons responsible for operation of the CA, including contact information for entities wishing to submit a Certificate Problem Report.
 
 ### 1.5.3 Person determining CPS suitability for the policy
@@ -441,9 +444,11 @@ The key words “SHALL”, “SHALL NOT”, “REQUIRED”, “MUST”, MUST NOT
 The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements.
 
 ## 2.1 Repositories
+
 The CA SHALL make revocation information for Subordinate CA Certificates and Subscriber Certificates available in accordance with this Policy.
 
 ## 2.2 Publication of certification information
+
 The CA SHALL publicly disclose its CP and/or CPS through an appropriate and readily accessible online means that is available on a 24x7 basis. The CA SHALL publicly disclose its CA business practices to the extent required by the CA's selected audit scheme (see [Section 8](#8-compliance-audit-and-other-assessments)).
 
 The CP and/or CPS SHALL be structured in accordance with RFC 3647 and SHALL include all material required by RFC 3647.
@@ -453,32 +458,41 @@ The CA SHALL publicly give effect to these Requirements and represent that it wi
 > [Name of CA] conforms to the current version of the Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates published at http://www.cabforum.org. In the event of any inconsistency between this document and those Requirements, those Requirements take precedence over this document.
 
 ## 2.3 Time or frequency of publication
+
 The CA SHALL develop, implement, enforce, and annually update a CP and/or CPS that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL indicate conformance with this requirement by incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
 
 ## 2.4 Access controls on repositories
+
 The CA SHALL make its Repository publicly available in a read-only manner.
 
 # 3. IDENTIFICATION AND AUTHENTICATION
 
 ## 3.1 Naming
+
 No stipulation.
 
 ### 3.1.1 Types of names
+
 No stipulation.
 
 ### 3.1.2 Need for names to be meaningful
+
 No stipulation.
 
 ### 3.1.3 Anonymity or pseudonymity of subscribers
+
 No stipulation.
 
 ### 3.1.4 Rules for interpreting various name forms
+
 No stipulation.
 
 ### 3.1.5 Uniqueness of names
+
 No stipulation.
 
 ### 3.1.6 Recognition, authentication, and role of trademarks
+
 No stipulation.
 
 ## 3.2 Initial identity validation
@@ -1064,12 +1078,15 @@ A Regulated Professions Information Source is a Qualified Government Information
 ## 3.3 Identification and authentication for re-key requests
 
 ### 3.3.1 Identification and authentication for routine re-key
+
 No stipulation.
 
 ### 3.3.2 Identification and authentication for re-key after revocation
+
 No stipulation.
 
 ## 3.4 Identification and authentication for revocation request
+
 No stipulation.
 
 # 4. CERTIFICATE LIFE-CYCLE OPERATIONAL REQUIREMENTS
@@ -1077,6 +1094,7 @@ No stipulation.
 ## 4.1 Certificate application
 
 ### 4.1.1 Who can submit a certificate application
+
 No stipulation.
 
 ### 4.1.2 Enrollment process and responsibilities
@@ -1122,9 +1140,11 @@ The CA MAY reuse completed validations and/or supporting evidence performed in a
 A prior validation SHALL NOT be reused if any data or document used in the prior validation was obtained more than the maximum time permitted for reuse of the data or document prior to issuing the Certificate.
 
 ### 4.2.2 Approval or rejection of certificate applications
+
 No stipulation.
 
 ### 4.2.3 Time to process certificate applications
+
 No stipulation.
 
 ## 4.3 Certificate issuance
@@ -1132,29 +1152,37 @@ No stipulation.
 Certificate issuance by the Root CA SHALL require an individual authorized by the CA (i.e. the CA system operator, system officer, or PKI administrator) to deliberately issue a direct command in order for the Root CA to perform a Certificate signing operation.
 
 ### 4.3.1 CA actions during certificate issuance
+
 No stipulation.
 
 ### 4.3.2 Notification to subscriber by the CA of issuance of certificate
+
 No stipulation.
 
 ## 4.4 Certificate acceptance
 
 ### 4.4.1 Conduct constituting certificate acceptance
+
 No stipulation.
 
 ### 4.4.2 Publication of the certificate by the CA
+
 No stipulation.
 
 ### 4.4.3 Notification of certificate issuance by the CA to other entities
+
 No stipulation.
 
 ## 4.5 Key pair and certificate usage
+
 No stipulation.
 
 ### 4.5.1 Subscriber private key and certificate usage
+
 No stipulation.
 
 ### 4.5.2 Relying party public key and certificate usage
+
 No stipulation.
 
 
@@ -1165,6 +1193,7 @@ No stipulation.
 No stipulation.
 
 ### 4.6.2 Who may request renewal
+
 No stipulation.
 
 ### 4.6.3 Processing certificate renewal requests
@@ -1220,6 +1249,7 @@ No stipulation.
 ## 4.8 Certificate modification
 
 ### 4.8.1 Circumstance for certificate modification
+
 No stipulation.
 
 ### 4.8.2 Who may request certificate modification
@@ -1251,6 +1281,7 @@ No stipulation.
 ### 4.9.1 Circumstances for revocation
 
 #### 4.9.1.1 Reasons for revoking a subscriber certificate
+
 The CA SHALL revoke a Certificate within 24 hours if one or more of the following occurs:
 
 1. The Subscriber requests in writing that the CA revoke the Certificate;
@@ -1273,6 +1304,7 @@ The CA SHOULD revoke a Certificate within 24 hours and MUST revoke a Certificate
 10. The CA is made aware of a demonstrated or proven method that exposes the Subscriber's Private Key to compromise or if there is clear evidence that the specific method used to generate the Private Key was flawed.
 
 #### 4.9.1.2 Reasons for revoking a subordinate CA certificate
+
 The Issuing CA SHALL revoke a Subordinate CA Certificate within seven (7) days if one or more of the following occurs:
 
 1. The Subordinate CA requests revocation in writing;
@@ -1317,6 +1349,7 @@ No stipulation.
 **Note**: Following Certificate issuance, a Certificate MAY be revoked for reasons stated in [Section 4.9](#49-certificate-revocation-and-suspension). Therefore, Relying Parties SHOULD check the revocation status of all Certificates that contain a CDP or OCSP pointer.
 
 ### 4.9.7 CRL issuance frequency
+
 For the status of Subscriber Certificates: if the CA publishes a CRL, then the CA SHALL update and reissue CRLs at least once every seven days, and the value of the `nextUpdate` field MUST NOT be more than ten days beyond the value of the `thisUpdate` field.
 
 For the status of Subordinate CA Certificates: the CA SHALL update and reissue CRLs at least:
@@ -1327,9 +1360,11 @@ For the status of Subordinate CA Certificates: the CA SHALL update and reissue C
 The value of the `nextUpdate` field MUST NOT be more than twelve months beyond the value of the `thisUpdate` field.
 
 ### 4.9.8 Maximum latency for CRLs
+
 No stipulation.
 
 ### 4.9.9 On-line revocation/status checking availability
+
 OCSP responses MUST conform to RFC6960 and/or RFC5019. OCSP responses MUST either:
 
 1. Be signed by the CA that issued the Certificates whose revocation status is being checked, or
@@ -1338,6 +1373,7 @@ OCSP responses MUST conform to RFC6960 and/or RFC5019. OCSP responses MUST eithe
 In the latter case, the OCSP signing Certificate MUST contain an extension of type `id-pkix-ocsp-nocheck`, as defined by RFC6960.
 
 ### 4.9.10 On-line revocation checking requirements
+
 OCSP responders operated by the CA SHALL support the HTTP GET method, as described in RFC 6960 and/or RFC 5019.
 
 The validity interval of an OCSP response is the difference in time between the thisUpdate and nextUpdate field, inclusive. For purposes of computing differences, a difference of 3,600 seconds SHALL be equal to one hour, and a difference of 86,400 seconds SHALL be equal to one day, ignoring leap-seconds.
@@ -1415,9 +1451,11 @@ No stipulation.
 ## 4.12 Key escrow and recovery
 
 ### 4.12.1 Key escrow and recovery policy and practices
+
 No stipulation.
 
 ### 4.12.2 Session key encapsulation and recovery policy and practices
+
 No stipulation.
 
 # 5. FACILITY, MANAGEMENT, AND OPERATIONAL CONTROLS
@@ -1451,29 +1489,37 @@ Based on the Risk Assessment, the CA SHALL develop, implement, and maintain a se
 ## 5.1 Physical controls
 
 ### 5.1.2 Physical access
+
 No stipulation.
 
 ### 5.1.3 Power and air conditioning
+
 No stipulation.
 
 ### 5.1.4 Water exposures
+
 No stipulation.
 
 ### 5.1.5 Fire prevention and protection
+
 No stipulation.
 
 ### 5.1.6 Media storage
+
 No stipulation.
 
 ### 5.1.7 Waste disposal
+
 No stipulation.
 
 ### 5.1.8 Off-site backup
+
 No stipulation.
 
 ## 5.2 Procedural controls
 
 ### 5.2.1 Trusted roles
+
 No stipulation.
 
 ### 5.2.2 Number of persons required per task
@@ -1481,9 +1527,11 @@ No stipulation.
 The CA Private Key SHALL be backed up, stored, and recovered only by personnel in trusted roles using, at least, dual control in a physically secured environment.
 
 ### 5.2.3 Identification and authentication for each role
+
 No stipulation.
 
 ### 5.2.4 Roles requiring separation of duties
+
 No stipulation.
 
 ## 5.3 Personnel controls
@@ -1493,6 +1541,7 @@ No stipulation.
 Prior to the engagement of any person in the Certificate Management Process, whether as an employee, agent, or an independent contractor of the CA, the CA SHALL verify the identity and trustworthiness of such person.
 
 ### 5.3.2 Background check procedures
+
 No stipulation.
 
 ### 5.3.3 Training requirements
@@ -1510,9 +1559,11 @@ The CA SHALL require all Validation Specialists to pass an examination provided 
 All personnel in Trusted roles SHALL maintain skill levels consistent with the CA's training and performance programs.
 
 ### 5.3.5 Job rotation frequency and sequence
+
 No stipulation.
 
 ### 5.3.6 Sanctions for unauthorized actions
+
 No stipulation.
 
 ### 5.3.7 Independent contractor requirements
@@ -1520,6 +1571,7 @@ No stipulation.
 The CA SHALL verify that the Delegated Third Party's personnel involved in the issuance of a Certificate meet the training and skills requirements of [Section 5.3.3](#533--training-requirements) and the document retention and event logging requirements of [Section 5.4.1](#541-types-of-events-recorded).
 
 ### 5.3.8 Documentation supplied to personnel
+
 No stipulation.
 
 ## 5.4 Audit logging procedures
@@ -1561,6 +1613,7 @@ Log records MUST include the following elements:
 3. Description of the record.
    
 ### 5.4.2 Frequency of processing log
+
 No stipulation.
 
 ### 5.4.3 Retention period for audit log
@@ -1574,15 +1627,19 @@ The CA SHALL retain, for at least two years:
   3. Any security event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (3)) after the event occurred.
 
 ### 5.4.4 Protection of audit log
+
 No stipulation.
 
 ### 5.4.5 Audit log backup procedures
+
 No stipulation.
 
 ### 5.4.6 Audit collection system (internal vs. external)
+
 No stipulation.
 
 ### 5.4.7 Notification to event-causing subject
+
 No stipulation.
 
 ### 5.4.8 Vulnerability assessments
@@ -1596,6 +1653,7 @@ Additionally, the CA's security program MUST include an annual Risk Assessment t
 ## 5.5 Records archival
 
 ### 5.5.1 Types of records archived
+
 No stipulation.
 
 ### 5.5.2 Retention period for archive
@@ -1603,26 +1661,33 @@ No stipulation.
 The CA SHALL retain all documentation relating to Certificate Requests and the verification thereof, and all Certificates and revocation thereof, for at least seven years after any Certificate based on that documentation ceases to be valid.
 
 ### 5.5.3 Protection of archive
+
 No stipulation.
 
 ### 5.5.4 Archive backup procedures
+
 No stipulation.
 
 ### 5.5.5 Requirements for time-stamping of records
+
 No stipulation.
 
 ### 5.5.6 Archive collection system (internal or external)
+
 No stipulation.
 
 ### 5.5.7 Procedures to obtain and verify archive information
+
 No stipulation.
 
 ## 5.6 Key changeover
+
 No stipulation.
 
 ## 5.7 Compromise and disaster recovery
 
 ### 5.7.1 Incident and compromise handling procedures
+
 CA operators SHALL have an Incident Response Plan and a Disaster Recovery Plan.
 
 The CA SHALL document a business continuity and disaster recovery procedures designed to notify and reasonably protect Application Software Suppliers, Subscribers, and Relying Parties in the event of a disaster, security compromise, or business failure. The CA is not required to publicly disclose its business continuity plans but SHALL make its business continuity plan and security plans available to the CA's auditors upon request. The CA SHALL annually test, review, and update these procedures.
@@ -1646,15 +1711,19 @@ The business continuity plan MUST include:
 15. Procedures for securing its facility to the extent possible during the period of time following a disaster and prior to restoring a secure environment either at the original or a remote site.
 
 ### 5.7.2 Computing resources, software, and/or data are corrupted
+
 No stipulation.
 
 ### 5.7.3 Entity private key compromise procedures
+
 No stipulation.
 
 ### 5.7.4 Business continuity capabilities after a disaster
+
 No stipulation.
 
 ## 5.8 CA or RA termination
+
 No stipulation.
 
 # 6. TECHNICAL SECURITY CONTROLS
@@ -1662,6 +1731,7 @@ No stipulation.
 ## 6.1 Key pair generation and installation
 
 ### 6.1.1 Key pair generation
+
 #### 6.1.1.1 CA key pair generation
 
 For CA Key Pairs that are either
@@ -1709,9 +1779,11 @@ Parties other than the Subscriber SHALL NOT archive the Subscriber Private Key w
 If the CA or any of its designated RAs become aware that a Subscriber's Private Key has been communicated to a person or organization not authorized by the Subscriber, then the CA SHALL revoke all Certificates that include the Public Key corresponding to the communicated Private Key.
 
 ### 6.1.3 Public key delivery to certificate issuer
+
 No stipulation.
 
 ### 6.1.4 CA public key delivery to relying parties
+
 No stipulation.
 
 ### 6.1.5 Key sizes
@@ -1751,12 +1823,15 @@ Private Keys corresponding to Root Certificates MUST NOT be used to sign Certifi
 The CA SHALL implement physical and logical safeguards to prevent unauthorized Certificate issuance. Protection of the CA Private Key outside the validated system or device specified above MUST consist of physical security, encryption, or a combination of both, implemented in a manner that prevents disclosure of the Private Key. The CA SHALL encrypt its Private Key with an algorithm and key-length that, according to the state of the art, are capable of withstanding cryptanalytic attacks for the residual life of the encrypted key or key part.
 
 ### 6.2.1 Cryptographic module standards and controls
+
 No stipulation.
 
 ### 6.2.2 Private key (n out of m) multi-person control
+
 No stipulation.
 
 ### 6.2.3 Private key escrow
+
 No stipulation.
 
 ### 6.2.4 Private key backup
@@ -1768,18 +1843,23 @@ See [Section 5.2.2](#522-number-of-persons-required-per-task).
 Parties other than the Subordinate CA SHALL NOT archive the Subordinate CA Private Keys without authorization by the Subordinate CA.
 
 ### 6.2.6 Private key transfer into or from a cryptographic module
+
 No stipulation.
 
 ### 6.2.7 Private key storage on cryptographic module
+
 No stipulation.
 
 ### 6.2.8 Method of activating private key
+
 No stipulation.
 
 ### 6.2.9 Method of deactivating private key
+
 No stipulation.
 
 ### 6.2.10 Method of destroying private key
+
 No stipulation.
 
 ### 6.2.11 Cryptographic module rating
@@ -1789,6 +1869,7 @@ No stipulation.
 ## 6.3 Other aspects of key pair management
 
 ### 6.3.1 Public key archival
+
 No stipulation.
 
 ### 6.3.2 Certificate operational periods and key pair usage periods
@@ -1803,37 +1884,47 @@ For the purpose of calculations, a day is measured as 86,400 seconds. Any amount
 ## 6.4 Activation data
 
 ### 6.4.1 Activation data generation and installation
+
 No stipulation.
 
 ### 6.4.2 Activation data protection
+
 No stipulation.
 
 ### 6.4.3 Other aspects of activation data
+
 No stipulation.
 
 ## 6.5 Computer security controls
 
 ### 6.5.1 Specific computer security technical requirements
+
 No stipulation.
 
 ### 6.5.2 Computer security rating
+
 No stipulation.
 
 ## 6.6 Life cycle technical controls
 
 ### 6.6.1 System development controls
+
 No stipulation.
 
 ### 6.6.2 Security management controls
+
 No stipulation.
 
 ### 6.6.3 Life cycle security controls
+
 No stipulation.
 
 ## 6.7 Network security controls
+
 No stipulation.
 
 ## 6.8 Time-stamping
+
 No stipulation.
 
 # 7. CERTIFICATE, CRL, AND OCSP PROFILES
@@ -2427,9 +2518,11 @@ A Certificate issued to a Subscriber MUST contain, within the Certificate's `cer
 The Certificate MAY also contain additional policy identifier(s) defined by the Issuing CA. The Issuing CA SHALL document in its CP and/or CPS that the Certificates it issues containing the specified policy identifier(s) are managed in accordance with these Requirements.
 
 ### 7.1.7 Usage of policy constraints extension
+
 No stipulation.
 
 ### 7.1.8 Policy qualifiers syntax and semantics
+
 No stipulation.
 
 ### 7.1.9 Processing semantics for the critical certificate policies extension
@@ -2439,9 +2532,11 @@ No stipulation.
 ## 7.2 CRL profile
 
 ### 7.2.1 Version number(s)
+
 No stipulation.
 
 ### 7.2.2 CRL and CRL entry extensions
+
 No stipulation.
 
 If present, the `reasonCode` (OID 2.5.29.21) extension MUST NOT be marked critical.
@@ -2559,66 +2654,85 @@ The CA SHALL internally audit the compliance of Delegated Third Parties, Enterpr
 ## 9.1 Fees
 
 ### 9.1.1 Certificate issuance or renewal fees
+
 No stipulation.
 
 ### 9.1.2 Certificate access fees
+
 No stipulation.
 
 ### 9.1.3 Revocation or status information access fees
+
 No stipulation.
 
 ### 9.1.4 Fees for other services
+
 No stipulation.
 
 ### 9.1.5 Refund policy
+
 No stipulation.
 
 ## 9.2 Financial responsibility
 
 ### 9.2.1 Insurance coverage
+
 No stipulation.
 
 ### 9.2.2 Other assets
+
 No stipulation.
 
 ### 9.2.3 Insurance or warranty coverage for end-entities
+
 No stipulation.
 
 ## 9.3 Confidentiality of business information
 
 ### 9.3.1 Scope of confidential information
+
 No stipulation.
 
 ### 9.3.2 Information not within the scope of confidential information
+
 No stipulation.
 
 ### 9.3.3 Responsibility to protect confidential information
+
 No stipulation.
 
 ## 9.4 Privacy of personal information
 
 ### 9.4.1 Privacy plan
+
 No stipulation.
 
 ### 9.4.2 Information treated as private
+
 No stipulation.
 
 ### 9.4.3 Information not deemed private
+
 No stipulation.
 
 ### 9.4.4 Responsibility to protect private information
+
 No stipulation.
 
 ### 9.4.5 Notice and consent to use private information
+
 No stipulation.
 
 ### 9.4.6 Disclosure pursuant to judicial or administrative process
+
 No stipulation.
 
 ### 9.4.7 Other information disclosure circumstances
+
 No stipulation.
 
 ## 9.5 Intellectual property rights
+
 No stipulation.
 
 ## 9.6 Representations and warranties
@@ -2641,6 +2755,7 @@ For any Certificate in a hierarchy capable of being used for S/MIME, CAs SHALL r
 12. the Certificate was issued in violation of the then-current version of these Requirements.
 
 ### 9.6.2 RA representations and warranties
+
 No stipulation.
 
 ### 9.6.3 Subscriber representations and warranties
@@ -2648,12 +2763,15 @@ No stipulation.
 TBD
 
 ### 9.6.4 Relying party representations and warranties
+
 No stipulation.
 
 ### 9.6.5 Representations and warranties of other participants
+
 No stipulation.
 
 ## 9.7 Disclaimers of warranties
+
 No stipulation.
 
 ## 9.8 Limitations of liability
@@ -2669,43 +2787,55 @@ Notwithstanding any limitations on its liability to Subscribers and Relying Part
 ## 9.10 Term and termination
 
 ### 9.10.1 Term
+
 No stipulation.
 
 ### 9.10.2 Termination
+
 No stipulation.
 
 ### 9.10.3 Effect of termination and survival
+
 No stipulation.
 
 ## 9.11 Individual notices and communications with participants
+
 No stipulation.
 
 ## 9.12 Amendments
 
 ### 9.12.1 Procedure for amendment
+
 No stipulation.
 
 ### 9.12.2 Notification mechanism and period
+
 No stipulation.
 
 ### 9.12.3 Circumstances under which OID must be changed
+
 No stipulation.
 
 ## 9.13 Dispute resolution provisions
+
 No stipulation.
 
 ## 9.14 Governing law
+
 No stipulation.
 
 ## 9.15 Compliance with applicable law
+
 No stipulation.
 
 ## 9.16 Miscellaneous provisions
 
 ### 9.16.1 Entire agreement
+
 No stipulation.
 
 ### 9.16.2 Assignment
+
 No stipulation.
 
 ### 9.16.3 Severability
@@ -2717,6 +2847,7 @@ The CA SHALL also (prior to issuing a Certificate under the modified requirement
 Any modification to CA practice enabled under this section SHALL be discontinued if and when the Law no longer applies, or these Requirements are modified to make it possible to comply with both them and the Law simultaneously. An appropriate change in practice, modification to the CA’s CPS and a notice to the CA/Browser Forum, as outlined above, SHALL be made within 90 days.
 
 ### 9.16.4 Enforcement (attorneys' fees and waiver of rights)
+
 No stipulation.
 
 ### 9.16.5 Force majeure
@@ -2730,6 +2861,7 @@ No stipulation.
 # Appendix A - Using DNS
 
 ## A.1 CAA methods
+
 ### A.1.1 CAA contactemail property
 
 SYNTAX: `contactemail <rfc6532emailaddress>`
