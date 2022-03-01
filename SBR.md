@@ -1251,10 +1251,6 @@ No stipulation.
 ### 4.9.1 Circumstances for revocation
 
 #### 4.9.1.1 Reasons for revoking a subscriber certificate
-<<<<<<< HEAD
-=======
-
->>>>>>> sdavidson/preSBR
 The CA SHALL revoke a Certificate within 24 hours if one or more of the following occurs:
 
 1. The Subscriber requests in writing that the CA revoke the Certificate;
@@ -1277,10 +1273,6 @@ The CA SHOULD revoke a Certificate within 24 hours and MUST revoke a Certificate
 10. The CA is made aware of a demonstrated or proven method that exposes the Subscriber's Private Key to compromise or if there is clear evidence that the specific method used to generate the Private Key was flawed.
 
 #### 4.9.1.2 Reasons for revoking a subordinate CA certificate
-<<<<<<< HEAD
-=======
-
->>>>>>> sdavidson/preSBR
 The Issuing CA SHALL revoke a Subordinate CA Certificate within seven (7) days if one or more of the following occurs:
 
 1. The Subordinate CA requests revocation in writing;
@@ -1631,10 +1623,6 @@ No stipulation.
 ## 5.7 Compromise and disaster recovery
 
 ### 5.7.1 Incident and compromise handling procedures
-<<<<<<< HEAD
-=======
-
->>>>>>> sdavidson/preSBR
 CA operators SHALL have an Incident Response Plan and a Disaster Recovery Plan.
 
 The CA SHALL document a business continuity and disaster recovery procedures designed to notify and reasonably protect Application Software Suppliers, Subscribers, and Relying Parties in the event of a disaster, security compromise, or business failure. The CA is not required to publicly disclose its business continuity plans but SHALL make its business continuity plan and security plans available to the CA's auditors upon request. The CA SHALL annually test, review, and update these procedures.
