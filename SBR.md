@@ -1066,16 +1066,10 @@ A Regulated Professions Information Source is a Qualified Government Information
 ### 3.3.1 Identification and authentication for routine re-key
 No stipulation.
 
-No stipulation.
-
 ### 3.3.2 Identification and authentication for re-key after revocation
 No stipulation.
 
-No stipulation.
-
 ## 3.4 Identification and authentication for revocation request
-No stipulation.
-
 No stipulation.
 
 # 4. CERTIFICATE LIFE-CYCLE OPERATIONAL REQUIREMENTS
@@ -1083,8 +1077,6 @@ No stipulation.
 ## 4.1 Certificate application
 
 ### 4.1.1 Who can submit a certificate application
-No stipulation.
-
 No stipulation.
 
 ### 4.1.2 Enrollment process and responsibilities
@@ -1132,8 +1124,6 @@ A prior validation SHALL NOT be reused if any data or document used in the prior
 ### 4.2.2 Approval or rejection of certificate applications
 No stipulation.
 
-No stipulation.
-
 ### 4.2.3 Time to process certificate applications
 No stipulation.
 
@@ -1144,11 +1134,7 @@ Certificate issuance by the Root CA SHALL require an individual authorized by th
 ### 4.3.1 CA actions during certificate issuance
 No stipulation.
 
-No stipulation.
-
 ### 4.3.2 Notification to subscriber by the CA of issuance of certificate
-No stipulation.
-
 No stipulation.
 
 ## 4.4 Certificate acceptance
@@ -1156,31 +1142,19 @@ No stipulation.
 ### 4.4.1 Conduct constituting certificate acceptance
 No stipulation.
 
-No stipulation.
-
 ### 4.4.2 Publication of the certificate by the CA
-No stipulation.
-
 No stipulation.
 
 ### 4.4.3 Notification of certificate issuance by the CA to other entities
 No stipulation.
 
-No stipulation.
-
 ## 4.5 Key pair and certificate usage
-No stipulation.
-
 No stipulation.
 
 ### 4.5.1 Subscriber private key and certificate usage
 No stipulation.
 
-No stipulation.
-
 ### 4.5.2 Relying party public key and certificate usage
-No stipulation.
-
 No stipulation.
 
 
@@ -1451,11 +1425,7 @@ No stipulation.
 ### 4.12.1 Key escrow and recovery policy and practices
 No stipulation.
 
-No stipulation.
-
 ### 4.12.2 Session key encapsulation and recovery policy and practices
-No stipulation.
-
 No stipulation.
 
 # 5. FACILITY, MANAGEMENT, AND OPERATIONAL CONTROLS
@@ -1491,43 +1461,27 @@ Based on the Risk Assessment, the CA SHALL develop, implement, and maintain a se
 ### 5.1.2 Physical access
 No stipulation.
 
-No stipulation.
-
 ### 5.1.3 Power and air conditioning
-No stipulation.
-
 No stipulation.
 
 ### 5.1.4 Water exposures
 No stipulation.
 
-No stipulation.
-
 ### 5.1.5 Fire prevention and protection
-No stipulation.
-
 No stipulation.
 
 ### 5.1.6 Media storage
 No stipulation.
 
-No stipulation.
-
 ### 5.1.7 Waste disposal
-No stipulation.
-
 No stipulation.
 
 ### 5.1.8 Off-site backup
 No stipulation.
 
-No stipulation.
-
 ## 5.2 Procedural controls
 
 ### 5.2.1 Trusted roles
-No stipulation.
-
 No stipulation.
 
 ### 5.2.2 Number of persons required per task
@@ -1537,11 +1491,7 @@ The CA Private Key SHALL be backed up, stored, and recovered only by personnel i
 ### 5.2.3 Identification and authentication for each role
 No stipulation.
 
-No stipulation.
-
 ### 5.2.4 Roles requiring separation of duties
-No stipulation.
-
 No stipulation.
 
 ## 5.3 Personnel controls
@@ -1551,8 +1501,6 @@ No stipulation.
 Prior to the engagement of any person in the Certificate Management Process, whether as an employee, agent, or an independent contractor of the CA, the CA SHALL verify the identity and trustworthiness of such person.
 
 ### 5.3.2 Background check procedures
-No stipulation.
-
 No stipulation.
 
 ### 5.3.3 Training requirements
@@ -1572,11 +1520,7 @@ All personnel in Trusted roles SHALL maintain skill levels consistent with the C
 ### 5.3.5 Job rotation frequency and sequence
 No stipulation.
 
-No stipulation.
-
 ### 5.3.6 Sanctions for unauthorized actions
-No stipulation.
-
 No stipulation.
 
 ### 5.3.7 Independent contractor requirements
@@ -1584,8 +1528,6 @@ No stipulation.
 The CA SHALL verify that the Delegated Third Party's personnel involved in the issuance of a Certificate meet the training and skills requirements of [Section 5.3.3](#533--training-requirements) and the document retention and event logging requirements of [Section 5.4.1](#541-types-of-events-recorded).
 
 ### 5.3.8 Documentation supplied to personnel
-No stipulation.
-
 No stipulation.
 
 ## 5.4 Audit logging procedures
@@ -1629,8 +1571,6 @@ Log records MUST include the following elements:
 ### 5.4.2 Frequency of processing log
 No stipulation.
 
-No stipulation.
-
 ### 5.4.3 Retention period for audit log
 
 The CA SHALL retain, for at least two years:
@@ -1644,21 +1584,13 @@ The CA SHALL retain, for at least two years:
 ### 5.4.4 Protection of audit log
 No stipulation.
 
-No stipulation.
-
 ### 5.4.5 Audit log backup procedures
-No stipulation.
-
 No stipulation.
 
 ### 5.4.6 Audit collection system (internal vs. external)
 No stipulation.
 
-No stipulation.
-
 ### 5.4.7 Notification to event-causing subject
-No stipulation.
-
 No stipulation.
 
 ### 5.4.8 Vulnerability assessments
@@ -1674,8 +1606,6 @@ Additionally, the CA's security program MUST include an annual Risk Assessment t
 ### 5.5.1 Types of records archived
 No stipulation.
 
-No stipulation.
-
 ### 5.5.2 Retention period for archive
 
 The CA SHALL retain all documentation relating to Certificate Requests and the verification thereof, and all Certificates and revocation thereof, for at least seven years after any Certificate based on that documentation ceases to be valid.
@@ -1683,31 +1613,19 @@ The CA SHALL retain all documentation relating to Certificate Requests and the v
 ### 5.5.3 Protection of archive
 No stipulation.
 
-No stipulation.
-
 ### 5.5.4 Archive backup procedures
-No stipulation.
-
 No stipulation.
 
 ### 5.5.5 Requirements for time-stamping of records
 No stipulation.
 
-No stipulation.
-
 ### 5.5.6 Archive collection system (internal or external)
-No stipulation.
-
 No stipulation.
 
 ### 5.5.7 Procedures to obtain and verify archive information
 No stipulation.
 
-No stipulation.
-
 ## 5.6 Key changeover
-No stipulation.
-
 No stipulation.
 
 ## 5.7 Compromise and disaster recovery
@@ -1742,21 +1660,13 @@ The business continuity plan MUST include:
 ### 5.7.2 Computing resources, software, and/or data are corrupted
 No stipulation.
 
-No stipulation.
-
 ### 5.7.3 Entity private key compromise procedures
-No stipulation.
-
 No stipulation.
 
 ### 5.7.4 Business continuity capabilities after a disaster
 No stipulation.
 
-No stipulation.
-
 ## 5.8 CA or RA termination
-No stipulation.
-
 No stipulation.
 
 # 6. TECHNICAL SECURITY CONTROLS
@@ -1813,11 +1723,7 @@ If the CA or any of its designated RAs become aware that a Subscriber's Private 
 ### 6.1.3 Public key delivery to certificate issuer
 No stipulation.
 
-No stipulation.
-
 ### 6.1.4 CA public key delivery to relying parties
-No stipulation.
-
 No stipulation.
 
 ### 6.1.5 Key sizes
@@ -1859,16 +1765,10 @@ The CA SHALL implement physical and logical safeguards to prevent unauthorized C
 ### 6.2.1 Cryptographic module standards and controls
 No stipulation.
 
-No stipulation.
-
 ### 6.2.2 Private key (n out of m) multi-person control
 No stipulation.
 
-No stipulation.
-
 ### 6.2.3 Private key escrow
-No stipulation.
-
 No stipulation.
 
 ### 6.2.4 Private key backup
@@ -1882,26 +1782,16 @@ Parties other than the Subordinate CA SHALL NOT archive the Subordinate CA Priva
 ### 6.2.6 Private key transfer into or from a cryptographic module
 No stipulation.
 
-No stipulation.
-
 ### 6.2.7 Private key storage on cryptographic module
-No stipulation.
-
 No stipulation.
 
 ### 6.2.8 Method of activating private key
 No stipulation.
 
-No stipulation.
-
 ### 6.2.9 Method of deactivating private key
 No stipulation.
 
-No stipulation.
-
 ### 6.2.10 Method of destroying private key
-No stipulation.
-
 No stipulation.
 
 ### 6.2.11 Cryptographic module rating
@@ -1911,8 +1801,6 @@ No stipulation.
 ## 6.3 Other aspects of key pair management
 
 ### 6.3.1 Public key archival
-No stipulation.
-
 No stipulation.
 
 ### 6.3.2 Certificate operational periods and key pair usage periods
@@ -1929,16 +1817,10 @@ For the purpose of calculations, a day is measured as 86,400 seconds. Any amount
 ### 6.4.1 Activation data generation and installation
 No stipulation.
 
-No stipulation.
-
 ### 6.4.2 Activation data protection
 No stipulation.
 
-No stipulation.
-
 ### 6.4.3 Other aspects of activation data
-No stipulation.
-
 No stipulation.
 
 ## 6.5 Computer security controls
@@ -1946,11 +1828,7 @@ No stipulation.
 ### 6.5.1 Specific computer security technical requirements
 No stipulation.
 
-No stipulation.
-
 ### 6.5.2 Computer security rating
-No stipulation.
-
 No stipulation.
 
 ## 6.6 Life cycle technical controls
@@ -1958,21 +1836,13 @@ No stipulation.
 ### 6.6.1 System development controls
 No stipulation.
 
-No stipulation.
-
 ### 6.6.2 Security management controls
-No stipulation.
-
 No stipulation.
 
 ### 6.6.3 Life cycle security controls
 No stipulation.
 
-No stipulation.
-
 ## 6.7 Network security controls
-No stipulation.
-
 No stipulation.
 
 ## 6.8 Time-stamping
@@ -2574,8 +2444,6 @@ No stipulation.
 ### 7.1.8 Policy qualifiers syntax and semantics
 No stipulation.
 
-No stipulation.
-
 ### 7.1.9 Processing semantics for the critical certificate policies extension
 
 No stipulation.
@@ -2583,8 +2451,6 @@ No stipulation.
 ## 7.2 CRL profile
 
 ### 7.2.1 Version number(s)
-No stipulation.
-
 No stipulation.
 
 ### 7.2.2 CRL and CRL entry extensions
@@ -2707,26 +2573,16 @@ The CA SHALL internally audit the compliance of Delegated Third Parties, Enterpr
 ### 9.1.1 Certificate issuance or renewal fees
 No stipulation.
 
-No stipulation.
-
 ### 9.1.2 Certificate access fees
-No stipulation.
-
 No stipulation.
 
 ### 9.1.3 Revocation or status information access fees
 No stipulation.
 
-No stipulation.
-
 ### 9.1.4 Fees for other services
 No stipulation.
 
-No stipulation.
-
 ### 9.1.5 Refund policy
-No stipulation.
-
 No stipulation.
 
 ## 9.2 Financial responsibility
@@ -2734,16 +2590,10 @@ No stipulation.
 ### 9.2.1 Insurance coverage
 No stipulation.
 
-No stipulation.
-
 ### 9.2.2 Other assets
 No stipulation.
 
-No stipulation.
-
 ### 9.2.3 Insurance or warranty coverage for end-entities
-No stipulation.
-
 No stipulation.
 
 ## 9.3 Confidentiality of business information
@@ -2751,16 +2601,10 @@ No stipulation.
 ### 9.3.1 Scope of confidential information
 No stipulation.
 
-No stipulation.
-
 ### 9.3.2 Information not within the scope of confidential information
 No stipulation.
 
-No stipulation.
-
 ### 9.3.3 Responsibility to protect confidential information
-No stipulation.
-
 No stipulation.
 
 ## 9.4 Privacy of personal information
@@ -2768,41 +2612,25 @@ No stipulation.
 ### 9.4.1 Privacy plan
 No stipulation.
 
-No stipulation.
-
 ### 9.4.2 Information treated as private
-No stipulation.
-
 No stipulation.
 
 ### 9.4.3 Information not deemed private
 No stipulation.
 
-No stipulation.
-
 ### 9.4.4 Responsibility to protect private information
-No stipulation.
-
 No stipulation.
 
 ### 9.4.5 Notice and consent to use private information
 No stipulation.
 
-No stipulation.
-
 ### 9.4.6 Disclosure pursuant to judicial or administrative process
-No stipulation.
-
 No stipulation.
 
 ### 9.4.7 Other information disclosure circumstances
 No stipulation.
 
-No stipulation.
-
 ## 9.5 Intellectual property rights
-No stipulation.
-
 No stipulation.
 
 ## 9.6 Representations and warranties
@@ -2827,8 +2655,6 @@ For any Certificate in a hierarchy capable of being used for S/MIME, CAs SHALL r
 ### 9.6.2 RA representations and warranties
 No stipulation.
 
-No stipulation.
-
 ### 9.6.3 Subscriber representations and warranties
 
 TBD
@@ -2836,16 +2662,10 @@ TBD
 ### 9.6.4 Relying party representations and warranties
 No stipulation.
 
-No stipulation.
-
 ### 9.6.5 Representations and warranties of other participants
 No stipulation.
 
-No stipulation.
-
 ## 9.7 Disclaimers of warranties
-No stipulation.
-
 No stipulation.
 
 ## 9.8 Limitations of liability
@@ -2863,21 +2683,13 @@ Notwithstanding any limitations on its liability to Subscribers and Relying Part
 ### 9.10.1 Term
 No stipulation.
 
-No stipulation.
-
 ### 9.10.2 Termination
-No stipulation.
-
 No stipulation.
 
 ### 9.10.3 Effect of termination and survival
 No stipulation.
 
-No stipulation.
-
 ## 9.11 Individual notices and communications with participants
-No stipulation.
-
 No stipulation.
 
 ## 9.12 Amendments
@@ -2885,31 +2697,19 @@ No stipulation.
 ### 9.12.1 Procedure for amendment
 No stipulation.
 
-No stipulation.
-
 ### 9.12.2 Notification mechanism and period
-No stipulation.
-
 No stipulation.
 
 ### 9.12.3 Circumstances under which OID must be changed
 No stipulation.
 
-No stipulation.
-
 ## 9.13 Dispute resolution provisions
-No stipulation.
-
 No stipulation.
 
 ## 9.14 Governing law
 No stipulation.
 
-No stipulation.
-
 ## 9.15 Compliance with applicable law
-No stipulation.
-
 No stipulation.
 
 ## 9.16 Miscellaneous provisions
@@ -2917,11 +2717,7 @@ No stipulation.
 ### 9.16.1 Entire agreement
 No stipulation.
 
-No stipulation.
-
 ### 9.16.2 Assignment
-No stipulation.
-
 No stipulation.
 
 ### 9.16.3 Severability
@@ -2933,8 +2729,6 @@ The CA SHALL also (prior to issuing a Certificate under the modified requirement
 Any modification to CA practice enabled under this section SHALL be discontinued if and when the Law no longer applies, or these Requirements are modified to make it possible to comply with both them and the Law simultaneously. An appropriate change in practice, modification to the CA’s CPS and a notice to the CA/Browser Forum, as outlined above, SHALL be made within 90 days.
 
 ### 9.16.4 Enforcement (attorneys' fees and waiver of rights)
-No stipulation.
-
 No stipulation.
 
 ### 9.16.5 Force majeure
