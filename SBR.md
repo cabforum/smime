@@ -2386,7 +2386,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:organizationIdentifier` | MUST | MUST | MUST |
 | `subject:givenName` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:surname` | MUST NOT | MUST NOT | MUST NOT |
-| `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:pseudonym` | MAY | MAY | MAY |
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:email` | MAY | MAY | MAY |
 | `subject:title` | MUST NOT | MUST NOT | MUST NOT |
@@ -2405,8 +2405,8 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:organizationName` | MUST | MUST | MUST |
 | `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:organizationIdentifier` | MUST | MUST | MUST |
-| `subject:givenName` | MAY  | MAY | MAY |
-| `subject:surname` | MAY  | MAY | MAY |
+| `subject:givenName` | MAY  | MUST | MUST |
+| `subject:surname` | MAY  | MUST | MUST |
 | `subject:pseudonym` | MAY  | MAY | MAY |
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:email` | MAY | MAY | MAY |
