@@ -5,7 +5,7 @@ author:
   - CA/Browser Forum
 date: X Date, 2021
 copyright: |
-  Copyright 2021 CA/Browser Forum
+  Copyright 2022 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
 
@@ -118,7 +118,7 @@ This document may be revised from time to time, as appropriate, in accordance wi
 No stipulation.
 
 ### 1.5.2 Contact person
-Contact information for the CA/Browser Forum is available at https://cabforum.org/leadership/. In this section of a CA’s CPS, the CA shall provide a link to a web page or an email address for contacting the person or persons responsible for operation of the CA, including contact information for entities wishing to submit a Certificate Problem Report.
+Contact information for the CA/Browser Forum is available at https://cabforum.org/leadership/. In this section of a CA’s CPS, the CA SHALL provide a link to a web page or an email address for contacting the person or persons responsible for operation of the CA, including contact information for entities wishing to submit a Certificate Problem Report.
 
 ### 1.5.3 Person determining CPS suitability for the policy
 No stipulation.
@@ -442,7 +442,7 @@ The CA SHALL publicly give effect to these Requirements and represent that it wi
 The CA SHALL develop, implement, enforce, and annually update a CP and/or CPS that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL indicate conformance with this requirement by incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
 
 ## 2.4 Access controls on repositories
-The CA shall make its Repository publicly available in a read-only manner.
+The CA SHALL make its Repository publicly available in a read-only manner.
 
 # 3. IDENTIFICATION AND AUTHENTICATION
 
@@ -772,13 +772,13 @@ The CA MUST document and publish the means used to collect identity Individual a
 
 1.	**From a physical identity document** 
 
-If physical identity documents are used as evidence, only government-issued passports, national identity cards, and other official identity documents of comparable reliability (such as drivers license or military ID) shall be accepted. The CA MUST document and publish the accepted identity documents or document types.
+If physical identity documents are used as evidence, the CA or RA SHALL accept only government-issued passports, national identity cards, and other official identity documents of comparable reliability (such as drivers license or military ID). The CA MUST document and publish the accepted identity documents or document types.
 
 The document used as evidence MUST contain a face photo and/or other information that   can be compared with the applicant's physical appearance.
 
 2.	**From a digital identity document** 
 
-If digital identity documents are used as evidence only eMRTD digital identity documents according to ICAO 9303 part 10 shall be accepted.
+If digital identity documents are used as evidence the CA or RA SHALL only accept eMRTD digital identity documents according to ICAO 9303 part 10.
 
 3.	**From a certificate supporting a digital signature applied by the Applicant** 
 
@@ -788,9 +788,9 @@ NOTE: The CA should consider requirements to avoid issuance of a consecutive cer
 
 4.	**From Enterprise RA records** 
 
-In the case of Sponsor-validation certificates approved by an Enterprise RA, records maintained by the Enterprise RA shall be accepted as evidence of individual identity. The Enterprise RA MUST maintain records to satisfy the requirements of Section 8.8.
+In the case of Sponsor-validation certificates approved by an Enterprise RA, records maintained by the Enterprise RA SHALL be accepted as evidence of individual identity. The Enterprise RA MUST maintain records to satisfy the requirements of Section 8.8.
 
-5. **From authorized reference sources as supplementary evidence** 
+1. **From authorized reference sources as supplementary evidence** 
    
 Evidence for individual identity attributes can be additionally verified using authorized reference sources such QGIS, GTIS, Regulated Professions Information Source, or national population registers.
 
@@ -802,7 +802,7 @@ Evidence for individual identity attributes can be additionally verified using a
 
 #### 3.2.4.2 Validation of individual identity
 
-All identity attributes of the Individual to be included in the Certificate must be validated.
+The CA or RA SHALL validate all identity attributes of the Individual to be included in the Certificate.
 
 If the evidence has an explicit validity period, the CA MUST verify that the time of the identity validation is within this validity period. In context this can include the valid from and valid to attributes of a digital signature certificate or date of expiry of an identity document.
 
@@ -812,21 +812,21 @@ NOTE: Existing evidence can be re-used to validate the identity if the evidence 
 
 The physical identity document must be presented in its original form.  The CA MUST employ procedures to ensure presented by the Applicant is a genuine identity document that is not counterfeited or falsified/modified.
 
-The CA can use manual (in person) or remote procedures.  A remote process shall ensure that the Applicant has the document in hand and presents the document in real-time in front of a camera.
+The CA or RA can use manual (in person) or remote procedures.  A remote process SHALL ensure that the Applicant has the document in hand and presents the document in real-time in front of a camera.
 
 The CA or RA registration agent MUST make a visual comparison of the physical appearance of the Applicant and the face photo and/or other information on the physical identity document.
 
-The CA or RA registration agents shall have access to authoritative sources of information on document appearance and validation for forms of identity document accepted by the CA.  
+The CA or RA registration agent SHALL have access to authoritative sources of information on document appearance and validation for forms of identity document accepted by the CA.  
 
-The CA or RA MUST retain information sufficient to evidence the fulfilment of the identity validation process and the verified attributes.  In addition to identity attributes, the following information shall be recorded: issuer, validity period, and the document's unique identification number.
+The CA or RA MUST retain information sufficient to evidence the fulfilment of the identity validation process and the verified attributes.  In addition to identity attributes, the CA or RA SHALL record the following information: issuer, validity period, and the document's unique identification number.
 
 Automated and manual processes may be used in combination (for example using automated support for  a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
 
 2.	**Validation of a digital identity document**
 
-Digital identity documents shall only be accepted if the issuer's digital signature on the document is successfully validated.
+The CA or RA SHALL only accept digital identity documents if the issuer's digital signature on the document is successfully validated.
 
-Information obtained from the digital identity document shall be recorded to evidence the identity proofing process. In addition to identity attributes and face photo, the following information shall be recorded: issuer, validity period, and the document's unique identification number.
+The CA or RA SHALL record information obtained from the digital identity document to evidence the identity proofing process. In addition to identity attributes and face photo, the following information SHALL be recorded: issuer, validity period, and the document's unique identification number.
 
 The CA or RA registration agent MUST make a visual comparison of the physical appearance of the Applicant and the face photo and/or other information on the digital identity document.
 
@@ -836,9 +836,9 @@ Automated and manual processes may be used in combination (for example using aut
 
 If a digital signature with certificate is used as evidence, the signature MUST be created as part of the identity validation process.
 
-The CA or RA MUST validate the digital signature and the signing certificate shall only be used as evidence for   identity attributes if the signature is valid.
+The CA or RA MUST validate the digital signature and SHALL only use the signing certificate as evidence for identity attributes if the signature is valid.
 
-If required identity attributes to be collected are not present in the certificate, these attributes shall be collected from other sources and validated.
+If required identity attributes to be collected are not present in the certificate, the CA or RA SHALL collect these attributes from other sources and validated.
 
 4.	**Validation of a verified professional letter**
 
@@ -846,7 +846,7 @@ TBD
    
 ### 3.2.5 Non-verified subscriber information
 
-Subscriber information that has not been verified in accordance with these requirements shall not be included in S/MIME Certificates.
+Subscriber information that has not been verified in accordance with these requirements SHALL NOT be included in S/MIME Certificates.
 
 ### 3.2.6 Validation of authority
 
@@ -918,7 +918,7 @@ Where the CA and Applicant contemplate the submission of multiple future Certifi
 
 The CA and the Applicant MAY enter into a written agreement, signed by the Contract Signer on behalf of the Applicant, whereby, for a specified term, the Applicant expressly authorizes one or more Certificate Approver(s) designated in such agreement to exercise Authority with respect to each future Certificate Request submitted on behalf of the Applicant and properly authenticated as originating with, or otherwise being approved by, such Certificate Approver(s).
 
-Such an agreement MUST provide that the Applicant shall be obligated under the Subscriber Agreement for all Certificates issued at the request of, or approved by, such Certificate Approver(s) until such Authority is revoked, and MUST include mutually agreed-upon provisions for:
+Such an agreement MUST provide that the Applicant SHALL be obligated under the Subscriber Agreement for all Certificates issued at the request of, or approved by, such Certificate Approver(s) until such Authority is revoked, and MUST include mutually agreed-upon provisions for:
 
    i. authenticating the Certificate Approver when Certificate Requests are approved,
    ii. periodic re-confirmation of the Authority of the Certificate Approver,
@@ -1038,7 +1038,7 @@ Databases in which the CA or its owners or affiliated companies maintain a contr
 
 ### 3.2.8.6 Qualified government information source
 
-A Qualified Government Information Source (QGIS) is a regularly-updated and current, publicly available, database designed for the purpose of accurately providing the information for which it is consulted, and which is generally recognized as a dependable source of such information provided that it is maintained by a Government Entity, the reporting of data is required by law, and false or misleading reporting is punishable with criminal or civil penalties. Nothing in these Guidelines shall prohibit the use of third-party vendors to obtain the information from the Government Entity provided that the third party obtains the information directly from the Government Entity.
+A Qualified Government Information Source (QGIS) is a regularly-updated and current, publicly available, database designed for the purpose of accurately providing the information for which it is consulted, and which is generally recognized as a dependable source of such information provided that it is maintained by a Government Entity, the reporting of data is required by law, and false or misleading reporting is punishable with criminal or civil penalties. Nothing in these Guidelines prohibits the use of third-party vendors to obtain the information from the Government Entity provided that the third party obtains the information directly from the Government Entity.
 
 ### 3.2.8.7 Qualified government tax information source
 
@@ -1273,7 +1273,7 @@ In the latter case, the OCSP signing Certificate MUST contain an extension of ty
 ### 4.9.10 On-line revocation checking requirements
 OCSP responders operated by the CA SHALL support the HTTP GET method, as described in RFC 6960 and/or RFC 5019.
 
-The validity interval of an OCSP response is the difference in time between the thisUpdate and nextUpdate field, inclusive. For purposes of computing differences, a difference of 3,600 seconds shall be equal to one hour, and a difference of 86,400 seconds shall be equal to one day, ignoring leap-seconds.
+The validity interval of an OCSP response is the difference in time between the thisUpdate and nextUpdate field, inclusive. For purposes of computing differences, a difference of 3,600 seconds is equal to one hour, and a difference of 86,400 seconds is equal to one day, ignoring leap-seconds.
 
 For the status of Subscriber Certificates:
 
@@ -1536,7 +1536,7 @@ No stipulation.
 ## 5.7 Compromise and disaster recovery
 
 ### 5.7.1 Incident and compromise handling procedures
-CA organizations shall have an Incident Response Plan and a Disaster Recovery Plan.
+CA operators SHALL have an Incident Response Plan and a Disaster Recovery Plan.
 
 The CA SHALL document a business continuity and disaster recovery procedures designed to notify and reasonably protect Application Software Suppliers, Subscribers, and Relying Parties in the event of a disaster, security compromise, or business failure. The CA is not required to publicly disclose its business continuity plans but SHALL make its business continuity plan and security plans available to the CA's auditors upon request. The CA SHALL annually test, review, and update these procedures.
 
@@ -1704,7 +1704,7 @@ No stipulation.
 | Strict and Multipurpose | 825 days |
 | Legacy | 1095 days |
 
-For the purpose of calculations, a day is measured as 86,400 seconds. Any amount of time greater than this, including fractional seconds and/or leap seconds, shall represent an additional day. For this reason, Subscriber Certificates SHOULD NOT be issued for the maximum permissible time by default, in order to account for such adjustments.
+For the purpose of calculations, a day is measured as 86,400 seconds. Any amount of time greater than this, including fractional seconds and/or leap seconds, SHALL represent an additional day. For this reason, Subscriber Certificates SHOULD NOT be issued for the maximum permissible time by default, in order to account for such adjustments.
 
 ## 6.4 Activation data
 
@@ -2111,7 +2111,7 @@ The organizationIdentifier MUST be encoded as a PrintableString or UTF8String.
 The Registration Scheme MUST be identified using the using the following structure in the presented order:
 
 * 3 character Registration Scheme identifier;
-* 2 character ISO 3166 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally ISO 3166 code "XG" shall be used;
+* 2 character ISO 3166 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally ISO 3166 code "XG" SHALL be used;
 * For the NTR Registration Scheme identifier, if required under [Section 9.2.4](#924-subject-jurisdiction-of-incorporation-or-registration-field), a 2 character ISO 3166-2 identifier for the subdivision (state or province) of the nation in which the Registration Scheme is operated, preceded by plus "+" (0x2B (ASCII), U+002B (UTF-8));
 * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
 * Registration Reference allocated in accordance with the identified Registration Scheme
@@ -2680,7 +2680,7 @@ The following Registration Schemes are recognized as valid under these guideline
 
   For a global Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields). The 2 character ISO 3166 country code SHALL be set to 'XG'. 
 
-  The CA MUST verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  An LEI shall only be used if the ValidationSources entry is FULLY_CORROBORATED; an LEI MUST NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
+  The CA MUST verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  An LEI SHALL only be used if the ValidationSources entry is FULLY_CORROBORATED; an LEI MUST NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
 # Appendix C - Country-specific interpretative guidelines (normative)
 
