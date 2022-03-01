@@ -1990,8 +1990,6 @@ No stipulation.
 ## 6.8 Time-stamping
 No stipulation.
 
-No stipulation.
-
 # 7. CERTIFICATE, CRL, AND OCSP PROFILES
 
 ## 7.1 Certificate profile
@@ -3033,19 +3031,19 @@ The following Registration Schemes are recognized as valid under these guideline
 
   For a global Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields). The 2 character ISO 3166 country code SHALL be set to 'XG'. 
 
-  The CA MUST verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  An LEI SHALL only be used if the ValidationSources entry is FULLY_CORROBORATED; an LEI MUST NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
+  The CA MUST verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  An LEI shall only be used if the ValidationSources entry is FULLY_CORROBORATED; an LEI MUST NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
-# Appendix C - Country-specific interpretative guidelines (normative)
+# Appendix C - Country-Specific Interpretative Guidelines (Normative)
 
 NOTE: This appendix provides alternative interpretations of these Requirements for countries that have a language, cultural, technical, or legal reason for deviating from a strict interpretation of these Requirements.  More specific information for particular countries may be added to this appendix in the future.
 
-## 1. Organization names
+## 1. Organization Names
 
-1. **Non-Latin Organization Name**
+1. Non-Latin Organization Name
 
    Where an Applicant's organization name is not registered with a QGIS in _Latin_ characters and the Applicant's non-Latin character organization name and registration have been verified with a QGIS in accordance with these Requirements, a CA MAY include a Latin character organization name in the Certificate.  In such a case, the CA MUST follow the procedures laid down in this section.
 
-2. **Romanized Names**
+2. Romanized Names
 
    In order to include a transliteration/Romanization of the registered name, the Romanization MUST be verified by the CA using a system officially recognized by the Government in the Applicant's Jurisdiction of Incorporation.
 
@@ -3055,7 +3053,7 @@ NOTE: This appendix provides alternative interpretations of these Requirements f
    B.  A system recognized by the United Nations; or
    C.  A Lawyer's Opinion or Accountant's Letter confirming the proper Romanization of the registered name.
 
-3. **Translated Name**
+3. Translated Name
 
    In order to include a Latin character name in the Certificate that is not a direct Romanization of the registered name (e.g. an English Name)  the CA MUST verify that the Latin character name is:
 
@@ -3064,13 +3062,13 @@ NOTE: This appendix provides alternative interpretations of these Requirements f
    C.  Confirmed with a QIIS to be the name associated with the registered organization; or
    D.  Confirmed by a Verified Legal Opinion or Accountant's Letter to be a translated trading name associated with the registered organization.
 
-### Country-specific procedures
+### Country-Specific Procedures
 
 #### C-1. Japan
 
 As interpretation of the procedures set out above:
 
-1. **Organization Names**
+1. Organization Names
 
    A.  The Revised Hepburn method of Romanization, as well as Kunrei-shiki and Nihon-shiki methods described in ISO 3602, are acceptable for Japanese Romanizations.
    B.  The CA MAY verify the Romanized transliteration, language translation (e.g. English name), or other recognized Roman-letter substitute of the Applicant's formal legal name with either a QIIS, Verified Legal Opinion, or Verified Accountant Letter.
@@ -3078,14 +3076,14 @@ As interpretation of the procedures set out above:
    D.  When relying on Articles of Incorporation to verify a Romanized, translated, or other recognized Roman-letter substitute name, the Articles of Incorporation MUST be accompanied either: by a document, signed with the original Japanese Corporate Stamp, that proves that the Articles of Incorporation are authentic and current, or by a Verified Legal Opinion or a Verified Accountant Letter.  The CA MUST verify the authenticity of the Corporate Stamp.
    E.  A Romanized, translated, or other recognized Roman-lettered substitute name confirmed in accordance with this [Appendix C-1](#c-1-japan) stored in the ROBINS database operated by JIPDEC MAY be relied upon by a CA for determining the allowed organization name during any issuance or renewal process of a Certificate without the need to re-perform the above procedures.
 
-2. **Accounting Practitioner**
+2. Accounting Practitioner
 
    In Japan:
 
    A.  Accounting Practitioner includes either a certified public accountant (公認会計士 - Konin-kaikei-shi) or a licensed tax accountant (税理士 – Zei-ri-shi).
    B.  The CA MUST verify the professional status of the Accounting Practitioner through direct contact with the relevant local member association that is affiliated with either the Japanese Institute of Certified Public Accountants ([http://www.hp.jicpa.or.jp](http://www.hp.jicpa.or.jp/)), the Japan Federation of Certified Tax Accountant's Associations ([http://www.nichizeiren.or.jp](http://www.nichizeiren.or.jp/)), or any other authoritative source recognized by the Japanese Ministry of Finance ([http://www.mof.go.jp](http://www.mof.go.jp/)) as providing the current registration status of such professionals.
 
-3. **Legal Practitioner**
+3. Legal Practitioner
 
    In Japan:
 
@@ -3105,4 +3103,3 @@ As interpretation of the procedures set out above:
        - the Japan Federation of Administrative Solicitors ([http://www.gyosei.or.jp](http://www.gyosei.or.jp/)),
        - the Japan National Notaries Association ([http://www.koshonin.gr.jp](http://www.koshonin.gr.jp/)), or
        - any other authoritative source recognized by the Japanese Ministry of Justice ([http://www.moj.go.jp](http://www.moj.go.jp/)) as providing the current registration status of such professionals.
-
