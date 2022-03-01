@@ -93,9 +93,9 @@ Before the CA authorizes a Delegated Third Party to perform a delegated function
 
 The CA MAY designate an Enterprise Registration Authority (RA) to verify Certificate Requests from the Enterprise RA's own organization.  The CA SHALL NOT accept Certificate Requests authorized by an Enterprise RA unless the following requirements are satisfied:
 
-1. If the Certificate Request is for an Organization-validated or Sponsor-validated profile, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
+1. If the Certificate Request is for an `Organization-validated` or `Sponsor-validated` profile, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
 
-2. If the Certificate Request is for a Mailbox-validated policy, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
+2. If the Certificate Request is for a `Mailbox-validated` profile, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
 
 The CA SHALL impose these limitations as a contractual requirement on the Enterprise RA and monitor compliance by the Enterprise RA in accordance with [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca).
 
@@ -779,7 +779,7 @@ The following requirements MUST be fulfilled to authenticate Individual identity
 The CA or RA MUST collect evidence supporting the following identity attributes for the Individual Applicant:
 
 1. Given name(s) and surname(s), which should be current names;
-2. Pseudonym (optional); 
+2. Pseudonym (if used); 
 3. Address (if displayed in Subject); and
 4. Further information as needed to uniquely identify the Applicant.
 
@@ -805,7 +805,7 @@ The CA SHOULD consider requirements to avoid issuance of a consecutive Certifica
 
 4.	**From Enterprise RA records** 
 
-In the case of `Sponsor-validation` Certificates approved by an Enterprise RA, records maintained by the Enterprise RA SHALL be accepted as evidence of individual identity. The Enterprise RA MUST maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca)
+In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, records maintained by the Enterprise RA SHALL be accepted as evidence of individual identity. The Enterprise RA MUST maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca)
 
 1. **From authorized reference sources as supplementary evidence** 
    
@@ -1022,8 +1022,8 @@ An Independent Confirmation from the Applicant MAY be obtained via the following
 
        i. By paper mail addressed to the Confirming Person at:
 
-          1. The address of the Applicant's Place of Business as verified by the CA in accordance with these Guidelines, or
-          2. The business address for such Confirming Person specified in a current QGIS, QTIS, QIIS, Verified Professional Letter, or
+          1. The address of the Applicant's Place of Business as verified by the CA in accordance with these Guidelines; or
+          2. The business address for such Confirming Person specified in a current QGIS, QTIS, QIIS, Verified Professional Letter; or
           3. The address of the Applicant's Registered Agent or Registered Office listed in the official records of the Jurisdiction of Incorporation, or
 
        ii. By e-mail addressed to the Confirming Person at the business e-mail address for such person listed in a current QGIS, QTIS, QIIS, Verified Legal Opinion, or Verified Accountant Letter; or
@@ -1047,8 +1047,8 @@ A Qualified Independent Information Source (QIIS) is a regularly-updated and pub
 
 The CA SHALL use a documented process to check the accuracy of the database and ensure its data is acceptable, including reviewing the database provider's terms of use. The CA SHALL NOT use any data in a QIIS that the CA knows is
 
-  i. self-reported and
-  ii. not verified by the QIIS as accurate.
+1.  Self-reported; and
+2.  Not verified by the QIIS as accurate.
 
 Databases in which the CA or its owners or affiliated companies maintain a controlling interest, or in which any Registration Authorities or subcontractors to whom the CA has outsourced any portion of the vetting process (or their owners or affiliated companies) maintain any ownership or beneficial interest, do not qualify as a QIIS.
 
@@ -1335,7 +1335,7 @@ In the latter case, the OCSP signing Certificate MUST contain an extension of ty
 ### 4.9.10 On-line revocation checking requirements
 OCSP responders operated by the CA SHALL support the HTTP GET method, as described in RFC 6960 and/or RFC 5019.
 
-The validity interval of an OCSP response is the difference in time between the thisUpdate and nextUpdate field, inclusive. For purposes of computing differences, a difference of 3,600 seconds is equal to one hour, and a difference of 86,400 seconds is equal to one day, ignoring leap-seconds.
+The validity interval of an OCSP response is the difference in time between the thisUpdate and nextUpdate field, inclusive. For purposes of computing differences, a difference of 3,600 seconds SHALL be equal to one hour, and a difference of 86,400 seconds SHALL be equal to one day, ignoring leap-seconds.
 
 For the status of Subscriber Certificates:
 
