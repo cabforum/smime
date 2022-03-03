@@ -852,52 +852,63 @@ The following requirements MUST be fulfilled to authenticate Individual identity
 
 The CA or RA MUST collect evidence supporting the following identity attributes for the Individual Applicant:
 
-1. Given name(s) and surname(s), which should be current names;
+1. Given name(s) and surname(s), which SHOULD be current names;
 2. Pseudonym (if used); 
 3. Address (if displayed in Subject); and
 4. Further information as needed to uniquely identify the Applicant.
 
 #### 3.2.4.1 Attribute collection of individual identity
 
-The CA MUST document and publish the means used to collect Individual identity attributes.
+The CA MUST document and publish the methods it uses to collect Individual identity attributes.
 
 1.	**From a physical identity document** 
 
-If physical identity documents are used as evidence, the CA or RA SHALL accept only government-issued passports or identity cards, and other official identity documents of comparable reliability (such as drivers license or military ID). The CA MUST document and publish the accepted identity documents or document types.
+If physical identity documents are used as evidence, the CA or RA SHALL accept only government-issued passports or identity cards, and other official identity documents of comparable reliability (such as drivers license or military ID). 
 
-The document used as evidence MUST contain a face photo and/or other information that can be compared with the Applicant's physical appearance.
+The physical identity document used as evidence MUST contain a face photo and/or other information that can be compared with the Applicant's physical appearance.
+
+The CA MUST document and publish information describing the physical or digital identity documents or document types it accepts.
 
 2.	**From a digital identity document** 
 
-If digital identity documents are used as evidence the CA or RA SHALL only accept eMRTD digital identity documents according to ICAO 9303 part 10.
+If digital identity documents (such as passports or national ID cards including a chip bearing digitally signed information about the holder) are used as evidence, the CA or RA SHALL only accept eMRTD digital identity documents according to ICAO 9303 part 10.
+
+This method does not include "eID" as decsribed in Regulation (EU) 910/2014.
 
 3.	**From a certificate supporting a digital signature applied by the Applicant** 
 
-If a digital signature is to be used as evidence, the CA MUST have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: eIDAS Qualified Certificates validated according to ETSI TS 119 172-4, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+If a digital signature is to be used as evidence, the CA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: eIDAS Qualified Certificates validated according to ETSI TS 119 172-4, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
 
-The CA SHOULD consider requirements to avoid issuance of a consecutive Certificates that are issued based on a preceding Certificate, where the original verification of the Subject may have been conducted in the distant past.
+The CA SHOULD consider requirements to avoid issuance of a consecutive Certificates that are issued based on a preceding Certificate, where the original verification of the Subject's identity may have been conducted in the distant past.
 
 4.	**From Enterprise RA records** 
 
-In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, records maintained by the Enterprise RA SHALL be accepted as evidence of individual identity. The Enterprise RA MUST maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca)
+In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, records maintained by the Enterprise RA SHALL be accepted as evidence of Individual identity. 
+
+The Enterprise RA MUST maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca).
 
 1. **From authorized reference sources as supplementary evidence** 
    
-Evidence for individual identity attributes can be additionally verified using authorized reference sources such QGIS, GTIS, Regulated Professions Information Source, or national population registers.
+Evidence for Individual identity attributes can be additionally verified using authorized reference sources such as additional government documents, QGIS, GTIS, Regulated Professions Information Source, or national population registers.
 
-Only official national or nationally approved registers can be accepted. The CA MUST document and publish the accepted authorized reference sources.
+When external registers are used, only official national or nationally approved registers can be accepted. The CA MUST document and publish the accepted authorized reference sources.
+
+Examples of this method include:
+
+* If the Subject presents an ID featuring a name that has subsquently been changed, it MAY be complemented by inspection of an official document such as a marriage certificate or court order documenting the change.
+* If a professional title of a regulated profession in the`Subject:country` is to be used it SHALL be verified against a Regulated Professions Information Source.
 
 6. **From a Verified Professional Letter** 
 
-Evidence for individual identity attributes can be additionally verified using a Verified Professional Letter.
+Evidence for Individual identity attributes can be additionally verified using a Verified Professional Letter.
 
 #### 3.2.4.2 Validation of individual identity
 
 The CA or RA SHALL validate all identity attributes of the Individual to be included in the Certificate.
 
-If the evidence has an explicit validity period, the CA MUST verify that the time of the identity validation is within this validity period. In context this can include the `validFrom` and `validTo` attributes of a digital signature Certificate or date of expiry of an identity document.
+If the evidence has an explicit validity period, the CA SHALL verify that the time of the identity validation is within this validity period. In context this can include the `validFrom` and `validTo` attributes of a digital signature Certificate or the date of expiry of an identity document.
 
-Existing evidence can be re-used to validate the identity if the evidence remains valid at the subsequent validation event.
+The CA or RA MAY reuse existing evidence to validate the identity if the evidence remains valid at the subsequent validation event, subject to the age restrictions in [Section 4.2.1](#421-performing-identification-and-authentication-functions).
 
 1.	**Validation of a physical identity document** 
 
@@ -911,7 +922,7 @@ The CA or RA registration agent SHALL have access to authoritative sources of in
 
 The CA or RA MUST retain information sufficient to evidence the fulfilment of the identity validation process and the verified attributes.  In addition to identity attributes, the CA or RA SHALL record the following information: issuer, validity period, and the document's unique identification number.
 
-Automated and manual processes MAY be used in combination (for example using automated support for  a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
+Automated and manual processes MAY be used in combination, (for example the CA or RA may deploy automated tools to support the work of a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
 
 2.	**Validation of a digital identity document**
 
@@ -921,7 +932,7 @@ The CA or RA SHALL record information obtained from the digital identity documen
 
 The CA or RA registration agent MUST make a visual comparison of the physical appearance of the Applicant and the face photo and/or other information on the digital identity document.
 
-Automated and manual processes MAY be used in combination (for example using automated support for  a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
+Automated and manual processes MAY be used in combination, (for example using automated tools to support the work of a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
 
 3.	**Validation of digital signature with certificate** 
 
