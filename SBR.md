@@ -525,11 +525,11 @@ The CA SHALL make its Repository publicly available in a read-only manner.
 
 ### 3.1.1 Types of names
 
-When the commonName of Certificates issued to Individuals contains a real name, it is specified as `subject:givenName` and/or `subject:surname`.  
+When the `subject:commonName` of Certificates issued to Individuals contains a real name, it is specified as `subject:givenName` and/or `subject:surname`.  
 
-Where appropriate for national preference, it is permissible to display the commonName order for Individuals as `subject:surname` and `subject:givenName`.  Subjects with a single legal name SHALL be displayed in the `subject:surname` attribute.
+Where appropriate for national preference, it is permissible to display the `subject:commonName` order for Individuals as `subject:surname` and `subject:givenName`.  Subjects with a single legal name SHALL be displayed in the `subject:surname` attribute.
 
-Given name(s) and surname in the CN MUST be identical to the names as they appear in the identifying documentation or Enterprise RA records.  
+Names in the `subject:commonName` MUST be identical to the names as they appear in the identifying documentation or Enterprise RA records.  
 
 Names consisting of multiple words are permitted.  Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence. Given names joined with a hyphen are considered as one single given name. 
 
