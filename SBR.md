@@ -10,7 +10,6 @@ copyright: |
 ---
 
 # 1. INTRODUCTION
-
 **This is a pre-release draft of the S/MIME Baseline Requirements (SBR) and is undergoing active editing. Section numbering may be incorrect. This draft has not yet been balloted to become a CA/Browser Forum standard.**
 
 ## 1.1 Overview
@@ -522,11 +521,19 @@ The CA SHALL make its Repository publicly available in a read-only manner.
 
 ## 3.1 Naming
 
-No stipulation.
+ No stipulation.
 
 ### 3.1.1 Types of names
 
+The commonName of Certificates issued to Individuals which contain a real name are specified as `subject:givenName` and/or `subject:surname`.  Given name(s) and surname in the CN MUST be identical to the names as they appear in the identifying documentation or Enterprise RA records. 
+ 
+ Names consisting of multiple words are permitted.  Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence. Given names joined with a hyphen are considered as one single given name. 
 
+ Abbreviations or nicknames without substantiating identifying documentation SHALL NOT be used. 
+
+ Subjects with a single legal name are presented in the `subject:surname` attribute.
+
+Where appropriate for national preference, it is permissible to display the commonName order for Individuals as `subject:surname` and `subject:givenName`.
 
 ### 3.1.2 Need for names to be meaningful
 
