@@ -539,7 +539,7 @@ No stipulation.
 ### 3.1.4 Rules for interpreting various name forms
 
 In cases where names use special characters that are not supported by the character set used in the Certificate Subject, the CA MAY define substitution rules in its CP and/or CPS.  For example:
-• Accent characters are represented by their ASCII equivalent, e.g. é, è, à, or ç MAY be represented by e, e, a, or c.
+• Accent characters MAY be represented by their ASCII equivalent.  For example é, è, à, or ç MAY be represented by e, e, a, or c.
 • “Umlaut” accented characters ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u.
 
 ### 3.1.5 Uniqueness of names
