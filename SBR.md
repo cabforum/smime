@@ -896,7 +896,7 @@ When external registers are used, only official national or nationally approved 
 Examples of this method include:
 
 * If the Subject presents an ID featuring a name that has subsquently been changed, it MAY be complemented by inspection of an official document such as a marriage certificate or court order documenting the change.
-* If a professional title of a regulated profession in the`Subject:country` is to be used it SHALL be verified against a Regulated Professions Information Source.
+* If a professional title of a regulated profession in the`Subject:country` is to be used it SHALL be verified against a Regulated Professions Information Source as described in [Section 3.2.8.8](#3288-regulated-professions-information-source).
 
 6. **From a Verified Professional Letter** 
 
