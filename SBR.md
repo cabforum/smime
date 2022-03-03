@@ -877,9 +877,9 @@ Evidence for individual identity attributes can be additionally verified using a
 
 Only official national or nationally approved registers can be accepted. The CA MUST document and publish the accepted authorized reference sources.
 
-6. **From a Verified Professional Letter** 
+6. **From a verified legal opinion** 
 
-Evidence for individual identity attributes can be additionally verified using a Verified Professional Letter.
+Evidence for individual identity attributes MAY be verified using a Verified Legal Opinion.
 
 #### 3.2.4.2 Validation of individual identity
 
@@ -921,10 +921,10 @@ The CA or RA MUST validate the digital signature and SHALL only use the signing 
 
 If required identity attributes to be collected are not present in the Certificate, the CA or RA SHALL collect these attributes from other sources and validated.
 
-4.	**Validation of a verified professional letter**
+4.	**Validation of a verified legal opinion**
 
-TBD
-   
+If a Verified Legal Opinion is used as evidence for the validation of Individual identity attributes, then the reliability of the Verified Legal Opinion MUST be verified according to [Section 3.2.8.1](#3281-verified-legal-opinion).
+
 ### 3.2.5 Non-verified subscriber information
 
 Subscriber information that has not been verified in accordance with these Requirements SHALL NOT be included in Publicly-Trusted S/MIME Certificates.
@@ -1020,8 +1020,8 @@ Before relying on a source of verification data to validate Certificate Requests
 
    A.  **Status of Author**: The CA MUST verify that the legal opinion is authored by an independent legal practitioner retained by and representing the Applicant (or an in-house legal practitioner employed by the Applicant) (Legal Practitioner) who is either:
 
-       i. A lawyer (or solicitor, barrister, advocate, or equivalent) licensed to practice law in the country of the Applicant's Jurisdiction of Incorporation or Registration or any jurisdiction where the Applicant maintains an office or physical facility, or
-       ii. A Latin Notary who is currently commissioned or licensed to practice in the country of the Applicant's Jurisdiction of Incorporation or Registration or any jurisdiction where the Applicant maintains an office or physical facility (and that such jurisdiction recognizes the role of the Latin Notary);
+       i. A lawyer (or solicitor, barrister, advocate, or equivalent) licensed to practice law in the applicable jurisdiction. In the case where the Verified Legal Opinion is being used as evidence for the validation of Individual identity attributes as described in [Section 3.2.4.2](#3242-validation-of-individual-identity), the Legal Practitioner MUST be licensed in the jurisdiction where the Individual resides. In all other cases, the Legal Practitioner MUST be licensed in the country of the Applicant's Jurisdiction of Incorporation or Registration or any jurisdiction where the Applicant maintains an office or physical facility, or
+       ii. A Latin Notary who is currently commissioned or licensed to practice in the applicable jurisdiction and that jurisdiction recognizes the role of the Latin Notary. In the case where the Latin Notary is providing evidence for the validation of Individual identity attributes as described in [Section 3.2.4.2](#3242-validation-of-individual-identity), the Latin Notary MUST be licensed in the jurisdiction where the Individual resides. In all other cases, the Latin Notary MUST be licensed in country of the Applicant's Jurisdiction of Incorporation or Registration or any jurisdiction where the Applicant maintains an office or physical facility;
 
    B.  **Basis of Opinion**: The CA MUST verify that the Legal Practitioner is acting on behalf of the Applicant and that the conclusions of the Verified Legal Opinion are based on the Legal Practitioner's stated familiarity with the relevant facts and the exercise of the Legal Practitioner's professional judgment and expertise;
    C.  **Authenticity**: The CA MUST confirm the authenticity of the Verified Legal Opinion.
