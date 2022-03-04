@@ -448,7 +448,9 @@ FIPS 140-2, Federal Information Processing Standards Publication - Security Requ
 
 FIPS 186-4, Federal Information Processing Standards Publication - Digital Signature Standard (DSS), Information Technology Laboratory, National Institute of Standards and Technology, July 2013.
 
-ICAO DOC 9303, Machine Readable Travel Documents, Part 10L Logical Data Structure (LDS) for Storage of Biometrics and Other Data in the Contactless Integrated Circuit (IC), International Civil Aviation Organization, Eighth Edition, 2021.
+ICAO DOC 9303, Machine Readable Travel Documents, Part 10, Logical Data Structure (LDS) for Storage of Biometrics and Other Data in the Contactless Integrated Circuit (IC), International Civil Aviation Organization, Eighth Edition, 2021.
+
+ICAO DOC 9303, Machine Readable Travel Documents, Part 11, Security Mechanisms for MRTDs, International Civil Aviation Organization, Eighth Edition, 2021.
 
 ISO 21188:2006, Public key infrastructure for financial services -- Practices and policy framework.
 
@@ -916,14 +918,14 @@ Evidence for Individual identity attributes MAY be gathered using a Verified Leg
    
 Evidence for Individual identity attributes SHALL use at least one of the following sources for authoritative evidence:  a physical or digital identiy document, digital signature supported by certificate, Enterprise RA records, or a Verified Legal Opinion.
 
-The CA or RA MAY additionally gather and verify supplemantary evidence using authorized reference sources such as additional government documents, QGIS, GTIS, Regulated Professions Information Source, or national population registers.
-
-When external registers are used, only official national or nationally approved registers can be accepted. The CA MUST document and publish the accepted authorized reference sources.
+The CA or RA MAY additionally gather and verify supplemantary evidence using authorized reference sources such as additional official documents, QGIS, GTIS, Regulated Professions Information Source, or national population registers.
 
 Examples of this method include:
 
 * If the Subject presents an ID featuring an Applicant name that has subsquently been changed, the evidence MAY be complemented by inspection of an official document such as a marriage certificate or court order documenting the change.
 * If a professional title of a regulated profession in the`Subject:country` is to be used it SHALL be verified against a Regulated Professions Information Source as described in [Section 3.2.8.8](#3288-regulated-professions-information-source).
+
+When external registers are used, only official national or nationally approved registers can be accepted. The CA SHALL document and publish the accepted authorized registers and reference sources, including a list of the documents or attestations accepted as supplementary evidence of identity.
 
 #### 3.2.4.2 Validation of individual identity
 
@@ -949,7 +951,7 @@ Automated and manual processes MAY be used in combination, (for example the CA o
 
 2.	**Validation of a digital identity document**
 
-The CA or RA SHALL only accept digital identity documents if the issuer's digital signature on the document is successfully validated.
+The CA or RA SHALL only accept digital identity documents if the issuer's digital signature on the document is successfully validated according to ICAO 9303 part 11.
 
 The CA or RA SHALL record information obtained from the digital identity document to evidence the identity proofing process. In addition to identity attributes and face photo, the following information SHALL be recorded: issuer, validity period, and the document's unique identification number.
 
