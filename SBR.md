@@ -433,9 +433,11 @@ The script outputs:
 
 ETSI TS 119 461, Electronic Signatures and Infrastructures (ESI);. Policy and security requirements for trust service components.
 
-ETSI EN 319 403, Electronic Signatures and Infrastructures (ESI); Trust Service Provider Conformity Assessment - Requirements for conformity assessment bodies assessing Trust Service Providers
+ETSI EN 319 403, Electronic Signatures and Infrastructures (ESI); Trust Service Provider Conformity Assessment - Requirements for conformity assessment bodies assessing Trust Service Providers.
 
-ETSI EN 319 411-1, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 1: General requirements
+ETSI EN 319 411-1, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 1: General requirements.
+
+ETSI EN 319 412-5, Electronic Signatures and Infrastructures (ESI);. Certificate Profiles; Part 5: QCStatements.
 
 FIPS 140-2, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, May 25, 2001.
 
@@ -1483,9 +1485,9 @@ The CA SHOULD monitor the OCSP responder for requests for "unused" serial number
 A Certificate serial number within an OCSP request is one of the following three options:
 
 1. "assigned" if a Certificate with that serial number has been issued by the Issuing CA, using any current or previous key associated with that CA subject; or
-2. "reserved" if a Precertificate [RFC6962] with that serial number has been issued by 
+2. "reserved" if a Precertificate with that serial number has been issued by 
    i. the Issuing CA; or 
-   ii. a Precertificate Signing Certificate [RFC6962] associated with the Issuing CA; or
+   ii. a Precertificate Signing Certificate associated with the Issuing CA; or
 3. "unused" if neither of the previous conditions are met.
 
 ### 4.9.11 Other forms of revocation advertisements available
@@ -2082,13 +2084,13 @@ f. `nameConstraints` (MAY be present)
 
 g. `extKeyUsage` (MAY be present for Cross Certificates; MUST be present otherwise)
 
-   For Cross Certificates that share a Subject Distinguished Name and Subject Public Key with a Root CA Certificate operated in accordance with these Requirements, this extension MAY be present. If present, this extension SHOULD NOT be marked critical. This extension MUST only contain usages for which the Issuing CA has verified the Cross Certificate is authorized to assert. This extension MUST NOT contain the `anyExtendedKeyUsage` [RFC5280] usage.
+   For Cross Certificates that share a Subject Distinguished Name and Subject Public Key with a Root CA Certificate operated in accordance with these Requirements, this extension MAY be present. If present, this extension SHOULD NOT be marked critical. This extension MUST only contain usages for which the Issuing CA has verified the Cross Certificate is authorized to assert. This extension MUST NOT contain the `anyExtendedKeyUsage` usage.
 
    For all other Subordinate CA Certificates, including Technically Constrained Subordinate CA Certificates:
 
    This extension MUST be present and SHOULD NOT be marked critical[^**].
 
-   For Subordinate CA Certificates that will be used to issue S/MIME Certificates, the value `id-kp-emailProtection` [RFC5280] MUST be present. The values `id-kp-serverAuth` [RFC5280], `id-kp-codeSigning` [RFC5280], `id-kp-timeStamping` [RFC5280], and `anyExtendedKeyUsage` [RFC5280] MUST NOT be present. Other values MAY be present.
+   For Subordinate CA Certificates that will be used to issue S/MIME Certificates, the value `id-kp-emailProtection` MUST be present. The values `id-kp-serverAuth`, `id-kp-codeSigning`, `id-kp-timeStamping`, and `anyExtendedKeyUsage` MUST NOT be present. Other values MAY be present.
 
 [^**]: While RFC 5280, Section 4.2.1.12, notes that this extension will generally only appear within end-entity Certificates, these Requirements make use of this extension to further protect relying parties by limiting the scope of Subordinate Certificates, as implemented by a number of Application Software Suppliers.
 
@@ -2133,8 +2135,8 @@ f. `extKeyUsage` (MUST be present)
 
    | Generation | `extendedKeyUsage`      | 
    |------|-----------------------|
-   | Strict | `id-kp-emailProtection` [RFC5280] MUST be present. Other values MUST NOT be present. |
-  | Multipurpose and Legacy |`id-kp-emailProtection` [RFC5280] MUST be present. Other values MAY be present. |
+   | Strict | `id-kp-emailProtection` MUST be present. Other values MUST NOT be present. |
+  | Multipurpose and Legacy |`id-kp-emailProtection` MUST be present. Other values MAY be present. |
 
    The value `anyExtendedKeyUsage` MUST NOT be present.
 
