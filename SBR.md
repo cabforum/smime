@@ -10,7 +10,6 @@ copyright: |
 ---
 
 # 1. INTRODUCTION
-
 **This is a pre-release draft of the S/MIME Baseline Requirements (SBR) and is undergoing active editing. Section numbering may be incorrect. This draft has not yet been balloted to become a CA/Browser Forum standard.**
 
 ## 1.1 Overview
@@ -432,6 +431,8 @@ The script outputs:
 
 ###  1.6.3 References
 
+ETSI TS 119 461, Electronic Signatures and Infrastructures (ESI);. Policy and security requirements for trust service components.
+
 ETSI EN 319 403, Electronic Signatures and Infrastructures (ESI); Trust Service Provider Conformity Assessment - Requirements for conformity assessment bodies assessing Trust Service Providers
 
 ETSI EN 319 411-1, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 1: General requirements
@@ -446,43 +447,53 @@ Network and Certificate System Security Requirements, v.1.0, 1/1/2013.
 
 NIST SP 800-89, Recommendation for Obtaining Assurances for Digital Signature Applications.
 
-RFC2119, Request for Comments: 2119, Key words for use in RFCs to Indicate Requirement Levels, Bradner, March 1997.
+RFC 2119, Request for Comments: 2119, Key words for use in RFCs to Indicate Requirement Levels, Bradner, March 1997.
 
-RFC2527, Request for Comments: 2527, Internet X.509 Public Key Infrastructure: Certificate Policy and Certification Practices Framework, Chokhani, et al, March 1999.
+RFC 2527, Request for Comments: 2527, Internet X.509 Public Key Infrastructure: Certificate Policy and Certification Practices Framework, Chokhani, et al, March 1999.
 
-RFC3492, Request for Comments: 3492, Punycode: A Bootstring encoding of Unicode for Internationalized Domain Names in Applications (IDNA). A. Costello. March 2003.
+RFC 3492, Request for Comments: 3492, Punycode: A Bootstring encoding of Unicode for Internationalized Domain Names in Applications (IDNA). A. Costello. March 2003.
 
-RFC3647, Request for Comments: 3647, Internet X.509 Public Key Infrastructure: Certificate Policy and Certification Practices Framework, Chokhani, et al, November 2003.
+RFC 3647, Request for Comments: 3647, Internet X.509 Public Key Infrastructure: Certificate Policy and Certification Practices Framework, Chokhani, et al, November 2003.
 
-RFC3912, Request for Comments: 3912, WHOIS Protocol Specification, Daigle, September 2004.
+RFC 3739, Request for Comments: 3739, Internet X.509 Public Key Infrastructure: Qualified Certificates Profile, S. Santesson, et al, March 2004.
 
-RFC3986, Request for Comments: 3986, Uniform Resource Identifier (URI): Generic Syntax. T. Berners-Lee, et al. January 2005.
+RFC 3912, Request for Comments: 3912, WHOIS Protocol Specification, Daigle, September 2004.
 
-RFC4366, Request for Comments: 4366, Transport Layer Security (TLS) Extensions, Blake-Wilson, et al, April 2006.
+RFC 3986, Request for Comments: 3986, Uniform Resource Identifier (URI): Generic Syntax. T. Berners-Lee, et al. January 2005.
 
-RFC5019, Request for Comments: 5019, The Lightweight Online Certificate Status Protocol (OCSP) Profile for High-Volume Environments, A. Deacon, et al, September 2007.
+RFC 3966, Request for Comments: 3966, The tel URI for Telephone Numbers. H. Schulzrinne. December 2004.
 
-RFC5280, Request for Comments: 5280, Internet X.509 Public Key Infrastructure: Certificate and Certificate Revocation List (CRL) Profile, Cooper et al, May 2008.
+RFC 4262, Request for Comments: 4262, X.509 Certificate Extension for Secure/Multipurpose Internet Mail Extensions (S/MIME) Capabilities, S. Santesson, December 2005.
 
-RFC5321, Request for Comments: 5321, Simple Mail Transfer Protocol, J. Klensin, October 2008.
+RFC 4366, Request for Comments: 4366, Transport Layer Security (TLS) Extensions, Blake-Wilson, et al, April 2006.
 
-RFC5890, Request for Comments: 5890, Internationalized Domain Names for Applications (IDNA): Definitions and Document Framework. J. Klensin. August 2010.
+RFC 5019, Request for Comments: 5019, The Lightweight Online Certificate Status Protocol (OCSP) Profile for High-Volume Environments, A. Deacon, et al, September 2007.
 
-RFC5952, Request for Comments: 5952, A Recommendation for IPv6 Address Text Representation. S. Kawamura, et al. August 2010.
+RFC 5280, Request for Comments: 5280, Internet X.509 Public Key Infrastructure: Certificate and Certificate Revocation List (CRL) Profile, Cooper et al, May 2008.
 
-RFC8659, Request for Comments: 8659, DNS Certification Authority Authorization (CAA) Resource Record, Hallam-Baker, Stradling, Hoffman-Andrews, November 2019.
+RFC 5890, Request for Comments: 5890, Internationalized Domain Names for Applications (IDNA): Definitions and Document Framework. J. Klensin. August 2010.
 
-RFC6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP. Santesson, Myers, Ankney, Malpani, Galperin, Adams, June 2013.
+RFC 5952, Request for Comments: 5952, A Recommendation for IPv6 Address Text Representation. S. Kawamura, et al. August 2010.
 
-RFC6962, Request for Comments: 6962, Certificate Transparency. B. Laurie, A. Langley, E. Kasper. June 2013.
+RFC 6532. Request for Comments: 6532, Internationalized Email Headers, A. Yang, et al, February 2012.
 
-RFC7231, Request For Comments: 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content, R. Fielding, J. Reschke. June 2014.
+RFC 6818. Updates to the Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile, January 2013.
 
-RFC7538, Request For Comments: 7538, The Hypertext Transfer Protocol Status Code 308 (Permanent Redirect), J. Reschke. April 2015.
+RFC 6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP. Santesson, Myers, Ankney, Malpani, Galperin, Adams, June 2013.
 
-RFC7482, Request for Comments: 7482, Registration Data Access Protocol (RDAP) Query Format, Newton, et al, March 2015.
+RFC 6962, Request for Comments: 6962, Certificate Transparency. B. Laurie, A. Langley, E. Kasper. June 2013.
 
-RFC8499, Request for Comments: 8499, DNS Terminology. P. Hoffman, et al. January 2019.
+RFC 7231, Request For Comments: 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content, R. Fielding, J. Reschke. June 2014.
+
+RFC 7538, Request For Comments: 7538, The Hypertext Transfer Protocol Status Code 308 (Permanent Redirect), J. Reschke. April 2015.
+
+RFC 7482, Request for Comments: 7482, Registration Data Access Protocol (RDAP) Query Format, Newton, et al, March 2015.
+
+RFC 8398, Request for Comments: 8398, Internationalized Email Addresses in X.509 Certificates, MAY 2018. A. Melnikov, et al. May 2018.
+
+RFC 8499, Request for Comments: 8499, DNS Terminology. P. Hoffman, et al. January 2019.
+
+RFC 8659, Request for Comments: 8659, DNS Certification Authority Authorization (CAA) Resource Record, Hallam-Baker, Stradling, Hoffman-Andrews, November 2019.
 
 WebTrust for Certification Authorities.
 
@@ -522,11 +533,19 @@ The CA SHALL make its Repository publicly available in a read-only manner.
 
 ## 3.1 Naming
 
-No stipulation.
+ No stipulation.
 
 ### 3.1.1 Types of names
 
-No stipulation.
+When the `subject:commonName` of Certificates issued to Individuals contains a real name, it is specified as `subject:givenName` and/or `subject:surname`.  
+
+Where appropriate for national preference, it is permissible to display the `subject:commonName` order for Individuals as `subject:surname` and `subject:givenName`.  Subjects with a single legal name SHALL be displayed in the `subject:surname` attribute.
+
+Names in the `subject:commonName` MUST be identical to the names as they appear in the identifying documentation or Enterprise RA records.  
+
+Names consisting of multiple words are permitted.  Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence. Given names joined with a hyphen are considered as one single given name. 
+
+Abbreviations or nicknames without substantiating identifying documentation SHALL NOT be used. 
 
 ### 3.1.2 Need for names to be meaningful
 
@@ -538,7 +557,10 @@ No stipulation.
 
 ### 3.1.4 Rules for interpreting various name forms
 
-No stipulation.
+In cases where names use special characters that are not supported by the character set used in the Certificate Subject, the CA SHOULD define substitution rules in its CP and/or CPS.  For example:
+
+*  Accent characters MAY be represented by their ASCII equivalent.  For example é, è, à, or ç MAY be represented by e, e, a, or c.
+*  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u.
 
 ### 3.1.5 Uniqueness of names
 
@@ -842,40 +864,51 @@ The following requirements MUST be fulfilled to authenticate Individual identity
 
 The CA or RA MUST collect evidence supporting the following identity attributes for the Individual Applicant:
 
-1. Given name(s) and surname(s), which should be current names;
+1. Given name(s) and surname(s), which SHOULD be current names;
 2. Pseudonym (if used); 
 3. Address (if displayed in Subject); and
 4. Further information as needed to uniquely identify the Applicant.
 
 #### 3.2.4.1 Attribute collection of individual identity
 
-The CA MUST document and publish the means used to collect Individual identity attributes.
+The CA MUST document and publish the methods it uses to collect Individual identity attributes.
 
 1.	**From a physical identity document** 
 
-If physical identity documents are used as evidence, the CA or RA SHALL accept only government-issued passports or identity cards, and other official identity documents of comparable reliability (such as drivers license or military ID). The CA MUST document and publish the accepted identity documents or document types.
+If physical identity documents are used as evidence, the CA or RA SHALL accept only government-issued passports or identity cards, and other official identity documents of comparable reliability (such as drivers license or military ID). 
 
-The document used as evidence MUST contain a face photo and/or other information that can be compared with the Applicant's physical appearance.
+The physical identity document used as evidence MUST contain a face photo and/or other information that can be compared with the Applicant's physical appearance.
+
+The CA MUST document and publish information describing the physical or digital identity documents or document types it accepts.
 
 2.	**From a digital identity document** 
 
-If digital identity documents are used as evidence the CA or RA SHALL only accept eMRTD digital identity documents according to ICAO 9303 part 10.
+If digital identity documents (such as passports or national ID cards including a chip bearing digitally signed information about the holder) are used as evidence, the CA or RA SHALL only accept eMRTD digital identity documents according to ICAO 9303 part 10.
+
+This method does not include "eID" as decsribed in Regulation (EU) 910/2014.
 
 3.	**From a certificate supporting a digital signature applied by the Applicant** 
 
-If a digital signature is to be used as evidence, the CA MUST have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: eIDAS Qualified Certificates validated according to ETSI TS 119 172-4, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+If a digital signature is to be used as evidence, the CA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: eIDAS Qualified Certificates validated according to ETSI TS 119 172-4, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
 
-The CA SHOULD consider requirements to avoid issuance of a consecutive Certificates that are issued based on a preceding Certificate, where the original verification of the Subject may have been conducted in the distant past.
+The CA SHOULD consider requirements to avoid issuance of a consecutive Certificates that are issued based on a preceding Certificate, where the original verification of the Subject's identity may have been conducted in the distant past.
 
 4.	**From Enterprise RA records** 
 
-In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, records maintained by the Enterprise RA SHALL be accepted as evidence of individual identity. The Enterprise RA MUST maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca)
+In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, records maintained by the Enterprise RA SHALL be accepted as evidence of Individual identity. 
+
+The Enterprise RA MUST maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca).
 
 1. **From authorized reference sources as supplementary evidence** 
    
-Evidence for individual identity attributes can be additionally verified using authorized reference sources such QGIS, GTIS, Regulated Professions Information Source, or national population registers.
+Evidence for Individual identity attributes can be additionally verified using authorized reference sources such as additional government documents, QGIS, GTIS, Regulated Professions Information Source, or national population registers.
 
-Only official national or nationally approved registers can be accepted. The CA MUST document and publish the accepted authorized reference sources.
+When external registers are used, only official national or nationally approved registers can be accepted. The CA MUST document and publish the accepted authorized reference sources.
+
+Examples of this method include:
+
+* If the Subject presents an ID featuring an Applicant name that has subsquently been changed, the evidence MAY be complemented by inspection of an official document such as a marriage certificate or court order documenting the change.
+* If a professional title of a regulated profession in the`Subject:country` is to be used it SHALL be verified against a Regulated Professions Information Source as described in [Section 3.2.8.8](#3288-regulated-professions-information-source).
 
 6. **From a verified legal opinion** 
 
@@ -885,9 +918,9 @@ Evidence for individual identity attributes MAY be verified using a Verified Leg
 
 The CA or RA SHALL validate all identity attributes of the Individual to be included in the Certificate.
 
-If the evidence has an explicit validity period, the CA MUST verify that the time of the identity validation is within this validity period. In context this can include the `validFrom` and `validTo` attributes of a digital signature Certificate or date of expiry of an identity document.
+If the evidence has an explicit validity period, the CA SHALL verify that the time of the identity validation is within this validity period. In context this can include the `validFrom` and `validTo` attributes of a digital signature Certificate or the date of expiry of an identity document.
 
-Existing evidence can be re-used to validate the identity if the evidence remains valid at the subsequent validation event.
+The CA or RA MAY reuse existing evidence to validate the identity if the evidence remains valid at the subsequent validation event, subject to the age restrictions in [Section 4.2.1](#421-performing-identification-and-authentication-functions).
 
 1.	**Validation of a physical identity document** 
 
@@ -901,7 +934,7 @@ The CA or RA registration agent SHALL have access to authoritative sources of in
 
 The CA or RA MUST retain information sufficient to evidence the fulfilment of the identity validation process and the verified attributes.  In addition to identity attributes, the CA or RA SHALL record the following information: issuer, validity period, and the document's unique identification number.
 
-Automated and manual processes MAY be used in combination (for example using automated support for  a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
+Automated and manual processes MAY be used in combination, (for example the CA or RA may deploy automated tools to support the work of a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
 
 2.	**Validation of a digital identity document**
 
@@ -911,7 +944,7 @@ The CA or RA SHALL record information obtained from the digital identity documen
 
 The CA or RA registration agent MUST make a visual comparison of the physical appearance of the Applicant and the face photo and/or other information on the digital identity document.
 
-Automated and manual processes MAY be used in combination (for example using automated support for  a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
+Automated and manual processes MAY be used in combination, (for example using automated tools to support the work of a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
 
 3.	**Validation of digital signature with certificate** 
 
@@ -1061,7 +1094,7 @@ Before relying on a source of verification data to validate Certificate Requests
 2. **Acceptable Methods of Verification**: Acceptable methods of establishing the foregoing requirements for vetting documents are:
 
    A.  **Qualification of Third-Party Validator**: The CA MUST verify the professional status of the Third-Party Validator by directly contacting the authority responsible for registering or licensing such Third-Party Validators in the applicable jurisdiction;
-   B.  **Document Chain of Custody**: The Third-Party Validator MUST submit a statement to the CA which attests that they obtained the Vetting Documents submitted to the CA for the individual during a face-to-face meeting with the individual;
+   B.  **Document Chain of Custody**: The Third-Party Validator MUST submit a statement to the CA which attests that they obtained the Vetting Documents submitted to the CA for the Individual during a face-to-face meeting with the Individual;
    C.  **Verification of Attestation**: If the Third-Party Validator is not a Latin Notary, then the CA MUST confirm the authenticity of the vetting documents received from the Third-Party Validator.  The CA MUST make a telephone call to the Third-Party Validator and obtain confirmation from them or their assistant that they performed the face-to-face validation.  The CA MAY rely upon self-reported information obtained from the Third-Party Validator for the sole purpose of performing this verification process.  In circumstances where the attestation is digitally signed, in a manner that confirms the authenticity of the documents, and the identity of the signer as verified by the CA in [Section 3.2.8.3](#3283-face-to-face-validation) (1)(A), no further verification of authenticity is required.
 
 ### 3.2.8.4 Independent confirmation From applicant
@@ -1080,7 +1113,7 @@ An Independent Confirmation from the Applicant MAY be obtained via the following
 
        i. A position within the Applicant's organization that qualifies as a Confirming Person (e.g., Secretary, President, CEO, CFO, COO, CIO, CSO, Director, etc.) and is identified by name and title in a current QGIS, QIIS, QTIS, Verified Legal Opinion, Verified Accountant Letter, or by contacting the Applicant using a Verified Method of Communication; or
        ii. The Applicant's Registered Agent or Registered Office in the Jurisdiction of Incorporation as listed in the official records of the Incorporating Agency, with instructions that it be forwarded to an appropriate Confirming Person; or
-       iii. A named individual verified to be in the direct line of management above the Contract Signer or Certificate Approver by contacting the Applicant's Human Resources Department by phone or mail (at the phone number or address for the Applicant's Place of Business, verified in accordance with these Guidelines).
+       iii. A named Individual verified to be in the direct line of management above the Contract Signer or Certificate Approver by contacting the Applicant's Human Resources Department by phone or mail (at the phone number or address for the Applicant's Place of Business, verified in accordance with these Guidelines).
 
    B.  **Means of Communication**: The Confirmation Request MUST be directed to the Confirming Person in a manner reasonably likely to reach such person.  The following options are acceptable:
 
@@ -1188,7 +1221,7 @@ The CA MAY reuse completed validations and/or supporting evidence performed in a
  
       Validation of authority in in accordance with [Section 3.2.6](#326-validation-of-authority) MUST be obtained no more than 398 days prior to issuing the Certificate, unless a contract between the CA and the Applicant specifies a different term. For example, the contract MAY include the perpetual assignment of roles until revoked by the Applicant or CA, or until the contract expires or is terminated.
 
-3.  **Authentication of individual identity**: Completed validation of individual identity in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) MUST be obtained no more than 825 days prior to issuing the Certificate. 
+3.  **Authentication of individual identity**: Completed validation of Individual identity in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) MUST be obtained no more than 825 days prior to issuing the Certificate. 
 
 A prior validation SHALL NOT be reused if any data or document used in the prior validation was obtained more than the maximum time permitted for reuse of the data or document prior to issuing the Certificate.
 
