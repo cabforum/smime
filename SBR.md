@@ -409,17 +409,18 @@ The script outputs:
 |Acronym   |Meaning                                                            |
 |----------|-------------------------------------------------------------------|
 |AICPA	   |American Institute of Certified Public Accountants |
-|CA	       |Certification Authority |
+|CA	   |Certification Authority |
 |CAA	   |Certification Authority Authorization |
 |CICA	   |Canadian Institute of Chartered Accountants |
-|CP	       |Certificate Policy |
+|CP	   |Certificate Policy |
 |CPS	   |Certification Practice Statement |
 |CRL	   |Certificate Revocation List|
 |DBA	   |Doing Business As |
 |DNS	   |Domain Name System |
 |FIPS	   |(US Government) Federal Information Processing Standard|
 |IANA	   |Internet Assigned Numbers Authority |
-|ICANN	   |Internet Corporation for Assigned Names and Numbers|
+|ICANN	|Internet Corporation for Assigned Names and Numbers|
+|ICAO	   |International Civil Aviation Organization |
 |ISO	   |International Organization for Standardization |
 |NIST	   |(US Government) National Institute of Standards and Technology
 |OCSP	   |Online Certificate Status Protocol|
@@ -442,6 +443,8 @@ ETSI EN 319 412-5, Electronic Signatures and Infrastructures (ESI);. Certificate
 FIPS 140-2, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, May 25, 2001.
 
 FIPS 186-4, Federal Information Processing Standards Publication - Digital Signature Standard (DSS), Information Technology Laboratory, National Institute of Standards and Technology, July 2013.
+
+ICAO DOC 9303, Machine Readable Travel Documents, Part 10L Logical Data Structure (LDS) for Storage of Biometrics and Other Data in the Contactless Integrated Circuit (IC), International Civil Aviation Organization, Eighth Edition, 2021.
 
 ISO 21188:2006, Public key infrastructure for financial services -- Practices and policy framework.
 
@@ -887,7 +890,7 @@ The CA MUST document and publish information describing the physical or digital 
 
 If digital identity documents (such as passports or national ID cards including a chip bearing digitally signed information about the holder) are used as evidence, the CA or RA SHALL only accept eMRTD digital identity documents according to ICAO 9303 part 10.
 
-This method does not include "eID" as decsribed in Regulation (EU) 910/2014.
+This method does not include "eID" as described in Regulation (EU) 910/2014.
 
 3.	**From a certificate supporting a digital signature applied by the Applicant** 
 
@@ -901,9 +904,15 @@ In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, re
 
 The Enterprise RA MUST maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca).
 
-1. **From authorized reference sources as supplementary evidence** 
+5. **From a verified legal opinion** 
+
+Evidence for Individual identity attributes MAY be gathered using a Verified Legal Opinion.
+
+6. **From authorized reference sources as supplementary evidence** 
    
-Evidence for Individual identity attributes can be additionally verified using authorized reference sources such as additional government documents, QGIS, GTIS, Regulated Professions Information Source, or national population registers.
+Evidence for Individual identity attributes SHALL use at least one of the following sources for authoritative evidence:  a physical or digital identiy document, digital signature supported by certificate, Enterprise RA records, or a Verified Legal Opinion.
+
+The CA or RA MAY additionally gather and verify supplemantary evidence using authorized reference sources such as additional government documents, QGIS, GTIS, Regulated Professions Information Source, or national population registers.
 
 When external registers are used, only official national or nationally approved registers can be accepted. The CA MUST document and publish the accepted authorized reference sources.
 
@@ -911,10 +920,6 @@ Examples of this method include:
 
 * If the Subject presents an ID featuring an Applicant name that has subsquently been changed, the evidence MAY be complemented by inspection of an official document such as a marriage certificate or court order documenting the change.
 * If a professional title of a regulated profession in the`Subject:country` is to be used it SHALL be verified against a Regulated Professions Information Source as described in [Section 3.2.8.8](#3288-regulated-professions-information-source).
-
-6. **From a verified legal opinion** 
-
-Evidence for individual identity attributes MAY be verified using a Verified Legal Opinion.
 
 #### 3.2.4.2 Validation of individual identity
 
