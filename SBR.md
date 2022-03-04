@@ -409,17 +409,18 @@ The script outputs:
 |Acronym   |Meaning                                                            |
 |----------|-------------------------------------------------------------------|
 |AICPA	   |American Institute of Certified Public Accountants |
-|CA	       |Certification Authority |
+|CA	   |Certification Authority |
 |CAA	   |Certification Authority Authorization |
 |CICA	   |Canadian Institute of Chartered Accountants |
-|CP	       |Certificate Policy |
+|CP	   |Certificate Policy |
 |CPS	   |Certification Practice Statement |
 |CRL	   |Certificate Revocation List|
 |DBA	   |Doing Business As |
 |DNS	   |Domain Name System |
 |FIPS	   |(US Government) Federal Information Processing Standard|
 |IANA	   |Internet Assigned Numbers Authority |
-|ICANN	   |Internet Corporation for Assigned Names and Numbers|
+|ICANN	|Internet Corporation for Assigned Names and Numbers|
+|ICAO	   |International Civil Aviation Organization |
 |ISO	   |International Organization for Standardization |
 |NIST	   |(US Government) National Institute of Standards and Technology
 |OCSP	   |Online Certificate Status Protocol|
@@ -433,13 +434,23 @@ The script outputs:
 
 ETSI TS 119 461, Electronic Signatures and Infrastructures (ESI);. Policy and security requirements for trust service components.
 
-ETSI EN 319 403, Electronic Signatures and Infrastructures (ESI); Trust Service Provider Conformity Assessment - Requirements for conformity assessment bodies assessing Trust Service Providers
+ETSI EN 319 403, Electronic Signatures and Infrastructures (ESI); Trust Service Provider Conformity Assessment - Requirements for conformity assessment bodies assessing Trust Service Providers.
 
-ETSI EN 319 411-1, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 1: General requirements
+ETSI EN 319 411-1, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 1: General requirements.
+
+ETSI EN 319 411-2, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 2: Requirements for trust service providers issuing EU qualified certificates.
+
+ETSI EN 319 412-5, Electronic Signatures and Infrastructures (ESI);. Certificate Profiles; Part 5: QCStatements.
+
+ETSI TS 119 172-4, Electronic Signatures and Infrastructures (ESI);. Signature Policies;. Part 4: Signature applicability rules.
 
 FIPS 140-2, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, May 25, 2001.
 
 FIPS 186-4, Federal Information Processing Standards Publication - Digital Signature Standard (DSS), Information Technology Laboratory, National Institute of Standards and Technology, July 2013.
+
+ICAO DOC 9303, Machine Readable Travel Documents, Part 10, Logical Data Structure (LDS) for Storage of Biometrics and Other Data in the Contactless Integrated Circuit (IC), International Civil Aviation Organization, Eighth Edition, 2021.
+
+ICAO DOC 9303, Machine Readable Travel Documents, Part 11, Security Mechanisms for MRTDs, International Civil Aviation Organization, Eighth Edition, 2021.
 
 ISO 21188:2006, Public key infrastructure for financial services -- Practices and policy framework.
 
@@ -885,11 +896,11 @@ The CA MUST document and publish information describing the physical or digital 
 
 If digital identity documents (such as passports or national ID cards including a chip bearing digitally signed information about the holder) are used as evidence, the CA or RA SHALL only accept eMRTD digital identity documents according to ICAO 9303 part 10.
 
-This method does not include "eID" as decsribed in Regulation (EU) 910/2014.
+This method does not include "eID" as described in Regulation (EU) 910/2014.
 
 3.	**From a certificate supporting a digital signature applied by the Applicant** 
 
-If a digital signature is to be used as evidence, the CA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: eIDAS Qualified Certificates validated according to ETSI TS 119 172-4, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+If a digital signature is to be used as evidence, the CA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: eIDAS Qualified Certificates as defined in ETSI EN 319 411-2 and validated according to ETSI TS 119 172-4, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
 
 The CA SHOULD consider requirements to avoid issuance of a consecutive Certificates that are issued based on a preceding Certificate, where the original verification of the Subject's identity may have been conducted in the distant past.
 
@@ -899,20 +910,22 @@ In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, re
 
 The Enterprise RA MUST maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca).
 
-1. **From authorized reference sources as supplementary evidence** 
-   
-Evidence for Individual identity attributes can be additionally verified using authorized reference sources such as additional government documents, QGIS, GTIS, Regulated Professions Information Source, or national population registers.
+5. **From a verified legal opinion** 
 
-When external registers are used, only official national or nationally approved registers can be accepted. The CA MUST document and publish the accepted authorized reference sources.
+Evidence for Individual identity attributes MAY be gathered using a Verified Legal Opinion.
+
+6. **From authorized reference sources as supplementary evidence** 
+   
+Evidence for Individual identity attributes SHALL use at least one of the following sources for authoritative evidence:  a physical or digital identiy document, digital signature supported by certificate, Enterprise RA records, or a Verified Legal Opinion.
+
+The CA or RA MAY additionally gather and verify supplemantary evidence using authorized reference sources such as additional official documents, QGIS, GTIS, Regulated Professions Information Source, or national population registers.
 
 Examples of this method include:
 
 * If the Subject presents an ID featuring an Applicant name that has subsquently been changed, the evidence MAY be complemented by inspection of an official document such as a marriage certificate or court order documenting the change.
 * If a professional title of a regulated profession in the`Subject:country` is to be used it SHALL be verified against a Regulated Professions Information Source as described in [Section 3.2.8.8](#3288-regulated-professions-information-source).
 
-6. **From a verified legal opinion** 
-
-Evidence for individual identity attributes MAY be verified using a Verified Legal Opinion.
+When external registers are used, only official national or nationally approved registers can be accepted. The CA SHALL document and publish the accepted authorized registers and reference sources, including a list of the documents or attestations accepted as supplementary evidence of identity.
 
 #### 3.2.4.2 Validation of individual identity
 
@@ -938,7 +951,7 @@ Automated and manual processes MAY be used in combination, (for example the CA o
 
 2.	**Validation of a digital identity document**
 
-The CA or RA SHALL only accept digital identity documents if the issuer's digital signature on the document is successfully validated.
+The CA or RA SHALL only accept digital identity documents if the issuer's digital signature on the document is successfully validated according to ICAO 9303 part 11.
 
 The CA or RA SHALL record information obtained from the digital identity document to evidence the identity proofing process. In addition to identity attributes and face photo, the following information SHALL be recorded: issuer, validity period, and the document's unique identification number.
 
@@ -1483,9 +1496,9 @@ The CA SHOULD monitor the OCSP responder for requests for "unused" serial number
 A Certificate serial number within an OCSP request is one of the following three options:
 
 1. "assigned" if a Certificate with that serial number has been issued by the Issuing CA, using any current or previous key associated with that CA subject; or
-2. "reserved" if a Precertificate [RFC6962] with that serial number has been issued by 
+2. "reserved" if a Precertificate with that serial number has been issued by 
    i. the Issuing CA; or 
-   ii. a Precertificate Signing Certificate [RFC6962] associated with the Issuing CA; or
+   ii. a Precertificate Signing Certificate associated with the Issuing CA; or
 3. "unused" if neither of the previous conditions are met.
 
 ### 4.9.11 Other forms of revocation advertisements available
@@ -2082,13 +2095,13 @@ f. `nameConstraints` (MAY be present)
 
 g. `extKeyUsage` (MAY be present for Cross Certificates; MUST be present otherwise)
 
-   For Cross Certificates that share a Subject Distinguished Name and Subject Public Key with a Root CA Certificate operated in accordance with these Requirements, this extension MAY be present. If present, this extension SHOULD NOT be marked critical. This extension MUST only contain usages for which the Issuing CA has verified the Cross Certificate is authorized to assert. This extension MUST NOT contain the `anyExtendedKeyUsage` [RFC5280] usage.
+   For Cross Certificates that share a Subject Distinguished Name and Subject Public Key with a Root CA Certificate operated in accordance with these Requirements, this extension MAY be present. If present, this extension SHOULD NOT be marked critical. This extension MUST only contain usages for which the Issuing CA has verified the Cross Certificate is authorized to assert. This extension MUST NOT contain the `anyExtendedKeyUsage` usage.
 
    For all other Subordinate CA Certificates, including Technically Constrained Subordinate CA Certificates:
 
    This extension MUST be present and SHOULD NOT be marked critical[^**].
 
-   For Subordinate CA Certificates that will be used to issue S/MIME Certificates, the value `id-kp-emailProtection` [RFC5280] MUST be present. The values `id-kp-serverAuth` [RFC5280], `id-kp-codeSigning` [RFC5280], `id-kp-timeStamping` [RFC5280], and `anyExtendedKeyUsage` [RFC5280] MUST NOT be present. Other values MAY be present.
+   For Subordinate CA Certificates that will be used to issue S/MIME Certificates, the value `id-kp-emailProtection` MUST be present. The values `id-kp-serverAuth`, `id-kp-codeSigning`, `id-kp-timeStamping`, and `anyExtendedKeyUsage` MUST NOT be present. Other values MAY be present.
 
 [^**]: While RFC 5280, Section 4.2.1.12, notes that this extension will generally only appear within end-entity Certificates, these Requirements make use of this extension to further protect relying parties by limiting the scope of Subordinate Certificates, as implemented by a number of Application Software Suppliers.
 
@@ -2133,8 +2146,8 @@ f. `extKeyUsage` (MUST be present)
 
    | Generation | `extendedKeyUsage`      | 
    |------|-----------------------|
-   | Strict | `id-kp-emailProtection` [RFC5280] MUST be present. Other values MUST NOT be present. |
-  | Multipurpose and Legacy |`id-kp-emailProtection` [RFC5280] MUST be present. Other values MAY be present. |
+   | Strict | `id-kp-emailProtection` MUST be present. Other values MUST NOT be present. |
+  | Multipurpose and Legacy |`id-kp-emailProtection` MUST be present. Other values MAY be present. |
 
    The value `anyExtendedKeyUsage` MUST NOT be present.
 
@@ -2847,14 +2860,13 @@ The Certificate Warranties specifically include, but are not limited to, the fol
    i. implemented a procedure for verifying the accuracy of all of the information contained in the Certificate (with the exception of the subject:organizationalUnitName attribute);
    ii. followed the procedure when issuing the Certificate; and
    iii. accurately described the procedure in the CA's CP and/or CPS;
-4. **No Misleading Information**: TBD
-5. **Identity of Applicant**: That, if the Certificate contains Subject Identity Information, the CA:
+4. **Identity of Applicant**: That, if the Certificate contains Subject Identity Information, the CA:
    i. implemented a procedure to verify the identity of the Applicant in accordance with [Section 3.2](#32-initial-identity-validation) and [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields);
    ii. followed the procedure when issuing the Certificate; and
    iii. accurately described the procedure in the CA's CP and/or CPS;
-6. **Subscriber Agreement**: That, if the CA and Subscriber are not Affiliated, the Subscriber and CA are parties to a legally valid and enforceable Subscriber Agreement that satisfies these Requirements, or, if the CA and Subscriber are the same entity or are Affiliated, the Applicant Representative acknowledged the Terms of Use;
-7. **Status**: That the CA maintains a 24 x 7 publicly-accessible Repository with current information regarding the status (Valid or Revoked) of all unexpired Certificates; and
-8. **Revocation**: That the CA will revoke the Certificate for any of the reasons specified in these Requirements.
+5. **Subscriber Agreement**: That, if the CA and Subscriber are not Affiliated, the Subscriber and CA are parties to a legally valid and enforceable Subscriber Agreement that satisfies these Requirements, or, if the CA and Subscriber are the same entity or are Affiliated, the Applicant Representative acknowledged the Terms of Use;
+6. **Status**: That the CA maintains a 24 x 7 publicly-accessible Repository with current information regarding the status (Valid or Revoked) of all unexpired Certificates; and
+7. **Revocation**: That the CA will revoke the Certificate for any of the reasons specified in these Requirements.
 
 The Root CA SHALL be responsible for the performance and warranties, compliance with these Requirements, and for all liabilities and indemnification obligations of the Subordinate CA under these Requirements, as if the Root CA were the Subordinate CA issuing the Certificates
 
