@@ -2693,7 +2693,9 @@ The CA's audit SHALL be performed by a Qualified Auditor. A Qualified Auditor me
 7. Except in the case of an Internal Government Auditing Agency, maintains Professional Liability/Errors & Omissions insurance with policy limits of at least one million US dollars in coverage.
    
 ## 8.3 Assessor's relationship to assessed entity
+
 No stipulation.
+
 ## 8.4 Topics covered by assessment
 
 The CA SHALL undergo an audit in accordance with one of the following schemes:
@@ -2712,6 +2714,8 @@ For Delegated Third Parties which are not Enterprise RAs, then the CA SHALL obta
 The audit period for the Delegated Third Party SHALL NOT exceed one year (ideally aligned with the CA's audit). However, if the CA or Delegated Third Party is under the operation, control, or supervision of a Government Entity and the audit scheme is completed over multiple years, then the annual audit MUST cover at least the core controls that are required to be audited annually by such scheme plus that portion of all non-core controls that are allowed to be conducted less frequently, but any non-core control SHALL NOT be audited less often than once every three years.
 
 ## 8.5 Actions taken as a result of deficiency
+
+No stipulation.
 
 ## 8.6 Communication of results
 
