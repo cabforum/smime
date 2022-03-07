@@ -1278,8 +1278,6 @@ No stipulation.
 
 ## 4.5 Key pair and certificate usage
 
-No stipulation.
-
 ### 4.5.1 Subscriber private key and certificate usage
 
 No stipulation.
