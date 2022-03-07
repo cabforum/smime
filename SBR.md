@@ -1944,11 +1944,11 @@ Parties other than the Subordinate CA SHALL NOT archive the Subordinate CA Priva
 
 ### 6.2.6 Private key transfer into or from a cryptographic module
 
-No stipulation.
+If the Issuing CA generated the Private Key on behalf of the Subordinate CA, then the Issuing CA SHALL encrypt the Private Key for transport to the Subordinate CA. If the Issuing CA becomes aware that a Subordinate CA's Private Key has been communicated to an unauthorized person or an organization not affiliated with the Subordinate CA, then the Issuing CA SHALL revoke all certificates that include the Public Key corresponding to the communicated Private Key.
 
 ### 6.2.7 Private key storage on cryptographic module
 
-No stipulation.
+The CA SHALL protect its Private Key in a system or device that has been validated as meeting at least FIPS 140 level 3 or an appropriate Common Criteria Protection Profile or Security Target, EAL 4 (or higher), which includes requirements to protect the Private Key and other assets against known threats.
 
 ### 6.2.8 Method of activating private key
 
