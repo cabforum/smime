@@ -1516,15 +1516,15 @@ The Repository MUST NOT include entries that indicate that a Certificate is susp
 
 ### 4.9.14 Who can request suspension
 
-Not applicable.
+No stipulation.
 
 ### 4.9.15 Procedure for suspension request
 
-Not applicable.
+No stipulation.
 
 ### 4.9.16 Limits on suspension period
 
-Not applicable.
+No stipulation.
 
 ## 4.10 Certificate status services
 
