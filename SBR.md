@@ -2434,7 +2434,7 @@ h. __Certificate Field:__ `subject:email` (1.2.840.113549.1.9.1)
    __Contents:__ If present, the `subject:email` MUST contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2.2](#3222-validation-of-mailbox-authorization-or-control).
 
 i. __Certificate Field:__ `subject:title` (2.5.4.12) 
-   __Contents:__ If present, the `subject:title` field field MUST contain a natural person Subject’s name as verified according to [Section 3.2.3](#323-authentication-of-individual-identity).
+   __Contents:__ If present, the `subject:title` field MUST shall contain only a corporate role/title or a regulated professional designation verified according to [Section 3.2.3](#323-authentication-of-individual-identity).
 
 j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4.9)  
  __Contents:__ If present, the `subject:streetAddress` field MUST contain the Subject's street address information as verified under [Section 3.2.2.1](#3221-authentication-of-organization-identity) or [Section 3.2.3](#323-authentication-of-individual-identity).
