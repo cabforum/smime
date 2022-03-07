@@ -1999,7 +1999,7 @@ No stipulation.
 
 ### 6.5.1 Specific computer security technical requirements
 
-No stipulation.
+The CA SHALL enforce multi-factor authentication for all accounts capable of directly causing certificate issuance.
 
 ### 6.5.2 Computer security rating
 
