@@ -71,7 +71,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
   
 ## 1.3 PKI participants
 
-The CA/Browser Forum is a voluntary organization of Certification Authorities and Application Software Suppliers including providers of Internet browser and other relying-party software applications such as mail user agents (web-based or application based) and email service providers that process S/MIME Certificates.
+The CA/Browser Forum is a voluntary organization of Certification Authorities and Application Software Suppliers including providers of Internet browser and other relying-party software applications, such as mail user agents (web-based or application based) and email service providers that process S/MIME Certificates.
 
 ### 1.3.1 Certification authorities
 
@@ -595,6 +595,8 @@ The CA SHALL authenticate the identity attributes of the Subject and their contr
 | Individual | Section 3.2.2 | NA | Section 3.2.4 | 
 
 ### 3.2.1 Method to prove possession of private key
+
+No stipulation.
 
 ### 3.2.2 Validation of mailbox authorization or control
 
