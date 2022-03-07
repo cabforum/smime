@@ -1214,6 +1214,7 @@ The Certificate Request MUST contain a request from, or on behalf of, the Applic
 One Certificate Request MAY suffice for multiple Certificates to be issued to the same Applicant, subject to the validation reuse periods described in [Section 4.2.1](#421-performing-identification-and-authentication-functions), provided that each Certificate is supported by a valid, current Certificate Request signed by the appropriate Applicant Representative on behalf of the Applicant. 
 
 A CA may rely on a previously verified Certificate Request to issue a replacement Certificate if:
+
 1.  The previous Certificate being referenced was not revoked;
 2.  The expiration date of the replacement Certificate is the same as the previous Certificate being referenced; and
 3.  The Subject Information of the Certificate is the same as the previous Certificate being referenced.
@@ -1252,11 +1253,10 @@ No stipulation.
 
 ## 4.3 Certificate issuance
 
-Certificate issuance by the Root CA SHALL require an individual authorized by the CA (i.e. the CA system operator, system officer, or PKI administrator) to deliberately issue a direct command in order for the Root CA to perform a Certificate signing operation.
 
 ### 4.3.1 CA actions during certificate issuance
 
-No stipulation.
+Certificate issuance by the Root CA SHALL require an individual authorized by the CA (i.e. the CA system operator, system officer, or PKI administrator) to deliberately issue a direct command in order for the Root CA to perform a Certificate signing operation.
 
 ### 4.3.2 Notification to subscriber by the CA of issuance of certificate
 
