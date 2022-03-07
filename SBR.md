@@ -2189,11 +2189,11 @@ l. Legal Entity Identifier (optional)
    | Generation | LEI      | 
    |------|-----------------------|
    | Mailbox | Prohibited |
-   | Organization | MAY be present and MUST NOT be marked critical.  |
-   | Sponsored | MAY be present and MUST NOT be marked critical.  |
+   | Organization | LEI (1.3.6.1.4.1.52266.1)MAY be present and MUST NOT be marked critical.  |
+   | Sponsored | LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) MAY be present and MUST NOT be marked critical.  |
    | Individual | Prohibited |
 
-   May include a verified Legal Entity Identifier data record for LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) in accordance with ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4.
+   LEI data records are used in accordance with ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4.
 
 m. Adobe Extensions (optional)
 
