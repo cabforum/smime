@@ -2637,8 +2637,6 @@ No stipulation.
 
 ### 7.2.2 CRL and CRL entry extensions
 
-No stipulation.
-
 If present, the `reasonCode` (OID 2.5.29.21) extension MUST NOT be marked critical.
 
 If a CRL entry is for a Root CA or Subordinate CA Certificate, including Cross Certificates, this CRL entry extension MUST be present. If a CRL entry is for a Certificate not technically capable of causing issuance, this CRL entry extension SHOULD be present, but MAY be omitted, subject to the following requirements.
