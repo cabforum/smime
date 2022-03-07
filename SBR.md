@@ -1280,12 +1280,11 @@ No stipulation.
 
 ### 4.5.1 Subscriber private key and certificate usage
 
-No stipulation.
+See [Section 9.6.3](#963-subscriber-representations-and-warranties), provisions 2. and 4.
 
 ### 4.5.2 Relying party public key and certificate usage
 
 No stipulation.
-
 
 ## 4.6 Certificate renewal
 
