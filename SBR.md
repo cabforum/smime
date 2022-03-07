@@ -2693,7 +2693,7 @@ The CA's audit SHALL be performed by a Qualified Auditor. A Qualified Auditor me
 7. Except in the case of an Internal Government Auditing Agency, maintains Professional Liability/Errors & Omissions insurance with policy limits of at least one million US dollars in coverage.
    
 ## 8.3 Assessor's relationship to assessed entity
-
+No stipulation.
 ## 8.4 Topics covered by assessment
 
 The CA SHALL undergo an audit in accordance with one of the following schemes:
