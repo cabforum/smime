@@ -2422,38 +2422,38 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
    4. Apply the validation rules relevant to the Registration Scheme as specified in [Appendix B](#appendix-b---registration-schemes).
 
 e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
-   __Contents:__ If present, the `subject:givenName` field and `subject:surname` field MUST contain a natural person Subject’s name as verified under [Section 3.2.3](#323-authentication-of-individual-identity). 
+   __Contents:__ If present, the `subject:givenName` field and `subject:surname` field MUST contain a natural person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). 
 
 f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)  
-   __Contents:__ The pseudonym attribute MUST NOT be present if the givenName and/or surname attribute are present. If present, the `subject:pseudonym` field field MUST be verified according to [Section 3.2.3](#323-authentication-of-individual-identity).
+   __Contents:__ The pseudonym attribute MUST NOT be present if the givenName and/or surname attribute are present. If present, the `subject:pseudonym` field field MUST be verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
 
 g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
    __Contents:__ If present, the `subject:serialNumber` MAY be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber.
 
 h. __Certificate Field:__ `subject:email` (1.2.840.113549.1.9.1) 
-   __Contents:__ If present, the `subject:email` MUST contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2.2](#3222-validation-of-mailbox-authorization-or-control).
+   __Contents:__ If present, the `subject:email` MUST contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)
 
 i. __Certificate Field:__ `subject:title` (2.5.4.12) 
-   __Contents:__ If present, the `subject:title` field MUST shall contain only a corporate role/title or a regulated professional designation verified according to [Section 3.2.3](#323-authentication-of-individual-identity).
+   __Contents:__ If present, the `subject:title` field MUST shall contain only a corporate role/title or a regulated professional designation verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
 
 j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4.9)  
- __Contents:__ If present, the `subject:streetAddress` field MUST contain the Subject's street address information as verified under [Section 3.2.2.1](#3221-authentication-of-organization-identity) or [Section 3.2.3](#323-authentication-of-individual-identity).
+ __Contents:__ If present, the `subject:streetAddress` field MUST contain the Subject's street address information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity).
 
 k. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)  
    __Required__ if the `subject:stateOrProvinceName` field is absent.  
    __Optional__ if the `subject:stateOrProvinceName` field is present.  
-   __Contents:__ If present, the `subject:localityName` field MUST contain the Subject's locality information as verified under [Section 3.2.2.1](#3221-authentication-of-organization-identity) or [Section 3.2.3](#323-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `localityName` field MAY contain the Subject's locality and/or state or province information.
+   __Contents:__ If present, the `subject:localityName` field MUST contain the Subject's locality information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `localityName` field MAY contain the Subject's locality and/or state or province information.
 
 l. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)  
    __Required__ if `subject:localityName` field is absent.  
    __Optional__ if the `subject:localityName` field is present.  
-   __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under [Section 3.2.2.1](#3221-authentication-of-organization-identity) or [Section 3.2.3](#323-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
+   __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
 
 m. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)  
-   __Contents:__ If present, the `subject:postalCode` field MUST contain the Subject's zip or postal information as verified under [Section 3.2.2.1](#3221-authentication-of-organization-identity) or [Section 3.2.3](#323-authentication-of-individual-identity).
+   __Contents:__ If present, the `subject:postalCode` field MUST contain the Subject's zip or postal information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity)
 
 n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)  
-   __Contents:__ If present, the `subject:countryName` MUST contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under [Section 3.2.2.1](#3221-authentication-of-organization-identity) or [Section 3.2.3](#323-authentication-of-individual-identity). If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of XX indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
+   __Contents:__ If present, the `subject:countryName` MUST contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of XX indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
 
 ##### 7.1.4.2.3 Subject DN attributes for mailbox-validated profile
 
@@ -2551,7 +2551,7 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
    __Required/Optional:__ MUST be present  
-   __Contents:__ This field MUST be present and the contents MUST contain either the Subject CA's name or DBA as verified under [Section 3.2.2.2](#3222-dbatradename). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name".
+   __Contents:__ This field MUST be present and the contents MUST contain either the Subject CA's name or DBA as verified under [Section 3.2.3.3](#3233-verification-of-applicants-legal-existence-and-identity--assumed-name) The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name".
 
 c. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)  
    __Required/Optional:__ MUST be present  
@@ -2566,7 +2566,7 @@ For a Subordinate CA Certificate to be considered Technically Constrained, the C
 
 If the Subordinate CA Certificate includes the `id-kp-emailProtection` extended key usage, then the Subordinate CA Certificate MUST include the `nameConstraints` X.509v3 extension with constraints on `rfc822Name` and `directoryName` as follows:
 
-   1. For each `rfc822Name` in `permittedSubtrees`, each `rfc822Name` MUST contain either a FQDN or a U+002E FULL STOP (".") character followed by a FQDN. The `rfc822Name` MUST NOT contain an email address. The CA MUST confirm that the Applicant has registered the FQDN contained in the `rfc822Name` or has been authorized by the domain registrant to act on the registrant's behalf in line with the verification practices of [Section 3.2.2.4](#3224-validation-of-domain-authorization-or-control).
+   1. For each `rfc822Name` in `permittedSubtrees`, each `rfc822Name` MUST contain either a FQDN or a U+002E FULL STOP (".") character followed by a FQDN. The `rfc822Name` MUST NOT contain an email address. The CA MUST confirm that the Applicant has registered the FQDN contained in the `rfc822Name` or has been authorized by the domain registrant to act on the registrant's behalf in line with the verification practices of [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers).
 
    2. For each `directoryName` in `permittedSubtrees`, the CA MUST confirm the Applicant's and/or Subsidiary's Organizational name and location such that end entity Certificates issued from the Subordinate CA Certificate will be in compliance with [Section 7.1.2.4](#7124-all-certificates).
 
