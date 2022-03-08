@@ -556,7 +556,7 @@ The CA SHALL make its Repository publicly available in a read-only manner.
 
 ### 3.1.1 Types of names
 
-When the `subject:commonName` of a Certificate issued to an Individual does not contain an email address, it is specified as `subject:givenName` and/or `subject:surname`, or `subject:surname` then `subject:givenName` where appropriate for national preference. Subjects with a single legal name SHALL be displayed in the `subject:surname` attribute.
+When the `subject:commonName` of a Certificate issued to an Individual does not contain an email address, it is specified as `subject:givenName` and/or `subject:surname`, or `subject:surname` then `subject:givenName` where appropriate for national preference. 
 
 Names in the `subject:commonName` MUST be identical to the names as they appear in the identifying documentation or Enterprise RA records.  
 
