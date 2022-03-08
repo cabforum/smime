@@ -873,7 +873,7 @@ To verify the Applicant's ability to engage in business, the CA MUST verify the 
 
 The following requirements MUST be fulfilled to authenticate Individual identity attributes included in `Sponsor-validated` and `Individual-validated` Certificate profiles.
 
-The CA or RA MUST collect evidence supporting the following identity attributes for the Individual Applicant:
+The CA or RA MUST collect and retain evidence supporting the following identity attributes for the Individual Applicant:
 
 1. Given name(s) and surname(s), which SHOULD be current names;
 2. Pseudonym (if used); 
