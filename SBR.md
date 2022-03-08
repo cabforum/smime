@@ -92,7 +92,7 @@ Before the CA authorizes a Delegated Third Party to perform a delegated function
 
 The CA MAY designate an Enterprise Registration Authority (RA) to verify Certificate Requests from the Enterprise RA's own organization.  The CA SHALL NOT accept Certificate Requests authorized by an Enterprise RA unless the following requirements are satisfied:
 
-1. If the Certificate Request is for an `Organization-validated` or `Sponsor-validated` profile, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
+1. If the Certificate Request is for an `Organization-validated` or `Sponsor-validated` profile, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers). The CA SHALL confirm that the `subject:organizationName` name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
 
 2. If the Certificate Request is for a `Mailbox-validated` profile, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
 
@@ -124,7 +124,7 @@ No stipulation.
 
 ## 1.5 Policy administration
 
-This document MAY be revised from time to time, as appropriate, in accordance with procedures adopted by the CA/Browser Forum.  The CA/Browser Forum welcomes recommendations and suggestions regarding this standard by email at questions@cabforum.org. 
+This document MAY be revised from time to time, as appropriate, in accordance with procedures adopted by the CA/Browser Forum.  The CA/Browser Forum welcomes recommendations and suggestions regarding this standard by email at <questions@cabforum.org>. 
 
 ### 1.5.1 Organization administering the document
 
@@ -366,7 +366,7 @@ The script outputs:
 
 **Sovereign State**: A state or country that administers its own government, and is not dependent upon, or subject to, another power.
 
-**Sponsor-validated**: Refers to a Certificate Profile Subject which combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (referring to an associated Legal Person) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA.
+**Sponsor-validated**: Refers to a Certificate Profile Subject which combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Person) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA where the `subject:organizationName` is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject Organization. 
 
 **Subject**: The natural person, device, system, unit, or Legal Entity identified in a Certificate as the Subject. The Subject is either the Subscriber or a device under the control and operation of the Subscriber.
 
@@ -556,9 +556,7 @@ The CA SHALL make its Repository publicly available in a read-only manner.
 
 ### 3.1.1 Types of names
 
-When the `subject:commonName` of Certificates issued to Individuals contains a real name, it is specified as `subject:givenName` and/or `subject:surname`.  
-
-Where appropriate for national preference, it is permissible to display the `subject:commonName` order for Individuals as `subject:surname` and `subject:givenName`.  Subjects with a single legal name SHALL be displayed in the `subject:surname` attribute.
+When the `subject:commonName` of a Certificate issued to an Individual does not contain an email address, it is specified as `subject:givenName` and/or `subject:surname`, or `subject:surname` then `subject:givenName` where appropriate for national preference. 
 
 Names in the `subject:commonName` MUST be identical to the names as they appear in the identifying documentation or Enterprise RA records.  
 
@@ -890,6 +888,8 @@ The CA or RA MUST collect evidence supporting the following identity attributes 
 3. Address (if displayed in Subject); and
 4. Further information as needed to uniquely identify the Applicant.
 
+The CA or RA MUST comply with applicable data protection legislation in the gathering and retention of evidence relating to Individual identity supporting this Requirement.
+
 #### 3.2.4.1 Attribute collection of individual identity
 
 The CA MUST document and publish the methods it uses to collect Individual identity attributes.
@@ -933,9 +933,9 @@ The CA or RA MAY additionally gather and verify supplemantary evidence using aut
 Examples of this method include:
 
 * If the Subject presents an ID featuring an Applicant name that has subsquently been changed, the evidence MAY be complemented by inspection of an official document such as a marriage certificate or court order documenting the change.
-* If a professional title of a regulated profession in the`Subject:country` is to be used it SHALL be verified against a Regulated Professions Information Source as described in [Section 3.2.8.8](#3288-regulated-professions-information-source).
+* If a professional title of a regulated profession in the`subject:country` is to be used it SHALL be verified against a Regulated Professions Information Source as described in [Section 3.2.8.8](#3288-regulated-professions-information-source).
 
-When external registers are used, only official national or nationally approved registers can be accepted. The CA SHALL document and publish the accepted authorized registers and reference sources, including a list of the documents or attestations accepted as supplementary evidence of identity.
+When external registers are used, the CA or RA SHALL only accept official national or nationally approved registers. The CA SHALL document and publish the accepted authorized registers and reference sources, including a list of the documents or attestations accepted as supplementary evidence of identity.
 
 #### 3.2.4.2 Validation of individual identity
 
@@ -949,7 +949,7 @@ The CA or RA MAY reuse existing evidence to validate the identity if the evidenc
 
 The physical identity document MUST be presented in its original form.  The CA MUST employ procedures to ensure presented by the Applicant is a genuine identity document that is not counterfeited or falsified/modified.
 
-The CA or RA can use manual (in person) or remote procedures.  A remote process SHALL ensure that the Applicant has the document in hand and presents the document in real-time in front of a camera.
+The CA or RA MAY use manual (in person) or remote procedures.  A remote process SHALL ensure that the Applicant has the document in hand and presents the document in real-time in front of a camera.
 
 The CA or RA registration agent MUST make a visual comparison of the physical appearance of the Applicant and the face photo and/or other information on the physical identity document.
 
@@ -2383,10 +2383,12 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 
 | Type    | Contents |
 |---------|----------|
-| Mailbox | `subject:email` |
-| Organization | `subject:organizationName` or `subject:email` |
-| Sponsored | `subject:givenName` and/or `subject:surname`, `subject:pseudonym`, or `subject:email` |
-| Individual | `subject:givenName` and/or `subject:surname`, or `subject:email` |
+| Mailbox | `subject:emailAddress` |
+| Organization | `subject:organizationName` or `subject:emailAddress` |
+| Sponsored | `subject:givenName` and/or `subject:surname`, `subject:pseudonym`, or `subject:emailAddress` |
+| Individual | `subject:givenName` and/or `subject:surname`, `subject:pseudonym`, or `subject:emailAddress` |
+
+Additional specifications for naming is provided in [Section 3.1](#31-naming).
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
    __Contents:__ If present, the `subject:organizationName` field MUST contain the Subject's full legal organization name as verified under [Section 3.2.3](#323-authentication-of-organization-identity). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
@@ -2428,16 +2430,16 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
    4. Apply the validation rules relevant to the Registration Scheme as specified in [Appendix B](#appendix-b---registration-schemes).
 
 e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
-   __Contents:__ If present, the `subject:givenName` field and `subject:surname` field MUST contain a natural person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). 
+   __Contents:__ If present, the `subject:givenName` field and `subject:surname` field MUST contain a natural person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). Subjects with a single legal name SHALL provide the name in the `subject:surname` attribute. The `subject:givenName` and/or `subject:surname` MUST NOT be present if the `subject:pseudonym` is present.
 
 f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)  
-   __Contents:__ The pseudonym attribute MUST NOT be present if the givenName and/or surname attribute are present. If present, the `subject:pseudonym` field MUST be verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
+   __Contents:__ The `subject:pseudonym` MUST NOT be present if the `subject:givenName` and/or `subject:surname` are present. If present, the `subject:pseudonym` field MUST be verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
 
 g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
    __Contents:__ If present, the `subject:serialNumber` MAY be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber.
 
-h. __Certificate Field:__ `subject:email` (1.2.840.113549.1.9.1) 
-   __Contents:__ If present, the `subject:email` MUST contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)
+h. __Certificate Field:__ `subject:emailAddress` (1.2.840.113549.1.9.1) 
+   __Contents:__ If present, the `subject:emailAddress` MUST contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)
 
 i. __Certificate Field:__ `subject:title` (2.5.4.12) 
    __Contents:__ If present, the `subject:title` field MUST contain only a corporate role/title or a regulated professional designation verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
@@ -2446,14 +2448,14 @@ j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4
  __Contents:__ If present, the `subject:streetAddress` field MUST contain the Subject's street address information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity).
 
 k. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)  
-   __Required__ if the `subject:stateOrProvinceName` field is absent.  
+   __Required__ if the `subject:organizationName`, or the `subject:givenName` and/or `subject:surname` fields, are present and the `subject:stateOrProvinceName` field is absent.
    __Optional__ if the `subject:stateOrProvinceName` field is present.  
-   __Contents:__ If present, the `subject:localityName` field MUST contain the Subject's locality information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). Required if the `subject:organizationName`, or `subject:givenName` and/or `subject:surname` fields, are present and the `subject:stateOrProvinceName` field is absent. If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `localityName` field MAY contain the Subject's locality and/or state or province information.
+   __Contents:__ If present, the `subject:localityName` field MUST contain the Subject's locality information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `localityName` field MAY contain the Subject's locality and/or state or province information.
 
 l. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)  
-   __Required__ if `subject:localityName` field is absent.  
+   __Required__ if the `subject:organizationName`, or the `subject:givenName` and/or `subject:surname` fields, are present and the `subject:localityName` field is absent.
    __Optional__ if the `subject:localityName` field is present.  
-   __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). Required if the `subject:organizationName`, or `subject:givenName` and/or `subject:surname` fields, are present and the `subject:localityName` field is absent.  If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
+   __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
 
 m. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)  
    __Contents:__ If present, the `subject:postalCode` field MUST contain the Subject's zip or postal information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity)
@@ -2473,7 +2475,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:surname` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:serialNumber` | MAY | MAY | MAY |
-| `subject:email` | MAY | MAY | MAY |
+| `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:streetAddress` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:localityName` | MUST NOT | MUST NOT | MUST NOT |
@@ -2494,7 +2496,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:surname` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:serialNumber` | MAY | MAY | MAY |
-| `subject:email` | MAY | MAY | MAY |
+| `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:streetAddress` | MAY | MAY | MUST NOT |
 | `subject:localityName` | MAY | MAY | MAY |
@@ -2511,11 +2513,11 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:organizationName` | MUST | MUST | MUST |
 | `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:organizationIdentifier` | MUST | MUST | MUST |
-| `subject:givenName` | MAY  | MUST | MUST |
-| `subject:surname` | MAY  | MUST | MUST |
-| `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:givenName` | MAY  | MAY | MAY |
+| `subject:surname` | MAY  | MAY | MAY |
+| `subject:pseudonym` | MAY | MAY | MAY |
 | `subject:serialNumber` | MAY | MAY | MAY |
-| `subject:email` | MAY | MAY | MAY |
+| `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
 | `subject:streetAddress` | MAY | MAY | MUST NOT |
 | `subject:localityName` | MAY | MAY | MAY |
@@ -2523,6 +2525,8 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:postalCode` | MAY | MAY | MUST NOT |
 | `subject:countryName` | MAY | MUST | MUST |
 | Other | MAY | MUST NOT | MUST NOT |
+
+The `Sponsor-validated` profile MUST include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`.
 
 ##### 7.1.4.2.5 Subject DN attributes for individual-validated profile
 
@@ -2532,11 +2536,11 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:organizationName` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:organizationIdentifier` | MUST NOT | MUST NOT | MUST NOT |
-| `subject:givenName` | MAY  | MUST | MUST |
-| `subject:surname` | MAY  | MUST | MUST |
-| `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:givenName` | MAY  | MAY | MAY |
+| `subject:surname` | MAY  | MAY | MAY |
+| `subject:pseudonym` | MAY | MAY | MAY |
 | `subject:serialNumber` | MAY | MAY | MAY |
-| `subject:email` | MAY | MAY | MAY |
+| `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
 | `subject:streetAddress` | MAY | MAY | MUST NOT |
 | `subject:localityName` | MAY | MAY | MAY |
@@ -2544,6 +2548,8 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:postalCode` | MAY | MAY | MUST NOT |
 | `subject:countryName` | MAY | MUST | MUST |
 | Other | MAY | MUST NOT | MUST NOT |
+
+The `Individual-validated` profile MUST include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`.
 
 #### 7.1.4.3 Subject information - root certificates and subordinate CA certificates
 
@@ -2989,7 +2995,7 @@ No stipulation.
 
 In the event of a conflict between these Requirements and a law, regulation or government order (hereinafter ‘Law’) of any jurisdiction in which a CA operates or issues Certificates, a CA MAY modify any conflicting requirement to the minimum extent necessary to make the requirement valid and legal in the jurisdiction. This applies only to operations or Certificate issuances that are subject to that Law. In such event, the CA SHALL immediately (and prior to issuing a Certificate under the modified requirement) include in Section 9.16.3 of the CA’s CPS a detailed reference to the Law requiring a modification of these Requirements under this section, and the specific modification to these Requirements implemented by the CA.
 
-The CA SHALL also (prior to issuing a Certificate under the modified requirement) notify the CA/Browser Forum of the relevant information newly added to its CPS by sending a message to public@cabforum.org and receiving confirmation that it has been posted to the Public Mailing List and is indexed in the Public Mail Archives available at [https://cabforum.org/pipermail/public/](https://cabforum.org/pipermail/public/) (or such other email addresses and links as the Forum may designate), so that the CA/Browser Forum may consider possible revisions to these Requirements accordingly.
+The CA SHALL also (prior to issuing a Certificate under the modified requirement) notify the CA/Browser Forum of the relevant information newly added to its CPS by sending a message to <public@cabforum.org> and receiving confirmation that it has been posted to the Public Mailing List and is indexed in the Public Mail Archives available at [https://cabforum.org/pipermail/public/](https://cabforum.org/pipermail/public/) (or such other email addresses and links as the Forum may designate), so that the CA/Browser Forum may consider possible revisions to these Requirements accordingly.
 
 Any modification to CA practice enabled under this section SHALL be discontinued if and when the Law no longer applies, or these Requirements are modified to make it possible to comply with both them and the Law simultaneously. An appropriate change in practice, modification to the CA’s CPS and a notice to the CA/Browser Forum, as outlined above, SHALL be made within 90 days.
 
