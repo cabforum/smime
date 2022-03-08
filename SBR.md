@@ -2486,7 +2486,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:organizationIdentifier` | MUST | MUST | MUST |
 | `subject:givenName` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:surname` | MUST NOT | MUST NOT | MUST NOT |
-| `subject:pseudonym` | MAY | MAY | MAY |
+| `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:email` | MAY | MAY | MAY |
 | `subject:title` | MUST NOT | MUST NOT | MUST NOT |
@@ -2507,7 +2507,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:organizationIdentifier` | MUST | MUST | MUST |
 | `subject:givenName` | MAY  | MUST | MUST |
 | `subject:surname` | MAY  | MUST | MUST |
-| `subject:pseudonym` | MAY  | MAY | MAY |
+| `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:email` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
@@ -2860,7 +2860,7 @@ The Certificate Warranties specifically include, but are not limited to, the fol
    ii. followed the procedure when issuing the Certificate; and
    iii. accurately described the procedure in the CA's CP and/or CPS;
 3. **Accuracy of Information**: That, at the time of issuance, the CA:
-   i. implemented a procedure for verifying the accuracy of all of the information contained in the Certificate (with the exception of the subject:organizationalUnitName attribute);
+   i. implemented a procedure for verifying the accuracy of all of the information contained in the Certificate (with the exception of the subject:serialNumber attribute);
    ii. followed the procedure when issuing the Certificate; and
    iii. accurately described the procedure in the CA's CP and/or CPS;
 4. **Identity of Applicant**: That, if the Certificate contains Subject Identity Information, the CA:
