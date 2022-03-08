@@ -92,7 +92,7 @@ Before the CA authorizes a Delegated Third Party to perform a delegated function
 
 The CA MAY designate an Enterprise Registration Authority (RA) to verify Certificate Requests from the Enterprise RA's own organization.  The CA SHALL NOT accept Certificate Requests authorized by an Enterprise RA unless the following requirements are satisfied:
 
-1. If the Certificate Request is for an `Organization-validated` or `Sponsor-validated` profile, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers). The CA SHALL confirm that the Organization name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
+1. If the Certificate Request is for an `Organization-validated` or `Sponsor-validated` profile, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers). The CA SHALL confirm that the `subject:organizationName` name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
 
 2. If the Certificate Request is for a `Mailbox-validated` profile, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
 
@@ -124,7 +124,7 @@ No stipulation.
 
 ## 1.5 Policy administration
 
-This document MAY be revised from time to time, as appropriate, in accordance with procedures adopted by the CA/Browser Forum.  The CA/Browser Forum welcomes recommendations and suggestions regarding this standard by email at questions@cabforum.org. 
+This document MAY be revised from time to time, as appropriate, in accordance with procedures adopted by the CA/Browser Forum.  The CA/Browser Forum welcomes recommendations and suggestions regarding this standard by email at <questions@cabforum.org>. 
 
 ### 1.5.1 Organization administering the document
 
@@ -935,7 +935,7 @@ The CA or RA MAY additionally gather and verify supplemantary evidence using aut
 Examples of this method include:
 
 * If the Subject presents an ID featuring an Applicant name that has subsquently been changed, the evidence MAY be complemented by inspection of an official document such as a marriage certificate or court order documenting the change.
-* If a professional title of a regulated profession in the`Subject:country` is to be used it SHALL be verified against a Regulated Professions Information Source as described in [Section 3.2.8.8](#3288-regulated-professions-information-source).
+* If a professional title of a regulated profession in the`subject:country` is to be used it SHALL be verified against a Regulated Professions Information Source as described in [Section 3.2.8.8](#3288-regulated-professions-information-source).
 
 When external registers are used, the CA or RA SHALL only accept official national or nationally approved registers. The CA SHALL document and publish the accepted authorized registers and reference sources, including a list of the documents or attestations accepted as supplementary evidence of identity.
 
@@ -2385,10 +2385,10 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 
 | Type    | Contents |
 |---------|----------|
-| Mailbox | `subject:email` |
-| Organization | `subject:organizationName` or `subject:email` |
-| Sponsored | `subject:givenName` and/or `subject:surname`, `subject:pseudonym`, or `subject:email` |
-| Individual | `subject:givenName` and/or `subject:surname`, or `subject:email` |
+| Mailbox | `subject:emailAddress` |
+| Organization | `subject:organizationName` or `subject:emailAddress` |
+| Sponsored | `subject:givenName` and/or `subject:surname`, `subject:pseudonym`, or `subject:emailAddress` |
+| Individual | `subject:givenName` and/or `subject:surname`, or `subject:emailAddress` |
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
    __Contents:__ If present, the `subject:organizationName` field MUST contain the Subject's full legal organization name as verified under [Section 3.2.3](#323-authentication-of-organization-identity). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
@@ -2438,8 +2438,8 @@ f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)
 g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
    __Contents:__ If present, the `subject:serialNumber` MAY be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber.
 
-h. __Certificate Field:__ `subject:email` (1.2.840.113549.1.9.1) 
-   __Contents:__ If present, the `subject:email` MUST contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)
+h. __Certificate Field:__ `subject:emailAddress` (1.2.840.113549.1.9.1) 
+   __Contents:__ If present, the `subject:emailAddress` MUST contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)
 
 i. __Certificate Field:__ `subject:title` (2.5.4.12) 
    __Contents:__ If present, the `subject:title` field MUST shall contain only a corporate role/title or a regulated professional designation verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
@@ -2475,7 +2475,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:surname` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:serialNumber` | MAY | MAY | MAY |
-| `subject:email` | MAY | MAY | MAY |
+| `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:streetAddress` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:localityName` | MUST NOT | MUST NOT | MUST NOT |
@@ -2496,7 +2496,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:surname` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:serialNumber` | MAY | MAY | MAY |
-| `subject:email` | MAY | MAY | MAY |
+| `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:streetAddress` | MAY | MAY | MUST NOT |
 | `subject:localityName` | MAY | MAY | MAY |
@@ -2517,7 +2517,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:surname` | MAY  | MUST | MUST |
 | `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:serialNumber` | MAY | MAY | MAY |
-| `subject:email` | MAY | MAY | MAY |
+| `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
 | `subject:streetAddress` | MAY | MAY | MUST NOT |
 | `subject:localityName` | MAY | MAY | MAY |
@@ -2538,7 +2538,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:surname` | MAY  | MUST | MUST |
 | `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:serialNumber` | MAY | MAY | MAY |
-| `subject:email` | MAY | MAY | MAY |
+| `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
 | `subject:streetAddress` | MAY | MAY | MUST NOT |
 | `subject:localityName` | MAY | MAY | MAY |
@@ -2991,7 +2991,7 @@ No stipulation.
 
 In the event of a conflict between these Requirements and a law, regulation or government order (hereinafter ‘Law’) of any jurisdiction in which a CA operates or issues Certificates, a CA MAY modify any conflicting requirement to the minimum extent necessary to make the requirement valid and legal in the jurisdiction. This applies only to operations or Certificate issuances that are subject to that Law. In such event, the CA SHALL immediately (and prior to issuing a Certificate under the modified requirement) include in Section 9.16.3 of the CA’s CPS a detailed reference to the Law requiring a modification of these Requirements under this section, and the specific modification to these Requirements implemented by the CA.
 
-The CA SHALL also (prior to issuing a Certificate under the modified requirement) notify the CA/Browser Forum of the relevant information newly added to its CPS by sending a message to public@cabforum.org and receiving confirmation that it has been posted to the Public Mailing List and is indexed in the Public Mail Archives available at [https://cabforum.org/pipermail/public/](https://cabforum.org/pipermail/public/) (or such other email addresses and links as the Forum may designate), so that the CA/Browser Forum may consider possible revisions to these Requirements accordingly.
+The CA SHALL also (prior to issuing a Certificate under the modified requirement) notify the CA/Browser Forum of the relevant information newly added to its CPS by sending a message to <public@cabforum.org> and receiving confirmation that it has been posted to the Public Mailing List and is indexed in the Public Mail Archives available at [https://cabforum.org/pipermail/public/](https://cabforum.org/pipermail/public/) (or such other email addresses and links as the Forum may designate), so that the CA/Browser Forum may consider possible revisions to these Requirements accordingly.
 
 Any modification to CA practice enabled under this section SHALL be discontinued if and when the Law no longer applies, or these Requirements are modified to make it possible to comply with both them and the Law simultaneously. An appropriate change in practice, modification to the CA’s CPS and a notice to the CA/Browser Forum, as outlined above, SHALL be made within 90 days.
 
