@@ -215,14 +215,6 @@ No stipulation.
 
 **Delegated Third Party**: A natural person or Legal Entity that is not the CA but is authorized by the CA, and whose activities are not within the scope of the appropriate CA audits, to assist in the Certificate Management Process by performing or fulfilling one or more of the CA requirements found herein.
 
-**DNS CAA Email Contact**: The email address defined in [Appendix A.1.1](#a11-caa-contactemail-property).
-
-**DNS CAA Phone Contact**: The phone number defined in [Appendix A.1.2](#a12-caa-contactphone-property).
-
-**DNS TXT Record Email Contact**: The email address defined in [Appendix A.2.1](#a21-dns-txt-record-email-contact).
-
-**DNS TXT Record Phone Contact**: The phone number defined in [Appendix A.2.2](#a22-dns-txt-record-phone-contact).
-
 **Domain Authorization Document**: Documentation provided by, or a CA's documentation of a communication with, a Domain Name Registrar, the Domain Name Registrant, or the person or entity listed in WHOIS as the Domain Name Registrant (including any private, anonymous, or proxy registration service) attesting to the authority of an Applicant to request a Certificate for a specific Domain Namespace.
 
 **Domain Contact**: The Domain Name Registrant, technical contact, or administrative contact (or the equivalent under a ccTLD) as listed in the WHOIS record of the Base Domain Name or in a DNS SOA record, or as obtained through direct contact with the Domain Name Registrar.
@@ -2421,14 +2413,14 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
     * `VATDE-123456789` (VAT Scheme, Germany, Unique Identifier at Country Level is 12345678)
     * `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, NCA's identifier is NBB, Subject Unique Identifier assigned by the NCA is 1234.567.890)
 
-   Registration Schemes listed in [Appendix B](#appendix-b---registration-schemes) are recognized as valid under these guidelines.
+   Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes) are recognized as valid under these guidelines.
 
    The CA SHALL:
 
    1. confirm that the organization represented by the Registration Reference is the same as the organization named in the `organizationName` field as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields);
    2. further verify the Registration Reference matches other information verified in accordance with [Section 3.2.3](#323-authentication-of-organization-identity);
-   3. take appropriate measures to disambiguate between different organizations as described in [Appendix B](#appendix-b---registration-schemes) for each Registration Scheme;
-   4. Apply the validation rules relevant to the Registration Scheme as specified in [Appendix B](#appendix-b---registration-schemes).
+   3. take appropriate measures to disambiguate between different organizations as described in [Appendix A](#appendix-a---registration-schemes)) for each Registration Scheme;
+   4. Apply the validation rules relevant to the Registration Scheme as specified in [Appendix A](#appendix-a---registration-schemes).
 
 e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
    __Contents:__ If present, the `subject:givenName` field and `subject:surname` field MUST contain a natural person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). Subjects with a single legal name SHALL provide the name in the `subject:surname` attribute. The `subject:givenName` and/or `subject:surname` MUST NOT be present if the `subject:pseudonym` is present.
@@ -3012,51 +3004,7 @@ No stipulation.
 
  No stipulation.
 
-# Appendix A - Using DNS
-
-## A.1 CAA methods
-
-### A.1.1 CAA contactemail property
-
-SYNTAX: `contactemail <rfc6532emailaddress>`
-
-The CAA contactemail property takes an email address as its parameter. The entire parameter value MUST be a valid email address as defined in RFC 6532, Section 3.2, with no additional padding or structure, or it cannot be used.
-
-The following is an example where the holder of the domain specified the contact property using an email address.
-
-```DNS Zone
-$ORIGIN example.com.
-               CAA 0 contactemail "domainowner@example.com"
-```
-
-The contactemail property MAY be critical, if the domain owner does not want CAs who do not understand it to issue Certificates for the domain.
-
-### A.1.2 CAA contactphone property
-
-SYNTAX: `contactphone <rfc3966 Global Number>`
-
-The CAA contactphone property takes a phone number as its parameter. The entire parameter value MUST be a valid Global Number as defined in RFC 3966, Section 5.1.4, or it cannot be used. Global Numbers MUST have a preceding + and a country code and MAY contain visual separators.
-
-The following is an example where the holder of the domain specified the contact property using a phone number.
-
-```DNS Zone
-$ORIGIN example.com.
-               CAA 0 contactphone "+1 (555) 123-4567"
-```
-
-The contactphone property MAY be critical if the domain owner does not want CAs who do not understand it to issue Certificates for the domain.
-
-## A.2 DNS TXT methods
-
-### A.2.1 DNS TXT record email contact
-
-The DNS TXT record MUST be placed on the `_validation-contactemail` subdomain of the domain being validated. The entire RDATA value of this TXT record MUST be a valid email address as defined in RFC 6532, Section 3.2, with no additional padding or structure, or it cannot be used.
-
-### A.2.2 DNS TXT record phone contact
-
-The DNS TXT record MUST be placed on the `_validation-contactphone` subdomain of the domain being validated. The entire RDATA value of this TXT record MUST be a valid Global Number as defined in RFC 3966, Section 5.1.4, or it cannot be used.
-
-# APPENDIX B - Registration schemes
+# Appendix A - Registration schemes
 
 The following Registration Schemes are recognized as valid under these guidelines:
 
@@ -3089,7 +3037,7 @@ The following Registration Schemes are recognized as valid under these guideline
 
   The CA MUST verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  An LEI SHALL only be used if the ValidationSources entry is FULLY_CORROBORATED; an LEI MUST NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
-# Appendix C - Country-specific interpretative guidelines (normative)
+# Appendix B - Country-specific interpretative guidelines (normative)
 
 NOTE: This appendix provides alternative interpretations of these Requirements for countries that have a language, cultural, technical, or legal reason for deviating from a strict interpretation of these Requirements.  More specific information for particular countries may be added to this appendix in the future.
 
@@ -3120,7 +3068,7 @@ NOTE: This appendix provides alternative interpretations of these Requirements f
 
 ### Country-specific procedures
 
-#### C-1. Japan
+#### B-1. Japan
 
 As interpretation of the procedures set out above:
 
@@ -3130,7 +3078,7 @@ As interpretation of the procedures set out above:
    B.  The CA MAY verify the Romanized transliteration, language translation (e.g. English name), or other recognized Roman-letter substitute of the Applicant's formal legal name with either a QIIS, Verified Legal Opinion, or Verified Accountant Letter.
    C.  The CA MAY use the Financial Services Agency to verify a Romanized, translated, or other recognized Roman-letter substitute name.  When used, the CA MUST verify that the translated English is recorded in the audited Financial Statements.
    D.  When relying on Articles of Incorporation to verify a Romanized, translated, or other recognized Roman-letter substitute name, the Articles of Incorporation MUST be accompanied either: by a document, signed with the original Japanese Corporate Stamp, that proves that the Articles of Incorporation are authentic and current, or by a Verified Legal Opinion or a Verified Accountant Letter.  The CA MUST verify the authenticity of the Corporate Stamp.
-   E.  A Romanized, translated, or other recognized Roman-lettered substitute name confirmed in accordance with this [Appendix C-1](#c-1-japan) stored in the ROBINS database operated by JIPDEC MAY be relied upon by a CA for determining the allowed organization name during any issuance or renewal process of a Certificate without the need to re-perform the above procedures.
+   E.  A Romanized, translated, or other recognized Roman-lettered substitute name confirmed in accordance with this [Appendix B-1](#b-1-japan) stored in the ROBINS database operated by JIPDEC MAY be relied upon by a CA for determining the allowed organization name during any issuance or renewal process of a Certificate without the need to re-perform the above procedures.
 
 2. Accounting Practitioner
 
