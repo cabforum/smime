@@ -890,6 +890,8 @@ The CA or RA MUST collect evidence supporting the following identity attributes 
 3. Address (if displayed in Subject); and
 4. Further information as needed to uniquely identify the Applicant.
 
+The CA or RA MUST comply with applicable data protection legislation in the gathering and retention of evidence relating to Individual identity supporting this Requirement.
+
 #### 3.2.4.1 Attribute collection of individual identity
 
 The CA MUST document and publish the methods it uses to collect Individual identity attributes.
@@ -935,7 +937,7 @@ Examples of this method include:
 * If the Subject presents an ID featuring an Applicant name that has subsquently been changed, the evidence MAY be complemented by inspection of an official document such as a marriage certificate or court order documenting the change.
 * If a professional title of a regulated profession in the`Subject:country` is to be used it SHALL be verified against a Regulated Professions Information Source as described in [Section 3.2.8.8](#3288-regulated-professions-information-source).
 
-When external registers are used, only official national or nationally approved registers can be accepted. The CA SHALL document and publish the accepted authorized registers and reference sources, including a list of the documents or attestations accepted as supplementary evidence of identity.
+When external registers are used, the CA or RA SHALL only accept official national or nationally approved registers. The CA SHALL document and publish the accepted authorized registers and reference sources, including a list of the documents or attestations accepted as supplementary evidence of identity.
 
 #### 3.2.4.2 Validation of individual identity
 
@@ -949,7 +951,7 @@ The CA or RA MAY reuse existing evidence to validate the identity if the evidenc
 
 The physical identity document MUST be presented in its original form.  The CA MUST employ procedures to ensure presented by the Applicant is a genuine identity document that is not counterfeited or falsified/modified.
 
-The CA or RA can use manual (in person) or remote procedures.  A remote process SHALL ensure that the Applicant has the document in hand and presents the document in real-time in front of a camera.
+The CA or RA MAY use manual (in person) or remote procedures.  A remote process SHALL ensure that the Applicant has the document in hand and presents the document in real-time in front of a camera.
 
 The CA or RA registration agent MUST make a visual comparison of the physical appearance of the Applicant and the face photo and/or other information on the physical identity document.
 
