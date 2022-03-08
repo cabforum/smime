@@ -2386,7 +2386,9 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 | Mailbox | `subject:emailAddress` |
 | Organization | `subject:organizationName` or `subject:emailAddress` |
 | Sponsored | `subject:givenName` and/or `subject:surname`, `subject:pseudonym`, or `subject:emailAddress` |
-| Individual | `subject:givenName` and/or `subject:surname`, or `subject:emailAddress` |
+| Individual | `subject:givenName` and/or `subject:surname`, `subject:pseudonym`, or `subject:emailAddress` |
+
+Additional specifications for naming is provided in [Section 3.1](#31-naming).
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
    __Contents:__ If present, the `subject:organizationName` field MUST contain the Subject's full legal organization name as verified under [Section 3.2.3](#323-authentication-of-organization-identity). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
@@ -2428,10 +2430,10 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
    4. Apply the validation rules relevant to the Registration Scheme as specified in [Appendix B](#appendix-b---registration-schemes).
 
 e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
-   __Contents:__ If present, the `subject:givenName` field and `subject:surname` field MUST contain a natural person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). 
+   __Contents:__ If present, the `subject:givenName` field and `subject:surname` field MUST contain a natural person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). Subjects with a single legal name SHALL provide the name in the `subject:surname` attribute. The `subject:givenName` and/or `subject:surname` MUST NOT be present if the `subject:pseudonym` is present.
 
 f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)  
-   __Contents:__ The pseudonym attribute MUST NOT be present if the givenName and/or surname attribute are present. If present, the `subject:pseudonym` field field MUST be verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
+   __Contents:__ The `subject:pseudonym` MUST NOT be present if the `subject:givenName` and/or `subject:surname` are present. If present, the `subject:pseudonym` field field MUST be verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
 
 g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
    __Contents:__ If present, the `subject:serialNumber` MAY be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber.
@@ -2511,9 +2513,9 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:organizationName` | MUST | MUST | MUST |
 | `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:organizationIdentifier` | MUST | MUST | MUST |
-| `subject:givenName` | MAY  | MUST | MUST |
-| `subject:surname` | MAY  | MUST | MUST |
-| `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:givenName` | MAY  | MAY | MAY |
+| `subject:surname` | MAY  | MAY | MAY |
+| `subject:pseudonym` | MAY | MAY | MAY |
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
@@ -2523,6 +2525,8 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:postalCode` | MAY | MAY | MUST NOT |
 | `subject:countryName` | MAY | MUST | MUST |
 | Other | MAY | MUST NOT | MUST NOT |
+
+The `Sponsor-validated` profile MUST include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`.
 
 ##### 7.1.4.2.5 Subject DN attributes for individual-validated profile
 
@@ -2532,9 +2536,9 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:organizationName` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:organizationIdentifier` | MUST NOT | MUST NOT | MUST NOT |
-| `subject:givenName` | MAY  | MUST | MUST |
-| `subject:surname` | MAY  | MUST | MUST |
-| `subject:pseudonym` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:givenName` | MAY  | MAY | MAY |
+| `subject:surname` | MAY  | MAY | MAY |
+| `subject:pseudonym` | MAY | MAY | MAY |
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
@@ -2544,6 +2548,8 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:postalCode` | MAY | MAY | MUST NOT |
 | `subject:countryName` | MAY | MUST | MUST |
 | Other | MAY | MUST NOT | MUST NOT |
+
+The `Individual-validated` profile MUST include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`.
 
 #### 7.1.4.3 Subject information - root certificates and subordinate CA certificates
 
