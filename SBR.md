@@ -2396,7 +2396,8 @@ b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)
    An assumed name used by the Subject as verified under [Section 3.2.3.2](#3232-verification-of-organization-assumed-name) MAY be included at the beginning of this field, provided that it is followed by the full legal organization name in parenthesis.
 
 c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)  
-   __Prohibited__ 
+   __Prohibited__ in End Entity Certificates but allowed in Subordinate CA Certificates.
+   __Contents:__ The CA SHALL implement a process that prevents an OU attribute from including a name, DBA, tradename, trademark, address, location, or other text that refers to a specific natural person or Legal Entity unless the Certificate also contains `subject:organizationName`, `subject:localityName`, and `subject:countryName` attributes and the CA has verified this information in accordance with [Section 3.2](#32-initial-identity-validation).
 
 d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
    __Contents:__ If present, the `subject:organizationIdentifier` field MUST contain MUST contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. 
