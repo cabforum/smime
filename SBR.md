@@ -857,7 +857,7 @@ Evidence for Individual identity attributes MAY be gathered using a Verified Leg
    
 Evidence for Individual identity attributes SHALL use at least one of the following sources for authoritative evidence:  a physical or digital identiy document, digital signature supported by certificate, Enterprise RA records, or a Verified Legal Opinion.
 
-The CA or RA MAY additionally gather and verify supplemantary evidence using authorized reference sources such as additional official documents, QGIS, GTIS, Regulated Professions Information Source, or national population registers.
+The CA or RA MAY additionally gather and verify supplementary evidence using authorized reference sources such as additional official documents, QGIS, GTIS, Regulated Professions Information Source, or national population registers.
 
 Examples of this method include:
 
