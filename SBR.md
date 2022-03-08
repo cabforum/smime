@@ -209,6 +209,8 @@ No stipulation.
 
 **Delegated Third Party**: A natural person or Legal Entity that is not the CA but is authorized by the CA, and whose activities are not within the scope of the appropriate CA audits, to assist in the Certificate Management Process by performing or fulfilling one or more of the CA requirements found herein.
 
+**Digital Identity Document**: a government-issued identity document that is issued in a machine-processable form, that is digitally signed by the issuer, and that is in purely digital form.
+
 **Domain Label**: From RFC 8499 (<http://tools.ietf.org/html/rfc8499>): "An ordered list of zero or more octets that makes up a portion of a domain name. Using graph theory, a label identifies one node in a portion of the graph of all possible domain names."
 
 **Domain Name**: An ordered list of one or more Domain Labels assigned to a node in the Domain Name System.
@@ -237,7 +239,9 @@ No stipulation.
 
 **Legal Entity**: An association, corporation, partnership, proprietorship, trust, government entity or other entity with legal standing in a country's legal system.
 
-**Mailbox Address**: From RFC 5321 (<http://tools.ietf.org/html/rfc5321>): "A character string that identifies a user to whom mail will be sent or a location into which mail will be deposited."
+**Mailbox-Validated**: Refers to a Certificate Profile Subject that is limited to `subject:emailAddress` and/or `subject:serialNumber`.
+
+**Mailbox Address**: Also Email Address. From RFC 5321 (<http://tools.ietf.org/html/rfc5321>): "A character string that identifies a user to whom mail will be sent or a location into which mail will be deposited."
 
 **Object Identifier**: A unique alphanumeric or numeric identifier registered under the International Organization for Standardization's applicable standard for a specific object or object class.
 
@@ -247,11 +251,15 @@ No stipulation.
 
 **Parent Company**: A company that Controls a Subsidiary Company.
 
+**Physical Identity Document**: a government-issued identity document issued in physical and human-readable form (such as a passport or national identity card).
+
 **Principal Individual**: An individual of a Private Organization, Government Entity, or Business Entity that is either an owner, partner, managing member, director, or officer, as identified by their title of employment, or an employee, contractor or agent authorized by such entity or organization to conduct business related to the request, issuance, and use of Certificates.
 
 **Private Key**: The key of a Key Pair that is kept secret by the holder of the Key Pair, and that is used to create Digital Signatures and/or to decrypt electronic records or files that were encrypted with the corresponding Public Key.
 
 **Private Organization**: A non-governmental legal entity (whether ownership interests are privately held or publicly traded) whose existence was created by a filing with (or an act of) the Incorporating Agency or equivalent in its Jurisdiction of Incorporation.
+
+**Pseudonym**: A fictitious identity that a person assumes for a particular purpose. Unlike an anonymous identity, a pseudonym can be linked to the person's real identity.
 
 **Public Key**: The key of a Key Pair that can be publicly disclosed by the holder of the corresponding Private Key and that is used by a Relying Party to verify Digital Signatures created with the holder's corresponding Private Key and/or to encrypt messages so that they can be decrypted only with the holder's corresponding Private Key.
 
@@ -304,6 +312,8 @@ No stipulation.
 **Subscriber Agreement**: An agreement between the CA and the Applicant/Subscriber that specifies the rights and responsibilities of the parties.
 
 **Subsidiary Company**: A company that is controlled by a Parent Company.
+
+**Supplementary Evidence**: Used in addition to authoritative evidence to strengthen the reliability of the identity verification and/or as evidence for attributes that are not evidenced by the authoritative evidence.
 
 **Technically Constrained Subordinate CA Certificate**: A Subordinate CA Certificate which uses a combination of Extended Key Usage settings and Name Constraint settings to limit the scope within which the Subordinate CA Certificate MAY issue Certificates to Subscriber or additional Subordinate CAs.
 
