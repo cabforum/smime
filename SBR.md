@@ -366,9 +366,11 @@ The script outputs:
 
 **Sovereign State**: A state or country that administers its own government, and is not dependent upon, or subject to, another power.
 
+**Sponsor-validated**: Refers to a Certificate Profile Subject which combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (referring to an associated Legal Person) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA.
+
 **Subject**: The natural person, device, system, unit, or Legal Entity identified in a Certificate as the Subject. The Subject is either the Subscriber or a device under the control and operation of the Subscriber.
 
-**Subject Identity Information**: Information that identifies the Certificate Subject. Subject Identity Information does not include a Mailbox Address listed in the `subjectAltName` extension, the Subject `commonName` field, or the Subject `emailAddress` field.
+**Subject Identity Information**: Information that identifies the Certificate Subject. Subject Identity Information does not include a Mailbox Address listed in the `subjectAltName` extension, the `subject:commonName` field, or the Subject `subject:emailAddress` field.
 
 **Subordinate CA**: A Certification Authority whose Certificate is signed by the Root CA, or another Subordinate CA.
 
