@@ -539,7 +539,7 @@ The CA SHALL verify that Applicant controls the email accounts associated with a
 
 The CA SHALL NOT delegate the verification of mailbox authorization or control.
 
-**Note:** Email addresses MAY be listed in Subscriber Certificates using `rfc822Names` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension or in Subordinate CA Certificates via `rfc822Names` in permittedSubtrees within the `nameConstraints` extension.
+**Note:** Email addresses MAY be listed in Subscriber Certificates using `rfc822Names` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension, in the Subject or in Subordinate CA Certificates via `rfc822Names` in permittedSubtrees within the `nameConstraints` extension.
 
 The CA's CP and/or CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which domain validation method, including the relevant version number from the Baseline Requirements or S/MIME Baseline Requirements, used to validate every domain or email address in issued Certificates.
 
@@ -555,7 +555,7 @@ For purposes of domain validation, the term Applicant includes the Applicant's P
 
 #### 3.2.2.2 Validating control over mailbox via email
 
-The CA MAY confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
+The CA MAY confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` or each email address in the Subject to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
 
 Control over each email address SHALL be confirmed using a unique Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
 
@@ -565,7 +565,7 @@ The Random Value SHALL be reset upon each instance of the email sent by the CA a
 
 #### 3.2.2.3 Validating applicant as operator of associated mail server(s)
 
-Confirming the Applicant's control over the `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` email address by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN MUST be identified using the address resolution algorithm defined in RFC 5321 Section 5.1 which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDNs have been discovered, the CA MUST verify control of an SMTP FQDN following the selection process at RFC 5321 Section 5.1. Aliases in MX record RDATA MUST NOT be used for this validation method.
+Confirming the Applicant's control over the Subject or `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` email address, by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN MUST be identified using the address resolution algorithm defined in RFC 5321 Section 5.1 which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDNs have been discovered, the CA MUST verify control of an SMTP FQDN following the selection process at RFC 5321 Section 5.1. Aliases in MX record RDATA MUST NOT be used for this validation method.
 
 When confirming the Applicant's control of the SMTP FQDN, the CA SHALL use only the approved methods in Section 3.2.2.4 of the TLS Baseline Requirements.
 
