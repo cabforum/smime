@@ -2974,6 +2974,12 @@ The following Registration Schemes are recognized as valid under these guideline
 
   The CA MUST verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  An LEI SHALL only be used if the ValidationSources entry is FULLY_CORROBORATED; an LEI MUST NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
+* **JCN**:
+  
+  For a Japanese Corporate Number (法人番号 - Hōjin-bangō) as registered by the Japanese National Tax Agency (国税庁 - Kokuzeichō) for the entity named in the `subject:organizationName` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields). The 2 character ISO 3166 country code SHALL be set to 'JP'.
+
+  A Japanese Corporate Number SHALL NOT be used if the status of the registration is "closed" (閉鎖 - heisa).
+
 # Appendix B - Country-specific interpretative guidelines (normative)
 
 NOTE: This appendix provides alternative interpretations of these Requirements for countries that have a language, cultural, technical, or legal reason for deviating from a strict interpretation of these Requirements.  More specific information for particular countries may be added to this appendix in the future.
