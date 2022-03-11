@@ -539,7 +539,7 @@ The CA SHALL verify that Applicant controls the email accounts associated with a
 
 The CA SHALL NOT delegate the verification of mailbox authorization or control.
 
-**Note:** Email addresses MAY be listed in Subscriber Certificates using `rfc822Names` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension, in the Subject or in Subordinate CA Certificates via `rfc822Names` in permittedSubtrees within the `nameConstraints` extension.
+**Note:** Email addresses MAY be listed in Subscriber Certificates using `rfc822Names` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the Subject or in the `subjectAltName` extension, or in Subordinate CA Certificates via `rfc822Names` in permittedSubtrees within the `nameConstraints` extension.
 
 The CA's CP and/or CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which domain validation method, including the relevant version number from the Baseline Requirements or S/MIME Baseline Requirements, used to validate every domain or email address in issued Certificates.
 
