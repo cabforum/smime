@@ -144,7 +144,9 @@ No stipulation.
 
 ## 1.6 Definitions and acronyms
 
-###  1.6.1 Definitions
+The Definitions found in the CA/Browser Forum's Network and Certificate System Security Requirements are incorporated by reference as if fully set forth herein.
+
+### 1.6.1 Definitions
 
 **Accounting Practitioner**: A certified public accountant, chartered accountant, or a person with an equivalent license within the country of the Applicant's Jurisdiction of Incorporation or Registration or any jurisdiction where the Applicant maintains an office or physical facility; provided that an accounting standards body in the jurisdiction maintains full (not "suspended" or "associate") membership status with the International Federation of Accountants.
 
@@ -1615,7 +1617,7 @@ No stipulation.
 
 ### 5.4.1 Types of events recorded
 
-The CA and each Delegated Third Party SHALL record details of the actions taken to process a Certificate Request and to issue a Certificate, including all information generated and documentation received in connection with the Certificate Request; the time and date; and the personnel involved. The CA SHALL make these records available to its Qualified Auditor as proof of the CA’s compliance with these Requirements.
+The CA and each Delegated Third Party SHALL record events related to the security of their Certificate Systems, Certificate Management Systems, Root CA Systems, and Delegated Third Party Systems. The CA and each Delegated Third Party SHALL record events related to their actions taken to process a certificate request and to issue a Certificate, including all information generated and documentation received in connection with the certificate request; the time and date; and the personnel involved. The CA SHALL make these records available to its Qualified Auditor as proof of the CA’s compliance with these Requirements.
 
 The CA SHALL record at least the following events:
 
@@ -1624,15 +1626,17 @@ The CA SHALL record at least the following events:
    2. Certificate requests, renewal, and re-key requests, and revocation;
    3. Approval and rejection of Certificate Requests;
    4. Cryptographic device lifecycle management events;
-   5. Generation of Certificate Revocation Lists and OCSP entries;
-   6. Introduction of new Certificate Profiles and retirement of existing Certificate Profiles.
+   5. Generation of Certificate Revocation Lists;
+   6. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)); and
+   7. Introduction of new Certificate Profiles and retirement of existing Certificate Profiles.
 
 2. Subscriber Certificate lifecycle management events, including:
    1. Certificate requests, renewal, and re-key requests, and revocation;
-   2. All verification activities stipulated in these Requirements and the CA's CP and/or CPS;
-   3. Approval and rejection of Certificate Requests;
-   4. Issuance of Certificates; and
-   5. Generation of Certificate Revocation Lists and OCSP entries.
+   2. All verification activities stipulated in these Requirements and the CA's Certification Practice Statement;
+   3. Approval and rejection of certificate requests;
+   4. Issuance of Certificates;
+   5. Generation of Certificate Revocation Lists; and
+   6. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)).
 
 3. Security events, including:
    1. Successful and unsuccessful PKI system access attempts;
@@ -1645,23 +1649,25 @@ The CA SHALL record at least the following events:
 
 Log records MUST include the following elements:
 
-1. Date and time of record;
+1. Date and time of event;
 2. Identity of the person making the journal record; and
-3. Description of the record.
-   
-### 5.4.2 Frequency of processing log
+3. Description of the event.
+
+### 5.4.2 Frequency of processing audit log
 
 No stipulation.
 
 ### 5.4.3 Retention period for audit log
 
-The CA SHALL retain, for at least two years:
+The CA and each Delegated Third Party SHALL retain, for at least two (2) years:
 
   1. CA Certificate and key lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (1)) after the later occurrence of:
      1. the destruction of the CA Private Key; or
      2. the revocation or expiration of the final CA Certificate in that set of Certificates that have an X.509v3 `basicConstraints` extension with the `cA` field set to true and which share a common Public Key corresponding to the CA Private Key;
-  2. Subscriber Certificate lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (2)) after the revocation or expiration of the Subscriber Certificate;
+  2. Subscriber Certificate lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (2)) after the expiration of the Subscriber Certificate;
   3. Any security event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (3)) after the event occurred.
+
+Note: While these Requirements set the minimum retention period, the CA MAY choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past audit log events.
 
 ### 5.4.4 Protection of audit log
 
@@ -1671,7 +1677,7 @@ No stipulation.
 
 No stipulation.
 
-### 5.4.6 Audit collection system (internal vs. external)
+### 5.4.6 Audit collection System (internal vs. external)
 
 No stipulation.
 
@@ -1691,11 +1697,23 @@ The CA's security program MUST include an annual Risk Assessment that:
 
 ### 5.5.1 Types of records archived
 
-No stipulation.
+The CA and each Delegated Party SHALL archive all audit logs (as set forth in [Section 5.4.1](#541-types-of-events-recorded)).
+
+Additionally, the CA and each Delegated Party SHALL archive:
+1. Documentation related to the security of their Certificate Systems, Certificate Management Systems, Root CA Systems, and Delegated Third Party Systems; and
+2. Documentation related to their verification, issuance, and revocation of certificate requests and Certificates.
 
 ### 5.5.2 Retention period for archive
 
-The CA SHALL retain all documentation relating to Certificate Requests and the verification thereof, and all Certificates and revocation thereof, for at least seven years after any Certificate based on that documentation ceases to be valid.
+Archived audit logs (as set forth in [Section 5.5.1](#551-types-of-records-archived) SHALL be retained for a period of at least two (2) years from their record creation timestamp, or as long as they are required to be retained per [Section 5.4.3](#543-retention-period-for-audit-log), whichever is longer.
+
+Additionally, the CA and each delegated party SHALL retain, for at least two (2) years:
+1. All archived documentation related to the security of Certificate Systems, Certificate Management Systems, Root CA Systems and Delegated Third Party Systems (as set forth in [Section 5.5.1](#551-types-of-records-archived)); and
+2. All archived documentation relating to the verification, issuance, and revocation of certificate requests and Certificates (as set forth in [Section 5.5.1](#551-types-of-records-archived)) after the later occurrence of:
+   1. such records and documentation were last relied upon in the verification, issuance, or revocation of certificate requests and Certificates; or
+   2. the expiration of the Subscriber Certificates relying upon such records and documentation.
+
+Note: While these Requirements set the minimum retention period, the CA MAY choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past records archived.
 
 ### 5.5.3 Protection of archive
 
