@@ -1523,6 +1523,8 @@ Based on the Risk Assessment, the CA SHALL develop, implement, and maintain a se
 
 ## 5.1 Physical controls
 
+### 5.1.1 Site location and construction
+
 ### 5.1.2 Physical access
 
 No stipulation.
