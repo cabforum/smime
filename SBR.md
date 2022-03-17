@@ -239,11 +239,15 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Key Pair**: The Private Key and its associated Public Key.
 
+**Legacy Profile**: The S/MIME Legacy Profiles provide flexibility for existing reasonable S/MIME certificate practices to become auditable under the S/MIME Baseline Requirements. This includes options for Subject DN attributes, `extKeyUsage`, and other extensions. The Legacy Profiles will be deprecated in a future version of the S/MIME Baseline Requirements.
+
 **Legal Entity**: An association, corporation, partnership, proprietorship, trust, government entity or other entity with legal standing in a country's legal system.
 
-**Mailbox-Validated**: Refers to a Certificate Profile Subject that is limited to `subject:emailAddress` and/or `subject:serialNumber`.
+**Mailbox-Validated (MV)**: Refers to a Certificate Profile Subject that is limited to `subject:emailAddress` and/or `subject:serialNumber`.
 
 **Mailbox Address**: Also Email Address. From RFC 5321 (<http://tools.ietf.org/html/rfc5321>): "A character string that identifies a user to whom mail will be sent or a location into which mail will be deposited."
+
+**Multipurpose Profile**: The S/MIME Multipurpose Profiles are aligned with the more defined Strict Profiles, but with additional options for `extKeyUsage` and other extensions. This is intended to allow flexibility for crossover use cases between document signing and secure email. 
 
 **Object Identifier**: A unique alphanumeric or numeric identifier registered under the International Organization for Standardization's applicable standard for a specific object or object class.
 
@@ -302,6 +306,8 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 **Sovereign State**: A state or country that administers its own government, and is not dependent upon, or subject to, another power.
 
 **Sponsor-validated**: Refers to a Certificate Profile Subject which combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Person) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA where the `subject:organizationName` is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject Organization. 
+
+**Strict Profile**: The S/MIME Strict Profiles are the long term target profile for S/MIME Certificates with `extKeyUsage` limited to `emailProtection`, and stricter use of Subject DN attributes and other extensions.
 
 **Subject**: The natural person, device, system, unit, or Legal Entity identified in a Certificate as the Subject. The Subject is either the Subscriber or a device under the control and operation of the Subscriber.
 
@@ -2100,7 +2106,7 @@ e. `keyUsage` (MUST be present)
 
 f. `extKeyUsage` (MUST be present)
 
-   | Generation | `extendedKeyUsage`      | 
+   | Generation | `KeyPurposeId`      | 
    |------|-----------------------|
    | Strict | `id-kp-emailProtection` MUST be present. Other values MUST NOT be present. |
   | Multipurpose and Legacy |`id-kp-emailProtection` MUST be present. Other values MAY be present. |
