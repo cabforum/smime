@@ -2351,8 +2351,7 @@ b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)
    An assumed name used by the Subject as verified under [Section 3.2.3.2](#3232-verification-of-organization-assumed-name) MAY be included at the beginning of this field, provided that it is followed by the full legal organization name in parenthesis.
 
 c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)  
-   __Prohibited__ in End Entity Certificates but allowed in Subordinate CA Certificates.
-   __Contents:__ The CA SHALL implement a process that prevents an OU attribute from including a name, DBA, tradename, trademark, address, location, or other text that refers to a specific natural person or Legal Entity unless the Certificate also contains `subject:organizationName`, `subject:localityName`, and `subject:countryName` attributes and the CA has verified this information in accordance with [Section 3.2](#32-initial-identity-validation).
+   __Contents:__ If present, the CA SHALL confirm that the `subject:organizationalUnitName` is the formal legal name of an Affiliate of the `subject:organizationName` in the Certificate and has been verified in accordance with the requirements of [Section 3.2](#32-initial-identity-validation).
 
 d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
    __Contents:__ If present, the `subject:organizationIdentifier` field MUST contain MUST contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. 
@@ -2446,7 +2445,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 |-----------|--------|--------------|--------|
 | `subject:commonName` | MAY  | MAY | MAY |
 | `subject:organizationName` | MUST | MUST | MUST |
-| `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationalUnitName` | MAY  | MAY | MAY |
 | `subject:organizationIdentifier` | MUST | MUST | MUST |
 | `subject:givenName` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:surname` | MUST NOT | MUST NOT | MUST NOT |
@@ -2467,7 +2466,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 |-----------|--------|--------------|--------|
 | `subject:commonName` | MAY  | MAY | MAY |
 | `subject:organizationName` | MUST | MUST | MUST |
-| `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationalUnitName` | MAY  | MAY | MAY |
 | `subject:organizationIdentifier` | MUST | MUST | MUST |
 | `subject:givenName` | MAY  | MAY | MAY |
 | `subject:surname` | MAY  | MAY | MAY |
