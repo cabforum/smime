@@ -609,7 +609,7 @@ The CA MUST implement verification processes to confirm and document the followi
 
    C.  Verify that a Certificate Approver has signed or otherwise approved the S/MIME Certificate Request.
 
-As a general rule, the CA is responsible for taking all verification steps reasonably necessary to satisfy each of the Verification Requirements set forth in the subsections below.  The Acceptable Methods of Verification set forth in each of Sections XX through XX (which usually include alternatives) are considered to be the minimum acceptable level of verification required of the CA.  In all cases, however, the CA is responsible for taking any additional verification steps that may be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement.
+As a general rule, the CA is responsible for taking all verification steps reasonably necessary to satisfy each of the Verification Requirements set forth in the subsections below.  The Acceptable Methods of Verification set forth in [Section 3.2.3](#323-authentication-of-organization-identity) and [Section 3.2.6](#326-validation-of-authority) (which usually include alternatives) are considered to be the minimum acceptable level of verification required of the CA.  In all cases, however, the CA is responsible for taking any additional verification steps that may be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement.
 
 ##### 3.2.3.1.1 Disclosure of verification sources
 
