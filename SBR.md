@@ -10,7 +10,7 @@ copyright: |
 ---
 
 # 1. INTRODUCTION
-**This is a pre-release draft of the S/MIME Baseline Requirements (SBR) and is undergoing active editing. Section numbering may be incorrect. This draft has not yet been balloted to become a CA/Browser Forum standard.**
+**This is a pre-release draft of the S/MIME Baseline Requirements (SBR). This draft has not yet been balloted to become a CA/Browser Forum standard.  Comments are welcomed.**
 
 ## 1.1 Overview
 
