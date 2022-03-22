@@ -10,7 +10,7 @@ copyright: |
 ---
 
 # 1. INTRODUCTION
-**This is a pre-release draft of the S/MIME Baseline Requirements (SBR) and is undergoing active editing. Section numbering may be incorrect. This draft has not yet been balloted to become a CA/Browser Forum standard.**
+**This is a pre-release draft of the S/MIME Baseline Requirements (SBR). This draft has not yet been balloted to become a CA/Browser Forum standard.  Comments are welcomed.**
 
 ## 1.1 Overview
 
@@ -24,7 +24,7 @@ An S/MIME Certificate contains a public key bound to an email address and MAY al
 
 This Certificate Policy (CP) describes a subset of the requirements that a CA MUST meet in order to issue Publicly-Trusted S/MIME Certificates. This document serves two purposes: to specify Baseline Requirements and to provide guidance and requirements for what a CA should include in its Certification Practice Statement (CPS). These Requirements apply only to relevant events that occur on or after DATE (the original effective date of these Requirements).
 
-These Requirements do not address all of the issues relevant to the issuance and management of Publicly-Trusted S/MIME Certificates. To facilitate a comparison of other CP and/or CPS (e.g., for policy mapping), this document includes all sections of the RFC 3647 framework. The CA/Browser Forum MAY update these Requirements from time to time.
+These Requirements do not address all of the issues relevant to the issuance and management of Publicly-Trusted S/MIME Certificates. To facilitate a comparison of other CP and/or CPS (e.g., for policy mapping), this document includes all sections of the [RFC 3647](https://datatracker.ietf.org/doc/html/rfc3647) framework. The CA/Browser Forum MAY update these Requirements from time to time.
 
 These Requirements do not address the issuance or management of Certificates by enterprises that operate their own Public Key Infrastructure for internal purposes only, and for which the Root CA Certificate is not distributed by any Application Software Supplier. These Requirements are applicable to all Certification Authorities within a chain of trust. They are to be flowed down from the Root CA through successive Subordinate CAs.
 
@@ -243,7 +243,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Legal Entity**: An association, corporation, partnership, proprietorship, trust, government entity or other entity with legal standing in a country's legal system.
 
-**Mailbox-Validated (MV)**: Refers to a Certificate Profile Subject that is limited to `subject:emailAddress` and/or `subject:serialNumber`.
+**Mailbox-Validated (MV)**: Refers to a Certificate Profile Subject that is limited to (optional) `subject:emailAddress` and/or `subject:serialNumber` attributes.
 
 **Mailbox Address**: Also Email Address. From RFC 5321 (<http://tools.ietf.org/html/rfc5321>): "A character string that identifies a user to whom mail will be sent or a location into which mail will be deposited."
 
@@ -256,6 +256,8 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 **Online Certificate Status Protocol**: An online Certificate-checking protocol that enables relying-party application software to determine the status of an identified Certificate. See also OCSP Responder.
 
 **Parent Company**: A company that Controls a Subsidiary Company.
+
+**Personal Name**: Personal Name is a name of an Individual Subject typically presented as `subject:givenName` and/or `subject:surname`. However, the Personal Name may be in a format preferred by the Subject, the CA, or Enterprise RA as long as it remains a meaningful representation of the Subject’s verified name.
 
 **Physical Identity Document**: a government-issued identity document issued in physical and human-readable form (such as a passport or national identity card).
 
@@ -329,11 +331,11 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Trustworthy System**: Computer hardware, software, and procedures that are: reasonably secure from intrusion and misuse; provide a reasonable level of availability, reliability, and correct operation; are reasonably suited to performing their intended functions; and enforce the applicable security policy.
 
-**Valid Certificate**: A Certificate that passes the validation procedure specified in RFC 5280.
+**Valid Certificate**: A Certificate that passes the validation procedure specified in [RFC 5280](http://tools.ietf.org/html/rfc5280).
 
 **Validation Specialists**: Someone who performs the information verification duties specified by these Requirements.
 
-**Validity Period**: From RFC 5280 (<http://tools.ietf.org/html/rfc5280>): "The period of time from notBefore through notAfter, inclusive."
+**Validity Period**: From [RFC 5280](http://tools.ietf.org/html/rfc5280): "The period of time from notBefore through notAfter, inclusive."
 
 **Verified Accountant Letter**: A document meeting the requirements specified in [Section 3.2.8.2](#3282-verified-accountant-letter).
 
@@ -458,7 +460,7 @@ X.509, Recommendation ITU-T X.509 (10/2012) \| ISO/IEC 9594-8:2014 (E), Informat
 
 ###  1.6.4 Conventions
 
-The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in these Requirements shall be interpreted in accordance with RFC 2119.
+The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in these Requirements shall be interpreted in accordance with [RFC 2119](http://tools.ietf.org/html/rfc2119).
 
 # 2. PUBLICATION AND REPOSITORY RESPONSIBILITIES
 The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements.
@@ -471,7 +473,7 @@ The CA SHALL make revocation information for Subordinate CA Certificates and Sub
 
 The CA SHALL publicly disclose its CP and/or CPS through an appropriate and readily accessible online means that is available on a 24x7 basis. The CA SHALL publicly disclose its CA business practices to the extent required by the CA's selected audit scheme (see [Section 8](#8-compliance-audit-and-other-assessments)).
 
-The CP and/or CPS SHALL be structured in accordance with RFC 3647 and SHALL include all material required by RFC 3647.
+The CP and/or CPS SHALL be structured in accordance with [RFC 3647](http://tools.ietf.org/html/rfc3647) and SHALL include all material required by [RFC 3647](http://tools.ietf.org/html/rfc3647).
 
 The CA SHALL publicly give effect to these Requirements and represent that it will adhere to the latest published version. The CA MAY fulfill this requirement by incorporating these Requirements directly into its CP and/or CPSs or by incorporating them by reference using a clause such as the following (which SHALL include a link to the official version of these Requirements):
 
@@ -573,7 +575,7 @@ The Random Value SHALL be reset upon each instance of the email sent by the CA a
 
 #### 3.2.2.3 Validating applicant as operator of associated mail server(s)
 
-Confirming the Applicant's control over each `rfc822Name` , `otherName` of `type id-on-SmtpUTF8Mailbox`, or other email address to be included in the Certificate, by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN MUST be identified using the address resolution algorithm defined in RFC 5321 Section 5.1 which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDNs have been discovered, the CA MUST verify control of an SMTP FQDN following the selection process at RFC 5321 Section 5.1. Aliases in MX record RDATA MUST NOT be used for this validation method.
+Confirming the Applicant's control over each `rfc822Name` , `otherName` of `type id-on-SmtpUTF8Mailbox`, or other email address to be included in the Certificate, by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN MUST be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDNs have been discovered, the CA MUST verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA MUST NOT be used for this validation method.
 
 When confirming the Applicant's control of the SMTP FQDN, the CA SHALL use only the approved methods in Section 3.2.2.4 of the TLS Baseline Requirements.
 
@@ -581,7 +583,7 @@ This method is suitable for validating control of all email addresses under a si
 
 #### 3.2.2.4 CAA records
 
-This version of the S/MIME Baseline Requirements does not require the CA to check for CAA records.  The CAA property tags for `issue`, `issuewild`, and `iodef` as specified in RFC 8659 are not recognized for the issuance of S/MIME Certificates.
+This version of the S/MIME Baseline Requirements does not require the CA to check for CAA records.  The CAA property tags for `issue`, `issuewild`, and `iodef` as specified in [RFC 8659](https://datatracker.ietf.org/doc/html/rfc8659) are not recognized for the issuance of S/MIME Certificates.
 
 ### 3.2.3 Authentication of organization identity
 
@@ -609,7 +611,7 @@ The CA MUST implement verification processes to confirm and document the followi
 
    C.  Verify that a Certificate Approver has signed or otherwise approved the S/MIME Certificate Request.
 
-As a general rule, the CA is responsible for taking all verification steps reasonably necessary to satisfy each of the Verification Requirements set forth in the subsections below.  The Acceptable Methods of Verification set forth in each of Sections XX through XX (which usually include alternatives) are considered to be the minimum acceptable level of verification required of the CA.  In all cases, however, the CA is responsible for taking any additional verification steps that may be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement.
+As a general rule, the CA is responsible for taking all verification steps reasonably necessary to satisfy each of the Verification Requirements set forth in the subsections below.  The Acceptable Methods of Verification set forth in [Section 3.2.3](#323-authentication-of-organization-identity) and [Section 3.2.6](#326-validation-of-authority) (which usually include alternatives) are considered to be the minimum acceptable level of verification required of the CA.  In all cases, however, the CA is responsible for taking any additional verification steps that may be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement.
 
 ##### 3.2.3.1.1 Disclosure of verification sources
 
@@ -1408,16 +1410,16 @@ No stipulation.
 
 ### 4.9.9 On-line revocation/status checking availability
 
-OCSP responses MUST conform to RFC 6960 and/or RFC 5019. OCSP responses MUST either:
+OCSP responses MUST conform to [RFC 6960](https://datatracker.ietf.org/doc/html/rfc6960) and/or [RFC 5019](https://datatracker.ietf.org/doc/html/rfc5019). OCSP responses MUST either:
 
 1. Be signed by the CA that issued the Certificates whose revocation status is being checked, or
 2. Be signed by an OCSP Responder whose Certificate is signed by the CA that issued the Certificate whose revocation status is being checked.
    
-In the latter case, the OCSP signing Certificate MUST contain the ocspSigning EKU (1.3.6.1.5.5.7.3.9) and an extension of type `id-pkix-ocsp-nocheck`, as defined by RFC 6960.
+In the latter case, the OCSP signing Certificate MUST contain the ocspSigning EKU (1.3.6.1.5.5.7.3.9) and an extension of type `id-pkix-ocsp-nocheck`, as defined by [RFC 6960](https://datatracker.ietf.org/doc/html/rfc6960).
 
 ### 4.9.10 On-line revocation checking requirements
 
-OCSP responders operated by the CA SHALL support the HTTP GET method, as described in RFC 6960 and/or RFC 5019.
+OCSP responders operated by the CA SHALL support the HTTP GET method, as described in [RFC 6960](https://datatracker.ietf.org/doc/html/rfc6960) and/or [RFC 5019](https://datatracker.ietf.org/doc/html/rfc5019).
 
 The validity interval of an OCSP response is the difference in time between the thisUpdate and nextUpdate field, inclusive. For purposes of computing differences, a difference of 3,600 seconds SHALL be equal to one hour, and a difference of 86,400 seconds SHALL be equal to one day, ignoring leap-seconds.
 
@@ -2053,7 +2055,7 @@ f. `nameConstraints` (MAY be present)
 
    This extension SHOULD be marked critical[^*].
 
-[^*]: Non-critical Name Constraints are an exception to RFC 5280 (4.2.1.10), however, they MAY be used until the `nameConstraints` extension is supported by Application Software Suppliers whose software is used by a substantial portion of Relying Parties worldwide.
+[^*]: Non-critical Name Constraints are an exception to [RFC 5280 (4.2.1.10)](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.10), however, they MAY be used until the `nameConstraints` extension is supported by Application Software Suppliers whose software is used by a substantial portion of Relying Parties worldwide.
 
 g. `extKeyUsage` (MAY be present for Cross Certificates; MUST be present otherwise)
 
@@ -2065,7 +2067,7 @@ g. `extKeyUsage` (MAY be present for Cross Certificates; MUST be present otherwi
 
    For Subordinate CA Certificates that will be used to issue S/MIME Certificates, the value `id-kp-emailProtection` MUST be present. The values `id-kp-serverAuth`, `id-kp-codeSigning`, `id-kp-timeStamping`, and `anyExtendedKeyUsage` MUST NOT be present. Other values MAY be present.
 
-[^**]: While RFC 5280, Section 4.2.1.12, notes that this extension will generally only appear within end-entity Certificates, these Requirements make use of this extension to further protect relying parties by limiting the scope of Subordinate Certificates, as implemented by a number of Application Software Suppliers.
+[^**]: While [RFC 5280, Section 4.2.1.12](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12), notes that this extension will generally only appear within end-entity Certificates, these Requirements make use of this extension to further protect relying parties by limiting the scope of Subordinate Certificates, as implemented by a number of Application Software Suppliers.
 
 h. `authorityKeyIdentifier` (MUST be present)
 
@@ -2300,10 +2302,10 @@ If the signing key is Curve448, the signature algorithm MUST be id-Ed448 (OID: 1
 
 #### 7.1.4.1 Name encoding
 
-For every valid Certification Path (as defined by RFC 5280, Section 6):
+For every valid Certification Path (as defined by [RFC 5280, Section 6](https://datatracker.ietf.org/doc/html/rfc5280#section-6)):
 
 * For each Certificate in the Certification Path, the encoded content of the Issuer Distinguished Name field of a Certificate SHALL be byte-for-byte identical with the encoded form of the Subject Distinguished Name field of the Issuing CA Certificate.
-* For each CA Certificate in the Certification Path, the encoded content of the Subject Distinguished Name field of a Certificate SHALL be byte-for-byte identical among all Certificates whose Subject Distinguished Names can be compared as equal according to RFC 5280, Section 7.1, and including expired and revoked Certificates.
+* For each CA Certificate in the Certification Path, the encoded content of the Subject Distinguished Name field of a Certificate SHALL be byte-for-byte identical among all Certificates whose Subject Distinguished Names can be compared as equal according to [RFC 5280, Section 7.1](https://datatracker.ietf.org/doc/html/rfc5280#section-7.1), and including expired and revoked Certificates.
 
 #### 7.1.4.2 Subject information - subscriber certificates
 
@@ -2327,23 +2329,25 @@ All Subject email attribute values contained in the Subject MUST be repeated in 
    | Generation | `keyUsage`      | 
    |------|-----------------------|
    | Strict | MUST NOT contain `otherNames` other than type `id-on-SmtpUTF8Mailbox`. |
-   | Multipurpose and Legacy | `otherName` values MAY be included. `otherNames` of type `id-on-SmtpUTF8Mailbox` MUST be encoded in accordance with RFC 8398.  `otherNames` MUST be validated in accordance with procedures documented in the CA's CP and/or CPS.|
+   | Multipurpose and Legacy | `otherName` values MAY be included. `otherNames` of type `id-on-SmtpUTF8Mailbox` MUST be encoded in accordance with [RFC 8398](https://datatracker.ietf.org/doc/html/rfc8398).  `otherNames` MUST be validated in accordance with procedures documented in the CA's CP and/or CPS.|
 
 This extension MUST NOT contain items of type `dNSName`, `iPAddress`,  `uniformResourceIdentifier`, or `GeneralNames` of any other type.
 
 ##### 7.1.4.2.2 Subject distinguished name fields
 
 a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
-   __Contents:__ If present, this field MUST contain one of the following values verified in accordance with [Section 3.2](#32-initial-identity-validation).
+   __Contents:__ If present, this attribute MUST contain one of the following values verified in accordance with [Section 3.2](#32-initial-identity-validation).
 
 | Type    | Contents |
 |---------|----------|
 | Mailbox | `subject:emailAddress` |
 | Organization | `subject:organizationName` or `subject:emailAddress` |
-| Sponsored | `subject:givenName` and/or `subject:surname`, `subject:pseudonym`, or `subject:emailAddress` |
-| Individual | `subject:givenName` and/or `subject:surname`, `subject:pseudonym`, or `subject:emailAddress` |
+| Sponsored | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
+| Individual | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
 
-Additional specifications for naming is provided in [Section 3.1](#31-naming).
+If present, the Personal Name SHALL contain a name of the Subject. The Personal Name SHOULD be presented as `subject:givenName` and/or `subject:surname`. The Personal Name MAY be in the Subject's preferred presentation format, or a format preferred by the CA or Enterprise RA but SHALL be a meaningful representation of the Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). 
+
+Additional specifications for naming are provided in [Section 3.1](#31-naming).
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
    __Contents:__ If present, the `subject:organizationName` field MUST contain the Subject's full legal organization name as verified under [Section 3.2.3](#323-authentication-of-organization-identity). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
@@ -2351,8 +2355,7 @@ b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)
    An assumed name used by the Subject as verified under [Section 3.2.3.2](#3232-verification-of-organization-assumed-name) MAY be included at the beginning of this field, provided that it is followed by the full legal organization name in parenthesis.
 
 c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)  
-   __Prohibited__ in End Entity Certificates but allowed in Subordinate CA Certificates.
-   __Contents:__ The CA SHALL implement a process that prevents an OU attribute from including a name, DBA, tradename, trademark, address, location, or other text that refers to a specific natural person or Legal Entity unless the Certificate also contains `subject:organizationName`, `subject:localityName`, and `subject:countryName` attributes and the CA has verified this information in accordance with [Section 3.2](#32-initial-identity-validation).
+   __Contents:__ If present, the CA SHALL confirm that the `subject:organizationalUnitName` is the formal legal name of an Affiliate of the `subject:organizationName` in the Certificate and has been verified in accordance with the requirements of [Section 3.2](#32-initial-identity-validation).
 
 d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
    __Contents:__ If present, the `subject:organizationIdentifier` field MUST contain MUST contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. 
@@ -2446,7 +2449,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 |-----------|--------|--------------|--------|
 | `subject:commonName` | MAY  | MAY | MAY |
 | `subject:organizationName` | MUST | MUST | MUST |
-| `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationalUnitName` | MAY  | MAY | MAY |
 | `subject:organizationIdentifier` | MUST | MUST | MUST |
 | `subject:givenName` | MUST NOT | MUST NOT | MUST NOT |
 | `subject:surname` | MUST NOT | MUST NOT | MUST NOT |
@@ -2467,7 +2470,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 |-----------|--------|--------------|--------|
 | `subject:commonName` | MAY  | MAY | MAY |
 | `subject:organizationName` | MUST | MUST | MUST |
-| `subject:organizationalUnitName` | MUST NOT | MUST NOT | MUST NOT |
+| `subject:organizationalUnitName` | MAY  | MAY | MAY |
 | `subject:organizationIdentifier` | MUST | MUST | MUST |
 | `subject:givenName` | MAY  | MAY | MAY |
 | `subject:surname` | MAY  | MAY | MAY |
