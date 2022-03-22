@@ -257,6 +257,8 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Parent Company**: A company that Controls a Subsidiary Company.
 
+**Personal Name**: Personal Name is a name of an Individual Subject typically presented as `subject:givenName` and/or `subject:surname`. However, the Personal Name may be in the Subject's preferred presentation format, or a format preferred by the CA or Enterprise RA, as long as it remains a meaningful representation of the Subject’s verified name.
+
 **Physical Identity Document**: a government-issued identity document issued in physical and human-readable form (such as a passport or national identity card).
 
 **Principal Individual**: An individual of a Private Organization, Government Entity, or Business Entity that is either an owner, partner, managing member, director, or officer, as identified by their title of employment, or an employee, contractor or agent authorized by such entity or organization to conduct business related to the request, issuance, and use of Certificates.
