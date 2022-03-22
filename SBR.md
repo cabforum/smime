@@ -170,7 +170,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Business Entity**: Any entity that is not a Private Organization, Government Entity, or Non-Commercial Entity as defined herein. Examples include, but are not limited to, general partnerships, unincorporated associations, sole proprietorships, etc.
 
-**CAA**: From RFC 8659 (<http://tools.ietf.org/html/rfc8659>): "The Certification Authority Authorization (CAA) DNS Resource Record allows a DNS domain name holder to specify one or more Certification Authorities (CAs) authorized to issue Certificates for that domain name. CAA Resource Records allow a public CA to implement additional controls to reduce the risk of unintended Certificate mis-issue."
+**CAA**: From [RFC 8659](http://tools.ietf.org/html/rfc8659): "The Certification Authority Authorization (CAA) DNS Resource Record allows a DNS domain name holder to specify one or more Certification Authorities (CAs) authorized to issue Certificates for that domain name. CAA Resource Records allow a public CA to implement additional controls to reduce the risk of unintended Certificate mis-issue."
 
 **CA Key Pair**: A Key Pair where the Public Key appears as the Subject Public Key Info in one or more Root CA Certificate(s) and/or Subordinate CA Certificate(s).
 
@@ -213,7 +213,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Digital Identity Document**: a government-issued identity document that is issued in a machine-processable form, that is digitally signed by the issuer, and that is in purely digital form.
 
-**Domain Label**: From RFC 8499 (<http://tools.ietf.org/html/rfc8499>): "An ordered list of zero or more octets that makes up a portion of a domain name. Using graph theory, a label identifies one node in a portion of the graph of all possible domain names."
+**Domain Label**: From [RFC 8499](http://tools.ietf.org/html/rfc8499): "An ordered list of zero or more octets that makes up a portion of a domain name. Using graph theory, a label identifies one node in a portion of the graph of all possible domain names."
 
 **Domain Name**: An ordered list of one or more Domain Labels assigned to a node in the Domain Name System.
 
@@ -245,7 +245,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Mailbox-Validated (MV)**: Refers to a Certificate Profile Subject that is limited to (optional) `subject:emailAddress` and/or `subject:serialNumber` attributes.
 
-**Mailbox Address**: Also Email Address. From RFC 5321 (<http://tools.ietf.org/html/rfc5321>): "A character string that identifies a user to whom mail will be sent or a location into which mail will be deposited."
+**Mailbox Address**: Also Email Address. From [RFC 5321](http://tools.ietf.org/html/rfc5321): "A character string that identifies a user to whom mail will be sent or a location into which mail will be deposited."
 
 **Multipurpose Profile**: The S/MIME Multipurpose Profiles are aligned with the more defined Strict Profiles, but with additional options for `extKeyUsage` and other extensions. This is intended to allow flexibility for crossover use cases between document signing and secure email. 
 
