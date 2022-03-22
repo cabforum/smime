@@ -2334,16 +2334,18 @@ This extension MUST NOT contain items of type `dNSName`, `iPAddress`,  `uniformR
 ##### 7.1.4.2.2 Subject distinguished name fields
 
 a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
-   __Contents:__ If present, this field MUST contain one of the following values verified in accordance with [Section 3.2](#32-initial-identity-validation).
+   __Contents:__ If present, this attribute MUST contain one of the following values verified in accordance with [Section 3.2](#32-initial-identity-validation).
 
 | Type    | Contents |
 |---------|----------|
 | Mailbox | `subject:emailAddress` |
 | Organization | `subject:organizationName` or `subject:emailAddress` |
-| Sponsored | `subject:givenName` and/or `subject:surname`, `subject:pseudonym`, or `subject:emailAddress` |
-| Individual | `subject:givenName` and/or `subject:surname`, `subject:pseudonym`, or `subject:emailAddress` |
+| Sponsored | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
+| Individual | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
 
-Additional specifications for naming is provided in [Section 3.1](#31-naming).
+If present, the Personal Name SHALL contain a name of the Subject. The Personal Name SHOULD be presented as `subject:givenName` and/or `subject:surname`. The Personal Name MAY be in the Subject's preferred presentation format, or a format preferred by the CA or Enterprise RA but SHALL be a meaningful representation of the Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). 
+
+Additional specifications for naming are provided in [Section 3.1](#31-naming).
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
    __Contents:__ If present, the `subject:organizationName` field MUST contain the Subject's full legal organization name as verified under [Section 3.2.3](#323-authentication-of-organization-identity). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
