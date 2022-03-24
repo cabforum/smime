@@ -2300,6 +2300,8 @@ If the signing key is Curve448, the signature algorithm MUST be id-Ed448 (OID: 1
 
 ### 7.1.4 Name forms
 
+Attribute values MUST be encoded according to [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
+
 #### 7.1.4.1 Name encoding
 
 For every valid Certification Path (as defined by [RFC 5280, Section 6](https://datatracker.ietf.org/doc/html/rfc5280#section-6)):
