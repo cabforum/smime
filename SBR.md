@@ -65,8 +65,9 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 ### 1.2.1 Revisions
 
 |Version| Ballot|Description                       | Adopted  | Effective\*  |
-|-------|-------|----------------------------------|----------| -----------|
-|00     |       |Working draft                     |TBD       |TBD         |
+|------|-------|----------------------------------|----------| -----------|
+| 00   | 00    |Version 1.0 of the S/MIME Baseline Requirements adopted | Adoption date | Adoption date plus 12 months |
+
 \* Effective Date and Additionally Relevant Compliance Date(s)
   
 ## 1.3 PKI participants
