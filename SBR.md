@@ -65,8 +65,9 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 ### 1.2.1 Revisions
 
 |Version| Ballot|Description                       | Adopted  | Effective\*  |
-|-------|-------|----------------------------------|----------| -----------|
-|00     |       |Working draft                     |TBD       |TBD         |
+|------|-------|----------------------------------|----------| -----------|
+| 00   | 00    |Version 1.0 of the S/MIME Baseline Requirements adopted | Adoption date | Adoption date plus 12 months |
+
 \* Effective Date and Additionally Relevant Compliance Date(s)
   
 ## 1.3 PKI participants
@@ -399,6 +400,10 @@ ICAO DOC 9303, Machine Readable Travel Documents, Part 10, Logical Data Structur
 
 ICAO DOC 9303, Machine Readable Travel Documents, Part 11, Security Mechanisms for MRTDs, International Civil Aviation Organization, Eighth Edition, 2021.
 
+ISO 17442-1:2020, Financial services — Legal entity identifier (LEI) — Part 1: Assignment.
+
+ISO 17442-2:2020, Financial services — Legal entity identifier (LEI) — Part 2: Application in digital certificates.
+
 ISO 21188:2006, Public key infrastructure for financial services -- Practices and policy framework.
 
 Network and Certificate System Security Requirements, v.1.0, 1/1/2013.
@@ -532,10 +537,10 @@ The CA SHALL authenticate the identity attributes of the Subject and their contr
 
 | Type    | Mailbox Control | Organization Identity | Individual Identity | 
 |---------|----------|----------|----------|
-| Mailbox | Section 3.2.2  | NA | NA | 
-| Organization |  Section 3.2.2  | Section 3.2.3 | NA |
-| Sponsored | Section 3.2.2 | Section 3.2.3 | Section 3.2.4 | 
-| Individual | Section 3.2.2 | NA | Section 3.2.4 | 
+| Mailbox-validated | Section 3.2.2  | NA | NA | 
+| Organization-validated |  Section 3.2.2  | Section 3.2.3 | NA |
+| Sponsored-validated | Section 3.2.2 | Section 3.2.3 | Section 3.2.4 | 
+| Individual-validated | Section 3.2.2 | NA | Section 3.2.4 | 
 
 ### 3.2.1 Method to prove possession of private key
 
@@ -565,7 +570,7 @@ For purposes of domain validation, the term Applicant includes the Applicant's P
 
 #### 3.2.2.2 Validating control over mailbox via email
 
-The CA MAY confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` value to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
+The CA MAY confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
 
 Control over each email address SHALL be confirmed using a unique Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
 
@@ -1935,7 +1940,7 @@ No stipulation.
 | Generation | Maximum Validity Period      | 
 |------|-----------------------|
 | Strict and Multipurpose | 825 days |
-| Legacy | 1095 days |
+| Legacy | 1185 days |
 
 For the purpose of calculations, a day is measured as 86,400 seconds. Any amount of time greater than this, including fractional seconds and/or leap seconds, SHALL represent an additional day. For this reason, Subscriber Certificates SHOULD NOT be issued for the maximum permissible time by default, in order to account for such adjustments.
 
@@ -2146,10 +2151,10 @@ l. Legal Entity Identifier (optional)
 
    | Generation | LEI      | 
    |------|-----------------------|
-   | Mailbox | Prohibited |
-   | Organization | LEI (1.3.6.1.4.1.52266.1)MAY be present and MUST NOT be marked critical. |
-   | Sponsored | LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) MAY be present and MUST NOT be marked critical. |
-   | Individual | Prohibited |
+   | Mailbox-validated | Prohibited |
+   | Organization-validated | LEI (1.3.6.1.4.1.52266.1) MAY be present and MUST NOT be marked critical.  |
+   | Sponsored-validated | LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) MAY be present and MUST NOT be marked critical.  |
+   | Individual-validated | Prohibited |
 
    LEI data records are used in accordance with ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4.
 
@@ -2295,6 +2300,8 @@ If the signing key is Curve448, the signature algorithm MUST be id-Ed448 (OID: 1
 
 ### 7.1.4 Name forms
 
+Attribute values SHALL be encoded according to [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
+
 #### 7.1.4.1 Name encoding
 
 For every valid Certification Path (as defined by [RFC 5280, Section 6](https://datatracker.ietf.org/doc/html/rfc5280#section-6)):
@@ -2335,12 +2342,14 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 
 | Type    | Contents |
 |---------|----------|
-| Mailbox | `subject:emailAddress` |
-| Organization | `subject:organizationName` or `subject:emailAddress` |
-| Sponsored | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
-| Individual | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
+| Mailbox-validated | `subject:emailAddress` |
+| Organization-validated | `subject:organizationName` or `subject:emailAddress` |
+| Sponsored-validated | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
+| Individual-validated | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
 
-If present, the Personal Name SHALL contain a name of the Subject. The Personal Name SHOULD be presented as `subject:givenName` and/or `subject:surname`. The Personal Name MAY be in the Subject's preferred presentation format, or a format preferred by the CA or Enterprise RA but SHALL be a meaningful representation of the Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). 
+If present, the Personal Name SHALL contain a name of the Subject. The Personal Name SHOULD be presented as `subject:givenName` and/or `subject:surname`. The Personal Name MAY be in the Subject's preferred presentation format or a format preferred by the CA or Enterprise RA, but SHALL be a meaningful representation of the Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). 
+
+Note: `subject:commonName` and `subject:emailAddress` SHALL comply with the attribute upper bounds defined in [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
 
 Additional specifications for naming are provided in [Section 3.1](#31-naming).
 
@@ -2546,18 +2555,18 @@ The following CA/Browser Forum Certificate Policy identifiers are reserved for u
 
 | Validation Type | Generation | Policy Identifier |
 | ---------------- | ---------- | ----------------- |
-| Mailbox | Legacy | `2.23.140.1.5.1.1` |
-| Mailbox | Multipurpose | `2.23.140.1.5.1.2` |
-| Mailbox | Strict | `2.23.140.1.5.1.3` |
-| Organization | Legacy | `2.23.140.1.5.2.1` |
-| Organization | Multipurpose | `2.23.140.1.5.2.2` |
-| Organization | Strict | `2.23.140.1.5.2.3` |
-| Sponsored | Legacy | `2.23.140.1.5.3.1` |
-| Sponsored | Multipurpose | `2.23.140.1.5.3.2` |
-| Sponsored | Strict | `2.23.140.1.5.3.3` |
-| Individual | Legacy | `2.23.140.1.5.4.1` |
-| Individual | Multipurpose | `2.23.140.1.5.4.2` |
-| Individual | Strict | `2.23.140.1.5.4.3` |
+| Mailbox-validated | Legacy | `2.23.140.1.5.1.1` |
+| Mailbox-validated | Multipurpose | `2.23.140.1.5.1.2` |
+| Mailbox-validated | Strict | `2.23.140.1.5.1.3` |
+| Organization-validated | Legacy | `2.23.140.1.5.2.1` |
+| Organization-validated | Multipurpose | `2.23.140.1.5.2.2` |
+| Organization-validated | Strict | `2.23.140.1.5.2.3` |
+| Sponsor-validated | Legacy | `2.23.140.1.5.3.1` |
+| Sponsor-validated | Multipurpose | `2.23.140.1.5.3.2` |
+| Sponsor-validated | Strict | `2.23.140.1.5.3.3` |
+| Individual-validated | Legacy | `2.23.140.1.5.4.1` |
+| Individual-validated | Multipurpose | `2.23.140.1.5.4.2` |
+| Individual-validated | Strict | `2.23.140.1.5.4.3` |
 
 #### 7.1.6.2 Root CA certificates
 
@@ -2666,8 +2675,8 @@ No stipulation.
 
 The CA SHALL undergo an audit in accordance with one of the following schemes:
 
-1. “WebTrust for CAs v2.1 or newer” AND “XXXX or newer”; or
-2. ETSI EN 319 411-1 v1.2.2 or newer, which includes normative references to ETSI EN 319 401 (the latest version of the referenced ETSI documents should be applied); or
+1. “WebTrust for CAs v2.2.1 or newer” AND “WebTrust for S/MIME Baseline Requirements vX.X.X or newer”; or
+2. "ETSI EN 319 411-1 v1.3.1 or newer", which includes normative references to ETSI EN 319 401 (the latest version of referenced ETSI documents should be applied); or
 3. If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either
    a. encompasses all requirements of one of the above schemes or
    b. consists of comparable criteria that are available for public review.
@@ -2707,15 +2716,13 @@ An authoritative English language version of the publicly available audit inform
 
 The Audit Report MUST be available as a PDF, and SHALL be text searchable for all information required. Each SHA-256 fingerprint within the Audit Report MUST be uppercase letters and MUST NOT contain colons, spaces, or line feeds.
 
-## 8.7 Self Audits
+## 8.7 Self audits
 
-During the period in which the CA issues Certificates, the CA SHALL monitor adherence to its CP and/or CPS and these Requirements and control its service quality by performing self audits on at least a quarterly basis against a randomly selected sample including a minimum of thirty (30) Certificates or three percent (3%) of the Certificates issued by it during the period commencing immediately after the previous self-audit sample was taken. 
+During the period in which the CA issues Certificates, the CA SHALL monitor adherence to its CP and/or CPS and these Requirements and control its service quality by performing self audits on at least a quarterly basis against a randomly selected sample including a minimum of the greater of thirty (30) Certificates or three percent (3%) of the Certificates issued by it during the period commencing immediately after the previous self-audit sample was taken. 
 
-## 8.8 Review of enterprise RA or technically constrained subordinate CA
+## 8.8 Review of delegated parties 
 
-Except for Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of each Delegated Third Party, Enterprise RA, and Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS.
-
-The CA SHALL internally audit the compliance of Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs with these Requirements on an annual basis, and SHALL include having a Validation Specialist employed by the CA perform ongoing quarterly audits against a randomly selected sample of at least the greater of one (1) Certificate or three percent (3%) of the Certificates verified or issued by those parties in the period beginning immediately after the last sample was taken.
+Except for Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of each Delegated Third Party, Enterprise RA, and Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS. The CA shall document the obligations of Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs and perform internal audits of their adherence with those obligations on an annual basis.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
