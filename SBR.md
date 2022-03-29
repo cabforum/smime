@@ -10,13 +10,13 @@ copyright: |
 ---
 
 # 1. INTRODUCTION
-**This is a pre-release draft of the S/MIME Baseline Requirements (SBR). This draft has not yet been balloted to become a CA/Browser Forum standard.  Comments are welcomed.**
+**This is a pre-release draft of the S/MIME Baseline Requirements (SBR). This draft has not yet been balloted to become a CA/Browser Forum standard. Comments are welcomed.**
 
 ## 1.1 Overview
 
 This S/MIME Baseline Requirements document describes an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements that are necessary for the issuance and management of Publicly-Trusted S/MIME Certificates.
 
-An S/MIME Certificate for the purposes of this document can be identified by the existence of an Extended Key Usage (EKU) for `emailProtection` (OID: 1.3.6.1.5.5.7.3.4) and the inclusion of an email address in the Subject, or an `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension.
+An S/MIME Certificate for the purposes of this document can be identified by the existence of an Extended Key Usage (EKU) for `emailProtection` (OID: 1.3.6.1.5.5.7.3.4) and the inclusion of a `rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension.
 
 **Notice for Readers**
 
@@ -91,9 +91,9 @@ Before the CA authorizes a Delegated Third Party to perform a delegated function
 
 #### 1.3.2.1 Enterprise registration authorities
 
-The CA MAY designate an Enterprise Registration Authority (RA) to verify Certificate Requests from the Enterprise RA's own organization.  The CA SHALL NOT accept Certificate Requests authorized by an Enterprise RA unless the following requirements are satisfied:
+The CA MAY designate an Enterprise Registration Authority (RA) to verify Certificate Requests from the Enterprise RA's own organization. The CA SHALL NOT accept Certificate Requests authorized by an Enterprise RA unless the following requirements are satisfied:
 
-1. If the Certificate Request is for an `Organization-validated` or `Sponsor-validated` profile, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers). The CA SHALL confirm that the `subject:organizationName` name if used is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are Affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
+1. If the Certificate Request is for an `Organization-validated` or `Sponsor-validated` profile, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers). The CA SHALL confirm that the `subject:organizationName` name is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are Affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
 
 2. If the Certificate Request is for a `Mailbox-validated` profile, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
 
@@ -109,11 +109,11 @@ As defined in [Section 1.6.1](#16-definitions-and-acronyms).
 
 ### 1.3.5 Other participants
 
-Other groups that have participated in the development of these Requirements include the CPA Canada WebTrust for Certification Authorities task force and the  Accredited Conformity Assessment Bodies’ Council (ACAB’C).  Participation by these groups does not imply their endorsement, recommendation, or approval of the final product.
+Other groups that have participated in the development of these Requirements include the CPA Canada WebTrust for Certification Authorities task force and the Accredited Conformity Assessment Bodies’ Council (ACAB’C). Participation by these groups does not imply their endorsement, recommendation, or approval of the final product.
 
 ## 1.4 Certificate usage
 
-The primary goal of these Requirements is to provide a framework of “reasonable assurance” to senders and recipients of email messages that the party identified in an S/MIME Certificate has control of the domain or email address being asserted. A variation of this use case is where an individual or organization digitally signs email to establish its authenticity and source of origin.  
+The primary goal of these Requirements is to provide a framework of “reasonable assurance” to senders and recipients of email messages that the party identified in an S/MIME Certificate has control of the domain or email address being asserted. A variation of this use case is where an individual or organization digitally signs email to establish its authenticity and source of origin. 
 
 ### 1.4.1 Appropriate certificate uses
 
@@ -125,7 +125,7 @@ No stipulation.
 
 ## 1.5 Policy administration
 
-This document MAY be revised from time to time, as appropriate, in accordance with procedures adopted by the CA/Browser Forum.  The CA/Browser Forum welcomes recommendations and suggestions regarding this standard by email at <questions@cabforum.org>. 
+This document MAY be revised from time to time, as appropriate, in accordance with procedures adopted by the CA/Browser Forum. The CA/Browser Forum welcomes recommendations and suggestions regarding this standard by email at <questions@cabforum.org>. 
 
 ### 1.5.1 Organization administering the document
 
@@ -161,7 +161,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
   ii. who signs and submits a Subscriber Agreement on behalf of the Applicant, and/or
   iii. who acknowledges the Terms of Use on behalf of the Applicant when the Applicant is an Affiliate of the CA or is the CA.
 
-**Application Software Supplier**: A supplier of Internet browser software or other relying-party application software such as mail user agents (web-based or application based) and email service providers that process S/MIME Certificates.
+**Application Software Supplier**: A supplier of email client software or other relying-party application software such as mail user agents (web-based or application based) and email service providers that process S/MIME Certificates.
 
 **Attestation Letter**: A letter attesting that Subject Information is correct written by an accountant, lawyer, government official, or other reliable third party customarily relied upon for such information.
 
@@ -230,7 +230,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Issuing CA**: In relation to a particular Certificate, the CA that issued the Certificate. This could be either a Root CA or a Subordinate CA.
 
-**Jurisdiction of Incorporation**: In the context of a Private Organization, the country and (where applicable) the state or province or locality where the organization's legal existence was established by a filing with (or an act of) an appropriate government agency or entity (e.g., where it was incorporated).  In the context of a Government Entity, the country and (where applicable) the state or province where the Entity's legal existence was created by law.
+**Jurisdiction of Incorporation**: In the context of a Private Organization, the country and (where applicable) the state or province or locality where the organization's legal existence was established by a filing with (or an act of) an appropriate government agency or entity (e.g., where it was incorporated). In the context of a Government Entity, the country and (where applicable) the state or province where the Entity's legal existence was created by law.
 
 **Jurisdiction of Registration**: In the case of a Business Entity, the state, province, or locality where the organization has registered its business presence by means of filings by a Principal Individual involved in the business.
 
@@ -308,11 +308,11 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Sovereign State**: A state or country that administers its own government, and is not dependent upon, or subject to, another power.
 
-**Sponsor-validated**: Refers to a Certificate Profile Subject which combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Person) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA where the `subject:organizationName` is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject Organization. 
+**Sponsor-validated**: Refers to a Certificate Profile Subject which combines Individual (natural person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA where the `subject:organizationName` is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject Organization. 
 
 **Strict Profile**: The S/MIME Strict Profiles are the long term target profile for S/MIME Certificates with `extKeyUsage` limited to `emailProtection`, and stricter use of Subject DN attributes and other extensions.
 
-**Subject**: The natural person, device, system, unit, or Legal Entity identified in a Certificate as the Subject. The Subject is either the Subscriber or a device under the control and operation of the Subscriber.
+**Subject**: The natural person, device, system, unit, or Legal Entity identified in a Certificate as the Subject. The Subject is either the Subscriber or a mailbox under the control and operation of the Subscriber.
 
 **Subject Identity Information**: Information that identifies the Certificate Subject. Subject Identity Information does not include a Mailbox Address listed in the `subjectAltName` extension, the `subject:commonName` field, or the Subject `subject:emailAddress` field.
 
@@ -500,11 +500,11 @@ The CA SHALL make its Repository publicly available in a read-only manner.
 
 ### 3.1.1 Types of names
 
-When the `subject:commonName` of a Certificate issued to an Individual does not contain an email address, it is specified as `subject:givenName` and/or `subject:surname`, or `subject:surname` then `subject:givenName` where appropriate for national preference. 
+When the `subject:commonName` of a Certificate issued to an Individual does not contain a Mailbox Address, it is specified as `subject:givenName` and/or `subject:surname`, or `subject:surname` then `subject:givenName` where appropriate for national preference. 
 
-Names in the `subject:commonName` MUST be identical to the names as they appear in the identifying documentation or Enterprise RA records.  
+Names in the `subject:commonName` MUST be identical to the names as they appear in the identifying documentation or Enterprise RA records. 
 
-Names consisting of multiple words are permitted.  Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence. Given names joined with a hyphen are considered as one single given name. 
+Names consisting of multiple words are permitted. Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence. Given names joined with a hyphen are considered as one single given name. 
 
 Abbreviations or nicknames without substantiating identifying documentation SHALL NOT be used. 
 
@@ -518,9 +518,9 @@ No stipulation.
 
 ### 3.1.4 Rules for interpreting various name forms
 
-In cases where names use special characters that are not supported by the character set used in the Certificate Subject, the CA SHOULD define substitution rules in its CP and/or CPS.  For example:
+In cases where names use diacritics or other characters that are not supported by Relying Party applications, the CA SHOULD define substitution rules in its CP and/or CPS.  For example:
 
-*  Accent characters MAY be represented by their ASCII equivalent.  For example é, è, à, or ç MAY be represented by e, e, a, or c.
+*  Accent characters MAY be represented by their ASCII equivalent. For example é, è, à, or ç MAY be represented by e, e, a, or c.
 *  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u.
 
 ### 3.1.5 Uniqueness of names
@@ -554,7 +554,7 @@ The CA SHALL verify that Applicant controls the email accounts associated with a
 
 The CA SHALL NOT delegate the verification of mailbox authorization or control.
 
-**Note:** Email addresses MAY be listed in Subscriber Certificates using `rfc822Names` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the Subject or in the `subjectAltName` extension, or in Subordinate CA Certificates via `rfc822Names` in permittedSubtrees within the `nameConstraints` extension.
+**Note:** Email addresses MAY be listed in Subscriber Certificates using `rfc822Name` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension, or in Subordinate CA Certificates via `rfc822Name` in permittedSubtrees within the `nameConstraints` extension.
 
 The CA's CP and/or CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which domain validation method, including the relevant version number from the Baseline Requirements or S/MIME Baseline Requirements, used to validate every domain or email address in issued Certificates.
 
@@ -576,11 +576,11 @@ Control over each email address SHALL be confirmed using a unique Random Value. 
 
 The Random Value SHALL be unique in each email. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CA MAY specify a shorter validity period for Random Values in its CP and/or CPS.  
 
-The Random Value SHALL be reset upon each instance of the email sent by the CA and, if intended for additional use as an authentication factor, upon first use.  
+The Random Value SHALL be reset upon each instance of the email sent by the CA and, if intended for additional use as an authentication factor, upon first use. 
 
 #### 3.2.2.3 Validating applicant as operator of associated mail server(s)
 
-Confirming the Applicant's control over each `rfc822Name` , `otherName` of `type id-on-SmtpUTF8Mailbox`, or other email address to be included in the Certificate, by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN MUST be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDNs have been discovered, the CA MUST verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA MUST NOT be used for this validation method.
+Confirming the Applicant's control over each `rfc822Name` , `otherName` of `type id-on-SmtpUTF8Mailbox` to be included in the Certificate, by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN MUST be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDNs have been discovered, the CA MUST verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA MUST NOT be used for this validation method.
 
 When confirming the Applicant's control of the SMTP FQDN, the CA SHALL use only the approved methods in Section 3.2.2.4 of the TLS Baseline Requirements.
 
@@ -588,7 +588,7 @@ This method is suitable for validating control of all email addresses under a si
 
 #### 3.2.2.4 CAA records
 
-This version of the S/MIME Baseline Requirements does not require the CA to check for CAA records.  The CAA property tags for `issue`, `issuewild`, and `iodef` as specified in [RFC 8659](https://datatracker.ietf.org/doc/html/rfc8659) are not recognized for the issuance of S/MIME Certificates.
+This version of the S/MIME Baseline Requirements does not require the CA to check for CAA records. The CAA property tags for `issue`, `issuewild`, and `iodef` as specified in [RFC 8659](https://datatracker.ietf.org/doc/html/rfc8659) are not recognized for the issuance of S/MIME Certificates.
 
 ### 3.2.3 Authentication of organization identity
 
@@ -616,7 +616,7 @@ The CA MUST implement verification processes to confirm and document the followi
 
    C.  Verify that a Certificate Approver has signed or otherwise approved the S/MIME Certificate Request.
 
-As a general rule, the CA is responsible for taking all verification steps reasonably necessary to satisfy each of the Verification Requirements set forth in the subsections below.  The Acceptable Methods of Verification set forth in [Section 3.2.3](#323-authentication-of-organization-identity) and [Section 3.2.6](#326-validation-of-authority) (which usually include alternatives) are considered to be the minimum acceptable level of verification required of the CA.  In all cases, however, the CA is responsible for taking any additional verification steps that may be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement.
+As a general rule, the CA is responsible for taking all verification steps reasonably necessary to satisfy each of the Verification Requirements set forth in the subsections below. The Acceptable Methods of Verification set forth in [Section 3.2.3](#323-authentication-of-organization-identity) and [Section 3.2.6](#326-validation-of-authority) (which usually include alternatives) are considered to be the minimum acceptable level of verification required of the CA.  In all cases, however, the CA is responsible for taking any additional verification steps that may be reasonably necessary under the circumstances to satisfy the applicable Verification Requirement.
 
 ##### 3.2.3.1.1 Disclosure of verification sources
 
@@ -625,7 +625,7 @@ Prior to the use of an Incorporating Agency or Registration Agency to fulfill th
 This Agency Information SHALL include at least the following:
 
 * Sufficient information to unambiguously identify the Incorporating Agency or Registration Agency (such as a name, jurisdiction, and website); 
-* The accepted value or values for each of the `subject:jurisdictionLocalityName` (OID: 1.3.6.1.4.1.311.60.2.1.1), `subject:jurisdictionStateOrProvinceName` (OID: 1.3.6.1.4.1.311.60.2.1.2), and `subject:jurisdictionCountryName` (OID: 1.3.6.1.4.1.311.60.2.1.3) fields, when a Certificate is issued using information from that Incorporating Agency or Registration Agency, indicating the jurisdiction(s) that the Agency is appropriate for; 
+* The accepted value or values for each of the 2 character ISO 3166 country codes and the 2 character ISO 316-2 identifier for the subdivision (state or province) of the `subject:organizationIdentifier` field, when a Certificate is issued using information from that Incorporating Agency or Registration Agency, indicating the jurisdiction(s) that the Agency is appropriate for; 
 * The acceptable form or syntax of Registration Numbers used by the Incorporating Agency or Registration Agency, if the CA restricts such Numbers to an acceptable form or syntax; and
 * A revision history that includes a unique version number and date of publication for any additions, modifications, and/or removals from this list.
 
@@ -641,27 +641,27 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
 
    A.  **Legal Existence**: Verify that the Applicant is a legally recognized entity, in existence and validly formed (e.g., incorporated) with the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration, and not designated on the records of the Incorporating or Registration Agency by labels such as "inactive", "invalid", "not current", or the equivalent.
    B.  **Organization Name**: Verify that the Applicant's formal legal name as recorded with the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration matches the Applicant's name in the S/MIME Certificate Request.
-   C.  **Registration Number**: Obtain the specific Registration Number assigned to the Applicant by the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration.  Where the Incorporating or Registration Agency does not assign a Registration Number, the CA SHALL obtain the Applicant's date of Incorporation or Registration.
+   C.  **Registration Number**: Obtain the specific Registration Number assigned to the Applicant by the Incorporating or Registration Agency in the Applicant's Jurisdiction of Incorporation or Registration. Where the Incorporating or Registration Agency does not assign a Registration Number, the CA SHALL obtain the Applicant's date of Incorporation or Registration.
    D.  **Registered Agent**: Obtain the identity and address of the Applicant's Registered Agent or Registered Office (as applicable in the Applicant's Jurisdiction of Incorporation or Registration).
 
 2. **Government Entity Subjects**
 
    A.  **Legal Existence**: Verify that the Applicant is a legally recognized Government Entity, in existence in the political subdivision in which such Government Entity operates.
    B.  **Entity Name**: Verify that the Applicant's formal legal name matches the Applicant's name in the S/MIME Certificate Request.
-   C.  **Registration Number**: The CA MUST attempt to obtain the Applicant's date of incorporation, registration, or formation, or the identifier for the legislative act that created the Government Entity.  In circumstances where this information is not available, the CA MUST enter appropriate language to indicate that the Subject is a Government Entity.
+   C.  **Registration Number**: The CA MUST attempt to obtain the Applicant's date of incorporation, registration, or formation, or the identifier for the legislative act that created the Government Entity. In circumstances where this information is not available, the CA MUST enter appropriate language to indicate that the Subject is a Government Entity.
 
 3. **Business Entity Subjects**
 
    A.  **Legal Existence**: Verify that the Applicant is engaged in business under the name submitted by the Applicant in the Application.
    B.  **Organization Name**: Verify that the Applicant's formal legal name as recognized by the Registration Agency in the Applicant's Jurisdiction of Registration matches the Applicant's name in the S/MIME Certificate Request.
-   C.  **Registration Number**: Attempt to obtain the specific unique Registration Number assigned to the Applicant by the Registration Agency in the Applicant's Jurisdiction of Registration.  Where the Registration Agency does not assign a Registration Number, the CA SHALL obtain the Applicant's date of Registration.
+   C.  **Registration Number**: Attempt to obtain the specific unique Registration Number assigned to the Applicant by the Registration Agency in the Applicant's Jurisdiction of Registration. Where the Registration Agency does not assign a Registration Number, the CA SHALL obtain the Applicant's date of Registration.
    D.  **Principal Individual**: Verify the identity of the identified Principal Individual.
 
 4. **Non-Commercial Entity Subjects (International Organizations)**
 
    A.  **Legal Existence**: Verify that the Applicant is a legally recognized International Organization Entity.
    B.  **Entity Name**: Verify that the Applicant's formal legal name matches the Applicant's name in the S/MIME Certificate Request.
-   C.  **Registration Number**: The CA MUST attempt to obtain the Applicant's date of formation, or the identifier for the legislative act that created the International Organization Entity.  In circumstances where this information is not available, the CA MUST enter appropriate language to indicate that the Subject is an International Organization Entity.
+   C.  **Registration Number**: The CA MUST attempt to obtain the Applicant's date of formation, or the identifier for the legislative act that created the International Organization Entity. In circumstances where this information is not available, the CA MUST enter appropriate language to indicate that the Subject is an International Organization Entity.
 
 ##### 3.2.3.2.2 Acceptable methods of verification
 
@@ -672,15 +672,15 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
    ii. a superior governing Government Entity in the same political subdivision as the Applicant (e.g. a Secretary of State may verify the legal existence of a specific State Department), or
    iii. from a judge that is an active member of the federal, state or local judiciary within that political subdivision.
 
-   Any communication from a judge SHALL be verified in the same manner as is used for verifying factual assertions that are asserted by an Attorney as set forth in [Section 11.11.1](#11111-verified-legal-opinion).
+   Any communication from a judge SHALL be verified in the same manner as is used for verifying factual assertions that are asserted by an Attorney as set forth in [Section 3.2.8.1](#3281-verified-legal-opinion).
 
    Such verification MAY be by direct contact with the appropriate Government Entity in person or via mail, email, Web address, or telephone, using an address or phone number obtained from a Qualified Independent Information Source.
 
 3. **Business Entity Subjects**: Unless verified under subsection (6), Items listed in [Section 3.2.3.2.1](#32321-verification-requirements) (3) (A) through (C) above, MUST be verified directly with, or obtained directly from, the Registration Agency in the Applicant's Jurisdiction of Registration. Such verification MAY be performed by means of a Qualified Government Information Source, a Qualified Governmental Tax Information Source, or by direct contact with the Registration Agency in person or via mail, email, Web address, or telephone, using an address or phone number obtained directly from the Qualified Government Information Source, Qualified Governmental Tax Information Source or Registration Agency, or from a Qualified Independent Information Source. In addition, the CA MUST validate a Principal Individual associated with the Business Entity pursuant to the requirements in subsection (4), below.
 
-4. **Principal Individual**: A Principal Individual associated with the Business Entity MUST be validated in a face-to-face setting.  The CA MAY rely upon a face-to-face validation of the Principal Individual performed by the Registration Agency, provided that the CA has evaluated the validation procedure and concluded that it satisfies the requirements for face-to-face validation procedures.  Where no face-to-face validation was conducted by the Registration Agency, or the Registration Agency's face-to-face validation procedure does not comply with this Requirement, the CA SHALL perform face-to-face validation.
+4. **Principal Individual**: A Principal Individual associated with the Business Entity MUST be validated in a face-to-face setting. The CA MAY rely upon a face-to-face validation of the Principal Individual performed by the Registration Agency, provided that the CA has evaluated the validation procedure and concluded that it satisfies the requirements for face-to-face validation procedures. Where no face-to-face validation was conducted by the Registration Agency, or the Registration Agency's face-to-face validation procedure does not comply with this Requirement, the CA SHALL perform face-to-face validation.
 
-   A.  **Face-To-Face Validation**: The face-to-face validation MUST be conducted before either an employee of the CA, a Latin Notary, a Notary (or equivalent in the Applicant's jurisdiction), a Lawyer, or Accountant (Third-Party Validator).  The Principal Individual(s) MUST present the following documentation (Vetting Documents) directly to the Third-Party Validator:
+   A.  **Face-To-Face Validation**: The face-to-face validation MUST be conducted before either an employee of the CA, a Latin Notary, a Notary (or equivalent in the Applicant's jurisdiction), a Lawyer, or Accountant (Third-Party Validator). The Principal Individual(s) MUST present the following documentation (Vetting Documents) directly to the Third-Party Validator:
 
        i. A Personal Statement that includes the following information:
 
@@ -717,11 +717,11 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
        The Third-Party Validator performing the face-to-face validation MUST:
 
          i. Attest to the signing of the Personal Statement and the identity of the signer; and
-         ii. Identify the original Vetting Documents used to perform the identification.  In addition, the Third-Party Validator MUST attest on a copy of the current signed government-issued photo identification document that it is a full, true, and accurate reproduction of the original.
+         ii. Identify the original Vetting Documents used to perform the identification. In addition, the Third-Party Validator MUST attest on a copy of the current signed government-issued photo identification document that it is a full, true, and accurate reproduction of the original.
 
    B.  **Verification of Third-Party Validator**: The CA MUST independently verify that the Third-Party Validator is a legally-qualified Latin Notary or Notary (or legal equivalent in the Applicant's jurisdiction), lawyer, or accountant in the jurisdiction of the Individual's residency, and that the Third-Party Validator actually did perform the services and did attest to the signature of the Individual.
 
-   C.  **Cross-checking of Information**: The CA MUST obtain the signed and attested Personal Statement together with the attested copy of the current signed government-issued photo identification document.  The CA MUST review the documentation to determine that the information is consistent, matches the information in the application, and identifies the Individual.  The CA MAY rely on electronic copies of this documentation, provided that:
+   C.  **Cross-checking of Information**: The CA MUST obtain the signed and attested Personal Statement together with the attested copy of the current signed government-issued photo identification document. The CA MUST review the documentation to determine that the information is consistent, matches the information in the application, and identifies the Individual. The CA MAY rely on electronic copies of this documentation, provided that:
 
        i. the CA confirms their authenticity (not improperly modified when compared with the underlying original) with the Third-Party Validator; and
        ii. electronic copies of similar kinds of documents are recognized as legal substitutes for originals under the laws of the CA's jurisdiction.
@@ -729,7 +729,7 @@ To verify the Applicant's legal existence and identity, the CA MUST do the follo
 5. **Non-Commercial Entity Subjects (International Organization)**: Unless verified under subsection (6), all items listed in [Section 3.2.3.2.1](#32321-verification-requirements) (4) MUST be verified either:
 
    A.  With reference to the constituent document under which the International Organization was formed; or
-   B.  Directly with a signatory country's government in which the CA is permitted to do business.  Such verification MAY be obtained from an appropriate government agency or from the laws of that country, or by verifying that the country's government has a mission to represent it at the International Organization; or
+   B.  Directly with a signatory country's government in which the CA is permitted to do business. Such verification MAY be obtained from an appropriate government agency or from the laws of that country, or by verifying that the country's government has a mission to represent it at the International Organization; or
    C.  Directly against any current list of qualified entities that the CA/Browser Forum may maintain at https://www.cabforum.org
    D.  In cases where the International Organization applying for the S/MIME Certificate is an organ or agency - including a non-governmental organization of a verified International Organization, then the CA MAY verify the International Organization Applicant directly with the verified umbrella International Organization of which the Applicant is an organ or agency.
 
@@ -769,7 +769,7 @@ To verify any assumed name under which the Applicant conducts business:
 
           1. For Applicants listed at the same Place of Business address in the current version of either at least one QGIS (other than that used to verify legal existence), QIIS or QTIS, the CA MUST confirm that the Applicant's address, as listed in the S/MIME Certificate Request, is a valid business address for the Applicant or a Parent/Subsidiary Company by reference to such QGIS, QIIS, or QTIS, and MAY rely on the Applicant's representation that such address is its Place of Business;
 
-          2. For Applicants who are not listed at the same Place of Business address in the current version of either at least one QIIS or QTIS, the CA MUST confirm that the address provided by the Applicant in the S/MIME Certificate Request is the Applicant's or a Parent/Subsidiary Company's business address, by obtaining documentation of a site visit to the business address, which MUST be performed by a reliable individual or firm.  The documentation of the site visit MUST:
+          2. For Applicants who are not listed at the same Place of Business address in the current version of either at least one QIIS or QTIS, the CA MUST confirm that the address provided by the Applicant in the S/MIME Certificate Request is the Applicant's or a Parent/Subsidiary Company's business address, by obtaining documentation of a site visit to the business address, which MUST be performed by a reliable individual or firm. The documentation of the site visit MUST:
 
              a. Verify that the Applicant's business is located at the exact address stated in the S/MIME Certificate Request (e.g., via permanent signage, employee confirmation, etc.),
              b. Identify the type of facility (e.g., office in a commercial building, private residence, storefront, etc.) and whether it appears to be a permanent business location,
@@ -807,7 +807,7 @@ B.  Confirm the Verified Method of Communication by using it to obtain an affirm
 
 ##### 3.2.3.6.1 Verification requirements
 
-The CA MUST verify that the Applicant has the ability to engage in business by verifying the Applicant's, or Affiliate/Parent/Subsidiary Company's, operational existence.  The CA MAY rely on its verification of a Government Entity's legal existence under [Section 3.2.3.2](#3232-verification-of-applicants-legal-existence-and-identity) as verification of a Government Entity's operational existence.
+The CA MUST verify that the Applicant has the ability to engage in business by verifying the Applicant's, or Affiliate/Parent/Subsidiary Company's, operational existence. The CA MAY rely on its verification of a Government Entity's legal existence under [Section 3.2.3.2](#3232-verification-of-applicants-legal-existence-and-identity) as verification of a Government Entity's operational existence.
 
 ##### 3.2.3.6.2 Acceptable methods of verification
 
@@ -870,13 +870,13 @@ Evidence for Individual identity attributes MAY be gathered using a Verified Leg
 
 6. **From authorized reference sources as supplementary evidence** 
    
-Evidence for Individual identity attributes SHALL use at least one of the following sources for authoritative evidence:  a physical or digital identiy document, digital signature supported by certificate, Enterprise RA records, or a Verified Legal Opinion.
+Evidence for Individual identity attributes SHALL use at least one of the following sources for authoritative evidence:  a physical or digital identity document, digital signature supported by certificate, Enterprise RA records, or a Verified Legal Opinion.
 
 The CA or RA MAY additionally gather and verify supplementary evidence using authorized reference sources such as additional official documents, QGIS, GTIS, Regulated Professions Information Source, or national population registers.
 
 Examples of this method include:
 
-* If the Subject presents an ID featuring an Applicant name that has subsquently been changed, the evidence MAY be complemented by inspection of an official document such as a marriage certificate or court order documenting the change.
+* If the Subject presents an ID featuring an Applicant name that has subsequently been changed, the evidence MAY be complemented by inspection of an official document such as a marriage certificate or court order documenting the change.
 * If a professional title of a regulated profession in the`subject:country` is to be used it SHALL be verified against a Regulated Professions Information Source as described in [Section 3.2.8.8](#3288-regulated-professions-information-source).
 
 When external registers are used, the CA or RA SHALL only accept official national or nationally approved registers. The CA SHALL document and publish the accepted authorized registers and reference sources, including a list of the documents or attestations accepted as supplementary evidence of identity.
@@ -891,15 +891,15 @@ The CA or RA MAY reuse existing evidence to validate Individual identity subject
 
 1.	**Validation of a physical identity document** 
 
-The physical identity document MUST be presented in its original form.  The CA MUST employ procedures to ensure presented by the Applicant is a genuine identity document that is not counterfeited or falsified/modified.
+The physical identity document MUST be presented in its original form. The CA MUST employ procedures to ensure presented by the Applicant is a genuine identity document that is not counterfeited or falsified/modified.
 
-The CA or RA MAY use manual (in person) or remote procedures.  A remote process SHALL ensure that the Applicant has the document in hand and presents the document in real-time in front of a camera.
+The CA or RA MAY use manual (in person) or remote procedures. A remote process SHALL ensure that the Applicant has the document in hand and presents the document in real-time in front of a camera.
 
 The CA or RA registration agent MUST make a visual comparison of the physical appearance of the Applicant and the face photo and/or other information on the physical identity document.
 
 The CA or RA registration agent SHALL have access to authoritative sources of information on document appearance and validation for forms of identity document accepted by the CA.  
 
-The CA or RA MUST retain information sufficient to evidence the fulfilment of the identity validation process and the verified attributes.  In addition to identity attributes, the CA or RA SHALL record the following information: issuer, validity period, and the document's unique identification number.
+The CA or RA MUST retain information sufficient to evidence the fulfillment of the identity validation process and the verified attributes. In addition to identity attributes, the CA or RA SHALL record the following information: issuer, validity period, and the document's unique identification number.
 
 Automated and manual processes MAY be used in combination, (for example the CA or RA may deploy automated tools to support the work of a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
 
@@ -933,7 +933,7 @@ Subscriber information that has not been verified in accordance with these Requi
 
 If the Certificate Request corresponds to a `Organization-validated` or `Sponsor-validated` Certificate, then for both the Contract Signer and the Certificate Approver, the CA MUST verify the following:
 
-1. **Name, Title and Agency**: The CA MUST verify the name and title of the Contract Signer and the Certificate Approver, as applicable.  The CA MUST also verify that the Contract Signer and the Certificate Approver are agents representing the Applicant.
+1. **Name, Title and Agency**: The CA MUST verify the name and title of the Contract Signer and the Certificate Approver, as applicable. The CA MUST also verify that the Contract Signer and the Certificate Approver are agents representing the Applicant.
 2. **Signing Authority of Contract Signer**: The CA MUST verify that the Contract Signer is authorized by the Applicant to enter into the Subscriber Agreement (and any other relevant contractual obligations) on behalf of the Applicant, including a contract that designates one or more Certificate Approvers on behalf of the Applicant.
 3. **Authority of Certificate Approver**: The CA MUST verify, through a source other than the Certificate Approver him- or herself, that the Certificate Approver is expressly authorized by the Applicant to do the following, as of the date of the Certificate Request:
 
@@ -967,7 +967,7 @@ Acceptable methods of verification of the Signing Authority of the Contract Sign
 4. **Contract between CA and Applicant**: The Authority of the Certificate Approver MAY be verified by reliance on a contract between the CA and the Applicant that designates the Certificate Approver with such Authority, provided that the contract is signed by the Contract Signer and provided that the agency and Signing Authority of the Contract Signer have been verified;
 5. **Prior Equivalent Authority**: The signing authority of the Contract Signer, and/or the authority of the Certificate Approver, MAY be verified by relying on a demonstration of Prior Equivalent Authority.
 
-   A.  Prior Equivalent Authority of a Contract Signer MAY be relied upon for confirmation or verification of the signing authority of the Contract Signer when the Contract Signer has executed a binding contract between the CA and the Applicant with a legally valid and enforceable seal or handwritten signature and only when the contract was executed more than 90 days prior to the Certificate application.  The CA MUST record sufficient details of the previous agreement to correctly identify it and associate it with the application.  Such details MAY include any of the following:
+   A.  Prior Equivalent Authority of a Contract Signer MAY be relied upon for confirmation or verification of the signing authority of the Contract Signer when the Contract Signer has executed a binding contract between the CA and the Applicant with a legally valid and enforceable seal or handwritten signature and only when the contract was executed more than 90 days prior to the Certificate application. The CA MUST record sufficient details of the previous agreement to correctly identify it and associate it with the application. Such details MAY include any of the following:
 
        i. Agreement title;
        ii. Date of Contract Signer's signature;
@@ -977,7 +977,7 @@ Acceptable methods of verification of the Signing Authority of the Contract Sign
    B.  Prior Equivalent Authority of a Certificate Approver MAY be relied upon for confirmation or verification of the Authority of the Certificate Approver when the Certificate Approver has performed one or more of the following:
 
        i. Under contract to the CA, has served (or is serving) as an Enterprise RA for the Applicant; or
-       ii. Has participated in the approval of one or more Certificate Requests, for Certificates issued by the CA and which are currently and verifiably in use by the Applicant.  In this case the CA MUST have contacted the Certificate Approver by phone at a previously validated phone number or have accepted a signed and notarized letter approving the Certificate Request.
+       ii. Has participated in the approval of one or more Certificate Requests, for Certificates issued by the CA and which are currently and verifiably in use by the Applicant. In this case the CA MUST have contacted the Certificate Approver by phone at a previously validated phone number or have accepted a signed and notarized letter approving the Certificate Request.
 
 6. **QIIS or QGIS**: The Signing Authority of the Contract Signer, and/or the Authority of the Certificate Approver, MAY be verified by a QIIS or QGIS that identifies the Contract Signer and/or the Certificate Approver as a corporate officer, sole proprietor, or other senior official of the Applicant.
 
@@ -1029,8 +1029,8 @@ Before relying on a source of verification data to validate Certificate Requests
 2. **Acceptable Methods of Verification**: Acceptable methods of establishing the foregoing requirements for a Verified Legal Opinion are:
 
    A.  **Status of Author**: The CA MUST verify the professional status of the author of the legal opinion by directly contacting the authority responsible for registering or licensing such Legal Practitioner(s) in the applicable jurisdiction;
-   B.  **Basis of Opinion**: The text of the legal opinion MUST make it clear that the Legal Practitioner is acting on behalf of the Applicant and that the conclusions of the legal opinion are based on the Legal Practitioner's stated familiarity with the relevant facts and the exercise of the practitioner's professional judgment and expertise.  The legal opinion MAY also include disclaimers and other limitations customary in the Legal Practitioner's jurisdiction, provided that the scope of the disclaimed responsibility is not so great as to eliminate any substantial risk (financial, professional, and/or reputational) to the Legal Practitioner, should the legal opinion prove to be erroneous;
-   C.  **Authenticity**: To confirm the authenticity of the legal opinion, the CA MUST make a telephone call or send a copy of the legal opinion back to the Legal Practitioner at the address, phone number, facsimile, or (if available) email address for the Legal Practitioner listed with the authority responsible for registering or licensing such Legal Practitioner, and obtain confirmation from the Legal Practitioner or the Legal Practitioner's assistant that the legal opinion is authentic.  If a phone number is not available from the licensing authority, the CA MAY use the number listed for the Legal Practitioner in records provided by the applicable phone company, QGIS, or QIIS.
+   B.  **Basis of Opinion**: The text of the legal opinion MUST make it clear that the Legal Practitioner is acting on behalf of the Applicant and that the conclusions of the legal opinion are based on the Legal Practitioner's stated familiarity with the relevant facts and the exercise of the practitioner's professional judgment and expertise. The legal opinion MAY also include disclaimers and other limitations customary in the Legal Practitioner's jurisdiction, provided that the scope of the disclaimed responsibility is not so great as to eliminate any substantial risk (financial, professional, and/or reputational) to the Legal Practitioner, should the legal opinion prove to be erroneous;
+   C.  **Authenticity**: To confirm the authenticity of the legal opinion, the CA MUST make a telephone call or send a copy of the legal opinion back to the Legal Practitioner at the address, phone number, facsimile, or (if available) email address for the Legal Practitioner listed with the authority responsible for registering or licensing such Legal Practitioner, and obtain confirmation from the Legal Practitioner or the Legal Practitioner's assistant that the legal opinion is authentic. If a phone number is not available from the licensing authority, the CA MAY use the number listed for the Legal Practitioner in records provided by the applicable phone company, QGIS, or QIIS.
 
        In circumstances where the opinion is digitally signed, in a manner that confirms the authenticity of the document and the identity of the signer, as verified by the CA in [Section 3.2.8.1](#3281-verified-legal-opinion) (2)(A), no further verification of authenticity is required.
 
@@ -1038,15 +1038,15 @@ Before relying on a source of verification data to validate Certificate Requests
 
 1. **Verification Requirements**: Before relying on an accountant letter submitted to the CA, the CA MUST verify that such accountant letter meets the following requirements:
 
-   A.  **Status of Author**: The CA MUST verify that the accountant letter is authored by an Accounting Practitioner retained or employed by the Applicant and licensed within the country of the Applicant's Jurisdiction of Incorporation, Jurisdiction of Registration, or country where the Applicant maintains an office or physical facility.  Verification of license MUST be  through the member organization or regulatory organization in the Accounting Practitioner's country or jurisdiction that is appropriate to contact when verifying an accountant's license to practice in that country or jurisdiction.  Such country or jurisdiction MUST have an accounting standards body that maintains full membership status with the International Federation of Accountants.
+   A.  **Status of Author**: The CA MUST verify that the accountant letter is authored by an Accounting Practitioner retained or employed by the Applicant and licensed within the country of the Applicant's Jurisdiction of Incorporation, Jurisdiction of Registration, or country where the Applicant maintains an office or physical facility. Verification of license MUST be  through the member organization or regulatory organization in the Accounting Practitioner's country or jurisdiction that is appropriate to contact when verifying an accountant's license to practice in that country or jurisdiction. Such country or jurisdiction MUST have an accounting standards body that maintains full membership status with the International Federation of Accountants.
    B.  **Basis of Opinion**: The CA MUST verify that the Accounting Practitioner is acting on behalf of the Applicant and that the conclusions of the Verified Accountant Letter are based on the Accounting Practitioner's stated familiarity with the relevant facts and the exercise of the Accounting Practitioner's professional judgment and expertise;
    C.  **Authenticity**: The CA MUST confirm the authenticity of the Verified Accountant Letter.
 
 2. **Acceptable Methods of Verification**: Acceptable methods of establishing the foregoing requirements for a Verified Accountant Letter are listed here.
 
    A.  **Status of Author**: The CA MUST verify the professional status of the author of the accountant letter by directly contacting the authority responsible for registering or licensing such Accounting Practitioners in the applicable jurisdiction.
-   B.  **Basis of Opinion**: The text of the Verified Accountant Letter MUST make clear that the Accounting Practitioner is acting on behalf of the Applicant and that the information in the letter is based on the Accounting Practitioner's stated familiarity with the relevant facts and the exercise of the practitioner's professional judgment and expertise.  The Verified Accountant Letter MAY also include disclaimers and other limitations customary in the Accounting Practitioner's jurisdiction, provided that the scope of the disclaimed responsibility is not so great as to eliminate any substantial risk (financial, professional, and/or reputational) to the Accounting Practitioner, should the Verified Accountant Letter prove to be erroneous;
-   C.  **Authenticity**: To confirm the authenticity of the accountant's opinion, the CA MUST make a telephone call or send a copy of the Verified Accountant Letter back to the Accounting Practitioner at the address, phone number, facsimile, or (if available) email address for the Accounting Practitioner listed with the authority responsible for registering or licensing such Accounting Practitioners and obtain confirmation from the Accounting Practitioner or the Accounting Practitioner's assistant that the accountant letter is authentic.  If a phone number is not available from the licensing authority, the CA MAY use the number listed for the Accountant in records provided by the applicable phone company, QGIS, or QIIS.
+   B.  **Basis of Opinion**: The text of the Verified Accountant Letter MUST make clear that the Accounting Practitioner is acting on behalf of the Applicant and that the information in the letter is based on the Accounting Practitioner's stated familiarity with the relevant facts and the exercise of the practitioner's professional judgment and expertise. The Verified Accountant Letter MAY also include disclaimers and other limitations customary in the Accounting Practitioner's jurisdiction, provided that the scope of the disclaimed responsibility is not so great as to eliminate any substantial risk (financial, professional, and/or reputational) to the Accounting Practitioner, should the Verified Accountant Letter prove to be erroneous;
+   C.  **Authenticity**: To confirm the authenticity of the accountant's opinion, the CA MUST make a telephone call or send a copy of the Verified Accountant Letter back to the Accounting Practitioner at the address, phone number, facsimile, or (if available) email address for the Accounting Practitioner listed with the authority responsible for registering or licensing such Accounting Practitioners and obtain confirmation from the Accounting Practitioner or the Accounting Practitioner's assistant that the accountant letter is authentic. If a phone number is not available from the licensing authority, the CA MAY use the number listed for the Accountant in records provided by the applicable phone company, QGIS, or QIIS.
 
       In circumstances where the opinion is digitally signed, in a manner that confirms the authenticity of the document and the identity of the signer, as verified by the CA in [Section 3.2.8.2](#3282-verified-accountant-letter) (2)(A), no further verification of authenticity is required.
 
@@ -1062,7 +1062,7 @@ Before relying on a source of verification data to validate Certificate Requests
 
    A.  **Qualification of Third-Party Validator**: The CA MUST verify the professional status of the Third-Party Validator by directly contacting the authority responsible for registering or licensing such Third-Party Validators in the applicable jurisdiction;
    B.  **Document Chain of Custody**: The Third-Party Validator MUST submit a statement to the CA which attests that they obtained the Vetting Documents submitted to the CA for the Individual during a face-to-face meeting with the Individual;
-   C.  **Verification of Attestation**: If the Third-Party Validator is not a Latin Notary, then the CA MUST confirm the authenticity of the vetting documents received from the Third-Party Validator.  The CA MUST make a telephone call to the Third-Party Validator and obtain confirmation from them or their assistant that they performed the face-to-face validation.  The CA MAY rely upon self-reported information obtained from the Third-Party Validator for the sole purpose of performing this verification process.  In circumstances where the attestation is digitally signed, in a manner that confirms the authenticity of the documents, and the identity of the signer as verified by the CA in [Section 3.2.8.3](#3283-face-to-face-validation) (1)(A), no further verification of authenticity is required.
+   C.  **Verification of Attestation**: If the Third-Party Validator is not a Latin Notary, then the CA MUST confirm the authenticity of the vetting documents received from the Third-Party Validator. The CA MUST make a telephone call to the Third-Party Validator and obtain confirmation from them or their assistant that they performed the face-to-face validation. The CA MAY rely upon self-reported information obtained from the Third-Party Validator for the sole purpose of performing this verification process. In circumstances where the attestation is digitally signed, in a manner that confirms the authenticity of the documents, and the identity of the signer as verified by the CA in [Section 3.2.8.3](#3283-face-to-face-validation) (1)(A), no further verification of authenticity is required.
 
 ### 3.2.8.4 Independent confirmation From applicant
 
@@ -1082,7 +1082,7 @@ An Independent Confirmation from the Applicant MAY be obtained via the following
        ii. The Applicant's Registered Agent or Registered Office in the Jurisdiction of Incorporation as listed in the official records of the Incorporating Agency, with instructions that it be forwarded to an appropriate Confirming Person; or
        iii. A named Individual verified to be in the direct line of management above the Contract Signer or Certificate Approver by contacting the Applicant's Human Resources Department by phone or mail (at the phone number or address for the Applicant's Place of Business, verified in accordance with these Guidelines).
 
-   B.  **Means of Communication**: The Confirmation Request MUST be directed to the Confirming Person in a manner reasonably likely to reach such person.  The following options are acceptable:
+   B.  **Means of Communication**: The Confirmation Request MUST be directed to the Confirming Person in a manner reasonably likely to reach such person. The following options are acceptable:
 
        i. By paper mail addressed to the Confirming Person at:
 
@@ -1092,18 +1092,18 @@ An Independent Confirmation from the Applicant MAY be obtained via the following
 
        ii. By email addressed to the Confirming Person at the business email address for such person listed in a current QGIS, QTIS, QIIS, Verified Legal Opinion, or Verified Accountant Letter; or
        iii. By telephone call to the Confirming Person, where such person is contacted by calling the main phone number of the Applicant's Place of Business (verified in accordance with these Guidelines) and asking to speak to such person, and a person taking the call identifies him- or herself as such person; or
-       iv. By facsimile to the Confirming Person at the Place of Business.  The facsimile number MUST be listed in a current QGIS, QTIS, QIIS, Verified Legal Opinion, or Verified Accountant Letter.  The cover page MUST be clearly addressed to the Confirming Person.
+       iv. By facsimile to the Confirming Person at the Place of Business. The facsimile number MUST be listed in a current QGIS, QTIS, QIIS, Verified Legal Opinion, or Verified Accountant Letter. The cover page MUST be clearly addressed to the Confirming Person.
 
-2. **Confirmation Response**: The CA MUST receive a response to the Confirmation Request from a Confirming Person that confirms the particular fact at issue.  Such response MAY be provided to the CA by telephone, by email, or by paper mail, so long as the CA can reliably verify that it was provided by a Confirming Person in response to the Confirmation Request.
+2. **Confirmation Response**: The CA MUST receive a response to the Confirmation Request from a Confirming Person that confirms the particular fact at issue. Such response MAY be provided to the CA by telephone, by email, or by paper mail, so long as the CA can reliably verify that it was provided by a Confirming Person in response to the Confirmation Request.
 
-3. The CA MAY rely on a verified Confirming Person to confirm their own contact information: email address, telephone number, and facsimile number.  The CA MAY rely on this verified contact information for future correspondence with the Confirming Person if:
+3. The CA MAY rely on a verified Confirming Person to confirm their own contact information: email address, telephone number, and facsimile number. The CA MAY rely on this verified contact information for future correspondence with the Confirming Person if:
 
    A.  The domain of the email address is owned by the Applicant and is the Confirming Person's own email address and not a group email alias;
    B.  The Confirming Person's telephone/fax number is verified by the CA to be a telephone number that is part of the organization's telephone system, and is not the personal phone number for the person.
 
 ### 3.2.8.5 Qualified independent information source
 
-A Qualified Independent Information Source (QIIS) is a regularly-updated and publicly available database that is generally recognized as a dependable source for certain information.  A database qualifies as a QIIS if the CA determines that:
+A Qualified Independent Information Source (QIIS) is a regularly-updated and publicly available database that is generally recognized as a dependable source for certain information. A database qualifies as a QIIS if the CA determines that:
 
 1. Industries other than the CA sector rely on the database for accurate location, contact, or other information; and
 
@@ -1183,7 +1183,7 @@ The CA MAY reuse completed validations and/or supporting evidence performed in a
    
       In the event of changes to the TLS Baseline Requirements methods specified in [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain), a CA MAY continue to reuse completed validations and/or supporting evidence for the period stated in this section unless otherwise directed in a ballot.
 
-      Completed validation of control of a mailbox in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email) MUST be obtained no more than 31 days prior to issuing the Certificate.
+      Completed validation of control of a mailbox in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email) MUST be obtained no more than 30 days prior to issuing the Certificate.
 
 2.  **Authentication of organization identity**: Completed validation of organization identity in accordance with [Section 3.2.3](#323-authentication-of-organization-identity) MUST be obtained no more than 398 days prior to issuing the Certificate. 
  
@@ -1366,6 +1366,7 @@ The Issuing CA SHALL revoke a Subordinate CA Certificate within seven (7) days i
 7. The Issuing CA or Subordinate CA ceases operations for any reason and has not made arrangements for another CA to provide revocation support for the Certificate;
 8. The Issuing CA's or Subordinate CA's right to issue Certificates under these Requirements expires or is revoked or terminated, unless the Issuing CA has made arrangements to continue maintaining the CRL/OCSP Repository; or
 9. Revocation is required by the Issuing CA's CP and/or CPS.
+
 ### 4.9.2 Who can request revocation
 
 The Subscriber, RA, or Issuing CA can initiate revocation. Additionally, Subscribers, Relying Parties, Application Software Suppliers, and other third parties MAY submit Certificate Problem Reports informing the Issuing CA of reasonable cause to revoke a Certificate.
@@ -1396,7 +1397,7 @@ After reviewing the facts and circumstances, the CA SHALL work with the Subscrib
 
 No stipulation.
 
-**Note**: Following Certificate issuance, a Certificate MAY be revoked for reasons stated in [Section 4.9](#49-certificate-revocation-and-suspension). Therefore, Relying Parties SHOULD check the revocation status of all Certificates that contain a CDP or OCSP pointer.
+**Note**: Following Certificate issuance, a Certificate may be revoked for reasons stated in [Section 4.9](#49-certificate-revocation-and-suspension). Therefore, Relying Parties SHOULD check the revocation status of all Certificates that contain a CDP or OCSP pointer.
 
 ### 4.9.7 CRL issuance frequency
 
@@ -1444,13 +1445,7 @@ If the OCSP responder receives a request for the status of a Certificate serial 
 
 The CA SHOULD monitor the OCSP responder for requests for "unused" serial numbers as part of its security response procedures.
 
-A Certificate serial number within an OCSP request is one of the following three options:
-
-1. "assigned" if a Certificate with that serial number has been issued by the Issuing CA, using any current or previous key associated with that CA subject; or
-2. "reserved" if a Precertificate with that serial number has been issued by 
-   i. the Issuing CA; or 
-   ii. a Precertificate Signing Certificate associated with the Issuing CA; or
-3. "unused" if neither of the previous conditions are met.
+A Certificate serial number within an OCSP request is "assigned" if a Certificate with that serial number has been issued by the Issuing CA, using any current or previous key associated with that CA subject, or "unused" if otherwise.
 
 ### 4.9.11 Other forms of revocation advertisements available
 
@@ -2088,7 +2083,7 @@ a. `certificatePolicies` (MUST be present)
 
 b. `cRLDistributionPoints` (MUST be present)
 
-   This extension MUST be present and SHOULD NOT be marked critical.  It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the Issuing CA's CRL can be retrieved. 
+   This extension MUST be present and SHOULD NOT be marked critical. It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the Issuing CA's CRL can be retrieved. 
    
    For Legacy profiles only, following additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
 
@@ -2102,7 +2097,7 @@ d. `basicConstraints` (optional)
 
 e. `keyUsage` (MUST be present)
 
-   This extension MUST be present and SHOULD be marked critical.  
+   This extension MUST be present and SHOULD be marked critical. 
 
    | Generation | `rsaEncryption`       | `id-ecPublicKey`            |
    |------|-----------------------|-----------------------------|
@@ -2130,8 +2125,8 @@ h. `subjectAlternativeName` (MUST be present)
 
    | Generation | `subjectAlternativeName`      | 
    |------|-----------------------|
-   | Strict | All email addresses in Subject MUST be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, `otherName` values other than type `id-on-SmtpUTF8Mailbox`, or `uniformResourceIdentifier`.|
-   | Multipurpose and Legacy |All email addresses in Subject MUST be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.  MUST NOT contain items of type: `dNSName`, `iPAddress`, or `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of any other type MUST be validated in accordance with the CA's CPS. |
+   | Strict | All email addresses in Subject MUST be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`. MUST NOT contain items of type: `dNSName`, `iPAddress`, `otherName` values other than type `id-on-SmtpUTF8Mailbox`, or `uniformResourceIdentifier`.|
+   | Multipurpose and Legacy |All email addresses in Subject MUST be repeated in SAN.  MUST contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`. MUST NOT contain items of type: `dNSName`, `iPAddress`, or `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of any other type MUST be validated in accordance with the CA's CPS. |
 
    `otherName` values of type `id-on-SmtpUTF8Mailbox` MUST be validated in accordance with RFC 8398.
 
@@ -2144,7 +2139,7 @@ j. `subjectDirectoryAttributes` (optional)
    | Generation | `subjectDirectoryAttributes`      | 
    |------|-----------------------|
    | Strict and Multipurpose | Prohibited |
-   | Legacy | MAY be present and MUST NOT be marked critical.  |
+   | Legacy | MAY be present and MUST NOT be marked critical. |
 
    May contain verified attributes which are not part of the Subject's Distinguished Name such as dateOfBirth, placeOfBirth, gender, countryOfCitizenship, or countryOfResidence in accordance with [RFC 3739 Section 3.2.2](https://tools.ietf.org/html/rfc3739#section-3.2.2). 
 
@@ -2168,7 +2163,7 @@ m. Adobe Extensions (optional)
    | Generation | Adobe Extensions      | 
    |------|-----------------------|
    | Strict | Prohibited |
-   | Multipurpose and Legacy | MAY be present and MUST NOT be marked critical.  May include the Adobe Time-stamp X509 extension (1.2.840.113583.1.1.9.1) or the Adobe ArchiveRevInfo extension (1.2.840.113583.1.1.9.2) |
+   | Multipurpose and Legacy | MAY be present and MUST NOT be marked critical. May include the Adobe Time-stamp X509 extension (1.2.840.113583.1.1.9.1) or the Adobe ArchiveRevInfo extension (1.2.840.113583.1.1.9.2) |
 
 #### 7.1.2.4 All certificates
 
@@ -2336,7 +2331,7 @@ All Subject email attribute values contained in the Subject MUST be repeated in 
    | Generation | `keyUsage`      | 
    |------|-----------------------|
    | Strict | MUST NOT contain `otherNames` other than type `id-on-SmtpUTF8Mailbox`. |
-   | Multipurpose and Legacy | `otherName` values MAY be included. `otherNames` of type `id-on-SmtpUTF8Mailbox` MUST be encoded in accordance with [RFC 8398](https://datatracker.ietf.org/doc/html/rfc8398).  `otherNames` MUST be validated in accordance with procedures documented in the CA's CP and/or CPS.|
+   | Multipurpose and Legacy | `otherName` values MAY be included. `otherNames` of type `id-on-SmtpUTF8Mailbox` MUST be encoded in accordance with [RFC 8398](https://datatracker.ietf.org/doc/html/rfc8398). `otherNames` MUST be validated in accordance with procedures documented in the CA's CP and/or CPS.|
 
 This extension MUST NOT contain items of type `dNSName`, `iPAddress`,  `uniformResourceIdentifier`, or `GeneralNames` of any other type.
 
@@ -2371,7 +2366,7 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
 
    The organizationIdentifier MUST be encoded as a PrintableString or UTF8String.
 
-   The Registration Scheme identified in the Certificate MUST be the result of the verification performed in accordance with [Section 3.2.3](#323-authentication-of-organization-identity).  The Registration Scheme MUST be identified using the using the following structure in the presented order:
+   The Registration Scheme identified in the Certificate MUST be the result of the verification performed in accordance with [Section 3.2.3](#323-authentication-of-organization-identity). The Registration Scheme MUST be identified using the using the following structure in the presented order:
 
     * 3 character Registration Scheme identifier;
     * 2 character ISO 3166 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally ISO 3166 code "XG" SHALL be used;
@@ -2379,7 +2374,7 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
     * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
     * Registration Reference allocated in accordance with the identified Registration Scheme
 
-   Note: Registration References MAY contain hyphens, but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not.  Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference.
+   Note: Registration References MAY contain hyphens, but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference.
 
    Examples:
 
@@ -2417,12 +2412,12 @@ j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4
 
 k. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)  
    __Required__ if the `subject:organizationName`, or the `subject:givenName` and/or `subject:surname` fields, are present and the `subject:stateOrProvinceName` field is absent.
-   __Optional__ if the `subject:stateOrProvinceName` field is present.  
+   __Optional__ if the `subject:stateOrProvinceName` field is present. 
    __Contents:__ If present, the `subject:localityName` field MUST contain the Subject's locality information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `localityName` field MAY contain the Subject's locality and/or state or province information.
 
 l. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)  
    __Required__ if the `subject:organizationName`, or the `subject:givenName` and/or `subject:surname` fields, are present and the `subject:localityName` field is absent.
-   __Optional__ if the `subject:localityName` field is present.  
+   __Optional__ if the `subject:localityName` field is present. 
    __Contents:__ If present, the `subject:stateOrProvinceName` field MUST contain the Subject's state or province information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
 
 m. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)  
@@ -2996,7 +2991,7 @@ The following Registration Schemes are recognized as valid under these guideline
   specified in ETSI TS 119 495 clause 5.2.1.  This information SHALL be
   obtained directly from the national competent authority register for
   payment services or from an information source approved by a government
-  agency, regulatory body, or legislation for this purpose.  
+  agency, regulatory body, or legislation for this purpose. 
   
   This information SHALL be validated for the entity named in the `subject:organizationName` and registration number within the context of the subject’s jurisdiction in the `subject:countryName` as specified in as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
   
@@ -3012,13 +3007,13 @@ The following Registration Schemes are recognized as valid under these guideline
 
 # Appendix B - Country-specific interpretative guidelines (normative)
 
-NOTE: This appendix provides alternative interpretations of these Requirements for countries that have a language, cultural, technical, or legal reason for deviating from a strict interpretation of these Requirements.  More specific information for particular countries may be added to this appendix in the future.
+NOTE: This appendix provides alternative interpretations of these Requirements for countries that have a language, cultural, technical, or legal reason for deviating from a strict interpretation of these Requirements. More specific information for particular countries may be added to this appendix in the future.
 
 ## 1. Organization names
 
 1. Non-Latin Organization Name
 
-   Where an Applicant's organization name is not registered with a QGIS in _Latin_ characters and the Applicant's non-Latin character organization name and registration have been verified with a QGIS in accordance with these Requirements, a CA MAY include a Latin character organization name in the Certificate.  In such a case, the CA MUST follow the procedures laid down in this section.
+   Where an Applicant's organization name is not registered with a QGIS in _Latin_ characters and the Applicant's non-Latin character organization name and registration have been verified with a QGIS in accordance with these Requirements, a CA MAY include a Latin character organization name in the Certificate. In such a case, the CA MUST follow the procedures laid down in this section.
 
 2. Romanized Names
 
@@ -3049,8 +3044,8 @@ As interpretation of the procedures set out above:
 
    A.  The Revised Hepburn method of Romanization, as well as Kunrei-shiki and Nihon-shiki methods described in ISO 3602, are acceptable for Japanese Romanizations.
    B.  The CA MAY verify the Romanized transliteration, language translation (e.g. English name), or other recognized Roman-letter substitute of the Applicant's formal legal name with either a QIIS, Verified Legal Opinion, or Verified Accountant Letter.
-   C.  The CA MAY use the Financial Services Agency to verify a Romanized, translated, or other recognized Roman-letter substitute name.  When used, the CA MUST verify that the translated English is recorded in the audited Financial Statements.
-   D.  When relying on Articles of Incorporation to verify a Romanized, translated, or other recognized Roman-letter substitute name, the Articles of Incorporation MUST be accompanied either: by a document, signed with the original Japanese Corporate Stamp, that proves that the Articles of Incorporation are authentic and current, or by a Verified Legal Opinion or a Verified Accountant Letter.  The CA MUST verify the authenticity of the Corporate Stamp.
+   C.  The CA MAY use the Financial Services Agency to verify a Romanized, translated, or other recognized Roman-letter substitute name. When used, the CA MUST verify that the translated English is recorded in the audited Financial Statements.
+   D.  When relying on Articles of Incorporation to verify a Romanized, translated, or other recognized Roman-letter substitute name, the Articles of Incorporation MUST be accompanied either: by a document, signed with the original Japanese Corporate Stamp, that proves that the Articles of Incorporation are authentic and current, or by a Verified Legal Opinion or a Verified Accountant Letter. The CA MUST verify the authenticity of the Corporate Stamp.
    E.  A Romanized, translated, or other recognized Roman-lettered substitute name confirmed in accordance with this [Appendix B-1](#b-1-japan) stored in the ROBINS database operated by JIPDEC MAY be relied upon by a CA for determining the allowed organization name during any issuance or renewal process of a Certificate without the need to re-perform the above procedures.
 
 2. Accounting Practitioner
