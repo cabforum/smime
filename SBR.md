@@ -2676,8 +2676,8 @@ No stipulation.
 
 The CA SHALL undergo an audit in accordance with one of the following schemes:
 
-1. “WebTrust for CAs v2.1 or newer” AND “XXXX or newer”; or
-2. ETSI EN 319 411-1 v1.2.2 or newer, which includes normative references to ETSI EN 319 401 (the latest version of the referenced ETSI documents should be applied); or
+1. “WebTrust for CAs v2.2.1 or newer” AND “WebTrust for S/MIME Baseline Requirements vX.X.X or newer”; or
+2. "ETSI EN 319 411-1 v1.3.1 or newer", which includes normative references to ETSI EN 319 401 (the latest version of referenced ETSI documents should be applied); or
 3. If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either
    a. encompasses all requirements of one of the above schemes or
    b. consists of comparable criteria that are available for public review.
