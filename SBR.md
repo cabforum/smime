@@ -566,7 +566,7 @@ For purposes of domain validation, the term Applicant includes the Applicant's P
 
 #### 3.2.2.2 Validating control over mailbox via email
 
-The CA MAY confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` or each email address in the Subject to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
+The CA MAY confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
 
 Control over each email address SHALL be confirmed using a unique Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
 
