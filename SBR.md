@@ -65,8 +65,9 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 ### 1.2.1 Revisions
 
 |Version| Ballot|Description                       | Adopted  | Effective\*  |
-|-------|-------|----------------------------------|----------| -----------|
-|00     |       |Working draft                     |TBD       |TBD         |
+|------|-------|----------------------------------|----------| -----------|
+| 00   | 00    |Version 1.0 of the S/MIME Baseline Requirements adopted | Adoption date | Adoption date plus 12 months |
+
 \* Effective Date and Additionally Relevant Compliance Date(s)
   
 ## 1.3 PKI participants
@@ -565,7 +566,7 @@ For purposes of domain validation, the term Applicant includes the Applicant's P
 
 #### 3.2.2.2 Validating control over mailbox via email
 
-The CA MAY confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` or each email address in the Subject to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
+The CA MAY confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
 
 Control over each email address SHALL be confirmed using a unique Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
 
@@ -1940,7 +1941,7 @@ No stipulation.
 | Generation | Maximum Validity Period      | 
 |------|-----------------------|
 | Strict and Multipurpose | 825 days |
-| Legacy | 1095 days |
+| Legacy | 1185 days |
 
 For the purpose of calculations, a day is measured as 86,400 seconds. Any amount of time greater than this, including fractional seconds and/or leap seconds, SHALL represent an additional day. For this reason, Subscriber Certificates SHOULD NOT be issued for the maximum permissible time by default, in order to account for such adjustments.
 
@@ -2300,6 +2301,8 @@ If the signing key is Curve448, the signature algorithm MUST be id-Ed448 (OID: 1
 
 ### 7.1.4 Name forms
 
+Attribute values SHALL be encoded according to [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
+
 #### 7.1.4.1 Name encoding
 
 For every valid Certification Path (as defined by [RFC 5280, Section 6](https://datatracker.ietf.org/doc/html/rfc5280#section-6)):
@@ -2346,6 +2349,8 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 | Individual | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
 
 If present, the Personal Name SHALL contain a name of the Subject. The Personal Name SHOULD be presented as `subject:givenName` and/or `subject:surname`. The Personal Name MAY be in the Subject's preferred presentation format, or a format preferred by the CA or Enterprise RA but SHALL be a meaningful representation of the Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). 
+
+Note: `subject:commonName` and `subject:emailAddress` SHALL comply with the attribute upper bounds defined in [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
 
 Additional specifications for naming are provided in [Section 3.1](#31-naming).
 
@@ -2716,11 +2721,9 @@ The Audit Report MUST be available as a PDF, and SHALL be text searchable for al
 
 During the period in which the CA issues Certificates, the CA SHALL monitor adherence to its CP and/or CPS and these Requirements and control its service quality by performing self audits on at least a quarterly basis against a randomly selected sample including a minimum of thirty (30) Certificates or three percent (3%) of the Certificates issued by it during the period commencing immediately after the previous self-audit sample was taken. 
 
-## 8.8 Review of enterprise RA or technically constrained subordinate CA
+## 8.8 Review of delegated parties 
 
-Except for Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of each Delegated Third Party, Enterprise RA, and Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS.
-
-The CA SHALL internally audit the compliance of Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs with these Requirements on an annual basis, and SHALL include having a Validation Specialist employed by the CA perform ongoing quarterly audits against a randomly selected sample of at least the greater of one (1) Certificate or three percent (3%) of the Certificates verified or issued by those parties in the period beginning immediately after the last sample was taken.
+Except for Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of each Delegated Third Party, Enterprise RA, and Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS. The CA shall document the obligations of all Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CA and perform internal audits of their adherence with those obligations on an annual basis.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
