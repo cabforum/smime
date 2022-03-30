@@ -514,7 +514,9 @@ No stipulation.
 
 ### 3.1.3 Anonymity or pseudonymity of subscribers
 
-No stipulation.
+For `sponsor-validated` certificates, the CA MAY use a `subject:pseudonym` attribute in the Certificate if approved by an Enterprise RA and the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
+
+For `individual-validated` certificates, the CA MAY use the `subject:pseudonym` attribute if the contents have been verified based on government-issued identity documents.
 
 ### 3.1.4 Rules for interpreting various name forms
 
@@ -2396,7 +2398,7 @@ e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname
    __Contents:__ If present, the `subject:givenName` field and `subject:surname` field MUST contain a natural person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). Subjects with a single legal name SHALL provide the name in the `subject:surname` attribute. The `subject:givenName` and/or `subject:surname` MUST NOT be present if the `subject:pseudonym` is present.
 
 f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)  
-   __Contents:__ The `subject:pseudonym` MUST NOT be present if the `subject:givenName` and/or `subject:surname` are present. If present, the `subject:pseudonym` field MUST be verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
+   __Contents:__ The `subject:pseudonym` MUST NOT be present if the `subject:givenName` and/or `subject:surname` are present. If present, the `subject:pseudonym` field MUST be verified according to [Section 3.1.3](#313-anonymity-or-pseudonymity-of-subscribers).
 
 g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
    __Contents:__ If present, the `subject:serialNumber` MAY be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber.
