@@ -500,13 +500,13 @@ The CA SHALL make its Repository publicly available in a read-only manner.
 
 ### 3.1.1 Types of names
 
-When the `subject:commonName` of a Certificate issued to an Individual does not contain a Mailbox Address, it is specified as `subject:givenName` and/or `subject:surname`, or `subject:surname` then `subject:givenName` where appropriate for national preference. 
+When the `subject:commonName` of a Certificate issued to an Individual does not contain a Mailbox Address, it is specified as a Personal Name or `subject:pseudonym` as described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields)(a). 
 
-Names in the `subject:commonName` MUST be identical to the names as they appear in the identifying documentation or Enterprise RA records. 
+Personal Names MUST be a meaningful representation of the Subject’s name as verified in the identifying documentation or Enterprise RA records. 
 
-Names consisting of multiple words are permitted. Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence. Given names joined with a hyphen are considered as one single given name. 
+Names consisting of multiple words are permitted. Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence.  Subjects MAY chose name order in accordance with national preference. 
 
-Abbreviations or nicknames without substantiating identifying documentation SHALL NOT be used. 
+The CA MAY allow common variations or abbreviations of Presonal Names consistent with local practice. 
 
 ### 3.1.2 Need for names to be meaningful
 
@@ -2359,7 +2359,7 @@ b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)
    An assumed name used by the Subject as verified under [Section 3.2.3.2](#3232-verification-of-organization-assumed-name) MAY be included at the beginning of this field, provided that it is followed by the full legal organization name in parenthesis.
 
 c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)  
-   __Contents:__ If present, the CA SHALL confirm that the `subject:organizationalUnitName` is the formal legal name of an Affiliate of the `subject:organizationName` in the Certificate and has been verified in accordance with the requirements of [Section 3.2](#32-initial-identity-validation).
+   __Contents:__ If present, the CA SHALL confirm that the `subject:organizationalUnitName` is the full legal organization name of an Affiliate of the `subject:organizationName` in the Certificate and has been verified in accordance with the requirements of [Section 3.2](#32-initial-identity-validation). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations.
 
 d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
    __Contents:__ If present, the `subject:organizationIdentifier` field MUST contain MUST contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. 
