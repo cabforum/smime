@@ -514,9 +514,15 @@ No stipulation.
 
 ### 3.1.3 Anonymity or pseudonymity of subscribers
 
-For `sponsor-validated` certificates, the CA MAY use a `subject:pseudonym` attribute in the Certificate if approved by an Enterprise RA and the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
+The purpose of the `subject:pseudonym` attribute is to provide a unique identifier linked to a Natural Person in a pseudonymized manner when certain privacy conditions are required. For example, a government agency requires officials to sign certain decisions via S/MIME so those decisions trace back to individuals, but require that the real identity (given name, surname) information of the official must not be included in the signing certificate details.
 
-For `individual-validated` certificates, the CA MAY use the `subject:pseudonym` attribute if the contents have been verified based on government-issued identity documents.
+For `sponsor-validated` certificates, the CA MAY use a `subject:pseudonym` attribute in the Certificate if approved by an Enterprise RA and the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute MUST be: 
+  1. either a Random Value selected by the CA which uniquely identifies the Subject of the Certificate; or
+  2. an identifier selected by the Enterprise RA which uniquely identifies the Subject of the Certificate within the Organization included in the `subject:organizationName` attribute.
+
+For `individual-validated` certificates, the CA MAY use the `subject:pseudonym` attribute if the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute MUST be a Random Value selected by the CA which uniquely identifies the Subject of the Certificate.
+
+**[TODO] See Privacy Section for details on who is responsible to keep a mapping between the pseudonym and the real identity, and revealing rules.** 
 
 ### 3.1.4 Rules for interpreting various name forms
 
@@ -2786,7 +2792,7 @@ No stipulation.
 
 ### 9.4.2 Information treated as private
 
-No stipulation.
+**[TO BE DISCUSSED]** If a certificate includes the `subject:pseudonym` attribute, the CA or Enterprise RA that performed the validation of the Natural Person in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) MUST treat information that links the pseudonym to the real identity of the Subject of the Certificate as private. Disclosure requirements of this information SHALL follow applicable laws in the CA or Enterprise RA's jurisdiction. 
 
 ### 9.4.3 Information not deemed private
 
@@ -2872,7 +2878,6 @@ The Subscriber Agreement or Terms of Use MUST contain provisions imposing on the
 5. **Reporting and Revocation**: An obligation and warranty to:
    a. promptly request revocation of the Certificate, and cease using it and its associated Private Key, if there is any actual or suspected misuse or compromise of the Subscriber’s Private Key associated with the Public Key included in the Certificate, and
    b. promptly request revocation of the Certificate, and cease using it, if any information in the Certificate is or becomes incorrect or inaccurate;
-
 6. **Termination of Use of Certificate**: An obligation and warranty to promptly cease all use of the Private Key corresponding to the Public Key included in the Certificate upon revocation of that Certificate for reasons of Key Compromise.
 7. **Responsiveness**: An obligation to respond to the CA's instructions concerning Key Compromise or Certificate misuse within a specified time period.
 8. **Acknowledgment and Acceptance**: An acknowledgment and acceptance that the CA is entitled to revoke the Certificate immediately if the Applicant were to violate the terms of the Subscriber Agreement or Terms of Use, or if revocation is required by the CA's CP and/or CPS, or by these Requirements.
