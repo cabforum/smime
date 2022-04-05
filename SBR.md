@@ -66,7 +66,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 
 |Version| Ballot|Description                       | Adopted  | Effective\*  |
 |------|-------|----------------------------------|----------| -----------|
-| 00   | 00    |Version 1.0 of the S/MIME Baseline Requirements adopted | Adoption date | Adoption date plus 12 months |
+| 00   | 00    |Version 1.0 of the S/MIME Baseline Requirements adopted | Adoption date | Adoption date plus 10 months |
 
 \* Effective Date and Additionally Relevant Compliance Date(s)
   
