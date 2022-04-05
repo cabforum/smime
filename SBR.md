@@ -66,7 +66,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 
 |Version| Ballot|Description                       | Adopted  | Effective\*  |
 |------|-------|----------------------------------|----------| -----------|
-| 00   | 00    |Version 1.0 of the S/MIME Baseline Requirements adopted | Adoption date | Adoption date plus 12 months |
+| 00   | 00    |Version 1.0 of the S/MIME Baseline Requirements adopted | Adoption date | Adoption date plus 10 months |
 
 \* Effective Date and Additionally Relevant Compliance Date(s)
   
@@ -506,7 +506,7 @@ Personal Names MUST be a meaningful representation of the Subject’s name as ve
 
 Names consisting of multiple words are permitted. Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence.  Subjects MAY chose name order in accordance with national preference. 
 
-The CA MAY allow common variations or abbreviations of Presonal Names consistent with local practice. 
+The CA MAY allow common variations or abbreviations of Personal Names consistent with local practice. 
 
 ### 3.1.2 Need for names to be meaningful
 
@@ -514,21 +514,23 @@ No stipulation.
 
 ### 3.1.3 Anonymity or pseudonymity of subscribers
 
-The purpose of the `subject:pseudonym` attribute is to provide a unique identifier linked to a Natural Person in a pseudonymized manner when certain privacy conditions are required. For example, a government agency requires officials to sign certain decisions via S/MIME so those decisions trace back to individuals, but require that the real identity (given name, surname) information of the official must not be included in the signing certificate details.
+The purpose of the `subject:pseudonym` attribute is to provide a unique identifier linked to an Individual in a pseudonymized manner when certain privacy conditions are required. For example, a Pseudonym may be used if a government agency requires officials to sign certain decisions via S/MIME so those decisions trace back to individuals, but emphasize the importance of the role over Individual identity in the Certificate. The CA must disclose in its CP and/or CPS if it allows the use of Pseudonyms.
 
 For `sponsor-validated` certificates, the CA MAY use a `subject:pseudonym` attribute in the Certificate if approved by an Enterprise RA and the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute MUST be: 
-  1. either a Random Value selected by the CA which uniquely identifies the Subject of the Certificate; or
+  1. either a unique identifier selected by the CA for the Subject of the Certificate; or
   2. an identifier selected by the Enterprise RA which uniquely identifies the Subject of the Certificate within the Organization included in the `subject:organizationName` attribute.
 
-For `individual-validated` certificates, the CA MAY use the `subject:pseudonym` attribute if the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute MUST be a Random Value selected by the CA which uniquely identifies the Subject of the Certificate.
+For `individual-validated` certificates, the CA MAY use the `subject:pseudonym` attribute if the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute MUST be: 
+  1. either a unique identifier selected by the CA for the Subject of the Certificate; or
+  2. an identifier verified based on government-issued identity documents.
 
-**[TODO] See Privacy Section for details on who is responsible to keep a mapping between the pseudonym and the real identity, and revealing rules.** 
+Pseudonym Certificates are not anonymous. CAs and Enterprise RAs SHALL treat Individual identity information relating to a Pseudonym as private in accordance with [Section 9.4.2](#942-information-treated-as-private).
 
 ### 3.1.4 Rules for interpreting various name forms
 
-In cases where names use diacritics or other characters that are not supported by Relying Party applications, the CA SHOULD define substitution rules in its CP and/or CPS.  For example:
+In cases where names use diacritics or other characters that are not supported by Relying Party applications, the CA SHOULD define substitution rules in its CP and/or CPS.  For example, regardless of capitalization:
 
-*  Accent characters MAY be represented by their ASCII equivalent. For example é, è, à, or ç MAY be represented by e, e, a, or c.
+*  Accent characters MAY be represented by their ASCII equivalent. For example é, à, í, ñ, or ç MAY be represented by e, a, i, n, or c.
 *  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u.
 
 ### 3.1.5 Uniqueness of names
@@ -2004,7 +2006,7 @@ No stipulation.
 
 The CA SHALL meet the technical requirements set forth in [Section 2.2](#22--publication-of-certification-information), [Section 6.1.5](#615-key-sizes), and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking).
 
-CAs SHALL generate non-sequential Certificate serial numbers greater than zero (0) containing at least 64 bits of output from a CSPRNG.
+CAs SHALL generate non-sequential Certificate serial numbers greater than zero (0) and less than 2^159 containing at least 64 bits of output from a CSPRNG.
 
 ### 7.1.1 Version number(s)
 
@@ -2370,7 +2372,7 @@ c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)
    __Contents:__ If present, the CA SHALL confirm that the `subject:organizationalUnitName` is the full legal organization name of an Affiliate of the `subject:organizationName` in the Certificate and has been verified in accordance with the requirements of [Section 3.2](#32-initial-identity-validation). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations.
 
 d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
-   __Contents:__ If present, the `subject:organizationIdentifier` field MUST contain MUST contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. 
+   __Contents:__ If present, the `subject:organizationIdentifier` field MUST contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. 
 
    The organizationIdentifier MUST be encoded as a PrintableString or UTF8String.
 
@@ -2792,7 +2794,7 @@ No stipulation.
 
 ### 9.4.2 Information treated as private
 
-**[TO BE DISCUSSED]** If a certificate includes the `subject:pseudonym` attribute, the CA or Enterprise RA that performed the validation of the Natural Person in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) MUST treat information that links the pseudonym to the real identity of the Subject of the Certificate as private. Disclosure requirements of this information SHALL follow applicable laws in the CA or Enterprise RA's jurisdiction. 
+If a certificate includes the `subject:pseudonym` attribute, the CA or Enterprise RA that performed the validation of the Natural Person in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) MUST treat information that links the Pseudonym to the real identity of the Subject of the Certificate as private. Disclosure requirements of this information SHALL follow applicable laws in the CA or Enterprise RA's jurisdiction. 
 
 ### 9.4.3 Information not deemed private
 
