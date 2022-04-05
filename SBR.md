@@ -520,9 +520,9 @@ For `individual-validated` certificates, the CA MAY use the `subject:pseudonym` 
 
 ### 3.1.4 Rules for interpreting various name forms
 
-In cases where names use diacritics or other characters that are not supported by Relying Party applications, the CA SHOULD define substitution rules in its CP and/or CPS.  For example:
+In cases where names use diacritics or other characters that are not supported by Relying Party applications, the CA SHOULD define substitution rules in its CP and/or CPS.  For example, regardless of capitalization:
 
-*  Accent characters MAY be represented by their ASCII equivalent. For example é, è, à, or ç MAY be represented by e, e, a, or c.
+*  Accent characters MAY be represented by their ASCII equivalent. For example é, à, í, ñ, or ç MAY be represented by e, a, i, n, or c.
 *  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u.
 
 ### 3.1.5 Uniqueness of names
