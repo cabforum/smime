@@ -66,7 +66,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 
 |Version| Ballot|Description                       | Adopted  | Effective\*  |
 |------|-------|----------------------------------|----------| -----------|
-| 00   | 00    |Version 1.0 of the S/MIME Baseline Requirements adopted | Adoption date | Adoption date plus 12 months |
+| 00   | 00    |Version 1.0 of the S/MIME Baseline Requirements adopted | Adoption date | Adoption date plus 10 months |
 
 \* Effective Date and Additionally Relevant Compliance Date(s)
   
@@ -506,7 +506,7 @@ Personal Names MUST be a meaningful representation of the Subject’s name as ve
 
 Names consisting of multiple words are permitted. Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence.  Subjects MAY chose name order in accordance with national preference. 
 
-The CA MAY allow common variations or abbreviations of Presonal Names consistent with local practice. 
+The CA MAY allow common variations or abbreviations of Personal Names consistent with local practice. 
 
 ### 3.1.2 Need for names to be meaningful
 
@@ -514,15 +514,23 @@ No stipulation.
 
 ### 3.1.3 Anonymity or pseudonymity of subscribers
 
-For `sponsor-validated` certificates, the CA MAY use a `subject:pseudonym` attribute in the Certificate if approved by an Enterprise RA and the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
+The purpose of the `subject:pseudonym` attribute is to provide a unique identifier linked to an Individual in a pseudonymized manner when certain privacy conditions are required. For example, a Pseudonym may be used if a government agency requires officials to sign certain decisions via S/MIME so those decisions trace back to individuals, but emphasize the importance of the role over Individual identity in the Certificate. The CA must disclose in its CP and/or CPS if it allows the use of Pseudonyms.
 
-For `individual-validated` certificates, the CA MAY use the `subject:pseudonym` attribute if the contents have been verified based on government-issued identity documents.
+For `sponsor-validated` certificates, the CA MAY use a `subject:pseudonym` attribute in the Certificate if approved by an Enterprise RA and the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute MUST be: 
+  1. either a unique identifier selected by the CA for the Subject of the Certificate; or
+  2. an identifier selected by the Enterprise RA which uniquely identifies the Subject of the Certificate within the Organization included in the `subject:organizationName` attribute.
+
+For `individual-validated` certificates, the CA MAY use the `subject:pseudonym` attribute if the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute MUST be: 
+  1. either a unique identifier selected by the CA for the Subject of the Certificate; or
+  2. an identifier verified based on government-issued identity documents.
+
+Pseudonym Certificates are not anonymous. CAs and Enterprise RAs SHALL treat Individual identity information relating to a Pseudonym as private in accordance with [Section 9.4.2](#942-information-treated-as-private).
 
 ### 3.1.4 Rules for interpreting various name forms
 
-In cases where names use diacritics or other characters that are not supported by Relying Party applications, the CA SHOULD define substitution rules in its CP and/or CPS.  For example:
+In cases where names use diacritics or other characters that are not supported by Relying Party applications, the CA SHOULD define substitution rules in its CP and/or CPS.  For example, regardless of capitalization:
 
-*  Accent characters MAY be represented by their ASCII equivalent. For example é, è, à, or ç MAY be represented by e, e, a, or c.
+*  Accent characters MAY be represented by their ASCII equivalent. For example é, à, í, ñ, or ç MAY be represented by e, a, i, n, or c.
 *  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u.
 
 ### 3.1.5 Uniqueness of names
@@ -1998,7 +2006,7 @@ No stipulation.
 
 The CA SHALL meet the technical requirements set forth in [Section 2.2](#22--publication-of-certification-information), [Section 6.1.5](#615-key-sizes), and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking).
 
-CAs SHALL generate non-sequential Certificate serial numbers greater than zero (0) containing at least 64 bits of output from a CSPRNG.
+CAs SHALL generate non-sequential Certificate serial numbers greater than zero (0) and less than 2^159 containing at least 64 bits of output from a CSPRNG.
 
 ### 7.1.1 Version number(s)
 
@@ -2786,7 +2794,7 @@ No stipulation.
 
 ### 9.4.2 Information treated as private
 
-No stipulation.
+If a Certificate includes the `subject:pseudonym` attribute, the CA or Enterprise RA that performed the validation of the Individual in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) MUST treat information that links the Pseudonym to the real identity of the Subject of the Certificate as private. Disclosure requirements of this information SHALL follow applicable laws in the CA or Enterprise RA's jurisdiction. 
 
 ### 9.4.3 Information not deemed private
 
@@ -2872,7 +2880,6 @@ The Subscriber Agreement or Terms of Use MUST contain provisions imposing on the
 5. **Reporting and Revocation**: An obligation and warranty to:
    a. promptly request revocation of the Certificate, and cease using it and its associated Private Key, if there is any actual or suspected misuse or compromise of the Subscriber’s Private Key associated with the Public Key included in the Certificate, and
    b. promptly request revocation of the Certificate, and cease using it, if any information in the Certificate is or becomes incorrect or inaccurate;
-
 6. **Termination of Use of Certificate**: An obligation and warranty to promptly cease all use of the Private Key corresponding to the Public Key included in the Certificate upon revocation of that Certificate for reasons of Key Compromise.
 7. **Responsiveness**: An obligation to respond to the CA's instructions concerning Key Compromise or Certificate misuse within a specified time period.
 8. **Acknowledgment and Acceptance**: An acknowledgment and acceptance that the CA is entitled to revoke the Certificate immediately if the Applicant were to violate the terms of the Subscriber Agreement or Terms of Use, or if revocation is required by the CA's CP and/or CPS, or by these Requirements.
