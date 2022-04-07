@@ -2168,6 +2168,8 @@ l. Legal Entity Identifier (optional)
 
    LEI data records are used in accordance with ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4.
 
+   The CA MUST verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED; an LEI MUST NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
+
 m. Adobe Extensions (optional)
 
    | Generation | Adobe Extensions      | 
@@ -3012,7 +3014,7 @@ The following Registration Schemes are recognized as valid under these guideline
 
   For a global Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields). The 2 character ISO 3166 country code SHALL be set to 'XG'. 
 
-  The CA MUST verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  An LEI SHALL only be used if the ValidationSources entry is FULLY_CORROBORATED; an LEI MUST NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
+  The CA MUST verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED; an LEI MUST NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
 # Appendix B - Country-specific interpretative guidelines (normative)
 
