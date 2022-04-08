@@ -175,6 +175,8 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **CA Key Pair**: A Key Pair where the Public Key appears as the Subject Public Key Info in one or more Root CA Certificate(s) and/or Subordinate CA Certificate(s).
 
+**CA Private Key**: The Private Key belonging to a **CA Key Pair**.
+
 **Certificate**: An electronic document that uses a digital signature to bind a public key and an identity.
 
 **Certificate Approver**: A natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant to
