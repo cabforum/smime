@@ -528,10 +528,12 @@ Pseudonym Certificates are not anonymous. CAs and Enterprise RAs SHALL treat Ind
 
 ### 3.1.4 Rules for interpreting various name forms
 
-In cases where names use diacritics or other characters that are not supported by Relying Party applications, the CA SHOULD define substitution rules in its CP and/or CPS.  For example, regardless of capitalization:
+In cases where a Subject information field (as listed in [Section 7.1.4.2](#7142-subject-information---subscriber-certificates)) contains non-ASCII characters, the CA MAY represent them with ASCII characters. 
 
-*  Accent characters MAY be represented by their ASCII equivalent. For example é, à, í, ñ, or ç MAY be represented by e, a, i, n, or c.
-*  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u.
+   | Generation | Method to represent non-ASCII characters | 
+   |------|-----------------------|
+   | Strict | The CA MUST use the IDNA2008 |
+   | Multipurpose and Legacy | The CA MUST use an established way of representing non-ASCII characters by ASCII characters |
 
 ### 3.1.5 Uniqueness of names
 
