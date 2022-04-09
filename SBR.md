@@ -528,10 +528,16 @@ Pseudonym Certificates are not anonymous. CAs and Enterprise RAs SHALL treat Ind
 
 ### 3.1.4 Rules for interpreting various name forms
 
+#### 3.1.4.1 Non-ASCII characters
+
 In cases where names use diacritics or other characters that are not supported by Relying Party applications, the CA SHOULD define substitution rules in its CP and/or CPS.  For example, regardless of capitalization:
 
 *  Accent characters MAY be represented by their ASCII equivalent. For example é, à, í, ñ, or ç MAY be represented by e, a, i, n, or c.
 *  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u.
+
+#### 3.1.4.2 Geographic names
+
+The CA may use in the fields `subject:localityName` (OID: 2.5.4.7) and `subject:stateOrProvinceName` (OID: 2.5.4.8) endonyms and exonyms in all alphabets, e.g. Munich, Monaco di Bavaria, or Мюнхен for München. The CA SHOULD avoid archaic names, e.g. prefer Mumbai over Bombay.
 
 ### 3.1.5 Uniqueness of names
 
