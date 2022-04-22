@@ -2411,7 +2411,7 @@ f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)
    __Contents:__ The `subject:pseudonym` MUST NOT be present if the `subject:givenName` and/or `subject:surname` are present. If present, the `subject:pseudonym` field MUST be verified according to [Section 3.1.3](#313-anonymity-or-pseudonymity-of-subscribers).
 
 g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
-   __Contents:__ If present, the `subject:serialNumber` MAY be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber.
+   __Contents:__ If present, the `subject:serialNumber` MAY be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber. In addition, the `subject:serialNumber` MAY be used in the `Sponsor-validated` and `Individual-validated` profiles to contain a personal identifier as described in ETSI EN 319 412-1 Section 5.1.3 (e.g., IDCxx-nnnnn, PASxx-nnnnn, TINxx-nnnnn) if verified by the CA or RA against the identity document referenced in the personal identifier.
 
 h. __Certificate Field:__ `subject:emailAddress` (1.2.840.113549.1.9.1) 
    __Contents:__ If present, the `subject:emailAddress` MUST contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)
