@@ -549,7 +549,7 @@ The CA SHALL authenticate the identity attributes of the Subject and their contr
 |---------|----------|----------|----------|
 | Mailbox-validated | Section 3.2.2  | NA | NA | 
 | Organization-validated |  Section 3.2.2  | Section 3.2.3 | NA |
-| Sponsored-validated | Section 3.2.2 | Section 3.2.3 | Section 3.2.4 | 
+| Sponsor-validated | Section 3.2.2 | Section 3.2.3 | Section 3.2.4 | 
 | Individual-validated | Section 3.2.2 | NA | Section 3.2.4 | 
 
 ### 3.2.1 Method to prove possession of private key
@@ -2163,7 +2163,7 @@ l. Legal Entity Identifier (optional)
    |------|-----------------------|
    | Mailbox-validated | Prohibited |
    | Organization-validated | LEI (1.3.6.1.4.1.52266.1) MAY be present and MUST NOT be marked critical.  |
-   | Sponsored-validated | LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) MAY be present and MUST NOT be marked critical.  |
+   | Sponsor-validated | LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) MAY be present and MUST NOT be marked critical.  |
    | Individual-validated | Prohibited |
 
    LEI data records are used in accordance with ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4.
@@ -2356,7 +2356,7 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 |---------|----------|
 | Mailbox-validated | `subject:emailAddress` |
 | Organization-validated | `subject:organizationName` or `subject:emailAddress` |
-| Sponsored-validated | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
+| Sponsor-validated | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
 | Individual-validated | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
 
 If present, the Personal Name SHALL contain a name of the Subject. The Personal Name SHOULD be presented as `subject:givenName` and/or `subject:surname`. The Personal Name MAY be in the Subject's preferred presentation format or a format preferred by the CA or Enterprise RA, but SHALL be a meaningful representation of the Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). 
@@ -2411,7 +2411,7 @@ f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)
    __Contents:__ The `subject:pseudonym` MUST NOT be present if the `subject:givenName` and/or `subject:surname` are present. If present, the `subject:pseudonym` field MUST be verified according to [Section 3.1.3](#313-anonymity-or-pseudonymity-of-subscribers).
 
 g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
-   __Contents:__ If present, the `subject:serialNumber` MAY be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber.
+   __Contents:__ If present, the `subject:serialNumber` MAY be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber. In addition, the `subject:serialNumber` MAY be used in the `Sponsor-validated` and `Individual-validated` profiles to contain a personal identifier as described in ETSI EN 319 412-1 Section 5.1.3 (e.g., IDCxx-nnnnn, PASxx-nnnnn, or TINxx-nnnnn) if the referenced identity document is verified in accordance with [Section 3.2.4](#324-authentication-of-individual-identity).
 
 h. __Certificate Field:__ `subject:emailAddress` (1.2.840.113549.1.9.1) 
    __Contents:__ If present, the `subject:emailAddress` MUST contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)
@@ -2796,7 +2796,7 @@ No stipulation.
 
 ### 9.4.2 Information treated as private
 
-If a Certificate includes the `subject:pseudonym` attribute, the CA or Enterprise RA that performed the validation of the Individual in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) MUST treat information that links the Pseudonym to the real identity of the Subject of the Certificate as private. Disclosure requirements of this information SHALL follow applicable laws in the CA or Enterprise RA's jurisdiction. 
+If a Certificate includes the `subject:pseudonym` attribute, the CA or Enterprise RA that performed the validation of the Individual in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) MUST treat information that links the Pseudonym to the real identity of the Subject of the Certificate as private. Disclosure requirements of this information SHALL follow applicable laws of jurisdiction of the CA or Enterprise RA that performed the validation of the Individual associated with the Pseudonym. 
 
 ### 9.4.3 Information not deemed private
 
