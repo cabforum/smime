@@ -549,7 +549,7 @@ The CA SHALL authenticate the identity attributes of the Subject and their contr
 |---------|----------|----------|----------|
 | Mailbox-validated | Section 3.2.2  | NA | NA | 
 | Organization-validated |  Section 3.2.2  | Section 3.2.3 | NA |
-| Sponsored-validated | Section 3.2.2 | Section 3.2.3 | Section 3.2.4 | 
+| Sponsor-validated | Section 3.2.2 | Section 3.2.3 | Section 3.2.4 | 
 | Individual-validated | Section 3.2.2 | NA | Section 3.2.4 | 
 
 ### 3.2.1 Method to prove possession of private key
@@ -2163,7 +2163,7 @@ l. Legal Entity Identifier (optional)
    |------|-----------------------|
    | Mailbox-validated | Prohibited |
    | Organization-validated | LEI (1.3.6.1.4.1.52266.1) MAY be present and MUST NOT be marked critical.  |
-   | Sponsored-validated | LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) MAY be present and MUST NOT be marked critical.  |
+   | Sponsor-validated | LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) MAY be present and MUST NOT be marked critical.  |
    | Individual-validated | Prohibited |
 
    LEI data records are used in accordance with ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4.
@@ -2356,7 +2356,7 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 |---------|----------|
 | Mailbox-validated | `subject:emailAddress` |
 | Organization-validated | `subject:organizationName` or `subject:emailAddress` |
-| Sponsored-validated | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
+| Sponsor-validated | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
 | Individual-validated | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
 
 If present, the Personal Name SHALL contain a name of the Subject. The Personal Name SHOULD be presented as `subject:givenName` and/or `subject:surname`. The Personal Name MAY be in the Subject's preferred presentation format or a format preferred by the CA or Enterprise RA, but SHALL be a meaningful representation of the Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). 
