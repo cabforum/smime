@@ -218,6 +218,8 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Domain Name**: An ordered list of one or more Domain Labels assigned to a node in the Domain Name System.
 
+**Electronic Identification (eID)**:  A credential containing Individual identification data and/or attributes and which is used for authentication for an online service. 
+
 **Enterprise RA**: An employee or agent of an organization unaffiliated with the CA who authorizes issuance of Certificates to that organization.
 
 **Expiry Date**: The "Not After" date in a Certificate that defines the end of a Certificate's validity period.
@@ -930,7 +932,9 @@ Automated and manual processes MAY be used in combination, (for example using au
 
 3.  **Validation of eID**
    
-If authentication using an eID is used as evidence, the CA or RA SHALL confirm that the eID scheme is suitable (for example that the eID is accessible via a notified eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).  The authentication using the eID SHALL be created as part of the identity validation process, and evidence of the validation with the eID's Identity Provider (IdP) SHALL be retained by the CA or RA.
+If authentication using an eID is used as evidence, the CA or RA SHALL confirm that the eID scheme is suitable (for example that the eID is accessible via a notified eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).  
+
+The authentication using the eID SHALL be created as part of the identity validation process, and evidence of the validation with the eID's Identity Provider (IdP) SHALL be retained by the CA or RA.
 
 4.	**Validation of digital signature with certificate** 
 
@@ -1854,11 +1858,15 @@ The CA SHALL reject a Certificate Request if one or more of the following condit
 4. The CA has previously been made aware that the Applicant's Private Key has suffered a Key Compromise, such as through the provisions of [Section 4.9.1.1](#4911-reasons-for-revoking-a-subscriber-certificate);
 5. The CA is aware of a demonstrated or proven method to easily compute the Applicant's Private Key based on the Public Key (such as a Debian weak key, see <https://wiki.debian.org/SSLkeys>).
 
+The CA or a Delegated Third Party MAY generate the Private Key on behalf of the Subscriber.
+
 ### 6.1.2 Private key delivery to subscriber
 
 Parties other than the Subscriber SHALL NOT archive the Subscriber Private Key without authorization by the Subscriber.
 
 If the CA or any of its designated RAs become aware that a Subscriber's Private Key has been communicated to a person or organization not authorized by the Subscriber, then the CA SHALL revoke all Certificates that include the Public Key corresponding to the communicated Private Key.
+
+If the CA or a Delegated Third Party generates the Private Key on behalf of the Subscriber where the Private Keys will be transported to the Subscriber, then the entity generating the Private Key MUST either transport the Private Key in hardware with an activation method that is equivalent to 128 bits of encryption or encrypt the Private Key with at least 128 bits of encryption strength. Example methods include using a 128-bit AES key to wrap the private key or storing the key in a PKCS 12 file encrypted with a randomly generated password of more than 16 characters containing uppercase letters, lowercase letters, numbers, and symbols for transport.
 
 ### 6.1.3 Public key delivery to certificate issuer
 
