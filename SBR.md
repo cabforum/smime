@@ -862,23 +862,28 @@ If digital identity documents (such as passports or national ID cards including 
 
 This method does not include "eID" as described in Regulation (EU) 910/2014.
 
-3.	**From a certificate supporting a digital signature applied by the Applicant** 
+3.  **Using electronic identification schemes (eID)**
+If an eID is used as evidence, the CA or RA SHALL only accept “notified” eID schemes according to Article 9 of the eIDAS Regulation and the eID shall conform to eIDAS LoA “Substantial” or “High”.
+
+The CA MUST document and publish information describing the eID and associated eID attributes it accepts.
+
+4.	**From a certificate supporting a digital signature applied by the Applicant** 
 
 If a digital signature is to be used as evidence, the CA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: eIDAS Qualified Certificates as defined in ETSI EN 319 411-2 and validated according to ETSI TS 119 172-4, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
 
 The CA SHOULD consider requirements to avoid issuance of a consecutive Certificates that are issued based on a preceding Certificate, where the original verification of the Subject's identity may have been conducted in the distant past.
 
-4.	**From Enterprise RA records** 
+5.	**From Enterprise RA records** 
 
 In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, records maintained by the Enterprise RA SHALL be accepted as evidence of Individual identity. 
 
 The Enterprise RA MUST maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca).
 
-5. **From a verified legal opinion** 
+6. **From a verified legal opinion** 
 
 Evidence for Individual identity attributes MAY be gathered using a Verified Legal Opinion.
 
-6. **From authorized reference sources as supplementary evidence** 
+7. **From authorized reference sources as supplementary evidence** 
    
 Evidence for Individual identity attributes SHALL use at least one of the following sources for authoritative evidence:  a physical or digital identity document, digital signature supported by certificate, Enterprise RA records, or a Verified Legal Opinion.
 
@@ -923,7 +928,11 @@ The CA or RA registration agent MUST make a visual comparison of the physical ap
 
 Automated and manual processes MAY be used in combination, (for example using automated tools to support the work of a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
 
-3.	**Validation of digital signature with certificate** 
+3.  **Validation of eID**
+   
+If authentication using an eID is used as evidence, the CA or RA SHALL confirm that the eID scheme is suitable (for example that the eID is accessible via a notified eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).  The authentication using the eID SHALL be created as part of the identity validation process, and evidence of the validation with the eID's Identity Provider (IdP) SHALL be retained by the CA or RA.
+
+4.	**Validation of digital signature with certificate** 
 
 If a digital signature with Certificate is used as evidence, the signature MUST be created as part of the identity validation process.
 
@@ -931,7 +940,7 @@ The CA or RA MUST validate the digital signature and SHALL only use the signing 
 
 If required identity attributes to be collected are not present in the Certificate, the CA or RA SHALL collect these attributes from other sources and validated.
 
-4.	**Validation of a verified legal opinion**
+5.	**Validation of a verified legal opinion**
 
 If a Verified Legal Opinion is used as evidence for the validation of Individual identity attributes, then the reliability of the Verified Legal Opinion MUST be verified according to [Section 3.2.8.1](#3281-verified-legal-opinion).
 
