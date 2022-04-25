@@ -218,7 +218,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Domain Name**: An ordered list of one or more Domain Labels assigned to a node in the Domain Name System.
 
-**Electronic Identification (eID)**:  A credential containing person identification data and which is used for authentication for an online service. 
+**Electronic Identification (eID)**:  A credential containing Individual identification data and/or attributes and which is used for authentication for an online service. 
 
 **Enterprise RA**: An employee or agent of an organization unaffiliated with the CA who authorizes issuance of Certificates to that organization.
 
