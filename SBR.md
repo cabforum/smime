@@ -218,6 +218,8 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Domain Name**: An ordered list of one or more Domain Labels assigned to a node in the Domain Name System.
 
+**Electronic Identification (eID)**:  A credential containing person identification data and which is used for authentication for an online service. 
+
 **Enterprise RA**: An employee or agent of an organization unaffiliated with the CA who authorizes issuance of Certificates to that organization.
 
 **Expiry Date**: The "Not After" date in a Certificate that defines the end of a Certificate's validity period.
@@ -930,7 +932,9 @@ Automated and manual processes MAY be used in combination, (for example using au
 
 3.  **Validation of eID**
    
-If authentication using an eID is used as evidence, the CA or RA SHALL confirm that the eID scheme is suitable (for example that the eID is accessible via a notified eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).  The authentication using the eID SHALL be created as part of the identity validation process, and evidence of the validation with the eID's Identity Provider (IdP) SHALL be retained by the CA or RA.
+If authentication using an eID is used as evidence, the CA or RA SHALL confirm that the eID scheme is suitable (for example that the eID is accessible via a notified eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).  
+
+The authentication using the eID SHALL be created as part of the identity validation process, and evidence of the validation with the eID's Identity Provider (IdP) SHALL be retained by the CA or RA.
 
 4.	**Validation of digital signature with certificate** 
 
