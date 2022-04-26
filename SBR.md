@@ -881,9 +881,9 @@ In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, re
 
 The Enterprise RA MUST maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca).
 
-6. **From company attestation"**
+6. **Affiliation from company attestation**
 
-In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority of an Individual to represent an Organisation to be included in the `subject:organization` of the Certificate using an attestation provided by the Organization and verified in accordance with [Section 3.2.8.4](#3284-independent-confirmation-from-applicant). The CA or RA MUST still verify the identity of the Individual in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) and the Organization in accordance with [Section 3.2.3](#323-authentication-of-organization-identity).
+In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority or affiliation of an Individual to represent an Organisation to be included in the `subject:organization` of the Certificate using an attestation provided by the Organization and verified in accordance with [Section 3.2.8.4](#3284-independent-confirmation-from-applicant). The CA or RA MUST still verify the identity of the Individual in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) and the Organization in accordance with [Section 3.2.3](#323-authentication-of-organization-identity).
 
 7. **From a verified legal opinion** 
 
