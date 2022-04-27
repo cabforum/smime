@@ -2813,11 +2813,13 @@ No stipulation.
 
 ### 9.4.1 Privacy plan
 
-No stipulation.
+The CA SHALL publish a Privacy Policy that provides information on the data protection laws and regulations to which the CA conforms. The CA SHALL document where to obtain this information within Section 9.4.1 of the CA's CP and/or CPS.  
 
 ### 9.4.2 Information treated as private
 
-If a Certificate includes the `subject:pseudonym` attribute, the CA or Enterprise RA that performed the validation of the Individual in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) MUST treat information that links the Pseudonym to the real identity of the Subject of the Certificate as private. Disclosure requirements of this information SHALL follow applicable laws of jurisdiction of the CA or Enterprise RA that performed the validation of the Individual associated with the Pseudonym. 
+The CA or RA SHALL treat all personal information about an Individual that is not publicly available in the contents of a Certificate or CRL as private information. 
+
+If a Certificate includes the `subject:pseudonym` attribute, the CA or RA that performed the validation of the Individual in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) MUST treat information that links the Pseudonym to the real identity of the Subject of the Certificate as private. Disclosure requirements of this information SHALL follow applicable laws of jurisdiction of the CA or RA that performed the validation of the Individual associated with the Pseudonym. 
 
 ### 9.4.3 Information not deemed private
 
@@ -2825,7 +2827,7 @@ No stipulation.
 
 ### 9.4.4 Responsibility to protect private information
 
-No stipulation.
+The CA or RA SHALL protect private information using appropriate safeguards and a reasonable degree of care.
 
 ### 9.4.5 Notice and consent to use private information
 
