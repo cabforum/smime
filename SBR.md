@@ -2498,7 +2498,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:localityName` | MAY | MAY | MAY |
 | `subject:stateOrProvinceName` | MAY | MAY | MAY |
 | `subject:postalCode` | MAY | MAY | MUST NOT |
-| `subject:countryName` | MAY | MUST | MUST |
+| `subject:countryName` | MAY | MAY | MAY |
 | Other | MAY | MUST NOT | MUST NOT |
 
 ##### 7.1.4.2.4 Subject DN attributes for sponsor-validated profile
@@ -2519,7 +2519,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:localityName` | MAY | MAY | MAY |
 | `subject:stateOrProvinceName` | MAY | MAY | MAY |
 | `subject:postalCode` | MAY | MAY | MUST NOT |
-| `subject:countryName` | MAY | MUST | MUST |
+| `subject:countryName` | MAY | MAY | MAY |
 | Other | MAY | MUST NOT | MUST NOT |
 
 The `Sponsor-validated` profile MUST include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`.
@@ -2542,7 +2542,7 @@ The `Sponsor-validated` profile MUST include either `subject:givenName` and/or `
 | `subject:localityName` | MAY | MAY | MAY |
 | `subject:stateOrProvinceName` | MAY | MAY | MAY |
 | `subject:postalCode` | MAY | MAY | MUST NOT |
-| `subject:countryName` | MAY | MUST | MUST |
+| `subject:countryName` | MAY | MAY | MAY |
 | Other | MAY | MUST NOT | MUST NOT |
 
 The `Individual-validated` profile MUST include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`.
