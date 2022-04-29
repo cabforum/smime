@@ -2058,7 +2058,7 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
     * `VATDE-123456789` (VAT Scheme, Germany, Unique Identifier at Country Level is 12345678)
     * `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, NCA's identifier is NBB, Subject Unique Identifier assigned by the NCA is 1234.567.890)
 
-   Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes) are recognized as valid under these guidelines.
+   Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes) are recognized as valid under these Requirements.
 
    The CA SHALL:
 
@@ -2074,7 +2074,7 @@ f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)
    __Contents:__ The `subject:pseudonym` SHALL NOT be present if the `subject:givenName` and/or `subject:surname` are present. If present, the `subject:pseudonym` field SHALL be verified according to [Section 3.1.3](#313-anonymity-or-pseudonymity-of-subscribers).
 
 g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
-   __Contents:__ If present, the `subject:serialNumber` MAY be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber. In addition, the `subject:serialNumber` MAY be used in the `Sponsor-validated` and `Individual-validated` profiles to contain a personal identifier as described in ETSI EN 319 412-1 Section 5.1.3 (e.g., IDCxx-nnnnn, PASxx-nnnnn, or TINxx-nnnnn) if the referenced identity document is verified in accordance with [Section 3.2.4](#324-authentication-of-individual-identity).
+   __Contents:__ If present, the `subject:serialNumber` MAY be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber. In addition, the `subject:serialNumber` MAY be used in the `Sponsor-validated` and `Individual-validated` profiles to contain a Natural Person Identifier as described in ETSI EN 319 412-1 Section 5.1.3 if the referenced identity document is verified in accordance with [Section 3.2.4](#324-authentication-of-individual-identity). Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes) are recognized as valid under these Requirements.
 
 h. __Certificate Field:__ `subject:emailAddress` (1.2.840.113549.1.9.1) 
    __Contents:__ If present, the `subject:emailAddress` SHALL contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)
@@ -2648,28 +2648,31 @@ No stipulation.
 
 # Appendix A - Registration schemes
 
+## A.1 organizationIdentifier
+
 The following Registration Schemes are recognized as valid under these Requirements for use in the `subject:organizationIdentifier` attribute described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
 
 The country code used in the Registration Scheme identifier SHALL match that of the `subject:countryName` in the Certificate as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
 
-* **NTR**:
+* **NTR**: For an identifier allocated by a national or state trade register for the Legal Entity named in the `subject:organizationName`. 
 
-  For an identifier allocated by a national or state trade register for the Legal Entity named in the `subject:organizationName`. 
+* **VAT**: For an identifier allocated by the national tax authorities to the Legal Entity named in the `subject:organizationName`. 
 
-* **VAT**:
+* **PSD**: For a national authorization number allocated to the payment service provider named in the `subject:organizationName` under Payments Services Directive (EU) 2015/2366. This shall use the extended structure as defined in ETSI TS 119 495, clause 5.2.1. 
 
-  For an identifier allocated by the national tax authorities to the Legal Entity named in the `subject:organizationName`. 
+* **LEI**: For a Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName`. The 2 character ISO 3166 country code SHALL be set to 'XG'. The CA SHALL verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
+## A.1 Natural Person Identifier
 
-* **PSD**:
+The following Registration Schemes are recognized as valid for use in the `subject:serialNumber` attribute described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
 
-  For a national authorization number allocated to the payment service provider named in the `subject:organizationName` under Payments Services Directive (EU) 2015/2366. This shall use the extended structure as defined in ETSI TS 119 495, clause 5.2.1. 
+* **PAS**: For an identifier based on a passport number issued to the Subject Individual. 
 
-* **LEI**:
+* **IDC**: For an identifier based on a national identity card issued to the Subject Individual. 
 
-  For a Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName`. The 2 character ISO 3166 country code SHALL be set to 'XG'. 
+* **PNO**: For an identifier based on a (national) personal number (national civic registration number) issued to the Subject Individual. 
 
-  The CA SHALL verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
+* **TIN**: For an identifier based on Tax Identification Number issued to the Subject Individual. 
 
 # Appendix B - Country-specific interpretative guidelines (normative)
 
