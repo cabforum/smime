@@ -378,8 +378,6 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 ###  1.6.3 References
 
-"EV Guidelines" means the relevant version of the CA/Browser Forum's Guidelines for the Issuance and Management of Extended Validation Certificates". See https://cabforum.org/extended-validation/
-
 "TLS Baseline Requirements" means the relevant version of the CA/Browser Forum's "Baseline Requirements for the Issuance and Management of Publicly‐Trusted TLS Server Certificates". See https://cabforum.org/baseline-requirements-documents/
 
 ETSI TS 119 461, Electronic Signatures and Infrastructures (ESI);. Policy and security requirements for trust service components.
