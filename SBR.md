@@ -531,10 +531,16 @@ Pseudonym Certificates are not anonymous. CAs and Enterprise RAs SHALL treat Ind
 
 ### 3.1.4 Rules for interpreting various name forms
 
-In cases where names use diacritics or other characters that are not supported by Relying Party applications, the CA SHOULD define substitution rules in its CP and/or CPS.  For example, regardless of capitalization:
+#### 3.1.4.1 Accent substitution
+
+In cases where names use accents, the CA SHOULD define substitution rules in its CP and/or CPS.  For example, regardless of capitalization:
 
 *  Accent characters MAY be represented by their ASCII equivalent. For example é, à, í, ñ, or ç MAY be represented by e, a, i, n, or c.
 *  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u.
+
+#### 3.1.4.2 Non-latin organization names
+
+The CA or RA MAY allow transliteration/Romanization of a registered Organization name usually rendered in non-Latin characters using a system recognized by the Government in the Applicant's Jurisdiction of Incorporation, or the United Nations, or the International Organization for Standardization (ISO).  
 
 ### 3.1.5 Uniqueness of names
 
@@ -2654,7 +2660,7 @@ The following Registration Schemes are recognized as valid under these Requireme
 
 The country code used in the Registration Scheme identifier SHALL match that of the `subject:countryName` in the Certificate as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
 
-* **NTR**: For an identifier allocated by a national or state trade register for the Legal Entity named in the `subject:organizationName`. 
+* **NTR**: For an identifier allocated by a national or state trade register to the Legal Entity named in the `subject:organizationName`. 
 
 * **VAT**: For an identifier allocated by the national tax authorities to the Legal Entity named in the `subject:organizationName`. 
 
@@ -2662,7 +2668,7 @@ The country code used in the Registration Scheme identifier SHALL match that of 
 
 * **LEI**: For a Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName`. The 2 character ISO 3166 country code SHALL be set to 'XG'. The CA SHALL verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
-## A.1 Natural Person Identifier
+## A.2 Natural Person Identifier
 
 The following Registration Schemes are recognized as valid for use in the `subject:serialNumber` attribute described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
 
@@ -2670,77 +2676,6 @@ The following Registration Schemes are recognized as valid for use in the `subje
 
 * **IDC**: For an identifier based on a national identity card issued to the Subject Individual. 
 
-* **PNO**: For an identifier based on a (national) personal number (national civic registration number) issued to the Subject Individual. 
+* **PNO**: For an identifier based on a national personal number (or national civic registration number) issued to the Subject Individual. 
 
 * **TIN**: For an identifier based on Tax Identification Number issued to the Subject Individual. 
-
-# Appendix B - Country-specific interpretative guidelines (normative)
-
-NOTE: This appendix provides alternative interpretations of these Requirements for countries that have a language, cultural, technical, or legal reason for deviating from a strict interpretation of these Requirements. More specific information for particular countries may be added to this appendix in the future.
-
-## 1. Organization names
-
-1. Non-Latin Organization Name
-
-   Where an Applicant's organization name is not registered with a QGIS in _Latin_ characters and the Applicant's non-Latin character organization name and registration have been verified with a QGIS in accordance with these Requirements, a CA MAY include a Latin character organization name in the Certificate. In such a case, the CA SHALL follow the procedures laid down in this section.
-
-2. Romanized Names
-
-   In order to include a transliteration/Romanization of the registered name, the Romanization SHALL be verified by the CA using a system officially recognized by the Government in the Applicant's Jurisdiction of Incorporation.
-
-   If the CA can not rely on a transliteration/Romanization of the registered name using a system officially recognized by the Government in the Applicant's Jurisdiction of Incorporation, then it SHALL rely on one of the options below, in order of preference:
-
-   A.  A system recognized by the International Organization for Standardization (ISO);
-   B.  A system recognized by the United Nations; or
-   C.  A Lawyer's Opinion or Accountant's Letter confirming the proper Romanization of the registered name.
-
-3. Translated Name
-
-   In order to include a Latin character name in the Certificate that is not a direct Romanization of the registered name (e.g. an English Name)  the CA SHALL verify that the Latin character name is:
-
-   A.  Included in the Articles of Incorporation (or equivalent document) filed as part of the organization registration; or
-   B.  Recognized by a QTIS in the Applicant's Jurisdiction of Incorporation as the Applicant's recognized name for tax filings; or
-   C.  Confirmed with a QIIS to be the name associated with the registered organization; or
-   D.  Confirmed by a Verified Legal Opinion or Accountant's Letter to be a translated trading name associated with the registered organization.
-
-### Country-specific procedures
-
-#### B-1. Japan
-
-As interpretation of the procedures set out above:
-
-1. Organization Names
-
-   A.  The Revised Hepburn method of Romanization, as well as Kunrei-shiki and Nihon-shiki methods described in ISO 3602, are acceptable for Japanese Romanizations.
-   B.  The CA MAY verify the Romanized transliteration, language translation (e.g. English name), or other recognized Roman-letter substitute of the Applicant's formal legal name with either a QIIS, Verified Legal Opinion, or Verified Accountant Letter.
-   C.  The CA MAY use the Financial Services Agency to verify a Romanized, translated, or other recognized Roman-letter substitute name. When used, the CA SHALL verify that the translated English is recorded in the audited Financial Statements.
-   D.  When relying on Articles of Incorporation to verify a Romanized, translated, or other recognized Roman-letter substitute name, the Articles of Incorporation SHALL be accompanied either: by a document, signed with the original Japanese Corporate Stamp, that proves that the Articles of Incorporation are authentic and current, or by a Verified Legal Opinion or a Verified Accountant Letter. The CA SHALL verify the authenticity of the Corporate Stamp.
-   E.  A Romanized, translated, or other recognized Roman-lettered substitute name confirmed in accordance with this [Appendix B-1](#b-1-japan) stored in the ROBINS database operated by JIPDEC MAY be relied upon by a CA for determining the allowed organization name during any issuance or renewal process of a Certificate without the need to re-perform the above procedures.
-
-2. Accounting Practitioner
-
-   In Japan:
-
-   A.  Accounting Practitioner includes either a certified public accountant (公認会計士 - Konin-kaikei-shi) or a licensed tax accountant (税理士 – Zei-ri-shi).
-   B.  The CA SHALL verify the professional status of the Accounting Practitioner through direct contact with the relevant local member association that is Affiliated with either the Japanese Institute of Certified Public Accountants ([http://www.hp.jicpa.or.jp](http://www.hp.jicpa.or.jp/)), the Japan Federation of Certified Tax Accountant's Associations ([http://www.nichizeiren.or.jp](http://www.nichizeiren.or.jp/)), or any other authoritative source recognized by the Japanese Ministry of Finance ([http://www.mof.go.jp](http://www.mof.go.jp/)) as providing the current registration status of such professionals.
-
-3. Legal Practitioner
-
-   In Japan:
-
-   A.  Legal Practitioner includes any of the following:
-
-       - a licensed lawyer (弁護士 - Ben-go-shi),
-       - a judicial scrivener (司法書士 - Shiho-sho-shi lawyer),
-       - an administrative solicitor (行政書士 - Gyosei-sho-shi Lawyer),
-       - or a notary public (公証人 - Ko-sho-nin).
-
-       For purposes of these Requirements, a Japanese Notary Public is considered equivalent to a Latin Notary.
-
-   B.  The CA SHALL verify the professional status of the Legal Practitioner by direct contact through the relevant local member association that is Affiliated with one of the following national associations:
-
-       - the Japan Federation of Bar Associations ([http://www.nichibenren.or.jp](http://www.nichibenren.or.jp/)),
-       - the Japan Federation of Shiho-Shoshi Lawyer's Associations ([http://www.shiho-shoshi.or.jp](http://www.shiho-shoshi.or.jp/)),
-       - the Japan Federation of Administrative Solicitors ([http://www.gyosei.or.jp](http://www.gyosei.or.jp/)),
-       - the Japan National Notaries Association ([http://www.koshonin.gr.jp](http://www.koshonin.gr.jp/)), or
-       - any other authoritative source recognized by the Japanese Ministry of Justice ([http://www.moj.go.jp](http://www.moj.go.jp/)) as providing the current registration status of such professionals.
