@@ -2459,9 +2459,7 @@ The CA SHALL publish a Privacy Policy that provides information on the data prot
 
 ### 9.4.2 Information treated as private
 
-The CA or RA SHALL treat all personal information about an Individual that is not publicly available in the contents of a Certificate or CRL as private information. 
-
-If a Certificate includes the `subject:pseudonym` attribute, the CA or RA that performed the validation of the Individual in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) SHALL treat information that links the Pseudonym to the real identity of the Subject of the Certificate as private. Disclosure requirements of this information SHALL follow applicable laws of jurisdiction of the CA or RA that performed the validation of the Individual associated with the Pseudonym. 
+The CA or RA SHALL treat all personal information about an Individual that is not publicly available in the contents of a Certificate as private information. This includes information that links a `subject:pseudonym` to the real identity of the Subject Individual. 
 
 ### 9.4.3 Information not deemed private
 
