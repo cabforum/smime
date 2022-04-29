@@ -470,7 +470,8 @@ X.509, Recommendation ITU-T X.509 (10/2012) \| ISO/IEC 9594-8:2014 (E), Informat
 The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in these Requirements shall be interpreted in accordance with [RFC 2119](http://tools.ietf.org/html/rfc2119).
 
 # 2. PUBLICATION AND REPOSITORY RESPONSIBILITIES
-The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements.
+
+The CA SHALL develop, implement, and enforce a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL review and update its CP and/or CPS at least every 365 days, incrementing the version number and adding a dated changelog entry even if no other changes are made.
 
 ## 2.1 Repositories
 
@@ -2498,7 +2499,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:localityName` | MAY | MAY | MAY |
 | `subject:stateOrProvinceName` | MAY | MAY | MAY |
 | `subject:postalCode` | MAY | MAY | MUST NOT |
-| `subject:countryName` | MAY | MUST | MUST |
+| `subject:countryName` | MAY | MAY | MAY |
 | Other | MAY | MUST NOT | MUST NOT |
 
 ##### 7.1.4.2.4 Subject DN attributes for sponsor-validated profile
@@ -2519,7 +2520,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:localityName` | MAY | MAY | MAY |
 | `subject:stateOrProvinceName` | MAY | MAY | MAY |
 | `subject:postalCode` | MAY | MAY | MUST NOT |
-| `subject:countryName` | MAY | MUST | MUST |
+| `subject:countryName` | MAY | MAY | MAY |
 | Other | MAY | MUST NOT | MUST NOT |
 
 The `Sponsor-validated` profile MUST include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`.
@@ -2542,7 +2543,7 @@ The `Sponsor-validated` profile MUST include either `subject:givenName` and/or `
 | `subject:localityName` | MAY | MAY | MAY |
 | `subject:stateOrProvinceName` | MAY | MAY | MAY |
 | `subject:postalCode` | MAY | MAY | MUST NOT |
-| `subject:countryName` | MAY | MUST | MUST |
+| `subject:countryName` | MAY | MAY | MAY |
 | Other | MAY | MUST NOT | MUST NOT |
 
 The `Individual-validated` profile MUST include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`.
