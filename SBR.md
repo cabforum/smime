@@ -628,11 +628,13 @@ If an Attestation is used as evidence for the validation of the attributes descr
 The CA or RA SHALL verify the full legal name and an address (if included in the Certificate Subject) of the Legal Entity Applicant using documentation provided by, or through communication with, at least one of the following:
 
 1.	A government agency in the jurisdiction of the Legal Entity’s creation, existence, or recognition; 
-2.	A Legal Entity Identifier (LEI) Reference that is both “ACTIVE” and “FULLY_CORROBORATED”;
+2.	A Legal Entity Identifier (LEI) data reference;
 3.	A site visit by the CA or a third party who is acting as an agent for the CA; or
 4.	An Attestation which includes a copy of supporting documentation used to establish the Applicant's legal existence, such as a certificate of registration, articles of incorporation, operating agreement, statute, or regulatory act.
 
-The CA MAY use the same documentation or communication described in 1 through 4 above to verify both the Applicant's identity and address.
+The CA or RA MAY use the same documentation or communication described in 1 through 4 above to verify both the Applicant's identity and address.
+
+ If an LEI data reference is used, the CA or RA SHALL verify that the RegistrationStatus is ISSUED and the EntityStatus is ACTIVE. The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
 ##### 3.2.3.2.2 Verification of assumed name
 
@@ -647,7 +649,7 @@ The CA MAY rely on an Attestation that indicates the assumed name under which th
 
 The CA or RA SHALL verify the unique identifier used in the Certificate from a register that is maintained or authorized by the relevant government agency.  Nothing in these Requirements prohibits the use of third-party vendors to obtain regularly-updated and current information from the government register provided that the third party obtains the information directly from the government.
 
-In the case of a LEI Reference, the CA or RA SHALL verify the associated data record in the Search directory operated by the [Global Legal Entity Identifier Foundation](https://search.gleif.org/#/search/)).  
+In the case of a LEI data reference, the CA or RA SHALL verify the associated data record in the Search directory operated by the [Global Legal Entity Identifier Foundation](https://search.gleif.org/#/search/)).  
 
 The CA SHALL disclose the authorized sources it uses to fulfill these verification requirements. This disclosure SHALL be through an appropriate and readily accessible online means. The CA SHALL document where to obtain this information within Section 3.2 of the CA's CP and/or CPS.
 
