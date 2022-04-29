@@ -2238,7 +2238,7 @@ The following CA/Browser Forum Certificate Policy identifiers are reserved for u
 | ---------------- | ---------- | ----------------- |
 | `Mailbox-validated` | Legacy | `2.23.140.1.5.1.1` |
 | `Mailbox-validated` | Multipurpose | `2.23.140.1.5.1.2` |
-| `Mailbox-validated | Strict | `2.23.140.1.5.1.3` |
+| `Mailbox-validated` | Strict | `2.23.140.1.5.1.3` |
 | `Organization-validated` | Legacy | `2.23.140.1.5.2.1` |
 | `Organization-validated` | Multipurpose | `2.23.140.1.5.2.2` |
 | `Organization-validated` | Strict | `2.23.140.1.5.2.3` |
