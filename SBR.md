@@ -540,7 +540,7 @@ In cases where names use accents, the CA SHOULD define substitution rules in its
 
 #### 3.1.4.2 Non-latin organization names
 
-The CA or RA MAY allow transliteration/Romanization of a registered Organization name usually rendered in non-Latin characters using a system recognized by the Government in the Applicant's Jurisdiction of Incorporation, or the United Nations, or the International Organization for Standardization (ISO).  
+The CA or RA MAY allow transliteration/Romanization of a registered Organization name usually rendered in non-Latin characters using a system recognized by the government in the Applicant's jurisdiction of incorporation, the United Nations, or the International Organization for Standardization (ISO).  
 
 ### 3.1.5 Uniqueness of names
 
@@ -727,6 +727,7 @@ Examples of this method include:
 
 * If the Subject presents an ID featuring an Applicant name that has subsequently been changed, the evidence MAY be complemented by inspection of an official document such as a marriage certificate or court order documenting the change.
 * If a professional Title of a regulated profession in the`subject:country` is to be used it SHALL be verified against supporting documentation, a Reliable Data Source, or Attestation.
+* In cases where the "role" LEI is included in an extension of a `Sponsor-validated` Certificate, the CA SHALL verify that the LEI is assigned to the Individual and the `subject:organizationName` in the Certificate Subject.
 * The CA MAY verify the address (but not the identity) of the Applicant using a utility bill, bank statement, credit card statement, government-issued tax document, or other form of identification that the CA determines to be reliable.
 
 The CA SHALL internally document the accepted reference sources, including a description of the documents or attestations accepted as supplementary evidence.
@@ -1835,9 +1836,11 @@ l. Legal Entity Identifier (optional)
    | `Sponsor-validated` | LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) MAY be present and SHALL NOT be marked critical.  |
    | `Individual-validated` | Prohibited |
 
-   LEI data records are used in accordance with ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4.
+   The Legal Entity Identifier (LEI) is a 20-character, alpha-numeric code used in accordance with ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4.
 
    The CA SHALL verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
+
+   In cases where the "role" LEI is used, the CA SHALL verify that the LEI data reference is assigned to the Individual Subject whose identity has been verified in accordance with [Section 3.24](#324-authentication-of-individual-identity).
 
 m. Adobe Extensions (optional)
 
