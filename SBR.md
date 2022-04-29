@@ -2648,36 +2648,28 @@ No stipulation.
 
 # Appendix A - Registration schemes
 
-The following Registration Schemes are recognized as valid under these guidelines:
+The following Registration Schemes are recognized as valid under these Requirements for use in the `subject:organizationIdentifier` attribute described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
+
+The country code used in the Registration Scheme identifier SHALL match that of the `subject:countryName` in the Certificate as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
 
 * **NTR**:
 
-  For an identifier allocated by a national trade register to a Legal Entity. The country code used in the Registration Scheme identifier SHALL match that of the subject’s jurisdiction in the `subject:countryName` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
+  For an identifier allocated by a national or state trade register for the Legal Entity named in the `subject:organizationName`. 
 
 * **VAT**:
 
-  For an identifier allocated by the national tax authorities to a Legal Entity. This information SHALL be validated using information provided by the national tax authority for the entity named in the `subject:organizationName` within the context of the subject’s jurisdiction in the `subject:countryName` as specified in as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
+  For an identifier allocated by the national tax authorities to the Legal Entity named in the `subject:organizationName`. 
+
 
 * **PSD**:
 
-  For an authorization number as specified in ETSI TS 119 495 clause 4.4
-  allocated to a payment service provider and containing the information as
-  specified in ETSI TS 119 495 clause 5.2.1.  This information SHALL be
-  obtained directly from the national competent authority register for
-  payment services or from an information source approved by a government
-  agency, regulatory body, or legislation for this purpose. 
-  
-  This information SHALL be validated for the entity named in the `subject:organizationName` and registration number within the context of the subject’s jurisdiction in the `subject:countryName` as specified in as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
-  
-  This information SHALL be validated by being matched directly or indirectly (for example, by matching a globally unique registration number) against the entity named in the `subject:organizationName` within the context of the subject’s jurisdiction in the `subject:countryName` as specified in as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
-  The stated address of the organization combined with the organization name
-  SHALL NOT be the only information used to disambiguate the organization.
+  For a national authorization number allocated to the payment service provider named in the `subject:organizationName` under Payments Services Directive (EU) 2015/2366. This shall use the extended structure as defined in ETSI TS 119 495, clause 5.2.1. 
 
 * **LEI**:
 
-  For a global Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields). The 2 character ISO 3166 country code SHALL be set to 'XG'. 
+  For a Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName`. The 2 character ISO 3166 country code SHALL be set to 'XG'. 
 
-  The CA SHALL verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED; an LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
+  The CA SHALL verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
 # Appendix B - Country-specific interpretative guidelines (normative)
 
