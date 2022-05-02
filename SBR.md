@@ -531,7 +531,7 @@ Pseudonym Certificates are not anonymous. CAs and Enterprise RAs SHALL treat Ind
 
 #### 3.1.4.1 Accent substitution
 
-In cases where names use accents, the CA SHOULD define substitution rules in its CP and/or CPS.  For example, regardless of capitalization:
+In cases where names use diacritics or other characters that are not supported by Relying Party applications, the CA SHOULD define substitution rules in its CP and/or CPS. For example, regardless of capitalization:
 
 *  Accent characters MAY be represented by their ASCII equivalent. For example é, à, í, ñ, or ç MAY be represented by e, a, i, n, or c.
 *  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u.
@@ -539,6 +539,10 @@ In cases where names use accents, the CA SHOULD define substitution rules in its
 #### 3.1.4.2 Non-latin organization names
 
 The CA or RA MAY allow transliteration/Romanization of a registered Organization name usually rendered in non-Latin characters using a system recognized by the government in the Applicant's jurisdiction of incorporation, the United Nations, or the International Organization for Standardization (ISO).  
+
+#### 3.1.4.3 Geographic names
+
+The CA MAY use geographic endonyms and exonyms in the `subject:localityName` and `subject:stateOrProvinceName` attributes, (e.g., Munich, Monaco di Bavaria, or Мюнхен for München). The CA SHOULD avoid archaic geographic names, (e.g., prefer Mumbai over Bombay).
 
 ### 3.1.5 Uniqueness of names
 
