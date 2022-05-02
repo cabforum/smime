@@ -1706,9 +1706,9 @@ e. `keyUsage` (SHALL be present)
 
 f. `nameConstraints` (MAY be present)
 
-   This extension SHOULD be marked critical[^1].
+   This extension SHOULD be marked critical[^*].
 
-[^1]: Non-critical Name Constraints are an exception to [RFC 5280 (4.2.1.10)](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.10), however, they MAY be used until the `nameConstraints` extension is supported by Application Software Suppliers whose software is used by a substantial portion of Relying Parties worldwide.
+[^*]: Non-critical Name Constraints are an exception to [RFC 5280 (4.2.1.10)](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.10), however, they MAY be used until the `nameConstraints` extension is supported by Application Software Suppliers whose software is used by a substantial portion of Relying Parties worldwide.
 
 g. `extKeyUsage` (MAY be present for Cross Certificates; SHALL be present otherwise)
 
@@ -1716,11 +1716,11 @@ g. `extKeyUsage` (MAY be present for Cross Certificates; SHALL be present otherw
 
    For all other Subordinate CA Certificates, including Technically Constrained Subordinate CA Certificates:
 
-   This extension SHALL be present and SHOULD NOT be marked critical[^2].
+   This extension SHALL be present and SHOULD NOT be marked critical[^**].
 
    For Subordinate CA Certificates that will be used to issue S/MIME Certificates, the value `id-kp-emailProtection` SHALL be present. The values `id-kp-serverAuth`, `id-kp-codeSigning`, `id-kp-timeStamping`, and `anyExtendedKeyUsage` SHALL NOT be present. Other values MAY be present.
 
-[^2]: While [RFC 5280, Section 4.2.1.12](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12), notes that this extension will generally only appear within end-entity Certificates, these Requirements make use of this extension to further protect relying parties by limiting the scope of Subordinate Certificates, as implemented by a number of Application Software Suppliers.
+[^**]: While [RFC 5280, Section 4.2.1.12](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12), notes that this extension will generally only appear within end-entity Certificates, these Requirements make use of this extension to further protect relying parties by limiting the scope of Subordinate Certificates, as implemented by a number of Application Software Suppliers.
 
 h. `authorityKeyIdentifier` (SHALL be present)
 
@@ -2123,49 +2123,54 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 
 ##### 7.1.4.2.4 Subject DN attributes for sponsor-validated profile
 
-| Attribute | Legacy | Multipurpose | Strict |
-|-----------|--------|--------------|--------|
-| `subject:commonName` | MAY  | MAY | MAY |
-| `subject:organizationName` | SHALL | SHALL | SHALL |
-| `subject:organizationalUnitName` | MAY  | MAY | MAY |
-| `subject:organizationIdentifier` | SHALL | SHALL | SHALL |
-| `subject:givenName` | MAY[^4] | MAY[^3] | MAY[^3] |
-| `subject:surname` | MAY[^4] | MAY[^3] | MAY[^3] |
-| `subject:pseudonym` | MAY[^4] | MAY[^3] | MAY[^3] |
-| `subject:serialNumber` | MAY | MAY | MAY |
-| `subject:emailAddress` | MAY | MAY | MAY |
-| `subject:title` | MAY  | MAY | MAY |
-| `subject:streetAddress` | MAY | MAY | SHALL NOT |
-| `subject:localityName` | MAY | MAY | MAY |
-| `subject:stateOrProvinceName` | MAY | MAY | MAY |
-| `subject:postalCode` | MAY | MAY | SHALL NOT |
-| `subject:countryName` | MAY | MAY | MAY |
-| Other | MAY | SHALL NOT | SHALL NOT |
+| Attribute | Legacy | Multipurpose | Strict | Notes |
+|-----------|--------|--------------|--------|--------|
+| `subject:commonName` | MAY  | MAY | MAY | See Note |
+| `subject:organizationName` | SHALL | SHALL | SHALL |  |
+| `subject:organizationalUnitName` | MAY  | MAY | MAY |  |
+| `subject:organizationIdentifier` | SHALL | SHALL | SHALL |  |
+| `subject:givenName` | MAY | MAY | MAY | See Note |
+| `subject:surname` | MAY | MAY | MAY | See Note |
+| `subject:pseudonym` | MAY | MAY | MAY | See Note |
+| `subject:serialNumber` | MAY | MAY | MAY |  |
+| `subject:emailAddress` | MAY | MAY | MAY |  |
+| `subject:title` | MAY  | MAY | MAY |  |
+| `subject:streetAddress` | MAY | MAY | SHALL NOT |  |
+| `subject:localityName` | MAY | MAY | MAY |  |
+| `subject:stateOrProvinceName` | MAY | MAY | MAY |  |
+| `subject:postalCode` | MAY | MAY | SHALL NOT |  |
+| `subject:countryName` | MAY | MAY | MAY |  |
+| Other | MAY | SHALL NOT | SHALL NOT |  |
+
+**Note**: 
+* The Strict and Multipurpose types of the `Sponsor-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
+* The Legacy type MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
 
 ##### 7.1.4.2.5 Subject DN attributes for individual-validated profile
 
-| Attribute | Legacy | Multipurpose   | Strict |
-|-----------|--------|----------------|--------|
-| `subject:commonName` | MAY  | MAY | MAY |
-| `subject:organizationName` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:organizationalUnitName` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:organizationIdentifier` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:givenName` | MAY[^4] | MAY[^3] | MAY[^3] |
-| `subject:surname` | MAY[^4] | MAY[^3] | MAY[^3] |
-| `subject:pseudonym` | MAY[^4] | MAY[^3] | MAY[^3] |
-| `subject:serialNumber` | MAY | MAY | MAY |
-| `subject:emailAddress` | MAY | MAY | MAY |
-| `subject:title` | MAY  | MAY | MAY |
-| `subject:streetAddress` | MAY | MAY | SHALL NOT |
-| `subject:localityName` | MAY | MAY | MAY |
-| `subject:stateOrProvinceName` | MAY | MAY | MAY |
-| `subject:postalCode` | MAY | MAY | SHALL NOT |
-| `subject:countryName` | MAY | MAY | MAY |
-| Other | MAY | SHALL NOT | SHALL NOT |
+| Attribute | Legacy | Multipurpose   | Strict | Notes |
+|-----------|--------|----------------|--------|--------|
+| `subject:commonName` | MAY  | MAY | MAY | See Note |
+| `subject:organizationName` | SHALL NOT | SHALL NOT | SHALL NOT |  |
+| `subject:organizationalUnitName` | SHALL NOT | SHALL NOT | SHALL NOT |  |
+| `subject:organizationIdentifier` | SHALL NOT | SHALL NOT | SHALL NOT |  |
+| `subject:givenName` | MAY | MAY | MAY | See Note |
+| `subject:surname` | MAY | MAY | MAY | See Note |
+| `subject:pseudonym` | MAY | MAY | MAY | See Note |
+| `subject:serialNumber` | MAY | MAY | MAY |  |
+| `subject:emailAddress` | MAY | MAY | MAY |  |
+| `subject:title` | MAY  | MAY | MAY |  |
+| `subject:streetAddress` | MAY | MAY | SHALL NOT |  |
+| `subject:localityName` | MAY | MAY | MAY |  |
+| `subject:stateOrProvinceName` | MAY | MAY | MAY |  |
+| `subject:postalCode` | MAY | MAY | SHALL NOT |  |
+| `subject:countryName` | MAY | MAY | MAY |  |
+| Other | MAY | SHALL NOT | SHALL NOT |  |
 
-[^3]: The Strict and Multipurpose types of the `Individual-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
 
-[^4]: The Legacy type MAY omit these attributes and include only the Personal Name as described in [Section 3.1.1](#311-types-of-names) in the `subject:commonName`.
+**Note**: 
+* The Strict and Multipurpose types of the `Individual-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
+* The Legacy type MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
 
 #### 7.1.4.3 Subject information - root certificates and subordinate CA certificates
 
