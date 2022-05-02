@@ -1146,7 +1146,11 @@ No stipulation.
 
 ### 4.12.1 Key escrow and recovery policy and practices
 
-No stipulation.
+The CA MAY escrow the Subscriber’s Encryption Private Key as specified in the CA's CP and/or CPS. 
+
+The CA SHALL notify Subscribers when their Private Keys are escrowed. Escrowed Private Keys SHALL be stored in encrypted form. The CA SHALL protect escrowed Private Keys from unauthorised disclosure.
+
+The CA SHALL recover Subscriber Private Keys only under the circumstances permitted within the CA's CP and/or CPS.
 
 ### 4.12.2 Session key encapsulation and recovery policy and practices
 
