@@ -2163,9 +2163,9 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:countryName` | MAY | MAY | MAY |
 | Other | MAY | SHALL NOT | SHALL NOT |
 
-[^*]: The Strict and Multipurpose types of the `Individual-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
+[^3]: The Strict and Multipurpose types of the `Individual-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
 
-[^**]: The Legacy type MAY omit these attributes and include only the Personal Name as described in [Section 3.1.1](#311-types-of-names) in the `subject:commonName`.
+[^4]: The Legacy type MAY omit these attributes and include only the Personal Name as described in [Section 3.1.1](#311-types-of-names) in the `subject:commonName`.
 
 #### 7.1.4.3 Subject information - root certificates and subordinate CA certificates
 
