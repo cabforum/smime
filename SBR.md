@@ -20,7 +20,7 @@ An S/MIME Certificate for the purposes of this document can be identified by the
 
 **Notice for Readers**
 
-An S/MIME Certificate contains a public key bound to an email address and MAY also contain the identity of a natural person or Legal Entity that controls such email address. The key pair can then be used to sign, verify, encrypt, and decrypt email. 
+An S/MIME Certificate contains a public key bound to an email address and MAY also contain the identity of a Natural Person or Legal Entity that controls such email address. The key pair can then be used to sign, verify, encrypt, and decrypt email. 
 
 This Certificate Policy (CP) describes a subset of the requirements that a CA SHALL meet in order to issue Publicly-Trusted S/MIME Certificates. This document serves two purposes: to specify Baseline Requirements and to provide guidance and requirements for what a CA should include in its Certification Practice Statement (CPS). These Requirements apply only to relevant events that occur on or after DATE (the original effective date of these Requirements).
 
@@ -91,7 +91,7 @@ Before the CA authorizes a Delegated Third Party to perform a delegated function
 
 #### 1.3.2.1 Enterprise registration authorities
 
-The CA MAY designate an Enterprise Registration Authority (RA) to verify Certificate Requests from the Enterprise RA's own organization. The CA SHALL NOT accept Certificate Requests authorized by an Enterprise RA unless the following requirements are satisfied:
+The CA MAY delegate to an Enterprise Registration Authority (RA) to verify Certificate Requests from the Enterprise RA's own organization. The CA SHALL NOT accept Certificate Requests authorized by an Enterprise RA unless the following requirements are satisfied:
 
 1. If the Certificate Request is for an `Organization-validated` or `Sponsor-validated` profile, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers). The CA SHALL confirm that the `subject:organizationName` name is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are Affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
 
@@ -151,9 +151,9 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Affiliate**: A corporation, partnership, joint venture or other entity controlling, controlled by, or under common control with another entity, or an agency, department, political subdivision, or any entity operating under the direct control of a Government Entity.
 
-**Applicant**: The natural person or Legal Entity that applies for (or seeks renewal of) a Certificate. Once the Certificate issues, the Applicant is referred to as the Subscriber. For Certificates issued to devices, the Applicant is the entity that controls or operates the device named in the Certificate, even if the device is sending the actual Certificate Request.
+**Applicant**: The Natural Person or Legal Entity that applies for (or seeks renewal of) a Certificate. Once the Certificate issues, the Applicant is referred to as the Subscriber. For Certificates issued to devices, the Applicant is the entity that controls or operates the device named in the Certificate, even if the device is sending the actual Certificate Request.
 
-**Applicant Representative**: A natural person or human sponsor who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant:
+**Applicant Representative**: A Natural Person or human sponsor who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant:
 
   i. who signs and submits, or approves a Certificate Request on behalf of the Applicant, and/or
   ii. who signs and submits a Subscriber Agreement on behalf of the Applicant, and/or
@@ -197,7 +197,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **CSPRNG**: A pseudo-random number generator intended for use in a cryptographic system.
 
-**Delegated Third Party**: A natural person or Legal Entity that is not the CA but is authorized by the CA, and whose activities are not within the scope of the appropriate CA audits, to assist in the Certificate Management Process by performing or fulfilling one or more of the CA requirements found herein.
+**Delegated Third Party**: A Natural Person or Legal Entity that is not the CA but is authorized by the CA, and whose activities are not within the scope of the appropriate CA audits, to assist in the Certificate Management Process by performing or fulfilling one or more of the CA requirements found herein.
 
 **Digital Identity Document**: a government-issued identity document that is issued in a machine-processable form, that is digitally signed by the issuer, and that is in purely digital form.
 
@@ -215,7 +215,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Government Entity**: A government-operated legal entity, agency, department, ministry, branch, or similar element of the government of a country, or political subdivision within such country (such as a state, province, city, county, etc.).
 
-**Individual**: A natural person.
+**Individual**: A Natural Person.
 
 **Issuing CA**: In relation to a particular Certificate, the CA that issued the Certificate. This could be either a Root CA or a Subordinate CA.
 
@@ -236,6 +236,8 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 **Mailbox Address**: Also Email Address. From [RFC 5321](http://tools.ietf.org/html/rfc5321): "A character string that identifies a user to whom mail will be sent or a location into which mail will be deposited."
 
 **Multipurpose Profile**: The S/MIME Multipurpose Profiles are aligned with the more defined Strict Profiles, but with additional options for `extKeyUsage` and other extensions. This is intended to allow flexibility for crossover use cases between document signing and secure email. 
+
+**Natural Person**: An Individual; a human being as distinguished from a Legal Entity.
 
 **Object Identifier**: A unique alphanumeric or numeric identifier registered under the International Organization for Standardization's applicable standard for a specific object or object class.
 
@@ -259,7 +261,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Publicly-Trusted Certificate**: A Certificate that is trusted by virtue of the fact that its corresponding Root CA Certificate is distributed as a trust anchor in widely-available application software.
 
-**Qualified Auditor**: A natural person or Legal Entity that meets the requirements of [Section 8.2](#82-identityqualifications-of-assessor).
+**Qualified Auditor**: A Natural Person or Legal Entity that meets the requirements of [Section 8.2](#82-identityqualifications-of-assessor).
 
 **Random Value**: A value specified by a CA to the Applicant that exhibits at least 112 bits of entropy.
 
@@ -271,7 +273,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Reliable Method of Communication**: A method of communication, such as a postal/courier delivery address, telephone number, or email address, that was verified using a source other than the Applicant Representative.
 
-**Relying Party**: Any natural person or Legal Entity that relies on a Valid Certificate. An Application Software Supplier is not considered a Relying Party when software distributed by such Supplier merely displays information relating to a Certificate.
+**Relying Party**: Any Natural Person or Legal Entity that relies on a Valid Certificate. An Application Software Supplier is not considered a Relying Party when software distributed by such Supplier merely displays information relating to a Certificate.
 
 **Repository**: An online database containing publicly-disclosed PKI governance documents (such as Certificate Policies and Certification Practice Statements) and Certificate status information, either in the form of a CRL or an OCSP response.
 
@@ -285,17 +287,17 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Sovereign State**: A state or country that administers its own government, and is not dependent upon, or subject to, another power.
 
-**Sponsor-validated**: Refers to a Certificate Profile Subject which combines Individual (natural person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA where the `subject:organizationName` is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject Organization. 
+**Sponsor-validated**: Refers to a Certificate Profile Subject which combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA where the `subject:organizationName` is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject Organization. 
 
 **Strict Profile**: The S/MIME Strict Profiles are the long term target profile for S/MIME Certificates with `extKeyUsage` limited to `emailProtection`, and stricter use of Subject DN attributes and other extensions.
 
-**Subject**: The natural person, device, system, unit, or Legal Entity identified in a Certificate as the Subject. The Subject is either the Subscriber or a mailbox under the control and operation of the Subscriber.
+**Subject**: The Natural Person, device, system, unit, or Legal Entity identified in a Certificate as the Subject. The Subject is either the Subscriber or a mailbox under the control and operation of the Subscriber.
 
 **Subject Identity Information**: Information that identifies the Certificate Subject. Subject Identity Information does not include a Mailbox Address listed in the `subject:commonName` or `subject:emailAddress` fields, or in the `subjectAltName` extension.
 
 **Subordinate CA**: A Certification Authority whose Certificate is signed by the Root CA, or another Subordinate CA.
 
-**Subscriber**: A natural person or Legal Entity to whom a Certificate is issued and who is legally bound by a Subscriber Agreement or Terms of Use.
+**Subscriber**: A Natural Person or Legal Entity to whom a Certificate is issued and who is legally bound by a Subscriber Agreement or Terms of Use.
 
 **Subscriber Agreement**: An agreement between the CA and the Applicant/Subscriber that specifies the rights and responsibilities of the parties.
 
@@ -471,7 +473,7 @@ When the `subject:commonName` of a Certificate issued to an Individual does not 
 
 Personal Names SHALL be a meaningful representation of the Subject’s name as verified in the identifying documentation or Enterprise RA records. 
 
-Names consisting of multiple words are permitted. Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence.  Subjects MAY chose name order in accordance with national preference. 
+Names consisting of multiple words are permitted. Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence. Subjects MAY chose name order in accordance with national preference. 
 
 The CA MAY allow common variations or abbreviations of Personal Names consistent with local practice. 
 
@@ -504,7 +506,7 @@ In cases where names use diacritics or other characters that are not supported b
 
 #### 3.1.4.2 Non-latin names
 
-The CA MAY allow transliteration/Romanization of a registered Organization name usually rendered in non-Latin characters using a system recognized by the government in the Applicant's jurisdiction of incorporation, the United Nations, or the International Organization for Standardization (ISO).  
+The CA MAY allow transliteration/Romanization of a registered Organization name usually rendered in non-Latin characters using a system recognized by the government in the Applicant's jurisdiction of incorporation, the United Nations, or the International Organization for Standardization (ISO).
 
 #### 3.1.4.3 Geographic names
 
@@ -561,7 +563,7 @@ The CA MAY confirm the Applicant's control over each `rfc822Name` or `otherName`
 
 Control over each email address SHALL be confirmed using a unique Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
 
-The Random Value SHALL be unique in each email. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CA MAY specify a shorter validity period for Random Values in its CP and/or CPS.  
+The Random Value SHALL be unique in each email. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CA MAY specify a shorter validity period for Random Values in its CP and/or CPS.
 
 The Random Value SHALL be reset upon each instance of the email sent by the CA and, if intended for additional use as an authentication factor, upon first use. 
 
@@ -621,9 +623,9 @@ The CA MAY rely on an Attestation that indicates the assumed name under which th
 
 #### 3.2.3.3 Disclosure of verification sources
 
-The CA or RA SHALL verify the unique identifier used in the Certificate from a register that is maintained or authorized by the relevant government agency.  Nothing in these Requirements prohibits the use of third-party vendors to obtain regularly-updated and current information from the government register provided that the third party obtains the information directly from the government.
+The CA or RA SHALL verify the unique identifier used in the Certificate from a register that is maintained or authorized by the relevant government agency. Nothing in these Requirements prohibits the use of third-party vendors to obtain regularly-updated and current information from the government register provided that the third party obtains the information directly from the government.
 
-In the case of a LEI data reference, the CA or RA SHALL verify the associated data record in the Search directory operated by the [Global Legal Entity Identifier Foundation](https://search.gleif.org/#/search/)).  
+In the case of a LEI data reference, the CA or RA SHALL verify the associated data record in the Search directory operated by the [Global Legal Entity Identifier Foundation](https://search.gleif.org/#/search/)).
 
 The CA SHALL disclose the authorized sources it uses to fulfill these verification requirements. This disclosure SHALL be through an appropriate and readily accessible online means. The CA SHALL document where to obtain this information within Section 3.2 of the CA's CP and/or CPS.
 
@@ -658,7 +660,7 @@ If digital identity documents (such as passports or national ID cards including 
 
 This method does not include "eID" as described in Regulation (EU) 910/2014.
 
-3.  **Using electronic identification schemes (eID)**
+3. **Using electronic identification schemes (eID)**
 If an eID is used as evidence, the CA or RA SHALL only accept “notified” eID schemes according to Article 9 of the eIDAS Regulation and the eID shall conform to eIDAS LoA “Substantial” or “High”.
 
 The CA SHALL document and publish information describing the eID and associated eID attributes it accepts.
@@ -698,7 +700,7 @@ Examples of this method include:
 * In cases where the "role" LEI is included in an extension of a `Sponsor-validated` Certificate, the CA SHALL verify that the LEI is assigned to the Individual and the `subject:organizationName` in the Certificate Subject.
 * The CA MAY verify the address (but not the identity) of the Applicant using a utility bill, bank statement, credit card statement, government-issued tax document, or other form of identification that the CA determines to be reliable.
 
-The CA SHALL internally document the accepted reference sources, including a description of the documents or attestations accepted as supplementary evidence.
+The CA SHALL internally document the accepted reference sources, including a description of the documents or Attestations accepted as supplementary evidence.
 
 #### 3.2.4.2 Validation of individual identity
 
@@ -732,7 +734,7 @@ The CA or RA registration agent SHALL make a visual comparison of the physical a
 
 Automated and manual processes MAY be used in combination, (for example using automated tools to support the work of a registration agent, or an automated process that falls back to a registration agent if the process yields an uncertain result).
 
-3.  **Validation of eID**
+3. **Validation of eID**
    
 If authentication using an eID is used as evidence, the CA or RA SHALL confirm that the eID scheme is suitable (for example that the eID is accessible via a notified eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).  
 
@@ -756,7 +758,7 @@ Subscriber information that has not been verified in accordance with these Requi
 
 ### 3.2.6 Validation of authority
 
-Before commencing to issue `Organization-validated` and `Sponsor-validated`  Certificates for an Applicant, the CA or RA SHALL use a Reliable Method of Communication to verify the authority and approval of an Applicant Representative to act as Enterprise RA, to request issuance or revocation of Certificates, or to assign reponsibilities to others to act in these roles. 
+Before commencing to issue `Organization-validated` and `Sponsor-validated`  Certificates for an Applicant, the CA or RA SHALL use a Reliable Method of Communication to verify the authority and approval of an Applicant Representative to act as an Enterprise RA, to request issuance or revocation of Certificates, or to assign reponsibilities to others to act in these roles. 
 
 The CA or RA MAY establish a process that allows an Applicant to specify the individuals who may act as Applicant Representatives on an ongoing basis. The CA SHALL provide an Applicant with a list of its authorized Applicant Representatives upon the Applicant's verified written request.
 
@@ -811,9 +813,9 @@ One Certificate Request MAY suffice for multiple Certificates to be issued to th
 
 A CA may rely on a previously verified Certificate Request to issue a replacement Certificate if:
 
-1.  The previous Certificate being referenced was not revoked;
-2.  The expiration date of the replacement Certificate is the same as the previous Certificate being referenced; and
-3.  The Subject Information of the Certificate is the same as the previous Certificate being referenced.
+1. The previous Certificate being referenced was not revoked;
+2. The expiration date of the replacement Certificate is the same as the previous Certificate being referenced; and
+3. The Subject Information of the Certificate is the same as the previous Certificate being referenced.
 
 ## 4.2 Certificate application processing
 
@@ -825,17 +827,17 @@ Applicant information SHALL include, but not be limited to, at least one `rfc822
 
 The CA MAY reuse completed validations and/or supporting evidence performed in accordance with [Section 3.2](#32-initial-identity-validation) within the following limits:
 
-1.  **Validation of mailbox authorization or control**: Completed validation of the control of a mail server in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers) SHALL be obtained no more than 398 days prior to issuing the Certificate. 
+1. **Validation of mailbox authorization or control**: Completed validation of the control of a mail server in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers) SHALL be obtained no more than 398 days prior to issuing the Certificate. 
    
       In the event of changes to the TLS Baseline Requirements methods specified in [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain), a CA MAY continue to reuse completed validations and/or supporting evidence for the period stated in this section unless otherwise directed in a ballot.
 
       Completed validation of control of a mailbox in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email) SHALL be obtained no more than 30 days prior to issuing the Certificate.
 
-2.  **Authentication of organization identity**: Completed validation of organization identity in accordance with [Section 3.2.3](#323-authentication-of-organization-identity) SHALL be obtained no more than 398 days prior to issuing the Certificate. 
+2. **Authentication of organization identity**: Completed validation of organization identity in accordance with [Section 3.2.3](#323-authentication-of-organization-identity) SHALL be obtained no more than 398 days prior to issuing the Certificate. 
  
       Validation of authority in in accordance with [Section 3.2.6](#326-validation-of-authority) SHALL be obtained no more than 398 days prior to issuing the Certificate, unless a contract between the CA and the Applicant specifies a different term. For example, the contract MAY include the perpetual assignment of roles until revoked by the Applicant or CA, or until the contract expires or is terminated.
 
-3.  **Authentication of individual identity**: Completed validation of Individual identity in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) SHALL be obtained no more than 825 days prior to issuing the Certificate. 
+3. **Authentication of individual identity**: Completed validation of Individual identity in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) SHALL be obtained no more than 825 days prior to issuing the Certificate. 
 
 A prior validation SHALL NOT be reused if any data or document used in the prior validation was obtained more than the maximum time permitted for reuse of the data or document prior to issuing the Certificate.
 
@@ -996,7 +998,7 @@ The CA SHOULD revoke a Certificate within 24 hours and SHALL revoke a Certificat
 6. The CA is made aware that the Certificate was not issued in accordance with these Requirements or the CA's CP and/or CPS;
 7. The CA determines or is made aware that any of the information appearing in the Certificate is inaccurate;
 8. The CA's right to issue Certificates under these Requirements expires or is revoked or terminated, unless the CA has made arrangements to continue maintaining the CRL/OCSP Repository;
-9.  Revocation is required by the CA's CP and/or CPS; or
+9. Revocation is required by the CA's CP and/or CPS; or
 10. The CA is made aware of a demonstrated or proven method that exposes the Subscriber's Private Key to compromise or if there is clear evidence that the specific method used to generate the Private Key was flawed.
 
 #### 4.9.1.2 Reasons for revoking a subordinate CA certificate
@@ -1678,7 +1680,7 @@ a. `certificatePolicies` (SHALL be present)
 
    This extension SHOULD NOT be marked critical.
 
-   If the value of this extension includes a `PolicyInformation` which contains a qualifier of type `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1), then the value of the qualifier SHALL be a HTTP or HTTPS URL for the Issuing CA's CP and/or CPS, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA.  If a qualifier of type `id-qt-unotice` (OID: 1.3.6.1.5.5.7.2.2) is included, then it SHALL contain `explicitText` and SHALL NOT contain `noticeRef`. 
+   If the value of this extension includes a `PolicyInformation` which contains a qualifier of type `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1), then the value of the qualifier SHALL be a HTTP or HTTPS URL for the Issuing CA's CP and/or CPS, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA. If a qualifier of type `id-qt-unotice` (OID: 1.3.6.1.5.5.7.2.2) is included, then it SHALL contain `explicitText` and SHALL NOT contain `noticeRef`. 
 
 b. `cRLDistributionPoints` (SHALL be present)
 
@@ -1727,7 +1729,7 @@ a. `certificatePolicies` (SHALL be present)
 
    This extension SHALL be present and SHOULD NOT be marked critical. It SHALL include only one of the reserved `policyIdentifiers` listed in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers), and MAY contain one or more identifiers documented by the CA in its CP and/or CPS. 
 
-   If the value of this extension includes a `PolicyInformation` which contains a qualifier of type `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1), then the value of the qualifier SHALL be a HTTP or HTTPS URL for the Issuing CA's CP and/or CPS, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA.  If a qualifier of type `id-qt-unotice` (OID: 1.3.6.1.5.5.7.2.2) is included, then it SHALL contain `explicitText` and SHALL NOT contain `noticeRef`. 
+   If the value of this extension includes a `PolicyInformation` which contains a qualifier of type `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1), then the value of the qualifier SHALL be a HTTP or HTTPS URL for the Issuing CA's CP and/or CPS, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA. If a qualifier of type `id-qt-unotice` (OID: 1.3.6.1.5.5.7.2.2) is included, then it SHALL contain `explicitText` and SHALL NOT contain `noticeRef`. 
 
 b. `cRLDistributionPoints` (SHALL be present)
 
@@ -1773,8 +1775,8 @@ h. `subjectAlternativeName` (SHALL be present)
 
    | Generation | `subjectAlternativeName`      | 
    |------|-----------------------|
-   | Strict | All email addresses in Subject SHALL be repeated in SAN.  SHALL contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`. SHALL NOT contain items of type: `dNSName`, `iPAddress`, `otherName` values other than type `id-on-SmtpUTF8Mailbox`, or `uniformResourceIdentifier`.|
-   | Multipurpose and Legacy |All email addresses in Subject SHALL be repeated in SAN.  SHALL contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`. SHALL NOT contain items of type: `dNSName`, `iPAddress`, or `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of any other type SHALL be validated in accordance with the CA's CPS. |
+   | Strict | All email addresses in Subject SHALL be repeated in SAN. SHALL contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`. SHALL NOT contain items of type: `dNSName`, `iPAddress`, `otherName` values other than type `id-on-SmtpUTF8Mailbox`, or `uniformResourceIdentifier`.|
+   | Multipurpose and Legacy |All email addresses in Subject SHALL be repeated in SAN. SHALL contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`. SHALL NOT contain items of type: `dNSName`, `iPAddress`, or `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of any other type SHALL be validated in accordance with the CA's CPS. |
 
    `otherName` values of type `id-on-SmtpUTF8Mailbox` SHALL be validated in accordance with RFC 8398.
 
@@ -1806,7 +1808,7 @@ l. Legal Entity Identifier (optional)
 
    The Legal Entity Identifier (LEI) is a 20-character, alpha-numeric code used in accordance with ISO 17442-1:2020, Clause 6 and ISO 17442-2:2020, Clause 4.
 
-   The CA SHALL verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE.  The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
+   The CA SHALL verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE. The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
    In cases where the "role" LEI is used, the CA SHALL verify that the LEI data reference is assigned to the Individual Subject whose identity has been verified in accordance with [Section 3.24](#324-authentication-of-individual-identity).
 
@@ -2039,7 +2041,7 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
    2. Further verify the Registration Reference matches other information verified in accordance with [Section 3.2.3](#323-authentication-of-organization-identity).
 
 e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
-   __Contents:__ If present, the `subject:givenName` field and `subject:surname` field SHALL contain a natural person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). Subjects with a single legal name SHALL provide the name in the `subject:surname` attribute. The `subject:givenName` and/or `subject:surname` SHALL NOT be present if the `subject:pseudonym` is present.
+   __Contents:__ If present, the `subject:givenName` field and `subject:surname` field SHALL contain a Natural Person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). Subjects with a single legal name SHALL provide the name in the `subject:surname` attribute. The `subject:givenName` and/or `subject:surname` SHALL NOT be present if the `subject:pseudonym` is present.
 
 f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)  
    __Contents:__ The `subject:pseudonym` SHALL NOT be present if the `subject:givenName` and/or `subject:surname` are present. If present, the `subject:pseudonym` field SHALL be verified according to [Section 3.1.3](#313-anonymity-or-pseudonymity-of-subscribers).
@@ -2305,7 +2307,7 @@ If the CA does not have a currently valid Audit Report indicating compliance wit
 
 ## 8.2 Identity/qualifications of assessor
 
-The CA's audit SHALL be performed by a Qualified Auditor. A Qualified Auditor means a natural person, Legal Entity, or group of natural persons or Legal Entities that collectively possess the following qualifications and skills:
+The CA's audit SHALL be performed by a Qualified Auditor. A Qualified Auditor means a Natural Person, Legal Entity, or group of Natural Persons or Legal Entities that collectively possess the following qualifications and skills:
 
 1. Independence from the subject of the audit;
 2. The ability to conduct an audit that addresses the criteria specified in an Eligible Audit Scheme (see [Section 8.4](#84-topics-covered-by-assessment));
@@ -2464,9 +2466,9 @@ No stipulation.
 
 By issuing a Certificate, the CA makes the warranties listed herein to the following Certificate Beneficiaries:
 
-1.  The Subscriber that is a party to the Subscriber Agreement or Terms of Use for the Certificate;
-2.  All Application Software Suppliers with whom the Root CA has entered into a contract for inclusion of its Root CA Certificate in software distributed by such Application Software Supplier; and
-3.  All Relying Parties who reasonably rely on a Valid Certificate. 
+1. The Subscriber that is a party to the Subscriber Agreement or Terms of Use for the Certificate;
+2. All Application Software Suppliers with whom the Root CA has entered into a contract for inclusion of its Root CA Certificate in software distributed by such Application Software Supplier; and
+3. All Relying Parties who reasonably rely on a Valid Certificate. 
 
 The CA represents and warrants to the Certificate Beneficiaries that, during the period when the Certificate is valid, the CA has complied with these Requirements and its CP and/or CPS in issuing and managing the Certificate.
 
