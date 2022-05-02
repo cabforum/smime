@@ -2382,7 +2382,7 @@ During the period in which the CA issues Certificates, the CA SHALL monitor adhe
 
 ## 8.8 Review of delegated parties 
 
-Except for Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of each Delegated Third Party, Enterprise RA, and Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS. The CA shall document the obligations of Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs and perform internal audits of their adherence with those obligations on an annual basis.
+Except for Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of each Delegated Third Party, Enterprise RA, and Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS. The CA shall document the obligations of Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs and perform periodic internal audits of their adherence with those obligations.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
