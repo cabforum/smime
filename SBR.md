@@ -500,14 +500,16 @@ Pseudonym Certificates are not anonymous. CAs and Enterprise RAs SHALL treat Ind
 
 #### 3.1.4.1 Accent substitution
 
-In cases where names use diacritics or other characters that are not supported by Relying Party applications, the CA SHOULD define substitution rules in its CP and/or CPS. For example, regardless of capitalization:
+In cases where names use diacritics or other characters that are not supported by relying-party application software, the CA SHOULD define substitution rules in its CP and/or CPS. For example, regardless of capitalization:
 
 *  Accent characters MAY be represented by their ASCII equivalent. For example é, à, í, ñ, or ç MAY be represented by e, a, i, n, or c.
 *  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u.
 
 #### 3.1.4.2 Non-latin names
 
-The CA MAY allow transliteration/Romanization of a registered Organization name usually rendered in non-Latin characters using a system recognized by the government in the Applicant's jurisdiction of incorporation, the United Nations, or the International Organization for Standardization (ISO).
+The CA MAY allow transliteration/Romanization of Subject Identity Information usually rendered in non-Latin characters using a system recognized by the government in the Applicant's jurisdiction of incorporation, the United Nations, or the International Organization for Standardization (ISO).
+
+The CA MAY include a Latin character name that is not a direct Romanization of the registered name provided that it is verified in a Reliable Data Source or suitable Attestation.
 
 #### 3.1.4.3 Geographic names
 
@@ -1704,9 +1706,9 @@ e. `keyUsage` (SHALL be present)
 
 f. `nameConstraints` (MAY be present)
 
-   This extension SHOULD be marked critical[^*].
+   This extension SHOULD be marked critical[^1].
 
-[^*]: Non-critical Name Constraints are an exception to [RFC 5280 (4.2.1.10)](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.10), however, they MAY be used until the `nameConstraints` extension is supported by Application Software Suppliers whose software is used by a substantial portion of Relying Parties worldwide.
+[^1]: Non-critical Name Constraints are an exception to [RFC 5280 (4.2.1.10)](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.10), however, they MAY be used until the `nameConstraints` extension is supported by Application Software Suppliers whose software is used by a substantial portion of Relying Parties worldwide.
 
 g. `extKeyUsage` (MAY be present for Cross Certificates; SHALL be present otherwise)
 
@@ -1714,11 +1716,11 @@ g. `extKeyUsage` (MAY be present for Cross Certificates; SHALL be present otherw
 
    For all other Subordinate CA Certificates, including Technically Constrained Subordinate CA Certificates:
 
-   This extension SHALL be present and SHOULD NOT be marked critical[^**].
+   This extension SHALL be present and SHOULD NOT be marked critical[^2].
 
    For Subordinate CA Certificates that will be used to issue S/MIME Certificates, the value `id-kp-emailProtection` SHALL be present. The values `id-kp-serverAuth`, `id-kp-codeSigning`, `id-kp-timeStamping`, and `anyExtendedKeyUsage` SHALL NOT be present. Other values MAY be present.
 
-[^**]: While [RFC 5280, Section 4.2.1.12](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12), notes that this extension will generally only appear within end-entity Certificates, these Requirements make use of this extension to further protect relying parties by limiting the scope of Subordinate Certificates, as implemented by a number of Application Software Suppliers.
+[^2]: While [RFC 5280, Section 4.2.1.12](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12), notes that this extension will generally only appear within end-entity Certificates, these Requirements make use of this extension to further protect relying parties by limiting the scope of Subordinate Certificates, as implemented by a number of Application Software Suppliers.
 
 h. `authorityKeyIdentifier` (SHALL be present)
 
@@ -2127,9 +2129,9 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:organizationName` | SHALL | SHALL | SHALL |
 | `subject:organizationalUnitName` | MAY  | MAY | MAY |
 | `subject:organizationIdentifier` | SHALL | SHALL | SHALL |
-| `subject:givenName` | MAY[^**] | MAY[^*] | MAY[^*] |
-| `subject:surname` | MAY[^**] | MAY[^*] | MAY[^*] |
-| `subject:pseudonym` | MAY[^**] | MAY[^*] | MAY[^*] |
+| `subject:givenName` | MAY[^4] | MAY[^3] | MAY[^3] |
+| `subject:surname` | MAY[^4] | MAY[^3] | MAY[^3] |
+| `subject:pseudonym` | MAY[^4] | MAY[^3] | MAY[^3] |
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
@@ -2140,10 +2142,6 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:countryName` | MAY | MAY | MAY |
 | Other | MAY | SHALL NOT | SHALL NOT |
 
-[^*]: The Strict and Multipurpose types of the `Sponsor-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
-
-[^**]: The Legacy type MAY omit these attributes and include only the Personal Name as described in [Section 3.1.1](#311-types-of-names) in the `subject:commonName`.
-
 ##### 7.1.4.2.5 Subject DN attributes for individual-validated profile
 
 | Attribute | Legacy | Multipurpose   | Strict |
@@ -2152,9 +2150,9 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:organizationName` | SHALL NOT | SHALL NOT | SHALL NOT |
 | `subject:organizationalUnitName` | SHALL NOT | SHALL NOT | SHALL NOT |
 | `subject:organizationIdentifier` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:givenName` | MAY[^**] | MAY[^*] | MAY[^*] |
-| `subject:surname` | MAY[^**] | MAY[^*] | MAY[^*] |
-| `subject:pseudonym` | MAY[^**] | MAY[^*] | MAY[^*] |
+| `subject:givenName` | MAY[^4] | MAY[^3] | MAY[^3] |
+| `subject:surname` | MAY[^4] | MAY[^3] | MAY[^3] |
+| `subject:pseudonym` | MAY[^4] | MAY[^3] | MAY[^3] |
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
