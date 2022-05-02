@@ -10,7 +10,8 @@ copyright: |
 ---
 
 # 1. INTRODUCTION
-**This is a pre-release draft of the S/MIME Baseline Requirements (SBR). This draft has not yet been balloted to become a CA/Browser Forum standard. Comments are welcomed.**
+
+**This is a pre-release draft of the S/MIME Baseline Requirements (SBR) created by the S/MIME Certificate Working Group. This draft has not yet been balloted to become a CA/Browser Forum standard.**
 
 ## 1.1 Overview
 
@@ -347,9 +348,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 ###  1.6.3 References
 
-"TLS Baseline Requirements" means the relevant version of the CA/Browser Forum's "Baseline Requirements for the Issuance and Management of Publicly‐Trusted TLS Server Certificates". See https://cabforum.org/baseline-requirements-documents/
-
-ETSI TS 119 461, Electronic Signatures and Infrastructures (ESI);. Policy and security requirements for trust service components.
+ETSI TS 119 461, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for trust service components providing identity proofing of trust service subjects.
 
 ETSI EN 319 403, Electronic Signatures and Infrastructures (ESI); Trust Service Provider Conformity Assessment - Requirements for conformity assessment bodies assessing Trust Service Providers.
 
@@ -357,9 +356,9 @@ ETSI EN 319 411-1, Electronic Signatures and Infrastructures (ESI); Policy and s
 
 ETSI EN 319 411-2, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 2: Requirements for trust service providers issuing EU qualified certificates.
 
-ETSI EN 319 412-5, Electronic Signatures and Infrastructures (ESI);. Certificate Profiles; Part 5: QCStatements.
+ETSI EN 319 412-5, Electronic Signatures and Infrastructures (ESI); Certificate Profiles; Part 5: QCStatements.
 
-ETSI TS 119 172-4, Electronic Signatures and Infrastructures (ESI);. Signature Policies;. Part 4: Signature applicability rules.
+ETSI TS 119 172-4, Electronic Signatures and Infrastructures (ESI); Signature Policies;. Part 4: Signature applicability rules.
 
 FIPS 140-2, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, May 25, 2001.
 
@@ -369,11 +368,11 @@ ICAO DOC 9303, Machine Readable Travel Documents, Part 10, Logical Data Structur
 
 ICAO DOC 9303, Machine Readable Travel Documents, Part 11, Security Mechanisms for MRTDs, International Civil Aviation Organization, Eighth Edition, 2021.
 
-ISO 17442-1:2020, Financial services — Legal entity identifier (LEI) — Part 1: Assignment.
+ISO 17442-1:2020, Financial services — Legal entity identifier (LEI) - Part 1: Assignment.
 
-ISO 17442-2:2020, Financial services — Legal entity identifier (LEI) — Part 2: Application in digital certificates.
+ISO 17442-2:2020, Financial services — Legal entity identifier (LEI) - Part 2: Application in digital certificates.
 
-ISO 21188:2006, Public key infrastructure for financial services -- Practices and policy framework.
+ISO 21188:2006, Public key infrastructure for financial services - Practices and policy framework.
 
 Network and Certificate System Security Requirements, v.1.0, 1/1/2013.
 
@@ -407,9 +406,9 @@ RFC 5890, Request for Comments: 5890, Internationalized Domain Names for Applica
 
 RFC 5952, Request for Comments: 5952, A Recommendation for IPv6 Address Text Representation. S. Kawamura, et al. August 2010.
 
-RFC 6532. Request for Comments: 6532, Internationalized Email Headers, A. Yang, et al, February 2012.
+RFC 6532, Request for Comments: 6532, Internationalized Email Headers, A. Yang, et al, February 2012.
 
-RFC 6818. Updates to the Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile, January 2013.
+RFC 6818, Updates to the Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile, January 2013.
 
 RFC 6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP. Santesson, Myers, Ankney, Malpani, Galperin, Adams, June 2013.
 
@@ -426,6 +425,8 @@ RFC 8398, Request for Comments: 8398, Internationalized Email Addresses in X.509
 RFC 8499, Request for Comments: 8499, DNS Terminology. P. Hoffman, et al. January 2019.
 
 RFC 8659, Request for Comments: 8659, DNS Certification Authority Authorization (CAA) Resource Record, Hallam-Baker, Stradling, Hoffman-Andrews, November 2019.
+
+"TLS Baseline Requirements" means the relevant version of the CA/Browser Forum's "Baseline Requirements for the Issuance and Management of Publicly‐Trusted TLS Server Certificates". See https://cabforum.org/baseline-requirements-documents/
 
 WebTrust for Certification Authorities.
 
@@ -2126,9 +2127,9 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:organizationName` | SHALL | SHALL | SHALL |
 | `subject:organizationalUnitName` | MAY  | MAY | MAY |
 | `subject:organizationIdentifier` | SHALL | SHALL | SHALL |
-| `subject:givenName` | MAY  | MAY | MAY |
-| `subject:surname` | MAY  | MAY | MAY |
-| `subject:pseudonym` | MAY | MAY | MAY |
+| `subject:givenName` | MAY[^**] | MAY[^*] | MAY[^*] |
+| `subject:surname` | MAY[^**] | MAY[^*] | MAY[^*] |
+| `subject:pseudonym` | MAY[^**] | MAY[^*] | MAY[^*] |
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
@@ -2139,7 +2140,9 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:countryName` | MAY | MAY | MAY |
 | Other | MAY | SHALL NOT | SHALL NOT |
 
-The `Sponsor-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`.
+[^*]: The Strict and Multipurpose types of the `Sponsor-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
+
+[^**]: The Legacy type MAY omit these attributes and include only the Personal Name as described in [Section 3.1.1](#311-types-of-names) in the `subject:commonName`.
 
 ##### 7.1.4.2.5 Subject DN attributes for individual-validated profile
 
@@ -2149,9 +2152,9 @@ The `Sponsor-validated` profile SHALL include either `subject:givenName` and/or 
 | `subject:organizationName` | SHALL NOT | SHALL NOT | SHALL NOT |
 | `subject:organizationalUnitName` | SHALL NOT | SHALL NOT | SHALL NOT |
 | `subject:organizationIdentifier` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:givenName` | MAY  | MAY | MAY |
-| `subject:surname` | MAY  | MAY | MAY |
-| `subject:pseudonym` | MAY | MAY | MAY |
+| `subject:givenName` | MAY[^**] | MAY[^*] | MAY[^*] |
+| `subject:surname` | MAY[^**] | MAY[^*] | MAY[^*] |
+| `subject:pseudonym` | MAY[^**] | MAY[^*] | MAY[^*] |
 | `subject:serialNumber` | MAY | MAY | MAY |
 | `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
@@ -2162,7 +2165,9 @@ The `Sponsor-validated` profile SHALL include either `subject:givenName` and/or 
 | `subject:countryName` | MAY | MAY | MAY |
 | Other | MAY | SHALL NOT | SHALL NOT |
 
-The `Individual-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`.
+[^*]: The Strict and Multipurpose types of the `Individual-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
+
+[^**]: The Legacy type MAY omit these attributes and include only the Personal Name as described in [Section 3.1.1](#311-types-of-names) in the `subject:commonName`.
 
 #### 7.1.4.3 Subject information - root certificates and subordinate CA certificates
 
