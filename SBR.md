@@ -2029,14 +2029,14 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
     * 2 character ISO 3166 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally ISO 3166 code "XG" SHALL be used;
     * For the NTR Registration Scheme identifier, if required under [Section 9.2.4](#924-subject-jurisdiction-of-incorporation-or-registration-field), a 2 character ISO 3166-2 identifier for the subdivision (state or province) of the nation in which the Registration Scheme is operated, preceded by plus "+" (0x2B (ASCII), U+002B (UTF-8));
     * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
-    * Registration Reference allocated in accordance with the identified Registration Scheme
+    * Registration Reference allocated in accordance with the identified Registration Scheme.
 
    Note: Registration References MAY contain hyphens but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
 
-    * `NTRGB-12345678` (NTR scheme, Great Britain, Unique Identifier at Country level is 12345678)
-    * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Unique identifier at State level is 12345678)
-    * `VATDE-123456789` (VAT Scheme, Germany, Unique Identifier at Country Level is 12345678)
-    * `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, NCA's identifier is NBB, Unique Identifier assigned by the NCA is 1234.567.890)
+    * `NTRGB-12345678` (NTR scheme, Great Britain, Unique Identifier at Country level is 12345678).
+    * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Unique identifier at State level is 12345678).
+    * `VATDE-123456789` (VAT Scheme, Germany, Unique Identifier at Country Level is 12345678).
+    * `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, NCA's identifier is NBB, Unique Identifier assigned by the NCA is 1234.567.890).
 
    Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes) are recognized as valid under these Requirements. The CA SHALL:
 
@@ -2143,6 +2143,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | Other | MAY | SHALL NOT | SHALL NOT |  |
 
 **Note**: 
+
  * The Strict and Multipurpose types of the `Sponsor-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
  * The Legacy type MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
 
@@ -2169,6 +2170,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 
 
 **Note**: 
+
  * The Strict and Multipurpose types of the `Individual-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
  * The Legacy type MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
 
