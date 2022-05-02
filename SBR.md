@@ -2440,7 +2440,7 @@ No stipulation.
 
 ### 9.4.1 Privacy plan
 
-The CA SHALL publish a Privacy Policy that provides information on the data protection laws and regulations to which the CA conforms. The CA SHALL document where to obtain this information within Section 9.4.1 of the CA's CP and/or CPS.  
+The CA SHALL publish a Privacy Policy that provides information on the CA's data protection practices. The Privacy Policy SHOULD include information on how the CA collects, uses, shares, store, and deletes or retains data, as well as contact information for the exercise of privacy rights.  The CA SHALL document where to obtain this information within Section 9.4.1 of the CA's CP and/or CPS.  
 
 ### 9.4.2 Information treated as private
 
@@ -2452,11 +2452,11 @@ No stipulation.
 
 ### 9.4.4 Responsibility to protect private information
 
-The CA or RA SHALL protect private information using appropriate safeguards and a reasonable degree of care.
+The CA or RA SHALL protect private information using appropriate safeguards and a reasonable degree of care. The CA or RA SHALL require the same from any service providers who handle private information on behalf of the CA or RA.
 
 ### 9.4.5 Notice and consent to use private information
 
-No stipulation.
+The CA or RA shall provide appropriate notices to, and receive the necessary consent, from Subject Individuals before using private information for any purpose other than providing services related to the issuance and management of Certificates. The CA or RA shall require the same from any service providers who handle private information on behalf of the CA or RA.
 
 ### 9.4.6 Disclosure pursuant to judicial or administrative process
 
