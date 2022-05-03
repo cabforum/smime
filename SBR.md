@@ -1152,8 +1152,6 @@ The CA SHALL notify Subscribers when their Private Keys are escrowed. Escrowed P
 
 The CA SHALL recover Subscriber Private Keys only under the circumstances permitted within the CA's CP and/or CPS.
 
-Enterprise RAs and Email Service Providers that generate Subscriber Private Keys SHALL comply with the requirements of [Section 6.1.2](#612-private-key-delivery-to-subscriber).
-
 ### 4.12.2 Session key encapsulation and recovery policy and practices
 
 No stipulation.
