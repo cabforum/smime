@@ -1146,7 +1146,11 @@ No stipulation.
 
 ### 4.12.1 Key escrow and recovery policy and practices
 
-No stipulation.
+The CA MAY escrow the Subscriber’s Private Key as specified in the CA's CP and/or CPS. 
+
+The CA SHALL notify Subscribers when their Private Keys are escrowed. Escrowed Private Keys SHALL be stored in encrypted form. The CA SHALL protect escrowed Private Keys from unauthorised disclosure.
+
+The CA SHALL recover Subscriber Private Keys only under the circumstances permitted within the CA's CP and/or CPS.
 
 ### 4.12.2 Session key encapsulation and recovery policy and practices
 
@@ -2376,7 +2380,7 @@ During the period in which the CA issues Certificates, the CA SHALL monitor adhe
 
 ## 8.8 Review of delegated parties 
 
-Except for Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of each Delegated Third Party, Enterprise RA, and Technically Constrained Subordinate CA are in compliance with these Requirements and the relevant CP and/or CPS. The CA shall document the obligations of Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs and perform periodic internal audits of their adherence with those obligations.
+Except for Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of delegated parties are in compliance with these Requirements and the relevant CP and/or CPS. The CA shall document the obligations of delegated parties and perform periodic internal audits of their adherence with those obligations.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
