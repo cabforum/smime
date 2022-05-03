@@ -228,7 +228,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Key Pair**: The Private Key and its associated Public Key.
 
-**Legacy Profile**: The S/MIME Legacy Profiles provide flexibility for existing reasonable S/MIME certificate practices to become auditable under the S/MIME Baseline Requirements. This includes options for Subject DN attributes, `extKeyUsage`, and other extensions. The Legacy Profiles will be deprecated in a future version of the S/MIME Baseline Requirements.
+**Legacy Profile**: The S/MIME Legacy generation profiles provide flexibility for existing reasonable S/MIME certificate practices to become auditable under the S/MIME Baseline Requirements. This includes options for Subject DN attributes, `extKeyUsage`, and other extensions. The Legacy Profiles will be deprecated in a future version of the S/MIME Baseline Requirements.
 
 **Legal Entity**: An association, corporation, partnership, proprietorship, trust, government entity or other entity with legal standing in a country's legal system.
 
@@ -236,7 +236,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Mailbox Address**: Also Email Address. From [RFC 5321](http://tools.ietf.org/html/rfc5321): "A character string that identifies a user to whom mail will be sent or a location into which mail will be deposited."
 
-**Multipurpose Profile**: The S/MIME Multipurpose Profiles are aligned with the more defined Strict Profiles, but with additional options for `extKeyUsage` and other extensions. This is intended to allow flexibility for crossover use cases between document signing and secure email. 
+**Multipurpose Profile**: The S/MIME Multipurpose generation profiles are aligned with the more defined Strict Profiles, but with additional options for `extKeyUsage` and other extensions. This is intended to allow flexibility for crossover use cases between document signing and secure email. 
 
 **Natural Person**: An Individual; a human being as distinguished from a Legal Entity.
 
@@ -290,7 +290,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Sponsor-validated**: Refers to a Certificate Profile Subject which combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA where the `subject:organizationName` is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject Organization. 
 
-**Strict Profile**: The S/MIME Strict Profiles are the long term target profile for S/MIME Certificates with `extKeyUsage` limited to `emailProtection`, and stricter use of Subject DN attributes and other extensions.
+**Strict Profile**: The S/MIME Strict generation profiles are the long term target profile for S/MIME Certificates with `extKeyUsage` limited to `emailProtection`, and stricter use of Subject DN attributes and other extensions.
 
 **Subject**: The Natural Person, device, system, unit, or Legal Entity identified in a Certificate as the Subject. The Subject is either the Subscriber or a mailbox under the control and operation of the Subscriber.
 
@@ -529,10 +529,10 @@ The CA SHALL authenticate the identity attributes of the Subject and their contr
 
 | Type    | Mailbox Control | Organization Identity | Individual Identity | 
 |---------|----------|----------|----------|
-| `Mailbox-validated` | Section 3.2.2  | NA | NA | 
-| `Organization-validated` |  Section 3.2.2  | Section 3.2.3 | NA |
-| `Sponsor-validated` | Section 3.2.2 | Section 3.2.3 | Section 3.2.4 | 
-| `Individual-validated` | Section 3.2.2 | NA | Section 3.2.4 | 
+| `Mailbox-validated` | [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)  | NA | NA | 
+| `Organization-validated` |  [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)  | [Section 3.2.3](#323-authentication-of-organization-identity) | NA |
+| `Sponsor-validated` | [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control) | [Section 3.2.3](#323-authentication-of-organization-identity) | [Section 3.2.4](#324-authentication-of-individual-identity) | 
+| `Individual-validated` | [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control) | NA | [Section 3.2.4](#324-authentication-of-individual-identity) | 
 
 ### 3.2.1 Method to prove possession of private key
 
@@ -1984,11 +1984,11 @@ __Contents:__ This extension SHALL contain at least one `GeneralName` entry of t
 
 All Mailbox Addresses in the `subject` field or entries of type `dirName` of this extension SHALL be repeated as `rfc822Name` or `otherName` values of type `id-on-SmtpUTF8Mailbox` in this extension.
 
-`GeneralName` entries of type `dirName` MAY be included by the CA, provided that the information contained in the `Name` complies with the requirements set forth in the appropriate subsection of [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) according to the type of Certificate. Additionally, information contained in the `Name` MUST be validated according to [Section 3.1](#31-naming), [Section 3.2.3](#323-authentication-of-organization-identity), and/or [Section 3.2.4](#324-authentication-of-individual-identity), as appropriate according to the type of Certificate.
+The CA MAY include `GeneralName` entries of type `dirName` provided that the information contained in the `Name` complies with the requirements set forth in the appropriate subsection of [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) according to the type of Certificate. Additionally, information contained in the `Name` SHALL be validated according to [Section 3.1](#31-naming), [Section 3.2.3](#323-authentication-of-organization-identity), and/or [Section 3.2.4](#324-authentication-of-individual-identity), as appropriate for the Certificate type.
 
-If the generation of the Certificate is `Multipurpose` or `Legacy`, then CA MAY include `otherName` entries of any type, provided that the CA has validated the field value according to its CP/CPS.
+If the generation of the Certificate is `Multipurpose` or `Legacy`, then CA MAY include `otherName` entries of any type, provided that the CA has validated the field value according to its CP and/or CPS.
 
-`GeneralName` entries that do not conform to the requirements above in this section MUST NOT be included.
+The CA SHALL NOT include `GeneralName` entries that do not conform to the requirements of this section.
 
 ##### 7.1.4.2.2 Subject distinguished name fields
 
