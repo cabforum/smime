@@ -1982,7 +1982,7 @@ All Mailbox Addresses in the `subject` field or entries of type `dirName` of thi
 
 `GeneralName` entries of type `dirName` MAY be included by the CA, provided that the information contained in the `Name` complies with the requirements set forth in the appropriate subsection of [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) according to the type of Certificate. Additionally, information contained in the `Name` MUST be validated according to [Section 3.1](#31-naming), [Section 3.2.3](#323-authentication-of-organization-identity), and/or [Section 3.2.4](#324-authentication-of-individual-identity), as appropriate according to the type of Certificate.
 
-If the generation of the Certificate is `Multipurpose` and `Legacy`, then CA MAY include `otherName` entries of any type, provided that the CA has validated the field value according to its CP/CPS.
+If the generation of the Certificate is `Multipurpose` or `Legacy`, then CA MAY include `otherName` entries of any type, provided that the CA has validated the field value according to its CP/CPS.
 
 `GeneralName` entries that do not conform to the requirements above in this section MUST NOT be included.
 
