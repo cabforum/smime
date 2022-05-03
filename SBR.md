@@ -228,7 +228,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Key Pair**: The Private Key and its associated Public Key.
 
-**Legacy Profile**: The S/MIME Legacy Profiles provide flexibility for existing reasonable S/MIME certificate practices to become auditable under the S/MIME Baseline Requirements. This includes options for Subject DN attributes, `extKeyUsage`, and other extensions. The Legacy Profiles will be deprecated in a future version of the S/MIME Baseline Requirements.
+**Legacy Profile**: The S/MIME Legacy generation profiles provide flexibility for existing reasonable S/MIME certificate practices to become auditable under the S/MIME Baseline Requirements. This includes options for Subject DN attributes, `extKeyUsage`, and other extensions. The Legacy Profiles will be deprecated in a future version of the S/MIME Baseline Requirements.
 
 **Legal Entity**: An association, corporation, partnership, proprietorship, trust, government entity or other entity with legal standing in a country's legal system.
 
@@ -236,7 +236,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Mailbox Address**: Also Email Address. From [RFC 5321](http://tools.ietf.org/html/rfc5321): "A character string that identifies a user to whom mail will be sent or a location into which mail will be deposited."
 
-**Multipurpose Profile**: The S/MIME Multipurpose Profiles are aligned with the more defined Strict Profiles, but with additional options for `extKeyUsage` and other extensions. This is intended to allow flexibility for crossover use cases between document signing and secure email. 
+**Multipurpose Profile**: The S/MIME Multipurpose generation profiles are aligned with the more defined Strict Profiles, but with additional options for `extKeyUsage` and other extensions. This is intended to allow flexibility for crossover use cases between document signing and secure email. 
 
 **Natural Person**: An Individual; a human being as distinguished from a Legal Entity.
 
@@ -290,7 +290,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Sponsor-validated**: Refers to a Certificate Profile Subject which combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA where the `subject:organizationName` is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject Organization. 
 
-**Strict Profile**: The S/MIME Strict Profiles are the long term target profile for S/MIME Certificates with `extKeyUsage` limited to `emailProtection`, and stricter use of Subject DN attributes and other extensions.
+**Strict Profile**: The S/MIME Strict generation profiles are the long term target profile for S/MIME Certificates with `extKeyUsage` limited to `emailProtection`, and stricter use of Subject DN attributes and other extensions.
 
 **Subject**: The Natural Person, device, system, unit, or Legal Entity identified in a Certificate as the Subject. The Subject is either the Subscriber or a mailbox under the control and operation of the Subscriber.
 
@@ -529,10 +529,10 @@ The CA SHALL authenticate the identity attributes of the Subject and their contr
 
 | Type    | Mailbox Control | Organization Identity | Individual Identity | 
 |---------|----------|----------|----------|
-| `Mailbox-validated` | Section 3.2.2  | NA | NA | 
-| `Organization-validated` |  Section 3.2.2  | Section 3.2.3 | NA |
-| `Sponsor-validated` | Section 3.2.2 | Section 3.2.3 | Section 3.2.4 | 
-| `Individual-validated` | Section 3.2.2 | NA | Section 3.2.4 | 
+| `Mailbox-validated` | [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)  | NA | NA | 
+| `Organization-validated` |  [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)  | [Section 3.2.3](#323-authentication-of-organization-identity) | NA |
+| `Sponsor-validated` | [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control) | [Section 3.2.3](#323-authentication-of-organization-identity) | [Section 3.2.4](#324-authentication-of-individual-identity) | 
+| `Individual-validated` | [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control) | NA | [Section 3.2.4](#324-authentication-of-individual-identity) | 
 
 ### 3.2.1 Method to prove possession of private key
 
@@ -556,7 +556,7 @@ Completed validations of Applicant authority MAY be valid for the issuance of mu
 
 The CA MAY confirm the Applicant, such as an Enterprise RA, has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
 
-The CA SHALL use only the approved methods in Section 3.2.2.4 of the TLS Baseline Requirements to perform this verification.
+The CA SHALL use only the approved methods in [Section 3.2.2.4 of the TLS Baseline Requirements](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) to perform this verification.
 
 For purposes of domain validation, the term Applicant includes the Applicant's Parent Company, Subsidiary Company, or Affiliate.
 
@@ -572,9 +572,9 @@ The Random Value SHALL be reset upon each instance of the email sent by the CA a
 
 #### 3.2.2.3 Validating applicant as operator of associated mail server(s)
 
-Confirming the Applicant's control over each `rfc822Name` , `otherName` of `type id-on-SmtpUTF8Mailbox` to be included in the Certificate, by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDNs have been discovered, the CA SHALL verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA SHALL NOT be used for this validation method.
+Confirming the Applicant's control over each `rfc822Name` or `otherName` of `type id-on-SmtpUTF8Mailbox` to be included in the Certificate, by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDNs have been discovered, the CA SHALL verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA SHALL NOT be used for this validation method.
 
-When confirming the Applicant's control of the SMTP FQDN, the CA SHALL use only the approved methods in Section 3.2.2.4 of the TLS Baseline Requirements.
+When confirming the Applicant's control of the SMTP FQDN, the CA SHALL use only the approved methods in [Section 3.2.2.4](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) of the TLS Baseline Requirements.
 
 This method is suitable for validating control of all email addresses under a single domain.
 
@@ -584,7 +584,7 @@ This version of the S/MIME Baseline Requirements does not require the CA to chec
 
 ### 3.2.3 Authentication of organization identity
 
-The following requirements SHALL be fulfilled to authenticate Organization identity included in the `Organization-validated` and `Sponsor-validated` Certificate profiles.
+The following requirements SHALL be fulfilled to authenticate Organization identity included in the `Organization-validated` and `Sponsor-validated`  profiles.
 
 #### 3.2.3.1 Attribute collection of organization identity
 
@@ -1812,7 +1812,7 @@ l. Legal Entity Identifier (optional)
 
    The CA SHALL verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE. The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
-   In cases where the "role" LEI is used, the CA SHALL verify that the LEI data reference is assigned to the Individual Subject whose identity has been verified in accordance with [Section 3.24](#324-authentication-of-individual-identity).
+   In cases where the "role" LEI is used, the CA SHALL verify that the LEI data reference is assigned to the Individual Subject whose identity has been verified in accordance with [Section 3.2.4](#324-authentication-of-individual-identity).
 
 m. Adobe Extensions (optional)
 
@@ -1823,11 +1823,11 @@ m. Adobe Extensions (optional)
 
 #### 7.1.2.4 All certificates
 
-All fields and extensions SHALL be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123-subscriber-certificates) unless the CA is aware of a reason for including the data in the Certificate.
+All fields and extensions SHALL be set in accordance with [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280). The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123-subscriber-certificates) unless the CA is aware of a reason for including the data in the Certificate.
 
 CAs SHALL NOT issue a Certificate with:
 
-1. Extensions that do not apply in the context of the public Internet (such as an extKeyUsage value for a service that is only valid in the context of a privately managed network), unless:<br>
+1. Extensions that do not apply in the context of the public Internet (such as an `extKeyUsage` value for a service that is only valid in the context of a privately managed network), unless:<br>
    i. such value falls within an OID arc for which the Applicant demonstrates ownership, or<br>
    ii. the Applicant can otherwise demonstrate the right to assert the data in a public context; or
 2. semantics that, if included, will mislead a Relying Party about the Certificate information verified by the CA (such as including an `extKeyUsage` value for a smart card, where the CA is not able to verify that the corresponding Private Key is confined to such hardware due to remote issuance).
@@ -1841,6 +1841,7 @@ The following requirements apply to the `subjectPublicKeyInfo` field within a Ce
 ##### 7.1.3.1.1 RSA
 
 The CA SHALL indicate an RSA key using the rsaEncryption (OID: 1.2.840.113549.1.1.1) algorithm identifier. The parameters SHALL be present, and SHALL be an explicit NULL.
+
 The CA SHALL NOT use a different algorithm, such as the id-RSASSA-PSS (OID: 1.2.840.113549.1.1.10) algorithm identifier, to indicate an RSA key.
 
 When encoded, the `AlgorithmIdentifier` for RSA keys SHALL be byte-for-byte identical with the following hex-encoded bytes: `300d06092a864886f70d0101010500`
@@ -1984,11 +1985,11 @@ __Contents:__ This extension SHALL contain at least one `GeneralName` entry of t
 
 All Mailbox Addresses in the `subject` field or entries of type `dirName` of this extension SHALL be repeated as `rfc822Name` or `otherName` values of type `id-on-SmtpUTF8Mailbox` in this extension.
 
-`GeneralName` entries of type `dirName` MAY be included by the CA, provided that the information contained in the `Name` complies with the requirements set forth in the appropriate subsection of [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) according to the type of Certificate. Additionally, information contained in the `Name` MUST be validated according to [Section 3.1](#31-naming), [Section 3.2.3](#323-authentication-of-organization-identity), and/or [Section 3.2.4](#324-authentication-of-individual-identity), as appropriate according to the type of Certificate.
+The CA MAY include `GeneralName` entries of type `dirName` provided that the information contained in the `Name` complies with the requirements set forth in the appropriate subsection of [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) according to the type of Certificate. Additionally, information contained in the `Name` SHALL be validated according to [Section 3.1](#31-naming), [Section 3.2.3](#323-authentication-of-organization-identity), and/or [Section 3.2.4](#324-authentication-of-individual-identity), as appropriate for the Certificate type.
 
-If the generation of the Certificate is `Multipurpose` or `Legacy`, then CA MAY include `otherName` entries of any type, provided that the CA has validated the field value according to its CP/CPS.
+If the generation of the Certificate is `Multipurpose` or `Legacy`, then the CA MAY include `otherName` entries of any type, provided that the CA has validated the field value according to its CP and/or CPS.
 
-`GeneralName` entries that do not conform to the requirements above in this section MUST NOT be included.
+The CA SHALL NOT include `GeneralName` entries that do not conform to the requirements of this section.
 
 ##### 7.1.4.2.2 Subject distinguished name fields
 
@@ -2019,7 +2020,7 @@ c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)
 d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
    __Contents:__ If present, the `subject:organizationIdentifier` field SHALL contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. 
 
-   The organizationIdentifier SHALL be encoded as a PrintableString or UTF8String.
+   The `subject:organizationIdentifier` SHALL be encoded as a PrintableString or UTF8String.
 
    The Registration Scheme identified in the Certificate SHALL be the result of the verification performed in accordance with [Section 3.2.3](#323-authentication-of-organization-identity). The Registration Scheme SHALL be identified using the using the following structure in the presented order:
 
@@ -2142,8 +2143,8 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 
 **Note**: 
 
- * The Strict and Multipurpose types of the `Sponsor-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
- * The Legacy type MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
+ * The Strict and Multipurpose generations of the `Sponsor-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
+ * The Legacy generations MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
 
 ##### 7.1.4.2.5 Subject DN attributes for individual-validated profile
 
@@ -2169,8 +2170,8 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 
 **Note**: 
 
- * The Strict and Multipurpose types of the `Individual-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
- * The Legacy type MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
+ * The Strict and Multipurpose generations of the `Individual-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
+ * The Legacy generation MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
 
 #### 7.1.4.3 Subject information - root certificates and subordinate CA certificates
 
