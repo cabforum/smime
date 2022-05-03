@@ -1812,7 +1812,7 @@ l. Legal Entity Identifier (optional)
 
    The CA SHALL verify that the RegistrationStatus for the LEI record is ISSUED and the EntityStatus is ACTIVE. The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
-   In cases where the "role" LEI is used, the CA SHALL verify that the LEI data reference is assigned to the Individual Subject whose identity has been verified in accordance with [Section 3.24](#324-authentication-of-individual-identity).
+   In cases where the "role" LEI is used, the CA SHALL verify that the LEI data reference is assigned to the Individual Subject whose identity has been verified in accordance with [Section 3.2.4](#324-authentication-of-individual-identity).
 
 m. Adobe Extensions (optional)
 
@@ -1827,7 +1827,7 @@ All fields and extensions SHALL be set in accordance with RFC 5280. The CA SHALL
 
 CAs SHALL NOT issue a Certificate with:
 
-1. Extensions that do not apply in the context of the public Internet (such as an extKeyUsage value for a service that is only valid in the context of a privately managed network), unless:<br>
+1. Extensions that do not apply in the context of the public Internet (such as an `extKeyUsage` value for a service that is only valid in the context of a privately managed network), unless:<br>
    i. such value falls within an OID arc for which the Applicant demonstrates ownership, or<br>
    ii. the Applicant can otherwise demonstrate the right to assert the data in a public context; or
 2. semantics that, if included, will mislead a Relying Party about the Certificate information verified by the CA (such as including an `extKeyUsage` value for a smart card, where the CA is not able to verify that the corresponding Private Key is confined to such hardware due to remote issuance).
@@ -1841,6 +1841,7 @@ The following requirements apply to the `subjectPublicKeyInfo` field within a Ce
 ##### 7.1.3.1.1 RSA
 
 The CA SHALL indicate an RSA key using the rsaEncryption (OID: 1.2.840.113549.1.1.1) algorithm identifier. The parameters SHALL be present, and SHALL be an explicit NULL.
+
 The CA SHALL NOT use a different algorithm, such as the id-RSASSA-PSS (OID: 1.2.840.113549.1.1.10) algorithm identifier, to indicate an RSA key.
 
 When encoded, the `AlgorithmIdentifier` for RSA keys SHALL be byte-for-byte identical with the following hex-encoded bytes: `300d06092a864886f70d0101010500`
@@ -2142,8 +2143,8 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 
 **Note**: 
 
- * The Strict and Multipurpose types of the `Sponsor-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
- * The Legacy type MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
+ * The Strict and Multipurpose generations of the `Sponsor-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
+ * The Legacy generations MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
 
 ##### 7.1.4.2.5 Subject DN attributes for individual-validated profile
 
@@ -2169,8 +2170,8 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 
 **Note**: 
 
- * The Strict and Multipurpose types of the `Individual-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
- * The Legacy type MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
+ * The Strict and Multipurpose generations of the `Individual-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
+ * The Legacy generation MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
 
 #### 7.1.4.3 Subject information - root certificates and subordinate CA certificates
 
