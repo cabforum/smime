@@ -1778,14 +1778,9 @@ g. `authorityKeyIdentifier` (SHALL be present)
 
 h. `subjectAlternativeName` (SHALL be present)
 
-   This extension SHALL be present and SHOULD NOT be marked critical unless the Subject is an empty sequence. 
+   This extension SHALL be present and SHOULD NOT be marked critical unless the `subject` field is an empty sequence.
 
-   | Generation | `subjectAlternativeName`      | 
-   |------|-----------------------|
-   | Strict | All email addresses in Subject SHALL be repeated in SAN. SHALL contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`. SHALL NOT contain items of type: `dNSName`, `iPAddress`, `otherName` values other than type `id-on-SmtpUTF8Mailbox`, or `uniformResourceIdentifier`.|
-   | Multipurpose and Legacy |All email addresses in Subject SHALL be repeated in SAN. SHALL contain at least one item of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`. SHALL NOT contain items of type: `dNSName`, `iPAddress`, or `uniformResourceIdentifier`.<br>`otherName` values MAY be included. `otherName` values of any other type SHALL be validated in accordance with the CA's CPS. |
-
-   `otherName` values of type `id-on-SmtpUTF8Mailbox` SHALL be validated in accordance with RFC 8398.
+   The value of this extension SHALL be encoded as specified in [Section 7.1.4.2.1](#71421-subject-alternative-name-extension).
 
 i. `smimeCapabilities` (optional)
 
@@ -1982,19 +1977,18 @@ Subject attributes SHALL NOT contain only metadata such as '.', '-', and ' ' (i.
 
 __Certificate Field:__ `extensions:subjectAltName`  
 __Required/Optional:__ SHALL be present  
-__Contents:__ This extension SHALL contain at least one entry of the following types:
+__Contents:__ This extension SHALL contain at least one `GeneralName` entry of the following types:
 
 * `Rfc822Name` and/or
-* `otherName` of type `id-on-SmtpUTF8Mailbox`
+* `otherName` of type `id-on-SmtpUTF8Mailbox`, encoded in accordance with [RFC 8398](https://datatracker.ietf.org/doc/html/rfc8398)
 
-All Subject email attribute values contained in the Subject SHALL be repeated in this extension. In addition the following apply:
+All Mailbox Addresses in the `subject` field or entries of type `dirName` of this extension SHALL be repeated as `rfc822Name` or `otherName` values of type `id-on-SmtpUTF8Mailbox` in this extension.
 
-   | Generation | `keyUsage`      | 
-   |------|-----------------------|
-   | Strict | SHALL NOT contain `otherNames` other than type `id-on-SmtpUTF8Mailbox`. |
-   | Multipurpose and Legacy | `otherName` values MAY be included. `otherNames` of type `id-on-SmtpUTF8Mailbox` SHALL be encoded in accordance with [RFC 8398](https://datatracker.ietf.org/doc/html/rfc8398). `otherNames` SHALL be validated in accordance with procedures documented in the CA's CP and/or CPS.|
+`GeneralName` entries of type `dirName` MAY be included by the CA, provided that the information contained in the `Name` complies with the requirements set forth in the appropriate subsection of [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) according to the type of Certificate. Additionally, information contained in the `Name` MUST be validated according to [Section 3.1](#31-naming), [Section 3.2.3](#323-authentication-of-organization-identity), and/or [Section 3.2.4](#324-authentication-of-individual-identity), as appropriate according to the type of Certificate.
 
-This extension SHALL NOT contain items of type `dNSName`, `iPAddress`,  `uniformResourceIdentifier`, or `GeneralNames` of any other type.
+If the generation of the Certificate is `Multipurpose` or `Legacy`, then CA MAY include `otherName` entries of any type, provided that the CA has validated the field value according to its CP/CPS.
+
+`GeneralName` entries that do not conform to the requirements above in this section MUST NOT be included.
 
 ##### 7.1.4.2.2 Subject distinguished name fields
 
