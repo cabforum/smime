@@ -1,17 +1,15 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version X.Y.Z
+subtitle: Pre-Ballot Discussion Version X.Y.Z
 author:
   - CA/Browser Forum
-date: X Date, 2022
+date: May 2022
 copyright: |
   Copyright 2022 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
 
 # 1. INTRODUCTION
-
-**This is a pre-release draft of the S/MIME Baseline Requirements (SBR) created by the S/MIME Certificate Working Group. This draft has not yet been balloted to become a CA/Browser Forum standard.**
 
 ## 1.1 Overview
 
@@ -156,9 +154,9 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Applicant Representative**: A Natural Person or human sponsor who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant:
 
-  i. who signs and submits, or approves a Certificate Request on behalf of the Applicant, and/or
-  ii. who signs and submits a Subscriber Agreement on behalf of the Applicant, and/or
-  iii. who acknowledges the Terms of Use on behalf of the Applicant when the Applicant is an Affiliate of the CA or is the CA.
+  1. who signs and submits, or approves a Certificate Request on behalf of the Applicant; 
+  2. who signs and submits a Subscriber Agreement on behalf of the Applicant; and/or
+  3. who acknowledges the Terms of Use on behalf of the Applicant when the Applicant is an Affiliate of the CA or is the CA.
 
 **Application Software Supplier**: A supplier of email client software or other relying-party application software such as mail user agents (web-based or application based) and email service providers that process S/MIME Certificates.
 
@@ -186,7 +184,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Certificate Problem Report**: Complaint of suspected Key Compromise, Certificate misuse, or other types of fraud, compromise, misuse, or inappropriate conduct related to Certificates.
 
-**Certificate Profile**: A set of documents or files that defines requirements for Certificate content and Certificate extensions in accordance with [Section 7](#7-certificate-crl-and-ocsp-profiles). e.g. a Section in a CA’s CPS or a Certificate template file used by CA software.
+**Certificate Profile**: A set of documents or files that defines requirements for Certificate content and Certificate extensions in accordance with [Section 7](#7-certificate-crl-and-ocsp-profiles) e.g., a section in a CA’s CPS or a Certificate template file used by CA software.
 
 **Certificate Revocation List**: A regularly updated time-stamped list of revoked Certificates that is created and digitally signed by the CA that issued the Certificates.
 
@@ -572,7 +570,7 @@ The Random Value SHALL be reset upon each instance of the email sent by the CA a
 
 #### 3.2.2.3 Validating applicant as operator of associated mail server(s)
 
-Confirming the Applicant's control over each `rfc822Name` or `otherName` of `type id-on-SmtpUTF8Mailbox` to be included in the Certificate, by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDNs have been discovered, the CA SHALL verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA SHALL NOT be used for this validation method.
+Confirming the Applicant's control over each `rfc822Name` or `otherName` of `type id-on-SmtpUTF8Mailbox` to be included in the Certificate, by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDN has been discovered, the CA SHALL verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA SHALL NOT be used for this validation method.
 
 When confirming the Applicant's control of the SMTP FQDN, the CA SHALL use only the approved methods in [Section 3.2.2.4](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) of the TLS Baseline Requirements.
 
@@ -664,7 +662,8 @@ If digital identity documents (such as passports or national ID cards including 
 This method does not include "eID" as described in Regulation (EU) 910/2014.
 
 3. **Using electronic identification schemes (eID)**
-If an eID is used as evidence, the CA or RA SHALL only accept “notified” eID schemes according to Article 9 of the eIDAS Regulation and the eID shall conform to eIDAS LoA “Substantial” or “High”.
+   
+If an eID is used as evidence, the CA or RA SHALL only accept “notified” eID schemes according to Article 9 of the [eIDAS Regulation](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2014.257.01.0073.01.ENG) and the eID shall conform to eIDAS LoA “Substantial” or “High”.
 
 The CA SHALL document and publish information describing the eID and associated eID attributes it accepts.
 
@@ -680,7 +679,7 @@ In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, re
 
 The Enterprise RA SHALL maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca).
 
-6. **Affiliation from company attestation**
+1. **Affiliation from company attestation**
 
 In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority or affiliation of an Individual to represent an Organisation to be included in the `subject:organization` of the Certificate using an Attestation provided by the Organization and verified in accordance with [Section 3.2.8](#328-reliability-of-verification-sources). 
 
@@ -769,7 +768,7 @@ The CA or RA MAY use the sources listed in [Section 3.2.3.2.1](#3231-attribute-c
 
 ### 3.2.7 Criteria for interoperation
 
-The CA SHALL disclose all Cross Certificates that identify the CA as the Subject, provided that the CA arranged for or accepted the establishment of the trust relationship (i.e. the Cross Certificate at issue).
+The CA SHALL disclose all Cross Certificates that identify the CA as the Subject, provided that the CA arranged for or accepted the establishment of the trust relationship (i.e., the Cross Certificate at issue).
 
 ### 3.2.8 Reliability of verification sources
 
@@ -857,7 +856,7 @@ No stipulation.
 
 ### 4.3.1 CA actions during certificate issuance
 
-Certificate issuance by the Root CA SHALL require at least two individuals authorized by the CA (i.e. the CA system operator, system officer, or PKI administrator) one of whom deliberately issues a direct command in order for the Root CA to perform a Certificate signing operation.
+Certificate issuance by the Root CA SHALL require at least two individuals authorized by the CA (i.e., the CA system operator, system officer, or PKI administrator) one of whom deliberately issues a direct command in order for the Root CA to perform a Certificate signing operation.
 
 ### 4.3.2 Notification to subscriber by the CA of issuance of certificate
 
@@ -996,7 +995,7 @@ The CA SHOULD revoke a Certificate within 24 hours and SHALL revoke a Certificat
 1. The Certificate no longer complies with the requirements of [Section 6.1.5](#615-key-sizes) and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking);
 2. The CA obtains evidence that the Certificate was misused;
 3. The CA is made aware that a Subscriber has violated one or more of its material obligations under the Subscriber Agreement or Terms of Use;
-4. The CA is made aware of any circumstance indicating that use of an email address or Fully-Qualified Domain Name in the Certificate is no longer legally permitted (e.g. a court or arbitrator has revoked the right to use an email address or Domain Name, a relevant licensing or services agreement between the Subscriber has terminated, or the account holder has failed to maintain the active status of the email address or Domain Name);
+4. The CA is made aware of any circumstance indicating that use of an email address or Fully-Qualified Domain Name in the Certificate is no longer legally permitted (e.g., a court or arbitrator has revoked the right to use an email address or Domain Name, a relevant licensing or services agreement between the Subscriber has terminated, or the account holder has failed to maintain the active status of the email address or Domain Name);
 5. The CA is made aware of a material change in the information contained in the Certificate;
 6. The CA is made aware that the Certificate was not issued in accordance with these Requirements or the CA's CP and/or CPS;
 7. The CA determines or is made aware that any of the information appearing in the Certificate is inaccurate;
@@ -1282,31 +1281,31 @@ The CA and each Delegated Third Party SHALL record events related to the securit
 
 The CA SHALL record at least the following events:
 
-1. CA Certificate and key lifecycle events, including:
-   1. Key generation, backup, storage, recovery, archival, and destruction;
-   2. Certificate requests, renewal, and re-key requests, and revocation;
-   3. Approval and rejection of Certificate Requests;
-   4. Cryptographic device lifecycle management events;
-   5. Generation of Certificate Revocation Lists;
-   6. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)); and
-   7. Introduction of new Certificate Profiles and retirement of existing Certificate Profiles.
+1. CA Certificate and key lifecycle events, including:<br>
+   i. Key generation, backup, storage, recovery, archival, and destruction;
+   ii. Certificate requests, renewal, and re-key requests, and revocation;
+   iii. Approval and rejection of Certificate Requests;
+   iv. Cryptographic device lifecycle management events;
+   v. Generation of Certificate Revocation Lists;
+   vi. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)); and
+   vii. Introduction of new Certificate Profiles and retirement of existing Certificate Profiles.
 
-2. Subscriber Certificate lifecycle management events, including:
-   1. Certificate requests, renewal, and re-key requests, and revocation;
-   2. All verification activities stipulated in these Requirements and the CA's Certification Practice Statement;
-   3. Approval and rejection of Certificate Requests;
-   4. Issuance of Certificates;
-   5. Generation of Certificate Revocation Lists; and
-   6. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)).
+2. Subscriber Certificate lifecycle management events, including:<br>
+   i. Certificate requests, renewal, and re-key requests, and revocation;
+   ii. All verification activities stipulated in these Requirements and the CA's Certification Practice Statement;
+   iii. Approval and rejection of Certificate Requests;
+   iv. Issuance of Certificates;
+   v. Generation of Certificate Revocation Lists; and
+   vi. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)).
 
-3. Security events, including:
-   1. Successful and unsuccessful PKI system access attempts;
-   2. PKI and security system actions performed;
-   3. Security profile changes;
-   4. Installation, update and removal of software on a Certificate System;
-   5. System crashes, hardware failures, and other anomalies;
-   6. Firewall and router activities; and
-   7. Entries to and exits from the CA facility.
+3. Security events, including:<br>
+   i. Successful and unsuccessful PKI system access attempts;
+   ii. PKI and security system actions performed;
+   iii. Security profile changes;
+   iv. Installation, update and removal of software on a Certificate System;
+   v. System crashes, hardware failures, and other anomalies;
+   vi. Firewall and router activities; and
+   vii. Entries to and exits from the CA facility.
 
 Log records SHALL include the following elements:
 
@@ -1322,9 +1321,9 @@ No stipulation.
 
 The CA and each Delegated Third Party SHALL retain, for at least two (2) years:
 
-  1. CA Certificate and key lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (1)) after the later occurrence of:
-     1. the destruction of the CA Private Key; or
-     2. the revocation or expiration of the final CA Certificate in that set of Certificates that have an X.509v3 `basicConstraints` extension with the `cA` field set to true and which share a common Public Key corresponding to the CA Private Key;
+  1. CA Certificate and key lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (1)) after the later occurrence of:<br>
+     i. the destruction of the CA Private Key; or
+     ii. the revocation or expiration of the final CA Certificate in that set of Certificates that have an X.509v3 `basicConstraints` extension with the `cA` field set to true and which share a common Public Key corresponding to the CA Private Key;
   2. Subscriber Certificate lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (2)) after the expiration of the Subscriber Certificate;
   3. Any security event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (3)) after the event occurred.
 
@@ -1525,9 +1524,9 @@ No other algorithms or key sizes are permitted.
 
 ### 6.1.6 Public key parameters generation and quality checking
 
-For RSA key pairs: the CA SHALL confirm that the value of the public exponent is an odd number equal to 3 or more. Additionally, the public exponent SHOULD be in the range between 2^16 + 1 and 2^256 - 1. The modulus SHOULD also have the following characteristics: an odd number, not the power of a prime, and have no factors smaller than 752. [Source: Section 5.3.3, NIST SP 800-89]
+For RSA key pairs: the CA SHALL confirm that the value of the public exponent is an odd number equal to 3 or more. Additionally, the public exponent SHOULD be in the range between 2^16 + 1 and 2^256 - 1. The modulus SHOULD also have the following characteristics: an odd number, not the power of a prime, and have no factors smaller than 752. (See NIST SP 800-89, Section 5.3.3.)
 
-For ECDSA key pairs: the CA SHOULD confirm the validity of all keys using either the ECC Full Public Key Validation Routine or the ECC Partial Public Key Validation Routine. [Source: Sections 5.6.2.3.2 and 5.6.2.3.3, respectively, of NIST SP 800-56A: Revision 2]
+For ECDSA key pairs: the CA SHOULD confirm the validity of all keys using either the ECC Full Public Key Validation Routine or the ECC Partial Public Key Validation Routine. (See ST SP 800-56A: Revision 2, Sections 5.6.2.3.2 and 5.6.2.3.3.)
 
 ### 6.1.7 Key usage purposes (as per X.509 v3 key usage field)
 
@@ -1797,7 +1796,7 @@ j. `subjectDirectoryAttributes` (optional)
 
 k. qcStatements (optional)
 
-   This extension MAY be present and SHALL NOT be marked critical. Indicates a Certificate that is issued as Qualified within a defined legal framework from an identified country or set of countries in accordance with [RFC 3739 Section 3.2.6](https://tools.ietf.org/html/rfc3739#section-3.2.6) and ETSI EN 319 412-5, Section 4.
+   This extension MAY be present and SHALL NOT be marked critical. Indicates a Certificate that is issued as Qualified within a defined legal framework from an identified country or set of countries in accordance with [RFC 3739 Section 3.2.6](https://tools.ietf.org/html/rfc3739#section-3.2.6) and/or ETSI EN 319 412-5, Section 4.
 
 l. Legal Entity Identifier (optional)
 
@@ -1972,7 +1971,7 @@ By issuing the Certificate, the CA represents that it followed the procedure set
 
 CAs SHALL NOT include an email address in a Subject attribute except as verified in accordance with [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)
 
-Subject attributes SHALL NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable. 
+Subject attributes SHALL NOT contain only metadata such as '.', '-', and ' ' (i.e., space) characters, and/or any other indication that the value is absent, incomplete, or not applicable. 
 
 ##### 7.1.4.2.1 Subject alternative name extension
 
@@ -2483,19 +2482,19 @@ The CA represents and warrants to the Certificate Beneficiaries that, during the
 
 The Certificate Warranties specifically include, but are not limited to, the following:
 
-1. **Right to Use Domain Name or Email Address**: That, at the time of issuance, the CA:
+1. **Right to Use Domain Name or Email Address**: That, at the time of issuance, the CA:<br>
    i. implemented a procedure for verifying that the Applicant either had the right to use, or had control of, the Domain Name(s) and email mailbox(es) listed in the Certificate's `subject` field and `subjectAltName` extension (or was delegated such right or control by someone who had such right to use or control);
    ii. followed the procedure when issuing the Certificate; and
    iii. accurately described the procedure in the CA's CP and/or CPS;
-2. **Authorization for Certificate**: That, at the time of issuance, the CA:
+2. **Authorization for Certificate**: That, at the time of issuance, the CA:<br>
    i. implemented a procedure for verifying that the Subject authorized the issuance of the Certificate and that the Applicant Representative is authorized to request the Certificate on behalf of the Subject;
    ii. followed the procedure when issuing the Certificate; and
    iii. accurately described the procedure in the CA's CP and/or CPS;
-3. **Accuracy of Information**: That, at the time of issuance, the CA:
+3. **Accuracy of Information**: That, at the time of issuance, the CA:<br>
    i. implemented a procedure for verifying the accuracy of all of the information contained in the Certificate (with the exception of the subject:serialNumber attribute);
    ii. followed the procedure when issuing the Certificate; and
    iii. accurately described the procedure in the CA's CP and/or CPS;
-4. **Identity of Applicant**: That, if the Certificate contains Subject Identity Information, the CA:
+4. **Identity of Applicant**: That, if the Certificate contains Subject Identity Information, the CA:<br>
    i. implemented a procedure to verify the identity of the Applicant in accordance with [Section 3.2](#32-initial-identity-validation) and [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields);
    ii. followed the procedure when issuing the Certificate; and
    iii. accurately described the procedure in the CA's CP and/or CPS;
@@ -2523,12 +2522,12 @@ The CA SHALL implement a process to ensure that each Subscriber Agreement or Ter
 The Subscriber Agreement or Terms of Use SHALL contain provisions imposing on the Applicant itself (or made by the Applicant on behalf of its principal or agent under a subcontractor or hosting service relationship) the following obligations and warranties:
 
 1. **Accuracy of Information**: An obligation and warranty to provide accurate and complete information at all times to the CA, both in the Certificate Request and as otherwise requested by the CA in connection with the issuance of the Certificate(s) to be supplied by the CA;
-2. **Protection of Private Key**: An obligation and warranty by the Applicant to take all reasonable measures to assure control of, keep confidential, and properly protect at all times the Private Key that corresponds to the Public Key to be included in the requested Certificate(s) (and any associated activation data or device, e.g. password or token);
+2. **Protection of Private Key**: An obligation and warranty by the Applicant to take all reasonable measures to assure control of, keep confidential, and properly protect at all times the Private Key that corresponds to the Public Key to be included in the requested Certificate(s) (and any associated activation data or device such as a password or token);
 3. **Acceptance of Certificate**: An obligation and warranty that the Subscriber will review and verify the Certificate contents for accuracy;
 4. **Use of Certificate**: An obligation and warranty to use the Certificate only on email mailboxes listed in the Certificate, and to use the Certificate solely in compliance with all applicable laws and solely in accordance with the Subscriber Agreement or Terms of Use;
-5. **Reporting and Revocation**: An obligation and warranty to:
-   a. promptly request revocation of the Certificate, and cease using it and its associated Private Key, if there is any actual or suspected misuse or compromise of the Subscriber’s Private Key associated with the Public Key included in the Certificate, and
-   b. promptly request revocation of the Certificate, and cease using it, if any information in the Certificate is or becomes incorrect or inaccurate;
+5. **Reporting and Revocation**: An obligation and warranty to:<br>
+   i. promptly request revocation of the Certificate, and cease using it and its associated Private Key, if there is any actual or suspected misuse or compromise of the Subscriber’s Private Key associated with the Public Key included in the Certificate, and
+   ii. promptly request revocation of the Certificate, and cease using it, if any information in the Certificate is or becomes incorrect or inaccurate;
 6. **Termination of Use of Certificate**: An obligation and warranty to promptly cease all use of the Private Key corresponding to the Public Key included in the Certificate upon revocation of that Certificate for reasons of Key Compromise.
 7. **Responsiveness**: An obligation to respond to the CA's instructions concerning Key Compromise or Certificate misuse within a specified time period.
 8. **Acknowledgment and Acceptance**: An acknowledgment and acceptance that the CA is entitled to revoke the Certificate immediately if the Applicant were to violate the terms of the Subscriber Agreement or Terms of Use, or if revocation is required by the CA's CP and/or CPS, or by these Requirements.
