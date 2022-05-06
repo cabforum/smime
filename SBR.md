@@ -2121,7 +2121,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 
 ##### 7.1.4.2.4 Subject DN attributes for sponsor-validated profile
 
-| Attribute | Legacy<br>See Note 1 | Multipurpose<br>See Note 2  | Strict<br>See Note 2  |
+| Attribute | Legacy<br> (See Note 1) | Multipurpose<br> (See Note 2)  | Strict<br> (See Note 2)  |
 |-----------|--------|--------------|--------|
 | `subject:commonName` | MAY  | MAY | MAY |
 | `subject:organizationName` | SHALL | SHALL | SHALL |
@@ -2148,7 +2148,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 
 ##### 7.1.4.2.5 Subject DN attributes for individual-validated profile
 
-| Attribute | Legacy<br>See Note 1  | Multipurpose<br>See Note 2    | Strict<br>See Note 2  |
+| Attribute | Legacy<br> See Note 1  | Multipurpose<br> See Note 2    | Strict<br> See Note 2  |
 |-----------|--------|----------------|--------|
 | `subject:commonName` | MAY  | MAY | MAY | 
 | `subject:organizationName` | SHALL NOT | SHALL NOT | SHALL NOT |
