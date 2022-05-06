@@ -1822,7 +1822,7 @@ m. Adobe Extensions (optional)
 
 #### 7.1.2.4 All certificates
 
-All fields and extensions SHALL be set in accordance with [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280). The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123-subscriber-certificates) unless the CA is aware of a reason for including the data in the Certificate.
+All fields and extensions SHALL be set in accordance with [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280). The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate), [Section 7.1.2.2](#7122-subordinate-ca-certificate), or [Section 7.1.2.3](#7123-subscriber-certificates) unless the CA is aware of a reason for including the data in the Certificate. The CA SHALL document such fields and extensions in its CP and/or CPS.
 
 CAs SHALL NOT issue a Certificate with:
 
@@ -2121,56 +2121,56 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 
 ##### 7.1.4.2.4 Subject DN attributes for sponsor-validated profile
 
-| Attribute | Legacy | Multipurpose | Strict | Notes |
-|-----------|--------|--------------|--------|--------|
-| `subject:commonName` | MAY  | MAY | MAY | See Note |
-| `subject:organizationName` | SHALL | SHALL | SHALL |  |
-| `subject:organizationalUnitName` | MAY  | MAY | MAY |  |
-| `subject:organizationIdentifier` | SHALL | SHALL | SHALL |  |
-| `subject:givenName` | MAY | MAY | MAY | See Note |
-| `subject:surname` | MAY | MAY | MAY | See Note |
-| `subject:pseudonym` | MAY | MAY | MAY | See Note |
-| `subject:serialNumber` | MAY | MAY | MAY |  |
-| `subject:emailAddress` | MAY | MAY | MAY |  |
-| `subject:title` | MAY  | MAY | MAY |  |
-| `subject:streetAddress` | MAY | MAY | SHALL NOT |  |
-| `subject:localityName` | MAY | MAY | MAY |  |
-| `subject:stateOrProvinceName` | MAY | MAY | MAY |  |
-| `subject:postalCode` | MAY | MAY | SHALL NOT |  |
-| `subject:countryName` | MAY | MAY | MAY |  |
-| Other | MAY | SHALL NOT | SHALL NOT |  |
+| Attribute | Legacy<br>See Note 1 | Multipurpose<br>See Note 2  | Strict<br>See Note 2  |
+|-----------|--------|--------------|--------|
+| `subject:commonName` | MAY  | MAY | MAY |
+| `subject:organizationName` | SHALL | SHALL | SHALL |
+| `subject:organizationalUnitName` | MAY  | MAY | MAY |
+| `subject:organizationIdentifier` | SHALL | SHALL | SHALL |
+| `subject:givenName` | MAY | MAY | MAY |
+| `subject:surname` | MAY | MAY | MAY |
+| `subject:pseudonym` | MAY | MAY | MAY |
+| `subject:serialNumber` | MAY | MAY | MAY |
+| `subject:emailAddress` | MAY | MAY | MAY |
+| `subject:title` | MAY  | MAY | MAY |
+| `subject:streetAddress` | MAY | MAY | SHALL NOT |
+| `subject:localityName` | MAY | MAY | MAY |
+| `subject:stateOrProvinceName` | MAY | MAY | MAY |
+| `subject:postalCode` | MAY | MAY | SHALL NOT |
+| `subject:countryName` | MAY | MAY | MAY |
+| Other | MAY | SHALL NOT | SHALL NOT |
 
 **Note**: 
 
- * The Strict and Multipurpose generations of the `Sponsor-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
- * The Legacy generations MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
+ 1. The Legacy generations MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
+ 2. The Multipurpose and Strict generations SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
+
 
 ##### 7.1.4.2.5 Subject DN attributes for individual-validated profile
 
-| Attribute | Legacy | Multipurpose   | Strict | Notes |
-|-----------|--------|----------------|--------|--------|
-| `subject:commonName` | MAY  | MAY | MAY | See Note |
-| `subject:organizationName` | SHALL NOT | SHALL NOT | SHALL NOT |  |
-| `subject:organizationalUnitName` | SHALL NOT | SHALL NOT | SHALL NOT |  |
-| `subject:organizationIdentifier` | SHALL NOT | SHALL NOT | SHALL NOT |  |
-| `subject:givenName` | MAY | MAY | MAY | See Note |
-| `subject:surname` | MAY | MAY | MAY | See Note |
-| `subject:pseudonym` | MAY | MAY | MAY | See Note |
-| `subject:serialNumber` | MAY | MAY | MAY |  |
-| `subject:emailAddress` | MAY | MAY | MAY |  |
-| `subject:title` | MAY  | MAY | MAY |  |
-| `subject:streetAddress` | MAY | MAY | SHALL NOT |  |
-| `subject:localityName` | MAY | MAY | MAY |  |
-| `subject:stateOrProvinceName` | MAY | MAY | MAY |  |
-| `subject:postalCode` | MAY | MAY | SHALL NOT |  |
-| `subject:countryName` | MAY | MAY | MAY |  |
-| Other | MAY | SHALL NOT | SHALL NOT |  |
-
+| Attribute | Legacy<br>See Note 1  | Multipurpose<br>See Note 2    | Strict<br>See Note 2  |
+|-----------|--------|----------------|--------|
+| `subject:commonName` | MAY  | MAY | MAY | 
+| `subject:organizationName` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `subject:organizationalUnitName` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `subject:organizationIdentifier` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `subject:givenName` | MAY | MAY | MAY |
+| `subject:surname` | MAY | MAY | MAY |
+| `subject:pseudonym` | MAY | MAY | MAY |
+| `subject:serialNumber` | MAY | MAY | MAY |
+| `subject:emailAddress` | MAY | MAY | MAY |
+| `subject:title` | MAY  | MAY | MAY |
+| `subject:streetAddress` | MAY | MAY | SHALL NOT |
+| `subject:localityName` | MAY | MAY | MAY |
+| `subject:stateOrProvinceName` | MAY | MAY | MAY |
+| `subject:postalCode` | MAY | MAY | SHALL NOT |
+| `subject:countryName` | MAY | MAY | MAY |
+| Other | MAY | SHALL NOT | SHALL NOT |
 
 **Note**: 
 
- * The Strict and Multipurpose generations of the `Individual-validated` profile SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
- * The Legacy generation MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
+ 1. The Legacy generation MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
+ 2. The Strict and Multipurpose generations SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
 
 #### 7.1.4.3 Subject information - root certificates and subordinate CA certificates
 
