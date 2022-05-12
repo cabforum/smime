@@ -641,7 +641,7 @@ The CA or RA SHALL collect and retain evidence supporting the following identity
 3. Address (if displayed in Subject); and
 4. Further information as needed to uniquely identify the Applicant.
 
-The CA or RA SHALL comply with applicable data protection legislation in the gathering and retention of evidence relating to Individual identity supporting this Requirement in accrodance with [Section 9.4](#94-privacy-of-personal-information).
+The CA or RA SHALL comply with applicable data protection legislation in the gathering and retention of evidence relating to Individual identity supporting this Requirement in accordance with [Section 9.4](#94-privacy-of-personal-information).
 
 #### 3.2.4.1 Attribute collection of individual identity
 
@@ -835,9 +835,9 @@ The CA MAY reuse completed validations and/or supporting evidence performed in a
 
       Completed validation of control of a mailbox in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email) SHALL be obtained no more than 30 days prior to issuing the Certificate.
 
-2. **Authentication of organization identity**: Completed validation of organization identity in accordance with [Section 3.2.3](#323-authentication-of-organization-identity) SHALL be obtained no more than 398 days prior to issuing the Certificate. 
+2. **Authentication of organization identity**: Completed validation of organization identity in accordance with [Section 3.2.3](#323-authentication-of-organization-identity) SHALL be obtained no more than 825 days prior to issuing the Certificate. 
  
-      Validation of authority in in accordance with [Section 3.2.6](#326-validation-of-authority) SHALL be obtained no more than 398 days prior to issuing the Certificate, unless a contract between the CA and the Applicant specifies a different term. For example, the contract MAY include the perpetual assignment of roles until revoked by the Applicant or CA, or until the contract expires or is terminated.
+      Validation of authority in in accordance with [Section 3.2.6](#326-validation-of-authority) SHALL be obtained no more than 825 days prior to issuing the Certificate, unless a contract between the CA and the Applicant specifies a different term. For example, the contract MAY include the perpetual assignment of roles until revoked by the Applicant or CA, or until the contract expires or is terminated.
 
 3. **Authentication of individual identity**: Completed validation of Individual identity in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) SHALL be obtained no more than 825 days prior to issuing the Certificate. 
 
