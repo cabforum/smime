@@ -641,7 +641,7 @@ The CA or RA SHALL collect and retain evidence supporting the following identity
 3. Address (if displayed in Subject); and
 4. Further information as needed to uniquely identify the Applicant.
 
-The CA or RA SHALL comply with applicable data protection legislation in the gathering and retention of evidence relating to Individual identity supporting this Requirement in accrodance with [Section 9.4](#94-privacy-of-personal-information).
+The CA or RA SHALL comply with applicable data protection legislation in the gathering and retention of evidence relating to Individual identity supporting this Requirement in accordance with [Section 9.4](#94-privacy-of-personal-information).
 
 #### 3.2.4.1 Attribute collection of individual identity
 
