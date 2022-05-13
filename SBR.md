@@ -1739,9 +1739,7 @@ a. `certificatePolicies` (SHALL be present)
 
 b. `cRLDistributionPoints` (SHALL be present)
 
-   This extension SHALL be present and SHOULD NOT be marked critical. It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the Issuing CA's CRL can be retrieved. 
-   
-   For Legacy profiles only, additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
+   This extension SHALL be present and SHOULD NOT be marked critical. It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the Issuing CA's CRL can be retrieved. For Legacy profiles only, additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
 
 c. `authorityInformationAccess` (SHALL be present)
 
@@ -1999,12 +1997,14 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 
 | Type    | Contents |
 |---------|----------|
-| `Mailbox-validated` | `subject:emailAddress` |
-| `Organization-validated` | `subject:organizationName` or `subject:emailAddress` |
-| `Sponsor-validated` | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
-| `Individual-validated` | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
+| `Mailbox-validated` | Mailbox Address |
+| `Organization-validated` | `subject:organizationName` or Mailbox Address |
+| `Sponsor-validated` | Personal Name, `subject:pseudonym`, or Mailbox Address |
+| `Individual-validated` | Personal Name, `subject:pseudonym`, or Mailbox Address |
 
 If present, the Personal Name SHALL contain a name of the Subject. The Personal Name SHOULD be presented as `subject:givenName` and/or `subject:surname`. The Personal Name MAY be in the Subject's preferred presentation format or a format preferred by the CA or Enterprise RA, but SHALL be a meaningful representation of the Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). 
+
+Mailbox Address SHALL contain a `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` from `extensions:subjectAltName`.
 
 Note: `subject:commonName` and `subject:emailAddress` SHALL comply with the attribute upper bounds defined in [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
 
