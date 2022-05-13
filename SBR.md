@@ -1741,11 +1741,13 @@ b. `cRLDistributionPoints` (SHALL be present)
 
    This extension SHALL be present and SHOULD NOT be marked critical. It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the Issuing CA's CRL can be retrieved. 
    
-   For Legacy profiles only, following additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
+   For Legacy profiles only, additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
 
 c. `authorityInformationAccess` (SHALL be present)
 
-   This extension SHALL be present. It SHALL NOT be marked critical, and it SHALL contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the Issuing CA's OCSP responder. Additional `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified. It SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the HTTP URI of the Issuing CA's Certificate. Additional `id-ad-caIssuers` LDAP, FTP, or HTTP URIs MAY be specified.
+   This extension SHALL be present. It SHALL NOT be marked critical, and it SHALL contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the Issuing CA's OCSP responder. For Legacy profiles only, additional publicly accessible `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified. 
+   
+   This extension SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the HTTP URI of the Issuing CA's Certificate. For Legacy profiles only, additional publicly accessible `id-ad-caIssuers` LDAP, FTP, or HTTP URIs MAY be specified.
 
 d. `basicConstraints` (optional)
 
