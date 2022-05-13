@@ -1327,7 +1327,7 @@ The CA and each Delegated Third Party SHALL retain, for at least two (2) years:
   2. Subscriber Certificate lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (2)) after the expiration of the Subscriber Certificate;
   3. Any security event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (3)) after the event occurred.
 
-Note: While these Requirements set the minimum retention period, the CA MAY choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past audit log events.
+**Note**: While these Requirements set the minimum retention period, the CA MAY choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past audit log events.
 
 ### 5.4.4 Protection of audit log
 
@@ -1373,7 +1373,7 @@ Additionally, the CA and each delegated party SHALL retain, for at least two (2)
    1. such records and documentation were last relied upon in the verification, issuance, or revocation of Certificate Requests and Certificates; or
    2. the expiration of the Subscriber Certificates relying upon such records and documentation.
 
-Note: While these Requirements set the minimum retention period, the CA MAY choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past records archived.
+**Note**: While these Requirements set the minimum retention period, the CA MAY choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past records archived.
 
 ### 5.5.3 Protection of archive
 
@@ -2006,7 +2006,7 @@ If present, the Personal Name SHALL contain a name of the Subject. The Personal 
 
 If present, the Mailbox Address SHALL contain a `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` from `extensions:subjectAltName`.
 
-Note: `subject:commonName` and `subject:emailAddress` SHALL comply with the attribute upper bounds defined in [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
+**Note**: `subject:commonName` and `subject:emailAddress` SHALL comply with the attribute upper bounds defined in [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
 
 Additional specifications for naming are provided in [Section 3.1](#31-naming).
 
@@ -2031,7 +2031,7 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
     * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
     * Registration Reference allocated in accordance with the identified Registration Scheme.
 
-   Note: Registration References MAY contain hyphens but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
+   **Note**: Registration References MAY contain hyphens but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
 
     * `NTRGB-12345678` (NTR scheme, Great Britain, Unique Identifier at Country level is 12345678).
     * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Unique identifier at State level is 12345678).
@@ -2303,7 +2303,7 @@ The CA SHALL at all times:
 3. Comply with the audit requirements set forth in this section; and
 4. Be licensed as a CA in each jurisdiction where it operates, if licensing is required by the law of such jurisdiction for the issuance of Certificates.
 
-**Implementers' Note**: The CA/Browser Forum continues to improve the S/MIME Baseline Requirements while WebTrust and ETSI also continue to update their audit criteria. We encourage all CAs to conform to each revision herein on the date specified without awaiting a corresponding update to an applicable audit criterion. In the event of a conflict between an existing audit criterion and a revision to the S/MIME Baseline Requirements, we will communicate with the audit community and attempt to resolve any uncertainty, and we will respond to implementation questions directed to <questions@cabforum.org>. 
+**Note**: The CA/Browser Forum continues to improve the S/MIME Baseline Requirements while WebTrust and ETSI also continue to update their audit criteria. We encourage all CAs to conform to each revision herein on the date specified without awaiting a corresponding update to an applicable audit criterion. In the event of a conflict between an existing audit criterion and a revision to the S/MIME Baseline Requirements, we will communicate with the audit community and attempt to resolve any uncertainty, and we will respond to implementation questions directed to <questions@cabforum.org>. 
 
 ## 8.1 Frequency or circumstances of assessment
 
