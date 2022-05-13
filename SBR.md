@@ -2482,8 +2482,8 @@ The CA represents and warrants to the Certificate Beneficiaries that, during the
 
 The Certificate Warranties specifically include, but are not limited to, the following:
 
-1. **Right to Use Domain Name or Email Address**: That, at the time of issuance, the CA:<br>
-   i. implemented a procedure for verifying that the Applicant either had the right to use, or had control of, the Domain Name(s) and email mailbox(es) listed in the Certificate's `subject` field and `subjectAltName` extension (or was delegated such right or control by someone who had such right to use or control);
+1. **Right to Use Email Address**: That, at the time of issuance, the CA:<br>
+   i. implemented a procedure for verifying that the Applicant either had the right to use, or had control of, the email mailbox(es) listed in the Certificate's `subject` field and `subjectAltName` extension (or was delegated such right or control by someone who had such right to use or control);
    ii. followed the procedure when issuing the Certificate; and
    iii. accurately described the procedure in the CA's CP and/or CPS;
 2. **Authorization for Certificate**: That, at the time of issuance, the CA:<br>
