@@ -507,7 +507,7 @@ In cases where names use diacritics or other characters that are not supported b
 
 #### 3.1.4.2 Non-latin names
 
-The CA MAY allow transliteration/Romanization of Subject Identity Information usually rendered in non-Latin characters using a system commonly used in the Applicant's Jurisdiction of Incorporation, or recognized by the United Nations or the International Organization for Standardization (ISO).
+The CA MAY allow transliteration/Romanization of Subject Identity Information usually rendered in non-Latin characters using a system commonly used in the Applicant's Jurisdiction of Incorporation or Registration, or recognized by the United Nations or the International Organization for Standardization (ISO).
 
 The CA MAY include a Latin character name that is not a direct Romanization of the registered name provided that it is verified in a Reliable Data Source or suitable Attestation.
 
@@ -591,7 +591,7 @@ The CA or RA SHALL collect and retain evidence supporting the following identity
 1.	Formal name of the Legal Entity;
 2.	A registered assumed name for the Legal Entity (if included in the Subject);
 3.	An address of the Legal Entity (if included in the Subject);
-4.	Jurisdiction of registration of the Legal Entity; and
+4.	Jurisdiction of Incorporation or Registration of the Legal Entity; and
 5.	Unique identifier and type of identifier for the Legal Entity. 
 
 The unique identifier SHALL be included in the Certificate `subject:organizationIdentifier` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) and [Appendix A](#appendix-a---registration-schemes).
