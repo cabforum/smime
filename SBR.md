@@ -234,6 +234,8 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Mailbox Address**: Also Email Address. From [RFC 5321](http://tools.ietf.org/html/rfc5321): "A character string that identifies a user to whom mail will be sent or a location into which mail will be deposited."
 
+**Mailbox Field**: In Subscriber Certificates contains a Mailbox Address of the Subject via `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension, or in Subordinate CA Certificates via `rfc822Name` in permittedSubtrees within the `nameConstraints` extension.
+
 **Multipurpose Profile**: The S/MIME Multipurpose generation profiles are aligned with the more defined Strict Profiles, but with additional options for `extKeyUsage` and other extensions. This is intended to allow flexibility for crossover use cases between document signing and secure email. 
 
 **Natural Person**: An Individual; a human being as distinguished from a Legal Entity.
@@ -496,7 +498,7 @@ Pseudonym Certificates are not anonymous. CAs and Enterprise RAs SHALL treat Ind
 
 ### 3.1.4 Rules for interpreting various name forms
 
-#### 3.1.4.1 Accent substitution
+#### 3.1.4.1 Non ASCII character substitution
 
 In cases where names use diacritics or other characters that are not supported by relying-party application software, the CA SHOULD define substitution rules in its CP and/or CPS. For example, regardless of capitalization:
 
@@ -505,7 +507,7 @@ In cases where names use diacritics or other characters that are not supported b
 
 #### 3.1.4.2 Non-latin names
 
-The CA MAY allow transliteration/Romanization of Subject Identity Information usually rendered in non-Latin characters using a system recognized by the government in the Applicant's jurisdiction of incorporation, the United Nations, or the International Organization for Standardization (ISO).
+The CA MAY allow transliteration/Romanization of Subject Identity Information usually rendered in non-Latin characters using a system commonly used in the Applicant's Jurisdiction of Incorporation or Registration, or recognized by the United Nations or the International Organization for Standardization (ISO).
 
 The CA MAY include a Latin character name that is not a direct Romanization of the registered name provided that it is verified in a Reliable Data Source or suitable Attestation.
 
@@ -538,15 +540,15 @@ No stipulation.
 
 ### 3.2.2 Validation of mailbox authorization or control
 
-This section defines the permitted processes and procedures for confirming the Applicant's control of the email addresses to be included in issued Certificates. 
+This section defines the permitted processes and procedures for confirming the Applicant's control of Mailbox Fields to be included in issued Certificates. 
 
-The CA SHALL verify that Applicant controls the email accounts associated with all email addresses referenced in the Certificate or has been authorized by the email account holder to act on the account holder’s behalf. 
+The CA SHALL verify that Applicant controls the email accounts associated with all Mailbox Fields referenced in the Certificate or has been authorized by the email account holder to act on the account holder’s behalf. 
 
 The CA SHALL NOT delegate the verification of mailbox authorization or control.
 
-**Note:** Email addresses MAY be listed in Subscriber Certificates using `rfc822Name` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension, or in Subordinate CA Certificates via `rfc822Name` in permittedSubtrees within the `nameConstraints` extension.
+**Note:** Mailbox Fields MAY be listed in Subscriber Certificates using `rfc822Name` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension, or in Subordinate CA Certificates via `rfc822Name` in permittedSubtrees within the `nameConstraints` extension.
 
-The CA's CP and/or CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which domain validation method, including the relevant version number from the Baseline Requirements or S/MIME Baseline Requirements, used to validate every domain or email address in issued Certificates.
+The CA's CP and/or CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which validation method, including the relevant version number from the TLS Baseline Requirements or S/MIME Baseline Requirements, used to validate every domain or email address in issued Certificates.
 
 Completed validations of Applicant authority MAY be valid for the issuance of multiple Certificates over time. In all cases, the validation SHALL have been initiated within the time period specified in the relevant requirement (such as [Section 4.2.1](#421-performing-identification-and-authentication-functions)) prior to Certificate issuance.
 
@@ -560,7 +562,7 @@ For purposes of domain validation, the term Applicant includes the Applicant's P
 
 #### 3.2.2.2 Validating control over mailbox via email
 
-The CA MAY confirm the Applicant's control over each `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
+The CA MAY confirm the Applicant's control over each Mailbox Field to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
 
 Control over each email address SHALL be confirmed using a unique Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
 
@@ -570,11 +572,9 @@ The Random Value SHALL be reset upon each instance of the email sent by the CA a
 
 #### 3.2.2.3 Validating applicant as operator of associated mail server(s)
 
-Confirming the Applicant's control over each `rfc822Name` or `otherName` of `type id-on-SmtpUTF8Mailbox` to be included in the Certificate, by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDN has been discovered, the CA SHALL verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA SHALL NOT be used for this validation method.
+Confirming the Applicant's control over each Mailbox Field to be included in the Certificate, by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDN has been discovered, the CA SHALL verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA SHALL NOT be used for this validation method.
 
 When confirming the Applicant's control of the SMTP FQDN, the CA SHALL use only the approved methods in [Section 3.2.2.4](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) of the TLS Baseline Requirements.
-
-This method is suitable for validating control of all email addresses under a single domain.
 
 #### 3.2.2.4 CAA records
 
@@ -591,7 +591,7 @@ The CA or RA SHALL collect and retain evidence supporting the following identity
 1.	Formal name of the Legal Entity;
 2.	A registered assumed name for the Legal Entity (if included in the Subject);
 3.	An address of the Legal Entity (if included in the Subject);
-4.	Jurisdiction of registration of the Legal Entity; and
+4.	Jurisdiction of Incorporation or Registration of the Legal Entity; and
 5.	Unique identifier and type of identifier for the Legal Entity. 
 
 The unique identifier SHALL be included in the Certificate `subject:organizationIdentifier` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) and [Appendix A](#appendix-a---registration-schemes).
@@ -624,11 +624,11 @@ The CA MAY rely on an Attestation that indicates the assumed name under which th
 
 #### 3.2.3.3 Disclosure of verification sources
 
-The CA or RA SHALL verify the unique identifier used in the Certificate from a register that is maintained or authorized by the relevant government agency. Nothing in these Requirements prohibits the use of third-party vendors to obtain regularly-updated and current information from the government register provided that the third party obtains the information directly from the government.
+The CA or RA SHALL verify the unique identifier used in the Certificate from a register that is maintained or authorized by the relevant government agency. The CA SHALL disclose the authorized sources it uses to verify the Applicant's creation, existence, or recognition. This disclosure SHALL be through an appropriate and readily accessible online means. The CA SHALL document where to obtain this information within Section 3.2 of the CA's CP and/or CPS.
 
-In the case of a LEI data reference, the CA or RA SHALL verify the associated data record in the Search directory operated by the [Global Legal Entity Identifier Foundation](https://search.gleif.org/#/search/)).
+Nothing in these Requirements prohibits the use of third-party vendors to obtain regularly-updated and current information from the government register provided that the third party obtains the information directly from the government.
 
-The CA SHALL disclose the authorized sources it uses to fulfill these verification requirements. This disclosure SHALL be through an appropriate and readily accessible online means. The CA SHALL document where to obtain this information within Section 3.2 of the CA's CP and/or CPS.
+In the case of a LEI data reference, the CA or RA SHALL verify the associated data record with the [Global Legal Entity Identifier Foundation](https://search.gleif.org/#/search/)).
 
 ### 3.2.4 Authentication of individual identity
 
@@ -714,7 +714,7 @@ The CA or RA MAY reuse existing evidence to validate Individual identity subject
 
 1.	**Validation of a physical identity document** 
 
-The physical identity document SHALL be presented in its original form. The CA SHALL employ procedures to ensure presented by the Applicant is a genuine identity document that is not counterfeited or falsified/modified.
+The physical identity document SHALL be presented in its original form. The CA SHALL employ procedures to ensure the evidence presented by the Applicant is a genuine identity document that is not counterfeited or falsified/modified.
 
 The CA or RA MAY use manual (in person) or remote procedures. A remote process SHALL ensure that the Applicant has the document in hand and presents the document in real-time in front of a camera.
 
@@ -760,7 +760,10 @@ Subscriber information that has not been verified in accordance with these Requi
 
 ### 3.2.6 Validation of authority
 
-Before commencing to issue `Organization-validated` and `Sponsor-validated`  Certificates for an Applicant, the CA or RA SHALL use a Reliable Method of Communication to verify the authority and approval of an Applicant Representative to act as an Enterprise RA, to request issuance or revocation of Certificates, or to assign reponsibilities to others to act in these roles. 
+Before commencing to issue `Organization-validated` and `Sponsor-validated`  Certificates for an Applicant, the CA or RA SHALL use a Reliable Method of Communication to verify the authority and approval of an Applicant Representative to perform one or more of the following:
+*  to act as an Enterprise RA;
+*  to request issuance or revocation of Certificates; or 
+*  to assign reponsibilities to others to act in these roles. 
 
 The CA or RA MAY establish a process that allows an Applicant to specify the individuals who may act as Applicant Representatives on an ongoing basis. The CA SHALL provide an Applicant with a list of its authorized Applicant Representatives upon the Applicant's verified written request.
 
@@ -776,7 +779,7 @@ Before relying on a source of verification data to validate Certificate Requests
 
 The CA or RA MAY rely upon a letter attesting that Subject Information or other fact is correct. The CA or RA SHALL verify that the letter was when written by an accountant, lawyer, government official, or other reliable third party in the Applicant’s jurisdiction customarily relied upon for such information. 
 
-An Attestation SHALL include a copy of documentation supporting the fact to be attested. The CA or RA SHALL use a Reliable Method of Communication to contact the sender and to confirm the Attestation is authentic.    
+An Attestation SHALL include a copy of documentation supporting the fact to be attested. The CA or RA SHALL use a Reliable Method of Communication to contact the sender and to confirm the Attestation is authentic.
 
 ## 3.3 Identification and authentication for re-key requests
 
@@ -823,7 +826,7 @@ A CA may rely on a previously verified Certificate Request to issue a replacemen
 
 ### 4.2.1 Performing identification and authentication functions
 
-Applicant information SHALL include, but not be limited to, at least one `rfc822Name` or one `otherName` of type `id-on-SmtpUTF8Mailbox` to be included in the Certificate's `subjectAltName` extension.
+Applicant information SHALL include, but not be limited to, at least one Mailbox Field to be included in the Certificate's `subjectAltName` extension.
 
 [Section 6.3.2](#632-certificate-operational-periods-and-key-pair-usage-periods) limits the validity period of Subscriber Certificates. 
 
@@ -831,7 +834,7 @@ The CA MAY reuse completed validations and/or supporting evidence performed in a
 
 1. **Validation of mailbox authorization or control**: Completed validation of the control of a mail server in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers) SHALL be obtained no more than 398 days prior to issuing the Certificate. 
    
-      In the event of changes to the TLS Baseline Requirements methods specified in [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain), a CA MAY continue to reuse completed validations and/or supporting evidence for the period stated in this section unless otherwise directed in a ballot.
+      In the event of changes to the TLS Baseline Requirements methods specified in [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain), a CA MAY continue to reuse completed validations and/or supporting evidence for the period stated in this section.
 
       Completed validation of control of a mailbox in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email) SHALL be obtained no more than 30 days prior to issuing the Certificate.
 
@@ -2055,7 +2058,7 @@ g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5)
    In addition, the `subject:serialNumber` MAY be used in the `Sponsor-validated` and `Individual-validated` profiles to contain a Natural Person Identifier as described in ETSI EN 319 412-1 Section 5.1.3. Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes) are recognized as valid under these Requirements. The CA SHALL confirm that the Individual represented by the Natural Person Identifier is the same as the Certificate Subject in accordance with [Section 3.2.4](#324-authentication-of-individual-identity). 
 
 h. __Certificate Field:__ `subject:emailAddress` (1.2.840.113549.1.9.1) 
-   __Contents:__ If present, the `subject:emailAddress` SHALL contain a single `Rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` as verified under [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)
+   __Contents:__ If present, the `subject:emailAddress` SHALL contain a single Mailbox Address as verified under [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control).
 
 i. __Certificate Field:__ `subject:title` (2.5.4.12) 
    __Contents:__ If present, the `subject:title` field SHALL contain only a corporate role/title or a regulated professional designation verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
@@ -2382,7 +2385,7 @@ During the period in which the CA issues Certificates, the CA SHALL monitor adhe
 
 ## 8.8 Review of delegated parties 
 
-Except for Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of delegated parties are in compliance with these Requirements and the relevant CP and/or CPS. The CA shall document the obligations of delegated parties and perform periodic internal audits of their adherence with those obligations.
+Except for Delegated Third Parties, Enterprise RAs, and Technically Constrained Subordinate CAs that undergo an annual audit that meets the criteria specified in [Section 8.4](#84-topics-covered-by-assessment), the CA SHALL ensure the practices and procedures of delegated parties are in compliance with these Requirements and the relevant CP and/or CPS. The CA shall document the obligations of delegated parties and perform monitoring on at least an annual basis of the delegated parties' adherence with those obligations.
 
 # 9. OTHER BUSINESS AND LEGAL MATTERS
 
