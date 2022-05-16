@@ -2049,7 +2049,7 @@ e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname
 f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)  
    __Contents:__ The `subject:pseudonym` SHALL NOT be present if the `subject:givenName` and/or `subject:surname` are present. If present, the `subject:pseudonym` field SHALL be verified according to [Section 3.1.3](#313-anonymity-or-pseudonymity-of-subscribers).
 
-g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
+g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5)  
    __Contents:__ If present, the `subject:serialNumber` MAY be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber. 
    
    In addition, the `subject:serialNumber` MAY be used in the `Sponsor-validated` and `Individual-validated` profiles to contain a Natural Person Identifier as described in ETSI EN 319 412-1 Section 5.1.3. Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes) are recognized as valid under these Requirements. The CA SHALL confirm that the Individual represented by the Natural Person Identifier is the same as the Certificate Subject in accordance with [Section 3.2.4](#324-authentication-of-individual-identity). 
@@ -2066,12 +2066,12 @@ j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4
 k. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)  
    __Required__ if the `subject:organizationName`, or the `subject:givenName` and/or `subject:surname` fields, are present and the `subject:stateOrProvinceName` field is absent.
    __Optional__ if the `subject:stateOrProvinceName` field is present. 
-   __Contents:__ If present, the `subject:localityName` field SHALL contain the Subject's locality information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `localityName` field MAY contain the Subject's locality and/or state or province information.
+   __Contents:__ If present, the `subject:localityName` field SHALL contain the Subject's locality information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (n), the `localityName` field MAY contain the Subject's locality and/or state or province information.
 
 l. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)  
    __Required__ if the `subject:organizationName`, or the `subject:givenName` and/or `subject:surname` fields, are present and the `subject:localityName` field is absent.
    __Optional__ if the `subject:localityName` field is present. 
-   __Contents:__ If present, the `subject:stateOrProvinceName` field SHALL contain the Subject's state or province information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
+   __Contents:__ If present, the `subject:stateOrProvinceName` field SHALL contain the Subject's state or province information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (n), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
 
 m. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)  
    __Contents:__ If present, the `subject:postalCode` field SHALL contain the Subject's zip or postal information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity)
