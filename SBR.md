@@ -1327,7 +1327,7 @@ The CA and each Delegated Third Party SHALL retain, for at least two (2) years:
   2. Subscriber Certificate lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (2)) after the expiration of the Subscriber Certificate;
   3. Any security event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (3)) after the event occurred.
 
-Note: While these Requirements set the minimum retention period, the CA MAY choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past audit log events.
+**Note**: While these Requirements set the minimum retention period, the CA MAY choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past audit log events.
 
 ### 5.4.4 Protection of audit log
 
@@ -1373,7 +1373,7 @@ Additionally, the CA and each delegated party SHALL retain, for at least two (2)
    1. such records and documentation were last relied upon in the verification, issuance, or revocation of Certificate Requests and Certificates; or
    2. the expiration of the Subscriber Certificates relying upon such records and documentation.
 
-Note: While these Requirements set the minimum retention period, the CA MAY choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past records archived.
+**Note**: While these Requirements set the minimum retention period, the CA MAY choose a greater value as more appropriate in order to be able to investigate possible security or other types of incidents that will require retrospection and examination of past records archived.
 
 ### 5.5.3 Protection of archive
 
@@ -1739,13 +1739,13 @@ a. `certificatePolicies` (SHALL be present)
 
 b. `cRLDistributionPoints` (SHALL be present)
 
-   This extension SHALL be present and SHOULD NOT be marked critical. It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the Issuing CA's CRL can be retrieved. 
-   
-   For Legacy profiles only, following additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
+   This extension SHALL be present and SHOULD NOT be marked critical. It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the Issuing CA's CRL can be retrieved. For Legacy profiles only, additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
 
 c. `authorityInformationAccess` (SHALL be present)
 
-   This extension SHALL be present. It SHALL NOT be marked critical, and it SHALL contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the Issuing CA's OCSP responder. Additional `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified. It SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the HTTP URI of the Issuing CA's Certificate. Additional `id-ad-caIssuers` LDAP, FTP, or HTTP URIs MAY be specified.
+   This extension SHALL be present. It SHALL NOT be marked critical, and it SHALL contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the Issuing CA's OCSP responder. For Legacy profiles only, additional publicly accessible `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified. 
+   
+   This extension SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the HTTP URI of the Issuing CA's Certificate. For Legacy profiles only, additional publicly accessible `id-ad-caIssuers` LDAP, FTP, or HTTP URIs MAY be specified.
 
 d. `basicConstraints` (optional)
 
@@ -1997,14 +1997,16 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 
 | Type    | Contents |
 |---------|----------|
-| `Mailbox-validated` | `subject:emailAddress` |
-| `Organization-validated` | `subject:organizationName` or `subject:emailAddress` |
-| `Sponsor-validated` | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
-| `Individual-validated` | Personal Name, `subject:pseudonym`, or `subject:emailAddress` |
+| `Mailbox-validated` | Mailbox Address |
+| `Organization-validated` | `subject:organizationName` or Mailbox Address |
+| `Sponsor-validated` | Personal Name, `subject:pseudonym`, or Mailbox Address |
+| `Individual-validated` | Personal Name, `subject:pseudonym`, or Mailbox Address |
 
 If present, the Personal Name SHALL contain a name of the Subject. The Personal Name SHOULD be presented as `subject:givenName` and/or `subject:surname`. The Personal Name MAY be in the Subject's preferred presentation format or a format preferred by the CA or Enterprise RA, but SHALL be a meaningful representation of the Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). 
 
-Note: `subject:commonName` and `subject:emailAddress` SHALL comply with the attribute upper bounds defined in [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
+If present, the Mailbox Address SHALL contain a `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` from `extensions:subjectAltName`.
+
+**Note**: `subject:commonName` and `subject:emailAddress` SHALL comply with the attribute upper bounds defined in [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
 
 Additional specifications for naming are provided in [Section 3.1](#31-naming).
 
@@ -2029,7 +2031,7 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
     * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
     * Registration Reference allocated in accordance with the identified Registration Scheme.
 
-   Note: Registration References MAY contain hyphens but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
+   **Note**: Registration References MAY contain hyphens but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
 
     * `NTRGB-12345678` (NTR scheme, Great Britain, Unique Identifier at Country level is 12345678).
     * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Unique identifier at State level is 12345678).
@@ -2047,7 +2049,7 @@ e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname
 f. __Certificate Field:__ `subject:pseudonym` (2.5.4.65)  
    __Contents:__ The `subject:pseudonym` SHALL NOT be present if the `subject:givenName` and/or `subject:surname` are present. If present, the `subject:pseudonym` field SHALL be verified according to [Section 3.1.3](#313-anonymity-or-pseudonymity-of-subscribers).
 
-g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5) 
+g. __Certificate Field:__ `subject:serialNumber` (2.5.4.5)  
    __Contents:__ If present, the `subject:serialNumber` MAY be used to contain an identifier assigned by the CA or RA to identify and/or to disambiguate the Subscriber. 
    
    In addition, the `subject:serialNumber` MAY be used in the `Sponsor-validated` and `Individual-validated` profiles to contain a Natural Person Identifier as described in ETSI EN 319 412-1 Section 5.1.3. Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes) are recognized as valid under these Requirements. The CA SHALL confirm that the Individual represented by the Natural Person Identifier is the same as the Certificate Subject in accordance with [Section 3.2.4](#324-authentication-of-individual-identity). 
@@ -2064,12 +2066,12 @@ j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4
 k. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)  
    __Required__ if the `subject:organizationName`, or the `subject:givenName` and/or `subject:surname` fields, are present and the `subject:stateOrProvinceName` field is absent.
    __Optional__ if the `subject:stateOrProvinceName` field is present. 
-   __Contents:__ If present, the `subject:localityName` field SHALL contain the Subject's locality information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `localityName` field MAY contain the Subject's locality and/or state or province information.
+   __Contents:__ If present, the `subject:localityName` field SHALL contain the Subject's locality information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (n), the `localityName` field MAY contain the Subject's locality and/or state or province information.
 
 l. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)  
    __Required__ if the `subject:organizationName`, or the `subject:givenName` and/or `subject:surname` fields, are present and the `subject:localityName` field is absent.
    __Optional__ if the `subject:localityName` field is present. 
-   __Contents:__ If present, the `subject:stateOrProvinceName` field SHALL contain the Subject's state or province information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (g), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
+   __Contents:__ If present, the `subject:stateOrProvinceName` field SHALL contain the Subject's state or province information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (n), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
 
 m. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)  
    __Contents:__ If present, the `subject:postalCode` field SHALL contain the Subject's zip or postal information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity)
@@ -2301,7 +2303,7 @@ The CA SHALL at all times:
 3. Comply with the audit requirements set forth in this section; and
 4. Be licensed as a CA in each jurisdiction where it operates, if licensing is required by the law of such jurisdiction for the issuance of Certificates.
 
-**Implementers' Note**: The CA/Browser Forum continues to improve the S/MIME Baseline Requirements while WebTrust and ETSI also continue to update their audit criteria. We encourage all CAs to conform to each revision herein on the date specified without awaiting a corresponding update to an applicable audit criterion. In the event of a conflict between an existing audit criterion and a revision to the S/MIME Baseline Requirements, we will communicate with the audit community and attempt to resolve any uncertainty, and we will respond to implementation questions directed to <questions@cabforum.org>. 
+**Note**: The CA/Browser Forum continues to improve the S/MIME Baseline Requirements while WebTrust and ETSI also continue to update their audit criteria. We encourage all CAs to conform to each revision herein on the date specified without awaiting a corresponding update to an applicable audit criterion. In the event of a conflict between an existing audit criterion and a revision to the S/MIME Baseline Requirements, we will communicate with the audit community and attempt to resolve any uncertainty, and we will respond to implementation questions directed to <questions@cabforum.org>. 
 
 ## 8.1 Frequency or circumstances of assessment
 
@@ -2482,8 +2484,8 @@ The CA represents and warrants to the Certificate Beneficiaries that, during the
 
 The Certificate Warranties specifically include, but are not limited to, the following:
 
-1. **Right to Use Domain Name or Email Address**: That, at the time of issuance, the CA:<br>
-   i. implemented a procedure for verifying that the Applicant either had the right to use, or had control of, the Domain Name(s) and email mailbox(es) listed in the Certificate's `subject` field and `subjectAltName` extension (or was delegated such right or control by someone who had such right to use or control);
+1. **Right to Use Email Address**: That, at the time of issuance, the CA:<br>
+   i. implemented a procedure for verifying that the Applicant either had the right to use, or had control of, the email mailbox(es) listed in the Certificate's `subject` field and `subjectAltName` extension (or was delegated such right or control by someone who had such right to use or control);
    ii. followed the procedure when issuing the Certificate; and
    iii. accurately described the procedure in the CA's CP and/or CPS;
 2. **Authorization for Certificate**: That, at the time of issuance, the CA:<br>
