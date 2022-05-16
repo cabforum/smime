@@ -1680,6 +1680,10 @@ d. `extKeyUsage` (SHALL NOT be present)
 
    This extension SHALL NOT be present.
 
+e. `subjectKeyIdentifier` (SHALL be present)
+
+   This extension SHALL be present and SHALL NOT be marked critical. It SHALL contain a value that is included in the `keyIdentifier` field of the `authorityKeyIdentifier` extension in Certificates issued by the Root CA.
+
 #### 7.1.2.2 Subordinate CA certificates
 
 a. `certificatePolicies` (SHALL be present)
@@ -1728,6 +1732,10 @@ g. `extKeyUsage` (MAY be present for Cross Certificates; SHALL be present otherw
 h. `authorityKeyIdentifier` (SHALL be present)
 
    This extension SHALL be present and SHALL NOT be marked critical. It SHALL contain a `keyIdentifier` field and it SHALL NOT contain a `authorityCertIssuer` or `authorityCertSerialNumber` field.
+
+i. `subjectKeyIdentifier` (SHALL be present)
+
+   This extension SHALL be present and SHALL NOT be marked critical. It SHALL contain a value that is included in the `keyIdentifier` field of the `authorityKeyIdentifier` extension in Certificates issued by the Subordinate CA.
 
 #### 7.1.2.3 Subscriber certificates
 
@@ -1819,6 +1827,10 @@ m. Adobe Extensions (optional)
    |------|-----------------------|
    | Strict | Prohibited |
    | Multipurpose and Legacy | MAY be present and SHALL NOT be marked critical. May include the Adobe Time-stamp X509 extension (1.2.840.113583.1.1.9.1) or the Adobe ArchiveRevInfo extension (1.2.840.113583.1.1.9.2) |
+
+n. `subjectKeyIdentifier` (SHOULD be present)
+
+   This extension SHOULD be present and SHALL NOT be marked critical. It SHOULD contain a value that is derived from the Public Key included in the Subscriber Certificate.
 
 #### 7.1.2.4 All certificates
 
