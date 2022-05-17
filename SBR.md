@@ -19,7 +19,7 @@ An S/MIME Certificate for the purposes of this document can be identified by the
 
 **Notice for Readers**
 
-An S/MIME Certificate contains a public key bound to an email address and MAY also contain the identity of a Natural Person or Legal Entity that controls such email address. The key pair can then be used to sign, verify, encrypt, and decrypt email. 
+An S/MIME Certificate contains a public key bound to a Mailbox Address and MAY also contain the identity of a Natural Person or Legal Entity that controls such email address. The key pair can then be used to sign, verify, encrypt, and decrypt email. 
 
 This Certificate Policy (CP) describes a subset of the requirements that a CA SHALL meet in order to issue Publicly-Trusted S/MIME Certificates. This document serves two purposes: to specify Baseline Requirements and to provide guidance and requirements for what a CA should include in its Certification Practice Statement (CPS). These Requirements apply only to relevant events that occur on or after DATE (the original effective date of these Requirements).
 
@@ -112,7 +112,7 @@ Other groups that have participated in the development of these Requirements inc
 
 ## 1.4 Certificate usage
 
-The primary goal of these Requirements is to provide a framework of “reasonable assurance” to senders and recipients of email messages that the Subject identified in an S/MIME Certificate has control of the domain or email address being asserted. A variation of this use case is where an Individual or organization digitally signs email to establish its authenticity and source of origin. 
+The primary goal of these Requirements is to provide a framework of “reasonable assurance” to senders and recipients of email messages that the Subject identified in an S/MIME Certificate has control of the domain or Mailbox Address being asserted. A variation of this use case is where an Individual or organization digitally signs email to establish its authenticity and source of origin. 
 
 ### 1.4.1 Appropriate certificate uses
 
@@ -525,7 +525,7 @@ No stipulation.
 
 ## 3.2 Initial identity validation
 
-The CA SHALL authenticate the identity attributes of the Subject and their control over the email addresses to be included in the S/MIME Certificate according to the requirements of the following sections:
+The CA SHALL authenticate the identity attributes of the Subject and their control over the Mailbox Addresses to be included in the S/MIME Certificate according to the requirements of the following sections:
 
 | Type    | Mailbox Control | Organization Identity | Individual Identity | 
 |---------|----------|----------|----------|
@@ -540,7 +540,7 @@ No stipulation.
 
 ### 3.2.2 Validation of mailbox authorization or control
 
-This section defines the permitted processes and procedures for confirming the Applicant's control of Mailbox Fields to be included in issued Certificates. 
+This section defines the permitted processes and procedures for confirming the Applicant's control of Mailbox Addresses to be included in issued Certificates. 
 
 The CA SHALL verify that Applicant controls the email accounts associated with all Mailbox Fields referenced in the Certificate or has been authorized by the email account holder to act on the account holder’s behalf. 
 
@@ -554,7 +554,7 @@ Completed validations of Applicant authority MAY be valid for the issuance of mu
 
 #### 3.2.2.1 Validating authority over mailbox via domain
 
-The CA MAY confirm the Applicant, such as an Enterprise RA, has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the email address to be used in the Certificate.
+The CA MAY confirm the Applicant, such as an Enterprise RA, has been authorized by the email account holder to act on the account holder’s behalf by verifying the entity's control over the domain portion of the Mailbox Address to be used in the Certificate.
 
 The CA SHALL use only the approved methods in [Section 3.2.2.4 of the TLS Baseline Requirements](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) to perform this verification.
 
@@ -564,7 +564,7 @@ For purposes of domain validation, the term Applicant includes the Applicant's P
 
 The CA MAY confirm the Applicant's control over each Mailbox Field to be included in a Certificate by sending a Random Value via email and then receiving a confirming response utilizing the Random Value. 
 
-Control over each email address SHALL be confirmed using a unique Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
+Control over each Mailbox Address SHALL be confirmed using a unique Random Value. The Random Value SHALL be sent only to the email address being validated and SHALL not be shared in any other way. 
 
 The Random Value SHALL be unique in each email. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CA MAY specify a shorter validity period for Random Values in its CP and/or CPS.
 
@@ -572,7 +572,7 @@ The Random Value SHALL be reset upon each instance of the email sent by the CA a
 
 #### 3.2.2.3 Validating applicant as operator of associated mail server(s)
 
-Confirming the Applicant's control over each Mailbox Field to be included in the Certificate, by confirming control of the SMTP FQDN to which a message delivered to the email address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given email address. If more than one SMTP FQDN has been discovered, the CA SHALL verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA SHALL NOT be used for this validation method.
+Confirming the Applicant's control over each Mailbox Field to be included in the Certificate, by confirming control of the SMTP FQDN to which a message delivered to the Mailbox Address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given Mailbox Address. If more than one SMTP FQDN has been discovered, the CA SHALL verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA SHALL NOT be used for this validation method.
 
 When confirming the Applicant's control of the SMTP FQDN, the CA SHALL use only the approved methods in [Section 3.2.2.4](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) of the TLS Baseline Requirements.
 
@@ -991,7 +991,7 @@ The CA SHALL revoke a Certificate within 24 hours if one or more of the followin
 2. The Subscriber notifies the CA that the original Certificate Request was not authorized and does not retroactively grant authorization;
 3. The CA obtains evidence that the Subscriber's Private Key corresponding to the Public Key in the Certificate suffered a Key Compromise;
 4. The CA is made aware of a demonstrated or proven method that can easily compute the Subscriber's Private Key based on the Public Key in the Certificate (such as a Debian weak key, see <https://wiki.debian.org/SSLkeys>);
-5. The CA obtains evidence that the validation of domain authorization or mailbox control for any email address in the Certificate should not be relied upon.
+5. The CA obtains evidence that the validation of domain authorization or mailbox control for any Mailbox Address in the Certificate should not be relied upon.
 
 The CA SHOULD revoke a Certificate within 24 hours and SHALL revoke a Certificate within 5 days if one or more of the following occurs:
 
@@ -2191,11 +2191,11 @@ By issuing a Subordinate CA Certificate, the CA represents that it followed the 
 
 a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
    __Required/Optional:__ SHALL be present  
-   __Contents:__ This field SHALL be present and the contents SHOULD be an identifier for the Certificate such that the Certificate's Name is unique across all Certificates issued by the Issuing CA.
+   __Contents:__ This field SHOULD contain an identifier for the Certificate such that the Certificate's Name is unique across all Certificates issued by the Issuing CA.
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
    __Required/Optional:__ SHALL be present  
-   __Contents:__ This field SHALL be present and the contents SHALL contain either the Subject CA's name or DBA as verified under [Section 3.2.3.3](#3233-verification-of-applicants-legal-existence-and-identity--assumed-name) The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name".
+   __Contents:__ This field SHALL contain either the Subject CA's name or DBA as verified under [Section 3.2.3.3](#3233-verification-of-applicants-legal-existence-and-identity--assumed-name) The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name".
 
 c. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)  
    __Required/Optional:__ SHALL be present  
@@ -2493,8 +2493,8 @@ The CA represents and warrants to the Certificate Beneficiaries that, during the
 
 The Certificate Warranties specifically include, but are not limited to, the following:
 
-1. **Right to Use Email Address**: That, at the time of issuance, the CA:<br>
-   i. implemented a procedure for verifying that the Applicant either had the right to use, or had control of, the email mailbox(es) listed in the Certificate's `subject` field and `subjectAltName` extension (or was delegated such right or control by someone who had such right to use or control);
+1. **Right to Use MAilbox Address**: That, at the time of issuance, the CA:<br>
+   i. implemented a procedure for verifying that the Applicant either had the right to use, or had control of, the Mailbox Addresses listed in the Certificate's `subject` field and `subjectAltName` extension (or was delegated such right or control by someone who had such right to use or control);
    ii. followed the procedure when issuing the Certificate; and
    iii. accurately described the procedure in the CA's CP and/or CPS;
 2. **Authorization for Certificate**: That, at the time of issuance, the CA:<br>
@@ -2535,7 +2535,7 @@ The Subscriber Agreement or Terms of Use SHALL contain provisions imposing on th
 1. **Accuracy of Information**: An obligation and warranty to provide accurate and complete information at all times to the CA, both in the Certificate Request and as otherwise requested by the CA in connection with the issuance of the Certificate(s) to be supplied by the CA;
 2. **Protection of Private Key**: An obligation and warranty by the Applicant to take all reasonable measures to assure control of, keep confidential, and properly protect at all times the Private Key that corresponds to the Public Key to be included in the requested Certificate(s) (and any associated activation data or device such as a password or token);
 3. **Acceptance of Certificate**: An obligation and warranty that the Subscriber will review and verify the Certificate contents for accuracy;
-4. **Use of Certificate**: An obligation and warranty to use the Certificate only on email mailboxes listed in the Certificate, and to use the Certificate solely in compliance with all applicable laws and solely in accordance with the Subscriber Agreement or Terms of Use;
+4. **Use of Certificate**: An obligation and warranty to use the Certificate only on MailBox Addresses listed in the Certificate, and to use the Certificate solely in compliance with all applicable laws and solely in accordance with the Subscriber Agreement or Terms of Use;
 5. **Reporting and Revocation**: An obligation and warranty to:<br>
    i. promptly request revocation of the Certificate, and cease using it and its associated Private Key, if there is any actual or suspected misuse or compromise of the Subscriber’s Private Key associated with the Public Key included in the Certificate, and
    ii. promptly request revocation of the Certificate, and cease using it, if any information in the Certificate is or becomes incorrect or inaccurate;
