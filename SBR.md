@@ -1683,7 +1683,7 @@ d. `extKeyUsage` (SHALL NOT be present)
 
 e. `subjectKeyIdentifier` (SHALL be present)
 
-   This extension SHALL be present and SHALL NOT be marked critical. It SHALL contain a value that is included in the `keyIdentifier` field of the `authorityKeyIdentifier` extension in Certificates issued by the Root CA.
+   This extension SHALL NOT be marked critical. It SHALL contain a value that is included in the `keyIdentifier` field of the `authorityKeyIdentifier` extension in Certificates issued by the Root CA.
 
 #### 7.1.2.2 Subordinate CA certificates
 
@@ -1695,7 +1695,7 @@ a. `certificatePolicies` (SHALL be present)
 
 b. `cRLDistributionPoints` (SHALL be present)
 
-   This extension SHALL be present and SHALL NOT be marked critical. It SHALL contain the HTTP URL of the CA's CRL service.
+   This extension SHALL NOT be marked critical. It SHALL contain the HTTP URL of the CA's CRL service.
 
 c. `authorityInformationAccess` (SHOULD be present)
 
@@ -1722,9 +1722,7 @@ g. `extKeyUsage` (MAY be present for Cross Certificates; SHALL be present otherw
 
    For Cross Certificates that share a Subject Distinguished Name and Subject Public Key with a Root CA Certificate operated in accordance with these Requirements, this extension MAY be present. If present, this extension SHOULD NOT be marked critical. This extension SHALL only contain usages for which the Issuing CA has verified the Cross Certificate is authorized to assert. This extension SHALL NOT contain the `anyExtendedKeyUsage` usage.
 
-   For all other Subordinate CA Certificates, including Technically Constrained Subordinate CA Certificates:
-
-   This extension SHALL be present and SHOULD NOT be marked critical[^**].
+   For all other Subordinate CA Certificates, including Technically Constrained Subordinate CA Certificates, this extension SHALL be present and SHOULD NOT be marked critical[^**].
 
    For Subordinate CA Certificates that will be used to issue S/MIME Certificates, the value `id-kp-emailProtection` SHALL be present. The values `id-kp-serverAuth`, `id-kp-codeSigning`, `id-kp-timeStamping`, and `anyExtendedKeyUsage` SHALL NOT be present. Other values MAY be present.
 
@@ -1732,27 +1730,27 @@ g. `extKeyUsage` (MAY be present for Cross Certificates; SHALL be present otherw
 
 h. `authorityKeyIdentifier` (SHALL be present)
 
-   This extension SHALL be present and SHALL NOT be marked critical. It SHALL contain a `keyIdentifier` field and it SHALL NOT contain a `authorityCertIssuer` or `authorityCertSerialNumber` field.
+   This extension SHALL NOT be marked critical. It SHALL contain a `keyIdentifier` field and it SHALL NOT contain a `authorityCertIssuer` or `authorityCertSerialNumber` field.
 
 i. `subjectKeyIdentifier` (SHALL be present)
 
-   This extension SHALL be present and SHALL NOT be marked critical. It SHALL contain a value that is included in the `keyIdentifier` field of the `authorityKeyIdentifier` extension in Certificates issued by the Subordinate CA.
+   This extension SHALL NOT be marked critical. It SHALL contain a value that is included in the `keyIdentifier` field of the `authorityKeyIdentifier` extension in Certificates issued by the Subordinate CA.
 
 #### 7.1.2.3 Subscriber certificates
 
 a. `certificatePolicies` (SHALL be present)
 
-   This extension SHALL be present and SHOULD NOT be marked critical. It SHALL include only one of the reserved `policyIdentifiers` listed in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers), and MAY contain one or more identifiers documented by the CA in its CP and/or CPS. 
+   This extension SHOULD NOT be marked critical. It SHALL include only one of the reserved `policyIdentifiers` listed in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers), and MAY contain one or more identifiers documented by the CA in its CP and/or CPS. 
 
    If the value of this extension includes a `PolicyInformation` which contains a qualifier of type `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1), then the value of the qualifier SHALL be a HTTP or HTTPS URL for the Issuing CA's CP and/or CPS, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA. If a qualifier of type `id-qt-unotice` (OID: 1.3.6.1.5.5.7.2.2) is included, then it SHALL contain `explicitText` and SHALL NOT contain `noticeRef`. 
 
 b. `cRLDistributionPoints` (SHALL be present)
 
-   This extension SHALL be present and SHOULD NOT be marked critical. It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the Issuing CA's CRL can be retrieved. For Legacy profiles only, additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
+   This extension SHOULD NOT be marked critical. It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the Issuing CA's CRL can be retrieved. For Legacy profiles only, additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
 
 c. `authorityInformationAccess` (SHALL be present)
 
-   This extension SHALL be present. It SHALL NOT be marked critical, and it SHALL contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the Issuing CA's OCSP responder. For Legacy profiles only, additional publicly accessible `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified. 
+   This extension SHALL NOT be marked critical, and it SHALL contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the Issuing CA's OCSP responder. For Legacy profiles only, additional publicly accessible `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified. 
    
    This extension SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the HTTP URI of the Issuing CA's Certificate. For Legacy profiles only, additional publicly accessible `id-ad-caIssuers` LDAP, FTP, or HTTP URIs MAY be specified.
 
@@ -1762,7 +1760,7 @@ d. `basicConstraints` (optional)
 
 e. `keyUsage` (SHALL be present)
 
-   This extension SHALL be present and SHOULD be marked critical. 
+   This extension SHOULD be marked critical. 
 
    | Generation | `rsaEncryption`       | `id-ecPublicKey`            |
    |------|-----------------------|-----------------------------|
@@ -1782,11 +1780,11 @@ f. `extKeyUsage` (SHALL be present)
 
 g. `authorityKeyIdentifier` (SHALL be present)
 
-   This extension SHALL be present and SHALL NOT be marked critical. The `keyIdentifier` field SHALL be present. `authorityCertIssuer` and `authorityCertSerialNumber` fields SHALL NOT be present.
+   This extension SHALL NOT be marked critical. The `keyIdentifier` field SHALL be present. `authorityCertIssuer` and `authorityCertSerialNumber` fields SHALL NOT be present.
 
 h. `subjectAlternativeName` (SHALL be present)
 
-   This extension SHALL be present and SHOULD NOT be marked critical unless the `subject` field is an empty sequence.
+   This extension SHOULD NOT be marked critical unless the `subject` field is an empty sequence.
 
    The value of this extension SHALL be encoded as specified in [Section 7.1.4.2.1](#71421-subject-alternative-name-extension).
 
@@ -1801,7 +1799,7 @@ j. `subjectDirectoryAttributes` (optional)
    | Strict and Multipurpose | Prohibited |
    | Legacy | MAY be present and SHALL NOT be marked critical. |
 
-   May contain verified attributes which are not part of the Subject's Distinguished Name such as dateOfBirth, placeOfBirth, gender, countryOfCitizenship, or countryOfResidence in accordance with [RFC 3739 Section 3.2.2](https://tools.ietf.org/html/rfc3739#section-3.2.2). 
+   This extension is used to contain verified attributes which are not part of the Subject's Distinguished Name such as dateOfBirth, placeOfBirth, gender, countryOfCitizenship, or countryOfResidence in accordance with [RFC 3739 Section 3.2.2](https://tools.ietf.org/html/rfc3739#section-3.2.2). 
 
 k. qcStatements (optional)
 
@@ -1831,7 +1829,7 @@ m. Adobe Extensions (optional)
 
 n. `subjectKeyIdentifier` (SHOULD be present)
 
-   This extension SHOULD be present and SHALL NOT be marked critical. It SHOULD contain a value that is derived from the Public Key included in the Subscriber Certificate.
+   This extension SHALL NOT be marked critical. It SHOULD contain a value that is derived from the Public Key included in the Subscriber Certificate.
 
 #### 7.1.2.4 All certificates
 
