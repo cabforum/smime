@@ -1160,8 +1160,6 @@ No stipulation.
 
 # 5. FACILITY, MANAGEMENT, AND OPERATIONAL CONTROLS
 
-The CA/Browser Forum's Network and Certificate System Security Requirements are incorporated by reference as if fully set forth herein.
-
 The CA SHALL develop, implement, and maintain a comprehensive security program designed to:
 
 1. Protect the confidentiality, integrity, and availability of Certificate Data and Certificate Management Processes;
@@ -1643,7 +1641,7 @@ No stipulation.
 
 ## 6.7 Network security controls
 
-No stipulation.
+The CA/Browser Forum's Network and Certificate System Security Requirements are incorporated by reference as if fully set forth herein.
 
 ## 6.8 Time-stamping
 
