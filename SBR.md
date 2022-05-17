@@ -615,7 +615,7 @@ The CA or RA MAY use the same documentation or communication described in 1 thro
 
 ##### 3.2.3.2.2 Verification of assumed name
 
-Applicants MAY request an assumed name (also known as "doing business as", "DBA", or "d/b/a" name in the US and "trading as" name in the UK) to be included following the formal legal name in the Certificate `subject:organizationName` attribute. The CA or RA SHALL verify that:
+Applicants MAY request an assumed name (also known as "doing business as", "DBA", or "d/b/a" name in the US and "trading as" name in the UK) to be included in the Certificate. The CA or RA SHALL verify that:
 
 1.	The Applicant has registered its use of the assumed name with the appropriate government agency for such filings in the jurisdiction of its incorporation or registration; and 
 2.	The assumed name filing continues to be valid.
@@ -2019,14 +2019,12 @@ If present, the Personal Name SHALL contain a name of the Subject. The Personal 
 
 If present, the Mailbox Address SHALL contain a `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` from `extensions:subjectAltName`.
 
-**Note**: `subject:commonName` and `subject:emailAddress` SHALL comply with the attribute upper bounds defined in [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
+**Note**: Like all other Certificate attributes, `subject:commonName` and `subject:emailAddress` SHALL comply with the attribute upper bounds defined in [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
 
 Additional specifications for naming are provided in [Section 3.1](#31-naming).
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
-   __Contents:__ If present, the `subject:organizationName` field SHALL contain the Subject's full legal organization name as verified under [Section 3.2.3](#323-authentication-of-organization-identity). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
-   
-   An assumed name used by the Subject as verified under [Section 3.2.3.2](#3232-verification-of-organization-assumed-name) MAY be included at the beginning of this field, provided that it is followed by the full legal organization name in parenthesis.
+   __Contents:__ If present, the `subject:organizationName` field SHALL contain the Subject's full legal organization name and/or an assumed name as verified under [Section 3.2.3](#323-authentication-of-organization-identity). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
 
 c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)  
    __Contents:__ If present, the CA SHALL confirm that the `subject:organizationalUnitName` is the full legal organization name of an Affiliate of the `subject:organizationName` in the Certificate and has been verified in accordance with the requirements of [Section 3.2](#32-initial-identity-validation). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations.
