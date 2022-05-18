@@ -628,7 +628,7 @@ The CA or RA SHALL verify the unique identifier used in the Certificate from a r
 
 Nothing in these Requirements prohibits the use of third-party vendors to obtain regularly-updated and current information from the government register provided that the third party obtains the information directly from the government.
 
-In the case of a LEI data reference, the CA or RA SHALL verify the associated data record with the [Global Legal Entity Identifier Foundation](https://search.gleif.org/#/search/)).
+In the case of a LEI data reference, the CA or RA SHALL verify the associated data record with the [Global Legal Entity Identifier Foundation](https://search.gleif.org/#/search/).
 
 ### 3.2.4 Authentication of individual identity
 
@@ -679,13 +679,13 @@ In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, re
 
 The Enterprise RA SHALL maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca).
 
-1. **Affiliation from company attestation**
+6. **Affiliation from company attestation**
 
 In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority or affiliation of an Individual to represent an Organisation to be included in the `subject:organization` of the Certificate using an Attestation provided by the Organization and verified in accordance with [Section 3.2.8](#328-reliability-of-verification-sources). 
 
 The CA or RA SHALL still verify the identity of the Individual in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) and the Organization in accordance with [Section 3.2.3](#323-authentication-of-organization-identity).
 
-7. **From an Attestation** 
+7. **From a general attestation** 
 
 Evidence for Individual identity attributes MAY be gathered using an Attestation from a qualified legal practitioner or notary in the Applicant's jurisdiction. 
 
