@@ -2109,7 +2109,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:countryName` | SHALL NOT | SHALL NOT | SHALL NOT |
 | Other | SHALL NOT | SHALL NOT | SHALL NOT |
 
-##### 7.1.4.2.3 Subject DN attributes for organization-validated profile
+##### 7.1.4.2.4 Subject DN attributes for organization-validated profile
 
 | Attribute | Legacy | Multipurpose | Strict |
 |-----------|--------|--------------|--------|
@@ -2130,7 +2130,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:countryName` | MAY | MAY | MAY |
 | Other | MAY | SHALL NOT | SHALL NOT |
 
-##### 7.1.4.2.4 Subject DN attributes for sponsor-validated profile
+##### 7.1.4.2.5 Subject DN attributes for sponsor-validated profile
 
 | Attribute | Legacy<br> (See Note 1) | Multipurpose<br> (See Note 2) | Strict<br> (See Note 2) |
 |-----------|--------|--------------|--------|
@@ -2157,7 +2157,7 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
  2. The Multipurpose and Strict generations SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
 
 
-##### 7.1.4.2.5 Subject DN attributes for individual-validated profile
+##### 7.1.4.2.6 Subject DN attributes for individual-validated profile
 
 | Attribute | Legacy<br> (See Note 1) | Multipurpose<br> (See Note 2) | Strict<br> (See Note 2) |
 |-----------|--------|----------------|--------|
