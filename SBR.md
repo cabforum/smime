@@ -590,9 +590,10 @@ The CA or RA SHALL collect and retain evidence supporting the following identity
 
 1.	Formal name of the Legal Entity;
 2.	A registered assumed name for the Legal Entity (if included in the Subject);
-3.	An address of the Legal Entity (if included in the Subject);
-4.	Jurisdiction of Incorporation or Registration of the Legal Entity; and
-5.	Unique identifier and type of identifier for the Legal Entity. 
+3. An organisational unit of the Legal Entity (if included in the Subject);
+4.	An address of the Legal Entity (if included in the Subject);
+5.	Jurisdiction of Incorporation or Registration of the Legal Entity; and
+6.	Unique identifier and type of identifier for the Legal Entity. 
 
 The unique identifier SHALL be included in the Certificate `subject:organizationIdentifier` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) and [Appendix A](#appendix-a---registration-schemes).
 
@@ -2025,7 +2026,7 @@ b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)
    __Contents:__ If present, the `subject:organizationName` field SHALL contain the Subject's full legal organization name and/or an assumed name as verified under [Section 3.2.3](#323-authentication-of-organization-identity). If both are included, the assumed name SHALL appear first, followed by the full legal organization name in parentheses. The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
 
 c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)  
-   __Contents:__ If present, the CA SHALL confirm that the `subject:organizationalUnitName` is the full legal organization name of an Affiliate of the `subject:organizationName` in the Certificate and has been verified in accordance with the requirements of [Section 3.2](#32-initial-identity-validation). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations.
+   __Contents:__ If present, the CA SHALL confirm that the `subject:organizationalUnitName` is the full legal organization name of an Affiliate of the `subject:organizationName` in the Certificate and has been verified in accordance with the requirements of [Section 3.2.3](#323-authentication-of-organization-identity). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations.
 
 d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
    __Contents:__ If present, the `subject:organizationIdentifier` field SHALL contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. 
