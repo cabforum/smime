@@ -284,8 +284,6 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Root CA Certificate**: The self-signed Certificate issued by the Root CA to identify itself and to facilitate verification of Certificates issued to its Subordinate CAs.
 
-**Signing Authority**: One or more Certificate Approvers designated to act on behalf of the Applicant.
-
 **Sovereign State**: A state or country that administers its own government, and is not dependent upon, or subject to, another power.
 
 **Sponsor-validated**: Refers to a Certificate Profile Subject which combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA where the `subject:organizationName` is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject Organization. 
@@ -316,16 +314,12 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Validity Period**: From [RFC 5280](http://tools.ietf.org/html/rfc5280): "The period of time from notBefore through notAfter, inclusive."
 
-**Verified Method of Communication**: The use of a telephone number, a fax number, an email address, or postal delivery address, confirmed by the CA in accordance with [Section 3.2.3.5](#3235-verified-method-of-communication) as a reliable way of communicating with the Applicant.
-
 ###  1.6.2 Acronyms
 
 |Acronym   |Meaning                                                            |
 |----------|-------------------------------------------------------------------|
-|AICPA	|American Institute of Certified Public Accountants |
 |CA	   |Certification Authority |
 |CAA	   |Certification Authority Authorization |
-|CICA	   |Canadian Institute of Chartered Accountants |
 |CP	   |Certificate Policy |
 |CPS	   |Certification Practice Statement |
 |CRL	   |Certificate Revocation List |
@@ -333,8 +327,6 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 |DNS	   |Domain Name System |
 |ETSI	   |European Telecommunications Standards Institute |
 |FIPS	   |(US Government) Federal Information Processing Standard|
-|IANA	   |Internet Assigned Numbers Authority |
-|ICANN	|Internet Corporation for Assigned Names and Numbers|
 |ICAO	   |International Civil Aviation Organization |
 |ISO	   |International Organization for Standardization |
 |MV	   |Mailbox-validated |
@@ -348,8 +340,6 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 ###  1.6.3 References
 
-ETSI TS 119 461, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for trust service components providing identity proofing of trust service subjects.
-
 ETSI EN 319 403, Electronic Signatures and Infrastructures (ESI); Trust Service Provider Conformity Assessment - Requirements for conformity assessment bodies assessing Trust Service Providers.
 
 ETSI EN 319 411-1, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 1: General requirements.
@@ -358,21 +348,21 @@ ETSI EN 319 411-2, Electronic Signatures and Infrastructures (ESI); Policy and s
 
 ETSI EN 319 412-5, Electronic Signatures and Infrastructures (ESI); Certificate Profiles; Part 5: QCStatements.
 
+ETSI TS 119 495, Electronic Signatures and Infrastructures (ESI); Sector Specific Requirements; Certificate Profiles and TSP Policy Requirements for Open Banking.
+
 ETSI TS 119 172-4, Electronic Signatures and Infrastructures (ESI); Signature Policies;. Part 4: Signature applicability rules.
 
 FIPS 140-2, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, May 25, 2001.
-
-FIPS 186-4, Federal Information Processing Standards Publication - Digital Signature Standard (DSS), Information Technology Laboratory, National Institute of Standards and Technology, July 2013.
 
 ICAO DOC 9303, Machine Readable Travel Documents, Part 10, Logical Data Structure (LDS) for Storage of Biometrics and Other Data in the Contactless Integrated Circuit (IC), International Civil Aviation Organization, Eighth Edition, 2021.
 
 ICAO DOC 9303, Machine Readable Travel Documents, Part 11, Security Mechanisms for MRTDs, International Civil Aviation Organization, Eighth Edition, 2021.
 
+ISO 17065:2012, Conformity assessment — Requirements for bodies certifying products, processes and services.
+
 ISO 17442-1:2020, Financial services — Legal entity identifier (LEI) - Part 1: Assignment.
 
 ISO 17442-2:2020, Financial services — Legal entity identifier (LEI) - Part 2: Application in digital certificates.
-
-ISO 21188:2006, Public key infrastructure for financial services - Practices and policy framework.
 
 Network and Certificate System Security Requirements, v.1.0, 1/1/2013.
 
@@ -380,45 +370,19 @@ NIST SP 800-89, Recommendation for Obtaining Assurances for Digital Signature Ap
 
 RFC 2119, Request for Comments: 2119, Key words for use in RFCs to Indicate Requirement Levels, Bradner, March 1997.
 
-RFC 2527, Request for Comments: 2527, Internet X.509 Public Key Infrastructure: Certificate Policy and Certification Practices Framework, Chokhani, et al, March 1999.
-
-RFC 3492, Request for Comments: 3492, Punycode: A Bootstring encoding of Unicode for Internationalized Domain Names in Applications (IDNA). A. Costello. March 2003.
-
 RFC 3647, Request for Comments: 3647, Internet X.509 Public Key Infrastructure: Certificate Policy and Certification Practices Framework, Chokhani, et al, November 2003.
 
 RFC 3739, Request for Comments: 3739, Internet X.509 Public Key Infrastructure: Qualified Certificates Profile, S. Santesson, et al, March 2004.
 
-RFC 3912, Request for Comments: 3912, WHOIS Protocol Specification, Daigle, September 2004.
-
-RFC 3986, Request for Comments: 3986, Uniform Resource Identifier (URI): Generic Syntax. T. Berners-Lee, et al. January 2005.
-
-RFC 3966, Request for Comments: 3966, The tel URI for Telephone Numbers. H. Schulzrinne. December 2004.
-
 RFC 4262, Request for Comments: 4262, X.509 Certificate Extension for Secure/Multipurpose Internet Mail Extensions (S/MIME) Capabilities, S. Santesson, December 2005.
-
-RFC 4366, Request for Comments: 4366, Transport Layer Security (TLS) Extensions, Blake-Wilson, et al, April 2006.
 
 RFC 5019, Request for Comments: 5019, The Lightweight Online Certificate Status Protocol (OCSP) Profile for High-Volume Environments, A. Deacon, et al, September 2007.
 
 RFC 5280, Request for Comments: 5280, Internet X.509 Public Key Infrastructure: Certificate and Certificate Revocation List (CRL) Profile, Cooper et al, May 2008.
 
-RFC 5890, Request for Comments: 5890, Internationalized Domain Names for Applications (IDNA): Definitions and Document Framework. J. Klensin. August 2010.
-
-RFC 5952, Request for Comments: 5952, A Recommendation for IPv6 Address Text Representation. S. Kawamura, et al. August 2010.
-
-RFC 6532, Request for Comments: 6532, Internationalized Email Headers, A. Yang, et al, February 2012.
-
 RFC 6818, Updates to the Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile, January 2013.
 
 RFC 6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP. Santesson, Myers, Ankney, Malpani, Galperin, Adams, June 2013.
-
-RFC 6962, Request for Comments: 6962, Certificate Transparency. B. Laurie, A. Langley, E. Kasper. June 2013.
-
-RFC 7231, Request For Comments: 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content, R. Fielding, J. Reschke. June 2014.
-
-RFC 7538, Request For Comments: 7538, The Hypertext Transfer Protocol Status Code 308 (Permanent Redirect), J. Reschke. April 2015.
-
-RFC 7482, Request for Comments: 7482, Registration Data Access Protocol (RDAP) Query Format, Newton, et al, March 2015.
 
 RFC 8398, Request for Comments: 8398, Internationalized Email Addresses in X.509 Certificates, MAY 2018. A. Melnikov, et al. May 2018.
 
@@ -438,8 +402,6 @@ The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, SHALL NOT
 
 # 2. PUBLICATION AND REPOSITORY RESPONSIBILITIES
 
-The CA SHALL develop, implement, and enforce a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL review and update its CP and/or CPS at least every 365 days, incrementing the version number and adding a dated changelog entry even if no other changes are made.
-
 ## 2.1 Repositories
 
 The CA SHALL make revocation information for Subordinate CA Certificates and Subscriber Certificates available in accordance with this Policy.
@@ -456,7 +418,7 @@ The CA SHALL publicly give effect to these Requirements and represent that it wi
 
 ## 2.3 Time or frequency of publication
 
-The CA SHALL develop, implement, enforce, and annually update a CP and/or CPS that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL indicate conformance with this requirement by incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
+The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL review and update its CP and/or CPS at least every 365 days, incrementing the version number and adding a dated changelog entry even if no other changes are made. The CA SHALL indicate conformance with this requirement by incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
 
 ## 2.4 Access controls on repositories
 
@@ -750,7 +712,7 @@ If a digital signature with Certificate is used as evidence, the signature SHALL
 
 The CA or RA SHALL validate the digital signature and SHALL only use the signing Certificate as evidence for identity attributes if the signature is valid.
 
-If required identity attributes to be collected are not present in the Certificate, the CA or RA SHALL collect these attributes from other sources and validated.
+If required identity attributes to be collected are not present in the Certificate, the CA or RA SHALL collect these attributes from other sources and validate.
 
 5.	**Validation of an Attestation**
 
@@ -765,7 +727,7 @@ Subscriber information that has not been verified in accordance with these Requi
 Before commencing to issue `Organization-validated` and `Sponsor-validated`  Certificates for an Applicant, the CA or RA SHALL use a Reliable Method of Communication to verify the authority and approval of an Applicant Representative to perform one or more of the following:
 *  to act as an Enterprise RA;
 *  to request issuance or revocation of Certificates; or 
-*  to assign reponsibilities to others to act in these roles. 
+*  to assign responsibilities to others to act in these roles. 
 
 The CA or RA MAY establish a process that allows an Applicant to specify the individuals who may act as Applicant Representatives on an ongoing basis. The CA SHALL provide an Applicant with a list of its authorized Applicant Representatives upon the Applicant's verified written request.
 
@@ -1570,7 +1532,7 @@ If the Issuing CA generated the Private Key on behalf of the Subordinate CA, the
 
 ### 6.2.7 Private key storage on cryptographic module
 
-The CA SHALL protect its Private Key in a system or device that has been validated as meeting at least FIPS 140 level 3 or an appropriate Common Criteria Protection Profile or Security Target, EAL 4 (or higher), which includes requirements to protect the Private Key and other assets against known threats.
+The CA SHALL protect its Private Key in a system or device that has been validated as meeting at least FIPS 140-2 level 3 or an appropriate Common Criteria Protection Profile or Security Target, EAL 4 (or higher), which includes requirements to protect the Private Key and other assets against known threats.
 
 ### 6.2.8 Method of activating private key
 
@@ -1758,7 +1720,7 @@ c. `authorityInformationAccess` (SHALL be present)
 
 d. `basicConstraints` (optional)
 
-   The `cA` field SHALL NOT be true. `pathLenConstraint` field SHALL NOT be present.
+   This extension MAY be present. The `cA` field SHALL NOT be true. `pathLenConstraint` field SHALL NOT be present.
 
 e. `keyUsage` (SHALL be present)
 
@@ -1801,7 +1763,7 @@ j. `subjectDirectoryAttributes` (optional)
    | Strict and Multipurpose | Prohibited |
    | Legacy | MAY be present and SHALL NOT be marked critical. |
 
-   This extension is used to contain verified attributes which are not part of the Subject's Distinguished Name such as dateOfBirth, placeOfBirth, gender, countryOfCitizenship, or countryOfResidence in accordance with [RFC 3739 Section 3.2.2](https://tools.ietf.org/html/rfc3739#section-3.2.2). 
+   This extension MAY be present. This extension is used to contain verified attributes which are not part of the Subject's Distinguished Name such as dateOfBirth, placeOfBirth, gender, countryOfCitizenship, or countryOfResidence in accordance with [RFC 3739 Section 3.2.2](https://tools.ietf.org/html/rfc3739#section-3.2.2). 
 
 k. qcStatements (optional)
 
