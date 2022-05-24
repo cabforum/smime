@@ -348,6 +348,8 @@ ETSI EN 319 411-2, Electronic Signatures and Infrastructures (ESI); Policy and s
 
 ETSI EN 319 412-5, Electronic Signatures and Infrastructures (ESI); Certificate Profiles; Part 5: QCStatements.
 
+ETSI TS 119 495, Electronic Signatures and Infrastructures (ESI); Sector Specific Requirements; Certificate Profiles and TSP Policy Requirements for Open Banking.
+
 ETSI TS 119 172-4, Electronic Signatures and Infrastructures (ESI); Signature Policies;. Part 4: Signature applicability rules.
 
 FIPS 140-2, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, May 25, 2001.
