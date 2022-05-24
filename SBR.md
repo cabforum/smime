@@ -639,8 +639,9 @@ The CA or RA SHALL collect and retain evidence supporting the following identity
 
 1. Given name(s) and surname(s), which SHOULD be current names;
 2. Pseudonym (if used); 
-3. Address (if displayed in Subject); and
-4. Further information as needed to uniquely identify the Applicant.
+3. Title (if used);
+4. Address (if displayed in Subject); and
+5. Further information as needed to uniquely identify the Applicant.
 
 The CA or RA SHALL comply with applicable data protection legislation in the gathering and retention of evidence relating to Individual identity supporting this Requirement in accordance with [Section 9.4](#94-privacy-of-personal-information).
 
@@ -682,7 +683,7 @@ The Enterprise RA SHALL maintain records to satisfy the requirements of [Section
 
 6. **Affiliation from company attestation**
 
-In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority or affiliation of an Individual to represent an Organisation to be included in the `subject:organization` of the Certificate using an Attestation provided by the Organization and verified in accordance with [Section 3.2.8](#328-reliability-of-verification-sources). 
+In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority or affiliation of an Individual to represent an Organisation to be included in the `subject:organizationName` of the Certificate using an Attestation provided by the Organization and verified in accordance with [Section 3.2.8](#328-reliability-of-verification-sources). 
 
 The CA or RA SHALL still verify the identity of the Individual in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) and the Organization in accordance with [Section 3.2.3](#323-authentication-of-organization-identity).
 
@@ -699,7 +700,7 @@ The CA or RA MAY additionally gather and verify supplementary evidence using aut
 Examples of this method include:
 
 * If the Subject presents an ID featuring an Applicant name that has subsequently been changed, the evidence MAY be complemented by inspection of an official document such as a marriage certificate or court order documenting the change.
-* If a professional Title of a regulated profession in the`subject:country` is to be used it SHALL be verified against supporting documentation, a Reliable Data Source, or Attestation.
+* If a professional Title of a regulated profession in the`subject:country`, or a corporate Title linked to the `subject:organizationName`, is to be used it SHALL be verified against supporting documentation, a Reliable Data Source, or Attestation.
 * In cases where the "role" LEI is included in an extension of a `Sponsor-validated` Certificate, the CA SHALL verify that the LEI is assigned to the Individual and the `subject:organizationName` in the Certificate Subject.
 * The CA MAY verify the address (but not the identity) of the Applicant using a utility bill, bank statement, credit card statement, government-issued tax document, or other form of identification that the CA determines to be reliable.
 
