@@ -356,6 +356,8 @@ ICAO DOC 9303, Machine Readable Travel Documents, Part 10, Logical Data Structur
 
 ICAO DOC 9303, Machine Readable Travel Documents, Part 11, Security Mechanisms for MRTDs, International Civil Aviation Organization, Eighth Edition, 2021.
 
+ISO 17065:2012, Conformity assessment — Requirements for bodies certifying products, processes and services.
+
 ISO 17442-1:2020, Financial services — Legal entity identifier (LEI) - Part 1: Assignment.
 
 ISO 17442-2:2020, Financial services — Legal entity identifier (LEI) - Part 2: Application in digital certificates.
