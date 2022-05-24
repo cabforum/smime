@@ -722,7 +722,7 @@ Subscriber information that has not been verified in accordance with these Requi
 Before commencing to issue `Organization-validated` and `Sponsor-validated`  Certificates for an Applicant, the CA or RA SHALL use a Reliable Method of Communication to verify the authority and approval of an Applicant Representative to perform one or more of the following:
 *  to act as an Enterprise RA;
 *  to request issuance or revocation of Certificates; or 
-*  to assign reponsibilities to others to act in these roles. 
+*  to assign responsibilities to others to act in these roles. 
 
 The CA or RA MAY establish a process that allows an Applicant to specify the individuals who may act as Applicant Representatives on an ongoing basis. The CA SHALL provide an Applicant with a list of its authorized Applicant Representatives upon the Applicant's verified written request.
 
