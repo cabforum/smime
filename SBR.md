@@ -284,8 +284,6 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Root CA Certificate**: The self-signed Certificate issued by the Root CA to identify itself and to facilitate verification of Certificates issued to its Subordinate CAs.
 
-**Signing Authority**: One or more Certificate Approvers designated to act on behalf of the Applicant.
-
 **Sovereign State**: A state or country that administers its own government, and is not dependent upon, or subject to, another power.
 
 **Sponsor-validated**: Refers to a Certificate Profile Subject which combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA where the `subject:organizationName` is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject Organization. 
@@ -315,8 +313,6 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 **Validation Specialists**: Someone who performs the information verification duties specified by these Requirements.
 
 **Validity Period**: From [RFC 5280](http://tools.ietf.org/html/rfc5280): "The period of time from notBefore through notAfter, inclusive."
-
-**Verified Method of Communication**: The use of a telephone number, a fax number, an email address, or postal delivery address, confirmed by the CA in accordance with [Section 3.2.3.5](#3235-verified-method-of-communication) as a reliable way of communicating with the Applicant.
 
 ###  1.6.2 Acronyms
 
