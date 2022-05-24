@@ -1715,7 +1715,7 @@ c. `authorityInformationAccess` (SHALL be present)
 
 d. `basicConstraints` (optional)
 
-   The `cA` field SHALL NOT be true. `pathLenConstraint` field SHALL NOT be present.
+   This extension MAY be present. The `cA` field SHALL NOT be true. `pathLenConstraint` field SHALL NOT be present.
 
 e. `keyUsage` (SHALL be present)
 
@@ -1758,7 +1758,7 @@ j. `subjectDirectoryAttributes` (optional)
    | Strict and Multipurpose | Prohibited |
    | Legacy | MAY be present and SHALL NOT be marked critical. |
 
-   This extension is used to contain verified attributes which are not part of the Subject's Distinguished Name such as dateOfBirth, placeOfBirth, gender, countryOfCitizenship, or countryOfResidence in accordance with [RFC 3739 Section 3.2.2](https://tools.ietf.org/html/rfc3739#section-3.2.2). 
+   This extension MAY be present. This extension is used to contain verified attributes which are not part of the Subject's Distinguished Name such as dateOfBirth, placeOfBirth, gender, countryOfCitizenship, or countryOfResidence in accordance with [RFC 3739 Section 3.2.2](https://tools.ietf.org/html/rfc3739#section-3.2.2). 
 
 k. qcStatements (optional)
 
