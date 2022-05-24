@@ -318,10 +318,8 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 |Acronym   |Meaning                                                            |
 |----------|-------------------------------------------------------------------|
-|AICPA	|American Institute of Certified Public Accountants |
 |CA	   |Certification Authority |
 |CAA	   |Certification Authority Authorization |
-|CICA	   |Canadian Institute of Chartered Accountants |
 |CP	   |Certificate Policy |
 |CPS	   |Certification Practice Statement |
 |CRL	   |Certificate Revocation List |
@@ -329,8 +327,6 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 |DNS	   |Domain Name System |
 |ETSI	   |European Telecommunications Standards Institute |
 |FIPS	   |(US Government) Federal Information Processing Standard|
-|IANA	   |Internet Assigned Numbers Authority |
-|ICANN	|Internet Corporation for Assigned Names and Numbers|
 |ICAO	   |International Civil Aviation Organization |
 |ISO	   |International Organization for Standardization |
 |MV	   |Mailbox-validated |
