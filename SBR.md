@@ -398,8 +398,6 @@ The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, SHALL NOT
 
 # 2. PUBLICATION AND REPOSITORY RESPONSIBILITIES
 
-The CA SHALL develop, implement, and enforce a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL review and update its CP and/or CPS at least every 365 days, incrementing the version number and adding a dated changelog entry even if no other changes are made.
-
 ## 2.1 Repositories
 
 The CA SHALL make revocation information for Subordinate CA Certificates and Subscriber Certificates available in accordance with this Policy.
@@ -416,7 +414,7 @@ The CA SHALL publicly give effect to these Requirements and represent that it wi
 
 ## 2.3 Time or frequency of publication
 
-The CA SHALL develop, implement, enforce, and annually update a CP and/or CPS that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL indicate conformance with this requirement by incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
+The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL review and update its CP and/or CPS at least every 365 days, incrementing the version number and adding a dated changelog entry even if no other changes are made. The CA SHALL indicate conformance with this requirement by incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
 
 ## 2.4 Access controls on repositories
 
