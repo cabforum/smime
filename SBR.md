@@ -745,7 +745,7 @@ If a digital signature with Certificate is used as evidence, the signature SHALL
 
 The CA or RA SHALL validate the digital signature and SHALL only use the signing Certificate as evidence for identity attributes if the signature is valid.
 
-If required identity attributes to be collected are not present in the Certificate, the CA or RA SHALL collect these attributes from other sources and validated.
+If required identity attributes to be collected are not present in the Certificate, the CA or RA SHALL collect these attributes from other sources and validate.
 
 5.	**Validation of an Attestation**
 
