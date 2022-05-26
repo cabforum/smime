@@ -599,7 +599,7 @@ The following requirements SHALL be fulfilled to authenticate Individual identit
 
 The CA or RA SHALL collect and retain evidence supporting the following identity attributes for the Individual Applicant:
 
-1. Given name(s) and surname(s), which SHOULD be current names;
+1. Given name(s) and surname(s), which SHALL be current names;
 2. Pseudonym (if used); 
 3. Title (if used);
 4. Address (if displayed in Subject); and
