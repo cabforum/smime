@@ -1495,6 +1495,8 @@ For RSA key pairs: the CA SHALL confirm that the value of the public exponent is
 
 For ECDSA key pairs: the CA SHOULD confirm the validity of all keys using either the ECC Full Public Key Validation Routine or the ECC Partial Public Key Validation Routine. (See ST SP 800-56A: Revision 2, Sections 5.6.2.3.2 and 5.6.2.3.3.)
 
+For EdDSA key pairs: no stipulation.
+
 ### 6.1.7 Key usage purposes (as per X.509 v3 key usage field)
 
 Private Keys corresponding to Root CA Certificates SHALL NOT be used to sign Certificates except in the following cases:
