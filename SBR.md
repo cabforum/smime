@@ -15,7 +15,7 @@ copyright: |
 
 This S/MIME Baseline Requirements document describes an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements that are necessary for the issuance and management of Publicly-Trusted S/MIME Certificates.
 
-An S/MIME Certificate for the purposes of this document can be identified by the existence of an Extended Key Usage (EKU) for `emailProtection` (OID: 1.3.6.1.5.5.7.3.4) and the inclusion of a `rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension.
+An S/MIME Certificate for the purposes of this document can be identified by the existence of an Extended Key Usage (EKU) for `id-kp-emailProtection` (OID: 1.3.6.1.5.5.7.3.4) and the inclusion of a `rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension.
 
 **Notice for Readers**
 
@@ -92,9 +92,9 @@ Before the CA authorizes a Delegated Third Party to perform a delegated function
 
 The CA MAY delegate to an Enterprise Registration Authority (RA) to verify Certificate Requests from the Enterprise RA's own organization. The CA SHALL NOT accept Certificate Requests authorized by an Enterprise RA unless the following requirements are satisfied:
 
-1. If the Certificate Request is for an `Organization-validated` or `Sponsor-validated` profile, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domains in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers). The CA SHALL confirm that the `subject:organizationName` name is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are Affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
+1. If the Certificate Request is for an `Organization-validated` or `Sponsor-validated` profile, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domain(s) in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers). The CA SHALL confirm that the `subject:organizationName` name is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are Affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
 
-2. If the Certificate Request is for a `Mailbox-validated` profile, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
+2. If the Certificate Request is for a `Mailbox-validated` profile, the CA SHALL confirm that the mailbox holder has control of the requested Mailbox Address(es) in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
 
 The CA SHALL impose these limitations as a contractual requirement on the Enterprise RA and monitor compliance by the Enterprise RA in accordance with [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca).
 
@@ -230,7 +230,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Legal Entity**: An association, corporation, partnership, proprietorship, trust, government entity or other entity with legal standing in a country's legal system.
 
-**Mailbox-Validated (MV)**: Refers to a Certificate Profile Subject that is limited to (optional) `subject:emailAddress` and/or `subject:serialNumber` attributes.
+**Mailbox-Validated (MV)**: Refers to a Certificate Subject that is limited to (optional) `subject:emailAddress` and/or `subject:serialNumber` attributes.
 
 **Mailbox Address**: Also Email Address. From [RFC 5321](http://tools.ietf.org/html/rfc5321): "A character string that identifies a user to whom mail will be sent or a location into which mail will be deposited."
 
@@ -286,9 +286,9 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Sovereign State**: A state or country that administers its own government, and is not dependent upon, or subject to, another power.
 
-**Sponsor-validated**: Refers to a Certificate Profile Subject which combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA where the `subject:organizationName` is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject Organization. 
+**Sponsor-validated**: Refers to a Certificate Subject which combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA where the `subject:organizationName` is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject Organization. 
 
-**Strict Profile**: The S/MIME Strict generation profiles are the long term target profile for S/MIME Certificates with `extKeyUsage` limited to `emailProtection`, and stricter use of Subject DN attributes and other extensions.
+**Strict Profile**: The S/MIME Strict generation profiles are the long term target profile for S/MIME Certificates with `extKeyUsage` limited to `id-kp-emailProtection`, and stricter use of Subject DN attributes and other extensions.
 
 **Subject**: The Natural Person, device, system, unit, or Legal Entity identified in a Certificate as the Subject. The Subject is either the Subscriber or a mailbox under the control and operation of the Subscriber.
 
@@ -448,7 +448,7 @@ No stipulation.
 
 The purpose of the `subject:pseudonym` attribute is to provide a unique identifier linked to an Individual in a pseudonymized manner when certain privacy conditions are required. For example, a Pseudonym may be used if a government agency requires officials to sign certain decisions via S/MIME so those decisions trace back to individuals, but emphasize the importance of the role over Individual identity in the Certificate. The CA SHALL disclose in its CP and/or CPS if it allows the use of Pseudonyms.
 
-For `Sponsor-validated` certificates, the CA MAY use a `subject:pseudonym` attribute in the Certificate if approved by an Enterprise RA and the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute SHALL be: 
+For `Sponsor-validated` certificates, the CA MAY use a `subject:pseudonym` attribute in the Certificate if the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute SHALL be: 
   1. either a unique identifier selected by the CA for the Subject of the Certificate; or
   2. an identifier selected by the Enterprise RA which uniquely identifies the Subject of the Certificate within the Organization included in the `subject:organizationName` attribute.
 
@@ -464,8 +464,8 @@ Pseudonym Certificates are not anonymous. CAs and Enterprise RAs SHALL treat Ind
 
 In cases where names use diacritics or other characters that are not supported by relying-party application software, the CA SHOULD define substitution rules in its CP and/or CPS. For example, regardless of capitalization:
 
-*  Accent characters MAY be represented by their ASCII equivalent. For example é, à, í, ñ, or ç MAY be represented by e, a, i, n, or c.
-*  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u.
+*  Accent characters MAY be represented by their ASCII equivalent. For example é, à, í, ñ, or ç MAY be represented by e, a, i, n, or c, respectively.
+*  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u, respectively.
 
 #### 3.1.4.2 Non-latin names
 
@@ -536,7 +536,7 @@ The Random Value SHALL be reset upon each instance of the email sent by the CA a
 
 Confirming the Applicant's control over each Mailbox Field to be included in the Certificate, by confirming control of the SMTP FQDN to which a message delivered to the Mailbox Address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given Mailbox Address. If more than one SMTP FQDN has been discovered, the CA SHALL verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA SHALL NOT be used for this validation method.
 
-When confirming the Applicant's control of the SMTP FQDN, the CA SHALL use only the approved methods in [Section 3.2.2.4](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) of the TLS Baseline Requirements.
+To confirm the Applicant's control of the SMTP FQDN, the CA SHALL use only the currently-approved methods in [Section 3.2.2.4](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) of the TLS Baseline Requirements.
 
 #### 3.2.2.4 CAA records
 
@@ -599,7 +599,7 @@ The following requirements SHALL be fulfilled to authenticate Individual identit
 
 The CA or RA SHALL collect and retain evidence supporting the following identity attributes for the Individual Applicant:
 
-1. Given name(s) and surname(s), which SHOULD be current names;
+1. Given name(s) and surname(s), which SHALL be current names;
 2. Pseudonym (if used); 
 3. Title (if used);
 4. Address (if displayed in Subject); and
@@ -633,7 +633,9 @@ The CA SHALL document and publish information describing the eID and associated 
 
 4.	**From a certificate supporting a digital signature applied by the Applicant** 
 
-If a digital signature is to be used as evidence, the CA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following adopted standards: eIDAS Qualified Certificates as defined in ETSI EN 319 411-2 and validated according to ETSI TS 119 172-4, IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+If a digital signature is to be used as evidence, the CA or RA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following standards: eIDAS Qualified Certificates as defined in ETSI EN 319 411-2 and validated according to ETSI TS 119 172-4, International Grid Trust Federation/IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+
+Identity attributes are evidenced by the Certificate, not by the signed document. The CA or RA SHALL only rely upon the signing Certificate as evidence for identity attributes if the signature is valid.
 
 The CA SHOULD consider requirements to avoid issuance of a consecutive Certificates that are issued based on a preceding Certificate, where the original verification of the Subject's identity may have been conducted in the distant past.
 
@@ -643,7 +645,7 @@ In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, re
 
 The Enterprise RA SHALL maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca).
 
-6. **Affiliation from company attestation**
+1. **Affiliation from company attestation**
 
 In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority or affiliation of an Individual to represent an Organisation to be included in the `subject:organizationName` of the Certificate using an Attestation provided by the Organization and verified in accordance with [Section 3.2.8](#328-reliability-of-verification-sources). 
 
@@ -702,7 +704,7 @@ Automated and manual processes MAY be used in combination, (for example using au
 
 3. **Validation of eID**
    
-If authentication using an eID is used as evidence, the CA or RA SHALL confirm that the eID scheme is suitable (for example that the eID is accessible via a notified eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).  
+If authentication using an eID is used as evidence, the CA or RA SHALL confirm that the eID scheme is suitable (i.e., that the eID is accessible via a "notified" eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).  
 
 The authentication using the eID SHALL be created as part of the identity validation process, and evidence of the validation with the eID's Identity Provider (IdP) SHALL be retained by the CA or RA.
 
@@ -1011,6 +1013,8 @@ After reviewing the facts and circumstances, the CA SHALL work with the Subscrib
 5. Relevant legislation.
    
 ### 4.9.6 Revocation checking requirement for relying parties
+
+No stipulation. 
 
 **Note**: Following Certificate issuance, a Certificate may be revoked for reasons stated in [Section 4.9](#49-certificate-revocation-and-suspension). Therefore, Relying Parties SHOULD check the revocation status of all Certificates that contain a CDP or OCSP pointer.
 
@@ -1493,6 +1497,8 @@ For RSA key pairs: the CA SHALL confirm that the value of the public exponent is
 
 For ECDSA key pairs: the CA SHOULD confirm the validity of all keys using either the ECC Full Public Key Validation Routine or the ECC Partial Public Key Validation Routine. (See ST SP 800-56A: Revision 2, Sections 5.6.2.3.2 and 5.6.2.3.3.)
 
+For EdDSA key pairs: no stipulation.
+
 ### 6.1.7 Key usage purposes (as per X.509 v3 key usage field)
 
 Private Keys corresponding to Root CA Certificates SHALL NOT be used to sign Certificates except in the following cases:
@@ -1740,7 +1746,7 @@ f. `extKeyUsage` (SHALL be present)
    | Strict | `id-kp-emailProtection` SHALL be present. Other values SHALL NOT be present. |
   | Multipurpose and Legacy |`id-kp-emailProtection` SHALL be present. Other values MAY be present. |
 
-   The value `anyExtendedKeyUsage` SHALL NOT be present.
+   The values `id-kp-serverAuth`, `id-kp-codeSigning`, `id-kp-timeStamping`, and `anyExtendedKeyUsage` SHALL NOT be present.
 
 g. `authorityKeyIdentifier` (SHALL be present)
 
