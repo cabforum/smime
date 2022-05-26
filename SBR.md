@@ -464,8 +464,8 @@ Pseudonym Certificates are not anonymous. CAs and Enterprise RAs SHALL treat Ind
 
 In cases where names use diacritics or other characters that are not supported by relying-party application software, the CA SHOULD define substitution rules in its CP and/or CPS. For example, regardless of capitalization:
 
-*  Accent characters MAY be represented by their ASCII equivalent. For example é, à, í, ñ, or ç MAY be represented by e, a, i, n, or c.
-*  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u.
+*  Accent characters MAY be represented by their ASCII equivalent. For example é, à, í, ñ, or ç MAY be represented by e, a, i, n, or c, respectively.
+*  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u, respectively.
 
 #### 3.1.4.2 Non-latin names
 
