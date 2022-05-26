@@ -15,7 +15,7 @@ copyright: |
 
 This S/MIME Baseline Requirements document describes an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements that are necessary for the issuance and management of Publicly-Trusted S/MIME Certificates.
 
-An S/MIME Certificate for the purposes of this document can be identified by the existence of an Extended Key Usage (EKU) for `emailProtection` (OID: 1.3.6.1.5.5.7.3.4) and the inclusion of a `rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension.
+An S/MIME Certificate for the purposes of this document can be identified by the existence of an Extended Key Usage (EKU) for `id-kp-emailProtection` (OID: 1.3.6.1.5.5.7.3.4) and the inclusion of a `rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension.
 
 **Notice for Readers**
 
@@ -288,7 +288,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Sponsor-validated**: Refers to a Certificate Subject which combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA where the `subject:organizationName` is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject Organization. 
 
-**Strict Profile**: The S/MIME Strict generation profiles are the long term target profile for S/MIME Certificates with `extKeyUsage` limited to `emailProtection`, and stricter use of Subject DN attributes and other extensions.
+**Strict Profile**: The S/MIME Strict generation profiles are the long term target profile for S/MIME Certificates with `extKeyUsage` limited to `id-kp-emailProtection`, and stricter use of Subject DN attributes and other extensions.
 
 **Subject**: The Natural Person, device, system, unit, or Legal Entity identified in a Certificate as the Subject. The Subject is either the Subscriber or a mailbox under the control and operation of the Subscriber.
 
@@ -1740,7 +1740,7 @@ f. `extKeyUsage` (SHALL be present)
    | Strict | `id-kp-emailProtection` SHALL be present. Other values SHALL NOT be present. |
   | Multipurpose and Legacy |`id-kp-emailProtection` SHALL be present. Other values MAY be present. |
 
-   The value `anyExtendedKeyUsage` SHALL NOT be present.
+   The values `id-kp-serverAuth`, `id-kp-codeSigning`, `id-kp-timeStamping`, and `anyExtendedKeyUsage` SHALL NOT be present.
 
 g. `authorityKeyIdentifier` (SHALL be present)
 
