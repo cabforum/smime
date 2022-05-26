@@ -702,7 +702,7 @@ Automated and manual processes MAY be used in combination, (for example using au
 
 3. **Validation of eID**
    
-If authentication using an eID is used as evidence, the CA or RA SHALL confirm that the eID scheme is suitable (for example that the eID is accessible via a notified eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).  
+If authentication using an eID is used as evidence, the CA or RA SHALL confirm that the eID scheme is suitable (i.e., that the eID is accessible via a "notified" eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).  
 
 The authentication using the eID SHALL be created as part of the identity validation process, and evidence of the validation with the eID's Identity Provider (IdP) SHALL be retained by the CA or RA.
 
