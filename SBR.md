@@ -100,11 +100,11 @@ The CA SHALL impose these limitations as a contractual requirement on the Enterp
 
 ### 1.3.3 Subscribers
 
-As defined in [Section 1.6.1](#16-definitions-and-acronyms).
+As defined in [Section 1.6.1](#161-definitions).
 
 ### 1.3.4 Relying parties
 
-“Relying Party” and “Application Software Supplier” are defined in [Section 1.6.1](#16-definitions-and-acronyms). Current Members of the CA/Browser Forum who are Application Software Suppliers are listed at https://cabforum.org/members.
+“Relying Party” and “Application Software Supplier” are defined in [Section 1.6.1](161-definitions). Current Members of the CA/Browser Forum who are Application Software Suppliers are listed at https://cabforum.org/members.
 
 ### 1.3.5 Other participants
 
