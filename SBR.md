@@ -96,7 +96,7 @@ The CA MAY delegate to an Enterprise Registration Authority (RA) to verify Certi
 
 2. If the Certificate Request is for a `Mailbox-validated` profile, the CA SHALL confirm that the mailbox holder has control of the requested email domains in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
 
-The CA SHALL impose these limitations as a contractual requirement on the Enterprise RA and monitor compliance by the Enterprise RA in accordance with [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca).
+The CA SHALL impose these limitations as a contractual requirement on the Enterprise RA and monitor compliance by the Enterprise RA in accordance with [Section 8.8](#88-review-of-delegated-parties).
 
 ### 1.3.3 Subscribers
 
@@ -678,7 +678,7 @@ The CA SHOULD consider requirements to avoid issuance of a consecutive Certifica
 
 In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, records maintained by the Enterprise RA SHALL be accepted as evidence of Individual identity. 
 
-The Enterprise RA SHALL maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca).
+The Enterprise RA SHALL maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-delegated-parties).
 
 6. **Affiliation from company attestation**
 
@@ -2317,7 +2317,7 @@ The CA SHALL at all times:
 
 ## 8.1 Frequency or circumstances of assessment
 
-Certificates that are capable of being used to issue new Certificates SHALL either be Technically Constrained in line with [Section 7.1.5](#715-name-constraints) and audited in line with [Section 8.8](#88-review-of-enterprise-ra-or-technically-constrained-subordinate-ca) only, or Unconstrained and fully audited in line with all remaining requirements from this section. A Certificate is deemed as capable of being used to issue new Certificates if it contains an X.509v3 `basicConstraints` extension, with the `cA` boolean set to true and is therefore by definition a Root CA Certificate or a Subordinate CA Certificate.
+Certificates that are capable of being used to issue new Certificates SHALL either be Technically Constrained in line with [Section 7.1.5](#715-name-constraints) and audited in line with [Section 8.8](#88-review-of-delegated-parties) only, or Unconstrained and fully audited in line with all remaining requirements from this section. A Certificate is deemed as capable of being used to issue new Certificates if it contains an X.509v3 `basicConstraints` extension, with the `cA` boolean set to true and is therefore by definition a Root CA Certificate or a Subordinate CA Certificate.
 
 The period during which the CA issues Certificates SHALL be divided into an unbroken sequence of audit periods. An audit period SHALL NOT exceed one year in duration.
 
