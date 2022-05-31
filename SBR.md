@@ -414,7 +414,7 @@ The CP and/or CPS SHALL be structured in accordance with [RFC 3647](http://tools
 
 The CA SHALL publicly give effect to these Requirements and represent that it will adhere to the latest published version. The CA MAY fulfill this requirement by incorporating these Requirements directly into its CP and/or CPSs or by incorporating them by reference using a clause such as the following (which SHALL include a link to the official version of these Requirements):
 
-> [Name of CA] conforms to the current version of the Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates published at http://www.cabforum.org. In the event of any inconsistency between this document and those Requirements, those Requirements take precedence over this document.
+> [Name of CA] conforms to the current version of the Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates published at https://www.cabforum.org. In the event of any inconsistency between this document and those Requirements, those Requirements take precedence over this document.
 
 ## 2.3 Time or frequency of publication
 
