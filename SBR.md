@@ -190,6 +190,8 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **Control**: "Control" (and its correlative meanings, "controlled by" and "under common control with") means possession, directly or indirectly, of the power to: (1) direct the management, personnel, finances, or plans of such entity; (2) control the election of a majority of the directors ; or (3) vote that portion of voting shares required for "control" under the law of the entity's Jurisdiction of Incorporation or Registration but in no case less than 10%.
 
+**Conversion**: The process of converting text from one writing system to ASCII characters.
+
 **Country**: Either a member of the United Nations OR a geographic region recognized as a Sovereign State by at least two UN member nations.
 
 **Cross Certificate**: A Certificate that is used to establish a trust relationship between two Root CAs.
@@ -467,11 +469,11 @@ In cases where names use diacritics or other characters that are not supported b
 *  Accent characters MAY be represented by their ASCII equivalent. For example é, à, í, ñ, or ç MAY be represented by e, a, i, n, or c, respectively.
 *  Umlaut-accented characters such as ä, ö, ü MAY be represented by either ae, oe, ue or a, o, u, respectively.
 
-#### 3.1.4.2 Non-latin names
+#### 3.1.4.2 Non-ASCII names
 
-The CA MAY allow transliteration/Romanization of Subject Identity Information usually rendered in non-Latin characters using a system commonly used in the Applicant's Jurisdiction of Incorporation or Registration, or recognized by the United Nations or the International Organization for Standardization (ISO).
+The CA MAY allow the Conversion of Subject Identity Information usually rendered in non-ASCII characters using a system commonly used in the Applicant's Jurisdiction of Incorporation or Registration, or recognized by the United Nations or the International Organization for Standardization (ISO).
 
-The CA MAY include a Latin character name that is not a direct Romanization of the registered name provided that it is verified in a Reliable Data Source or suitable Attestation.
+The CA MAY include a ASCII character name that is not a direct Conversion of the registered name provided that it is verified in a Reliable Data Source or suitable Attestation.
 
 #### 3.1.4.3 Geographic names
 
