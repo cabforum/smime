@@ -1724,7 +1724,8 @@ b. `cRLDistributionPoints`
    
    This extension SHALL be present if the `authorityInformationAccess` extension does not have at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the Issuing CA's OCSP responder. 
    
-   This extension SHOULD NOT be marked critical. If present, it SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the Issuing CA's CRL can be retrieved. For Legacy profiles only, additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
+   This extension SHOULD NOT be marked critical. If present, it SHALL contain at least one `distributionPoint` field whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the Issuing CA's CRL can be retrieved. For Legacy profiles only, additional publicly accessible `fullName` LDAP or FTP URIs MAY be specified.
+   For all profiles, additional publicly accessible `fullName` HTTP URIs MAY be specified.
 
 c. `authorityInformationAccess` (SHOULD be present if the `cRLDistributionPoints` extension is present. SHALL be present if the `cRLDistributionPoints` extension is missing)
 
@@ -1736,7 +1737,8 @@ c. `authorityInformationAccess` (SHOULD be present if the `cRLDistributionPoints
 
    If the `cRLDistributionPoints` extension is missing, the `authorityInformationAccess` extension SHALL contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the Issuing CA's OCSP responder. 
    
-   For Legacy profiles only, additional publicly accessible `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified. 
+   For Legacy profiles only, additional publicly accessible `id-ad-ocsp` LDAP or FTP URIs MAY be specified. 
+   For all profiles, additional publicly accessible `id-ad-ocsp` HTTP URIs MAY be specified. 
 
 d. `basicConstraints` (optional)
 
