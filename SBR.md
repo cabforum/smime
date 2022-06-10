@@ -1663,7 +1663,7 @@ a. `certificatePolicies` (SHALL be present)
 
    This extension SHOULD NOT be marked critical.
 
-   All `policyIdentifier`s in this extension SHALL be included in accordance with [Section 7.1.6.3](#7163-subordinate-ca-certificates).
+   All `policyIdentifier`s included in this extension SHALL be included in accordance with [Section 7.1.6.3](#7163-subordinate-ca-certificates).
 
    If the value of this extension includes a `PolicyInformation` which contains a qualifier of type `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1), then the value of the qualifier SHALL be a HTTP or HTTPS URL for the Issuing CA's CP and/or CPS, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA. If a qualifier of type `id-qt-unotice` (OID: 1.3.6.1.5.5.7.2.2) is included, then it SHALL contain `explicitText` and SHALL NOT contain `noticeRef`. 
 
