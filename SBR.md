@@ -1720,14 +1720,35 @@ a. `certificatePolicies` (SHALL be present)
 
 b. `cRLDistributionPoints` (SHALL be present)
 
-   This extension SHOULD NOT be marked critical. It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a HTTP URI where the Issuing CA's CRL can be retrieved. For Legacy profiles only, additional publicly accessible `fullName` LDAP, FTP, or HTTP URIs MAY be specified.
+   This extension SHOULD NOT be marked critical. It SHALL contain at least one `distributionPoint` whose `fullName` value includes a GeneralName of type `uniformResourceIdentifier` that includes a URI where the Issuing CA's CRL can be retrieved.
+   
+   | Generation | allowed URI scheme | 
+   |------|-----------------------|
+   | Strict and Multipurpose | Every `uniformResourceIdentifier` SHALL have the URI scheme HTTP. Other schemes SHALL NOT be present. |
+   | Legacy | At least one `uniformResourceIdentifier` SHALL have the URI scheme HTTP. Other schemes (LDAP, FTP, ...) MAY be present. |
 
 c. `authorityInformationAccess` (SHALL be present)
 
-   This extension SHALL NOT be marked critical, and it SHALL contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the HTTP URI of the Issuing CA's OCSP responder. For Legacy profiles only, additional publicly accessible `id-ad-ocsp` LDAP, FTP, or HTTP URIs MAY be specified. 
+   This extension SHALL NOT be marked critical.
    
-   This extension SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the HTTP URI of the Issuing CA's Certificate. For Legacy profiles only, additional publicly accessible `id-ad-caIssuers` LDAP, FTP, or HTTP URIs MAY be specified.
+1. `id-ad-ocsp`
 
+   The `authorityInformationAccess` extension SHALL contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the URI of the Issuing CA's OCSP responder. 
+   
+   | Generation | allowed URI scheme | 
+   |------|-----------------------|
+   | Strict and Multipurpose | Every `accessMethod` SHALL have the URI scheme HTTP. Other schemes SHALL NOT be present. |
+   | Legacy | At least one `accessMethod` SHALL have the URI scheme HTTP. Other schemes (LDAP, FTP, ...) MAY be present. | 
+  
+2. `id-ad-caIssuers`
+  
+   The `authorityInformationAccess` extension SHOULD contain at least one `accessMethod` value of type `id-ad-caIssuers` that specifies the URI of the Issuing CA's Certificate. 
+   
+   | Generation | allowed URI scheme | 
+   |------|-----------------------|
+   | Strict and Multipurpose | Every `accessMethod` SHALL have the URI scheme HTTP. Other schemes SHALL NOT be present. |
+   | Legacy | At least one `accessMethod` SHALL have the URI scheme HTTP. Other schemes (LDAP, FTP, ...) MAY be present. | 
+   
 d. `basicConstraints` (optional)
 
    This extension MAY be present. The `cA` field SHALL NOT be true. `pathLenConstraint` field SHALL NOT be present.
