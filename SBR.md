@@ -175,8 +175,6 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **CA Key Pair**: A Key Pair where the Public Key appears as the Subject Public Key Info in one or more Root CA Certificate(s) and/or Subordinate CA Certificate(s).
 
-**CA Private Key**: The Private Key belonging to a **CA Key Pair**.
-
 **Certificate**: An electronic document that uses a digital signature to bind a public key and an identity.
 
 **Certificate Approver**: A natural person who is either the Applicant, employed by the Applicant, or an authorized agent who has express authority to represent the Applicant to
@@ -1583,7 +1581,7 @@ No stipulation.
 
 ### 5.2.2 Number of persons required per task
 
-CA Private Keys SHALL be backed up, stored, and recovered only by personnel in trusted roles using, at least, dual control in a physically secured environment.
+CA Key Pairs Private Keys SHALL be backed up, stored, and recovered only by personnel in trusted roles using, at least, dual control in a physically secured environment.
 
 ### 5.2.3 Identification and authentication for each role
 
@@ -1682,8 +1680,8 @@ No stipulation.
 The CA and each Delegated Third Party SHALL retain, for at least two (2) years:
 
   1. CA Certificate and key lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (1)) after the later occurrence of:
-     1. the destruction of the CA Private Key; or
-     2. the revocation or expiration of the final CA Certificate in that set of Certificates that have an X.509v3 `basicConstraints` extension with the `cA` field set to true and which share a common Public Key corresponding to the CA Private Key;
+     1. the destruction of the CA Key Pair's Private Key; or
+     2. the revocation or expiration of the final CA Certificate in that set of Certificates that have an X.509v3 `basicConstraints` extension with the `cA` field set to true and which share a common Public Key corresponding to the CA Key Pair's Private Key;
   2. Subscriber Certificate lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (2)) after the expiration of the Subscriber Certificate;
   3. Any security event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (3)) after the event occurred.
 
@@ -1895,7 +1893,7 @@ Private Keys corresponding to Root CA Certificates MUST NOT be used to sign Cert
 
 ## 6.2 Private key protection and cryptographic module engineering controls
 
-The CA SHALL implement physical and logical safeguards to prevent unauthorized Certificate issuance. Protection of the CA Private Key outside the validated system or device specified above MUST consist of physical security, encryption, or a combination of both, implemented in a manner that prevents disclosure of the Private Key. The CA SHALL encrypt its Private Key with an algorithm and key-length that, according to the state of the art, are capable of withstanding cryptanalytic attacks for the residual life of the encrypted key or key part.
+The CA SHALL implement physical and logical safeguards to prevent unauthorized Certificate issuance. Protection of the CA Key Pair's Private Key outside the validated system or device specified above MUST consist of physical security, encryption, or a combination of both, implemented in a manner that prevents disclosure of the Private Key. The CA SHALL encrypt its Private Key with an algorithm and key-length that, according to the state of the art, are capable of withstanding cryptanalytic attacks for the residual life of the encrypted key or key part.
 
 ### 6.2.1 Cryptographic module standards and controls
 
@@ -1915,7 +1913,7 @@ See [Section 5.2.2](#522-number-of-persons-required-per-task).
 
 ### 6.2.5 Private key archival
 
-Parties other than the Subordinate CA SHALL NOT archive the Subordinate CA Private Keys without authorization by the Subordinate CA.
+Parties other than the Subordinate CA SHALL NOT archive the Subordinate CA Key Pair's Private Keys without authorization by the Subordinate CA.
 
 ### 6.2.6 Private key transfer into or from a cryptographic module
 
@@ -2026,7 +2024,7 @@ a. `basicConstraints` (MUST be present)
 
 b. `keyUsage` (MUST be present)
 
-   This extension MUST be marked critical. Bit positions for `keyCertSign` and `cRLSign` MUST be set. If the Root CA Private Key is used for signing OCSP responses, then the `digitalSignature` bit MUST be set.
+   This extension MUST be marked critical. Bit positions for `keyCertSign` and `cRLSign` MUST be set. If the Root CA Key Pair's Private Key is used for signing OCSP responses, then the `digitalSignature` bit MUST be set.
 
 c. `certificatePolicies` (SHOULD NOT be present)
 
@@ -2061,7 +2059,7 @@ d. `basicConstraints` (MUST be present)
 
 e. `keyUsage` (MUST be present)
 
-   This extension MUST be marked critical. Bit positions for `keyCertSign` and `cRLSign` MUST be set. If the Subordinate CA Private Key is used for signing OCSP responses, then the `digitalSignature` bit MUST be set.
+   This extension MUST be marked critical. Bit positions for `keyCertSign` and `cRLSign` MUST be set. If the Subordinate CA Key Pair's Private Key is used for signing OCSP responses, then the `digitalSignature` bit MUST be set.
 
 f. `nameConstraints` (MAY be present)
 
@@ -2233,7 +2231,7 @@ When encoded, the `AlgorithmIdentifier` for EdDSA keys MUST be byte-for-byte ide
 
 #### 7.1.3.2 Signature AlgorithmIdentifier
 
-All objects signed by a CA Private Key MUST conform to these requirements on the use of the `AlgorithmIdentifier` or `AlgorithmIdentifier`-derived type in the context of signatures.
+All objects signed by a CA Key Pair's Private Key MUST conform to these requirements on the use of the `AlgorithmIdentifier` or `AlgorithmIdentifier`-derived type in the context of signatures.
 
 In particular, it applies to all of the following objects and fields:
 
