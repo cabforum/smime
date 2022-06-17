@@ -1194,7 +1194,7 @@ No stipulation.
 
 ### 5.2.2 Number of persons required per task
 
-CA Private Keys SHALL be backed up, stored, and recovered only by personnel in trusted roles using, at least, dual control in a physically secured environment.
+The CA Private Key SHALL be backed up, stored, and recovered only by personnel in trusted roles using, at least, dual control in a physically secured environment.
 
 ### 5.2.3 Identification and authentication for each role
 
