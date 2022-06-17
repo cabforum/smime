@@ -2098,11 +2098,15 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | SHALL NOT | SHALL NOT | SHALL NOT |
 | `subject:streetAddress` | MAY | MAY | SHALL NOT |
-| `subject:localityName` | MAY | MAY | MAY |
-| `subject:stateOrProvinceName` | MAY | MAY | MAY |
+| `subject:localityName` | Conditional MAY/MUST | Conditional MAY/MUST | Conditional MAY/MUST |
+| `subject:stateOrProvinceName` | Conditional MAY/MUST | Conditional MAY/MUST | Conditional MAY/MUST |
 | `subject:postalCode` | MAY | MAY | SHALL NOT |
-| `subject:countryName` | MAY | MAY | MAY |
+| `subject:countryName` | MUST | MUST | MUST |
 | Other | MAY | SHALL NOT | SHALL NOT |
+
+**Note**: 
+
+ 1. Either one of `subject:localityName` or `subject:stateOrProvinceName` MUST be included.
 
 ##### 7.1.4.2.5 Subject DN attributes for sponsor-validated profile
 
@@ -2119,16 +2123,17 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
 | `subject:streetAddress` | MAY | MAY | SHALL NOT |
-| `subject:localityName` | MAY | MAY | MAY |
-| `subject:stateOrProvinceName` | MAY | MAY | MAY |
+| `subject:localityName` | Conditional MAY/MUST | Conditional MAY/MUST | Conditional MAY/MUST |
+| `subject:stateOrProvinceName` | Conditional MAY/MUST | Conditional MAY/MUST | Conditional MAY/MUST |
 | `subject:postalCode` | MAY | MAY | SHALL NOT |
-| `subject:countryName` | MAY | MAY | MAY |
+| `subject:countryName` | MUST | MUST | MUST |
 | Other | MAY | SHALL NOT | SHALL NOT |
 
 **Note**: 
 
  1. The Legacy generations MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
  2. The Multipurpose and Strict generations SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
+ 3. Either one of `subject:localityName` or `subject:stateOrProvinceName` MUST be included.
 
 
 ##### 7.1.4.2.6 Subject DN attributes for individual-validated profile
@@ -2146,16 +2151,17 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 | `subject:emailAddress` | MAY | MAY | MAY |
 | `subject:title` | MAY  | MAY | MAY |
 | `subject:streetAddress` | MAY | MAY | SHALL NOT |
-| `subject:localityName` | MAY | MAY | MAY |
-| `subject:stateOrProvinceName` | MAY | MAY | MAY |
+| `subject:localityName` | Conditional MAY/MUST | Conditional MAY/MUST | Conditional MAY/MUST |
+| `subject:stateOrProvinceName` | Conditional MAY/MUST | Conditional MAY/MUST | Conditional MAY/MUST |
 | `subject:postalCode` | MAY | MAY | SHALL NOT |
-| `subject:countryName` | MAY | MAY | MAY |
+| `subject:countryName` | MUST | MUST | MUST |
 | Other | MAY | SHALL NOT | SHALL NOT |
 
 **Note**: 
 
  1. The Legacy generation MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
  2. The Strict and Multipurpose generations SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
+ 3. Either one of `subject:localityName` or `subject:stateOrProvinceName` MUST be included.
 
 #### 7.1.4.3 Subject information - root certificates and subordinate CA certificates
 
