@@ -63,7 +63,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 
 ### 1.2.1 Revisions
 
-|Version| Ballot|Description                       | Adopted  | Effective\*  |
+|Version| Ballot|Description                       | Adopted  | Effective Date\*  |
 |------|-------|----------------------------------|----------| -----------|
 | 00   | 00    |Version 1.0 of the S/MIME Baseline Requirements adopted | Adoption date | Adoption date plus 8 months |
 
@@ -2318,9 +2318,10 @@ No stipulation.
 
 The CA SHALL undergo an audit in accordance with one of the following schemes:
 
-1. “WebTrust for CAs v2.2.1 or newer” AND “WebTrust for S/MIME Baseline Requirements vX.X.X or newer”; or
-2. "ETSI EN 319 411-1 v1.3.1 or newer", which includes normative references to ETSI EN 319 401 (the latest version of referenced ETSI documents should be applied); or
-3. If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either
+1. For Audit Periods starting before the Effective Date defined in [Section 1.2.1](#121-revisions) of the first version of these Requirements, “WebTrust for CAs v2.2.1 or newer”; or
+2. For Audit Periods starting after the Effective Date defined in [Section 1.2.1](#121-revisions) of the first version of these Requirements, “WebTrust for CAs v2.2.1 or newer” AND “WebTrust for S/MIME Baseline Requirements vX.X.X or newer”; or
+3. "ETSI EN 319 411-1 v1.3.1 or newer", which includes normative references to ETSI EN 319 401 (the latest version of referenced ETSI documents should be applied); or
+4. If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either
    a. encompasses all requirements of one of the above schemes or
    b. consists of comparable criteria that are available for public review.
 Whichever scheme is chosen, it SHALL incorporate periodic monitoring and/or accountability procedures to ensure that its audits continue to be conducted in accordance with the requirements of the scheme.
