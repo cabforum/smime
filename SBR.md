@@ -538,7 +538,7 @@ To confirm the Applicant's control of the SMTP FQDN, the CA SHALL use only the c
 
 #### 3.2.2.4 CAA records
 
-This version of the S/MIME Baseline Requirements does not require the CA to check for CAA records. The CAA property tags for `issue`, `issuewild`, and `iodef` as specified in [RFC 8659](https://datatracker.ietf.org/doc/html/rfc8659) are not recognized for the issuance of S/MIME Certificates.
+The CA MAY perform a check for CAA records.
 
 ### 3.2.3 Authentication of organization identity
 
