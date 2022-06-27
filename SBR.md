@@ -31,6 +31,17 @@ These Requirements do not address the issuance or management of Certificates by 
 
 This Certificate Policy contains the Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates, as adopted by the CA/Browser Forum.
 
+These Requirements describe four Certificate profiles differentiated by the type of Subject:
+
+| Certificate Type | Description |
+|------|-------------|
+| Mailbox-validated | Subject is limited to (optional) `subject:emailAddress` and/or `subject:serialNumber` attributes. |
+| Organisation-validated | Includes only Organizational (Legal Entity) attributes in the Subject. |
+| Sponsor-validated | Combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA.|
+| Individual-validated | Includes only Individual (Natural Person) attributes in the Subject. |
+
+In addition, Generations (known as Legacy, Multipurpose, and Strict) are specified for each of these Certificate Types, acknowledging both the current diversity of practice in issuing S/MIME Certificates as well as the desire to move towards more closely-defined practices over time.
+
 The following Certificate Policy identifiers are reserved for use by CAs as a means of asserting compliance with this document (OID arc 2.23.140.1.5) as follows:
 
 **Mailbox-validated**  
