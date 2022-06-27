@@ -2052,7 +2052,7 @@ h. __Certificate Field:__ `subject:emailAddress` (1.2.840.113549.1.9.1)
    __Contents:__ If present, the `subject:emailAddress` SHALL contain a single Mailbox Address as verified under [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control).
 
 i. __Certificate Field:__ `subject:title` (2.5.4.12) 
-   __Contents:__ If present, the `subject:title` field SHALL contain only a corporate role/title or a regulated professional designation verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
+   __Contents:__ If present, the `subject:title` field SHALL contain only a organizational role/title or a regulated professional designation verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
 
 j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4.9)  
  __Contents:__ If present, the `subject:streetAddress` field SHALL contain the Subject's street address information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity).
