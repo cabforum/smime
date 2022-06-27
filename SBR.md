@@ -543,7 +543,7 @@ Control over each Mailbox Address SHALL be confirmed using a unique Random Value
 
 The Random Value SHALL be unique in each email. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CA MAY specify a shorter validity period for Random Values in its CP and/or CPS.
 
-The Random Value SHALL be reset upon each instance of the email sent by the CA to a Mailbox Address, however all relevant Random Values sent to that Mailbox Address SHALL remain valid for use in a confirming response within the validity period decribed in this Section. In addition, the Random Value SHALL be reset upon first use if intended for additional use as an authentication factor following the Mailbox Address verification. 
+The Random Value SHALL be reset upon each instance of the email sent by the CA to a Mailbox Address, however all relevant Random Values sent to that Mailbox Address SHALL remain valid for use in a confirming response within the validity period decribed in this Section. In addition, the Random Value SHALL be reset upon first use by the user if intended for additional use as an authentication factor following the Mailbox Address verification. 
 
 #### 3.2.2.3 Validating applicant as operator of associated mail server(s)
 
