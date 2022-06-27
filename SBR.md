@@ -643,7 +643,7 @@ In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, re
 
 The Enterprise RA SHALL maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-delegated-parties).
 
-1. **Affiliation from company attestation**
+6. **Affiliation from company attestation**
 
 In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority or affiliation of an Individual to represent an Organisation to be included in the `subject:organizationName` of the Certificate using an Attestation provided by the Organization and verified in accordance with [Section 3.2.8](#328-reliability-of-verification-sources). 
 
