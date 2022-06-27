@@ -19,9 +19,9 @@ An S/MIME Certificate for the purposes of this document can be identified by the
 
 **Notice for Readers**
 
-An S/MIME Certificate contains a public key bound to a Mailbox Address and MAY also contain the identity of a Natural Person or Legal Entity that controls such email address. The key pair can then be used to sign, verify, encrypt, and decrypt email. 
+An S/MIME Certificate contains a Public Key bound to a Mailbox Address and MAY also contain the identity of a Natural Person or Legal Entity that controls such email address. The Key Pair can then be used to sign, verify, encrypt, and decrypt email. 
 
-This Certificate Policy (CP) describes a subset of the requirements that a CA SHALL meet in order to issue Publicly-Trusted S/MIME Certificates. This document serves two purposes: to specify Baseline Requirements and to provide guidance and requirements for what a CA should include in its Certification Practice Statement (CPS). These Requirements apply only to relevant events that occur on or after DATE (the original effective date of these Requirements).
+This Certificate Policy (CP) describes a subset of the requirements that a CA SHALL meet in order to issue Publicly-Trusted S/MIME Certificates. This document serves two purposes: to specify Baseline Requirements and to provide guidance and requirements for what a CA should include in its Certification Practice Statement (CPS). These Requirements apply only to relevant events that occur on or after the relevant Effective Date described in [Section 1.2.1](#121-revisions) of these Requirements.
 
 These Requirements do not address all of the issues relevant to the issuance and management of Publicly-Trusted S/MIME Certificates. To facilitate a comparison of other CP and/or CPS (e.g., for policy mapping), this document includes all sections of the [RFC 3647](https://datatracker.ietf.org/doc/html/rfc3647) framework. The CA/Browser Forum MAY update these Requirements from time to time.
 
@@ -30,6 +30,17 @@ These Requirements do not address the issuance or management of Certificates by 
 ## 1.2 Document name and identification
 
 This Certificate Policy contains the Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates, as adopted by the CA/Browser Forum.
+
+These Requirements describe four Certificate profiles differentiated by the type of Subject:
+
+| Certificate Type | Description |
+|------|-------------|
+| Mailbox-validated | Subject is limited to (optional) `subject:emailAddress` and/or `subject:serialNumber` attributes. |
+| Organisation-validated | Includes only Organizational (Legal Entity) attributes in the Subject. |
+| Sponsor-validated | Combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA.|
+| Individual-validated | Includes only Individual (Natural Person) attributes in the Subject. |
+
+In addition, Generations (known as Legacy, Multipurpose, and Strict) are specified for each of these Certificate Types, acknowledging both the current diversity of practice in issuing S/MIME Certificates as well as the desire to move towards more closely-defined practices over time.
 
 The following Certificate Policy identifiers are reserved for use by CAs as a means of asserting compliance with this document (OID arc 2.23.140.1.5) as follows:
 
@@ -79,14 +90,14 @@ Certification Authority (CA) is defined in [Section 1.6.1](#161-definitions). Cu
 
 ### 1.3.2 Registration authorities
 
-With the exception of [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control), the CA MAY delegate the performance of all, or any part, of [Section 3.2](#32-initial-identity-validation) requirements to a Delegated Third Party, provided that the process as a whole fulfills all of the requirements of [Section 3.2](#32-initial-identity-validation).
+With the exception of [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control), the CA MAY delegate the performance of all, or any part, of [Section 3.2](#32-initial-identity-validation) requirements to a Delegated Party, provided that the process as a whole fulfills all of the requirements of [Section 3.2](#32-initial-identity-validation).
 
-Before the CA authorizes a Delegated Third Party to perform a delegated function, the CA SHALL contractually require the Delegated Third Party to:
+Before the CA authorizes a Delegated Party to perform a delegated function, the CA SHALL contractually require the Delegated Party to:
 
 1. Meet the qualification requirements of [Section 5.3.1](#531-qualifications-experience-and-clearance-requirements), when applicable to the delegated function;
 2. Retain documentation in accordance with [Section 5.5.2](#552-retention-period-for-archive);
 3. Abide by the other provisions of these Requirements that are applicable to the delegated function; and
-4. Comply with (a) the CA's CP and/or CPS or (b) the Delegated Third Party's practice statement that the CA has verified complies with these Requirements.
+4. Comply with (a) the CA's CP and/or CPS or (b) the Delegated Party's practice statement that the CA has verified complies with these Requirements.
 
 #### 1.3.2.1 Enterprise registration authorities
 
@@ -170,7 +181,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **CA Key Pair**: A Key Pair where the Public Key appears as the Subject Public Key Info in one or more Root CA Certificate(s) and/or Subordinate CA Certificate(s).
 
-**Certificate**: An electronic document that uses a digital signature to bind a public key and an identity.
+**Certificate**: An electronic document that uses a digital signature to bind a Public Key and an identity.
 
 **Certification Authority (or CA)**: An organization that is responsible for the creation, issuance, revocation, and management of Certificates. The term applies equally to both Root CAs and Subordinate CAs.
 
@@ -198,7 +209,7 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 
 **CSPRNG**: A pseudo-random number generator intended for use in a cryptographic system.
 
-**Delegated Third Party**: A Natural Person or Legal Entity that is not the CA but is authorized by the CA, and whose activities are not within the scope of the appropriate CA audits, to assist in the Certificate Management Process by performing or fulfilling one or more of the CA requirements found herein.
+**Delegated Party**: A Natural Person or Legal Entity that is not the CA but is authorized by the CA, and whose activities are not within the scope of the appropriate CA audits, to assist in the Certificate Management Process by performing or fulfilling one or more of the CA requirements found herein.
 
 **Digital Identity Document**: a government-issued identity document that is issued in a machine-processable form, that is digitally signed by the issuer, and that is in purely digital form.
 
@@ -217,6 +228,8 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 **Government Entity**: A government-operated legal entity, agency, department, ministry, branch, or similar element of the government of a country, or political subdivision within such country (such as a state, province, city, county, etc.).
 
 **Individual**: A Natural Person.
+
+**Individual-Validated**: Refers to a Certificate Subject that includes only Individual (Natural Person) attributes, rather than attributes linked to an Organization. |
 
 **Issuing CA**: In relation to a particular Certificate, the CA that issued the Certificate. This could be either a Root CA or a Subordinate CA.
 
@@ -247,6 +260,8 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 **OCSP Responder**: An online server operated under the authority of the CA and connected to its Repository for processing Certificate status requests. See also, Online Certificate Status Protocol.
 
 **Online Certificate Status Protocol**: An online Certificate-checking protocol that enables relying-party application software to determine the status of an identified Certificate. See also OCSP Responder.
+
+**Organisation-Validated**: Refers to a Certificate Subject that includes only Organizational (Legal Entity) attributes, rather than attributes linked to an Individual. |
 
 **Parent Company**: A company that Controls a Subsidiary Company.
 
@@ -528,7 +543,7 @@ Control over each Mailbox Address SHALL be confirmed using a unique Random Value
 
 The Random Value SHALL be unique in each email. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CA MAY specify a shorter validity period for Random Values in its CP and/or CPS.
 
-The Random Value SHALL be reset upon each instance of the email sent by the CA and, if intended for additional use as an authentication factor, upon first use. 
+The Random Value SHALL be reset upon each instance of the email sent by the CA to a Mailbox Address, however all relevant Random Values sent to that Mailbox Address SHALL remain valid for use in a confirming response within the validity period decribed in this Section. In addition, the Random Value SHALL be reset upon first use by the user if intended for additional use as an authentication factor following the Mailbox Address verification. 
 
 #### 3.2.2.3 Validating applicant as operator of associated mail server(s)
 
@@ -643,7 +658,7 @@ In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, re
 
 The Enterprise RA SHALL maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-delegated-parties).
 
-1. **Affiliation from company attestation**
+6. **Affiliation from company attestation**
 
 In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority or affiliation of an Individual to represent an Organisation to be included in the `subject:organizationName` of the Certificate using an Attestation provided by the Organization and verified in accordance with [Section 3.2.8](#328-reliability-of-verification-sources). 
 
@@ -1234,7 +1249,7 @@ No stipulation.
 
 ### 5.3.7 Independent contractor requirements
 
-The CA SHALL verify that the Delegated Third Party's personnel involved in the issuance of a Certificate meet the training and skills requirements of [Section 5.3.3](#533-training-requirements) and the document retention and event logging requirements of [Section 5.4.1](#541-types-of-events-recorded).
+The CA SHALL verify that the Delegated Party's personnel involved in the issuance of a Certificate meet the training and skills requirements of [Section 5.3.3](#533-training-requirements) and the document retention and event logging requirements of [Section 5.4.1](#541-types-of-events-recorded).
 
 ### 5.3.8 Documentation supplied to personnel
 
@@ -1244,7 +1259,7 @@ No stipulation.
 
 ### 5.4.1 Types of events recorded
 
-The CA and each Delegated Third Party SHALL record events related to the security of their Certificate Systems, Certificate Management Systems, Root CA Systems, and Delegated Third Party Systems. The CA and each Delegated Third Party SHALL record events related to their actions taken to process a Certificate Request and to issue a Certificate, including all information generated and documentation received in connection with the Certificate Request; the time and date; and the personnel involved. The CA SHALL make these records available to its Qualified Auditor as proof of the CA’s compliance with these Requirements.
+The CA and each Delegated Party SHALL record events related to the security of their Certificate Systems, Certificate Management Systems, Root CA Systems, and Delegated Party Systems. The CA and each Delegated Party SHALL record events related to their actions taken to process a Certificate Request and to issue a Certificate, including all information generated and documentation received in connection with the Certificate Request; the time and date; and the personnel involved. The CA SHALL make these records available to its Qualified Auditor as proof of the CA’s compliance with these Requirements.
 
 The CA SHALL record at least the following events:
 
@@ -1286,7 +1301,7 @@ No stipulation.
 
 ### 5.4.3 Retention period for audit log
 
-The CA and each Delegated Third Party SHALL retain, for at least two (2) years:
+The CA and each Delegated Party SHALL retain, for at least two (2) years:
 
   1. CA Certificate and key lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (1)) after the later occurrence of:<br>
      i. the destruction of the CA Private Key; or
@@ -1327,15 +1342,15 @@ The CA's security program SHALL include an annual Risk Assessment that:
 The CA and each Delegated Party SHALL archive all audit logs (as set forth in [Section 5.4.1](#541-types-of-events-recorded)).
 
 Additionally, the CA and each Delegated Party SHALL archive:
-1. Documentation related to the security of their Certificate Systems, Certificate Management Systems, Root CA Systems, and Delegated Third Party Systems; and
+1. Documentation related to the security of their Certificate Systems, Certificate Management Systems, Root CA Systems, and Delegated Party Systems; and
 2. Documentation related to their verification, issuance, and revocation of Certificate Requests and Certificates.
 
 ### 5.5.2 Retention period for archive
 
 Archived audit logs (as set forth in [Section 5.5.1](#551-types-of-records-archived) SHALL be retained for a period of at least two (2) years from their record creation timestamp, or as long as they are required to be retained per [Section 5.4.3](#543-retention-period-for-audit-log), whichever is longer.
 
-Additionally, the CA and each delegated party SHALL retain, for at least two (2) years:
-1. All archived documentation related to the security of Certificate Systems, Certificate Management Systems, Root CA Systems and Delegated Third Party Systems (as set forth in [Section 5.5.1](#551-types-of-records-archived)); and
+Additionally, the CA and each Delegated Party SHALL retain, for at least two (2) years:
+1. All archived documentation related to the security of Certificate Systems, Certificate Management Systems, Root CA Systems and Delegated Party Systems (as set forth in [Section 5.5.1](#551-types-of-records-archived)); and
 2. All archived documentation relating to the verification, issuance, and revocation of Certificate Requests and Certificates (as set forth in [Section 5.5.1](#551-types-of-records-archived)) after the later occurrence of:
    1. such records and documentation were last relied upon in the verification, issuance, or revocation of Certificate Requests and Certificates; or
    2. the expiration of the Subscriber Certificates relying upon such records and documentation.
@@ -1454,7 +1469,7 @@ The CA SHALL reject a Certificate Request if one or more of the following condit
 4. The CA has previously been made aware that the Applicant's Private Key has suffered a Key Compromise, such as through the provisions of [Section 4.9.1.1](#4911-reasons-for-revoking-a-subscriber-certificate);
 5. The CA is aware of a demonstrated or proven method to easily compute the Applicant's Private Key based on the Public Key (such as a Debian weak key, see <https://wiki.debian.org/SSLkeys>).
 
-The CA or a Delegated Third Party MAY generate the Private Key on behalf of the Subscriber.
+The CA or a Delegated Party MAY generate the Private Key on behalf of the Subscriber.
 
 ### 6.1.2 Private key delivery to subscriber
 
@@ -1462,7 +1477,9 @@ Parties other than the Subscriber SHALL NOT archive the Subscriber Private Key w
 
 If the CA or any of its designated RAs become aware that a Subscriber's Private Key has been communicated to a person or organization not authorized by the Subscriber, then the CA SHALL revoke all Certificates that include the Public Key corresponding to the communicated Private Key.
 
-If the CA or a Delegated Third Party generates the Private Key on behalf of the Subscriber where the Private Keys will be transported to the Subscriber, then the entity generating the Private Key SHALL either transport the Private Key in hardware with an activation method that is equivalent to 128 bits of encryption or encrypt the Private Key with at least 128 bits of encryption strength. Example methods include using a 128-bit AES key to wrap the private key or storing the key in a PKCS 12 file encrypted with a randomly generated password of more than 16 characters containing uppercase letters, lowercase letters, numbers, and symbols for transport.
+If the CA or a Delegated Party generates the Private Key on behalf of the Subscriber where the Private Keys will be transported to the Subscriber, then the entity generating the Private Key SHALL either transport the Private Key in hardware with an activation method that is equivalent to 128 bits of encryption or encrypt the Private Key with at least 128 bits of encryption strength. Example methods include using a 128-bit AES key to wrap the Private Key or storing the key in a PKCS 12 file encrypted with a randomly generated password of more than 16 characters containing uppercase letters, lowercase letters, numbers, and symbols for transport. The CA or Delegated Party SHALL NOT store Subscriber Private Keys in clear text.
+
+The material used to activate/protect the Private Key (e.g., a password used to secure a PKCS 12 file) must be delivered to the Subscriber securely and separately from the container holding the Private Key.
 
 ### 6.1.3 Public key delivery to certificate issuer
 
@@ -1476,12 +1493,12 @@ No stipulation.
 
 For RSA key pairs the CA SHALL:
 
-* Ensure that the modulus size, when encoded, is at least 2048 bits, and;
+* Ensure that the modulus size, when encoded, is at least 2048 bits; and
 * Ensure that the modulus size, in bits, is evenly divisible by 8.
 
 For ECDSA key pairs, the CA SHALL:
 
-* Ensure that the key represents a valid point on the NIST P-256, NIST P-384 or NIST P-521 elliptic curve.
+* Ensure that the key represents a valid point on the NIST P-256, NIST P-384, or NIST P-521 elliptic curve.
 
 For EdDSA key pairs, the CA SHALL:
 
@@ -1493,7 +1510,7 @@ No other algorithms or key sizes are permitted.
 
 For RSA key pairs: the CA SHALL confirm that the value of the public exponent is an odd number equal to 3 or more. Additionally, the public exponent SHOULD be in the range between 2^16 + 1 and 2^256 - 1. The modulus SHOULD also have the following characteristics: an odd number, not the power of a prime, and have no factors smaller than 752. (See NIST SP 800-89, Section 5.3.3.)
 
-For ECDSA key pairs: the CA SHOULD confirm the validity of all keys using either the ECC Full Public Key Validation Routine or the ECC Partial Public Key Validation Routine. (See ST SP 800-56A: Revision 2, Sections 5.6.2.3.2 and 5.6.2.3.3.)
+For ECDSA key pairs: the CA SHOULD confirm the validity of all keys using either the ECC Full Public Key Validation Routine or the ECC Partial Public Key Validation Routine. (See NIST SP 800-56A: Revision 2, Sections 5.6.2.3.2 and 5.6.2.3.3.)
 
 For EdDSA key pairs: no stipulation.
 
@@ -2037,7 +2054,7 @@ h. __Certificate Field:__ `subject:emailAddress` (1.2.840.113549.1.9.1)
    __Contents:__ If present, the `subject:emailAddress` SHALL contain a single Mailbox Address as verified under [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control).
 
 i. __Certificate Field:__ `subject:title` (2.5.4.12) 
-   __Contents:__ If present, the `subject:title` field SHALL contain only a corporate role/title or a regulated professional designation verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
+   __Contents:__ If present, the `subject:title` field SHALL contain only a organizational role/title or a regulated professional designation verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
 
 j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4.9)  
  __Contents:__ If present, the `subject:streetAddress` field SHALL contain the Subject's street address information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity).
@@ -2324,9 +2341,9 @@ Whichever scheme is chosen, it SHALL incorporate periodic monitoring and/or acco
 
 The audit SHALL be conducted by a Qualified Auditor, as specified in [Section 8.2](#82-identityqualifications-of-assessor).
 
-For Delegated Third Parties that are not Enterprise RAs, then the CA SHALL obtain an audit report, issued under the auditing standards that underlie the accepted audit schemes found in [Section 8.4](#84-topics-covered-by-assessment), that provides an opinion whether the Delegated Third Party's performance complies with either the Delegated Third Party's practice statement or the CA's CP and/or CPS. If the opinion is that the Delegated Third Party does not comply, then the CA SHALL not allow the Delegated Third Party to continue performing delegated functions.
+For Delegated Third Parties that are not Enterprise RAs, then the CA SHALL obtain an audit report, issued under the auditing standards that underlie the accepted audit schemes found in [Section 8.4](#84-topics-covered-by-assessment), that provides an opinion whether the Delegated Party's performance complies with either the Delegated Party's practice statement or the CA's CP and/or CPS. If the opinion is that the Delegated Party does not comply, then the CA SHALL not allow the Delegated Party to continue performing delegated functions.
 
-The audit period for the Delegated Third Party SHALL NOT exceed one year (ideally aligned with the CA's audit). However, if the CA or Delegated Third Party is under the operation, control, or supervision of a Government Entity and the audit scheme is completed over multiple years, then the annual audit SHALL cover at least the core controls that are required to be audited annually by such scheme plus that portion of all non-core controls that are allowed to be conducted less frequently, but any non-core control SHALL NOT be audited less often than once every three years.
+The audit period for the Delegated Party SHALL NOT exceed one year (ideally aligned with the CA's audit). However, if the CA or Delegated Party is under the operation, control, or supervision of a Government Entity and the audit scheme is completed over multiple years, then the annual audit SHALL cover at least the core controls that are required to be audited annually by such scheme plus that portion of all non-core controls that are allowed to be conducted less frequently, but any non-core control SHALL NOT be audited less often than once every three years.
 
 ## 8.5 Actions taken as a result of deficiency
 
@@ -2529,7 +2546,7 @@ No stipulation.
 
 ## 9.8 Limitations of liability
 
-For delegated tasks, the CA and any Delegated Third Party MAY allocate liability between themselves contractually as they determine, but the CA SHALL remain fully responsible for the performance of all parties in accordance with these Requirements, as if the tasks had not been delegated.
+For delegated tasks, the CA and any Delegated Party MAY allocate liability between themselves contractually as they determine, but the CA SHALL remain fully responsible for the performance of all parties in accordance with these Requirements, as if the tasks had not been delegated.
 
 If the CA has issued and managed the Certificate in compliance with these Requirements and its CP and/or CPS, the CA MAY disclaim liability to the Certificate Beneficiaries or any other third parties for any losses suffered as a result of use or reliance on such Certificate beyond those specified in the CA's CP and/or CPS. If the CA has not issued or managed the Certificate in compliance with these Requirements and its CP and/or CPS, the CA MAY seek to limit its liability to the Subscriber and to Relying Parties, regardless of the cause of action or legal theory involved, for any and all claims, losses or damages suffered as a result of the use or reliance on such Certificate by any appropriate means that the CA desires. If the CA chooses to limit its liability for Certificates that are not issued or managed in compliance with these Requirements or its CP and/or CPS, then the CA SHALL include the limitations on liability in the CA's CP and/or CPS.
 
