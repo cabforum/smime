@@ -2081,13 +2081,9 @@ j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4
  __Contents:__ If present, the `subject:streetAddress` field SHALL contain the Subject's street address information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity).
 
 k. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)  
-   __Required__ if the `subject:organizationName`, or the `subject:givenName` and/or `subject:surname` fields, are present and the `subject:stateOrProvinceName` field is absent.
-   __Optional__ if the `subject:stateOrProvinceName` field is present. 
    __Contents:__ If present, the `subject:localityName` field SHALL contain the Subject's locality information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (n), the `localityName` field MAY contain the Subject's locality and/or state or province information.
 
 l. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)  
-   __Required__ if the `subject:organizationName`, or the `subject:givenName` and/or `subject:surname` fields, are present and the `subject:localityName` field is absent.
-   __Optional__ if the `subject:localityName` field is present. 
    __Contents:__ If present, the `subject:stateOrProvinceName` field SHALL contain the Subject's state or province information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) or [Section 3.2.4](#324-authentication-of-individual-identity). If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (n), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
 
 m. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)  
