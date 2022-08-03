@@ -25,9 +25,9 @@ This Certificate Policy (CP) describes a subset of the requirements that a CA SH
 
 These Requirements do not address all of the issues relevant to the issuance and management of Publicly-Trusted S/MIME Certificates. To facilitate a comparison of other CP and/or CPS (e.g., for policy mapping), this document includes all sections of the [RFC 3647](https://datatracker.ietf.org/doc/html/rfc3647) framework. The CA/Browser Forum MAY update these Requirements from time to time.
 
-These Requirements do not address the issuance or management of Certificates by enterprises that operate their own Public Key Infrastructure for internal purposes only, and for which the Root CA Certificate is not distributed by any Application Software Supplier, nor do they address the issuance or management of certificates by enterprises that interoperate via a Bridge CA environment. 
+These Requirements do not address the issuance or management of Certificates by enterprises that operate their own Public Key Infrastructure for internal purposes only, and for which the Root CA Certificate is not distributed by any Application Software Supplier, nor do they address the issuance or management of Certificates by enterprises that interoperate via a Bridge CA environment. 
 
-These Requirements are applicable to all Certification Authorities within a publicly-trusted chain of trust. They are to be flowed down from the Root CA through successive Subordinate CAs.
+These Requirements are applicable to all Certification Authorities within a Publicly-Trusted chain of trust. They are to be flowed down from the Root CA through successive Subordinate CAs.
 
 ## 1.2 Document name and identification
 
