@@ -673,7 +673,7 @@ The CA SHOULD consider requirements to avoid issuance of consecutive Certificate
 
   The CA/Browser Forum S/MIME Certificate Working Group will consider additional trust service frameworks that provide an equivalent level of security and validation compared to these Requirements. Proposals that evaluate the additional framework against the following criteria SHALL be submitted to the questions@cabforum.org mailing list:
 
-  * Legal context: the framework SHALL be subject to regulatory provisions, established by the government in the relevant jurisdiction, including the different levels and legal effects of the trust services and the requirements imposed on the trust service provider;
+  * Legal context: the framework SHALL be subject to regulatory provisions, established by the government in the relevant jurisdiction, including the different Certificate levels and legal effects of the trust services and the requirements imposed on the Certificate issuer/trust service provider;
   * Supervision and auditing systems: the framework SHALL include appropriate rules providing for:
     * supervision of the trust service provider, ensuring that trust service providers meet regulatory imposed provisions;
     * requirements imposed on auditing bodies when conducting audits;
