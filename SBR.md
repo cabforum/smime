@@ -658,14 +658,19 @@ The CA SHOULD consider requirements to avoid issuance of consecutive Certificate
 
   a. Approved frameworks
 
-  * eIDAS Qualified Certificates as defined in ETSI EN 319 411-2 and validated according to ETSI TS 119 172-4
-  * International Grid Trust Federation/IGTF
-  * Adobe Signing Certificate issued under the AATL program
-  * the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+  * Adobe: Signing Certificate issued under the AATL program;
+  * Bermuda: Certificate issued by Authorised CSP accredited under the ETA
+  * Brasil: Certificate accredited under ICP-Brasil;
+  * European Union: Qualified Certificate accredited under eIDAS;
+  * International Grid Trust Federation: Certificates issued under Birch or Cedar assuranace levels;
+  * Peru: Certificate accredited by INDECOPI;
+  * South Africa: Certificates accredited in accordance with section 37 of the ECTA;
+  * Switzerland: Qualified or Regulated Certificate accredited under ZertES;
+  * United States: Certificate issued with validation using NIST SP 800-63 at IAL2 (or Kantara IAL2) or higher.
 
   b. Additional frameworks
 
-  The CA/Browser Forum S/MIME Certificate Working Group will consider additional trust service frameworks that provide an equivalent level of security and validation compared to these Requirements. Proposals that evaluate the additional framework against the following criteria may be submitted to the questions@cabforum.org mailing list:
+  The CA/Browser Forum S/MIME Certificate Working Group will consider additional trust service frameworks that provide an equivalent level of security and validation compared to these Requirements. Proposals that evaluate the additional framework against the following criteria SHALL be submitted to the questions@cabforum.org mailing list:
 
   * Legal context: the framework SHALL be subject to regulatory provisions, established by the government in the relevant jurisdiction, including the different levels and legal effects of the trust services and the requirements imposed on the trust service provider;
   * Supervision and auditing systems: the framework SHALL include appropriate rules providing for:
