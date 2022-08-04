@@ -665,21 +665,15 @@ The CA SHOULD consider requirements to avoid issuance of consecutive Certificate
 
   b. Additional frameworks
 
-  The CA MAY rely upon digital signatures issued under additional trust service frameworks that provide an equivalent level of security and validation compared to these Requirements.
-
-  The CA SHALL use a documented process to evaluate the framework based upon the following factors:
+  The CA/Browser Forum S/MIME Certificate Working Group will consider additional trust service frameworks that provide an equivalent level of security and validation compared to these Requirements. Proposals that evaluate the additional framework against the following criteria may be submitted to the questions@cabforum.org mailing list:
 
   * Legal context: the framework SHALL be subject to regulatory provisions, established by the government in the relevant jurisdiction, including the different levels and legal effects of the trust services and the requirements imposed on the trust service provider;
-  * Supervision and auditing systems: the framework includes appropriate rules providing for:
-    * the supervision of the trust service provider, ensuring that trust service providers meet regulatory imposed provisions;
-    * the requirements imposed on auditing bodies when conducting audits;
-    * supervision of the auditing bodies; 
-    * the requirements on the auditing bodies when conducting audits.
-  * Best practices and transparency: the requirements for online, public disclosure of practices by the trust service provider in a CP and/or CPS.
-  * Identity validation: the identity validation practices must provide a level of assurance equivalent to that of the identity validation methods described in these Requirements. 
-
-The CA SHALL disclose additional frameworks in their CP and/or CPS before adopting, and SHALL propose additional frameworks to CA/Browser Forum S/MIME Certificate Working group for inclusion in these Requirements, using
-the questions@cabforum.org mailing list.
+  * Supervision and auditing systems: the framework SHALL include appropriate rules providing for:
+    * supervision of the trust service provider, ensuring that trust service providers meet regulatory imposed provisions;
+    * requirements imposed on auditing bodies when conducting audits;
+    * supervision of the auditing bodies.
+  * Best practices and transparency: requirements for online, public disclosure of practices by the trust service provider in a CP and/or CPS.
+  * Identity validation: must provide a level of assurance equivalent to that of the identity validation methods described in these Requirements. 
 
 5.	**From Enterprise RA records** 
 
