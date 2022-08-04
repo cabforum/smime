@@ -650,11 +650,36 @@ The CA SHALL document and publish information describing the eID and associated 
 
 4.	**From a certificate supporting a digital signature applied by the Applicant** 
 
-If a digital signature is to be used as evidence, the CA or RA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under one of the following standards: eIDAS Qualified Certificates as defined in ETSI EN 319 411-2 and validated according to ETSI TS 119 172-4, International Grid Trust Federation/IGTF, Adobe Signing Certificate issued under the AATL or CDS program, the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+If a digital signature is to be used as evidence, the CA or RA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under frameworks described in this section. 
 
-Identity attributes are evidenced by the Certificate, not by the signed document. The CA or RA SHALL only rely upon the signing Certificate as evidence for identity attributes if the signature is valid.
+Identity attributes are evidenced by the signing Certificate, not by the content of the signed document. The CA or RA SHALL only rely upon the signing Certificate as evidence for identity attributes if the digital signature is valid.
 
 The CA SHOULD consider requirements to avoid issuance of consecutive Certificates that are issued based on a preceding Certificate, where the original verification of the Subject's identity may have been conducted in the distant past.
+
+  a. Approved frameworks
+
+  * eIDAS Qualified Certificates as defined in ETSI EN 319 411-2 and validated according to ETSI TS 119 172-4
+  * International Grid Trust Federation/IGTF
+  * Adobe Signing Certificate issued under the AATL program
+  * the Kantara identity assurance framework at level 2, NIST SP 800-63 at level 2, or the FBCA CP at Basic or higher assurance.
+
+  b. Additional frameworks
+
+  The CA MAY rely upon digital signatures issued under additional trust service frameworks that provide an equivalent level of security and validation compared to these Requirements.
+
+  The CA SHALL use a documented process to evaluate the framework based upon the following factors:
+
+  * Legal context: the framework SHALL be subject to regulatory provisions, established by the government in the relevant jurisdiction, including the different levels and legal effects of the trust services and the requirements imposed on the trust service provider;
+  * Supervision and auditing systems: the framework includes appropriate rules providing for:
+    * the supervision of the trust service provider, ensuring that trust service providers meet regulatory imposed provisions;
+    * the requirements imposed on auditing bodies when conducting audits;
+    * supervision of the auditing bodies; 
+    * the requirements on the auditing bodies when conducting audits.
+  * Best practices and transparency: the requirements for online, public disclosure of practices by the trust service provider in a CP and/or CPS.
+  * Identity validation: the identity validation practices must provide a level of assurance equivalent to that of the identity validation methods described in these Requirements. 
+
+The CA SHALL disclose additional frameworks in their CP and/or CPS before adopting, and SHALL propose additional frameworks to CA/Browser Forum S/MIME Certificate Working group for inclusion in these Requirements, using
+the questions@cabforum.org mailing list.
 
 5.	**From Enterprise RA records** 
 
@@ -662,7 +687,7 @@ In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, re
 
 The Enterprise RA SHALL maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-delegated-parties).
 
-6. **Affiliation from company attestation**
+1. **Affiliation from company attestation**
 
 In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority or affiliation of an Individual to represent an Organisation to be included in the `subject:organizationName` of the Certificate using an Attestation provided by the Organization and verified in accordance with [Section 3.2.8](#328-reliability-of-verification-sources). 
 
@@ -2064,7 +2089,7 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
    1. Confirm that the organization represented by the Registration Reference is the same as the organization named in the `organizationName` field as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields); and
    2. Further verify the Registration Reference matches other information verified in accordance with [Section 3.2.3](#323-authentication-of-organization-identity).
 
-   **Note 2**: For the following types of entities that do not have an identifier from the  Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes):
+   **Note 2**: For the following types of entities that do not have an identifier from the Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes):
 
     * For Government Entities, the CA SHALL enter the text `Government Entity`.
     * For International Organization Entities, the CA SHALL enter the text `International Organization Entity`. An International Organization Entity is founded by a constituent document, e.g., a charter, treaty, convention or similar document, signed by, or on behalf of, a minimum of two Sovereign State governments.
