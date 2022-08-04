@@ -663,6 +663,7 @@ The CA SHOULD consider requirements to avoid issuance of consecutive Certificate
   * Brasil: Certificate accredited under ICP-Brasil;
   * European Union: Qualified Certificate accredited under eIDAS;
   * International Grid Trust Federation: Certificates issued under Birch or Cedar assurance levels;
+  * Japan: Certificate issued by Authorized Service Provider under the e-Signature Act;
   * Peru: Certificate accredited by INDECOPI;
   * South Africa: Certificates accredited in accordance with section 37 of the ECTA;
   * Switzerland: Qualified or Regulated Certificate accredited under ZertES;
