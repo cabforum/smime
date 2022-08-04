@@ -2052,7 +2052,7 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
     * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
     * Registration Reference allocated in accordance with the identified Registration Scheme.
 
-   **Note**: Registration References MAY contain hyphens but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
+   **Note 1**: Registration References MAY contain hyphens but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
 
     * `NTRGB-12345678` (NTR scheme, Great Britain, Unique Identifier at Country level is 12345678).
     * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Unique identifier at State level is 12345678).
@@ -2063,6 +2063,11 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
 
    1. Confirm that the organization represented by the Registration Reference is the same as the organization named in the `organizationName` field as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields); and
    2. Further verify the Registration Reference matches other information verified in accordance with [Section 3.2.3](#323-authentication-of-organization-identity).
+
+   **Note 2**: For the following types of entities that do not have an identifier from the  Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes):
+
+    * For Government Entities, the CA SHALL enter the text "Government Entity".
+    * For International Organization Entities, the CA SHALL enter the text "International Organization Entity". An International Organization Entity is founded by a constituent document, e.g., a charter, treaty, convention or similar document, signed by, or on behalf of, a minimum of two Sovereign State governments.
 
 e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
    __Contents:__ If present, the `subject:givenName` field and `subject:surname` field SHALL contain a Natural Person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). Subjects with a single legal name SHALL provide the name in the `subject:surname` attribute. The `subject:givenName` and/or `subject:surname` SHALL NOT be present if the `subject:pseudonym` is present.
