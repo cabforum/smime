@@ -25,7 +25,7 @@ This Certificate Policy (CP) describes a subset of the requirements that a CA SH
 
 These Requirements do not address all of the issues relevant to the issuance and management of Publicly-Trusted S/MIME Certificates. To facilitate a comparison of other CP and/or CPS (e.g., for policy mapping), this document includes all sections of the [RFC 3647](https://datatracker.ietf.org/doc/html/rfc3647) framework. The CA/Browser Forum MAY update these Requirements from time to time.
 
-These Requirements do not address the issuance or management of Certificates by enterprises that operate their own Public Key Infrastructure for internal purposes only, and for which the Root CA Certificate is not distributed by any Application Software Supplier, nor do they address the issuance or management of Certificates by enterprises that interoperate via a Bridge CA environment. 
+These Requirements do not address the issuance or management of Certificates by enterprises that operate their own Public Key Infrastructure for internal purposes only, and for which the Root CA Certificate is not distributed by any Application Software Supplier. 
 
 These Requirements are applicable to all Certification Authorities within a Publicly-Trusted chain of trust. They are to be flowed down from the Root CA through successive Subordinate CAs.
 
@@ -178,8 +178,6 @@ The Definitions found in the CA/Browser Forum's Network and Certificate System S
 **Audit Period**: In a period-of-time audit, the period between the first day (start) and the last day of operations (end) covered by the auditors in their engagement. (This is not the same as the period of time when the auditors are on-site at the CA.) The coverage rules and maximum length of audit periods are defined in [Section 8.1](#81-frequency-or-circumstances-of-assessment).
 
 **Audit Report**: A report from a Qualified Auditor stating the Qualified Auditor's opinion on whether an entity's processes and controls comply with the mandatory provisions of these Requirements.
-
-**Bridge CA**: A CA that facilitates interoperability between different enterprises or communities that operate their own PKIs by issuing Cross Certificates to participating CAs. 
 
 **CAA**: From [RFC 8659](http://tools.ietf.org/html/rfc8659): "The Certification Authority Authorization (CAA) DNS Resource Record allows a DNS domain name holder to specify one or more Certification Authorities (CAs) authorized to issue Certificates for that domain name. CAA Resource Records allow a public CA to implement additional controls to reduce the risk of unintended Certificate mis-issue."
 
