@@ -137,7 +137,7 @@ No stipulation.
 
 ## 1.5 Policy administration
 
-This document MAY be revised from time to time, as appropriate, in accordance with procedures adopted by the CA/Browser Forum. The CA/Browser Forum welcomes recommendations and suggestions regarding this standard by email at <questions@cabforum.org>. 
+These Requirements MAY be revised from time to time, as appropriate, in accordance with procedures adopted by the CA/Browser Forum. The CA/Browser Forum welcomes recommendations and suggestions regarding this standard by email at <questions@cabforum.org>. 
 
 ### 1.5.1 Organization administering the document
 
@@ -157,7 +157,7 @@ No stipulation.
 
 ## 1.6 Definitions and acronyms
 
-The Definitions found in the CA/Browser Forum's Network and Certificate System Security Requirements are incorporated by reference as if fully set forth herein.
+The Definitions found in the [CA/Browser Forum's Network and Certificate System Security Requirements](https://cabforum.org/network-security-requirements/) are incorporated by reference as if fully set forth herein.
 
 ### 1.6.1 Definitions
 
@@ -453,15 +453,13 @@ The CA SHALL make its Repository publicly available in a read-only manner.
 
 When the `subject:commonName` of a Certificate issued to an Individual does not contain a Mailbox Address, it is specified as a Personal Name or `subject:pseudonym` as described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields)(a). 
 
-Personal Names SHALL be a meaningful representation of the Subject’s name as verified in the identifying documentation or Enterprise RA records. 
-
 Names consisting of multiple words are permitted. Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence. Subjects MAY chose name order in accordance with national preference. 
 
 The CA MAY allow common variations or abbreviations of Personal Names consistent with local practice. 
 
 ### 3.1.2 Need for names to be meaningful
 
-No stipulation.
+Personal Names SHALL be a meaningful representation of the Subject’s name as verified in the identifying documentation or Enterprise RA records. 
 
 ### 3.1.3 Anonymity or pseudonymity of subscribers
 
@@ -523,11 +521,11 @@ The CA SHALL verify that Applicant controls the email accounts associated with a
 
 The CA SHALL NOT delegate the verification of mailbox authorization or control.
 
-**Note:** Mailbox Fields MAY be listed in Subscriber Certificates using `rfc822Name` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension, or in Subordinate CA Certificates via `rfc822Name` in permittedSubtrees within the `nameConstraints` extension.
-
 The CA's CP and/or CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which validation method, including the relevant version number from the TLS Baseline Requirements or S/MIME Baseline Requirements, used to validate every domain or email address in issued Certificates.
 
 Completed validations of Applicant authority MAY be valid for the issuance of multiple Certificates over time. In all cases, the validation SHALL have been initiated within the time period specified in the relevant requirement (such as [Section 4.2.1](#421-performing-identification-and-authentication-functions)) prior to Certificate issuance.
+
+**Note:** Mailbox Fields MAY be listed in Subscriber Certificates using `rfc822Name` or `otherNames` of `type id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension. Mailbox Fields MAY be listed in Subordinate CA Certificates via `rfc822Name` in permittedSubtrees within the `nameConstraints` extension.
 
 #### 3.2.2.1 Validating authority over mailbox via domain
 
@@ -549,7 +547,7 @@ The Random Value SHALL be reset upon each instance of the email sent by the CA t
 
 #### 3.2.2.3 Validating applicant as operator of associated mail server(s)
 
-Confirming the Applicant's control over each Mailbox Field to be included in the Certificate, by confirming control of the SMTP FQDN to which a message delivered to the Mailbox Address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given Mailbox Address. If more than one SMTP FQDN has been discovered, the CA SHALL verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA SHALL NOT be used for this validation method.
+The CA MAY confirm the Applicant's control over each Mailbox Field to be included in the Certificate by confirming control of the SMTP FQDN to which a message delivered to the Mailbox Address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given Mailbox Address. If more than one SMTP FQDN has been discovered, the CA SHALL verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA SHALL NOT be used for this validation method.
 
 To confirm the Applicant's control of the SMTP FQDN, the CA SHALL use only the currently-approved methods in [Section 3.2.2.4](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) of the TLS Baseline Requirements.
 
@@ -665,7 +663,7 @@ The CA SHOULD consider requirements to avoid issuance of consecutive Certificate
   * Peru: Certificate accredited by INDECOPI;
   * South Africa: Certificates accredited in accordance with section 37 of the ECTA;
   * Switzerland: Qualified or Regulated Certificate accredited under ZertES;
-  * United States: Certificate issued with validation using NIST SP 800-63 at IAL2 (or Kantara IAL2) or higher.
+  * United States: Certificate issued with validation using NIST SP 800-63A at IAL2 (or Kantara IAL2) or higher.
 
   b. Additional frameworks
 
@@ -1060,7 +1058,7 @@ No stipulation.
 
 ### 4.9.7 CRL issuance frequency
 
-For the status of Subscriber Certificates: if the CA publishes a CRL, then the CA SHALL update and reissue CRLs at least once every seven days, and the value of the `nextUpdate` field SHALL NOT be more than ten days beyond the value of the `thisUpdate` field.
+For the status of Subscriber Certificates: the CA SHALL update and reissue CRLs at least once every seven days, and the value of the `nextUpdate` field SHALL NOT be more than ten days beyond the value of the `thisUpdate` field.
 
 For the status of Subordinate CA Certificates: the CA SHALL update and reissue CRLs at least:
 
@@ -2015,7 +2013,7 @@ For every valid Certification Path (as defined by [RFC 5280, Section 6](https://
 
 By issuing the Certificate, the CA represents that it followed the procedure set forth in its CP and/or CPS to verify that, as of the Certificate's issuance date, all of the Subject Information was accurate. 
 
-CAs SHALL NOT include an Mailbox Address in a Mailbox Field except as verified in accordance with [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)
+CAs SHALL NOT include a Mailbox Address in a Mailbox Field except as verified in accordance with [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)
 
 Subject attributes SHALL NOT contain only metadata such as '.', '-', and ' ' (i.e., space) characters, and/or any other indication that the value is absent, incomplete, or not applicable. 
 
