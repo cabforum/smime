@@ -263,7 +263,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Online Certificate Status Protocol**: An online Certificate-checking protocol that enables relying-party application software to determine the status of an identified Certificate. See also OCSP Responder.
 
-**Organisation-Validated**: Refers to a Certificate Subject that includes only Organizational (Legal Entity) attributes, rather than attributes linked to an Individual. |
+**Organisation-Validated**: Refers to a Certificate Subject that includes only Organizational (Legal Entity) attributes, rather than attributes linked to an Individual.
 
 **Parent Company**: A company that Controls a Subsidiary Company.
 
@@ -431,13 +431,13 @@ The CA SHALL publicly disclose its CP and/or CPS through an appropriate and read
 
 The CP and/or CPS SHALL be structured in accordance with [RFC 3647](http://tools.ietf.org/html/rfc3647) and SHALL include all material required by [RFC 3647](http://tools.ietf.org/html/rfc3647).
 
-The CA SHALL publicly give effect to these Requirements and represent that it will adhere to the latest published version. The CA MAY fulfill this requirement by incorporating these Requirements directly into its CP and/or CPSs or by incorporating them by reference using a clause such as the following (which SHALL include a link to the official version of these Requirements):
+The CA SHALL publicly give effect to these Requirements and represent that it will adhere to the latest published version. The CA MAY fulfill this requirement by incorporating these Requirements directly into its CP and/or CPS or by incorporating them by reference using a clause such as the following (which SHALL include a link to the official version of these Requirements):
 
 > [Name of CA] conforms to the current version of the Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates published at https://www.cabforum.org. In the event of any inconsistency between this document and those Requirements, those Requirements take precedence over this document.
 
 ## 2.3 Time or frequency of publication
 
-The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL review and update its CP and/or CPS at least every 365 days, incrementing the version number and adding a dated changelog entry even if no other changes are made. The CA SHALL indicate conformance with this requirement by incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
+The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL review and update its CP and/or CPS at least every 365 days, incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
 
 ## 2.4 Access controls on repositories
 
@@ -521,7 +521,7 @@ The CA SHALL verify that Applicant controls the email accounts associated with a
 
 The CA SHALL NOT delegate the verification of mailbox authorization or control.
 
-The CA's CP and/or CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which validation method, including the relevant version number from the TLS Baseline Requirements or S/MIME Baseline Requirements, used to validate every domain or email address in issued Certificates.
+The CA's CP and/or CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which validation method, including the relevant version number from the TLS Baseline Requirements or S/MIME Baseline Requirements, was used to validate every domain or email address in issued Certificates.
 
 Completed validations of Applicant authority MAY be valid for the issuance of multiple Certificates over time. In all cases, the validation SHALL have been initiated within the time period specified in the relevant requirement (such as [Section 4.2.1](#421-performing-identification-and-authentication-functions)) prior to Certificate issuance.
 
@@ -557,7 +557,7 @@ This version of the S/MIME Baseline Requirements does not require the CA to chec
 
 ### 3.2.3 Authentication of organization identity
 
-The following requirements SHALL be fulfilled to authenticate Organization identity included in the `Organization-validated` and `Sponsor-validated`  profiles.
+The following requirements SHALL be fulfilled to authenticate Organization identity included in the `Organization-validated` and `Sponsor-validated` profiles.
 
 #### 3.2.3.1 Attribute collection of organization identity
 
@@ -565,7 +565,7 @@ The CA or RA SHALL collect and retain evidence supporting the following identity
 
 1.	Formal name of the Legal Entity;
 2.	A registered assumed name for the Legal Entity (if included in the Subject);
-3. An organisational unit of the Legal Entity (if included in the Subject);
+3.  An organizational unit of the Legal Entity (if included in the Subject);
 4.	An address of the Legal Entity (if included in the Subject);
 5.	Jurisdiction of Incorporation or Registration of the Legal Entity; and
 6.	Unique identifier and type of identifier for the Legal Entity. 
@@ -587,7 +587,7 @@ The CA or RA SHALL verify the full legal name and an address (if included in the
 
 The CA or RA MAY use the same documentation or communication described in 1 through 4 above to verify both the Applicant's identity and address.
 
- If an LEI data reference is used, the CA or RA SHALL verify that the RegistrationStatus is ISSUED and the EntityStatus is ACTIVE. The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
+If an LEI data reference is used, the CA or RA SHALL verify that the RegistrationStatus is ISSUED and the EntityStatus is ACTIVE. The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
 ##### 3.2.3.2.2 Verification of assumed name
 
@@ -655,7 +655,7 @@ The CA SHOULD consider requirements to avoid issuance of consecutive Certificate
   a. Approved frameworks
 
   * Adobe: Signing Certificate issued under the AATL program;
-  * Bermuda: Certificate issued by Authorised CSP accredited under the ETA
+  * Bermuda: Certificate issued by Authorised CSP accredited under the ETA;
   * Brasil: Certificate accredited under ICP-Brasil;
   * European Union: Qualified Certificate accredited under eIDAS;
   * International Grid Trust Federation: Certificates issued under Birch or Cedar assurance levels;
@@ -671,7 +671,7 @@ The CA SHOULD consider requirements to avoid issuance of consecutive Certificate
 
   * Legal context: the framework SHALL be subject to regulatory provisions, established by the government in the relevant jurisdiction, including the different Certificate levels and legal effects of the trust services and the requirements imposed on the Certificate issuer/trust service provider;
   * Supervision and auditing systems: the framework SHALL include appropriate rules providing for:
-    * supervision of the trust service provider, ensuring that trust service providers meet regulatory imposed provisions;
+    * supervision of the trust service provider, ensuring that trust service providers meet regulatory-imposed provisions;
     * requirements imposed on auditing bodies when conducting audits;
     * supervision of the auditing bodies.
   * Best practices and transparency: requirements for online, public disclosure of practices by the trust service provider in a CP and/or CPS.
@@ -764,7 +764,7 @@ Subscriber information that has not been verified in accordance with these Requi
 
 ### 3.2.6 Validation of authority
 
-Before commencing to issue `Organization-validated` and `Sponsor-validated`  Certificates for an Applicant, the CA or RA SHALL use a Reliable Method of Communication to verify the authority and approval of an Applicant Representative to perform one or more of the following:
+Before commencing to issue `Organization-validated` and `Sponsor-validated` Certificates for an Applicant, the CA or RA SHALL use a Reliable Method of Communication to verify the authority and approval of an Applicant Representative to perform one or more of the following:
 *  to act as an Enterprise RA;
 *  to request issuance or revocation of Certificates; or 
 *  to assign responsibilities to others to act in these roles. 
@@ -838,7 +838,7 @@ The CA MAY reuse completed validations and/or supporting evidence performed in a
 
 1. **Validation of mailbox authorization or control**: Completed validation of the control of a mail server in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers) SHALL be obtained no more than 398 days prior to issuing the Certificate. 
    
-      In the event of changes to the TLS Baseline Requirements methods specified in [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain), a CA MAY continue to reuse completed validations and/or supporting evidence for the period stated in this section.
+      In the event of changes to the methods specified in [Section 3.2.2.4](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) of the TLS Baseline Requirements, a CA MAY continue to reuse completed validations and/or supporting evidence for the period stated in this section.
 
       Completed validation of control of a mailbox in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email) SHALL be obtained no more than 30 days prior to issuing the Certificate.
 
@@ -1328,7 +1328,8 @@ No stipulation.
 
 The CA and each Delegated Party SHALL retain, for at least two (2) years:
 
-  1. CA Certificate and key lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (1)) after the later occurrence of:<br>
+  1. CA Certificate and key lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (1)) after the later occurrence of:
+  
      i. the destruction of the CA Private Key; or
      ii. the revocation or expiration of the final CA Certificate in that set of Certificates that have an X.509v3 `basicConstraints` extension with the `cA` field set to true and which share a common Public Key corresponding to the CA Private Key;
   2. Subscriber Certificate lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (2)) after the expiration of the Subscriber Certificate;
