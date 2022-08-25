@@ -3,7 +3,7 @@ title: Baseline Requirements for the Issuance and Management of Publicly-Trusted
 subtitle: Pre-Ballot Discussion Version X.Y.Z
 author:
   - CA/Browser Forum
-date: May 2022
+date: August 2022
 copyright: |
   Copyright 2022 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -21,13 +21,13 @@ An S/MIME Certificate for the purposes of this document can be identified by the
 
 An S/MIME Certificate contains a Public Key bound to a Mailbox Address and MAY also contain the identity of a Natural Person or Legal Entity that controls such email address. The Key Pair can then be used to sign, verify, encrypt, and decrypt email. 
 
-This Certificate Policy (CP) describes a subset of the requirements that a CA SHALL meet in order to issue Publicly-Trusted S/MIME Certificates. This document serves two purposes: to specify Baseline Requirements and to provide guidance and requirements for what a CA should include in its Certification Practice Statement (CPS). These Requirements apply only to relevant events that occur on or after the relevant Effective Date described in [Section 1.2.1](#121-revisions) of these Requirements.
+This Certificate Policy (CP) describes a subset of the requirements that a CA SHALL meet in order to issue Publicly-Trusted S/MIME Certificates. This document serves two purposes: to specify Baseline Requirements and to provide guidance and requirements for what a Certification Authority (CA) should include in its Certification Practice Statement (CPS). These Requirements apply only to relevant events that occur on or after the relevant Effective Date described in [Section 1.2.1](#121-revisions) of these Requirements.
 
 These Requirements do not address all of the issues relevant to the issuance and management of Publicly-Trusted S/MIME Certificates. To facilitate a comparison of other CP and/or CPS (e.g., for policy mapping), this document includes all sections of the [RFC 3647](https://datatracker.ietf.org/doc/html/rfc3647) framework. The CA/Browser Forum MAY update these Requirements from time to time.
 
 These Requirements do not address the issuance or management of Certificates by enterprises that operate their own Public Key Infrastructure for internal purposes only, and for which the Root CA Certificate is not distributed by any Application Software Supplier. 
 
-These Requirements are applicable to all Certification Authorities within a Publicly-Trusted chain of trust. They are to be flowed down from the Root CA through successive Subordinate CAs.
+These Requirements are applicable to all CAs within a Publicly-Trusted chain of trust. They are to be flowed down from the Root CA through successive Subordinate CAs.
 
 ## 1.2 Document name and identification
 
@@ -84,7 +84,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
   
 ## 1.3 PKI participants
 
-The CA/Browser Forum is a voluntary organization of Certification Authorities and Application Software Suppliers including providers of Internet browser and other relying-party software applications, such as mail user agents (web-based or application based) and email service providers that process S/MIME Certificates.
+The CA/Browser Forum is a voluntary organization of Certification Authorities and Application Software Suppliers including providers of Internet browser and other relying-party software applications, such as mail user agents (web-based or application-based) and email service providers that process S/MIME Certificates.
 
 ### 1.3.1 Certification authorities
 
@@ -263,7 +263,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Online Certificate Status Protocol**: An online Certificate-checking protocol that enables relying-party application software to determine the status of an identified Certificate. See also OCSP Responder.
 
-**Organisation-Validated**: Refers to a Certificate Subject that includes only Organizational (Legal Entity) attributes, rather than attributes linked to an Individual. |
+**Organisation-Validated**: Refers to a Certificate Subject that includes only Organizational (Legal Entity) attributes, rather than attributes linked to an Individual.
 
 **Parent Company**: A company that Controls a Subsidiary Company.
 
@@ -411,7 +411,7 @@ RFC 8659, Request for Comments: 8659, DNS Certification Authority Authorization 
 
 "TLS Baseline Requirements" means the relevant version of the CA/Browser Forum's "Baseline Requirements for the Issuance and Management of Publicly‐Trusted TLS Server Certificates". See https://cabforum.org/baseline-requirements-documents/
 
-WebTrust for Certification Authorities.
+WebTrust for Certification Authorities, CPA Canada.
 
 X.509, Recommendation ITU-T X.509 (10/2012) \| ISO/IEC 9594-8:2014 (E), Information technology – Open Systems Interconnection – The Directory: Public-key and attribute certificate frameworks.
 
@@ -431,13 +431,13 @@ The CA SHALL publicly disclose its CP and/or CPS through an appropriate and read
 
 The CP and/or CPS SHALL be structured in accordance with [RFC 3647](http://tools.ietf.org/html/rfc3647) and SHALL include all material required by [RFC 3647](http://tools.ietf.org/html/rfc3647).
 
-The CA SHALL publicly give effect to these Requirements and represent that it will adhere to the latest published version. The CA MAY fulfill this requirement by incorporating these Requirements directly into its CP and/or CPSs or by incorporating them by reference using a clause such as the following (which SHALL include a link to the official version of these Requirements):
+The CA SHALL publicly give effect to these Requirements and represent that it will adhere to the latest published version. The CA MAY fulfill this requirement by incorporating these Requirements directly into its CP and/or CPS or by incorporating them by reference using a clause such as the following (which SHALL include a link to the official version of these Requirements):
 
 > [Name of CA] conforms to the current version of the Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates published at https://www.cabforum.org. In the event of any inconsistency between this document and those Requirements, those Requirements take precedence over this document.
 
 ## 2.3 Time or frequency of publication
 
-The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL review and update its CP and/or CPS at least every 365 days, incrementing the version number and adding a dated changelog entry even if no other changes are made. The CA SHALL indicate conformance with this requirement by incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
+The CA SHALL develop, implement, enforce, and annually update a Certificate Policy and/or Certification Practice Statement (CP and/or CPS) that describes in detail how the CA implements the latest version of these Requirements. The CA SHALL review and update its CP and/or CPS at least every 365 days, incrementing the version number and adding a dated changelog entry, even if no other changes are made to the document.
 
 ## 2.4 Access controls on repositories
 
@@ -521,7 +521,7 @@ The CA SHALL verify that Applicant controls the email accounts associated with a
 
 The CA SHALL NOT delegate the verification of mailbox authorization or control.
 
-The CA's CP and/or CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which validation method, including the relevant version number from the TLS Baseline Requirements or S/MIME Baseline Requirements, used to validate every domain or email address in issued Certificates.
+The CA's CP and/or CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which validation method, including the relevant version number from the TLS Baseline Requirements or S/MIME Baseline Requirements, was used to validate every domain or email address in issued Certificates.
 
 Completed validations of Applicant authority MAY be valid for the issuance of multiple Certificates over time. In all cases, the validation SHALL have been initiated within the time period specified in the relevant requirement (such as [Section 4.2.1](#421-performing-identification-and-authentication-functions)) prior to Certificate issuance.
 
@@ -557,7 +557,7 @@ This version of the S/MIME Baseline Requirements does not require the CA to chec
 
 ### 3.2.3 Authentication of organization identity
 
-The following requirements SHALL be fulfilled to authenticate Organization identity included in the `Organization-validated` and `Sponsor-validated`  profiles.
+The following requirements SHALL be fulfilled to authenticate Organization identity included in the `Organization-validated` and `Sponsor-validated` profiles.
 
 #### 3.2.3.1 Attribute collection of organization identity
 
@@ -565,7 +565,7 @@ The CA or RA SHALL collect and retain evidence supporting the following identity
 
 1.	Formal name of the Legal Entity;
 2.	A registered assumed name for the Legal Entity (if included in the Subject);
-3. An organisational unit of the Legal Entity (if included in the Subject);
+3.  An organizational unit of the Legal Entity (if included in the Subject);
 4.	An address of the Legal Entity (if included in the Subject);
 5.	Jurisdiction of Incorporation or Registration of the Legal Entity; and
 6.	Unique identifier and type of identifier for the Legal Entity. 
@@ -587,7 +587,7 @@ The CA or RA SHALL verify the full legal name and an address (if included in the
 
 The CA or RA MAY use the same documentation or communication described in 1 through 4 above to verify both the Applicant's identity and address.
 
- If an LEI data reference is used, the CA or RA SHALL verify that the RegistrationStatus is ISSUED and the EntityStatus is ACTIVE. The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
+If an LEI data reference is used, the CA or RA SHALL verify that the RegistrationStatus is ISSUED and the EntityStatus is ACTIVE. The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
 ##### 3.2.3.2.2 Verification of assumed name
 
@@ -655,7 +655,7 @@ The CA SHOULD consider requirements to avoid issuance of consecutive Certificate
   a. Approved frameworks
 
   * Adobe: Signing Certificate issued under the AATL program;
-  * Bermuda: Certificate issued by Authorised CSP accredited under the ETA
+  * Bermuda: Certificate issued by Authorised CSP accredited under the ETA;
   * Brasil: Certificate accredited under ICP-Brasil;
   * European Union: Qualified Certificate accredited under eIDAS;
   * International Grid Trust Federation: Certificates issued under Birch or Cedar assurance levels;
@@ -671,7 +671,7 @@ The CA SHOULD consider requirements to avoid issuance of consecutive Certificate
 
   * Legal context: the framework SHALL be subject to regulatory provisions, established by the government in the relevant jurisdiction, including the different Certificate levels and legal effects of the trust services and the requirements imposed on the Certificate issuer/trust service provider;
   * Supervision and auditing systems: the framework SHALL include appropriate rules providing for:
-    * supervision of the trust service provider, ensuring that trust service providers meet regulatory imposed provisions;
+    * supervision of the trust service provider, ensuring that trust service providers meet regulatory-imposed provisions;
     * requirements imposed on auditing bodies when conducting audits;
     * supervision of the auditing bodies.
   * Best practices and transparency: requirements for online, public disclosure of practices by the trust service provider in a CP and/or CPS.
@@ -764,7 +764,7 @@ Subscriber information that has not been verified in accordance with these Requi
 
 ### 3.2.6 Validation of authority
 
-Before commencing to issue `Organization-validated` and `Sponsor-validated`  Certificates for an Applicant, the CA or RA SHALL use a Reliable Method of Communication to verify the authority and approval of an Applicant Representative to perform one or more of the following:
+Before commencing to issue `Organization-validated` and `Sponsor-validated` Certificates for an Applicant, the CA or RA SHALL use a Reliable Method of Communication to verify the authority and approval of an Applicant Representative to perform one or more of the following:
 *  to act as an Enterprise RA;
 *  to request issuance or revocation of Certificates; or 
 *  to assign responsibilities to others to act in these roles. 
@@ -2351,11 +2351,11 @@ The CA SHALL at all times:
 3. Comply with the audit requirements set forth in this section; and
 4. Be licensed as a CA in each jurisdiction where it operates, if licensing is required by the law of such jurisdiction for the issuance of Certificates.
 
-**Note**: The CA/Browser Forum continues to improve the S/MIME Baseline Requirements while WebTrust and ETSI also continue to update their audit criteria. We encourage all CAs to conform to each revision herein on the date specified without awaiting a corresponding update to an applicable audit criterion. In the event of a conflict between an existing audit criterion and a revision to the S/MIME Baseline Requirements, we will communicate with the audit community and attempt to resolve any uncertainty, and we will respond to implementation questions directed to <questions@cabforum.org>. 
+**Note**: The CA/Browser Forum continues to improve the S/MIME Baseline Requirements while CPA Canada/WebTrust and ETSI also continue to update their audit criteria. We encourage all CAs to conform to each revision herein on the date specified without awaiting a corresponding update to an applicable audit criterion. In the event of a conflict between an existing audit criterion and a revision to the S/MIME Baseline Requirements, we will communicate with the audit community and attempt to resolve any uncertainty, and we will respond to implementation questions directed to <questions@cabforum.org>. 
 
 ## 8.1 Frequency or circumstances of assessment
 
-Certificates that are capable of being used to issue new Certificates SHALL either be Technically Constrained in line with [Section 7.1.5](#715-name-constraints) and audited in line with [Section 8.8](#88-review-of-delegated-parties) only, or Unconstrained and fully audited in line with all remaining requirements from this section. A Certificate is deemed as capable of being used to issue new Certificates if it contains an X.509v3 `basicConstraints` extension, with the `cA` boolean set to true and is therefore by definition a Root CA Certificate or a Subordinate CA Certificate.
+Certificates that are capable of being used to issue new Certificates SHALL either be Technically Constrained in line with [Section 7.1.5](#715-name-constraints) and audited in line with [Section 8.8](#88-review-of-delegated-parties) only, or unconstrained and fully audited in line with all remaining requirements from this section. A Certificate is deemed as capable of being used to issue new Certificates if it contains an X.509v3 `basicConstraints` extension, with the `cA` boolean set to true and is therefore by definition a Root CA Certificate or a Subordinate CA Certificate.
 
 The period during which the CA issues Certificates SHALL be divided into an unbroken sequence of audit periods. An audit period SHALL NOT exceed one year in duration.
 
@@ -2371,7 +2371,7 @@ The CA's audit SHALL be performed by a Qualified Auditor. A Qualified Auditor me
 2. The ability to conduct an audit that addresses the criteria specified in an Eligible Audit Scheme (see [Section 8.4](#84-topics-covered-by-assessment));
 3. Employs individuals who have proficiency in examining Public Key Infrastructure technology, information security tools and techniques, information technology and security auditing, and the third-party attestation function;
 4. (For audits conducted in accordance with any one of the ETSI standards) accredited in accordance with ISO 17065 applying the requirements specified in ETSI EN 319 403;
-5. (For audits conducted in accordance with the WebTrust standard) licensed by WebTrust;
+5. (For audits conducted in accordance with the WebTrust standard) licensed for WebTrust by CPA Canada;
 6. Bound by law, government regulation, or professional code of ethics; and
 7. Except in the case of an Internal Government Auditing Agency, maintains Professional Liability/Errors & Omissions insurance with policy limits of at least one million US dollars in coverage.
    
@@ -2393,7 +2393,7 @@ Whichever scheme is chosen, it SHALL incorporate periodic monitoring and/or acco
 
 The audit SHALL be conducted by a Qualified Auditor, as specified in [Section 8.2](#82-identityqualifications-of-assessor).
 
-For Delegated Third Parties that are not Enterprise RAs, then the CA SHALL obtain an audit report, issued under the auditing standards that underlie the accepted audit schemes found in [Section 8.4](#84-topics-covered-by-assessment), that provides an opinion whether the Delegated Party's performance complies with either the Delegated Party's practice statement or the CA's CP and/or CPS. If the opinion is that the Delegated Party does not comply, then the CA SHALL not allow the Delegated Party to continue performing delegated functions.
+For Delegated Third Parties that are not Enterprise RAs, then the CA SHALL obtain an audit report, issued under the auditing standards that underlie the accepted audit schemes found above in this [Section 8.4](#84-topics-covered-by-assessment), that provides an opinion whether the Delegated Party's performance complies with either the Delegated Party's practice statement or the CA's CP and/or CPS. If the opinion is that the Delegated Party does not comply, then the CA SHALL not allow the Delegated Party to continue performing delegated functions.
 
 The audit period for the Delegated Party SHALL NOT exceed one year (ideally aligned with the CA's audit). However, if the CA or Delegated Party is under the operation, control, or supervision of a Government Entity and the audit scheme is completed over multiple years, then the annual audit SHALL cover at least the core controls that are required to be audited annually by such scheme plus that portion of all non-core controls that are allowed to be conducted less frequently, but any non-core control SHALL NOT be audited less often than once every three years.
 
@@ -2421,9 +2421,9 @@ The Audit Report SHALL contain at least the following clearly-labelled informati
 10. (For audits conducted in accordance with any of the ETSI standards) a statement to indicate if the audit was a full audit or a surveillance audit, and which portions of the criteria were applied and evaluated, e.g., ETSI EN 319 401, ETSI EN 319 411-1 policy LCP, NCP or NCP+, ETSI EN 319 411-2 policy QCP-n, QCP-n-qscd, QCP-l or QCP-l-qscd; and
 11. (For audits conducted in accordance with any of the ETSI standards) a statement to indicate that the auditor referenced the applicable CA/Browser Forum criteria, such as this document, and the version used.
 
-An authoritative English language version of the publicly available audit information SHALL be provided by the Qualified Auditor and the CA SHALL ensure it is publicly available.
+An authoritative English language version of the publicly available audit information SHALL be provided by the Qualified Auditor and the CA SHALL ensure that it is publicly available.
 
-The Audit Report SHALL be available as a PDF, and SHALL be text searchable for all information required. Each SHA-256 fingerprint within the Audit Report SHALL be uppercase letters and SHALL NOT contain colons, spaces, or line feeds.
+The Audit Report SHALL be available as a PDF, and SHALL be text searchable for all information required. Each SHA-256 fingerprint within the Audit Report SHALL be uppercase letters and SHALL NOT contain colons, spaces, or line feeds. See https://www.ccadb.org/policy#51-audit-statement-content for more information.
 
 ## 8.7 Self audits
 
@@ -2533,7 +2533,7 @@ The CA represents and warrants to the Certificate Beneficiaries that, during the
 
 The Certificate Warranties specifically include, but are not limited to, the following:
 
-1. **Right to Use MAilbox Address**: That, at the time of issuance, the CA:<br>
+1. **Right to Use Mailbox Address**: That, at the time of issuance, the CA:<br>
    i. implemented a procedure for verifying that the Applicant either had the right to use, or had control of, the Mailbox Addresses listed in the Certificate's `subject` field and `subjectAltName` extension (or was delegated such right or control by someone who had such right to use or control);
    ii. followed the procedure when issuing the Certificate; and
    iii. accurately described the procedure in the CA's CP and/or CPS;
@@ -2553,7 +2553,7 @@ The Certificate Warranties specifically include, but are not limited to, the fol
 6. **Status**: That the CA maintains a 24 x 7 publicly-accessible Repository with current information regarding the status (Valid or Revoked) of all unexpired Certificates; and
 7. **Revocation**: That the CA will revoke the Certificate for any of the reasons specified in these Requirements.
 
-The Root CA SHALL be responsible for the performance and warranties, compliance with these Requirements, and for all liabilities and indemnification obligations of the Subordinate CA under these Requirements, as if the Root CA were the Subordinate CA issuing the Certificates
+The Root CA SHALL be responsible for the performance and warranties, compliance with these Requirements, and for all liabilities and indemnification obligations of the Subordinate CA under these Requirements, as if the Root CA were the Subordinate CA issuing the Certificates.
 
 ### 9.6.2 RA representations and warranties
 
@@ -2604,7 +2604,7 @@ If the CA has issued and managed the Certificate in compliance with these Requir
 
 ## 9.9 Indemnities
 
-Notwithstanding any limitations on its liability to Subscribers and Relying Parties, the CA understands and acknowledges that the Application Software Suppliers who have a Root CA Certificate distribution agreement in place with the Root CA do not assume any obligation or potential liability of the CA under these Requirements or that otherwise might exist because of the issuance or maintenance of Certificates or reliance thereon by Relying Parties or others. Thus, except in the case where the CA is a government entity, the CA SHALL defend, indemnify, and hold harmless each Application Software Supplier for any and all claims, damages, and losses suffered by such Application Software Supplier related to a Certificate issued by the CA, regardless of the cause of action or legal theory involved. This does not apply, however, to any claim, damages, or loss suffered by such Application Software Supplier related to a Certificate issued by the CA where such claim, damage, or loss was directly caused by such Application Software Supplier's software displaying as not trustworthy a Certificate that is still valid, or displaying as trustworthy: (1) a Certificate that has expired, or (2) a Certificate that has been revoked (but only in cases where the revocation status is currently available from the CA online, and the application software either failed to check such status or ignored an indication of revoked status).
+Notwithstanding any limitations on its liability to Subscribers and Relying Parties, the CA understands and acknowledges that the Application Software Suppliers who have agreed to distribute the Root CA Certificate do not assume any obligation or potential liability of the CA under these Requirements or that otherwise might exist because of the issuance or maintenance of Certificates or reliance thereon by Relying Parties or others. Thus, except in the case where the CA is a government entity, the CA SHALL defend, indemnify, and hold harmless each Application Software Supplier for any and all claims, damages, and losses suffered by such Application Software Supplier related to a Certificate issued by the CA, regardless of the cause of action or legal theory involved. This does not apply, however, to any claim, damages, or loss suffered by such Application Software Supplier related to a Certificate issued by the CA where such claim, damage, or loss was directly caused by such Application Software Supplier's software displaying as not trustworthy a Certificate that is still valid, or displaying as trustworthy: (1) a Certificate that has expired, or (2) a Certificate that has been revoked (but only in cases where the revocation status is currently available from the CA online, and the application software either failed to check such status or ignored an indication of revoked status).
 
 ## 9.10 Term and termination
 
