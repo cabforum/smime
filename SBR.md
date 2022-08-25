@@ -838,7 +838,7 @@ The CA MAY reuse completed validations and/or supporting evidence performed in a
 
 1. **Validation of mailbox authorization or control**: Completed validation of the control of a mail server in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers) SHALL be obtained no more than 398 days prior to issuing the Certificate. 
    
-      In the event of changes to the methods specified in [Section 3.2.2.4](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) of the TLS Baseline Requirements, a CA MAY continue to reuse completed validations and/or supporting evidence for the period stated in this section.
+      In the event of changes to the methods specified in [Section 3.2.2.4](#3224-validation-of-domain-authorization-or-control) of the TLS Baseline Requirements, a CA MAY continue to reuse completed validations and/or supporting evidence for the period stated in this section.
 
       Completed validation of control of a mailbox in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email) SHALL be obtained no more than 30 days prior to issuing the Certificate.
 
