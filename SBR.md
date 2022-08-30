@@ -657,11 +657,11 @@ The CA SHOULD consider requirements to avoid issuance of consecutive Certificate
   * Adobe: Signing Certificate issued under the Adobe Approved Trust List (AATL) program;
   * European Union: Qualified e-Signature Certificate iussed by a Qualified Trust Service Provider in accordance with eIDAS;
   * International Grid Trust Federation: Certificates issued under the Birch or Cedar assurance levels; and
-  * United States: Certificate issued with validation using NIST SP 800-63A at IAL2 (or Kantara IAL2) or higher.
+  * United States: Certificate issued with validation performed using NIST SP 800-63A at IAL2 (or Kantara IAL2) or higher.
 
   b. Additional frameworks
 
-  The CA/Browser Forum S/MIME Certificate Working Group may consider additional trust service frameworks that provide an equivalent level of security and validation compared to these Requirements. Proposals that evaluate the additional framework against the following criteria SHALL be submitted to the questions@cabforum.org mailing list:
+  The CA/Browser Forum S/MIME Certificate Working Group may consider additional trust service frameworks that provide an equivalent level of security and validation compared to these Requirements. Proposals that evaluate the additional framework against the following criteria MAY be submitted to the questions@cabforum.org mailing list:
 
   * Legal context: the framework SHALL be subject to regulatory provisions, which describe the requirements imposed on the Certificate issuer/trust service provider, the legal effects of the trust services, and the corresponding Certificate levels;
   * Identity validation: the approved Certificate levels must provide a level of assurance equivalent to that of the identity validation methods described in these Requirements; 
