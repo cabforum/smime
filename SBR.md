@@ -646,36 +646,30 @@ The CA SHALL document and publish information describing the eID and associated 
 
 4.	**From a certificate supporting a digital signature applied by the Applicant** 
 
-If a digital signature is to be used as evidence, the CA or RA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under frameworks described in this section. 
+If a digital signature is to be used as evidence, the CA or RA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under an Approved Framework described in this section. 
 
-Identity attributes are evidenced by the signing Certificate, not by the content of the signed document. The CA or RA SHALL only rely upon the signing Certificate as evidence for identity attributes if the digital signature is valid.
+Identity attributes are evidenced by the signing Certificate, not by the content of the signed document. The CA or RA SHALL only rely upon the signing Certificate as evidence for identity attributes if the digital signature is valid in accordance with the requirements of the relevant Approved Framework.
 
 The CA SHOULD consider requirements to avoid issuance of consecutive Certificates that are issued based on a preceding Certificate, where the original verification of the Subject's identity may have been conducted in the distant past.
 
-  a. Approved frameworks
+  a. Approved Frameworks
 
-  * Adobe: Signing Certificate issued under the AATL program;
-  * Bermuda: Certificate issued by Authorised CSP accredited under the ETA;
-  * Brasil: Certificate accredited under ICP-Brasil;
-  * European Union: Qualified Certificate accredited under eIDAS;
-  * International Grid Trust Federation: Certificates issued under Birch or Cedar assurance levels;
-  * Japan: Certificate issued by Authorized Service Provider under the e-Signature Act;
-  * Peru: Certificate accredited by INDECOPI;
-  * South Africa: Certificates accredited in accordance with section 37 of the ECTA;
-  * Switzerland: Qualified or Regulated Certificate accredited under ZertES;
+  * Adobe: Signing Certificate issued under the Adobe Approved Trust List (AATL) program;
+  * European Union: Qualified e-Signature Certificate iussed by a Qualified Trust Service Provider in accordance with eIDAS;
+  * International Grid Trust Federation: Certificates issued under the Birch or Cedar assurance levels; and
   * United States: Certificate issued with validation using NIST SP 800-63A at IAL2 (or Kantara IAL2) or higher.
 
   b. Additional frameworks
 
-  The CA/Browser Forum S/MIME Certificate Working Group will consider additional trust service frameworks that provide an equivalent level of security and validation compared to these Requirements. Proposals that evaluate the additional framework against the following criteria SHALL be submitted to the questions@cabforum.org mailing list:
+  The CA/Browser Forum S/MIME Certificate Working Group may consider additional trust service frameworks that provide an equivalent level of security and validation compared to these Requirements. Proposals that evaluate the additional framework against the following criteria SHALL be submitted to the questions@cabforum.org mailing list:
 
-  * Legal context: the framework SHALL be subject to regulatory provisions, established by the government in the relevant jurisdiction, including the different Certificate levels and legal effects of the trust services and the requirements imposed on the Certificate issuer/trust service provider;
+  * Legal context: the framework SHALL be subject to regulatory provisions, which describe the requirements imposed on the Certificate issuer/trust service provider, the legal effects of the trust services, and the corresponding Certificate levels;
+  * Identity validation: the approved Certificate levels must provide a level of assurance equivalent to that of the identity validation methods described in these Requirements; 
   * Supervision and auditing systems: the framework SHALL include appropriate rules providing for:
-    * supervision of the trust service provider, ensuring that trust service providers meet regulatory-imposed provisions;
-    * requirements imposed on auditing bodies when conducting audits;
+    * supervision to ensure that trust service providers meet regulatory-imposed provisions;
+    * requirements imposed on auditing bodies when conducting audits; and
     * supervision of the auditing bodies.
-  * Best practices and transparency: requirements for online, public disclosure of practices by the trust service provider in a CP and/or CPS.
-  * Identity validation: must provide a level of assurance equivalent to that of the identity validation methods described in these Requirements. 
+  * Best practices and transparency: the requirements of the trust service framework and evidence of supervision of the approved trust service providers SHALL be publicly available. The trust service framework shall require trust service providers to disclose their practices in a publicly available CP and/or CPS.
 
 5.	**From Enterprise RA records** 
 
@@ -683,7 +677,7 @@ In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, re
 
 The Enterprise RA SHALL maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-delegated-parties).
 
-6. **Affiliation from company attestation**
+1. **Affiliation from company attestation**
 
 In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority or affiliation of an Individual to represent an Organisation to be included in the `subject:organizationName` of the Certificate using an Attestation provided by the Organization and verified in accordance with [Section 3.2.8](#328-reliability-of-verification-sources). 
 
