@@ -2387,7 +2387,7 @@ Whichever scheme is chosen, it SHALL incorporate periodic monitoring and/or acco
 
 The audit SHALL be conducted by a Qualified Auditor, as specified in [Section 8.2](#82-identityqualifications-of-assessor).
 
-For Delegated Third Parties that are not Enterprise RAs, then the CA SHALL obtain an audit report, issued under the auditing standards that underlie the accepted audit schemes found above in this [Section 8.4](#84-topics-covered-by-assessment), that provides an opinion whether the Delegated Third Party's performance complies with either the Delegated Third Party's practice statement or the CA's CP and/or CPS. If the opinion is that the Delegated Third Party does not comply, then the CA SHALL not allow the Delegated Third Party to continue performing delegated functions.
+For Delegated Third Parties that are not Enterprise RAs, then the CA SHALL obtain an audit report, issued under the auditing standards that underlie the accepted audit schemes found above in this [Section 8.4](#84-topics-covered-by-assessment), that provides an opinion whether the Delegated Third Party's performance complies with either the Delegated Third Party's practice statement or the CA's CP and/or CPS as described in [Section 1.3.2](#132-registration-authorities). If the opinion is that the Delegated Third Party does not comply, then the CA SHALL not allow the Delegated Third Party to continue performing delegated functions.
 
 The audit period for the Delegated Third Party SHALL NOT exceed one year (ideally aligned with the CA's audit). 
 
