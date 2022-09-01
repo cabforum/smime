@@ -1284,31 +1284,31 @@ The CA and each Delegated Third Party SHALL record events related to the securit
 
 The CA SHALL record at least the following events:
 
-1. CA Certificate and key lifecycle events, including:<br>
-   i. Key generation, backup, storage, recovery, archival, and destruction;
-   ii. Certificate requests, renewal, and re-key requests, and revocation;
-   iii. Approval and rejection of Certificate Requests;
-   iv. Cryptographic device lifecycle management events;
-   v. Generation of Certificate Revocation Lists;
-   vi. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)); and
-   vii. Introduction of new Certificate Profiles and retirement of existing Certificate Profiles.
+1. CA Certificate and key lifecycle events, including:
+   1. Key generation, backup, storage, recovery, archival, and destruction;
+   2. Certificate requests, renewal, and re-key requests, and revocation;
+   3. Approval and rejection of Certificate Requests;
+   4. Cryptographic device lifecycle management events;
+   5. Generation of Certificate Revocation Lists;
+   6. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)); and
+   7. Introduction of new Certificate Profiles and retirement of existing Certificate Profiles.
 
-2. Subscriber Certificate lifecycle management events, including:<br>
-   i. Certificate requests, renewal, and re-key requests, and revocation;
-   ii. All verification activities stipulated in these Requirements and the CA's Certification Practice Statement;
-   iii. Approval and rejection of Certificate Requests;
-   iv. Issuance of Certificates;
-   v. Generation of Certificate Revocation Lists; and
-   vi. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)).
+2. Subscriber Certificate lifecycle management events, including:
+   1. Certificate requests, renewal, and re-key requests, and revocation;
+   2. All verification activities stipulated in these Requirements and the CA's Certification Practice Statement;
+   3. Approval and rejection of Certificate Requests;
+   4. Issuance of Certificates;
+   5. Generation of Certificate Revocation Lists; and
+   6. Signing of OCSP Responses (as described in [Section 4.9](#49-certificate-revocation-and-suspension) and [Section 4.10](#410-certificate-status-services)).
 
 3. Security events, including:<br>
-   i. Successful and unsuccessful PKI system access attempts;
-   ii. PKI and security system actions performed;
-   iii. Security profile changes;
-   iv. Installation, update and removal of software on a Certificate System;
-   v. System crashes, hardware failures, and other anomalies;
-   vi. Firewall and router activities; and
-   vii. Entries to and exits from the CA facility.
+   1. Successful and unsuccessful PKI system access attempts;
+   2. PKI and security system actions performed;
+   3. Security profile changes;
+   4. Installation, update and removal of software on a Certificate System;
+   5. System crashes, hardware failures, and other anomalies;
+   6. Firewall and router activities; and
+   7. Entries to and exits from the CA facility.
 
 Log records SHALL include the following elements:
 
