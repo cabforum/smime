@@ -1324,9 +1324,9 @@ No stipulation.
 
 The CA and each Delegated Third Party SHALL retain, for at least two (2) years:
 
-  1. CA Certificate and key lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (1)) after the later occurrence of:<br>
-     i. the destruction of the CA Private Key; or
-     ii. the revocation or expiration of the final CA Certificate in that set of Certificates that have an X.509v3 `basicConstraints` extension with the `cA` field set to true and which share a common Public Key corresponding to the CA Private Key;
+  1. CA Certificate and key lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (1)) after the later occurrence of:
+     1. the destruction of the CA Private Key; or
+     2. the revocation or expiration of the final CA Certificate in that set of Certificates that have an X.509v3 `basicConstraints` extension with the `cA` field set to true and which share a common Public Key corresponding to the CA Private Key;
   2. Subscriber Certificate lifecycle management event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (2)) after the expiration of the Subscriber Certificate;
   3. Any security event records (as set forth in [Section 5.4.1](#541-types-of-events-recorded) (3)) after the event occurred.
 
@@ -1454,8 +1454,8 @@ No stipulation.
 
 For CA Key Pairs that are either
 
-  1. used as a CA Key Pair for a Root CA Certificate; or
-  2. used as a CA Key Pair for a Subordinate CA Certificate, where the Subordinate CA is not the operator of the Root CA or an Affiliate of the Root CA,
+1. used as a CA Key Pair for a Root CA Certificate; or
+2. used as a CA Key Pair for a Subordinate CA Certificate, where the Subordinate CA is not the operator of the Root CA or an Affiliate of the Root CA,
 
 the CA SHALL:
 
@@ -1866,9 +1866,9 @@ All fields and extensions SHALL be set in accordance with [RFC 5280](https://dat
 
 CAs SHALL NOT issue a Certificate with:
 
-1. Extensions that do not apply in the context of the public Internet (such as an `extKeyUsage` value for a service that is only valid in the context of a privately managed network), unless:<br>
-   i. such value falls within an OID arc for which the Applicant demonstrates ownership, or<br>
-   ii. the Applicant can otherwise demonstrate the right to assert the data in a public context; or
+1. Extensions that do not apply in the context of the public Internet (such as an `extKeyUsage` value for a service that is only valid in the context of a privately managed network), unless:
+   1. such value falls within an OID arc for which the Applicant demonstrates ownership, or<br>
+   2. the Applicant can otherwise demonstrate the right to assert the data in a public context; or
 2. Field or extension values which have not been validated according to the processes and procedures described in these Requirements or the CA's CP and/or CPS.
    
 ### 7.1.3 Algorithm object identifiers
@@ -2533,22 +2533,22 @@ The CA represents and warrants to the Certificate Beneficiaries that, during the
 
 The Certificate Warranties specifically include, but are not limited to, the following:
 
-1. **Right to Use Mailbox Address**: That, at the time of issuance, the CA:<br>
-   i. implemented a procedure for verifying that the Applicant either had the right to use, or had control of, the Mailbox Addresses listed in the Certificate's `subject` field and `subjectAltName` extension (or was delegated such right or control by someone who had such right to use or control);
-   ii. followed the procedure when issuing the Certificate; and
-   iii. accurately described the procedure in the CA's CP and/or CPS;
-2. **Authorization for Certificate**: That, at the time of issuance, the CA:<br>
-   i. implemented a procedure for verifying that the Subject authorized the issuance of the Certificate and that the Applicant Representative is authorized to request the Certificate on behalf of the Subject;
-   ii. followed the procedure when issuing the Certificate; and
-   iii. accurately described the procedure in the CA's CP and/or CPS;
-3. **Accuracy of Information**: That, at the time of issuance, the CA:<br>
-   i. implemented a procedure for verifying the accuracy of all of the information contained in the Certificate (with the exception of the subject:serialNumber attribute);
-   ii. followed the procedure when issuing the Certificate; and
-   iii. accurately described the procedure in the CA's CP and/or CPS;
-4. **Identity of Applicant**: That, if the Certificate contains Subject Identity Information, the CA:<br>
-   i. implemented a procedure to verify the identity of the Applicant in accordance with [Section 3.2](#32-initial-identity-validation) and [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields);
-   ii. followed the procedure when issuing the Certificate; and
-   iii. accurately described the procedure in the CA's CP and/or CPS;
+1. **Right to Use Mailbox Address**: That, at the time of issuance, the CA:
+   1. implemented a procedure for verifying that the Applicant either had the right to use, or had control of, the Mailbox Addresses listed in the Certificate's `subject` field and `subjectAltName` extension (or was delegated such right or control by someone who had such right to use or control);
+   2. followed the procedure when issuing the Certificate; and
+   3. accurately described the procedure in the CA's CP and/or CPS;
+2. **Authorization for Certificate**: That, at the time of issuance, the CA:
+   1. implemented a procedure for verifying that the Subject authorized the issuance of the Certificate and that the Applicant Representative is authorized to request the Certificate on behalf of the Subject;
+   2. followed the procedure when issuing the Certificate; and
+   3. accurately described the procedure in the CA's CP and/or CPS;
+3. **Accuracy of Information**: That, at the time of issuance, the CA:
+   1. implemented a procedure for verifying the accuracy of all of the information contained in the Certificate (with the exception of the subject:serialNumber attribute);
+   2. followed the procedure when issuing the Certificate; and
+   3. accurately described the procedure in the CA's CP and/or CPS;
+4. **Identity of Applicant**: That, if the Certificate contains Subject Identity Information, the CA:
+   1. implemented a procedure to verify the identity of the Applicant in accordance with [Section 3.2](#32-initial-identity-validation) and [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields);
+   2. followed the procedure when issuing the Certificate; and
+   3. accurately described the procedure in the CA's CP and/or CPS;
 5. **Subscriber Agreement**: That, if the CA and Subscriber are not Affiliated, the Subscriber and CA are parties to a legally valid and enforceable Subscriber Agreement that satisfies these Requirements, or, if the CA and Subscriber are the same entity or are Affiliated, the Applicant Representative acknowledged the Terms of Use;
 6. **Status**: That the CA maintains a 24 x 7 publicly-accessible Repository with current information regarding the status (Valid or Revoked) of all unexpired Certificates; and
 7. **Revocation**: That the CA will revoke the Certificate for any of the reasons specified in these Requirements.
