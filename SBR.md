@@ -38,7 +38,7 @@ These Requirements describe four Certificate profiles differentiated by the type
 | Certificate Type | Description |
 |------|-------------|
 | Mailbox-validated | Subject is limited to (optional) `subject:emailAddress` and/or `subject:serialNumber` attributes. |
-| Organisation-validated | Includes only Organizational (Legal Entity) attributes in the Subject. |
+| Organization-validated | Includes only Organizational (Legal Entity) attributes in the Subject. |
 | Sponsor-validated | Combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA.|
 | Individual-validated | Includes only Individual (Natural Person) attributes in the Subject. |
 
@@ -263,7 +263,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Online Certificate Status Protocol**: An online Certificate-checking protocol that enables relying-party application software to determine the status of an identified Certificate. See also OCSP Responder.
 
-**Organisation-Validated**: Refers to a Certificate Subject that includes only Organizational (Legal Entity) attributes, rather than attributes linked to an Individual.
+**Organization-Validated**: Refers to a Certificate Subject that includes only Organizational (Legal Entity) attributes, rather than attributes linked to an Individual.
 
 **Parent Company**: A company that Controls a Subsidiary Company.
 
@@ -679,7 +679,7 @@ The Enterprise RA SHALL maintain records to satisfy the requirements of [Section
 
 1. **Affiliation from company attestation**
 
-In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority or affiliation of an Individual to represent an Organisation to be included in the `subject:organizationName` of the Certificate using an Attestation provided by the Organization and verified in accordance with [Section 3.2.8](#328-reliability-of-verification-sources). 
+In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority or affiliation of an Individual to represent an Organization to be included in the `subject:organizationName` of the Certificate using an Attestation provided by the Organization and verified in accordance with [Section 3.2.8](#328-reliability-of-verification-sources). 
 
 The CA or RA SHALL still verify the identity of the Individual in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) and the Organization in accordance with [Section 3.2.3](#323-authentication-of-organization-identity).
 
