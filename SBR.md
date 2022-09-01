@@ -173,6 +173,8 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Application Software Supplier**: A supplier of email client software or other relying-party application software such as mail user agents (web-based or application based) and email service providers that process S/MIME Certificates.
 
+**Assumed Name**: Also known as "doing business as", "DBA", or "d/b/a" name in the US and "trading as" name in the UK.
+
 **Attestation**: A letter attesting that Subject Information is correct written by an accountant, lawyer, government official, or other reliable third party customarily relied upon for such information.
 
 **Audit Period**: In a period-of-time audit, the period between the first day (start) and the last day of operations (end) covered by the auditors in their engagement. (This is not the same as the period of time when the auditors are on-site at the CA.) The coverage rules and maximum length of audit periods are defined in [Section 8.1](#81-frequency-or-circumstances-of-assessment).
@@ -564,7 +566,7 @@ The following requirements SHALL be fulfilled to authenticate Organization ident
 The CA or RA SHALL collect and retain evidence supporting the following identity attributes for the Organization:
 
 1.	Formal name of the Legal Entity;
-2.	A registered assumed name for the Legal Entity (if included in the Subject);
+2.	A registered Assumed Name for the Legal Entity (if included in the Subject);
 3.  An organizational unit of the Legal Entity (if included in the Subject);
 4.	An address of the Legal Entity (if included in the Subject);
 5.	Jurisdiction of Incorporation or Registration of the Legal Entity; and
@@ -591,12 +593,12 @@ If an LEI data reference is used, the CA or RA SHALL verify that the Registratio
 
 ##### 3.2.3.2.2 Verification of assumed name
 
-Applicants MAY request an assumed name (also known as "doing business as", "DBA", or "d/b/a" name in the US and "trading as" name in the UK) to be included in the Certificate. The CA or RA SHALL verify that:
+Applicants MAY request an Assumed Name to be included in the Certificate. The CA or RA SHALL verify that:
 
-1.	The Applicant has registered its use of the assumed name with the appropriate government agency for such filings in the jurisdiction of its incorporation or registration; and 
-2.	The assumed name filing continues to be valid.
+1.	The Applicant has registered its use of the Assumed Name with the appropriate government agency for such filings in the jurisdiction of its incorporation or registration; and 
+2.	The Assumed Name filing continues to be valid.
 
-The CA MAY rely on an Attestation that indicates the assumed name under which the Applicant conducts business, the government agency with which the assumed name is registered, and that such filing continues to be valid.
+The CA MAY rely on an Attestation that indicates the Assumed Name under which the Applicant conducts business, the government agency with which the Assumed Name is registered, and that such filing continues to be valid.
 
 #### 3.2.3.3 Disclosure of verification sources
 
@@ -2049,7 +2051,7 @@ If present, the Mailbox Address SHALL contain a `rfc822Name` or `otherName` valu
 Additional specifications for naming are provided in [Section 3.1](#31-naming).
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
-   __Contents:__ If present, the `subject:organizationName` field SHALL contain the Subject's full legal organization name and/or an assumed name as verified under [Section 3.2.3](#323-authentication-of-organization-identity). If both are included, the assumed name SHALL appear first, followed by the full legal organization name in parentheses. The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
+   __Contents:__ If present, the `subject:organizationName` field SHALL contain the Subject's full legal organization name and/or an Assumed Name as verified under [Section 3.2.3](#323-authentication-of-organization-identity). If both are included, the Assumed Name SHALL appear first, followed by the full legal organization name in parentheses. The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". 
 
 c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)  
    __Contents:__ If present, the CA SHALL confirm that the `subject:organizationalUnitName` is the full legal organization name of an Affiliate of the `subject:organizationName` in the Certificate and has been verified in accordance with the requirements of [Section 3.2.3](#323-authentication-of-organization-identity). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations.
