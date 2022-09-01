@@ -1108,7 +1108,7 @@ See [Section 4.9.1](#491-circumstances-for-revocation).
 
 ### 4.9.13 Circumstances for suspension
 
-The Repository SHALL NOT include entries that indicate that a Certificate is suspended.
+See [Section 7.2.2](#722-crl-and-crl-entry-extensions) for restrictions on use of suspension. CAs SHALL describe their suspension practices in their CP and/or CPS.
 
 ### 4.9.14 Who can request suspension
 
@@ -2316,9 +2316,13 @@ No stipulation.
 
 If present, the `reasonCode` (OID 2.5.29.21) extension SHALL NOT be marked critical.
 
-If a CRL entry is for a Root CA or Subordinate CA Certificate, including Cross Certificates, this CRL entry extension SHALL be present. If a CRL entry is for a Certificate not technically capable of causing issuance, this CRL entry extension SHOULD be present, but MAY be omitted, subject to the following requirements.
+If a CRL entry is for a Root CA or Subordinate CA Certificate, including Cross Certificates, this CRL entry extension SHALL be present. The `CRLreason` of certificateHold (6) SHALL NOT be used for Root CA or Subordinate CA Certificates.
 
-The `CRLReason` indicated SHALL NOT be unspecified (0). If the reason for revocation is unspecified, CAs SHALL omit `reasonCode` entry extension. The `CRLReason` SHALL NOT be certificateHold (6).
+If a CRL entry is for a Certificate not technically capable of causing issuance, this CRL entry extension SHOULD be present, but MAY be omitted, subject to the following requirements.
+
+The `CRLReason` indicated SHALL NOT be unspecified (0). If the reason for revocation is unspecified, CAs SHALL omit the `reasonCode` entry extension. 
+
+The Repository MAY include CRL entries that have a `CRLreason` of certificateHold (6) for Certificates that include the Certificate Policy identifiers for the Legacy or Multipurpose Generations. The Repository SHALL NOT include CRL entries that have a `CRLreason` of certificateHold (6) for Certificates that include the Certificate Policy identifiers for the Strict Generation.
 
 If a `reasonCode` CRL entry extension is present, the `CRLReason` SHALL indicate the most appropriate reason for revocation of the Certificate, as defined by the CA within its CP/CPS.
 
