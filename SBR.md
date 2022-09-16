@@ -3,7 +3,7 @@ title: Baseline Requirements for the Issuance and Management of Publicly-Trusted
 subtitle: Version 1.0.0
 author:
   - CA/Browser Forum
-date: September 8, 2022
+date: September 16, 2022
 copyright: |
   Copyright 2022 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -362,6 +362,8 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 ###  1.6.3 References
 
 ETSI EN 319 403, Electronic Signatures and Infrastructures (ESI); Trust Service Provider Conformity Assessment - Requirements for conformity assessment bodies assessing Trust Service Providers.
+
+ETSI EN 319 403-1, Electronic Signatures and Infrastructures (ESI); Trust Service Provider Conformity Assessment; Part 1 - Requirements for conformity assessment bodies assessing Trust Service Providers.
 
 ETSI EN 319 411-1, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 1: General requirements.
 
@@ -2367,7 +2369,7 @@ The CA's audit SHALL be performed by a Qualified Auditor. A Qualified Auditor me
 1. Independence from the subject of the audit;
 2. The ability to conduct an audit that addresses the criteria specified in an Eligible Audit Scheme (see [Section 8.4](#84-topics-covered-by-assessment));
 3. Employs individuals who have proficiency in examining Public Key Infrastructure technology, information security tools and techniques, information technology and security auditing, and the third-party attestation function;
-4. (For audits conducted in accordance with any one of the ETSI standards) accredited in accordance with ISO 17065 applying the requirements specified in ETSI EN 319 403;
+4. (For audits conducted in accordance with any one of the ETSI standards) accredited in accordance with ISO 17065 applying the requirements specified in ETSI EN 319 403 or ETSI EN 319 403-1;
 5. (For audits conducted in accordance with the WebTrust standard) licensed for WebTrust by CPA Canada;
 6. Bound by law, government regulation, or professional code of ethics; and
 7. Except in the case of an Internal Government Auditing Agency, maintains Professional Liability/Errors & Omissions insurance with policy limits of at least one million US dollars in coverage.
@@ -2382,7 +2384,7 @@ The CA SHALL undergo an audit in accordance with one of the following schemes:
 
 1. For Audit Periods starting before the Effective Date defined in [Section 1.2.1](#121-revisions) of the first version of these Requirements, “WebTrust for CAs v2.2.2 or newer”; or
 2. For Audit Periods starting after the Effective Date defined in [Section 1.2.1](#121-revisions) of the first version of these Requirements, “WebTrust for CAs v2.2.2 or newer” AND “WebTrust for S/MIME Baseline Requirements v1.0.0 or newer”; or
-3. "ETSI EN 319 411-1 v1.3.1 or newer", which includes normative references to ETSI EN 319 401 (the latest version of referenced ETSI documents should be applied); or
+3. "ETSI EN 319 411-1 v1.3.1 or newer", which includes normative references to ETSI EN 319 401 or ETSI EN 319 403-1 (the latest version of referenced ETSI documents should be applied); or
 4. If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either
    a. encompasses all requirements of one of the above schemes; or
    b. consists of comparable criteria that are available for public review.
