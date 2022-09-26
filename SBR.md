@@ -2128,63 +2128,63 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 
 | Attribute | Legacy | Multipurpose | Strict |
 |-----------|--------|--------------|--------|
-| `subject:commonName` | MAY  | MAY | MAY |
-| `subject:organizationName` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:organizationalUnitName` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:organizationIdentifier` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:givenName` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:surname` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:pseudonym` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:serialNumber` | MAY | MAY | MAY |
-| `subject:emailAddress` | MAY | MAY | MAY |
-| `subject:title` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:streetAddress` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:localityName` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:stateOrProvinceName` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:postalCode` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:countryName` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `commonName` | MAY  | MAY | MAY |
+| `organizationName` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `organizationalUnitName` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `organizationIdentifier` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `givenName` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `surname` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `pseudonym` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `serialNumber` | MAY | MAY | MAY |
+| `emailAddress` | MAY | MAY | MAY |
+| `title` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `streetAddress` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `localityName` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `stateOrProvinceName` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `postalCode` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `countryName` | SHALL NOT | SHALL NOT | SHALL NOT |
 | Other | SHALL NOT | SHALL NOT | SHALL NOT |
 
 ##### 7.1.4.2.4 Subject DN attributes for organization-validated profile
 
 | Attribute | Legacy | Multipurpose | Strict |
 |-----------|--------|--------------|--------|
-| `subject:commonName` | MAY  | MAY | MAY |
-| `subject:organizationName` | SHALL | SHALL | SHALL |
-| `subject:organizationalUnitName` | MAY  | MAY | MAY |
-| `subject:organizationIdentifier` | SHALL | SHALL | SHALL |
-| `subject:givenName` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:surname` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:pseudonym` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:serialNumber` | MAY | MAY | MAY |
-| `subject:emailAddress` | MAY | MAY | MAY |
-| `subject:title` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:streetAddress` | MAY | MAY | SHALL NOT |
-| `subject:localityName` | MAY | MAY | MAY |
-| `subject:stateOrProvinceName` | MAY | MAY | MAY |
-| `subject:postalCode` | MAY | MAY | SHALL NOT |
-| `subject:countryName` | MAY | MAY | MAY |
+| `commonName` | MAY  | MAY | MAY |
+| `organizationName` | SHALL | SHALL | SHALL |
+| `organizationalUnitName` | MAY  | MAY | MAY |
+| `organizationIdentifier` | SHALL | SHALL | SHALL |
+| `givenName` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `surname` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `pseudonym` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `serialNumber` | MAY | MAY | MAY |
+| `emailAddress` | MAY | MAY | MAY |
+| `title` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `streetAddress` | MAY | MAY | SHALL NOT |
+| `localityName` | MAY | MAY | MAY |
+| `stateOrProvinceName` | MAY | MAY | MAY |
+| `postalCode` | MAY | MAY | SHALL NOT |
+| `countryName` | MAY | MAY | MAY |
 | Other | MAY | SHALL NOT | SHALL NOT |
 
 ##### 7.1.4.2.5 Subject DN attributes for sponsor-validated profile
 
 | Attribute | Legacy<br> (See Note 1) | Multipurpose<br> (See Note 2) | Strict<br> (See Note 2) |
 |-----------|--------|--------------|--------|
-| `subject:commonName` | MAY  | MAY | MAY |
-| `subject:organizationName` | SHALL | SHALL | SHALL |
-| `subject:organizationalUnitName` | MAY  | MAY | MAY |
-| `subject:organizationIdentifier` | SHALL | SHALL | SHALL |
-| `subject:givenName` | MAY | MAY | MAY |
-| `subject:surname` | MAY | MAY | MAY |
-| `subject:pseudonym` | MAY | MAY | MAY |
-| `subject:serialNumber` | MAY | MAY | MAY |
-| `subject:emailAddress` | MAY | MAY | MAY |
-| `subject:title` | MAY  | MAY | MAY |
-| `subject:streetAddress` | MAY | MAY | SHALL NOT |
-| `subject:localityName` | MAY | MAY | MAY |
-| `subject:stateOrProvinceName` | MAY | MAY | MAY |
-| `subject:postalCode` | MAY | MAY | SHALL NOT |
-| `subject:countryName` | MAY | MAY | MAY |
+| `commonName` | MAY  | MAY | MAY |
+| `organizationName` | SHALL | SHALL | SHALL |
+| `organizationalUnitName` | MAY  | MAY | MAY |
+| `organizationIdentifier` | SHALL | SHALL | SHALL |
+| `givenName` | MAY | MAY | MAY |
+| `surname` | MAY | MAY | MAY |
+| `pseudonym` | MAY | MAY | MAY |
+| `serialNumber` | MAY | MAY | MAY |
+| `emailAddress` | MAY | MAY | MAY |
+| `title` | MAY  | MAY | MAY |
+| `streetAddress` | MAY | MAY | SHALL NOT |
+| `localityName` | MAY | MAY | MAY |
+| `stateOrProvinceName` | MAY | MAY | MAY |
+| `postalCode` | MAY | MAY | SHALL NOT |
+| `countryName` | MAY | MAY | MAY |
 | Other | MAY | SHALL NOT | SHALL NOT |
 
 **Note**: 
@@ -2197,21 +2197,21 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 
 | Attribute | Legacy<br> (See Note 1) | Multipurpose<br> (See Note 2) | Strict<br> (See Note 2) |
 |-----------|--------|----------------|--------|
-| `subject:commonName` | MAY  | MAY | MAY | 
-| `subject:organizationName` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:organizationalUnitName` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:organizationIdentifier` | SHALL NOT | SHALL NOT | SHALL NOT |
-| `subject:givenName` | MAY | MAY | MAY |
-| `subject:surname` | MAY | MAY | MAY |
-| `subject:pseudonym` | MAY | MAY | MAY |
-| `subject:serialNumber` | MAY | MAY | MAY |
-| `subject:emailAddress` | MAY | MAY | MAY |
-| `subject:title` | MAY  | MAY | MAY |
-| `subject:streetAddress` | MAY | MAY | SHALL NOT |
-| `subject:localityName` | MAY | MAY | MAY |
-| `subject:stateOrProvinceName` | MAY | MAY | MAY |
-| `subject:postalCode` | MAY | MAY | SHALL NOT |
-| `subject:countryName` | MAY | MAY | MAY |
+| `commonName` | MAY  | MAY | MAY | 
+| `organizationName` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `organizationalUnitName` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `organizationIdentifier` | SHALL NOT | SHALL NOT | SHALL NOT |
+| `givenName` | MAY | MAY | MAY |
+| `surname` | MAY | MAY | MAY |
+| `pseudonym` | MAY | MAY | MAY |
+| `serialNumber` | MAY | MAY | MAY |
+| `emailAddress` | MAY | MAY | MAY |
+| `title` | MAY  | MAY | MAY |
+| `streetAddress` | MAY | MAY | SHALL NOT |
+| `localityName` | MAY | MAY | MAY |
+| `stateOrProvinceName` | MAY | MAY | MAY |
+| `postalCode` | MAY | MAY | SHALL NOT |
+| `countryName` | MAY | MAY | MAY |
 | Other | MAY | SHALL NOT | SHALL NOT |
 
 **Note**: 
