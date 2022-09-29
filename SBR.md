@@ -2027,7 +2027,7 @@ All Mailbox Addresses in the `subject` field or entries of type `dirName` of thi
 
 The CA MAY include `GeneralName` entries of type `dirName` provided that the information contained in the `Name` complies with the requirements set forth in the appropriate subsection of [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) according to the type of Certificate. Additionally, information contained in the `Name` SHALL be validated according to [Section 3.1](#31-naming), [Section 3.2.3](#323-authentication-of-organization-identity), and/or [Section 3.2.4](#324-authentication-of-individual-identity), as appropriate for the Certificate Type.
 
-For Legacy and Multipurpose Generation Certificates, then the CA MAY include `otherName` entries of any type, provided that the CA has validated the field value according to its CP and/or CPS.
+For Legacy and Multipurpose Generation profiles, then the CA MAY include `otherName` entries of any type, provided that the CA has validated the field value according to its CP and/or CPS.
 
 The CA SHALL NOT include `GeneralName` entries that do not conform to the requirements of this section.
 
@@ -2189,8 +2189,8 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 
 **Note**: 
 
- 1. Legacy Generation Certificates MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
- 2. Multipurpose and Strict Generation Certificates SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
+ 1. Legacy Generation profiles MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
+ 2. Multipurpose and Strict Generation profiles SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
 
 
 ##### 7.1.4.2.6 Subject DN attributes for individual-validated profile
@@ -2216,8 +2216,8 @@ n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)
 
 **Note**: 
 
- 1. Legacy Generation Certificates MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
- 2. Strict and Multipurpose Generation Certificates SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
+ 1. Legacy Generation profiles MAY omit the `subject:givenName`, `subject:surname`, and `subject:pseudonym` attributes and include only the `subject:commonName` as described in [Section 7.1.4.2.2(a)](#71422-subject-distinguished-name-fields).
+ 2. Strict and Multipurpose Generation profiles SHALL include either `subject:givenName` and/or `subject:surname`, or the `subject:pseudonym`. 
 
 #### 7.1.4.3 Subject information - root certificates and subordinate CA certificates
 
