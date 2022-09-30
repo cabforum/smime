@@ -3,7 +3,7 @@ title: Baseline Requirements for the Issuance and Management of Publicly-Trusted
 subtitle: Version 1.0.0
 author:
   - CA/Browser Forum
-date: September 16, 2022
+date: September 30, 2022
 copyright: |
   Copyright 2022 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -203,9 +203,9 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Certificate Revocation List**: A regularly updated time-stamped list of revoked Certificates that is created and digitally signed by the CA that issued the Certificates.
 
-**Certificate Type**: The S/MIME Baseline Requirements define Certificate profiles differentiated by the type of Subject, (for example Mailbox, Organization, Sponsored, Individual).
+**Certificate Type**: The S/MIME Baseline Requirements define Certificate Profiles differentiated by the type of Subject, (for example Mailbox, Organization, Sponsored, Individual).
 
-**Control**: "Control" (and its correlative meanings, "controlled by" and "under common control with") means possession, directly or indirectly, of the power to: (1) direct the management, personnel, finances, or plans of such entity; (2) control the election of a majority of the directors ; or (3) vote that portion of voting shares required for "control" under the law of the entity's Jurisdiction of Incorporation or Registration but in no case less than 10%.
+**Control**: "Control" (and its correlative meanings, "controlled by" and "under common control with") means possession, directly or indirectly, of the power to: (1) direct the management, personnel, finances, or plans of such entity; (2) control the election of a majority of the directors; or (3) vote that portion of voting shares required for "control" under the law of the entity's Jurisdiction of Incorporation or Registration but in no case less than 10%.
 
 **Conversion**: The process of converting text from one writing system to ASCII characters.
 
