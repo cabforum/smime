@@ -203,6 +203,8 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Certificate Revocation List**: A regularly updated time-stamped list of revoked Certificates that is created and digitally signed by the CA that issued the Certificates.
 
+**Certificate Type**: The S/MIME Baseline Requirements define Certificate profiles differentiated by the type of Subject, (for example Mailbox, Organization, Sponsored, Individual).
+
 **Control**: "Control" (and its correlative meanings, "controlled by" and "under common control with") means possession, directly or indirectly, of the power to: (1) direct the management, personnel, finances, or plans of such entity; (2) control the election of a majority of the directors ; or (3) vote that portion of voting shares required for "control" under the law of the entity's Jurisdiction of Incorporation or Registration but in no case less than 10%.
 
 **Conversion**: The process of converting text from one writing system to ASCII characters.
@@ -228,6 +230,8 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 **Expiry Date**: The "Not After" date in a Certificate that defines the end of a Certificate's validity period.
 
 **Fully-Qualified Domain Name**: A Domain Name that includes the Domain Labels of all superior nodes in the Internet Domain Name System.
+
+**Generation**: The S/MIME Baseline Requirements define several Generations of Certificate Profile for each Certificate Type.
 
 **Government Entity**: A government-operated legal entity, agency, department, ministry, branch, or similar element of the government of a country, or political subdivision within such country (such as a state, province, city, county, etc.).
 
@@ -508,7 +512,7 @@ No stipulation.
 
 The CA SHALL authenticate the identity attributes of the Subject and their control over the Mailbox Addresses to be included in the S/MIME Certificate according to the requirements of the following sections:
 
-| Type    | Mailbox Control | Organization Identity | Individual Identity | 
+| Certificate Type    | Mailbox Control | Organization Identity | Individual Identity | 
 |---------|----------|----------|----------|
 | `Mailbox-validated` | [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)  | NA | NA | 
 | `Organization-validated` |  [Section 3.2.2](#322-validation-of-mailbox-authorization-or-control)  | [Section 3.2.3](#323-authentication-of-organization-identity) | NA |
@@ -2025,7 +2029,7 @@ __Contents:__ This extension SHALL contain at least one `GeneralName` entry of t
 
 All Mailbox Addresses in the `subject` field or entries of type `dirName` of this extension SHALL be repeated as `rfc822Name` or `otherName` values of type `id-on-SmtpUTF8Mailbox` in this extension.
 
-The CA MAY include `GeneralName` entries of type `dirName` provided that the information contained in the `Name` complies with the requirements set forth in the appropriate subsection of [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) according to the type of Certificate. Additionally, information contained in the `Name` SHALL be validated according to [Section 3.1](#31-naming), [Section 3.2.3](#323-authentication-of-organization-identity), and/or [Section 3.2.4](#324-authentication-of-individual-identity), as appropriate for the Certificate Type.
+The CA MAY include `GeneralName` entries of type `dirName` provided that the information contained in the `Name` complies with the requirements set forth in the appropriate subsection of [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) according to the Certificate Type. Additionally, information contained in the `Name` SHALL be validated according to [Section 3.1](#31-naming), [Section 3.2.3](#323-authentication-of-organization-identity), and/or [Section 3.2.4](#324-authentication-of-individual-identity), as appropriate for the Certificate Type.
 
 For Legacy and Multipurpose Generation profiles, then the CA MAY include `otherName` entries of any type, provided that the CA has validated the field value according to its CP and/or CPS.
 
@@ -2036,7 +2040,7 @@ The CA SHALL NOT include `GeneralName` entries that do not conform to the requir
 a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)  
    __Contents:__ If present, this attribute SHALL contain one of the following values verified in accordance with [Section 3.2](#32-initial-identity-validation).
 
-| Type    | Contents |
+| Certificate Type    | Contents |
 |---------|----------|
 | `Mailbox-validated` | Mailbox Address |
 | `Organization-validated` | `subject:organizationName` or Mailbox Address |
@@ -2258,7 +2262,7 @@ This section describes the content requirements for the Root CA, Subordinate CA,
 
 The following CA/Browser Forum Certificate Policy identifiers are reserved for use by CAs to assert that a Certificate complies with these Requirements.
 
-| Validation Type | Generation | Policy Identifier |
+| Certificate Type | Generation | Policy Identifier |
 | ---------------- | ---------- | ----------------- |
 | `Mailbox-validated` | Legacy | `2.23.140.1.5.1.1` |
 | `Mailbox-validated` | Multipurpose | `2.23.140.1.5.1.2` |
