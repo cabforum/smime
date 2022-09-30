@@ -331,7 +331,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Valid Certificate**: A Certificate that passes the validation procedure specified in [RFC 5280](http://tools.ietf.org/html/rfc5280).
 
-**Validation Specialists**: Someone who performs the information verification duties specified by these Requirements.
+**Validation Specialist**: Someone who performs the information verification duties specified by these Requirements.
 
 **Validity Period**: From [RFC 5280](http://tools.ietf.org/html/rfc5280): "The period of time from notBefore through notAfter, inclusive."
 
@@ -389,31 +389,31 @@ ISO 17442-1:2020, Financial services — Legal entity identifier (LEI) - Part 1:
 
 ISO 17442-2:2020, Financial services — Legal entity identifier (LEI) - Part 2: Application in digital certificates.
 
-Network and Certificate System Security Requirements, v.1.0, 1/1/2013.
+Network and Certificate System Security Requirements, Version 1.7 or later. See https://cabforum.org/network-security-requirements/.
 
 NIST SP 800-89, Recommendation for Obtaining Assurances for Digital Signature Applications.
 
-RFC 2119, Request for Comments: 2119, Key words for use in RFCs to Indicate Requirement Levels, Bradner, March 1997.
+RFC 2119, Request for Comments: 2119, Key words for use in RFCs to Indicate Requirement Levels, S. Bradner. March 1997.
 
-RFC 3647, Request for Comments: 3647, Internet X.509 Public Key Infrastructure: Certificate Policy and Certification Practices Framework, Chokhani, et al, November 2003.
+RFC 3647, Request for Comments: 3647, Internet X.509 Public Key Infrastructure: Certificate Policy and Certification Practices Framework, S. Chokhani, et al. November 2003.
 
-RFC 3739, Request for Comments: 3739, Internet X.509 Public Key Infrastructure: Qualified Certificates Profile, S. Santesson, et al, March 2004.
+RFC 3739, Request for Comments: 3739, Internet X.509 Public Key Infrastructure: Qualified Certificates Profile, S. Santesson, et al. March 2004.
 
-RFC 4262, Request for Comments: 4262, X.509 Certificate Extension for Secure/Multipurpose Internet Mail Extensions (S/MIME) Capabilities, S. Santesson, December 2005.
+RFC 4262, Request for Comments: 4262, X.509 Certificate Extension for Secure/Multipurpose Internet Mail Extensions (S/MIME) Capabilities, S. Santesson. December 2005.
 
-RFC 5019, Request for Comments: 5019, The Lightweight Online Certificate Status Protocol (OCSP) Profile for High-Volume Environments, A. Deacon, et al, September 2007.
+RFC 5019, Request for Comments: 5019, The Lightweight Online Certificate Status Protocol (OCSP) Profile for High-Volume Environments, A. Deacon, et al. September 2007.
 
-RFC 5280, Request for Comments: 5280, Internet X.509 Public Key Infrastructure: Certificate and Certificate Revocation List (CRL) Profile, Cooper et al, May 2008.
+RFC 5280, Request for Comments: 5280, Internet X.509 Public Key Infrastructure: Certificate and Certificate Revocation List (CRL) Profile, Cooper et al. May 2008.
 
-RFC 6818, Updates to the Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile, January 2013.
+RFC 6818, Updates to the Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile. January 2013.
 
-RFC 6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP. Santesson, Myers, Ankney, Malpani, Galperin, Adams, June 2013.
+RFC 6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP. S. Santesson, et al. June 2013.
 
 RFC 8398, Request for Comments: 8398, Internationalized Email Addresses in X.509 Certificates, MAY 2018. A. Melnikov, et al. May 2018.
 
 RFC 8499, Request for Comments: 8499, DNS Terminology. P. Hoffman, et al. January 2019.
 
-RFC 8659, Request for Comments: 8659, DNS Certification Authority Authorization (CAA) Resource Record, Hallam-Baker, Stradling, Hoffman-Andrews, November 2019.
+RFC 8659, Request for Comments: 8659, DNS Certification Authority Authorization (CAA) Resource Record, Hallam-Baker, et al. November 2019.
 
 "TLS Baseline Requirements" means the relevant version of the CA/Browser Forum's "Baseline Requirements for the Issuance and Management of Publicly‐Trusted TLS Server Certificates". See https://cabforum.org/baseline-requirements-documents/
 
@@ -1575,7 +1575,7 @@ If the Issuing CA generated the Private Key on behalf of the Subordinate CA, the
 
 ### 6.2.7 Private key storage on cryptographic module
 
-The CA SHALL protect its Private Key in a system or device that has been validated as meeting at least FIPS 140-2 level 3 or an appropriate Common Criteria Protection Profile or Security Target, EAL 4 (or higher), which includes requirements to protect the Private Key and other assets against known threats.
+The CA SHALL protect its Private Key in a system or device that has been validated as meeting at least FIPS 140-2 level 3, FIPS 140-3 level 3, or an appropriate Common Criteria Protection Profile or Security Target, EAL 4 (or higher), which includes requirements to protect the Private Key and other assets against known threats.
 
 ### 6.2.8 Method of activating private key
 
