@@ -463,7 +463,7 @@ The CA SHALL make its Repository publicly available in a read-only manner.
 
 When the `subject:commonName` of a Certificate issued to an Individual does not contain a Mailbox Address, it is specified as a Personal Name or `subject:pseudonym` as described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields)(a). 
 
-Names consisting of multiple words are permitted. Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence. Subjects MAY chose name order in accordance with national preference. 
+Names consisting of multiple words are permitted. Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence. Subjects MAY choose the order of their given name(s) and surname in accordance with national preference.
 
 The CA MAY allow common variations or abbreviations of Personal Names consistent with local practice. 
 
@@ -475,11 +475,13 @@ Personal Names SHALL be a meaningful representation of the Subject’s name as v
 
 The purpose of the `subject:pseudonym` attribute is to provide a unique identifier linked to an Individual in a pseudonymized manner when certain privacy conditions are required. For example, a Pseudonym may be used if a government agency requires officials to sign certain decisions via S/MIME so those decisions trace back to individuals, but emphasize the importance of the role over Individual identity in the Certificate. The CA SHALL disclose in its CP and/or CPS if it allows the use of Pseudonyms.
 
-For `Sponsor-validated` certificates, the CA MAY use a `subject:pseudonym` attribute in the Certificate if the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute SHALL be: 
+For `Sponsor-validated` certificates, the CA MAY use a `subject:pseudonym` attribute in the Certificate if the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute SHALL be:
+
   1. either a unique identifier selected by the CA for the Subject of the Certificate; or
   2. an identifier selected by the Enterprise RA which uniquely identifies the Subject of the Certificate within the Organization included in the `subject:organizationName` attribute.
 
-For `Individual-validated` certificates, the CA MAY use the `subject:pseudonym` attribute if the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute SHALL be: 
+For `Individual-validated` certificates, the CA MAY use the `subject:pseudonym` attribute if the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute SHALL be:
+
   1. either a unique identifier selected by the CA for the Subject of the Certificate; or
   2. an identifier verified based on government-issued identity documents.
 
@@ -575,7 +577,7 @@ The CA or RA SHALL collect and retain evidence supporting the following identity
 
 1.	Formal name of the Legal Entity;
 2.	A registered Assumed Name for the Legal Entity (if included in the Subject);
-3.  An organizational unit of the Legal Entity (if included in the Subject);
+3. An organizational unit of the Legal Entity (if included in the Subject);
 4.	An address of the Legal Entity (if included in the Subject);
 5.	Jurisdiction of Incorporation or Registration of the Legal Entity; and
 6.	Unique identifier and type of identifier for the Legal Entity. 
@@ -766,6 +768,7 @@ Subscriber information that has not been verified in accordance with these Requi
 ### 3.2.6 Validation of authority
 
 Before commencing to issue `Organization-validated` and `Sponsor-validated` Certificates for an Applicant, the CA or RA SHALL use a Reliable Method of Communication to verify the authority and approval of an Applicant Representative to perform one or more of the following:
+
 *  to act as an Enterprise RA;
 *  to request issuance or revocation of Certificates; or 
 *  to assign responsibilities to others to act in these roles. 
@@ -815,7 +818,7 @@ Prior to the issuance of a Certificate, the CA SHALL obtain the following docume
 1. A Certificate Request; and
 2. An executed Subscriber Agreement and/or Terms of Use.
 
-The Certificate Request and Subscriber Agreement or Terms of Use SHALL be in a form prescribed by the CA and SHALL comply with these Requirements including [Section 9.6.3](#963-subscriber-representations-and-warranties). The CA SHOULD obtain any additional documentation the CA determines necessary to fulfil these Requirements.
+The Certificate Request and Subscriber Agreement or Terms of Use SHALL be in a form prescribed by the CA and SHALL comply with these Requirements including [Section 9.6.3](#963-subscriber-representations-and-warranties). The CA SHOULD obtain any additional documentation the CA determines necessary to fulfill these Requirements.
 
 The Certificate Request SHALL contain a request from, or on behalf of, the Applicant for the issuance of a Certificate, and a certification by, or on behalf of, the Applicant that all of the information contained therein is correct.
 
@@ -1157,7 +1160,7 @@ No stipulation.
 
 The CA MAY escrow the Subscriber’s Private Key as specified in the CA's CP and/or CPS. 
 
-The CA SHALL notify Subscribers when their Private Keys are escrowed. Escrowed Private Keys SHALL be stored in encrypted form. The CA SHALL protect escrowed Private Keys from unauthorised disclosure.
+The CA SHALL notify Subscribers when their Private Keys are escrowed. Escrowed Private Keys SHALL be stored in encrypted form. The CA SHALL protect escrowed Private Keys from unauthorized disclosure.
 
 The CA SHALL recover Subscriber Private Keys only under the circumstances permitted within the CA's CP and/or CPS.
 
@@ -1368,6 +1371,7 @@ The CA's security program SHALL include an annual Risk Assessment that:
 The CA and each Delegated Third Party SHALL archive all audit logs (as set forth in [Section 5.4.1](#541-types-of-events-recorded)).
 
 Additionally, the CA and each Delegated Third Party SHALL archive:
+
 1. Documentation related to the security of their Certificate Systems, Certificate Management Systems, Root CA Systems, and Delegated Third Party Systems; and
 2. Documentation related to their verification, issuance, and revocation of Certificate Requests and Certificates.
 
@@ -1376,6 +1380,7 @@ Additionally, the CA and each Delegated Third Party SHALL archive:
 Archived audit logs (as set forth in [Section 5.5.1](#551-types-of-records-archived) SHALL be retained for a period of at least two (2) years from their record creation timestamp, or as long as they are required to be retained per [Section 5.4.3](#543-retention-period-for-audit-log), whichever is longer.
 
 Additionally, the CA and each Delegated Third Party SHALL retain, for at least two (2) years:
+
 1. All archived documentation related to the security of Certificate Systems, Certificate Management Systems, Root CA Systems and Delegated Third Party Systems (as set forth in [Section 5.5.1](#551-types-of-records-archived)); and
 2. All archived documentation relating to the verification, issuance, and revocation of Certificate Requests and Certificates (as set forth in [Section 5.5.1](#551-types-of-records-archived)) after the later occurrence of:
    1. such records and documentation were last relied upon in the verification, issuance, or revocation of Certificate Requests and Certificates; or
@@ -1459,8 +1464,8 @@ No stipulation.
 
 For CA Key Pairs that are either
 
-  1. used as a CA Key Pair for a Root CA Certificate; or
-  2. used as a CA Key Pair for a Subordinate CA Certificate, where the Subordinate CA is not the operator of the Root CA or an Affiliate of the Root CA,
+1. used as a CA Key Pair for a Root CA Certificate; or
+2. used as a CA Key Pair for a Subordinate CA Certificate, where the Subordinate CA is not the operator of the Root CA or an Affiliate of the Root CA,
 
 the CA SHALL:
 
