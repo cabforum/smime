@@ -1781,8 +1781,8 @@ c. `authorityInformationAccess` (SHOULD be present)
    
       | Generation | Allowed URI scheme | 
       |------|-----------------------|
-      | Strict and Multipurpose | Every `accessMethod` SHALL have the URI scheme HTTP. Other schemes SHALL NOT be present. |
-      | Legacy | At least one `accessMethod` SHALL have the URI scheme HTTP. Other schemes (LDAP, FTP, ...) MAY be present. | 
+      | Strict and Multipurpose | When provided, every `accessMethod` SHALL have the URI scheme HTTP. Other schemes SHALL NOT be present. |
+      | Legacy | When provided, at least one `accessMethod` SHALL have the URI scheme HTTP. Other schemes (LDAP, FTP, ...) MAY be present. | 
   
    1. `id-ad-caIssuers`
   
@@ -1790,8 +1790,8 @@ c. `authorityInformationAccess` (SHOULD be present)
    
       | Generation | Allowed URI scheme | 
       |------|-----------------------|
-      | Strict and Multipurpose | Every `accessMethod` SHALL have the URI scheme HTTP. Other schemes SHALL NOT be present. |
-      | Legacy | At least one `accessMethod` SHALL have the URI scheme HTTP. Other schemes (LDAP, FTP, ...) MAY be present. | 
+      | Strict and Multipurpose | When provided, every `accessMethod` SHALL have the URI scheme HTTP. Other schemes SHALL NOT be present. |
+      | Legacy | When provided, at least one `accessMethod` SHALL have the URI scheme HTTP. Other schemes (LDAP, FTP, ...) MAY be present. | 
    
 d. `basicConstraints` (optional)
 
