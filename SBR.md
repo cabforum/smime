@@ -1777,7 +1777,7 @@ c. `authorityInformationAccess` (SHOULD be present)
    
    1. `id-ad-ocsp`
    
-      The `authorityInformationAccess` extension MAY contain one or more `accessMethod` value of type `id-ad-ocsp` that specifies the URI of the Issuing CA's OCSP responder. 
+      The `authorityInformationAccess` extension MAY contain one or more `accessMethod` values of type `id-ad-ocsp` that specifies the URI of the Issuing CA's OCSP responder. 
    
       | Generation | Allowed URI scheme | 
       |------|-----------------------|
