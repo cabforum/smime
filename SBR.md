@@ -3,7 +3,7 @@ title: Baseline Requirements for the Issuance and Management of Publicly-Trusted
 subtitle: Version 1.0.0
 author:
   - CA/Browser Forum
-date: September 30, 2022
+date: October 10, 2022
 copyright: |
   Copyright 2022 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -1077,7 +1077,7 @@ No stipulation.
 
 ### 4.9.9 On-line revocation/status checking availability
 
-OCSP responses SHALL conform to [RFC 6960](https://datatracker.ietf.org/doc/html/rfc6960) and/or [RFC 5019](https://datatracker.ietf.org/doc/html/rfc5019). OCSP responses SHALL either:
+When provided, OCSP responses SHALL conform to [RFC 6960](https://datatracker.ietf.org/doc/html/rfc6960) and/or [RFC 5019](https://datatracker.ietf.org/doc/html/rfc5019). OCSP responses SHALL either:
 
 1. Be signed by the CA that issued the Certificates whose revocation status is being checked, or
 2. Be signed by an OCSP Responder whose Certificate is signed by the CA that issued the Certificate whose revocation status is being checked.
@@ -1771,18 +1771,18 @@ b. `cRLDistributionPoints` (SHALL be present)
    | Strict and Multipurpose | Every `uniformResourceIdentifier` SHALL have the URI scheme HTTP. Other schemes SHALL NOT be present. |
    | Legacy | At least one `uniformResourceIdentifier` SHALL have the URI scheme HTTP. Other schemes (LDAP, FTP, ...) MAY be present. |
 
-c. `authorityInformationAccess` (SHALL be present)
+c. `authorityInformationAccess` (SHOULD be present)
 
    This extension SHALL NOT be marked critical.
    
    1. `id-ad-ocsp`
    
-      The `authorityInformationAccess` extension SHALL contain at least one `accessMethod` value of type `id-ad-ocsp` that specifies the URI of the Issuing CA's OCSP responder. 
+      The `authorityInformationAccess` extension MAY contain one or more `accessMethod` values of type `id-ad-ocsp` that specifies the URI of the Issuing CA's OCSP responder. 
    
       | Generation | Allowed URI scheme | 
       |------|-----------------------|
-      | Strict and Multipurpose | Every `accessMethod` SHALL have the URI scheme HTTP. Other schemes SHALL NOT be present. |
-      | Legacy | At least one `accessMethod` SHALL have the URI scheme HTTP. Other schemes (LDAP, FTP, ...) MAY be present. | 
+      | Strict and Multipurpose | When provided, every `accessMethod` SHALL have the URI scheme HTTP. Other schemes SHALL NOT be present. |
+      | Legacy | When provided, at least one `accessMethod` SHALL have the URI scheme HTTP. Other schemes (LDAP, FTP, ...) MAY be present. | 
   
    1. `id-ad-caIssuers`
   
@@ -1790,8 +1790,8 @@ c. `authorityInformationAccess` (SHALL be present)
    
       | Generation | Allowed URI scheme | 
       |------|-----------------------|
-      | Strict and Multipurpose | Every `accessMethod` SHALL have the URI scheme HTTP. Other schemes SHALL NOT be present. |
-      | Legacy | At least one `accessMethod` SHALL have the URI scheme HTTP. Other schemes (LDAP, FTP, ...) MAY be present. | 
+      | Strict and Multipurpose | When provided, every `accessMethod` SHALL have the URI scheme HTTP. Other schemes SHALL NOT be present. |
+      | Legacy | When provided, at least one `accessMethod` SHALL have the URI scheme HTTP. Other schemes (LDAP, FTP, ...) MAY be present. | 
    
 d. `basicConstraints` (optional)
 
