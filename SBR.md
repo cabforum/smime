@@ -650,7 +650,7 @@ If digital identity documents (such as passports or national ID cards including 
 
 This method does not include "eID" as described in Regulation (EU) 910/2014.
 
-3. **Using electronic identification schemes (eID)**
+3.	**Using electronic identification schemes (eID)**
    
 If an eID is used as evidence, the CA or RA SHALL only accept “notified” eID schemes according to Article 9 of the [eIDAS Regulation](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2014.257.01.0073.01.ENG) and the eID shall conform to eIDAS LoA “Substantial” or “High”.
 
@@ -686,17 +686,17 @@ In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, re
 
 The Enterprise RA SHALL maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-delegated-parties).
 
-6. **Affiliation from company attestation**
+6.	**Affiliation from company attestation**
 
 In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority or affiliation of an Individual to represent an Organization to be included in the `subject:organizationName` of the Certificate using an Attestation provided by the Organization and verified in accordance with [Section 3.2.8](#328-reliability-of-verification-sources). 
 
 The CA or RA SHALL still verify the identity of the Individual in accordance with [Section 3.2.4](#324-authentication-of-individual-identity) and the Organization in accordance with [Section 3.2.3](#323-authentication-of-organization-identity).
 
-7. **From a general attestation** 
+7.	**From a general attestation** 
 
 Evidence for Individual identity attributes MAY be gathered using an Attestation from a qualified legal practitioner or notary in the Applicant's jurisdiction. 
 
-8. **From authorized reference sources as supplementary evidence** 
+8.	**From authorized reference sources as supplementary evidence** 
    
 Evidence for Individual identity attributes SHALL use at least one of the following sources for authoritative evidence:  a physical or digital identity document, digital signature supported by certificate, Enterprise RA records, or suitable Attestation.
 
