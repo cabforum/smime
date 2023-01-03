@@ -3,9 +3,9 @@ title: Baseline Requirements for the Issuance and Management of Publicly-Trusted
 subtitle: Version 1.0.0
 author:
   - CA/Browser Forum
-date: October 14, 2022
+date: January 01, 2023
 copyright: |
-  Copyright 2022 CA/Browser Forum
+  Copyright 2023 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
 
@@ -78,7 +78,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 
 |Version| Ballot|Description                       | Adopted  | Effective Date\*  |
 |------|-------|----------------------------------|----------| -----------|
-| 00   | 00    |Version 1.0 of the S/MIME Baseline Requirements adopted | Adoption date | Adoption date plus 8 months |
+| 1.0.0   | SMC01    |Version 1.0 of the S/MIME Baseline Requirements adopted | January 01, 2023 | September 01, 2023 |
 
 \* Effective Date and Additionally Relevant Compliance Date(s)
   
