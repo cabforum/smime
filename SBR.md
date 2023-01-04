@@ -189,6 +189,8 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Certification Authority (or CA)**: An organization that is responsible for the creation, issuance, revocation, and management of Certificates. The term applies equally to both Root CAs and Subordinate CAs.
 
+**Certification Authority Authorization (or CAA**)**: From [RFC 8659](http://tools.ietf.org/html/rfc8659): "The Certification Authority Authorization (CAA) DNS Resource Record allows a DNS domain name holder to specify one or more Certification Authorities (CAs) authorized to issue certificates for that domain name. CAA Resource Records allow a public CA to implement additional controls to reduce the risk of unintended certificate mis-issue."
+
 **Certificate Data**: Certificate requests and data related thereto (whether obtained from the Applicant or otherwise) in the CA's possession or control or to which the CA has access.
 
 **Certificate Management Process**: Processes, practices, and procedures associated with the use of keys, software, and hardware, by which the CA verifies Certificate Data, issues Certificates, maintains a Repository, and revokes Certificates.
@@ -387,6 +389,8 @@ ICAO DOC 9303, Machine Readable Travel Documents, Part 10, Logical Data Structur
 
 ICAO DOC 9303, Machine Readable Travel Documents, Part 11, Security Mechanisms for MRTDs, International Civil Aviation Organization, Eighth Edition, 2021.
 
+Internet-Draft: Certification Authority Authorization (CAA) Processing for Email Addresses, draft-bonnell-caa-issuemail-00, C. Bonnell, November 2022.
+
 ISO 17065:2012, Conformity assessment — Requirements for bodies certifying products, processes and services.
 
 ISO 17442-1:2020, Financial services — Legal entity identifier (LEI) - Part 1: Assignment.
@@ -440,6 +444,8 @@ The CA SHALL make revocation information for Subordinate CA Certificates and Sub
 The CA SHALL publicly disclose its CP and/or CPS through an appropriate and readily accessible online means that is available on a 24x7 basis. The CA SHALL publicly disclose its CA business practices to the extent required by the CA's selected audit scheme (see [Section 8](#8-compliance-audit-and-other-assessments)).
 
 The CP and/or CPS SHALL be structured in accordance with [RFC 3647](http://tools.ietf.org/html/rfc3647) and SHALL include all material required by [RFC 3647](http://tools.ietf.org/html/rfc3647).
+
+The CA SHALL state its policy or practice on processing CAA Records for for Mailbox Addresses in Section 4.2 of its CP and/or CPS. That policy SHALL be consistent with these Requirements and SHALL clearly specify the set of Issuer Domain Names that the CA recognizes in CAA "issuemail" records as permitting it to issue. 
 
 The CA SHALL publicly give effect to these Requirements and represent that it will adhere to the latest published version. The CA MAY fulfill this requirement by incorporating these Requirements directly into its CP and/or CPS or by incorporating them by reference using a clause such as the following (which SHALL include a link to the official version of these Requirements):
 
@@ -831,6 +837,20 @@ A CA may rely on a previously verified Certificate Request to issue a replacemen
 3. The Subject Information of the Certificate is the same as the previous Certificate being referenced.
 
 ## 4.2 Certificate application processing
+
+Prior to issuing a Certificate that includes a Mailbox Address, the CA SHALL retrieve and process CAA records in accordance with Section 4 of [Certification Authority Authorization (CAA) Processing for Email Addresses](https://datatracker.ietf.org/doc/draft-bonnell-caa-issuemail/).
+
+If the Certificate includes more than one Mailbox Address, CA MUST perform the above procedure for each Mailbox Address. 
+
+CAA checking is optional for Certificates issued by a Technically Constrained Subordinate CA Certificate as set out in [Section 7.1.5](#715-name-constraints), where the lack of CAA checking is an explicit contractual provision in the contract with the Applicant.
+
+The CA SHALL NOT issue a Certificate unless the CA determines that Certificate Request is consistent with the applicable CAA RRset. The CA SHALL log all actions taken, if any, consistent with its CAA processing practice.
+
+CAs are permitted to treat a record lookup failure as permission to issue if:
+
+* the failure is outside the CA's infrastructure; and
+* the lookup has been retried at least once; and
+* the domain's zone does not have a DNSSEC validation chain to the ICANN root.
 
 ### 4.2.1 Performing identification and authentication functions
 
