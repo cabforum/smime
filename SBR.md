@@ -1851,7 +1851,7 @@ l. Legal Entity Identifier (optional)
    | Generation | LEI      | 
    |------|-----------------------|
    | `Mailbox-validated` | Prohibited |
-   | `Organization-validated` | LEI (1.3.6.1.4.1.52266.1) MAY be present and SHALL NOT be marked critical.  |
+   | `Organization-validated` | LEI (1.3.6.1.4.1.52266.1) MAY be present and SHALL NOT be marked critical.  Role (1.3.6.1.4.1.52266.2) SHALL NOT be present.|
    | `Sponsor-validated` | LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) MAY be present and SHALL NOT be marked critical.  |
    | `Individual-validated` | Prohibited |
 
