@@ -463,7 +463,7 @@ The CA SHALL make its Repository publicly available in a read-only manner.
 
 ### 3.1.1 Types of names
 
-When the `subject:commonName` of a Certificate issued to an Individual does not contain a Mailbox Address, it is specified as a Personal Name or `subject:pseudonym` as described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields)(a). 
+When the `subject:commonName` of a Certificate issued to an Individual does not contain a Mailbox Address, it is specified as a Personal Name or Pseudonym as described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields)(a). 
 
 Names consisting of multiple words are permitted. Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence. Subjects MAY choose the order of their given name(s) and surname in accordance with national preference.
 
@@ -475,7 +475,7 @@ Personal Names SHALL be a meaningful representation of the Subject’s name as v
 
 ### 3.1.3 Anonymity or pseudonymity of subscribers
 
-The purpose of the `subject:pseudonym` attribute is to provide a unique identifier linked to an Individual in a pseudonymized manner when certain privacy conditions are required. For example, a Pseudonym may be used if a government agency requires officials to sign certain decisions via S/MIME so those decisions trace back to individuals, but emphasize the importance of the role over Individual identity in the Certificate. The CA SHALL disclose in its CP and/or CPS if it allows the use of Pseudonyms.
+The purpose of the Pseudonym attribute is to provide a unique identifier linked to an Individual in a pseudonymized manner when certain privacy conditions are required. For example, a Pseudonym may be used if a government agency requires officials to sign certain decisions via S/MIME so those decisions trace back to individuals, but emphasize the importance of the role over Individual identity in the Certificate. The CA SHALL disclose in its CP and/or CPS if it allows the use of Pseudonyms.
 
 For `Sponsor-validated` certificates, the CA MAY use a `subject:pseudonym` attribute in the Certificate if the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute SHALL be:
 
@@ -2051,8 +2051,8 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 |---------|----------|
 | `Mailbox-validated` | Mailbox Address |
 | `Organization-validated` | `subject:organizationName` or Mailbox Address |
-| `Sponsor-validated` | Personal Name, `subject:pseudonym`, or Mailbox Address |
-| `Individual-validated` | Personal Name, `subject:pseudonym`, or Mailbox Address |
+| `Sponsor-validated` | Personal Name, Pseudonym, or Mailbox Address |
+| `Individual-validated` | Personal Name, Pseudonym, or Mailbox Address |
 
 If present, the Personal Name SHALL contain a name of the Subject. The Personal Name SHOULD be presented as `subject:givenName` and/or `subject:surname`. The Personal Name MAY be in the Subject's preferred presentation format or a format preferred by the CA or Enterprise RA, but SHALL be a meaningful representation of the Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). 
 
@@ -2505,7 +2505,7 @@ The CA SHALL publish a Privacy Policy that provides information on the CA's data
 
 ### 9.4.2 Information treated as private
 
-The CA or RA SHALL treat all personal information about an Individual that is not publicly available in the contents of a Certificate as private information. This includes information that links a `subject:pseudonym` to the real identity of the Subject Individual. 
+The CA or RA SHALL treat all personal information about an Individual that is not publicly available in the contents of a Certificate as private information. This includes information that links a Pseudonym to the real identity of the Subject Individual. 
 
 ### 9.4.3 Information not deemed private
 
