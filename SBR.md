@@ -2073,7 +2073,7 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
 
    The `subject:organizationIdentifier` SHALL be encoded as a PrintableString or UTF8String.
 
-   The Registration Scheme identified in the Certificate SHALL be the result of the verification performed in accordance with [Section 3.2.3](#323-authentication-of-organization-identity). The Registration Scheme SHALL be identified using the using the following structure in the presented order:
+   The Registration Scheme identified in the Certificate SHALL be the result of the verification performed in accordance with [Section 3.2.3](#323-authentication-of-organization-identity). The Registration Scheme SHALL be identified using the following structure in the presented order:
 
     * 3 character Registration Scheme identifier;
     * 2 character ISO 3166 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally ISO 3166 code "XG" SHALL be used;
