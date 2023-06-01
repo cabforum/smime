@@ -624,7 +624,7 @@ In the case of a LEI data reference, the CA or RA SHALL verify the associated da
 
 The following requirements SHALL be fulfilled to authenticate Individual identity attributes included in `Sponsor-validated` and `Individual-validated` Certificate profiles.
 
-The CA or RA SHALL collect and retain evidence supporting the following identity attributes for the Individual Applicant:
+The CA, RA, or Enterprise RA SHALL collect and retain evidence supporting the following identity attributes for the Individual Applicant:
 
 1. Given name(s) and surname(s), which SHALL be current names;
 2. Pseudonym (if used); 
