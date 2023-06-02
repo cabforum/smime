@@ -764,6 +764,7 @@ If required identity attributes to be collected are not present in the Certifica
 If an Attestation is used as evidence for the validation of Individual identity attributes, then the reliability of the Attestation SHALL be verified according to [Section 3.2.8](#328-reliability-of-verification-sources).
 
 6. **Validation using an Enterprise RA record**
+
 An Enterprise RA issuing a Sponsor-validated Certificate SHALL validate all identity attributes of an Individual to be included in the Certificate. The Enterprise RA MAY rely upon existing internal records to validate Individual identity.
 
 ### 3.2.5 Non-verified subscriber information
