@@ -231,6 +231,16 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Expiry Date**: The "Not After" date in a Certificate that defines the end of a Certificate's validity period.
 
+**Extant S/MIME CA**: A Subordinate CA that:
+
+   1. Is a Publicly-Trusted CA Certificate that has issued end entity S/MIME Certificates that are valid as of June 15, 2023;
+   2. Is audited and has appeared on the CA’s latest audit report which is acceptable to the relevant program for Publicly-Trusted Certificates; 
+   3. The CA Certificate includes no Extended Key Usage extension, contains `anyExtendedKeyUsage` in the EKU extension, or contains `id-kp-emailProtection` in the EKU extension; 
+   4. The CA Certificate complies with the profile defined in [RFC 5280](http://tools.ietf.org/html/rfc5280). The following two deviations from the [RFC 5280](http://tools.ietf.org/html/rfc5280) profile are acceptable:
+      a. The CA Certificate contains a `nameConstraints` extension that is not marked critical; 
+      b. The CA Certificate contains a policy qualifier of type UserNotice which contains `explicitText` that uses an encoding that is not permitted by [RFC 5280](http://tools.ietf.org/html/rfc5280) (i.e., the `DisplayText` is encoded using BMPString or VisibleString); and
+   5. The CA Certificate may contain the `anyPolicy` identifier (2.5.29.32.0). or specific OIDs in the `certificatePolicies` extension that do not include those defined in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) of these Requirements.
+
 **Fully-Qualified Domain Name**: A Domain Name that includes the Domain Labels of all superior nodes in the Internet Domain Name System.
 
 **Generation**: The S/MIME Baseline Requirements define several Generations of Certificate Profile for each Certificate Type.
@@ -1709,6 +1719,8 @@ e. `subjectKeyIdentifier` (SHALL be present)
 
 #### 7.1.2.2 Subordinate CA certificates
 
+The issuance of end entity S/MIME Certificates by Extant S/MIME CAs is described in [Appendix B](#appendix-b---transition-of-extant-smime-cas).
+
 a. `certificatePolicies` (SHALL be present)
 
    This extension SHOULD NOT be marked critical.
@@ -2725,3 +2737,9 @@ The following Registration Schemes are recognized as valid for use in the `subje
 * **PNO**: For an identifier based on a national personal number (or national civic registration number) issued to the Subject Individual. 
 
 * **TIN**: For an identifier based on Tax Identification Number issued to the Subject Individual. 
+
+# Appendix B - Transition of Extant S/MIME CAs
+
+Following the Effective Date for v 1.0.0 of these Requirements (September 1, 2023) an Extant S/MIME CA MAY continue to issue end entity S/MIME Certificates that are compliant with these Requirements. 
+
+On or after September 15, 2024, all newly-issued Publicly-Trusted end entity S/MIME Certificates SHALL be issued from S/MIME Subordinate CAs that are compliant with these Requirements.
