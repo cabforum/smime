@@ -2062,7 +2062,7 @@ If present, the Personal Name SHALL contain a name of the Subject. The Personal 
 
 If present, the Mailbox Address SHALL contain a `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` from `extensions:subjectAltName`.
 
-If present, the Pseudonym SHALL contain the subject:pseudonym if that subject attribute is also present.
+If present, the Pseudonym SHALL contain the `subject:pseudonym` if that Subject attribute is also present.
 
 **Note**: Like all other Certificate attributes, `subject:commonName` and `subject:emailAddress` SHALL comply with the attribute upper bounds defined in [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
 
