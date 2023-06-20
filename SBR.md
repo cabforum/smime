@@ -242,7 +242,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
    4. The CA Certificate complies with the profile defined in [RFC 5280](http://tools.ietf.org/html/rfc5280). The following two deviations from the [RFC 5280](http://tools.ietf.org/html/rfc5280) profile are acceptable:
       a. The CA Certificate contains a `nameConstraints` extension that is not marked critical; 
       b. The CA Certificate contains a policy qualifier of type UserNotice which contains `explicitText` that uses an encoding that is not permitted by [RFC 5280](http://tools.ietf.org/html/rfc5280) (i.e., the `DisplayText` is encoded using BMPString or VisibleString); and
-   5. The CA Certificate may contain the `anyPolicy` identifier (2.5.29.32.0). or specific OIDs in the `certificatePolicies` extension that do not include those defined in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) of these Requirements.
+   5. The CA Certificate contains the `anyPolicy` identifier (2.5.29.32.0) or specific OIDs in the `certificatePolicies` extension that do not include those defined in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) of these Requirements.
 
 **Fully-Qualified Domain Name**: A Domain Name that includes the Domain Labels of all superior nodes in the Internet Domain Name System.
 
