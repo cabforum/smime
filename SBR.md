@@ -236,7 +236,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Extant S/MIME CA**: A Subordinate CA that:
 
-   1. Is a Publicly-Trusted CA Certificate whose `validFrom` attribute is before September 1, 2023 and has issued end entity S/MIME Certificates;
+   1. Is a Publicly-Trusted Subordinate CA Certificate whose `notBefore` field is before September 1, 2023 and has issued end entity S/MIME Certificates;
    2. The CA Certificate includes no Extended Key Usage extension, contains `anyExtendedKeyUsage` in the EKU extension, or contains `id-kp-emailProtection` in the EKU extension; 
    3. The CA Certificate complies with the profile defined in [RFC 5280](http://tools.ietf.org/html/rfc5280). The following two deviations from the [RFC 5280](http://tools.ietf.org/html/rfc5280) profile are acceptable:
       a. The CA Certificate contains a `nameConstraints` extension that is not marked critical; 
@@ -729,7 +729,7 @@ The CA SHALL internally document the accepted reference sources, including a des
 
 The CA or RA SHALL validate all identity attributes of the Individual to be included in the Certificate.
 
-If the evidence has an explicit validity period, the CA SHALL verify that the time of the identity validation is within this validity period. In context this can include the `validFrom` and `validTo` attributes of a digital signature Certificate or the date of expiry of an identity document.
+If the evidence has an explicit validity period, the CA SHALL verify that the time of the identity validation is within this validity period. In context this can include the `notBefore` and `notAfter` fields of a digital signature Certificate or the date of expiry of an identity document.
 
 The CA or RA MAY reuse existing evidence to validate Individual identity subject to the age restrictions in [Section 4.2.1](#421-performing-identification-and-authentication-functions).
 
