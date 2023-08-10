@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.0
+subtitle: Version 1.0.1
 author:
   - CA/Browser Forum
-date: January 01, 2023
+date: August 11, 2023
 copyright: |
   Copyright 2023 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -79,6 +79,9 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |Version| Ballot|Description                       | Adopted  | Effective Date\*  |
 |------|-------|----------------------------------|----------| -----------|
 | 1.0.0   | SMC01    |Version 1.0 of the S/MIME Baseline Requirements adopted | January 01, 2023 | September 01, 2023 |
+| 1.0.1   | SMC03    |Clarification and corrections | August 11, 2023 | September 01, 2023 |
+| -- | -- |Transition end for Extant S/MIME CAs | -- | September 15, 2024 |
+
 
 \* Effective Date and Additionally Relevant Compliance Date(s)
   
@@ -103,13 +106,15 @@ Before the CA authorizes a Delegated Third Party to perform a delegated function
 
 #### 1.3.2.1 Enterprise registration authorities
 
-The CA MAY delegate to an Enterprise Registration Authority (RA) to verify Certificate Requests from the Enterprise RA's own organization. The CA SHALL NOT accept Certificate Requests authorized by an Enterprise RA unless the following requirements are satisfied:
+The CA MAY delegate to an Enterprise Registration Authority (RA) to verify Certificate Requests for Subjects within the Enterprise RA's own organization. The CA SHALL NOT accept Certificate Requests authorized by an Enterprise RA unless the following requirements are satisfied:
 
-1. If the Certificate Request is for an `Organization-validated` or `Sponsor-validated` profile, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domain(s) in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers). The CA SHALL confirm that the `subject:organizationName` name is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are Affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
-
-2. If the Certificate Request is for a `Mailbox-validated` profile, the CA SHALL confirm that the mailbox holder has control of the requested Mailbox Address(es) in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
+1. If the Certificate Request is for a `Mailbox-validated`, `Organization-validated`, or `Sponsor-validated` profile, the CA SHALL confirm that the Enterprise RA has authorization or control of the requested email domain(s) in accordance with [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) or [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers). 
+2. The CA SHALL confirm that the `subject:organizationName` name is either that of the delegated enterprise, or an Affiliate of the delegated enterprise, or that the delegated enterprise is an agent of the named Subject. For example, the CA SHALL NOT issue a Certificate containing the Subject name "XYZ Co." on the authority of Enterprise RA "ABC Co.", unless the two companies are Affiliated as defined in [Section 3.2](#32-initial-identity-validation) or "ABC Co." is the agent of "XYZ Co". This requirement applies regardless of whether the accompanying requested email domain falls within the subdomains of ABC Co.'s Registered Domain Name.
 
 The CA SHALL impose these limitations as a contractual requirement on the Enterprise RA and monitor compliance by the Enterprise RA in accordance with [Section 8.8](#88-review-of-delegated-parties).
+
+An Enterprise RA MAY also submit Certificate Requests using the `Mailbox-validated` profile for users whose email domain(s) are not under the delegated organization’s authorization or control.  In this case, the CA SHALL confirm that the mailbox holder has control of the requested Mailbox Address(es) in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
+
 
 ### 1.3.3 Subscribers
 
@@ -229,6 +234,15 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Expiry Date**: The "Not After" date in a Certificate that defines the end of a Certificate's validity period.
 
+**Extant S/MIME CA**: A Subordinate CA that:
+
+   1. Is a Publicly-Trusted Subordinate CA Certificate whose `notBefore` field is before September 1, 2023 and has issued end entity S/MIME Certificates;
+   2. The CA Certificate includes no Extended Key Usage extension, contains `anyExtendedKeyUsage` in the EKU extension, or contains `id-kp-emailProtection` in the EKU extension; 
+   3. The CA Certificate complies with the profile defined in [RFC 5280](http://tools.ietf.org/html/rfc5280). The following two deviations from the [RFC 5280](http://tools.ietf.org/html/rfc5280) profile are acceptable:
+      a. The CA Certificate contains a `nameConstraints` extension that is not marked critical; 
+      b. The CA Certificate contains a policy qualifier of type UserNotice which contains `explicitText` that uses an encoding that is not permitted by [RFC 5280](http://tools.ietf.org/html/rfc5280) (i.e., the `DisplayText` is encoded using BMPString or VisibleString); and
+   4. The CA Certificate contains the `anyPolicy` identifier (2.5.29.32.0) or specific OIDs in the `certificatePolicies` extension that do not include those defined in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) of these Requirements.
+
 **Fully-Qualified Domain Name**: A Domain Name that includes the Domain Labels of all superior nodes in the Internet Domain Name System.
 
 **Generation**: The S/MIME Baseline Requirements define several Generations of Certificate Profile for each Certificate Type.
@@ -237,7 +251,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Individual**: A Natural Person.
 
-**Individual-Validated**: Refers to a Certificate Subject that includes only Individual (Natural Person) attributes, rather than attributes linked to an Organization. |
+**Individual-Validated**: Refers to a Certificate Subject that includes only Individual (Natural Person) attributes, rather than attributes linked to an Organization. 
 
 **Issuing CA**: In relation to a particular Certificate, the CA that issued the Certificate. This could be either a Root CA or a Subordinate CA.
 
@@ -255,7 +269,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Mailbox-Validated (MV)**: Refers to a Certificate Subject that is limited to (optional) `subject:emailAddress` and/or `subject:serialNumber` attributes.
 
-**Mailbox Address**: Also Email Address. From [RFC 5321](http://tools.ietf.org/html/rfc5321): "A character string that identifies a user to whom mail will be sent or a location into which mail will be deposited."
+**Mailbox Address**: Also Email Address. The format of a Mailbox Address is defined as a "Mailbox" as specified in Section 4.1.2 of [RFC 5321](http://tools.ietf.org/html/rfc5321) and amended by Section 3.2 of [RFC 6532](http://tools.ietf.org/html/rfc6532), with no additional padding or structure.
 
 **Mailbox Field**: In Subscriber Certificates contains a Mailbox Address of the Subject via `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension, or in Subordinate CA Certificates via `rfc822Name` in permittedSubtrees within the `nameConstraints` extension.
 
@@ -461,7 +475,7 @@ The CA SHALL make its Repository publicly available in a read-only manner.
 
 ### 3.1.1 Types of names
 
-When the `subject:commonName` of a Certificate issued to an Individual does not contain a Mailbox Address, it is specified as a Personal Name or `subject:pseudonym` as described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields)(a). 
+When the `subject:commonName` of a Certificate issued to an Individual does not contain a Mailbox Address, it is specified as a Personal Name or Pseudonym as described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields)(a). 
 
 Names consisting of multiple words are permitted. Given names joined with a hyphen are considered as one single given name. Subjects with more than one given name MAY choose one or several of their given names in any sequence. Subjects MAY choose the order of their given name(s) and surname in accordance with national preference.
 
@@ -473,7 +487,7 @@ Personal Names SHALL be a meaningful representation of the Subject’s name as v
 
 ### 3.1.3 Anonymity or pseudonymity of subscribers
 
-The purpose of the `subject:pseudonym` attribute is to provide a unique identifier linked to an Individual in a pseudonymized manner when certain privacy conditions are required. For example, a Pseudonym may be used if a government agency requires officials to sign certain decisions via S/MIME so those decisions trace back to individuals, but emphasize the importance of the role over Individual identity in the Certificate. The CA SHALL disclose in its CP and/or CPS if it allows the use of Pseudonyms.
+The purpose of a Pseudonym is to provide a unique identifier linked to an Individual in a pseudonymized manner when certain privacy conditions are required. For example, a Pseudonym may be used if a government agency requires officials to sign certain decisions via S/MIME so those decisions trace back to individuals, but emphasize the importance of the role over Individual identity in the Certificate. The CA SHALL disclose in its CP and/or CPS if it allows the use of Pseudonyms.
 
 For `Sponsor-validated` certificates, the CA MAY use a `subject:pseudonym` attribute in the Certificate if the associated Subject has been verified according to [Section 3.2.4](#324-authentication-of-individual-identity). If present, the `subject:pseudonym` attribute SHALL be:
 
@@ -622,7 +636,7 @@ In the case of a LEI data reference, the CA or RA SHALL verify the associated da
 
 The following requirements SHALL be fulfilled to authenticate Individual identity attributes included in `Sponsor-validated` and `Individual-validated` Certificate profiles.
 
-The CA or RA SHALL collect and retain evidence supporting the following identity attributes for the Individual Applicant:
+The CA, RA, or Enterprise RA SHALL collect and retain evidence supporting the following identity attributes for the Individual Applicant:
 
 1. Given name(s) and surname(s), which SHALL be current names;
 2. Pseudonym (if used); 
@@ -715,7 +729,7 @@ The CA SHALL internally document the accepted reference sources, including a des
 
 The CA or RA SHALL validate all identity attributes of the Individual to be included in the Certificate.
 
-If the evidence has an explicit validity period, the CA SHALL verify that the time of the identity validation is within this validity period. In context this can include the `validFrom` and `validTo` attributes of a digital signature Certificate or the date of expiry of an identity document.
+If the evidence has an explicit validity period, the CA SHALL verify that the time of the identity validation is within this validity period. In context this can include the `notBefore` and `notAfter` fields of a digital signature Certificate or the date of expiry of an identity document.
 
 The CA or RA MAY reuse existing evidence to validate Individual identity subject to the age restrictions in [Section 4.2.1](#421-performing-identification-and-authentication-functions).
 
@@ -761,6 +775,10 @@ If required identity attributes to be collected are not present in the Certifica
 
 If an Attestation is used as evidence for the validation of Individual identity attributes, then the reliability of the Attestation SHALL be verified according to [Section 3.2.8](#328-reliability-of-verification-sources).
 
+6. **Validation using an Enterprise RA record**
+
+An Enterprise RA issuing a Sponsor-validated Certificate SHALL validate all identity attributes of an Individual to be included in the Certificate. The Enterprise RA MAY rely upon existing internal records to validate Individual identity.
+
 ### 3.2.5 Non-verified subscriber information
 
 Subscriber information that has not been verified in accordance with these Requirements SHALL NOT be included in Publicly-Trusted S/MIME Certificates.
@@ -783,7 +801,7 @@ The CA SHALL disclose all Cross Certificates that identify the CA as the Subject
 
 ### 3.2.8 Reliability of verification sources
 
-Before relying on a source of verification data to validate Certificate Requests, the CA SHALL verify its suitability as a Reliable Data Source.
+Before relying on a source of verification data to validate Certificate Requests, the CA SHALL verify its suitability as a Reliable Data Source. Enterprise RA records are a Reliable Data Source for Individual Subject attributes included in Sponsor-validated Certificates issued to the Enterprise RA’s Organisation.
 
 The CA or RA MAY rely upon a letter attesting that Subject Information or other fact is correct. The CA or RA SHALL verify that the letter was written by an accountant, lawyer, government official, or other reliable third party in the Applicant’s jurisdiction customarily relied upon for such information. 
 
@@ -1003,16 +1021,16 @@ The CA SHALL revoke a Certificate within 24 hours if one or more of the followin
 
 The CA SHOULD revoke a Certificate within 24 hours and SHALL revoke a Certificate within 5 days if one or more of the following occurs:
 
-1. The Certificate no longer complies with the requirements of [Section 6.1.5](#615-key-sizes) and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking);
-2. The CA obtains evidence that the Certificate was misused;
-3. The CA is made aware that a Subscriber has violated one or more of its material obligations under the Subscriber Agreement or Terms of Use;
-4. The CA is made aware of any circumstance indicating that use of an email address or Fully-Qualified Domain Name in the Certificate is no longer legally permitted (e.g., a court or arbitrator has revoked the right to use an email address or Domain Name, a relevant licensing or services agreement between the Subscriber has terminated, or the account holder has failed to maintain the active status of the email address or Domain Name);
-5. The CA is made aware of a material change in the information contained in the Certificate;
-6. The CA is made aware that the Certificate was not issued in accordance with these Requirements or the CA's CP and/or CPS;
-7. The CA determines or is made aware that any of the information appearing in the Certificate is inaccurate;
-8. The CA's right to issue Certificates under these Requirements expires or is revoked or terminated, unless the CA has made arrangements to continue maintaining the CRL/OCSP Repository;
-9. Revocation is required by the CA's CP and/or CPS; or
-10. The CA is made aware of a demonstrated or proven method that exposes the Subscriber's Private Key to compromise or if there is clear evidence that the specific method used to generate the Private Key was flawed.
+6. The Certificate no longer complies with the requirements of [Section 6.1.5](#615-key-sizes) and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking);
+7. The CA obtains evidence that the Certificate was misused;
+8. The CA is made aware that a Subscriber has violated one or more of its material obligations under the Subscriber Agreement or Terms of Use;
+9. The CA is made aware of any circumstance indicating that use of an email address or Fully-Qualified Domain Name in the Certificate is no longer legally permitted (e.g., a court or arbitrator has revoked the right to use an email address or Domain Name, a relevant licensing or services agreement between the Subscriber has terminated, or the account holder has failed to maintain the active status of the email address or Domain Name);
+10. The CA is made aware of a material change in the information contained in the Certificate;
+11. The CA is made aware that the Certificate was not issued in accordance with these Requirements or the CA's CP and/or CPS;
+12. The CA determines or is made aware that any of the information appearing in the Certificate is inaccurate;
+13. The CA's right to issue Certificates under these Requirements expires or is revoked or terminated, unless the CA has made arrangements to continue maintaining the CRL/OCSP Repository;
+14. Revocation is required by the CA's CP and/or CPS; or
+15. The CA is made aware of a demonstrated or proven method that exposes the Subscriber's Private Key to compromise or if there is clear evidence that the specific method used to generate the Private Key was flawed.
 
 #### 4.9.1.2 Reasons for revoking a subordinate CA certificate
 
@@ -1703,6 +1721,8 @@ e. `subjectKeyIdentifier` (SHALL be present)
 
 #### 7.1.2.2 Subordinate CA certificates
 
+The issuance of end entity S/MIME Certificates by Extant S/MIME CAs is described in [Appendix B](#appendix-b---transition-of-extant-smime-cas).
+
 a. `certificatePolicies` (SHALL be present)
 
    This extension SHOULD NOT be marked critical.
@@ -1801,10 +1821,10 @@ e. `keyUsage` (SHALL be present)
 
    This extension SHOULD be marked critical. 
 
-   | Generation | `rsaEncryption`       | `id-ecPublicKey`            |
-   |------|-----------------------|-----------------------------|
-   | Strict | For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement` and MAY be set for `nonRepudiation` and for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).|
-   | Multipurpose<br> and Legacy | For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment` and MAY be set for `dataEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation` and `dataEncipherment`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement` and MAY be set for `nonRepudiation` and for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).|
+   | Generation | `rsaEncryption`       | `id-ecPublicKey`            |`id-Ed25519` and `id-Ed448`            |
+   |------|-----------------------|-----------------------------|-----------------------------|
+   | Strict | For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement` and MAY be set for `nonRepudiation` and for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).| Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`. |
+   | Multipurpose<br> and Legacy | For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment` and MAY be set for `dataEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation` and `dataEncipherment`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement` and MAY be set for `nonRepudiation` and for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).| Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`. |
 
    Other bit positions SHALL NOT be set.
 
@@ -1849,7 +1869,7 @@ l. Legal Entity Identifier (optional)
    | Generation | LEI      | 
    |------|-----------------------|
    | `Mailbox-validated` | Prohibited |
-   | `Organization-validated` | LEI (1.3.6.1.4.1.52266.1) MAY be present and SHALL NOT be marked critical.  |
+   | `Organization-validated` | LEI (1.3.6.1.4.1.52266.1) MAY be present and SHALL NOT be marked critical.  Role (1.3.6.1.4.1.52266.2) SHALL NOT be present.|
    | `Sponsor-validated` | LEI (1.3.6.1.4.1.52266.1) or for role (1.3.6.1.4.1.52266.2) MAY be present and SHALL NOT be marked critical.  |
    | `Individual-validated` | Prohibited |
 
@@ -2049,12 +2069,14 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 |---------|----------|
 | `Mailbox-validated` | Mailbox Address |
 | `Organization-validated` | `subject:organizationName` or Mailbox Address |
-| `Sponsor-validated` | Personal Name, `subject:pseudonym`, or Mailbox Address |
-| `Individual-validated` | Personal Name, `subject:pseudonym`, or Mailbox Address |
+| `Sponsor-validated` | Personal Name, Pseudonym, or Mailbox Address |
+| `Individual-validated` | Personal Name, Pseudonym, or Mailbox Address |
 
 If present, the Personal Name SHALL contain a name of the Subject. The Personal Name SHOULD be presented as `subject:givenName` and/or `subject:surname`. The Personal Name MAY be in the Subject's preferred presentation format or a format preferred by the CA or Enterprise RA, but SHALL be a meaningful representation of the Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). 
 
 If present, the Mailbox Address SHALL contain a `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` from `extensions:subjectAltName`.
+
+If present, the Pseudonym SHALL contain the `subject:pseudonym` if that Subject attribute is also present.
 
 **Note**: Like all other Certificate attributes, `subject:commonName` and `subject:emailAddress` SHALL comply with the attribute upper bounds defined in [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
 
@@ -2071,11 +2093,11 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
 
    The `subject:organizationIdentifier` SHALL be encoded as a PrintableString or UTF8String.
 
-   The Registration Scheme identified in the Certificate SHALL be the result of the verification performed in accordance with [Section 3.2.3](#323-authentication-of-organization-identity). The Registration Scheme SHALL be identified using the using the following structure in the presented order:
+   The Registration Scheme identified in the Certificate SHALL be the result of the verification performed in accordance with [Section 3.2.3](#323-authentication-of-organization-identity). The Registration Scheme SHALL be identified using the following structure in the presented order:
 
     * 3 character Registration Scheme identifier;
     * 2 character ISO 3166 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally ISO 3166 code "XG" SHALL be used;
-    * For the NTR Registration Scheme identifier, where registrations are administrated at the subdivision (state or province) level, a 2 character ISO 3166-2 identifier for the subdivision of the nation in which the Registration Scheme is operated, preceded by plus "+" (0x2B (ASCII), U+002B (UTF-8));
+    * For the NTR Registration Scheme identifier, where registrations are administrated at the subdivision (state or province) level, a plus "+" (0x2B (ASCII), U+002B (UTF-8)) followed by an up-to-three alphanumeric character ISO 3166-2 identifier for the subdivision of the nation in which the Registration Scheme is operated;
     * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
     * Registration Reference allocated in accordance with the identified Registration Scheme.
 
@@ -2093,7 +2115,7 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
 
    **Note 2**: For the following types of entities that do not have an identifier from the Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes):
 
-    * For Government Entities, the CA SHALL enter the Registration Scheme identifier ‘GOV’ followed by the 2 character ISO 3166 country code for the nation in which the Government Entity is located.  If the Government Entity is verified at a subdivision (state or province) level, then a plus "+" (0x2B (ASCII), U+002B (UTF-8)) followed by a 2 character ISO 3166-2 identifier for the subdivision is added.
+    * For Government Entities, the CA SHALL enter the Registration Scheme identifier ‘GOV’ followed by the 2 character ISO 3166 country code for the nation in which the Government Entity is located.  If the Government Entity is verified at a subdivision (state or province) level, then a plus "+" (0x2B (ASCII), U+002B (UTF-8)) followed by an ISO 3166-2 identifier for the subdivision (up to three alphanumeric characters) is added.
     * For International Organization Entities, the CA SHALL enter the Registration Scheme identifier ‘INT’ followed by the ISO 3166 code "XG". An International Organization Entity is founded by a constituent document, e.g., a charter, treaty, convention or similar document, signed by, or on behalf of, a minimum of two Sovereign State governments.
   
     For example:
@@ -2395,7 +2417,7 @@ The CA SHALL undergo an audit in accordance with one of the following schemes:
 
 1. For Audit Periods starting before the Effective Date defined in [Section 1.2.1](#121-revisions) of the first version of these Requirements, “WebTrust for CAs v2.2.2 or newer”; or
 2. For Audit Periods starting after the Effective Date defined in [Section 1.2.1](#121-revisions) of the first version of these Requirements, “WebTrust for CAs v2.2.2 or newer” AND “WebTrust for S/MIME Baseline Requirements v1.0.0 or newer”; or
-3. "ETSI EN 319 411-1 v1.3.1 or newer", which includes normative references to ETSI EN 319 401 (the latest version of referenced ETSI documents should be applied); or
+3. "ETSI EN 319 411-1 v1.3.1 or newer" or "ETSI EN 319 411-2 v2.4.1 or newer", which includes normative references to ETSI EN 319 401 (the latest version of referenced ETSI documents should be applied) AND this document; or
 4. If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either
    a. encompasses all requirements of one of the above schemes; or
    b. consists of comparable criteria that are available for public review.
@@ -2503,7 +2525,7 @@ The CA SHALL publish a Privacy Policy that provides information on the CA's data
 
 ### 9.4.2 Information treated as private
 
-The CA or RA SHALL treat all personal information about an Individual that is not publicly available in the contents of a Certificate as private information. This includes information that links a `subject:pseudonym` to the real identity of the Subject Individual. 
+The CA or RA SHALL treat all personal information about an Individual that is not publicly available in the contents of a Certificate as private information. This includes information that links a Pseudonym to the real identity of the Subject Individual. 
 
 ### 9.4.3 Information not deemed private
 
@@ -2717,3 +2739,11 @@ The following Registration Schemes are recognized as valid for use in the `subje
 * **PNO**: For an identifier based on a national personal number (or national civic registration number) issued to the Subject Individual. 
 
 * **TIN**: For an identifier based on Tax Identification Number issued to the Subject Individual. 
+
+# Appendix B - Transition of Extant S/MIME CAs
+
+Following the Effective Date for v 1.0.0 of these Requirements (September 1, 2023) an Extant S/MIME CA MAY continue to issue end entity S/MIME Certificates that are compliant with these Requirements. 
+
+On or after September 15, 2024, all newly-issued Publicly-Trusted end entity S/MIME Certificates SHALL be issued from S/MIME Subordinate CAs that are compliant with these Requirements.
+
+For backwards compatibility, Extant S/MIME CA Certificates that share the same Public Keys with S/MIME Subordinate CAs that are compliant with these Requirements, or are no longer used for signing end entity S/MIME Certificates, are not required to be revoked.
