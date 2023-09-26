@@ -240,7 +240,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Extant S/MIME CA**: A Subordinate CA that:
 
-   1. Is a Publicly-Trusted Subordinate CA Certificate whose `notBefore` field is before September 1, 2023 and has issued end entity S/MIME Certificates;
+   1. Is a Publicly-Trusted Subordinate CA Certificate whose `notBefore` field is before September 1, 2023 and whose hierarchy has issued end entity S/MIME Certificates;
    2. The CA Certificate includes no Extended Key Usage extension, contains `anyExtendedKeyUsage` in the EKU extension, or contains `id-kp-emailProtection` in the EKU extension; 
    3. The CA Certificate complies with the profile defined in [RFC 5280](http://tools.ietf.org/html/rfc5280). The following two deviations from the [RFC 5280](http://tools.ietf.org/html/rfc5280) profile are acceptable:
       a. The CA Certificate contains a `nameConstraints` extension that is not marked critical; 
