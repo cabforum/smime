@@ -2360,6 +2360,10 @@ The Repository MAY include CRL entries that have a `CRLreason` of certificateHol
 
 If a `reasonCode` CRL entry extension is present, the `CRLReason` SHALL indicate the most appropriate reason for revocation of the Certificate, as defined by the CA within its CP/CPS.
 
+### 7.2.3 CRL entry revocationDate field
+
+The CA MAY update the revocation date in a CRL entry when it is determined that the private key of the Certificate was compromised prior to the revocation date that is indicated in the CRL entry for that Certificate. Backdating the revocationDate field is an exception to best practice described in RFC 5280 (Section 5.3.2); however, these requirements specify the use of the revocationDate field to support S/MIME implementations that process the revocationDate field as the date when the Certificate is first considered to be compromised.
+
 ## 7.3 OCSP profile
 
 If an OCSP response is for a Root CA or Subordinate CA Certificate, including Cross Certificates, and that Certificate has been revoked, then the `revocationReason` field within the `RevokedInfo` of the `CertStatus` SHALL be present.
