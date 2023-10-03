@@ -1152,7 +1152,7 @@ No stipulation.
 
 ### 4.9.17 Backdating revocations
 
-When revocation of a Subscriber Certificate is done due to a Key Compromise, the CA SHOULD determine an appropriate value for the revocationDate based on its own investigation. The CA SHOULD set a historic date as revocationDate if deemed appropriate.
+When revocation of a Subscriber Certificate is done due to a Key Compromise, the CA SHOULD determine an appropriate value for the revocationDate based on available information. The CA SHOULD set a historic date as revocationDate if deemed appropriate.
 
 ## 4.10 Certificate status services
 
