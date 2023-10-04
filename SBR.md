@@ -2366,7 +2366,7 @@ If a `reasonCode` CRL entry extension is present, the `CRLReason` SHALL indicate
 
 ### 7.2.3 CRL entry revocationDate field
 
-The CA SHOULD update the revocation date in a CRL entry when it is determined that the private key of the Certificate was compromised prior to the revocation date that is indicated in the CRL entry for that Certificate. Backdating the revocationDate field is an exception to best practice described in RFC 5280 (Section 5.3.2); however, these requirements specify the use of the revocationDate field to support S/MIME implementations that process the revocationDate field as the date when the Certificate is first considered to be compromised.
+The CA SHOULD update the revocation date in a CRL entry when it is determined that the Private Key of the Certificate was compromised prior to the revocation date that is indicated in the CRL entry for that Certificate. Backdating the revocationDate field is an exception to best practice described in RFC 5280 (Section 5.3.2); however, these Requirements specify the use of the revocationDate field to support S/MIME implementations that process the revocationDate field as the date when the Certificate is first considered to be compromised.
 
 ## 7.3 OCSP profile
 
