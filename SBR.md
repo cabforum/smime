@@ -76,10 +76,12 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 
 ### 1.2.1 Revisions
 
+|Version| Ballot|Description                       | Adopted  | Effective Date\*  |
+|------|-------|----------------------------------|----------| -----------|
 | 1.0.0   | SMC01    |Version 1.0 of the S/MIME Baseline Requirements adopted | January 01, 2023 | INSERT|
 | 1.0.1   | SMC03    |Clarification and corrections | August 11, 2023 | INSERT |
 
-\* Effective Date is the date the ballot completed Intellectual Property Review.
+\* Adopted Date is the date of passage of the Ballot. Effective Date is the date the Ballot completed Intellectual Property Review.
 
 |Version| Ballot|Description                       | Relevant Compliance Date |
 |------|-------|--------------------------------------|-----------|
