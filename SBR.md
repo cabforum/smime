@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.1
+subtitle: Version 1.0.2
 author:
   - CA/Browser Forum
-date: August 11, 2023
+date: INSERT, 2023
 copyright: |
   Copyright 2023 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -76,14 +76,15 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 
 ### 1.2.1 Revisions
 
-|Version| Ballot|Description                       | Adopted  | Effective Date\*  |
-|------|-------|----------------------------------|----------| -----------|
-| 1.0.0   | SMC01    |Version 1.0 of the S/MIME Baseline Requirements adopted | January 01, 2023 | INSERT|
-| 1.0.1   | SMC03    |Clarification and corrections | August 11, 2023 | INSERT |
+|Version| Ballot|Description                       | Effective Date\*  |
+|------|-------|----------------------------------|-----------|
+| 1.0.0   | SMC01    |Version 1.0 of the S/MIME Baseline Requirements adopted | January 01, 2023 |
+| 1.0.1   | SMC03    |Clarification and corrections | August 11, 2023 |
+| 1.0.2   | SMC04    |Addition of ETSI TS 119 411-6 | TBD |
 
-\* Adopted Date is the date of passage of the Ballot. Effective Date is the date the Ballot completed Intellectual Property Review.
+\* Effective Date is the date the new version was published following Intellectual Property Review.
 
-|Version| Ballot|Description                       | Relevant Compliance Date |
+|Version| Ballot|Description                       | Additional<br> Compliance Date |
 |------|-------|--------------------------------------|-----------|
 |1.0.0 |SMC01 | Initial implementation date | September 01, 2023|
 |1.0.1 |SMC03 | Transition end for Extant S/MIME CAs | September 15, 2024|
