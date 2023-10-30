@@ -860,7 +860,7 @@ A CA may rely on a previously verified Certificate Request to issue a replacemen
 
 ## 4.2 Certificate application processing
 
-Prior to issuing a Certificate that includes a Mailbox Address, the CA SHALL retrieve and process CAA records in accordance with Section 4 of [Certification Authority Authorization (CAA) Processing for Email Addresses](https://datatracker.ietf.org/doc/draft-bonnell-caa-issuemail/).
+Prior to issuing a Certificate that includes a Mailbox Address, the CA SHALL retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html).
 
 If the Certificate includes more than one Mailbox Address, CA MUST perform the above procedure for each Mailbox Address. 
 
