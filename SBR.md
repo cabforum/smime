@@ -591,7 +591,7 @@ The CA or RA SHALL collect and retain evidence supporting the following identity
 
 1.	Formal name of the Legal Entity;
 2.	A registered Assumed Name for the Legal Entity (if included in the Subject);
-3. An organizational unit of the Legal Entity (if included in the Subject);
+3.  Full legal organization name of an Affiliate of the Legal Entity (if included in the Subject);
 4.	An address of the Legal Entity (if included in the Subject);
 5.	Jurisdiction of Incorporation or Registration of the Legal Entity; and
 6.	Unique identifier and type of identifier for the Legal Entity. 
