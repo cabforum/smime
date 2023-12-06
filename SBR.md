@@ -856,7 +856,7 @@ A CA may rely on a previously verified Certificate Request to issue a replacemen
 
 Starting on September 15, 2024 prior to issuing a Certificate that includes a Mailbox Address, the CA SHOULD retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html). Starting on March 15, 2025 the CA SHALL retrieve and process CAA in accordance with [RFC 9495](https://www.rfc-editor.org/rfc/rfc9495.html)
 
-If the CA issues a Certificate, they MUST do so within the TTL of the CAA record, or 8 hours, whichever is greater.
+If the CA issues a Certificate following a CAA check, they MUST do so within the TTL of the CAA record, or 8 hours, whichever is greater.
 
 If the Certificate includes more than one Mailbox Address, CA MUST perform the above procedure for each Mailbox Address. 
 
