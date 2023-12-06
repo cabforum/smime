@@ -862,6 +862,8 @@ A CA may rely on a previously verified Certificate Request to issue a replacemen
 
 Prior to issuing a Certificate that includes a Mailbox Address, the CA SHALL retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html).
 
+If the CA issues a Certificate, they MUST do so within the TTL of the CAA record, or 8 hours, whichever is greater.
+
 If the Certificate includes more than one Mailbox Address, CA MUST perform the above procedure for each Mailbox Address. 
 
 CAA checking is optional for Certificates issued by a Technically Constrained Subordinate CA Certificate as set out in [Section 7.1.5](#715-name-constraints), where the lack of CAA checking is an explicit contractual provision in the contract with the Applicant.
