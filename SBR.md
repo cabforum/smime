@@ -463,7 +463,7 @@ The CA SHALL publicly disclose its CP and/or CPS through an appropriate and read
 
 The CP and/or CPS SHALL be structured in accordance with [RFC 3647](http://tools.ietf.org/html/rfc3647) and SHALL include all material required by [RFC 3647](http://tools.ietf.org/html/rfc3647).
 
-The CA SHALL state its policy or practice on processing CAA Records for for Mailbox Addresses in Section 4.2 of its CP and/or CPS. That policy SHALL be consistent with these Requirements and SHALL clearly specify the set of Issuer Domain Names that the CA recognizes in CAA "issuemail" records as permitting it to issue. 
+Starting on September 15, 2024 the CA SHALL state its policy or practice on processing CAA Records for for Mailbox Addresses in Section 4.2 of its CP and/or CPS. That policy SHALL be consistent with these Requirements and SHALL clearly specify the set of Issuer Domain Names that the CA recognizes in CAA "issuemail" records as permitting it to issue. 
 
 The CA SHALL publicly give effect to these Requirements and represent that it will adhere to the latest published version. The CA MAY fulfill this requirement by incorporating these Requirements directly into its CP and/or CPS or by incorporating them by reference using a clause such as the following (which SHALL include a link to the official version of these Requirements):
 
@@ -860,7 +860,7 @@ A CA may rely on a previously verified Certificate Request to issue a replacemen
 
 ## 4.2 Certificate application processing
 
-Prior to issuing a Certificate that includes a Mailbox Address, the CA SHALL retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html).
+Starting on March 15, 2025 prior to issuing a Certificate that includes a Mailbox Address, the CA SHALL retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html).
 
 If the CA issues a Certificate, they MUST do so within the TTL of the CAA record, or 8 hours, whichever is greater.
 
