@@ -587,10 +587,6 @@ The CA MAY confirm the Applicant's control over each Mailbox Field to be include
 
 To confirm the Applicant's control of the SMTP FQDN, the CA SHALL use only the currently-approved methods in [Section 3.2.2.4](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) of the TLS Baseline Requirements.
 
-#### 3.2.2.4 CAA records
-
-This version of the S/MIME Baseline Requirements does not require the CA to check for CAA records. The CAA property tags for `issue`, `issuewild`, and `iodef` as specified in [RFC 8659](https://datatracker.ietf.org/doc/html/rfc8659) are not recognized for the issuance of S/MIME Certificates.
-
 ### 3.2.3 Authentication of organization identity
 
 The following requirements SHALL be fulfilled to authenticate Organization identity included in the `Organization-validated` and `Sponsor-validated` profiles.
@@ -860,7 +856,9 @@ A CA may rely on a previously verified Certificate Request to issue a replacemen
 
 ## 4.2 Certificate application processing
 
-Starting on September 15, 2024 prior to issuing a Certificate that includes a Mailbox Address, the CA SHOULD retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html). Starting on March 15, 2025 the CA SHALL retrieve and process CAA in accordance with [RFC 9495](https://www.rfc-editor.org/rfc/rfc9495.html)
+Starting on September 15, 2024 prior to issuing a Certificate that includes a Mailbox Address, the CA SHOULD retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html). Starting on March 15, 2025 the CA SHALL retrieve and process CAA in accordance with [RFC 9495](https://www.rfc-editor.org/rfc/rfc9495.html).
+
+The CAA property tags for `issue`, `issuewild`, and `iodef` as specified in [RFC 8659](https://datatracker.ietf.org/doc/html/rfc8659) are not recognized for the issuance of S/MIME Certificates.
 
 If the CA issues a Certificate following a CAA check, they SHALL do so within the TTL of the CAA record, or 8 hours, whichever is greater.
 
