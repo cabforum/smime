@@ -850,24 +850,6 @@ A CA may rely on a previously verified Certificate Request to issue a replacemen
 
 ## 4.2 Certificate application processing
 
-Starting on September 15, 2024 prior to issuing a Certificate that includes a Mailbox Address, the CA SHOULD retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html). Starting on March 15, 2025 the CA SHALL retrieve and process CAA in accordance with [RFC 9495](https://www.rfc-editor.org/rfc/rfc9495.html).
-
-The CAA property tags for `issue`, `issuewild`, and `iodef` as specified in [RFC 8659](https://datatracker.ietf.org/doc/html/rfc8659) are not recognized for the issuance of S/MIME Certificates.
-
-If the CA issues a Certificate following a CAA check, they SHALL do so within the TTL of the CAA record, or 8 hours, whichever is greater.
-
-If the Certificate includes more than one Mailbox Address, CA SHALL perform the above procedure for each Mailbox Address. 
-
-CAA checking is optional for Certificates issued by a Technically Constrained Subordinate CA Certificate as set out in [Section 7.1.5](#715-name-constraints), where the lack of CAA checking is an explicit contractual provision in the contract with the Applicant.
-
-The CA SHALL NOT issue a Certificate unless the CA determines that Certificate Request is consistent with the applicable CAA RRset. The CA SHALL log all actions taken, if any, consistent with its CAA processing practice.
-
-CAs are permitted to treat a record lookup failure as permission to issue if:
-
-* the failure is outside the CA's infrastructure; and
-* the lookup has been retried at least once; and
-* the domain's zone does not have a DNSSEC validation chain to the ICANN root.
-
 ### 4.2.1 Performing identification and authentication functions
 
 Applicant information SHALL include, but not be limited to, at least one Mailbox Field to be included in the Certificate's `subjectAltName` extension.
@@ -892,7 +874,25 @@ A prior validation SHALL NOT be reused if any data or document used in the prior
 
 ### 4.2.2 Approval or rejection of certificate applications
 
-No stipulation.
+#### 4.2.2.1 Certification Authority Authorization
+
+Starting on September 15, 2024 prior to issuing a Certificate that includes a Mailbox Address, the CA SHOULD retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html). Starting on March 15, 2025 the CA SHALL retrieve and process CAA in accordance with [RFC 9495](https://www.rfc-editor.org/rfc/rfc9495.html).
+
+The CAA property tags for `issue`, `issuewild`, and `iodef` as specified in [RFC 8659](https://datatracker.ietf.org/doc/html/rfc8659) are not recognized for the issuance of S/MIME Certificates.
+
+If the CA issues a Certificate following a CAA check, they SHALL do so within the TTL of the CAA record, or 8 hours, whichever is greater.
+
+If the Certificate includes more than one Mailbox Address, CA SHALL perform the above procedure for each Mailbox Address. 
+
+CAA checking is optional for Certificates issued by a Technically Constrained Subordinate CA Certificate as set out in [Section 7.1.5](#715-name-constraints), where the lack of CAA checking is an explicit contractual provision in the contract with the Applicant.
+
+The CA SHALL NOT issue a Certificate unless the CA determines that Certificate Request is consistent with the applicable CAA RRset. The CA SHALL log all actions taken, if any, consistent with its CAA processing practice.
+
+CAs are permitted to treat a record lookup failure as permission to issue if:
+
+* the failure is outside the CA's infrastructure; and
+* the lookup has been retried at least once; and
+* the domain's zone does not have a DNSSEC validation chain to the ICANN root.
 
 ### 4.2.3 Time to process certificate applications
 
