@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.1
+subtitle: Version 1.0.2
 author:
   - CA/Browser Forum
-date: August 11, 2023
+date: December 8, 2023
 copyright: |
   Copyright 2023 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -76,14 +76,18 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 
 ### 1.2.1 Revisions
 
-|Version| Ballot|Description                       | Adopted  | Effective Date\*  |
-|------|-------|----------------------------------|----------| -----------|
-| 1.0.0   | SMC01    |Version 1.0 of the S/MIME Baseline Requirements adopted | January 01, 2023 | September 01, 2023 |
-| 1.0.1   | SMC03    |Clarification and corrections | August 11, 2023 | September 01, 2023 |
-| -- | -- |Transition end for Extant S/MIME CAs | -- | September 15, 2024 |
+|Version| Ballot|Description                       | Publication Date\*  |
+|------|-------|----------------------------------|-----------|
+| 1.0.0   | SMC01    |Version 1.0 of the S/MIME Baseline Requirements adopted | January 01, 2023 |
+| 1.0.1   | SMC03    |Clarification and corrections | August 11, 2023 |
+| 1.0.2   | SMC04    |Addition of ETSI TS 119 411-6 | December 8, 2023 |
 
+\* Publication Date is the date the new version was published following the Intellectual Property Review.
 
-\* Effective Date and Additionally Relevant Compliance Date(s)
+|Version| Ballot|Description                       | Additional<br> Compliance Date |
+|------|-------|--------------------------------------|-----------|
+|1.0.0 |SMC01 | Initial implementation date | September 01, 2023|
+|1.0.1 |SMC03 | Transition end for Extant S/MIME CAs | September 15, 2024|
   
 ## 1.3 PKI participants
 
@@ -386,6 +390,8 @@ ETSI EN 319 403-1, Electronic Signatures and Infrastructures (ESI); Trust Servic
 ETSI EN 319 411-1, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 1: General requirements.
 
 ETSI EN 319 411-2, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 2: Requirements for trust service providers issuing EU qualified certificates.
+
+ETSI EN 119 411-6, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 6: Requirements for Trust Service Providers issuing publicly trusted S/MIME certificates.
 
 ETSI EN 319 412-1, Electronic Signatures and Infrastructures (ESI); Certificate Profiles; Part 1: Overview and common data structures.
 
@@ -2417,7 +2423,7 @@ The CA SHALL undergo an audit in accordance with one of the following schemes:
 
 1. For Audit Periods starting before the Effective Date defined in [Section 1.2.1](#121-revisions) of the first version of these Requirements, “WebTrust for CAs v2.2.2 or newer”; or
 2. For Audit Periods starting after the Effective Date defined in [Section 1.2.1](#121-revisions) of the first version of these Requirements, “WebTrust for CAs v2.2.2 or newer” AND “WebTrust for S/MIME Baseline Requirements v1.0.0 or newer”; or
-3. "ETSI EN 319 411-1 v1.3.1 or newer" or "ETSI EN 319 411-2 v2.4.1 or newer", which includes normative references to ETSI EN 319 401 (the latest version of referenced ETSI documents should be applied) AND this document; or
+3. ETSI TS 119 411-6 v1.1.1 or newer, which includes normative references to ETSI EN 319 401, ETSI EN 319 411-1 and ETSI EN 319 411-2 (the latest version of the referenced ETSI documents should be applied); or
 4. If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either
    a. encompasses all requirements of one of the above schemes; or
    b. consists of comparable criteria that are available for public review.
@@ -2450,7 +2456,7 @@ The Audit Report SHALL contain at least the following clearly-labelled informati
 7. The start date and end date of the Audit Period, for those that cover a period of time;
 8. The point in time date, for those that are for a point in time;
 9. The date the report was issued, which will necessarily be after the end date or point in time date; 
-10. (For audits conducted in accordance with any of the ETSI standards) a statement to indicate if the audit was a full audit or a surveillance audit, and which portions of the criteria were applied and evaluated, e.g., ETSI EN 319 401, ETSI EN 319 411-1 policy LCP, NCP or NCP+, ETSI EN 319 411-2 policy QCP-n, QCP-n-qscd, QCP-l or QCP-l-qscd; and
+10. (For audits conducted in accordance with any of the ETSI standards) a statement to indicate if the audit was a full audit or a surveillance audit, and which portions of the criteria were applied and evaluated, e.g., ETSI EN 319 401, ETSI TS 119 411-6, ETSI EN 319 411-1 policy LCP, NCP or NCP+, ETSI EN 319 411-2 policy QCP-n, QCP-n-qscd, QCP-l or QCP-l-qscd; and
 11. (For audits conducted in accordance with any of the ETSI standards) a statement to indicate that the auditor referenced the applicable CA/Browser Forum criteria, such as this document, and the version used.
 
 An authoritative English language version of the publicly available audit information SHALL be provided by the Qualified Auditor and the CA SHALL ensure that it is publicly available.
