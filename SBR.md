@@ -313,6 +313,10 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Registration Authority (RA)**: Any Legal Entity that is responsible for identification and authentication of subjects of Certificates, but is not a CA, and hence does not sign or issue Certificates. An RA MAY assist in the certificate application process or revocation process or both. When "RA" is used as an adjective to describe a role or function, it does not necessarily imply a separate body, but can be part of the CA.
 
+**Registration Reference**: A unique identifier assigned to a Legal Entity.
+
+**Registration Scheme**: A scheme for assigning a Registration Reference meeting the requirements identified in Appendix A.
+
 **Reliable Data Source**: An identification document or source of data used to verify Subject Identity Information that is generally recognized among commercial enterprises and governments as reliable, and which was created by a third party for a purpose other than the Applicant obtaining a Certificate.
 
 **Reliable Method of Communication**: A method of communication, such as a postal/courier delivery address, telephone number, or email address, that was verified using a source other than the Applicant Representative.
