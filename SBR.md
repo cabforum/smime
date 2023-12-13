@@ -37,9 +37,9 @@ These Requirements describe four Certificate profiles differentiated by the type
 
 | Certificate Type | Description |
 |------|-------------|
-| Mailbox-validated | Subject is limited to (optional) `subject:emailAddress` and/or `subject:serialNumber` attributes. |
+| Mailbox-validated | Subject is limited to (optional) `subject:emailAddress`, `subject:commonName`, and/or `subject:serialNumber` attributes. |
 | Organization-validated | Includes only Organizational (Legal Entity) attributes in the Subject. |
-| Sponsor-validated | Combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA.|
+| Sponsor-validated | Combines Individual (Natural Person) attributes in conjunction with a `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA.|
 | Individual-validated | Includes only Individual (Natural Person) attributes in the Subject. |
 
 In addition, Generations (known as Legacy, Multipurpose, and Strict) are specified for each of these Certificate Types, acknowledging both the current diversity of practice in issuing S/MIME Certificates as well as the desire to move towards more closely-defined practices over time.
