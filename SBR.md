@@ -884,9 +884,10 @@ A prior validation SHALL NOT be reused if any data or document used in the prior
 #### 4.2.2.1 Certification authority authorization
 
 Starting on September 15, 2024 prior to issuing a Certificate that includes a Mailbox Address, the CA SHOULD retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html).
-Starting on March 15, 2025 prior to issuing a Certificate that includes a Mailbox Address, the CA MUST retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html).
 
-When processing CAA records, CAs SHALL process the `issuemail` property tag as specified in RFC 9495. Additional property tags MAY be supported, but SHALL NOT conflict with or supersede the authorizations to issue S/MIME Certificates as specified in the `issuemail` property tag. In particular, the CAA property tags for `issue` and `issuewild` as specified in [RFC 8659](https://datatracker.ietf.org/doc/html/rfc8659) do not authorize the issuance of S/MIME Certificates.
+Starting on March 15, 2025 prior to issuing a Certificate that includes a Mailbox Address, the CA SHALL retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html).
+
+When processing CAA records, CAs SHALL process the `issuemail` property tag as specified in RFC 9495. Additional property tags MAY be supported, but SHALL NOT conflict with or supersede the authorizations to issue S/MIME Certificates as specified in the `issuemail` property tag. 
 
 If the CA issues a Certificate following a CAA check, they SHALL do so within the TTL of the CAA record, or 8 hours, whichever is greater. This stipulation does not prevent the CA from checking CAA records at any other time.
 
