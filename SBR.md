@@ -1542,15 +1542,16 @@ If the CA or any of its designated RAs become aware that a Subscriber's Private 
 If the CA or a Delegated Third Party generates the Private Key on behalf of the Subscriber where the Private Keys will be transported to the Subscriber, then the entity generating the Private Key SHALL either:
 
 1. Transport the Private Key in hardware with an activation method that is equivalent to 128 bits of encryption, where the material used to activate/protect the Private Key (e.g., a password used to secure a PKCS 12 file) must be delivered to the Subscriber securely and separately from the container holding the Private Key; or 
-2. Encrypt the Private Key with at least 128 bits of encryption strength. 
+2. Encrypt the Private Key with at least 112 bits of encryption strength. 
    
 Illustrative examples include:
 
 * Using a 128-bit AES key to wrap the Private Key.
-* Storing the key in a PKCS 12 file encrypted with a randomly generated password of more than 16 characters containing uppercase letters, lowercase letters, numbers, and symbols.
+* Storing the key in a PKCS 12 file encrypted using a password and algorithm whose combination provides at least 112 bits of encryption strength.
 * Transporting the Private Key and/or PKCS 12 file and/or activation material via a TLS or other authenticated and encrypted network connection with at least 112 bits of encryption strength.
+* Other approaches that meet the requirements are allowed. 
 
-Other approaches that meet the requirements are allowed. The CA or Delegated Third Party SHALL NOT store Subscriber Private Keys in clear text.
+The CA or Delegated Third Party SHALL NOT store Subscriber Private Keys in clear text.
 
 ### 6.1.3 Public key delivery to certificate issuer
 
