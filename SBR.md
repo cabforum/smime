@@ -88,6 +88,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |------|-------|--------------------------------------|-----------|
 |1.0.0 |SMC01 | Initial implementation date | September 01, 2023|
 |1.0.1 |SMC03 | Transition end for Extant S/MIME CAs | September 15, 2024|
+|1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
   
 ## 1.3 PKI participants
 
