@@ -1905,7 +1905,7 @@ CAs SHALL NOT issue a Certificate with:
 1. Extensions that do not apply in the context of the public Internet (such as an `extKeyUsage` value for a service that is only valid in the context of a privately managed network), unless:
    i. such value falls within an OID arc for which the Applicant demonstrates ownership, or
    ii. the Applicant can otherwise demonstrate the right to assert the data in a public context; or
-   iii. the OID is defined within an open standards specification and intended for use by other organizations. Any inclusion of such EKU MUST confirm to the requirements and specifications of the open standard, and these requirements;
+   iii. the extention is defined within an open standards specification and intended for use by other organizations. Any inclusion of such extension MUST confirm to the requirements and specifications of the open standard, and these requirements;
 2. Field or extension values which have not been validated according to the processes and procedures described in these Requirements or the CA's CP and/or CPS.
    
 ### 7.1.3 Algorithm object identifiers
