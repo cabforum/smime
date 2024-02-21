@@ -1,11 +1,11 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.2
+subtitle: Version 1.0.3
 author:
   - CA/Browser Forum
-date: December 8, 2023
+date: February 20, 2024
 copyright: |
-  Copyright 2023 CA/Browser Forum
+  Copyright 2024 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
 
@@ -81,6 +81,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.0   | SMC01    |Version 1.0 of the S/MIME Baseline Requirements adopted | January 01, 2023 |
 | 1.0.1   | SMC03    |Clarification and corrections | August 11, 2023 |
 | 1.0.2   | SMC04    |Addition of ETSI TS 119 411-6 | December 8, 2023 |
+| 1.0.3   | SMC05    |Introduction of CAA for S/MIME | February 20, 2024 |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -88,6 +89,8 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |------|-------|--------------------------------------|-----------|
 |1.0.0 |SMC01 | Initial implementation date | September 01, 2023|
 |1.0.1 |SMC03 | Transition end for Extant S/MIME CAs | September 15, 2024|
+|1.0.3 |SMC05 | SHOULD adoption of CAA for S/MIME | September 15, 2024|
+|1.0.3 |SMC05 | SHALL adoption of CAA for S/MIME | March 15, 2025|
 |1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
   
 ## 1.3 PKI participants
@@ -191,13 +194,13 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Audit Report**: A report from a Qualified Auditor stating the Qualified Auditor's opinion on whether an entity's processes and controls comply with the mandatory provisions of these Requirements.
 
-**CAA**: From [RFC 8659](http://tools.ietf.org/html/rfc8659): "The Certification Authority Authorization (CAA) DNS Resource Record allows a DNS domain name holder to specify one or more Certification Authorities (CAs) authorized to issue Certificates for that domain name. CAA Resource Records allow a public CA to implement additional controls to reduce the risk of unintended Certificate mis-issue."
-
 **CA Key Pair**: A Key Pair where the Public Key appears as the Subject Public Key Info in one or more Root CA Certificate(s) and/or Subordinate CA Certificate(s).
 
 **Certificate**: An electronic document that uses a digital signature to bind a Public Key and an identity.
 
 **Certification Authority (or CA)**: An organization that is responsible for the creation, issuance, revocation, and management of Certificates. The term applies equally to both Root CAs and Subordinate CAs.
+
+**Certification Authority Authorization (or CAA)**: From [RFC 9495](https://www.rfc-editor.org/rfc/rfc9495.html): "The Certification Authority Authorization (CAA) DNS resource record (RR) provides a mechanism for domains to express the allowed set of Certification Authorities that are authorized to issue certificates for the domain." 
 
 **Certificate Data**: Certificate requests and data related thereto (whether obtained from the Applicant or otherwise) in the CA's possession or control or to which the CA has access.
 
@@ -442,7 +445,7 @@ RFC 8398, Request for Comments: 8398, Internationalized Email Addresses in X.509
 
 RFC 8499, Request for Comments: 8499, DNS Terminology. P. Hoffman, et al. January 2019.
 
-RFC 8659, Request for Comments: 8659, DNS Certification Authority Authorization (CAA) Resource Record, Hallam-Baker, et al. November 2019.
+RFC 9495, Request for Comments: 9495, Certification Authority Authorization (CAA) Processing for Email Addresses, C. Bonnell, October 2023.
 
 "TLS Baseline Requirements" means the relevant version of the CA/Browser Forum's "Baseline Requirements for the Issuance and Management of Publicly‐Trusted TLS Server Certificates". See https://cabforum.org/baseline-requirements-documents/
 
@@ -465,6 +468,8 @@ The CA SHALL make revocation information for Subordinate CA Certificates and Sub
 The CA SHALL publicly disclose its CP and/or CPS through an appropriate and readily accessible online means that is available on a 24x7 basis. The CA SHALL publicly disclose its CA business practices to the extent required by the CA's selected audit scheme (see [Section 8](#8-compliance-audit-and-other-assessments)).
 
 The CP and/or CPS SHALL be structured in accordance with [RFC 3647](http://tools.ietf.org/html/rfc3647) and SHALL include all material required by [RFC 3647](http://tools.ietf.org/html/rfc3647).
+
+Starting on September 15, 2024 the CA SHALL state its policy or practice on processing CAA Records for Mailbox Addresses in Section 4.2 of its CP and/or CPS. That policy SHALL be consistent with these Requirements and SHALL clearly specify the set of Issuer Domain Names that the CA recognizes in CAA `issuemail` records as permitting it to issue. 
 
 The CA SHALL publicly give effect to these Requirements and represent that it will adhere to the latest published version. The CA MAY fulfill this requirement by incorporating these Requirements directly into its CP and/or CPS or by incorporating them by reference using a clause such as the following (which SHALL include a link to the official version of these Requirements):
 
@@ -587,10 +592,6 @@ The Random Value SHALL be reset upon each instance of the email sent by the CA t
 The CA MAY confirm the Applicant's control over each Mailbox Field to be included in the Certificate by confirming control of the SMTP FQDN to which a message delivered to the Mailbox Address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given Mailbox Address. If more than one SMTP FQDN has been discovered, the CA SHALL verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA SHALL NOT be used for this validation method.
 
 To confirm the Applicant's control of the SMTP FQDN, the CA SHALL use only the currently-approved methods in [Section 3.2.2.4](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) of the TLS Baseline Requirements.
-
-#### 3.2.2.4 CAA records
-
-This version of the S/MIME Baseline Requirements does not require the CA to check for CAA records. The CAA property tags for `issue`, `issuewild`, and `iodef` as specified in [RFC 8659](https://datatracker.ietf.org/doc/html/rfc8659) are not recognized for the issuance of S/MIME Certificates.
 
 ### 3.2.3 Authentication of organization identity
 
@@ -814,7 +815,7 @@ The CA SHALL disclose all Cross Certificates that identify the CA as the Subject
 
 ### 3.2.8 Reliability of verification sources
 
-Before relying on a source of verification data to validate Certificate Requests, the CA SHALL verify its suitability as a Reliable Data Source. Enterprise RA records are a Reliable Data Source for Individual Subject attributes included in Sponsor-validated Certificates issued to the Enterprise RA’s Organisation.
+Before relying on a source of verification data to validate Certificate Requests, the CA SHALL verify its suitability as a Reliable Data Source. Enterprise RA records are a Reliable Data Source for Individual Subject attributes included in Sponsor-validated Certificates issued to the Enterprise RA’s Organization.
 
 The CA or RA MAY rely upon a letter attesting that Subject Information or other fact is correct. The CA or RA SHALL verify that the letter was written by an accountant, lawyer, government official, or other reliable third party in the Applicant’s jurisdiction customarily relied upon for such information. 
 
@@ -887,7 +888,27 @@ A prior validation SHALL NOT be reused if any data or document used in the prior
 
 ### 4.2.2 Approval or rejection of certificate applications
 
-No stipulation.
+#### 4.2.2.1 Certification authority authorization
+
+Starting on September 15, 2024 prior to issuing a Certificate that includes a Mailbox Address, the CA SHOULD retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html).
+
+Starting on March 15, 2025 prior to issuing a Certificate that includes a Mailbox Address, the CA SHALL retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html).
+
+When processing CAA records, CAs SHALL process the `issuemail` property tag as specified in RFC 9495. Additional property tags MAY be supported, but SHALL NOT conflict with or supersede the authorizations to issue S/MIME Certificates as specified in the `issuemail` property tag. 
+
+If the CA issues a Certificate following a CAA check, they SHALL do so within the TTL of the CAA record, or 8 hours, whichever is greater. This stipulation does not prevent the CA from checking CAA records at any other time.
+
+If the Certificate includes more than one Mailbox Address, then the CA SHALL perform the above procedure for each Mailbox Address. 
+
+CAA checking is optional for Certificates issued by a Technically Constrained Subordinate CA Certificate as set out in [Section 7.1.5](#715-name-constraints), where the lack of CAA checking is an explicit contractual provision in the contract with the Technically Constrained Subordinate CA Applicant.
+
+The CA SHALL NOT issue a Certificate unless the CA determines that Certificate Request is consistent with the applicable CAA RRset. The CA SHALL log all actions taken, if any, consistent with its CAA processing practice.
+
+CAs are permitted to treat a record lookup failure as permission to issue if:
+
+* the failure is outside the CA's infrastructure; and
+* the lookup has been retried at least once; and
+* the domain's zone does not have a DNSSEC validation chain to the ICANN root.
 
 ### 4.2.3 Time to process certificate applications
 
@@ -2288,7 +2309,7 @@ a. __Certificate Field:__ `subject:commonName` (OID 2.5.4.3)
 
 b. __Certificate Field:__ `subject:organizationName` (OID 2.5.4.10)  
    __Required/Optional:__ SHALL be present  
-   __Contents:__ This field SHALL contain either the Subject CA's name or DBA as verified under [Section 3.2.3.2.2](#32322-verification-of-assumed-name) The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name".
+   __Contents:__ This field SHALL contain either the Subject CA's name or DBA as verified under [Section 3.2.3.2.2](#32322-verification-of-assumed-name). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g., if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name".
 
 c. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)  
    __Required/Optional:__ SHALL be present  
