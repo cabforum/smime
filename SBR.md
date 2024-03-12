@@ -2144,12 +2144,12 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
    The Registration Scheme identified in the Certificate SHALL be the result of the verification performed in accordance with [Section 3.2.3](#323-authentication-of-organization-identity). The Registration Scheme SHALL be identified using the following structure in the presented order:
 
     * 3 character Registration Scheme identifier;
-    * 2 character ISO 3166 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally (such as LEI) then the ISO 3166 code "XG" SHALL be used;
+    * 2 character ISO 3166-1 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally (such as LEI) then the ISO 3166-1 code "XG" SHALL be used;
     * For the NTR Registration Scheme identifier, where registrations are administrated at the subdivision (state or province) level, a plus "+" (0x2B (ASCII), U+002B (UTF-8)) followed by an up-to-three alphanumeric character ISO 3166-2 identifier for the subdivision of the nation in which the Registration Scheme is operated;
     * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
     * Registration Reference allocated in accordance with the identified Registration Scheme.
 
-   **Note 1**: Registration References MAY contain hyphens but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
+   **Note 1**: Registration References MAY contain hyphens but Registration Schemes, ISO 3166-1 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
 
     * `NTRGB-12345678` (NTR scheme, Great Britain, Unique Identifier at Country level is 12345678).
     * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Unique identifier at State level is 12345678).
@@ -2163,8 +2163,8 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
 
    **Note 2**: For the following types of entities that do not have an identifier from the Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes):
 
-    * For Government Entities, the CA SHALL enter the Registration Scheme identifier ‘GOV’ followed by the 2 character ISO 3166 country code for the nation in which the Government Entity is located.  If the Government Entity is verified at a subdivision (state or province) level, then a plus "+" (0x2B (ASCII), U+002B (UTF-8)) followed by an ISO 3166-2 identifier for the subdivision (up to three alphanumeric characters) is added.
-    * For International Organization Entities, the CA SHALL enter the Registration Scheme identifier ‘INT’ followed by the ISO 3166 code "XG". An International Organization Entity is founded by a constituent document, e.g., a charter, treaty, convention or similar document, signed by, or on behalf of, a minimum of two Sovereign State governments.
+    * For Government Entities, the CA SHALL enter the Registration Scheme identifier ‘GOV’ followed by the 2 character ISO 3166-1 country code for the nation in which the Government Entity is located.  If the Government Entity is verified at a subdivision (state or province) level, then a plus "+" (0x2B (ASCII), U+002B (UTF-8)) followed by an ISO 3166-2 identifier for the subdivision (up to three alphanumeric characters) is added.
+    * For International Organization Entities, the CA SHALL enter the Registration Scheme identifier ‘INT’ followed by the ISO 3166-1 code "XG". An International Organization Entity is founded by a constituent document, e.g., a charter, treaty, convention or similar document, signed by, or on behalf of, a minimum of two Sovereign State governments.
   
     For example:
     * GOVUS (Government Entity, United States)
