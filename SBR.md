@@ -1170,7 +1170,7 @@ See [Section 4.9.1](#491-circumstances-for-revocation).
 
 ### 4.9.13 Circumstances for suspension
 
-See [Section 7.2.2](#722-crl-and-crl-entry-extensions) for restrictions on use of suspension. The CA SHALL describe its suspension practices in the CA's CP and/or CPS.
+See [Section 7.2.2](#722-crl-and-crl-entry-extensions) for restrictions on use of suspension. The CA SHALL describe its suspension practices for Subscriber Certificates in the CA's CP and/or CPS.
 
 ### 4.9.14 Who can request suspension
 
