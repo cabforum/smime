@@ -1669,7 +1669,7 @@ No stipulation.
 
 For the purpose of calculations, a day is measured as 86,400 seconds. Any amount of time greater than this, including fractional seconds and/or leap seconds, SHALL represent an additional day. For this reason, Subscriber Certificates SHOULD NOT be issued for the maximum permissible time by default, in order to account for such adjustments.
 
-Where escrow is supported in accordance with Section 4.12, the CA MAY retain Subscriber Private Keys past the Certificate Maximum Validity Period.
+Where escrow is supported in accordance with [Section 4.12](#412-key-escrow-and-recovery), the CA MAY retain Subscriber Private Keys past the Certificate Maximum Validity Period.
 
 ## 6.4 Activation data
 
