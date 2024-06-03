@@ -1,6 +1,6 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.4
+subtitle: Version 1.0.6
 author:
   - CA/Browser Forum
 date: TBD
@@ -94,7 +94,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |1.0.3 |SMC05 | SHOULD adoption of CAA for S/MIME | September 15, 2024|
 |1.0.3 |SMC05 | SHALL adoption of CAA for S/MIME | March 15, 2025|
 |1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
-| 1.0.6   | SMC08    | Leaf S/MIME Certificates SHALL NOT be issued using the Legacy Generation profiles 2.23.140.1.5.1.1, 2.23.140.1.5.2.1, 2.23.140.1.5.3.1, and 2.23.140.1.5.4.1 | June 15, 2025 |
+| 1.0.6   | SMC08    | S/MIME Subscriber Certificates SHALL NOT be issued using the Legacy Generation profiles | June 15, 2025 |
   
 ## 1.3 PKI participants
 
@@ -2354,7 +2354,7 @@ The following CA/Browser Forum Certificate Policy identifiers are reserved for u
 | `Individual-validated` | Multipurpose | `2.23.140.1.5.4.2` |
 | `Individual-validated` | Strict | `2.23.140.1.5.4.3` |
 
-Starting June 15, 2025 Leaf S/MIME Certificates SHALL NOT be issued using the Legacy Generation profiles 2.23.140.1.5.1.1, 2.23.140.1.5.2.1, 2.23.140.1.5.3.1, and 2.23.140.1.5.4.1.
+Starting June 15, 2025 S/MIME Subscriber Certificates SHALL NOT be issued using the Legacy Generation profiles 2.23.140.1.5.1.1, 2.23.140.1.5.2.1, 2.23.140.1.5.3.1, or 2.23.140.1.5.4.1.
 
 #### 7.1.6.2 Root CA certificates
 
