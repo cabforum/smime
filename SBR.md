@@ -3,7 +3,7 @@ title: Baseline Requirements for the Issuance and Management of Publicly-Trusted
 subtitle: Version 1.0.4
 author:
   - CA/Browser Forum
-date: May 11, 2024
+date: TBD
 copyright: |
   Copyright 2024 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -83,6 +83,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.2   | SMC04    |Addition of ETSI TS 119 411-6 | December 8, 2023 |
 | 1.0.3   | SMC05    |Introduction of CAA for S/MIME | February 20, 2024 |
 | 1.0.4   | SMC06    |Post implementation clarification and corrections | May 11, 2024 |
+| 1.0.6   | SMC08    |Phase out of Legacy Generation profiles | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -93,6 +94,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |1.0.3 |SMC05 | SHOULD adoption of CAA for S/MIME | September 15, 2024|
 |1.0.3 |SMC05 | SHALL adoption of CAA for S/MIME | March 15, 2025|
 |1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
+| 1.0.6   | SMC08    | Leaf S/MIME Certificates SHALL NOT be issued using the Legacy Generation profiles 2.23.140.1.5.1.1, 2.23.140.1.5.2.1, 2.23.140.1.5.3.1, and 2.23.140.1.5.4.1 | June 15, 2025 |
   
 ## 1.3 PKI participants
 
@@ -2351,6 +2353,8 @@ The following CA/Browser Forum Certificate Policy identifiers are reserved for u
 | `Individual-validated` | Legacy | `2.23.140.1.5.4.1` |
 | `Individual-validated` | Multipurpose | `2.23.140.1.5.4.2` |
 | `Individual-validated` | Strict | `2.23.140.1.5.4.3` |
+
+Starting June 15, 2025 Leaf S/MIME Certificates SHALL NOT be issued using the Legacy Generation profiles 2.23.140.1.5.1.1, 2.23.140.1.5.2.1, 2.23.140.1.5.3.1, and 2.23.140.1.5.4.1.
 
 #### 7.1.6.2 Root CA certificates
 
