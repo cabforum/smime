@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.3
+subtitle: Version 1.0.4
 author:
   - CA/Browser Forum
-date: February 20, 2024
+date: May 11, 2024
 copyright: |
   Copyright 2024 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -37,9 +37,9 @@ These Requirements describe four Certificate profiles differentiated by the type
 
 | Certificate Type | Description |
 |------|-------------|
-| Mailbox-validated | Subject is limited to (optional) `subject:emailAddress` and/or `subject:serialNumber` attributes. |
+| Mailbox-validated | Subject is limited to (optional) `subject:emailAddress`, `subject:commonName`, and/or `subject:serialNumber` attributes. |
 | Organization-validated | Includes only Organizational (Legal Entity) attributes in the Subject. |
-| Sponsor-validated | Combines Individual (Natural Person) attributes in conjunction with an `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA.|
+| Sponsor-validated | Combines Individual (Natural Person) attributes in conjunction with a `subject:organizationName` (an associated Legal Entity) attribute. Registration for Sponsor-validated Certificates MAY be performed by an Enterprise RA.|
 | Individual-validated | Includes only Individual (Natural Person) attributes in the Subject. |
 
 In addition, Generations (known as Legacy, Multipurpose, and Strict) are specified for each of these Certificate Types, acknowledging both the current diversity of practice in issuing S/MIME Certificates as well as the desire to move towards more closely-defined practices over time.
@@ -82,6 +82,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.1   | SMC03    |Clarification and corrections | August 11, 2023 |
 | 1.0.2   | SMC04    |Addition of ETSI TS 119 411-6 | December 8, 2023 |
 | 1.0.3   | SMC05    |Introduction of CAA for S/MIME | February 20, 2024 |
+| 1.0.4   | SMC06    |Post implementation clarification and corrections | May 11, 2024 |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -91,6 +92,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |1.0.1 |SMC03 | Transition end for Extant S/MIME CAs | September 15, 2024|
 |1.0.3 |SMC05 | SHOULD adoption of CAA for S/MIME | September 15, 2024|
 |1.0.3 |SMC05 | SHALL adoption of CAA for S/MIME | March 15, 2025|
+|1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
   
 ## 1.3 PKI participants
 
@@ -243,7 +245,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Extant S/MIME CA**: A Subordinate CA that:
 
-   1. Is a Publicly-Trusted Subordinate CA Certificate whose `notBefore` field is before September 1, 2023 and has issued end entity S/MIME Certificates;
+   1. Is a Publicly-Trusted Subordinate CA Certificate whose `notBefore` field is before September 1, 2023 and which is included in a valid trust chain of an end entity S/MIME Certificate;
    2. The CA Certificate includes no Extended Key Usage extension, contains `anyExtendedKeyUsage` in the EKU extension, or contains `id-kp-emailProtection` in the EKU extension; 
    3. The CA Certificate complies with the profile defined in [RFC 5280](http://tools.ietf.org/html/rfc5280). The following two deviations from the [RFC 5280](http://tools.ietf.org/html/rfc5280) profile are acceptable:
       a. The CA Certificate contains a `nameConstraints` extension that is not marked critical; 
@@ -315,6 +317,10 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 **Registered Domain Name**: A Domain Name that has been registered with a Domain Name Registrar.
 
 **Registration Authority (RA)**: Any Legal Entity that is responsible for identification and authentication of subjects of Certificates, but is not a CA, and hence does not sign or issue Certificates. An RA MAY assist in the certificate application process or revocation process or both. When "RA" is used as an adjective to describe a role or function, it does not necessarily imply a separate body, but can be part of the CA.
+
+**Registration Reference**: A unique identifier assigned to a Legal Entity.
+
+**Registration Scheme**: A scheme for assigning a Registration Reference meeting the requirements identified in Appendix A.
 
 **Reliable Data Source**: An identification document or source of data used to verify Subject Identity Information that is generally recognized among commercial enterprises and governments as reliable, and which was created by a third party for a purpose other than the Applicant obtaining a Certificate.
 
@@ -598,7 +604,7 @@ The CA or RA SHALL collect and retain evidence supporting the following identity
 
 1.	Formal name of the Legal Entity;
 2.	A registered Assumed Name for the Legal Entity (if included in the Subject);
-3. An organizational unit of the Legal Entity (if included in the Subject);
+3. An Affiliate of the Legal Entity as described in Section 7.1.4.2.2 (if included in the Subject as an `subject:organizationalUnitName`);
 4.	An address of the Legal Entity (if included in the Subject);
 5.	Jurisdiction of Incorporation or Registration of the Legal Entity; and
 6.	Unique identifier and type of identifier for the Legal Entity. 
@@ -616,11 +622,13 @@ The CA or RA SHALL verify the full legal name and an address (if included in the
 1.	A government agency in the jurisdiction of the Legal Entity’s creation, existence, or recognition; 
 2.	A Legal Entity Identifier (LEI) data reference;
 3.	A site visit by the CA or a third party who is acting as an agent for the CA; or
-4.	An Attestation which includes a copy of supporting documentation used to establish the Applicant's legal existence, such as a certificate of registration, articles of incorporation, operating agreement, statute, or regulatory act.
+4.	An Attestation which includes a copy of supporting documentation used to establish the Applicant's legal existence (such as a certificate of registration, articles of incorporation, operating agreement, statute, or regulatory act) and its current status.
 
 The CA or RA MAY use the same documentation or communication described in 1 through 4 above to verify both the Applicant's identity and address.
 
-If an LEI data reference is used, the CA or RA SHALL verify that the RegistrationStatus is ISSUED and the EntityStatus is ACTIVE. The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
+In cases 1 and 4 above, the CA or RA SHALL verify that the status of the Applicant is not designated by labels such as "ceased," "inactive," "invalid," "not current," or the equivalent.
+
+In case 2 above when LEI data reference is used, the CA or RA SHALL verify that the RegistrationStatus is ISSUED and the EntityStatus is ACTIVE. The CA SHALL only allow use of an LEI if the ValidationSources entry is FULLY_CORROBORATED. An LEI SHALL NOT be used if ValidationSources entry is PARTIALLY_CORROBORATED, PENDING, or ENTITY_SUPPLIED_ONLY.
 
 ##### 3.2.3.2.2 Verification of assumed name
 
@@ -1161,7 +1169,7 @@ See [Section 4.9.1](#491-circumstances-for-revocation).
 
 ### 4.9.13 Circumstances for suspension
 
-See [Section 7.2.2](#722-crl-and-crl-entry-extensions) for restrictions on use of suspension. The CA SHALL describe its suspension practices in the CA's CP and/or CPS.
+See [Section 7.2.2](#722-crl-and-crl-entry-extensions) for restrictions on use of suspension. The CA implementing suspension SHALL only use the `CRLreason` of certificateHold (6). The CA SHALL describe its suspension practices for Subscriber Certificates in the CA's CP and/or CPS.
 
 ### 4.9.14 Who can request suspension
 
@@ -1560,9 +1568,19 @@ Parties other than the Subscriber SHALL NOT archive the Subscriber Private Key w
 
 If the CA or any of its designated RAs become aware that a Subscriber's Private Key has been communicated to a person or organization not authorized by the Subscriber, then the CA SHALL revoke all Certificates that include the Public Key corresponding to the communicated Private Key.
 
-If the CA or a Delegated Third Party generates the Private Key on behalf of the Subscriber where the Private Keys will be transported to the Subscriber, then the entity generating the Private Key SHALL either transport the Private Key in hardware with an activation method that is equivalent to 128 bits of encryption or encrypt the Private Key with at least 128 bits of encryption strength. Example methods include using a 128-bit AES key to wrap the Private Key or storing the key in a PKCS 12 file encrypted with a randomly generated password of more than 16 characters containing uppercase letters, lowercase letters, numbers, and symbols for transport. The CA or Delegated Third Party SHALL NOT store Subscriber Private Keys in clear text.
+If the CA or a Delegated Third Party generates the Private Key on behalf of the Subscriber where the Private Keys will be transported to the Subscriber, then the entity generating the Private Key SHALL either:
 
-The material used to activate/protect the Private Key (e.g., a password used to secure a PKCS 12 file) must be delivered to the Subscriber securely and separately from the container holding the Private Key.
+1. Transport the Private Key in hardware with an activation method that is equivalent to 128 bits of encryption, where the material used to activate/protect the Private Key (e.g., a password used to secure a PKCS 12 file) must be delivered to the Subscriber securely and separately from the container holding the Private Key; or 
+2. Encrypt the Private Key with at least 112 bits of encryption strength. 
+   
+Illustrative examples include:
+
+* Using a 128-bit AES key to wrap the Private Key.
+* Storing the key in a PKCS 12 file encrypted using a password and algorithm whose combination provides at least 112 bits of encryption strength.
+* Transporting the Private Key and/or PKCS 12 file and/or activation material via a TLS or other authenticated and encrypted network connection with at least 112 bits of encryption strength.
+* Other approaches that meet the requirements are allowed. 
+
+The CA or Delegated Third Party SHALL NOT store Subscriber Private Keys in clear text.
 
 ### 6.1.3 Public key delivery to certificate issuer
 
@@ -1859,8 +1877,8 @@ e. `keyUsage` (SHALL be present)
 
    | Generation | `rsaEncryption`       | `id-ecPublicKey`            |`id-Ed25519` and `id-Ed448`            |
    |------|-----------------------|-----------------------------|-----------------------------|
-   | Strict | For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement` and MAY be set for `nonRepudiation` and for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).| Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`. |
-   | Multipurpose<br> and Legacy | For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment` and MAY be set for `dataEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation` and `dataEncipherment`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement` and MAY be set for `nonRepudiation` and for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).| Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`. |
+   | Strict | For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement`, MAY be set for `nonRepudiation`, and MAY be set for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).| Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`. |
+   | Multipurpose<br> and Legacy | For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment` and MAY be set for `dataEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment`, MAY be set for `nonRepudiation`, and MAY be set for `dataEncipherment`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement`, MAY be set for `nonRepudiation`, and MAY be set for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).| Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`. |
 
    Other bit positions SHALL NOT be set.
 
@@ -1934,7 +1952,8 @@ CAs SHALL NOT issue a Certificate with:
 
 1. Extensions that do not apply in the context of the public Internet (such as an `extKeyUsage` value for a service that is only valid in the context of a privately managed network), unless:<br>
    i. such value falls within an OID arc for which the Applicant demonstrates ownership, or<br>
-   ii. the Applicant can otherwise demonstrate the right to assert the data in a public context; or
+   ii. the Applicant can otherwise demonstrate the right to assert the data in a public context; or<br>
+   iii. the extension is defined within an open standards specification and intended for use by other organizations. A Certificate that includes such an extension MUST conform to the specifications of the open standard and of these Requirements.
 2. Field or extension values which have not been validated according to the processes and procedures described in these Requirements or the CA's CP and/or CPS.
    
 ### 7.1.3 Algorithm object identifiers
@@ -2112,7 +2131,9 @@ If present, the Personal Name SHALL contain a name of the Subject. The Personal 
 
 If present, the Mailbox Address SHALL contain a `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` from `extensions:subjectAltName`.
 
-If present, the Pseudonym SHALL contain the `subject:pseudonym` if that Subject attribute is also present.
+If the `subject:commonName` contains a Pseudonym, then the `subject:givenName` and/or `subject:surname` attributes SHALL NOT be present. If present, the Pseudonym SHALL contain the `subject:pseudonym` if that Subject attribute is also present.
+
+If the `subject:commonName` contains a Personal Name, then the `subject:pseudonym` attribute SHALL NOT be present.
 
 **Note**: Like all other Certificate attributes, `subject:commonName` and `subject:emailAddress` SHALL comply with the attribute upper bounds defined in [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
 
@@ -2132,12 +2153,12 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
    The Registration Scheme identified in the Certificate SHALL be the result of the verification performed in accordance with [Section 3.2.3](#323-authentication-of-organization-identity). The Registration Scheme SHALL be identified using the following structure in the presented order:
 
     * 3 character Registration Scheme identifier;
-    * 2 character ISO 3166 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally ISO 3166 code "XG" SHALL be used;
+    * 2 character ISO 3166-1 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally (such as LEI) then the ISO 3166-1 code "XG" SHALL be used;
     * For the NTR Registration Scheme identifier, where registrations are administrated at the subdivision (state or province) level, a plus "+" (0x2B (ASCII), U+002B (UTF-8)) followed by an up-to-three alphanumeric character ISO 3166-2 identifier for the subdivision of the nation in which the Registration Scheme is operated;
     * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
     * Registration Reference allocated in accordance with the identified Registration Scheme.
 
-   **Note 1**: Registration References MAY contain hyphens but Registration Schemes, ISO 3166 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
+   **Note 1**: Registration References MAY contain hyphens but Registration Schemes, ISO 3166-1 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
 
     * `NTRGB-12345678` (NTR scheme, Great Britain, Unique Identifier at Country level is 12345678).
     * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Unique identifier at State level is 12345678).
@@ -2151,8 +2172,8 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
 
    **Note 2**: For the following types of entities that do not have an identifier from the Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes):
 
-    * For Government Entities, the CA SHALL enter the Registration Scheme identifier ‘GOV’ followed by the 2 character ISO 3166 country code for the nation in which the Government Entity is located.  If the Government Entity is verified at a subdivision (state or province) level, then a plus "+" (0x2B (ASCII), U+002B (UTF-8)) followed by an ISO 3166-2 identifier for the subdivision (up to three alphanumeric characters) is added.
-    * For International Organization Entities, the CA SHALL enter the Registration Scheme identifier ‘INT’ followed by the ISO 3166 code "XG". An International Organization Entity is founded by a constituent document, e.g., a charter, treaty, convention or similar document, signed by, or on behalf of, a minimum of two Sovereign State governments.
+    * For Government Entities, the CA SHALL enter the Registration Scheme identifier ‘GOV’ followed by the 2 character ISO 3166-1 country code for the nation in which the Government Entity is located.  If the Government Entity is verified at a subdivision (state or province) level, then a plus "+" (0x2B (ASCII), U+002B (UTF-8)) followed by an ISO 3166-2 identifier for the subdivision (up to three alphanumeric characters) is added.
+    * For International Organization Entities, the CA SHALL enter the Registration Scheme identifier ‘INT’ followed by the ISO 3166-1 code "XG". An International Organization Entity is founded by a constituent document, e.g., a charter, treaty, convention or similar document, signed by, or on behalf of, a minimum of two Sovereign State governments.
   
     For example:
     * GOVUS (Government Entity, United States)
@@ -2177,19 +2198,19 @@ i. __Certificate Field:__ `subject:title` (2.5.4.12)
    __Contents:__ If present, the `subject:title` field SHALL contain only a organizational role/title or a regulated professional designation verified according to [Section 3.2.4](#324-authentication-of-individual-identity).
 
 j. __Certificate Field:__ Number and street: `subject:streetAddress` (OID: 2.5.4.9)  
- __Contents:__ If present, the `subject:streetAddress` field SHALL contain the Subject's street address information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) for Organization-validated and Sponsor-validated Certificate Types or [Section 3.2.4](#324-authentication-of-individual-identity) for Individual-validated Certificate Types.
+ __Contents:__ If present, the `subject:streetAddress` field SHALL contain the Subject's street address information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) for Organization-validated and Sponsor-validated Certificate Types or [Section 3.2.4](#324-authentication-of-individual-identity) for Individual-validated Certificate Types. The `subject:streetAddress` field SHALL only be used if the `subject:localityName` or `subject:stateOrProvinceName` field is present.
 
 k. __Certificate Field:__ `subject:localityName` (OID: 2.5.4.7)  
-   __Contents:__ If present, the `subject:localityName` field SHALL contain the Subject's locality information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) for Organization-validated and Sponsor-validated Certificate Types or [Section 3.2.4](#324-authentication-of-individual-identity) for Individual-validated Certificate Types. If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (n), the `localityName` field MAY contain the Subject's locality and/or state or province information.
+   __Contents:__ If present, the `subject:localityName` field SHALL contain the Subject's locality information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) for Organization-validated and Sponsor-validated Certificate Types or [Section 3.2.4](#324-authentication-of-individual-identity) for Individual-validated Certificate Types. If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (n), the `subject:localityName` field MAY contain the Subject's locality and/or state or province information. The `subject:localityName` field SHALL only be used if the `subject:countryName` field is present.
 
 l. __Certificate Field:__ `subject:stateOrProvinceName` (OID: 2.5.4.8)  
-   __Contents:__ If present, the `subject:stateOrProvinceName` field SHALL contain the Subject's state or province information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) for Organization-validated and Sponsor-validated Certificate Types or [Section 3.2.4](#324-authentication-of-individual-identity) for Individual-validated Certificate Types. If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (n), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information.
+   __Contents:__ If present, the `subject:stateOrProvinceName` field SHALL contain the Subject's state or province information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) for Organization-validated and Sponsor-validated Certificate Types or [Section 3.2.4](#324-authentication-of-individual-identity) for Individual-validated Certificate Types. If the `subject:countryName` field specifies the ISO 3166-1 user-assigned code of XX in accordance with [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) (n), the `subject:stateOrProvinceName` field MAY contain the full name of the Subject's country information. The `subject:stateOrProvinceName` field SHALL only be used if the `subject:countryName` field is present.
 
 m. __Certificate Field:__ `subject:postalCode` (OID: 2.5.4.17)  
-   __Contents:__ If present, the `subject:postalCode` field SHALL contain the Subject's zip or postal information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) for Organization-validated and Sponsor-validated Certificate Types or [Section 3.2.4](#324-authentication-of-individual-identity) for Individual-validated Certificate Types.
+   __Contents:__ If present, the `subject:postalCode` field SHALL contain the Subject's zip or postal information as verified under [Section 3.2.3](#323-authentication-of-organization-identity) for Organization-validated and Sponsor-validated Certificate Types or [Section 3.2.4](#324-authentication-of-individual-identity) for Individual-validated Certificate Types. The `subject:postalCode` field SHALL only be used if the `subject:countryName` field is present.
 
 n. __Certificate Field:__ `subject:countryName` (OID: 2.5.4.6)  
-   __Contents:__ If present, the `subject:countryName` SHALL contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under [Section 3.2.3](#323-authentication-of-organization-identity) for Organization-validated and Sponsor-validated Certificate Types or [Section 3.2.4](#324-authentication-of-individual-identity) for Individual-validated Certificate Types. If a Country is not represented by an official ISO 3166-1 country code, the CA MAY specify the ISO 3166-1 user-assigned code of XX indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
+   __Contents:__ If present, the `subject:countryName` SHALL contain the two-letter ISO 3166-1 country code associated with the location of the Subject verified under [Section 3.2.3](#323-authentication-of-organization-identity) for Organization-validated and Sponsor-validated Certificate Types or [Section 3.2.4](#324-authentication-of-individual-identity) for Individual-validated Certificate Types. If a Country is not represented by an official ISO 3166-1 country code, the CA MUST specify the ISO 3166-1 user-assigned code of XX indicating that an official ISO 3166-1 alpha-2 code has not been assigned.
 
 ##### 7.1.4.2.3 Subject DN attributes for mailbox-validated profile
 
@@ -2752,9 +2773,11 @@ No stipulation.
 
 ## A.1 organizationIdentifier
 
-The following Registration Schemes are recognized as valid under these Requirements for use in the `subject:organizationIdentifier` attribute described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
+The following Registration Schemes are recognized as valid under these Requirements for use in the `subject:organizationIdentifier` attribute described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields), in addition to the GOV and INT identifiers described therein.
 
-The country code used in the Registration Scheme identifier SHALL match that of the `subject:countryName` in the Certificate as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
+With the exception of the LEI and INT Registration Schemes, as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields), if a `subject:countryName` is present in the Certificate the country code used in the Registration Scheme identifier SHALL match that of the `subject:countryName` in the Certificate. 
+
+For the VAT Registration Scheme, for the purpose of identifying tax authorities, the country prefix described in Article 215 of EU Council Directive 2006/112/EC, as amended, MAY be used instead of the ISO 3166-1 country code. If the country prefix described in Article 215 of EU Council Directive 2006/112/EC is used, the `subject:countryName` attribute, if present, SHALL contain the corresponding ISO 3166-1 country code.
 
 * **NTR**: For an identifier allocated by a national or state trade register to the Legal Entity named in the `subject:organizationName`. 
 
@@ -2762,7 +2785,7 @@ The country code used in the Registration Scheme identifier SHALL match that of 
 
 * **PSD**: For a national authorization number allocated to the payment service provider named in the `subject:organizationName` under Payments Services Directive (EU) 2015/2366. This shall use the extended structure as defined in ETSI TS 119 495, clause 5.2.1. 
 
-* **LEI**: For a Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName`. The 2 character ISO 3166 country code SHALL be set to 'XG'. 
+* **LEI**: For a Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName`. The 2 character ISO 3166-1 country code SHALL be set to 'XG'. 
 
 ## A.2 Natural Person Identifier
 
