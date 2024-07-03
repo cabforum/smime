@@ -444,7 +444,7 @@ RFC 6818, Updates to the Internet X.509 Public Key Infrastructure Certificate an
 
 RFC 6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP. S. Santesson, et al. June 2013.
 
-RFC 8398, Request for Comments: 8398, Internationalized Email Addresses in X.509 Certificates, MAY 2018. A. Melnikov, et al. May 2018.
+RFC 9598, Request for Comments: 9598, Internationalized Email Addresses in X.509 Certificates, May 2024. A. Melnikov, et al. May 2018.
 
 RFC 8499, Request for Comments: 8499, DNS Terminology. P. Hoffman, et al. January 2019.
 
@@ -2098,7 +2098,7 @@ __Required/Optional:__ SHALL be present
 __Contents:__ This extension SHALL contain at least one `GeneralName` entry of the following types:
 
 * `Rfc822Name` and/or
-* `otherName` of type `id-on-SmtpUTF8Mailbox`, encoded in accordance with [RFC 8398](https://datatracker.ietf.org/doc/html/rfc8398)
+* `otherName` of type `id-on-SmtpUTF8Mailbox`, encoded in accordance with [RFC 9598](https://datatracker.ietf.org/doc/html/rfc9598)
 
 All Mailbox Addresses in the `subject` field or entries of type `dirName` of this extension SHALL be repeated as `rfc822Name` or `otherName` values of type `id-on-SmtpUTF8Mailbox` in this extension.
 
