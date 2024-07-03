@@ -450,7 +450,7 @@ RFC 8499, Request for Comments: 8499, DNS Terminology. P. Hoffman, et al. Januar
 
 RFC 9495, Request for Comments: 9495, Certification Authority Authorization (CAA) Processing for Email Addresses, C. Bonnell. October 2023.
 
-"TLS Baseline Requirements" means the relevant version of the CA/Browser Forum's "Baseline Requirements for the Issuance and Management of Publicly‐Trusted TLS Server Certificates". See https://cabforum.org/baseline-requirements-documents/
+"TLS Baseline Requirements" means Version 2.0.5 of the CA/Browser Forum's "Baseline Requirements for the Issuance and Management of Publicly‐Trusted TLS Server Certificates". See https://cabforum.org/baseline-requirements-documents/
 
 WebTrust for Certification Authorities, CPA Canada.
 
