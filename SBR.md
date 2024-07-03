@@ -235,7 +235,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Digital Identity Document**: a government-issued identity document that is issued in a machine-processable form, that is digitally signed by the issuer, and that is in purely digital form.
 
-**Domain Label**: From [RFC 8499](http://tools.ietf.org/html/rfc8499): "An ordered list of zero or more octets that makes up a portion of a domain name. Using graph theory, a label identifies one node in a portion of the graph of all possible domain names."
+**Domain Label**: From [RFC 8499](https://tools.ietf.org/html/rfc8499): "An ordered list of zero or more octets that makes up a portion of a domain name. Using graph theory, a label identifies one node in a portion of the graph of all possible domain names."
 
 **Domain Name**: An ordered list of one or more Domain Labels assigned to a node in the Domain Name System.
 
@@ -249,9 +249,9 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
    1. Is a Publicly-Trusted Subordinate CA Certificate whose `notBefore` field is before September 1, 2023 and which is included in a valid trust chain of an end entity S/MIME Certificate;
    2. The CA Certificate includes no Extended Key Usage extension, contains `anyExtendedKeyUsage` in the EKU extension, or contains `id-kp-emailProtection` in the EKU extension; 
-   3. The CA Certificate complies with the profile defined in [RFC 5280](http://tools.ietf.org/html/rfc5280). The following two deviations from the [RFC 5280](http://tools.ietf.org/html/rfc5280) profile are acceptable:
+   3. The CA Certificate complies with the profile defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The following two deviations from the [RFC 5280](https://tools.ietf.org/html/rfc5280) profile are acceptable:
       a. The CA Certificate contains a `nameConstraints` extension that is not marked critical; 
-      b. The CA Certificate contains a policy qualifier of type UserNotice which contains `explicitText` that uses an encoding that is not permitted by [RFC 5280](http://tools.ietf.org/html/rfc5280) (i.e., the `DisplayText` is encoded using BMPString or VisibleString); and
+      b. The CA Certificate contains a policy qualifier of type UserNotice which contains `explicitText` that uses an encoding that is not permitted by [RFC 5280](https://tools.ietf.org/html/rfc5280) (i.e., the `DisplayText` is encoded using BMPString or VisibleString); and
    4. The CA Certificate contains the `anyPolicy` identifier (2.5.29.32.0) or specific OIDs in the `certificatePolicies` extension that do not include those defined in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers) of these Requirements.
 
 **Fully-Qualified Domain Name**: A Domain Name that includes the Domain Labels of all superior nodes in the Internet Domain Name System.
@@ -280,7 +280,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Mailbox-Validated (MV)**: Refers to a Certificate Subject that is limited to (optional) `subject:emailAddress` and/or `subject:serialNumber` attributes.
 
-**Mailbox Address**: Also Email Address. The format of a Mailbox Address is defined as a "Mailbox" as specified in Section 4.1.2 of [RFC 5321](http://tools.ietf.org/html/rfc5321) and amended by Section 3.2 of [RFC 6532](http://tools.ietf.org/html/rfc6532), with no additional padding or structure.
+**Mailbox Address**: Also Email Address. The format of a Mailbox Address is defined as a "Mailbox" as specified in Section 4.1.2 of [RFC 5321](https://tools.ietf.org/html/rfc5321) and amended by Section 3.2 of [RFC 6532](https://tools.ietf.org/html/rfc6532), with no additional padding or structure.
 
 **Mailbox Field**: In Subscriber Certificates contains a Mailbox Address of the Subject via `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension, or in Subordinate CA Certificates via `rfc822Name` in permittedSubtrees within the `nameConstraints` extension.
 
@@ -362,11 +362,11 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Terms of Use**: Provisions regarding the safekeeping and acceptable uses of a Certificate issued in accordance with these Requirements when the Applicant/Subscriber is an Affiliate of the CA or is the CA.
 
-**Valid Certificate**: A Certificate that passes the validation procedure specified in [RFC 5280](http://tools.ietf.org/html/rfc5280).
+**Valid Certificate**: A Certificate that passes the validation procedure specified in [RFC 5280](https://tools.ietf.org/html/rfc5280).
 
 **Validation Specialist**: Someone who performs the information verification duties specified by these Requirements.
 
-**Validity Period**: From [RFC 5280](http://tools.ietf.org/html/rfc5280): "The period of time from notBefore through notAfter, inclusive."
+**Validity Period**: From [RFC 5280](https://tools.ietf.org/html/rfc5280): "The period of time from notBefore through notAfter, inclusive."
 
 ###  1.6.2 Acronyms
 
@@ -458,7 +458,7 @@ X.509, Recommendation ITU-T X.509 (10/2012) \| ISO/IEC 9594-8:2014 (E), Informat
 
 ###  1.6.4 Conventions
 
-The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in these Requirements shall be interpreted in accordance with [RFC 2119](http://tools.ietf.org/html/rfc2119).
+The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in these Requirements shall be interpreted in accordance with [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
 # 2. PUBLICATION AND REPOSITORY RESPONSIBILITIES
 
@@ -470,7 +470,7 @@ The CA SHALL make revocation information for Subordinate CA Certificates and Sub
 
 The CA SHALL publicly disclose its CP and/or CPS through an appropriate and readily accessible online means that is available on a 24x7 basis. The CA SHALL publicly disclose its CA business practices to the extent required by the CA's selected audit scheme (see [Section 8](#8-compliance-audit-and-other-assessments)).
 
-The CP and/or CPS SHALL be structured in accordance with [RFC 3647](http://tools.ietf.org/html/rfc3647) and SHALL include all material required by [RFC 3647](http://tools.ietf.org/html/rfc3647).
+The CP and/or CPS SHALL be structured in accordance with [RFC 3647](https://tools.ietf.org/html/rfc3647) and SHALL include all material required by [RFC 3647](https://tools.ietf.org/html/rfc3647).
 
 Starting on September 15, 2024 the CA SHALL state its policy or practice on processing CAA Records for Mailbox Addresses in Section 4.2 of its CP and/or CPS. That policy SHALL be consistent with these Requirements and SHALL clearly specify the set of Issuer Domain Names that the CA recognizes in CAA `issuemail` records as permitting it to issue. 
 
@@ -2354,7 +2354,7 @@ The following CA/Browser Forum Certificate Policy identifiers are reserved for u
 | `Individual-validated` | Multipurpose | `2.23.140.1.5.4.2` |
 | `Individual-validated` | Strict | `2.23.140.1.5.4.3` |
 
-Starting June 15, 2025 S/MIME Subscriber Certificates SHALL NOT be issued using the Legacy Generation profiles 2.23.140.1.5.1.1, 2.23.140.1.5.2.1, 2.23.140.1.5.3.1, or 2.23.140.1.5.4.1.
+Effective June 15, 2025 S/MIME Subscriber Certificates SHALL NOT be issued using the Legacy Generation profiles 2.23.140.1.5.1.1, 2.23.140.1.5.2.1, 2.23.140.1.5.3.1, or 2.23.140.1.5.4.1.
 
 #### 7.1.6.2 Root CA certificates
 
