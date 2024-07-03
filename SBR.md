@@ -424,7 +424,7 @@ ISO 17442-1:2020, Financial services — Legal entity identifier (LEI) - Part 1:
 
 ISO 17442-2:2020, Financial services — Legal entity identifier (LEI) - Part 2: Application in digital certificates.
 
-Network and Certificate System Security Requirements, Version 1.7 or later. See https://cabforum.org/network-security-requirements/.
+Network and Certificate System Security Requirements, Version 2.0 or later. See https://cabforum.org/network-security-requirements/.
 
 NIST SP 800-89, Recommendation for Obtaining Assurances for Digital Signature Applications.
 
