@@ -444,7 +444,7 @@ RFC 6818, Updates to the Internet X.509 Public Key Infrastructure Certificate an
 
 RFC 6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP. S. Santesson, et al. June 2013.
 
-RFC 9598, Request for Comments: 9598, Internationalized Email Addresses in X.509 Certificates, May 2024. A. Melnikov, et al. May 2018.
+RFC 9598, Request for Comments: 9598, Internationalized Email Addresses in X.509 Certificates, A. Melnikov, et al. May 2024.
 
 RFC 8499, Request for Comments: 8499, DNS Terminology. P. Hoffman, et al. January 2019.
 
