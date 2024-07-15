@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.4
+subtitle: Version 1.0.5
 author:
   - CA/Browser Forum
-date: May 11, 2024
+date: July 15, 2024
 copyright: |
   Copyright 2024 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -83,6 +83,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.2   | SMC04    |Addition of ETSI TS 119 411-6 | December 8, 2023 |
 | 1.0.3   | SMC05    |Introduction of CAA for S/MIME | February 20, 2024 |
 | 1.0.4   | SMC06    |Post implementation clarification and corrections | May 11, 2024 |
+| 1.0.5   | SMC07    |Align Logging Requirement and Key Escrow clarification | July 15, 2024 |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -1157,8 +1158,6 @@ For the status of Subordinate CA Certificates, the CA SHALL update information p
 
 If the OCSP responder receives a request for the status of a Certificate serial number that is "unused", then the responder SHOULD NOT respond with a "good" status. If the OCSP responder is for a CA that is not Technically Constrained in line with [Section 7.1.5](#715-name-constraints), the responder SHALL NOT respond with a "good" status for such requests.
 
-The CA SHOULD monitor the OCSP responder for requests for "unused" serial numbers as part of its security response procedures.
-
 A Certificate serial number within an OCSP request is "assigned" if a Certificate with that serial number has been issued by the Issuing CA, using any current or previous key associated with that CA subject, or "unused" if otherwise.
 
 ### 4.9.11 Other forms of revocation advertisements available
@@ -1368,14 +1367,23 @@ The CA SHALL record at least the following events:
    iii. Security profile changes;
    iv. Installation, update and removal of software on a Certificate System;
    v. System crashes, hardware failures, and other anomalies;
-   vi. Firewall and router activities; and
+   vi. Relevant router and firewall activities (as described in [Section 5.4.1.1](#5411-router-and-firewall-activities-logs)); and
    vii. Entries to and exits from the CA facility.
 
-Log records SHALL include the following elements:
+Log records SHALL include at least the following elements:
 
 1. Date and time of event;
-2. Identity of the person making the journal record; and
+2. Identity of the person making the journal record (when applicable); and
 3. Description of the event.
+
+#### 5.4.1.1 Router and firewall activities logs
+
+Logging of router and firewall activities necessary to meet the requirements of Section 5.4.1, Subsection 3.6 MUST at a minimum include:
+
+  1. Successful and unsuccessful login attempts to routers and firewalls; and
+  2. Logging of all administrative actions performed on routers and firewalls, including configuration changes, firmware updates, and access control modifications; and
+  3. Logging of all changes made to firewall rules, including additions, modifications, and deletions; and
+  4. Logging of all system events and errors, including hardware failures, software crashes, and system restarts.
 
 ### 5.4.2 Frequency of processing audit log
 
@@ -1673,12 +1681,14 @@ No stipulation.
 
 ### 6.3.2 Certificate operational periods and key pair usage periods
 
-| Generation | Maximum Validity Period      | 
+| Generation | Certificate Maximum Validity Period | 
 |------|-----------------------|
 | Strict and Multipurpose | 825 days |
 | Legacy | 1185 days |
 
 For the purpose of calculations, a day is measured as 86,400 seconds. Any amount of time greater than this, including fractional seconds and/or leap seconds, SHALL represent an additional day. For this reason, Subscriber Certificates SHOULD NOT be issued for the maximum permissible time by default, in order to account for such adjustments.
+
+Where escrow is supported in accordance with [Section 4.12](#412-key-escrow-and-recovery), the CA MAY retain Subscriber Private Keys past the Certificate Maximum Validity Period.
 
 ## 6.4 Activation data
 
