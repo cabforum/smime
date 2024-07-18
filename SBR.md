@@ -2477,7 +2477,7 @@ No stipulation.
 The CA SHALL undergo an audit in accordance with one of the following schemes:
 
 1. For Audit Periods starting after the Effective Date defined in [Section 1.2.1](#121-revisions) of the first version of these Requirements, “WebTrust for CAs v2.2.2 or newer” AND “WebTrust for S/MIME Baseline Requirements v1.0.0 or newer”; or
-2. For Audit Periods starting after April 1, 2025, “WebTrust for CAs v2.2.2 or newer” AND “WebTrust for S/MIME Baseline Requirements v1.0.0 or newer” AND “WebTrust for Network Security v1.7 or newer”; or
+2. For Audit Periods starting after April 1, 2025, “WebTrust for CAs v2.2.2 or newer” AND “WebTrust for S/MIME Baseline Requirements v1.0.0 or newer” AND “WebTrust for Network Security v2.0 or newer”; or
 3. ETSI TS 119 411-6 v1.1.1 or newer, which includes normative references to ETSI EN 319 401, ETSI EN 319 411-1 and ETSI EN 319 411-2 (the latest version of the referenced ETSI documents should be applied); or
 4. If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either
    a. encompasses all requirements of one of the above schemes; or
