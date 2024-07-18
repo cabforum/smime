@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.5
+subtitle: Version 1.0.7
 author:
   - CA/Browser Forum
-date: July 15, 2024
+date: TBD
 copyright: |
   Copyright 2024 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -84,6 +84,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.3   | SMC05    |Introduction of CAA for S/MIME | February 20, 2024 |
 | 1.0.4   | SMC06    |Post implementation clarification and corrections | May 11, 2024 |
 | 1.0.5   | SMC07    |Align Logging Requirement and Key Escrow clarification | July 15, 2024 |
+| 1.0.7   | SMC09    |Update to WebTrust for Network Security | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -94,6 +95,8 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |1.0.3 |SMC05 | SHOULD adoption of CAA for S/MIME | September 15, 2024|
 |1.0.3 |SMC05 | SHALL adoption of CAA for S/MIME | March 15, 2025|
 |1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
+| -- | NS003 | Comply with Network and Certificate System Security Requirements, Version 2.0 | November 12, 2024 |
+| 1.0.7   | SMC09    | WebTrust audits SHALL include WebTrust for Network Security  | April 1, 2025 |
   
 ## 1.3 PKI participants
 
@@ -2473,8 +2476,8 @@ No stipulation.
 
 The CA SHALL undergo an audit in accordance with one of the following schemes:
 
-1. For Audit Periods starting before the Effective Date defined in [Section 1.2.1](#121-revisions) of the first version of these Requirements, “WebTrust for CAs v2.2.2 or newer”; or
-2. For Audit Periods starting after the Effective Date defined in [Section 1.2.1](#121-revisions) of the first version of these Requirements, “WebTrust for CAs v2.2.2 or newer” AND “WebTrust for S/MIME Baseline Requirements v1.0.0 or newer”; or
+1. For Audit Periods starting after the Effective Date defined in [Section 1.2.1](#121-revisions) of the first version of these Requirements, “WebTrust for CAs v2.2.2 or newer” AND “WebTrust for S/MIME Baseline Requirements v1.0.0 or newer”; or
+2. For Audit Periods starting after April 1, 2025, “WebTrust for CAs v2.2.2 or newer” AND “WebTrust for S/MIME Baseline Requirements v1.0.0 or newer” AND “WebTrust for Network Security v1.7 or newer”; or
 3. ETSI TS 119 411-6 v1.1.1 or newer, which includes normative references to ETSI EN 319 401, ETSI EN 319 411-1 and ETSI EN 319 411-2 (the latest version of the referenced ETSI documents should be applied); or
 4. If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either
    a. encompasses all requirements of one of the above schemes; or
