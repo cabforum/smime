@@ -2801,7 +2801,11 @@ The following Registration Schemes are recognized as valid for use in the `subje
 
 * **PNO**: For an identifier based on a national personal number (or national civic registration number) issued to the Subject Individual. 
 
-* **TIN**: For an identifier based on Tax Identification Number issued to the Subject Individual. 
+* **TAX**: For an identifier based on a personal tax reference number issued by a national tax authority.
+
+* **TIN**: For an identifier based on Tax Identification Number issued to the Subject Individual according to the [European Commission - Tax and Customs Union](https://ec.europa.eu/taxation_customs/tin/tinByCountry.html). 
+  
+* **EID**: For an identifier based on electronic identification means (e.g., national eID or EU wallet)
 
 # Appendix B - Transition of Extant S/MIME CAs
 
