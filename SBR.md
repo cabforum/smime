@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.5
+subtitle: Version 1.0.X
 author:
   - CA/Browser Forum
-date: July 15, 2024
+date: TBD
 copyright: |
   Copyright 2024 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -84,6 +84,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.3   | SMC05    |Introduction of CAA for S/MIME | February 20, 2024 |
 | 1.0.4   | SMC06    |Post implementation clarification and corrections | May 11, 2024 |
 | 1.0.5   | SMC07    |Align Logging Requirement and Key Escrow clarification | July 15, 2024 |
+|TBD |TBD | Adopt Multi-Perspective Issuance Corroboration (MPIC) | TBD|
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -94,6 +95,8 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |1.0.3 |SMC05 | SHOULD adoption of CAA for S/MIME | September 15, 2024|
 |1.0.3 |SMC05 | SHALL adoption of CAA for S/MIME | March 15, 2025|
 |1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
+|TBD |TBD | SHALL corroborate the results of domain validation and CAA checks from multiple Network Perspectives where specified | March 15, 2025|
+
   
 ## 1.3 PKI participants
 
