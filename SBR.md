@@ -923,6 +923,8 @@ CAs are permitted to treat a record lookup failure as permission to issue if:
 * the lookup has been retried at least once; and
 * the domain's zone does not have a DNSSEC validation chain to the ICANN root.
 
+CAs MUST document potential issuances that were prevented by a CAA record in sufficient detail to provide feedback to the CA/Browser Forum on the circumstances, and SHOULD dispatch reports of such issuance requests to the contact(s) stipulated in the CAA iodef record(s), if present. CAs are not expected to support URL schemes in the iodef record other than mailto: or https:.
+
 ### 4.2.3 Time to process certificate applications
 
 No stipulation.
