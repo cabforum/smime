@@ -899,9 +899,13 @@ A prior validation SHALL NOT be reused if any data or document used in the prior
 
 #### 4.2.2.1 Certification authority authorization
 
+Starting on September 15, 2024 the CA SHALL state its policy or practice on processing CAA Records for Mailbox Addresses in Section 4.2 of its CP and/or CPS. That policy SHALL be consistent with these Requirements and SHALL clearly specify the set of Issuer Domain Names that the CA recognizes in CAA `issuemail` records as permitting it to issue. 
+
 Starting on September 15, 2024 prior to issuing a Certificate that includes a Mailbox Address, the CA SHOULD retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html).
 
 Starting on March 15, 2025 prior to issuing a Certificate that includes a Mailbox Address, the CA SHALL retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html).
+
+Some methods relied upon for validating the Applicant's control over the domain portion of the Mailbox Address to be used in the Certificate (see [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) and [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers)) require CAA records to be retrieved and processed from additional remote Network Perspectives before Certificate issuance (see [Section 3.2.2.9](#3229-multi-perspective-issuance-corroboration)). To corroborate the Primary Network Perspective, a remote Network Perspective's CAA check response MUST be interpreted as permission to issue, regardless of whether the responses from both Perspectives are byte-for-byte identical. Additionally, a CA MAY consider the response from a remote Network Perspective as corroborating if one or both of the Perspectives experience an acceptable CAA record lookup failure, as defined in this section.
 
 When processing CAA records, CAs SHALL process the `issuemail` property tag as specified in RFC 9495. Additional property tags MAY be supported, but SHALL NOT conflict with or supersede the authorizations to issue S/MIME Certificates as specified in the `issuemail` property tag. 
 
