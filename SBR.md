@@ -923,7 +923,34 @@ No stipulation.
 
 ### 4.3.1 CA actions during certificate issuance
 
+#### 4.3.1.1 Manual authorization of certificate issuance for Root CAs
+
 Certificate issuance by the Root CA SHALL require at least two individuals authorized by the CA (i.e., the CA system operator, system officer, or PKI administrator) one of whom deliberately issues a direct command in order for the Root CA to perform a Certificate signing operation.
+
+#### 4.3.1.2 Linting of to-be-signed Certificate content
+
+It is considered best practice for the CA to implement a Linting process to test the technical conformity of each to-be-signed artifact prior to signing it. 
+
+Effective TBD, the CA SHOULD implement a Linting process testing compliance with these Requirements for S/MIME Certificates. Effective TBD, the CA SHALL implement a Linting process testing compliance with these Requirements for S/MIME Certificates.
+
+Methods used to produce a Certificate containing the to-be-signed Certificate content include, but are not limited to:
+
+1. Sign the `tbsCertificate` with a "dummy" Private Key whose Public Key component is not certified by a Certificate that chains to a publicly-trusted CA Certificate; or
+2. Specify a static value for the `signature` field of the Certificate ASN.1 SEQUENCE.
+
+CAs MAY implement their own Certificate Linting tools, but CAs SHOULD use the Linting tools that have been widely adopted by the industry (see https://cabforum.org/resources/tools/). 
+
+CAs are encouraged to contribute to open-source Linting projects, such as by:
+
+* Creating new or improving existing lints;
+* Reporting potentially inaccurate linting results as bugs;
+* Notifying maintainers of Linting software of checks that are not covered by existing lints;
+* Updating documentation of existing lints; and 
+* Generating test Certificates for positive/negative tests of specific lints.
+
+#### 4.3.1.3 Linting of issued Certificates
+
+CAs MAY use a Linting process to test each issued Certificate.
 
 ### 4.3.2 Notification to subscriber by the CA of issuance of certificate
 
