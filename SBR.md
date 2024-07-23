@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.5
+subtitle: Version 1.0.X
 author:
   - CA/Browser Forum
-date: July 15, 2024
+date: TBD
 copyright: |
   Copyright 2024 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -276,6 +276,8 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 **Legacy Profile**: The S/MIME Legacy Generation profiles provide flexibility for existing reasonable S/MIME certificate practices to become auditable under the S/MIME Baseline Requirements. This includes options for Subject DN attributes, `extKeyUsage`, and other extensions. The Legacy Profiles will be deprecated in a future version of the S/MIME Baseline Requirements.
 
 **Legal Entity**: An association, corporation, partnership, proprietorship, trust, government entity or other entity with legal standing in a country's legal system.
+
+**Linting**: A process in which the content of digitally signed data such as a Precertificate [RFC 6962], Certificate, CRL, or OCSP response, or data-to-be-signed object such as a `tbsCertificate` (as described in [RFC 5280, Section 4.1.1.1](https://tools.ietf.org/doc/html/rfc5280##section-4.1.1.1)) is checked for conformance with the profiles and requirements defined in these Requirements.
 
 **Mailbox-Validated (MV)**: Refers to a Certificate Subject that is limited to (optional) `subject:emailAddress` and/or `subject:serialNumber` attributes.
 
