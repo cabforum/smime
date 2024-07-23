@@ -84,6 +84,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.3   | SMC05    |Introduction of CAA for S/MIME | February 20, 2024 |
 | 1.0.4   | SMC06    |Post implementation clarification and corrections | May 11, 2024 |
 | 1.0.5   | SMC07    |Align Logging Requirement and Key Escrow clarification | July 15, 2024 |
+| TBD  | TBD    |Linting of S/MIME Certificates | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -94,7 +95,9 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |1.0.3 |SMC05 | SHOULD adoption of CAA for S/MIME | September 15, 2024|
 |1.0.3 |SMC05 | SHALL adoption of CAA for S/MIME | March 15, 2025|
 |1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
-  
+| TBD | TBD |SHOULD implement pre-issuance linting of S/MIME Certificates, and SHOULD implement use of Linting in Self-Audits | TBD |
+| TBD | TBD |SHALL implement pre-issuance linting of S/MIME Certificates | TBD |
+
 ## 1.3 PKI participants
 
 The CA/Browser Forum is a voluntary organization of Certification Authorities and Application Software Suppliers including providers of Internet browser and other relying-party software applications, such as mail user agents (web-based or application-based) and email service providers that process S/MIME Certificates.
