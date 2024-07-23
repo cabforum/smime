@@ -95,8 +95,8 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |1.0.3 |SMC05 | SHOULD adoption of CAA for S/MIME | September 15, 2024|
 |1.0.3 |SMC05 | SHALL adoption of CAA for S/MIME | March 15, 2025|
 |1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
-| TBD | TBD |SHOULD implement pre-issuance linting of S/MIME Certificates, and SHOULD implement use of Linting in Self-Audits | TBD |
-| TBD | TBD |SHALL implement pre-issuance linting of S/MIME Certificates | TBD |
+| TBD | TBD |SHOULD implement pre-issuance linting of S/MIME Certificates, and SHOULD implement use of Linting in Self-Audits | March 15, 2025 |
+| TBD | TBD |SHALL implement pre-issuance linting of S/MIME Certificates | September 15, 2025 |
 
 ## 1.3 PKI participants
 
@@ -934,7 +934,7 @@ Certificate issuance by the Root CA SHALL require at least two individuals autho
 
 It is considered best practice for the CA to implement a Linting process to test the technical conformity of each to-be-signed artifact prior to signing it. 
 
-Effective TBD, the CA SHOULD implement a Linting process testing compliance with these Requirements for S/MIME Certificates. Effective TBD, the CA SHALL implement a Linting process testing compliance with these Requirements for S/MIME Certificates.
+Effective March 15, 2025 the CA SHOULD implement a Linting process testing compliance with these Requirements for S/MIME Certificates. Effective September 15, 2025 the CA SHALL implement a Linting process testing compliance with these Requirements for S/MIME Certificates.
 
 Methods used to produce a Certificate containing the to-be-signed Certificate content include, but are not limited to:
 
@@ -2551,7 +2551,7 @@ The Audit Report SHALL be available as a PDF, and SHALL be text searchable for a
 
 During the period in which the CA issues Certificates, the CA SHALL monitor adherence to its CP and/or CPS and these Requirements and control its service quality by performing self audits on at least a quarterly basis against a randomly selected sample including a minimum of the greater of thirty (30) Certificates or three percent (3%) of the Certificates issued by it during the period commencing immediately after the previous self-audit sample was taken. 
 
-Effective TBD, the CA SHOULD use a Linting process to verify the technical accuracy of Certificates within the selected sample set independently of previous linting performed on the same Certificates.
+Effective March 15, 2025 the CA SHOULD use a Linting process to verify the technical accuracy of Certificates within the selected sample set independently of previous linting performed on the same Certificates.
 
 ## 8.8 Review of delegated parties 
 
