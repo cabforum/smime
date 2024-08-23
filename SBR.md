@@ -1,6 +1,6 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.7
+subtitle: Version 1.0.X
 author:
   - CA/Browser Forum
 date: TBD
@@ -85,6 +85,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.4   | SMC06    |Post implementation clarification and corrections | May 11, 2024 |
 | 1.0.5   | SMC07    |Align Logging Requirement and Key Escrow clarification | July 15, 2024 |
 | 1.0.7   | SMC09    |Update to WebTrust for Network Security | TBD |
+| TBD  | TBD    |Linting of S/MIME Certificates | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -97,7 +98,9 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
 | -- | NS003 | Comply with Network and Certificate System Security Requirements, Version 2.0 | November 12, 2024 |
 | 1.0.7   | SMC09    | WebTrust audits SHALL include WebTrust for Network Security  | April 1, 2025 |
-  
+| TBD | TBD |SHOULD implement pre-issuance linting of S/MIME Certificates, and SHOULD implement use of Linting in Self-Audits | March 15, 2025 |
+| TBD | TBD |SHALL implement pre-issuance linting of S/MIME Certificates | September 15, 2025 |
+
 ## 1.3 PKI participants
 
 The CA/Browser Forum is a voluntary organization of Certification Authorities and Application Software Suppliers including providers of Internet browser and other relying-party software applications, such as mail user agents (web-based or application-based) and email service providers that process S/MIME Certificates.
@@ -279,6 +282,8 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 **Legacy Profile**: The S/MIME Legacy Generation profiles provide flexibility for existing reasonable S/MIME certificate practices to become auditable under the S/MIME Baseline Requirements. This includes options for Subject DN attributes, `extKeyUsage`, and other extensions. The Legacy Profiles will be deprecated in a future version of the S/MIME Baseline Requirements.
 
 **Legal Entity**: An association, corporation, partnership, proprietorship, trust, government entity or other entity with legal standing in a country's legal system.
+
+**Linting**: A process in which the content of digitally signed data such as a Precertificate [RFC 6962], Certificate, CRL, or OCSP response, or data-to-be-signed object such as a `tbsCertificate` (as described in [RFC 5280, Section 4.1.1.1](https://tools.ietf.org/doc/html/rfc5280##section-4.1.1.1)) is checked for conformance with the profiles and requirements defined in these Requirements.
 
 **Mailbox-Validated (MV)**: Refers to a Certificate Subject that is limited to (optional) `subject:emailAddress` and/or `subject:serialNumber` attributes.
 
@@ -924,7 +929,34 @@ No stipulation.
 
 ### 4.3.1 CA actions during certificate issuance
 
+#### 4.3.1.1 Manual authorization of certificate issuance for Root CAs
+
 Certificate issuance by the Root CA SHALL require at least two individuals authorized by the CA (i.e., the CA system operator, system officer, or PKI administrator) one of whom deliberately issues a direct command in order for the Root CA to perform a Certificate signing operation.
+
+#### 4.3.1.2 Linting of to-be-signed Certificate content
+
+It is considered best practice for the CA to implement a Linting process to test the technical conformity of each to-be-signed artifact prior to signing it. 
+
+Effective March 15, 2025 the CA SHOULD implement a Linting process testing compliance with these Requirements for S/MIME Certificates. Effective September 15, 2025 the CA SHALL implement a Linting process testing compliance with these Requirements for S/MIME Certificates.
+
+Methods used to produce a Certificate containing the to-be-signed Certificate content include, but are not limited to:
+
+1. Sign the `tbsCertificate` with a "dummy" Private Key whose Public Key component is not certified by a Certificate that chains to a publicly-trusted CA Certificate; or
+2. Specify a static value for the `signature` field of the Certificate ASN.1 SEQUENCE.
+
+CAs MAY implement their own Certificate Linting tools, but CAs SHOULD use the Linting tools that have been widely adopted by the industry (see https://cabforum.org/resources/tools/). 
+
+CAs are encouraged to contribute to open-source Linting projects, such as by:
+
+* Creating new or improving existing lints;
+* Reporting potentially inaccurate linting results as bugs;
+* Notifying maintainers of Linting software of checks that are not covered by existing lints;
+* Updating documentation of existing lints; and 
+* Generating test Certificates for positive/negative tests of specific lints.
+
+#### 4.3.1.3 Linting of issued Certificates
+
+CAs MAY use a Linting process to test each issued Certificate.
 
 ### 4.3.2 Notification to subscriber by the CA of issuance of certificate
 
@@ -2521,6 +2553,8 @@ The Audit Report SHALL be available as a PDF, and SHALL be text searchable for a
 ## 8.7 Self audits
 
 During the period in which the CA issues Certificates, the CA SHALL monitor adherence to its CP and/or CPS and these Requirements and control its service quality by performing self audits on at least a quarterly basis against a randomly selected sample including a minimum of the greater of thirty (30) Certificates or three percent (3%) of the Certificates issued by it during the period commencing immediately after the previous self-audit sample was taken. 
+
+Effective March 15, 2025 the CA SHOULD use a Linting process to verify the technical accuracy of Certificates within the selected sample set independently of previous linting performed on the same Certificates.
 
 ## 8.8 Review of delegated parties 
 
