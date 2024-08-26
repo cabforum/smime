@@ -84,8 +84,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.3   | SMC05    |Introduction of CAA for S/MIME | February 20, 2024 |
 | 1.0.4   | SMC06    |Post implementation clarification and corrections | May 11, 2024 |
 | 1.0.5   | SMC07    |Align Logging Requirement and Key Escrow clarification | July 15, 2024 |
-| 1.0.7   | SMC09    |Update to WebTrust for Network Security | TBD |
-| TBD  | TBD    |Linting of S/MIME Certificates | TBD |
+| 1.0.X   | SMC09    |Update to WebTrust for Network Security, Require Linting | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -97,9 +96,9 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |1.0.3 |SMC05 | SHALL adoption of CAA for S/MIME | March 15, 2025|
 |1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
 | -- | NS003 | Comply with Network and Certificate System Security Requirements, Version 2.0 | November 12, 2024 |
-| 1.0.7   | SMC09    | WebTrust audits SHALL include WebTrust for Network Security  | April 1, 2025 |
-| TBD | TBD |SHOULD implement pre-issuance linting of S/MIME Certificates, and SHOULD implement use of Linting in Self-Audits | March 15, 2025 |
-| TBD | TBD |SHALL implement pre-issuance linting of S/MIME Certificates | September 15, 2025 |
+| 1.0.X   | SMC09    | WebTrust audits SHALL include WebTrust for Network Security  | April 1, 2025 |
+| 1.0.X  | SMC09 |SHOULD implement pre-issuance linting of S/MIME Certificates, and SHOULD implement use of Linting in Self-Audits | March 15, 2025 |
+| 1.0.X  | SMC09 |SHALL implement pre-issuance linting of S/MIME Certificates | September 15, 2025 |
 
 ## 1.3 PKI participants
 
