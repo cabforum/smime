@@ -3,7 +3,7 @@ title: Baseline Requirements for the Issuance and Management of Publicly-Trusted
 subtitle: Version 1.0.6
 author:
   - CA/Browser Forum
-date: TBD
+date: August 29, 2024
 copyright: |
   Copyright 2024 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -84,7 +84,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.3   | SMC05    |Introduction of CAA for S/MIME | February 20, 2024 |
 | 1.0.4   | SMC06    |Post implementation clarification and corrections | May 11, 2024 |
 | 1.0.5   | SMC07    |Align Logging Requirement and Key Escrow clarification | July 15, 2024 |
-| 1.0.6   | SMC08    |Phase out of Legacy Generation profiles | TBD |
+| 1.0.6   | SMC08    |Phase out of Legacy Generation profiles | August 29, 2024 |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
