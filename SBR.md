@@ -84,7 +84,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.3   | SMC05    |Introduction of CAA for S/MIME | February 20, 2024 |
 | 1.0.4   | SMC06    |Post implementation clarification and corrections | May 11, 2024 |
 | 1.0.5   | SMC07    |Align Logging Requirement and Key Escrow clarification | July 15, 2024 |
-| 1.0.6   | SMC08    |Phase out of Legacy Generation profiles | August 29, 2024 |
+| 1.0.6   | SMC08    |Phase out of Legacy Generation Profiles and Minor Updates | August 29, 2024 |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
