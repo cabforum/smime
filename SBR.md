@@ -927,7 +927,7 @@ CAs MUST document potential issuances that were prevented by a CAA record in suf
 
 #### 4.2.2.2 Multi-Perspective Issuance Corroboration
 
-See [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements.
+Effective March 15, 2025 CAs SHOULD implement [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements. Effective September 15, 2025 CAs SHALL implement [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements.  
 
 ### 4.2.3 Time to process certificate applications
 
