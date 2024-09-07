@@ -459,7 +459,7 @@ RFC 8499, Request for Comments: 8499, DNS Terminology. P. Hoffman, et al. Januar
 
 RFC 9495, Request for Comments: 9495, Certification Authority Authorization (CAA) Processing for Email Addresses, C. Bonnell. October 2023.
 
-"TLS Baseline Requirements" means Version 2.0.5 of the CA/Browser Forum's "Baseline Requirements for the Issuance and Management of Publicly‐Trusted TLS Server Certificates". See https://cabforum.org/baseline-requirements-documents/
+"TLS Baseline Requirements" [Ref 1] means Version 2.0.5 and [Ref 2] means the current version of the CA/Browser Forum's "Baseline Requirements for the Issuance and Management of Publicly‐Trusted TLS Server Certificates". See https://cabforum.org/baseline-requirements-documents/
 
 WebTrust for Certification Authorities, CPA Canada.
 
@@ -928,7 +928,7 @@ CAs MUST document potential issuances that were prevented by a CAA record in suf
 
 #### 4.2.2.2 Multi-Perspective Issuance Corroboration
 
-Effective March 15, 2025 CAs SHOULD implement [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements. Effective September 15, 2025 CAs SHALL implement [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements.  
+Until INSERTDATE, 2025 CAs SHOULD implement [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements [Ref 2] but MAY implement [Ref 1]. Effective INSERTDATE CAs SHALL implement [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements [Ref 2].  
 
 ### 4.2.3 Time to process certificate applications
 
