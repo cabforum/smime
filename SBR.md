@@ -926,7 +926,7 @@ CAs are permitted to treat a record lookup failure as permission to issue if:
 
 CAs MUST document potential issuances that were prevented by a CAA record in sufficient detail to provide feedback to the CA/Browser Forum on the circumstances, and SHOULD dispatch reports of such issuance requests to the contact(s) stipulated in the CAA iodef record(s), if present. CAs are not expected to support URL schemes in the iodef record other than mailto: or https:.
 
-#### 4.2.2.2 Multi-Perspective Issuance Corroboration
+#### 4.2.2.2 Multi-perspective issuance corroboration
 
 Until INSERTDATE, 2025 CAs MAY implement TLS Baseline Requirements [Ref 1] but SHOULD implement [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements [Ref 2]. Effective INSERTDATE, CAs SHALL implement [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements [Ref 2].  
 
