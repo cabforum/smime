@@ -97,7 +97,8 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |1.0.3 |SMC05 | SHALL adoption of CAA for S/MIME | March 15, 2025|
 |1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
 |1.0.6 |SMC08 | S/MIME Subscriber Certificates SHALL NOT be issued using the Legacy Generation profiles | July 15, 2025 |
-|TBD   |TBD   | SHALL implement MPIC | INSERTDATE, 2025|
+|TBD   |TBD   | SHOULD implement MPIC | March 15, 2025|
+|TBD   |TBD   | SHALL implement MPIC | May 15, 2025|
   
 ## 1.3 PKI participants
 
@@ -928,7 +929,7 @@ CAs MUST document potential issuances that were prevented by a CAA record in suf
 
 #### 4.2.2.2 Multi-perspective issuance corroboration
 
-Until INSERTDATE, 2025 CAs MAY implement TLS Baseline Requirements [Ref 1] but SHOULD implement [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements [Ref 2]. Effective INSERTDATE, CAs SHALL implement [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements [Ref 2].  
+Until May 15, 2025 CAs MAY implement TLS Baseline Requirements [Ref 1] but SHOULD implement [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements [Ref 2]. Effective May 15, CAs SHALL implement [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements [Ref 2].  
 
 ### 4.2.3 Time to process certificate applications
 
