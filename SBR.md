@@ -326,7 +326,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Registration Authority (RA)**: Any Legal Entity that is responsible for identification and authentication of subjects of Certificates, but is not a CA, and hence does not sign or issue Certificates. An RA MAY assist in the certificate application process or revocation process or both. When "RA" is used as an adjective to describe a role or function, it does not necessarily imply a separate body, but can be part of the CA.
 
-**Registration Reference**: A unique identifier assigned to a Legal Entity.
+**Registration Reference**: An identifier assigned to a Legal Entity.
 
 **Registration Scheme**: A scheme for assigning a Registration Reference meeting the requirements identified in Appendix A.
 
@@ -615,15 +615,15 @@ The CA or RA SHALL collect and retain evidence supporting the following identity
 3. An Affiliate of the Legal Entity as described in Section 7.1.4.2.2 (if included in the Subject as an `subject:organizationalUnitName`);
 4.	An address of the Legal Entity (if included in the Subject);
 5.	Jurisdiction of Incorporation or Registration of the Legal Entity; and
-6.	Unique identifier and type of identifier for the Legal Entity. 
+6.	Identifier and type of identifier for the Legal Entity. 
 
-The unique identifier SHALL be included in the Certificate `subject:organizationIdentifier` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) and [Appendix A](#appendix-a---registration-schemes).
+The identifier SHALL be included in the Certificate `subject:organizationIdentifier` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) and [Appendix A](#appendix-a---registration-schemes).
 
 #### 3.2.3.2 Validation of organization identity
 
 If an Attestation is used as evidence for the validation of the attributes described in this section, then the Attestation SHALL be verified for authenticity as described in [Section 3.2.8](#328-reliability-of-verification-sources).
 
-##### 3.2.3.2.1 Verification of name, address, and unique identifier
+##### 3.2.3.2.1 Verification of name, address, and identifier
 
 The CA or RA SHALL verify the full legal name and an address (if included in the Certificate Subject) of the Legal Entity Applicant using documentation provided by, or through communication with, at least one of the following:
 
@@ -649,7 +649,7 @@ The CA MAY rely on an Attestation that indicates the Assumed Name under which th
 
 #### 3.2.3.3 Disclosure of verification sources
 
-The CA or RA SHALL verify the unique identifier used in the Certificate from a register that is maintained or authorized by the relevant government agency. The CA SHALL disclose the authorized sources it uses to verify the Applicant's creation, existence, or recognition. This disclosure SHALL be through an appropriate and readily accessible online means. The CA SHALL document where to obtain this information within Section 3.2 of the CA's CP and/or CPS.
+The CA or RA SHALL verify the Registration Reference to be included in the Certificate from a register that is maintained or authorized by the relevant government agency. The CA SHALL disclose the authorized sources it uses to verify the Applicant's creation, existence, or recognition. This disclosure SHALL be through an appropriate and readily accessible online means. The CA SHALL document where to obtain this information within Section 3.2 of the CA's CP and/or CPS.
 
 Nothing in these Requirements prohibits the use of third-party vendors to obtain regularly-updated and current information from the government register provided that the third party obtains the information directly from the government.
 
@@ -2181,7 +2181,7 @@ c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)
    __Contents:__ If present, the CA SHALL confirm that the `subject:organizationalUnitName` is the full legal organization name of an Affiliate of the `subject:organizationName` in the Certificate and has been verified in accordance with the requirements of [Section 3.2.3](#323-authentication-of-organization-identity). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations.
 
 d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
-   __Contents:__ If present, the `subject:organizationIdentifier` field SHALL contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. 
+   __Contents:__ If present, the `subject:organizationIdentifier` field SHALL contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. The Registration Reference SHOULD be unique where the Registration Scheme and jurisdiction provide unique identifiers. 
 
    The `subject:organizationIdentifier` SHALL be encoded as a PrintableString or UTF8String.
 
@@ -2195,10 +2195,10 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
 
    **Note 1**: Registration References MAY contain hyphens but Registration Schemes, ISO 3166-1 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
 
-    * `NTRGB-12345678` (NTR scheme, Great Britain, Unique Identifier at Country level is 12345678).
-    * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Unique identifier at State level is 12345678).
-    * `VATDE-123456789` (VAT Scheme, Germany, Unique Identifier at Country Level is 12345678).
-    * `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, NCA's identifier is NBB, Unique Identifier assigned by the NCA is 1234.567.890).
+    * `NTRGB-12345678` (NTR scheme, Great Britain, Registration Reference at Country level is 12345678).
+    * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Registration Reference at State level is 12345678).
+    * `VATDE-123456789` (VAT Scheme, Germany, Registration Reference at Country Level is 12345678).
+    * `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, NCA's identifier is NBB, Registration Reference assigned by the NCA is 1234.567.890).
 
    Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes) are recognized as valid under these Requirements. The CA SHALL:
 
@@ -2214,6 +2214,8 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
     * GOVUS (Government Entity, United States)
     * GOVUS+CA (Government Entity, United States - California)
     * INTXG (International Organization)
+
+   **Note 3**: For the NTR Registration Scheme, where the Legal Entity is registered within a European country, the NTR Registration Scheme SHALL be assigned at the country level.
 
 e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
    __Contents:__ If present, the `subject:givenName` field and `subject:surname` field SHALL contain a Natural Person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). Subjects with a single legal name SHALL provide the name in the `subject:surname` attribute. The `subject:givenName` and/or `subject:surname` SHALL NOT be present if the `subject:pseudonym` is present.
