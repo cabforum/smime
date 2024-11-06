@@ -627,6 +627,8 @@ The CA or RA SHALL verify the full legal name and an address (if included in the
 3.	A site visit by the CA or a third party who is acting as an agent for the CA; or
 4.	An Attestation which includes a copy of supporting documentation used to establish the Applicant's legal existence (such as a certificate of registration, articles of incorporation, operating agreement, statute, or regulatory act) and its current status.
 
+The CA or RA MAY use a Reliable Data Source to verify the address or attain a Reliable Method of Communication.
+
 The CA or RA MAY use the same documentation or communication described in 1 through 4 above to verify both the Applicant's identity and address.
 
 In cases 1 and 4 above, the CA or RA SHALL verify that the status of the Applicant is not designated by labels such as "ceased," "inactive," "invalid," "not current," or the equivalent.
@@ -640,7 +642,10 @@ Applicants MAY request an Assumed Name to be included in the Certificate. The CA
 1.	The Applicant has registered its use of the Assumed Name with the appropriate government agency for such filings in the jurisdiction of its incorporation or registration; and 
 2.	The Assumed Name filing continues to be valid.
 
-The CA MAY rely on an Attestation that indicates the Assumed Name under which the Applicant conducts business, the government agency with which the Assumed Name is registered, and that such filing continues to be valid.
+The CA MAY rely on:
+
+1.  Verification of the Assumed Name through use of a Reliable Data Source provided that the Reliable Data Source has verified the assumed name with the appropriate government agency; or
+2.  An Attestation that indicates the Assumed Name under which the Applicant conducts business, the government agency with which the Assumed Name is registered, and that such filing continues to be valid.
 
 #### 3.2.3.3 Disclosure of verification sources
 
