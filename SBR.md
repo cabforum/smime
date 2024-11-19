@@ -616,11 +616,13 @@ To confirm the Applicant's control of the SMTP FQDN, the CA SHALL use only the c
 
 #### 3.2.2.4 Validating control over mailbox using ACME
 
-The CA MAY confirm the Applicant's control over each Mailbox Field to be included in a Certificate using ACME for S/MIME as defined in RFC 8823. The CA's ACME server MAY respond to a POST request sending the defined tokens via email and SMTP in accordance with RFC 8823, and then receiving a confirming response utilizing the generated Random Value.
+The CA MAY confirm the Applicant's control over each Mailbox Field to be included in a Certificate using ACME for S/MIME as defined in RFC 8823. The CA's ACME server MAY respond to a POST request by sending the Random Value token components via email and SMTP, and then receiving a confirming response utilizing the generated Random Value, in accordance with RFC 8823.
 
 Control over each Mailbox Address SHALL be confirmed using a unique Random Value. The Random Value token components SHALL only be shared in accordance with RFC 8823. Both token-part1 and token-part2 SHALL contain at least 128 bits of entropy.
 
 The Random Value SHALL be unique in each Certificate Request. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CA MAY specify a shorter validity period for Random Values in its CP and/or CPS.
+
+There is no support for ACME External Account Binding in RFC 8823.
 
 ### 3.2.3 Authentication of organization identity
 
