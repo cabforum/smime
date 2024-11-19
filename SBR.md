@@ -460,9 +460,9 @@ RFC 5280, Request for Comments: 5280, Internet X.509 Public Key Infrastructure: 
 
 RFC 6818, Updates to the Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile, P. Yee. January 2013.
 
-RFC 8823, Extensions to Automatic Certificate Management Environment for End-User S/MIME Certificates, A. Melnikov. April 2021.
-
 RFC 6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP. S. Santesson, et al. June 2013.
+
+RFC 8823, Extensions to Automatic Certificate Management Environment for End-User S/MIME Certificates, A. Melnikov. April 2021.
 
 RFC 9598, Request for Comments: 9598, Internationalized Email Addresses in X.509 Certificates, A. Melnikov, et al. May 2024.
 
@@ -616,7 +616,11 @@ To confirm the Applicant's control of the SMTP FQDN, the CA SHALL use only the c
 
 #### 3.2.2.4 Validating control over mailbox using ACME
 
-The CA MAY confirm the Applicant's control over each Mailbox Field to be included in a Certificate by sending a Random Value via email and SMTP and then receiving a confirming response utilizing the Random Value. 
+The CA MAY confirm the Applicant's control over each Mailbox Field to be included in a Certificate by sending a Random Value via email and SMTP in accordance with RFC 8823, and then receiving a confirming response email utilizing the Random Value.
+
+Control over each Mailbox Address SHALL be confirmed using a unique Random Value. The Random Value SHALL only be shared in any other way in accordance with RFC 8823. 
+
+The Random Value SHALL be unique in each Certificate Request. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CA MAY specify a shorter validity period for Random Values in its CP and/or CPS.
 
 ### 3.2.3 Authentication of organization identity
 
