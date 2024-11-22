@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.6
+subtitle: Version 1.0.X
 author:
   - CA/Browser Forum
-date: August 29, 2024
+date: TBD
 copyright: |
   Copyright 2024 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -85,6 +85,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.4   | SMC06    |Post implementation clarification and corrections | May 11, 2024 |
 | 1.0.5   | SMC07    |Align Logging Requirement and Key Escrow clarification | July 15, 2024 |
 | 1.0.6   | SMC08    |Deprecate Legacy Generation Profiles and Minor Updates | August 29, 2024 |
+| 1.0.X   | SMC010   |Introduction of Multi-Perspective Issuance Corroboration | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -96,9 +97,8 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |1.0.3 |SMC05 | SHALL adoption of CAA for S/MIME | March 15, 2025|
 |1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
 |1.0.6 |SMC08 | S/MIME Subscriber Certificates SHALL NOT be issued using the Legacy Generation profiles | July 15, 2025 |
-| 1.0.6   | SMC08    | S/MIME Subscriber Certificates SHALL NOT be issued using the Legacy Generation profiles | July 15, 2025 |
-|TBD   |TBD   | SHOULD implement MPIC | March 15, 2025|
-|TBD   |TBD   | SHALL implement MPIC | May 15, 2025|
+|TBD   |SMC010   | SHOULD implement MPIC | March 15, 2025|
+|TBD   |SMC010   | SHALL implement MPIC | May 15, 2025|
   
 ## 1.3 PKI participants
 
