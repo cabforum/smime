@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.X
+subtitle: Version 1.0.6
 author:
   - CA/Browser Forum
-date: TBD
+date: August 29, 2024
 copyright: |
   Copyright 2024 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -85,7 +85,6 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.4   | SMC06    |Post implementation clarification and corrections | May 11, 2024 |
 | 1.0.5   | SMC07    |Align Logging Requirement and Key Escrow clarification | July 15, 2024 |
 | 1.0.6   | SMC08    |Deprecate Legacy Generation Profiles and Minor Updates | August 29, 2024 |
-| TBD     | TBD      |Adopt Multi-Perspective Issuance Corroboration (MPIC) | TBD|
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -97,6 +96,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |1.0.3 |SMC05 | SHALL adoption of CAA for S/MIME | March 15, 2025|
 |1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
 |1.0.6 |SMC08 | S/MIME Subscriber Certificates SHALL NOT be issued using the Legacy Generation profiles | July 15, 2025 |
+| 1.0.6   | SMC08    | S/MIME Subscriber Certificates SHALL NOT be issued using the Legacy Generation profiles | July 15, 2025 |
 |TBD   |TBD   | SHOULD implement MPIC | March 15, 2025|
 |TBD   |TBD   | SHALL implement MPIC | May 15, 2025|
   
@@ -129,7 +129,6 @@ The CA MAY delegate to an Enterprise Registration Authority (RA) to verify Certi
 The CA SHALL impose these limitations as a contractual requirement on the Enterprise RA and monitor compliance by the Enterprise RA in accordance with [Section 8.8](#88-review-of-delegated-parties).
 
 An Enterprise RA MAY also submit Certificate Requests using the `Mailbox-validated` profile for users whose email domain(s) are not under the delegated organization’s authorization or control.  In this case, the CA SHALL confirm that the mailbox holder has control of the requested Mailbox Address(es) in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
-
 
 ### 1.3.3 Subscribers
 
@@ -288,13 +287,9 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Mailbox Field**: In Subscriber Certificates contains a Mailbox Address of the Subject via `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension, or in Subordinate CA Certificates via `rfc822Name` in permittedSubtrees within the `nameConstraints` extension.
 
-**Multi-Perspective Issuance Corroboration**: A process by which the determinations made during domain validation and CAA checking by the Primary Network Perspective are corroborated by other Network Perspectives before Certificate issuance. 
-
 **Multipurpose Profile**: The S/MIME Multipurpose Generation profiles are aligned with the more defined Strict Profiles, but with additional options for `extKeyUsage` and other extensions. This is intended to allow flexibility for crossover use cases between document signing and secure email. 
 
 **Natural Person**: An Individual; a human being as distinguished from a Legal Entity.
-
-**Network Perspective**: Related to Multi-Perspective Issuance Corroboration. A system (e.g., a cloud-hosted server instance) or collection of network components (e.g., a VPN and corresponding infrastructure) for sending outbound Internet traffic associated with a domain control validation method and/or CAA check. The location of a Network Perspective is determined by the point where unencapsulated outbound Internet traffic is typically first handed off to the network infrastructure providing Internet connectivity to that perspective.
 
 **Object Identifier**: A unique alphanumeric or numeric identifier registered under the International Organization for Standardization's applicable standard for a specific object or object class.
 
@@ -309,8 +304,6 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 **Personal Name**: Personal Name is a name of an Individual Subject typically presented as `subject:givenName` and/or `subject:surname`. However, the Personal Name may be in a format preferred by the Subject, the CA, or Enterprise RA as long as it remains a meaningful representation of the Subject’s verified name.
 
 **Physical Identity Document**: a government-issued identity document issued in physical and human-readable form (such as a passport or national identity card).
-
-**Primary Network Perspective**: The Network Perspective used by the CA to make the determination of 1) the CA's authority to issue a Certificate for the requested domain(s) or IP address(es) and 2) the Applicant's authority and/or domain authorization or control of the requested domain(s) or IP address(es).
 
 **Private Key**: The key of a Key Pair that is kept secret by the holder of the Key Pair, and that is used to create Digital Signatures and/or to decrypt electronic records or files that were encrypted with the corresponding Public Key.
 
@@ -482,6 +475,8 @@ The CA SHALL make revocation information for Subordinate CA Certificates and Sub
 The CA SHALL publicly disclose its CP and/or CPS through an appropriate and readily accessible online means that is available on a 24x7 basis. The CA SHALL publicly disclose its CA business practices to the extent required by the CA's selected audit scheme (see [Section 8](#8-compliance-audit-and-other-assessments)).
 
 The CP and/or CPS SHALL be structured in accordance with [RFC 3647](https://tools.ietf.org/html/rfc3647) and SHALL include all material required by [RFC 3647](https://tools.ietf.org/html/rfc3647).
+
+Starting on September 15, 2024 the CA SHALL state its policy or practice on processing CAA Records for Mailbox Addresses in Section 4.2 of its CP and/or CPS. That policy SHALL be consistent with these Requirements and SHALL clearly specify the set of Issuer Domain Names that the CA recognizes in CAA `issuemail` records as permitting it to issue. 
 
 The CA SHALL publicly give effect to these Requirements and represent that it will adhere to the latest published version. The CA MAY fulfill this requirement by incorporating these Requirements directly into its CP and/or CPS or by incorporating them by reference using a clause such as the following (which SHALL include a link to the official version of these Requirements):
 
@@ -901,8 +896,6 @@ A prior validation SHALL NOT be reused if any data or document used in the prior
 ### 4.2.2 Approval or rejection of certificate applications
 
 #### 4.2.2.1 Certification authority authorization
-
-Starting on September 15, 2024 the CA SHALL state its policy or practice on processing CAA Records for Mailbox Addresses in Section 4.2 of its CP and/or CPS. That policy SHALL be consistent with these Requirements and SHALL clearly specify the set of Issuer Domain Names that the CA recognizes in CAA `issuemail` records as permitting it to issue. 
 
 Starting on September 15, 2024 prior to issuing a Certificate that includes a Mailbox Address, the CA SHOULD retrieve and process CAA records in accordance with Section 4 of [RFC 9495: Certification Authority Authorization (CAA) Processing for Email Addresses](https://www.rfc-editor.org/rfc/rfc9495.html).
 
