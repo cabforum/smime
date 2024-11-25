@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.6
+subtitle: Version 1.0.7
 author:
   - CA/Browser Forum
-date: August 29, 2024
+date: November 22, 2024
 copyright: |
   Copyright 2024 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -85,6 +85,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.4   | SMC06    |Post implementation clarification and corrections | May 11, 2024 |
 | 1.0.5   | SMC07    |Align Logging Requirement and Key Escrow clarification | July 15, 2024 |
 | 1.0.6   | SMC08    |Deprecate Legacy Generation Profiles and Minor Updates | August 29, 2024 |
+| 1.0.7   | SMC09    |Update to WebTrust requirements, require linting, minor edits | November 22, 2024 |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -96,7 +97,10 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 |1.0.3 |SMC05 | SHALL adoption of CAA for S/MIME | March 15, 2025|
 |1.0.4 |SMC06 | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
 | 1.0.6   | SMC08    | S/MIME Subscriber Certificates SHALL NOT be issued using the Legacy Generation profiles | July 15, 2025 |
-  
+| 1.0.7   | SMC09    | WebTrust audits SHALL include WebTrust for Network Security  | April 1, 2025 |
+| 1.0.7  | SMC09 |SHOULD implement pre-issuance linting of S/MIME Certificates, and SHOULD implement use of Linting in Self-Audits | March 15, 2025 |
+| 1.0.7  | SMC09 |SHALL implement pre-issuance linting of S/MIME Certificates | September 15, 2025 |
+
 ## 1.3 PKI participants
 
 The CA/Browser Forum is a voluntary organization of Certification Authorities and Application Software Suppliers including providers of Internet browser and other relying-party software applications, such as mail user agents (web-based or application-based) and email service providers that process S/MIME Certificates.
@@ -279,6 +283,8 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Legal Entity**: An association, corporation, partnership, proprietorship, trust, government entity or other entity with legal standing in a country's legal system.
 
+**Linting**: A process in which the content of digitally signed data such as a Precertificate [RFC 6962], Certificate, CRL, or OCSP response, or data-to-be-signed object such as a `tbsCertificate` (as described in [RFC 5280, Section 4.1.1.1](https://tools.ietf.org/doc/html/rfc5280##section-4.1.1.1)) is checked for conformance with the profiles and requirements defined in these Requirements.
+
 **Mailbox-Validated (MV)**: Refers to a Certificate Subject that is limited to (optional) `subject:emailAddress` and/or `subject:serialNumber` attributes.
 
 **Mailbox Address**: Also Email Address. The format of a Mailbox Address is defined as a "Mailbox" as specified in Section 4.1.2 of [RFC 5321](https://tools.ietf.org/html/rfc5321) and amended by Section 3.2 of [RFC 6532](https://tools.ietf.org/html/rfc6532), with no additional padding or structure.
@@ -321,7 +327,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Registration Authority (RA)**: Any Legal Entity that is responsible for identification and authentication of subjects of Certificates, but is not a CA, and hence does not sign or issue Certificates. An RA MAY assist in the certificate application process or revocation process or both. When "RA" is used as an adjective to describe a role or function, it does not necessarily imply a separate body, but can be part of the CA.
 
-**Registration Reference**: A unique identifier assigned to a Legal Entity.
+**Registration Reference**: An identifier assigned to a Legal Entity.
 
 **Registration Scheme**: A scheme for assigning a Registration Reference meeting the requirements identified in Appendix A.
 
@@ -610,15 +616,15 @@ The CA or RA SHALL collect and retain evidence supporting the following identity
 3. An Affiliate of the Legal Entity as described in Section 7.1.4.2.2 (if included in the Subject as an `subject:organizationalUnitName`);
 4.	An address of the Legal Entity (if included in the Subject);
 5.	Jurisdiction of Incorporation or Registration of the Legal Entity; and
-6.	Unique identifier and type of identifier for the Legal Entity. 
+6.	Identifier and type of identifier for the Legal Entity. 
 
-The unique identifier SHALL be included in the Certificate `subject:organizationIdentifier` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) and [Appendix A](#appendix-a---registration-schemes).
+The identifier SHALL be included in the Certificate `subject:organizationIdentifier` as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) and [Appendix A](#appendix-a---registration-schemes).
 
 #### 3.2.3.2 Validation of organization identity
 
 If an Attestation is used as evidence for the validation of the attributes described in this section, then the Attestation SHALL be verified for authenticity as described in [Section 3.2.8](#328-reliability-of-verification-sources).
 
-##### 3.2.3.2.1 Verification of name, address, and unique identifier
+##### 3.2.3.2.1 Verification of name, address, and identifier
 
 The CA or RA SHALL verify the full legal name and an address (if included in the Certificate Subject) of the Legal Entity Applicant using documentation provided by, or through communication with, at least one of the following:
 
@@ -644,7 +650,7 @@ The CA MAY rely on an Attestation that indicates the Assumed Name under which th
 
 #### 3.2.3.3 Disclosure of verification sources
 
-The CA or RA SHALL verify the unique identifier used in the Certificate from a register that is maintained or authorized by the relevant government agency. The CA SHALL disclose the authorized sources it uses to verify the Applicant's creation, existence, or recognition. This disclosure SHALL be through an appropriate and readily accessible online means. The CA SHALL document where to obtain this information within Section 3.2 of the CA's CP and/or CPS.
+The CA or RA SHALL verify the Registration Reference to be included in the Certificate from a register that is maintained or authorized by the relevant government agency. The CA SHALL disclose the authorized sources it uses to verify the Applicant's creation, existence, or recognition. This disclosure SHALL be through an appropriate and readily accessible online means. The CA SHALL document where to obtain this information within Section 3.2 of the CA's CP and/or CPS.
 
 Nothing in these Requirements prohibits the use of third-party vendors to obtain regularly-updated and current information from the government register provided that the third party obtains the information directly from the government.
 
@@ -923,7 +929,34 @@ No stipulation.
 
 ### 4.3.1 CA actions during certificate issuance
 
+#### 4.3.1.1 Manual authorization of certificate issuance for Root CAs
+
 Certificate issuance by the Root CA SHALL require at least two individuals authorized by the CA (i.e., the CA system operator, system officer, or PKI administrator) one of whom deliberately issues a direct command in order for the Root CA to perform a Certificate signing operation.
+
+#### 4.3.1.2 Linting of to-be-signed Certificate content
+
+It is considered best practice for the CA to implement a Linting process to test the technical conformity of each to-be-signed artifact prior to signing it. 
+
+Effective March 15, 2025 the CA SHOULD implement a Linting process testing compliance with these Requirements for S/MIME Certificates. Effective September 15, 2025 the CA SHALL implement a Linting process testing compliance with these Requirements for S/MIME Certificates.
+
+Methods used to produce a Certificate containing the to-be-signed Certificate content include, but are not limited to:
+
+1. Sign the `tbsCertificate` with a "dummy" Private Key whose Public Key component is not certified by a Certificate that chains to a publicly-trusted CA Certificate; or
+2. Specify a static value for the `signature` field of the Certificate ASN.1 SEQUENCE.
+
+CAs MAY implement their own Certificate Linting tools, but CAs SHOULD use the Linting tools that have been widely adopted by the industry (see https://cabforum.org/resources/tools/). 
+
+CAs are encouraged to contribute to open-source Linting projects, such as by:
+
+* Creating new or improving existing lints;
+* Reporting potentially inaccurate linting results as bugs;
+* Notifying maintainers of Linting software of checks that are not covered by existing lints;
+* Updating documentation of existing lints; and 
+* Generating test Certificates for positive/negative tests of specific lints.
+
+#### 4.3.1.3 Linting of issued Certificates
+
+CAs MAY use a Linting process to test each issued Certificate.
 
 ### 4.3.2 Notification to subscriber by the CA of issuance of certificate
 
@@ -2149,7 +2182,7 @@ c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)
    __Contents:__ If present, the CA SHALL confirm that the `subject:organizationalUnitName` is the full legal organization name of an Affiliate of the `subject:organizationName` in the Certificate and has been verified in accordance with the requirements of [Section 3.2.3](#323-authentication-of-organization-identity). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations.
 
 d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
-   __Contents:__ If present, the `subject:organizationIdentifier` field SHALL contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. 
+   __Contents:__ If present, the `subject:organizationIdentifier` field SHALL contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. The Registration Reference SHOULD be unique where the Registration Scheme and jurisdiction provide unique identifiers. 
 
    The `subject:organizationIdentifier` SHALL be encoded as a PrintableString or UTF8String.
 
@@ -2163,10 +2196,10 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
 
    **Note 1**: Registration References MAY contain hyphens but Registration Schemes, ISO 3166-1 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
 
-    * `NTRGB-12345678` (NTR scheme, Great Britain, Unique Identifier at Country level is 12345678).
-    * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Unique identifier at State level is 12345678).
-    * `VATDE-123456789` (VAT Scheme, Germany, Unique Identifier at Country Level is 12345678).
-    * `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, NCA's identifier is NBB, Unique Identifier assigned by the NCA is 1234.567.890).
+    * `NTRGB-12345678` (NTR scheme, Great Britain, Registration Reference at Country level is 12345678).
+    * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Registration Reference at State level is 12345678).
+    * `VATDE-123456789` (VAT Scheme, Germany, Registration Reference at Country Level is 12345678).
+    * `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, NCA's identifier is NBB, Registration Reference assigned by the NCA is 1234.567.890).
 
    Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes) are recognized as valid under these Requirements. The CA SHALL:
 
@@ -2182,6 +2215,8 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
     * GOVUS (Government Entity, United States)
     * GOVUS+CA (Government Entity, United States - California)
     * INTXG (International Organization)
+
+   **Note 3**: For the NTR Registration Scheme, where the Legal Entity is registered within a European country, the NTR Registration Scheme SHALL be assigned at the country level.
 
 e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
    __Contents:__ If present, the `subject:givenName` field and `subject:surname` field SHALL contain a Natural Person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). Subjects with a single legal name SHALL provide the name in the `subject:surname` attribute. The `subject:givenName` and/or `subject:surname` SHALL NOT be present if the `subject:pseudonym` is present.
@@ -2388,7 +2423,7 @@ The Subordinate CA and the Issuing CA SHALL represent, in their CP and/or CPS, t
 
 A Certificate issued to a Subscriber SHALL contain, within the Certificate's `certificatePolicies` extension, a policy identifier that is specified in [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers).
 
-The Certificate MAY also contain additional policy identifier(s) defined by the Issuing CA. The Issuing CA SHALL document in its CP and/or CPS that the Certificates it issues containing the specified policy identifier(s) are managed in accordance with these Requirements.
+The Certificate MAY also contain additional policy identifier(s) documented by the Issuing CA in its CP and/or CPS.
 
 ### 7.1.7 Usage of policy constraints extension
 
@@ -2479,8 +2514,9 @@ The CA SHALL undergo an audit in accordance with one of the following schemes:
 
 1. For Audit Periods starting before the Effective Date defined in [Section 1.2.1](#121-revisions) of the first version of these Requirements, “WebTrust for CAs v2.2.2 or newer”; or
 2. For Audit Periods starting after the Effective Date defined in [Section 1.2.1](#121-revisions) of the first version of these Requirements, “WebTrust for CAs v2.2.2 or newer” AND “WebTrust for S/MIME Baseline Requirements v1.0.0 or newer”; or
-3. ETSI TS 119 411-6 v1.1.1 or newer, which includes normative references to ETSI EN 319 401, ETSI EN 319 411-1 and ETSI EN 319 411-2 (the latest version of the referenced ETSI documents should be applied); or
-4. If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either
+3. For Audit Periods starting after April 1, 2025, “WebTrust for CAs v2.2.2 or newer” AND “WebTrust for S/MIME Baseline Requirements v1.0.0 or newer” AND “WebTrust for Network Security v2.0 or newer”; or
+4. ETSI TS 119 411-6 v1.1.1 or newer, which includes normative references to ETSI EN 319 401, ETSI EN 319 411-1 and ETSI EN 319 411-2 (the latest version of the referenced ETSI documents should be applied); or
+5. If a Government CA is required by its Certificate Policy to use a different internal audit scheme, it MAY use such scheme provided that the audit either
    a. encompasses all requirements of one of the above schemes; or
    b. consists of comparable criteria that are available for public review.
 Whichever scheme is chosen, it SHALL incorporate periodic monitoring and/or accountability procedures to ensure that its audits continue to be conducted in accordance with the requirements of the scheme.
@@ -2522,6 +2558,8 @@ The Audit Report SHALL be available as a PDF, and SHALL be text searchable for a
 ## 8.7 Self audits
 
 During the period in which the CA issues Certificates, the CA SHALL monitor adherence to its CP and/or CPS and these Requirements and control its service quality by performing self audits on at least a quarterly basis against a randomly selected sample including a minimum of the greater of thirty (30) Certificates or three percent (3%) of the Certificates issued by it during the period commencing immediately after the previous self-audit sample was taken. 
+
+Effective March 15, 2025 the CA SHOULD use a Linting process to verify the technical accuracy of Certificates within the selected sample set independently of previous linting performed on the same Certificates.
 
 ## 8.8 Review of delegated parties 
 
@@ -2802,7 +2840,11 @@ The following Registration Schemes are recognized as valid for use in the `subje
 
 * **PNO**: For an identifier based on a national personal number (or national civic registration number) issued to the Subject Individual. 
 
-* **TIN**: For an identifier based on Tax Identification Number issued to the Subject Individual. 
+* **TAX**: For an identifier based on a personal tax reference number issued by a national tax authority.
+
+* **TIN**: For an identifier based on Tax Identification Number issued to the Subject Individual according to the [European Commission - Tax and Customs Union](https://ec.europa.eu/taxation_customs/tin/tinByCountry.html). 
+  
+* **EID**: For an identifier based on electronic identification means (e.g., national eID or EU wallet)
 
 # Appendix B - Transition of Extant S/MIME CAs
 
