@@ -2238,14 +2238,14 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
 
    **Note 4**: For the NTR Registration Scheme, where the Organization or Legal Entity is registered in the European Union or the European Economic Area, the EUID MAY be used as the Registration Reference. In Germany, the EUID SHOULD be used as the Registration Reference. The structure of the EUID SHALL be as follows:
 
-   * 2 character ISO 3166-1 country code, which must match the country code used in the leading string 'NTR';
-   * the register identifier, for the (member state) domestic register;
-   * dot-sign ‘.’ (U+002E); and 
-   * the registration number, asssigned by the domestic register to the Legal Entity.
-   * A check digit SHOULD NOT be used.
+    * 2 character ISO 3166-1 country code, which must match the country code used in the leading string 'NTR';
+    * the register identifier, for the (member state) domestic register;
+    * dot-sign ‘.’ (U+002E); and 
+    * the registration number, asssigned by the domestic register to the Legal Entity.
+    * A check digit SHOULD NOT be used.
   
-  For example:
-   * NTRDE-DER3306.HRB12345 (DE is the country code for Germany, R3306 is the register ID for the local district court in Cologne, and HRB12345 is the locally-assigned registration number for the Legal Entity)
+    For example:
+    * NTRDE-DER3306.HRB12345 (DE is the country code for Germany, R3306 is the register ID for the local district court in Cologne, and HRB12345 is the locally-assigned registration number for the Legal Entity)
 
 e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
    __Contents:__ If present, the `subject:givenName` field and `subject:surname` field SHALL contain a Natural Person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). Subjects with a single legal name SHALL provide the name in the `subject:surname` attribute. The `subject:givenName` and/or `subject:surname` SHALL NOT be present if the `subject:pseudonym` is present.
