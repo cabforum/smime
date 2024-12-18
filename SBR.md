@@ -2851,6 +2851,8 @@ With the exception of the LEI and INT Registration Schemes, as specified in [Sec
 
 For the VAT Registration Scheme, for the purpose of identifying tax authorities, the country prefix described in Article 215 of EU Council Directive 2006/112/EC, as amended, MAY be used instead of the ISO 3166-1 country code. If the country prefix described in Article 215 of EU Council Directive 2006/112/EC is used, the `subject:countryName` attribute, if present, SHALL contain the corresponding ISO 3166-1 country code.
 
+For the NTR Registration Scheme, the European Unique Identifier (EUID) MAY be used as the Registration Reference as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
+
 * **NTR**: For an identifier allocated by a national or state trade register to the Legal Entity named in the `subject:organizationName`. 
 
 * **VAT**: For an identifier allocated by the national tax authorities to the Legal Entity named in the `subject:organizationName`. 
@@ -2858,16 +2860,6 @@ For the VAT Registration Scheme, for the purpose of identifying tax authorities,
 * **PSD**: For a national authorization number allocated to the payment service provider named in the `subject:organizationName` under Payments Services Directive (EU) 2015/2366. This shall use the extended structure as defined in ETSI TS 119 495, clause 5.2.1. 
 
 * **LEI**: For a Legal Entity Identifier as specified in ISO 17442 for the entity named in the `subject:organizationName`. The 2 character ISO 3166-1 country code SHALL be set to 'XG'. 
-
-### European Unique Identifier (EUID)
-
-For the NTR Registration Scheme used with a European Unique Identifier (EUID) as the Registration Reference according to the Implementing Regulation (EU) 2021/1042, the structure of the EUID SHALL be as follows:
-
-* 2 character ISO 3166-1 country code, which must match the country code used in the leading string 'NTR';
-* the register identifier, for the (member state) domestic register;
-* dot-sign ‘.’ (U+002E); and 
-* the registration number, asssigned by the domestic register to the Legal Entity.
-* A check digit SHOULD NOT be used.
 
 ## A.2 Natural Person Identifier
 
