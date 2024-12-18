@@ -251,6 +251,8 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Enterprise RA**: An employee or agent of an organization unaffiliated with the CA who authorizes issuance of Certificates to that organization.
 
+**European Unique Identifier (EUID)**: The EUID uniquely identifies officially registered organizations, Legal Entities, and branch offices within the European Union or the European Economic Area. The EUID is specified in chapter 9 of the Annex contained in the Implementing Regulation (EU) 2021/1042 laying down rules for the application of Directive (EU) 2017/1132 "relating to certain aspects of company law (codification)".
+
 **Expiry Date**: The "Not After" date in a Certificate that defines the end of a Certificate's validity period.
 
 **Extant S/MIME CA**: A Subordinate CA that:
