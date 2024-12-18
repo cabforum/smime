@@ -2236,7 +2236,7 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
 
    **Note 3**: For the NTR Registration Scheme, where the Legal Entity is registered within a European country, the NTR Registration Scheme SHALL be assigned at the country level.
 
-   **Note 4**: For the NTR Registration Scheme, where the Organization or Legal Entity is registered in the European Union or the European Economic Area, the EUID MAY be used as the Registration Reference. In Germany, the EUID SHOULD be used as the Registration Reference. See [Appendix A.1](#a1-organizationidentifier).The structure of the EUID SHALL be as follows:
+   **Note 4**: For the NTR Registration Scheme, where the Organization or Legal Entity is registered in the European Union or the European Economic Area, the EUID MAY be used as the Registration Reference. In Germany, the EUID SHOULD be used as the Registration Reference. The structure of the EUID SHALL be as follows:
 
    * 2 character ISO 3166-1 country code, which must match the country code used in the leading string 'NTR';
    * the register identifier, for the (member state) domestic register;
