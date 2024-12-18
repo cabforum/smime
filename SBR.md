@@ -2235,6 +2235,11 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
 
    **Note 3**: For the NTR Registration Scheme, where the Legal Entity is registered within a European country, the NTR Registration Scheme SHALL be assigned at the country level.
 
+   **Note 4**: For the NTR Registration Scheme, where the Organization or Legal Entity is registered in Germany, the European Unique Identifier (EUID) SHOULD be used as Registration Reference. Where it is registered in another country within the European Union or the European Economic Area, the EUID MAY be used as Registration Reference. See [Appendix A.1](#A.1 organizationIdentifier).
+
+   For example:
+   * NTRDE-DER3306.HRB66812 
+
 e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
    __Contents:__ If present, the `subject:givenName` field and `subject:surname` field SHALL contain a Natural Person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). Subjects with a single legal name SHALL provide the name in the `subject:surname` attribute. The `subject:givenName` and/or `subject:surname` SHALL NOT be present if the `subject:pseudonym` is present.
 
