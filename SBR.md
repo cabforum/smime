@@ -2234,7 +2234,7 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
     * GOVUS+CA (Government Entity, United States - California)
     * INTXG (International Organization)
 
-   **Note 3**: For the NTR Registration Scheme, where the Legal Entity is registered within a European country, the NTR Registration Scheme SHALL be assigned at the country level.
+   **Note 3**: For the NTR Registration Scheme, where the Legal Entity is registered within a Member State of the European Union, the NTR Registration Scheme SHALL be assigned at the country level.
 
    **Note 4**: For the NTR Registration Scheme, where the Organization or Legal Entity is registered in the European Union or the European Economic Area, the EUID MAY be used as the Registration Reference. In Germany, the EUID SHOULD be used as the Registration Reference. The structure of the EUID SHALL be as follows:
 
