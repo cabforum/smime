@@ -87,7 +87,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.6   | SMC08    |Deprecate Legacy Generation Profiles and Minor Updates | August 29, 2024 |
 | 1.0.7   | SMC09    |Update to WebTrust requirements, require linting, minor edits | November 22, 2024 |
 | 1.0.8   | SMC010   |Introduction of Multi-Perspective Issuance Corroboration | December 22, 2024 |
-| TBD   | TBD    |Add EUID as Registration Reference | TBD |
+| 1.0.9   | SMC011   |Add EUID as Registration Reference | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -427,9 +427,9 @@ ETSI EN 319 412-1, Electronic Signatures and Infrastructures (ESI); Certificate 
 
 ETSI EN 319 412-5, Electronic Signatures and Infrastructures (ESI); Certificate Profiles; Part 5: QCStatements.
 
-ETSI TS 119 495, Electronic Signatures and Infrastructures (ESI); Sector Specific Requirements; Certificate Profiles and TSP Policy Requirements for Open Banking.
-
 ETSI TS 119 172-4, Electronic Signatures and Infrastructures (ESI); Signature Policies;. Part 4: Signature applicability rules.
+
+ETSI TS 119 495, Electronic Signatures and Infrastructures (ESI); Sector Specific Requirements; Certificate Profiles and TSP Policy Requirements for Open Banking.
 
 FIPS 140-2, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, May 25, 2001.
 
@@ -463,11 +463,11 @@ RFC 6818, Updates to the Internet X.509 Public Key Infrastructure Certificate an
 
 RFC 6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP. S. Santesson, et al. June 2013.
 
-RFC 9598, Request for Comments: 9598, Internationalized Email Addresses in X.509 Certificates, A. Melnikov, et al. May 2024.
-
 RFC 8499, Request for Comments: 8499, DNS Terminology. P. Hoffman, et al. January 2019.
 
 RFC 9495, Request for Comments: 9495, Certification Authority Authorization (CAA) Processing for Email Addresses, C. Bonnell. October 2023.
+
+RFC 9598, Request for Comments: 9598, Internationalized Email Addresses in X.509 Certificates, A. Melnikov, et al. May 2024.
 
 "TLS Baseline Requirements" means the current version of the CA/Browser Forum's "Baseline Requirements for the Issuance and Management of Publicly‐Trusted TLS Server Certificates". See https://cabforum.org/baseline-requirements-documents/
 
