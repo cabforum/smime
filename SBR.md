@@ -5,7 +5,7 @@ author:
   - CA/Browser Forum
 date: TBD
 copyright: |
-  Copyright 2024 CA/Browser Forum
+  Copyright 2025 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
 
@@ -98,7 +98,6 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.3 | SMC05  | SHOULD adoption of CAA for S/MIME | September 15, 2024|
 | 1.0.3 | SMC05  | SHALL adoption of CAA for S/MIME | March 15, 2025|
 | 1.0.4 | SMC06  | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
-| 1.0.6 | SMC08  | S/MIME Subscriber Certificates SHALL NOT be issued using the Legacy Generation profiles | July 15, 2025 |
 | 1.0.6 | SMC08  | S/MIME Subscriber Certificates SHALL NOT be issued using the Legacy Generation profiles | July 15, 2025 |
 | 1.0.7 | SMC09  | WebTrust audits SHALL include WebTrust for Network Security  | April 1, 2025 |
 | 1.0.7 | SMC09  |SHOULD implement pre-issuance linting of S/MIME Certificates, and SHOULD implement use of Linting in Self-Audits | March 15, 2025 |
