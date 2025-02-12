@@ -2234,7 +2234,11 @@ If the Registration Reference is assigned at the subdivision (state or province)
    1. Confirm that the organization represented by the Registration Reference is the same as the organization named in the `organizationName` field as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields); and
    2. Further verify the Registration Reference matches other information verified in accordance with [Section 3.2.3](#323-authentication-of-organization-identity).
    
-   **Note 1**: If a Registration Scheme is operated globally (such as LEI) then the ISO 3166-1 code "XG" SHALL be used. For the VAT Registration Scheme, the country prefix described in Article 215 of EU Council Directive 2006/112/EC, as amended, MAY be used instead of the ISO 3166-1 country code. 
+   **Note 1**: With the exception of the LEI and INT Registration Schemes, if a `subject:countryName` is present in the Certificate the country code used in the Registration Scheme identifier SHALL match that of the `subject:countryName` in the Certificate. 
+
+   For the VAT Registration Scheme, the country prefix described in Article 215 of EU Council Directive 2006/112/EC, as amended, MAY be used instead of the ISO 3166-1 country code. If the country prefix described in Article 215 of EU Council Directive 2006/112/EC is used, the `subject:countryName` attribute, if present, SHALL contain the corresponding ISO 3166-1 country code.
+   
+   For the LEI Registration Scheme, the ISO 3166-1 code "XG" SHALL be used. 
    
    **Note 2**: For the following types of entities that do not have an identifier from the Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes):
 
@@ -2855,12 +2859,6 @@ No stipulation.
 ## A.1 organizationIdentifier
 
 The following Registration Schemes are recognized as valid under these Requirements for use in the `subject:organizationIdentifier` attribute described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields), in addition to the GOV and INT identifiers described therein.
-
-With the exception of the LEI and INT Registration Schemes, as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields), if a `subject:countryName` is present in the Certificate the country code used in the Registration Scheme identifier SHALL match that of the `subject:countryName` in the Certificate. 
-
-For the VAT Registration Scheme, for the purpose of identifying tax authorities, the country prefix described in Article 215 of EU Council Directive 2006/112/EC, as amended, MAY be used instead of the ISO 3166-1 country code. If the country prefix described in Article 215 of EU Council Directive 2006/112/EC is used, the `subject:countryName` attribute, if present, SHALL contain the corresponding ISO 3166-1 country code.
-
-For the NTR Registration Scheme, the European Unique Identifier (EUID) MAY be used as the Registration Reference as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields).
 
 * **NTR**: For an identifier allocated by a national or state trade register to the Legal Entity named in the `subject:organizationName`. 
 
