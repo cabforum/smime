@@ -2240,7 +2240,7 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
     * 2 character ISO 3166-1 country code, which must match the country code used in the leading string 'NTR';
     * the register identifier, for the (member state) domestic register;
     * dot-sign ‘.’ (U+002E); and 
-    * the registration number, asssigned by the domestic register to the Legal Entity.
+    * the registration number, assigned by the domestic register to the Legal Entity.
     * A check digit SHOULD NOT be used.
   
     For example:
