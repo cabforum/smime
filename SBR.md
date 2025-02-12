@@ -2210,13 +2210,14 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
     * 3 character Registration Scheme identifier;
     * 2 character ISO 3166-1 country code for the nation in which the Registration Scheme is operated, or as described in Note 1; and
     * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8)); and
-    * Registration Reference allocated in accordance with the identified Registration Scheme.
+    * Registration Reference allocated in accordance with the identified Registration Scheme (or as described in Note 3).
 
 If the Registration Reference is assigned at the subdivision (state or province) level and is not unique at the national level, the Registration Scheme SHALL be identified using the following structure in the presented order:
 
     * 3 character Registration Scheme identifier;
     * 2 character ISO 3166-1 country code for the nation in which the Registration Scheme is operated; and
-    * plus "+" (0x2B (ASCII), U+002B (UTF-8)) followed by an up-to-three character ISO 3166-2 identifier for the subdivision; and
+    * plus "+" (0x2B (ASCII), U+002B (UTF-8)); and 
+    * up-to-3 character ISO 3166-2 identifier for the subdivision; and
     * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8)); and
     * Registration Reference allocated in accordance with the identified Registration Scheme.
 
@@ -2245,12 +2246,12 @@ If the Registration Reference is assigned at the subdivision (state or province)
     * GOVUS+CA (Government Entity, United States - California)
     * INTXG (International Organization)
 
-   **Note 3**: For the NTR Registration Scheme, where the Organization or Legal Entity is registered in the European Union or the European Economic Area, the Registration Reference MAY be use the EUID identifier as available from the Business Registers Interconnection System according to Implementing Regulation (EU) 2021/1042. The structure of the EUID SHALL be as follows:
+   **Note 3**: For the NTR Registration Scheme, where the Organization or Legal Entity is registered in the European Union or the European Economic Area, the Registration Reference MAY be use the EUID identifier. The structure of the EUID SHALL be as follows:
 
     * 2 character ISO 3166-1 country code, which must match the country code used in the leading string 'NTR';
     * the business register identifier for the particular section or office of the domestic register that assigned the Registration Reference;
     * dot-sign ‘.’ (U+002E); and 
-    * the Registration Reference, assigned by the domestic register to the Legal Entity.
+    * the Registration Reference allocated by the domestic register.
   
     For example:
     * NTRDE-DER3306.HRB12345 (DE is the country code for Germany, R3306 is the register ID for the district court in Cologne, and HRB12345 is the locally-assigned Registration Reference).
