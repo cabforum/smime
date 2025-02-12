@@ -2215,7 +2215,7 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
 
     * `NTRGB-12345678` (NTR scheme, Great Britain, Registration Reference at Country level is 12345678).
     * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Registration Reference at State level is 12345678).
-    * `NTRDE+HE-123456789` (NTR Scheme, Germany - Hessen, Registration Reference at State Level is 12345678).
+    * `NTRDE+HE-12345678` (NTR Scheme, Germany - Hessen, Registration Reference at State Level is 12345678).
     * `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, NCA's identifier is NBB, Registration Reference assigned by the NCA is 1234.567.890).
 
    Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes) are recognized as valid under these Requirements. The CA SHALL:
