@@ -1,6 +1,6 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version TBD
+subtitle: Version 1.0.9
 author:
   - CA/Browser Forum
 date: TBD
