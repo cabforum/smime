@@ -2258,7 +2258,7 @@ If the Registration Reference is assigned at the subdivision (state or province)
     * the Registration Reference allocated by the domestic register.
   
     For example:
-    * NTRDE-DER3306.HRB12345 (DE is the country code for Germany, R3306 is the business register ID for the district court in Cologne, and HRB12345 is the locally-assigned Registration Reference).
+    * NTRDE-DER3306.HRB12345 (DE is the country code for Germany, R3306 is the business register identifier for the district court in Cologne, and HRB12345 is the locally-assigned Registration Reference).
 
 e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
    __Contents:__ If present, the `subject:givenName` field and `subject:surname` field SHALL contain a Natural Person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). Subjects with a single legal name SHALL provide the name in the `subject:surname` attribute. The `subject:givenName` and/or `subject:surname` SHALL NOT be present if the `subject:pseudonym` is present.
