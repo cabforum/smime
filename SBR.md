@@ -2199,7 +2199,7 @@ c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)
    __Contents:__ If present, the CA SHALL confirm that the `subject:organizationalUnitName` is the full legal organization name of an Affiliate of the `subject:organizationName` in the Certificate and has been verified in accordance with the requirements of [Section 3.2.3](#323-authentication-of-organization-identity). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations.
 
 d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
-   __Contents:__ If present, the `subject:organizationIdentifier` field SHALL contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. 
+   __Contents:__ If present, the `subject:organizationIdentifier` field SHALL contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. The Registration Reference SHOULD be unique where the Registration Scheme and jurisdiction provide unique identifiers.
 
    The `subject:organizationIdentifier` SHALL be encoded as a PrintableString or UTF8String.
 
@@ -2225,7 +2225,6 @@ If the Registration Reference is assigned at the subdivision (state or province)
 
     * `NTRGB-12345678` (NTR scheme, Great Britain, Registration Reference at Country level is 12345678).
     * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Registration Reference at State level is 12345678).
-    * `NTRDE+HE-12345678` (NTR Scheme, Germany - Hessen, Registration Reference at State Level is 12345678).
     * `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, National Competent Authority identifier is NBB, Registration Reference assigned by the NCA is 1234.567.890).
     * `VATEL-123456789` (VAT Scheme, Greece using EU Council Directive 2006/112/EC as amended, Registration Reference is 12345678).
 
@@ -2250,7 +2249,7 @@ If the Registration Reference is assigned at the subdivision (state or province)
     * GOVUS+CA (Government Entity, United States - California)
     * INTXG (International Organization)
 
-   **Note 3**: For the NTR Registration Scheme, where the Organization or Legal Entity is registered in the European Union or the European Economic Area, the Registration Reference MAY be use the EUID identifier. The structure of the EUID SHALL be as follows:
+   **Note 3**: For the NTR Registration Scheme, when the Organization or Legal Entity is registered in the European Union or the European Economic Area, the Registration Reference MAY be use the EUID identifier. When the Organization or Legal Entity is registered in Germany, the Registration Reference SHOULD use the EUID identifier. The structure of the EUID SHALL be as follows:
 
     * 2 character ISO 3166-1 country code, which must match the country code used in the leading string 'NTR'; and
     * the business register identifier for the particular section or office of the domestic register that assigned the Registration Reference; and
