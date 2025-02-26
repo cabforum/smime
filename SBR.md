@@ -2249,7 +2249,7 @@ If the Registration Reference is assigned at the subdivision (state or province)
     * GOVUS+CA (Government Entity, United States - California)
     * INTXG (International Organization)
 
-   **Note 3**: For the NTR Registration Scheme, when the Organization or Legal Entity is registered in the European Union or the European Economic Area, the Registration Reference MAY be use the EUID identifier. When the Organization or Legal Entity is registered in Germany, the Registration Reference SHOULD use the EUID identifier. The structure of the EUID SHALL be as follows:
+   **Note 3**: For the NTR Registration Scheme, when the Organization or Legal Entity is registered in the European Union or the European Economic Area, the Registration Reference MAY use the EUID identifier. When the Organization or Legal Entity is registered in Germany, the Registration Reference SHOULD use the EUID identifier. The structure of the EUID SHALL be as follows:
 
     * 2 character ISO 3166-1 country code, which must match the country code used in the leading string 'NTR'; and
     * the business register identifier for the particular section or office of the domestic register that assigned the Registration Reference; and
