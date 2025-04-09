@@ -1,11 +1,11 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.8
+subtitle: Version 1.0.X
 author:
   - CA/Browser Forum
-date: December 22, 2024
+date: XX YY, 2025
 copyright: |
-  Copyright 2024 CA/Browser Forum
+  Copyright 2025 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
 
@@ -2158,9 +2158,9 @@ __Contents:__ This extension SHALL contain at least one `GeneralName` entry of t
 * `Rfc822Name` and/or
 * `otherName` of type `id-on-SmtpUTF8Mailbox`, encoded in accordance with [RFC 9598](https://datatracker.ietf.org/doc/html/rfc9598)
 
-All Mailbox Addresses in the `subject` field or entries of type `dirName` of this extension SHALL be repeated as `rfc822Name` or `otherName` values of type `id-on-SmtpUTF8Mailbox` in this extension.
+All Mailbox Addresses in the `subject` field or entries of type `directoryName` of this extension SHALL be repeated as `rfc822Name` or `otherName` values of type `id-on-SmtpUTF8Mailbox` in this extension.
 
-The CA MAY include `GeneralName` entries of type `dirName` provided that the information contained in the `Name` complies with the requirements set forth in the appropriate subsection of [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) according to the Certificate Type. Additionally, information contained in the `Name` SHALL be validated according to [Section 3.1](#31-naming), [Section 3.2.3](#323-authentication-of-organization-identity), and/or [Section 3.2.4](#324-authentication-of-individual-identity), as appropriate for the Certificate Type.
+The CA MAY include `GeneralName` entries of type `directoryName` provided that the information contained in the `Name` complies with the requirements set forth in Sections [7.1.4.2.2](#71422-subject-distinguished-name-fields) through [7.1.4.2.6](#71426-subject-dn-attributes-for-individual-validated-profile), according to the Certificate Type. Additionally, information contained in the `Name` SHALL be validated according to [Section 3.1](#31-naming), [Section 3.2.3](#323-authentication-of-organization-identity), and/or [Section 3.2.4](#324-authentication-of-individual-identity), as appropriate for the Certificate Type.
 
 For Legacy and Multipurpose Generation profiles, then the CA MAY include `otherName` entries of any type, provided that the CA has validated the field value according to its CP and/or CPS.
 
