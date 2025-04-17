@@ -1656,6 +1656,13 @@ For ECDSA key pairs, the CA SHALL:
 For EdDSA key pairs, the CA SHALL:
 
 * Ensure that the key represents a valid point on the curve25519 or curve 448 elliptic curve.
+
+For ML-DSA key pairs, the CA SHALL:
+
+* Ensure the Key uses one of the following parameter sets:
+  * ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), or
+  * ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or
+  * ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19).
   
 No other algorithms or key sizes are permitted.
 
