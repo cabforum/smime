@@ -2076,33 +2076,33 @@ When encoded, the `AlgorithmIdentifier` for EdDSA keys SHALL be byte-for-byte id
 
 The CA SHALL indicate an ML-DSA key using one of the following algorithm identifiers below:
 
-  * id-ml-dsa-44 (OID: 2.16.840.1.101.3.4.3.17), or
-  * id-ml-dsa-65 (OID: 2.16.840.1.101.3.4.3.18), or
-  * id-ml-dsa-87 (OID: 2.16.840.1.101.3.4.3.19).
+  * ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), or
+  * ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or
+  * ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19).
 
 The parameters for ML-DSA keys SHALL be absent. The CA MUST NOT use HashML-DSA; only "pure" ML-DSA is permitted.
 
 When encoded, the AlgorithmIdentifier for ML-DSA keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
 
-* For id-ml-dsa-44, `300b0609608648016503040311`.
-* For id-ml-dsa-65, `300b0609608648016503040312`.
-* For id-ml-dsa-87, `300b0609608648016503040313`.
+* For ML-DSA-44, `300b0609608648016503040311`.
+* For ML-DSA-65, `300b0609608648016503040312`.
+* For ML-DSA-87, `300b0609608648016503040313`.
 
 ##### 7.1.3.2.5 ML-KEM
 
 The CA SHALL indicate an ML-KEM key using one of the following algorithm identifiers below:
 
-  * id-alg-ml-kem-512 (OID: 2.16.840.1.101.3.4.4.1), or
-  * id-alg-ml-kem-768 (OID: 2.16.840.1.101.3.4.4.2), or
-  * id-alg-ml-kem-1024 (OID: 2.16.840.1.101.3.4.4.3).
+  * ML-KEM-512 (OID: 2.16.840.1.101.3.4.4.1), or
+  * ML_KEM-768 (OID: 2.16.840.1.101.3.4.4.2), or
+  * ML-KEM-1024 (OID: 2.16.840.1.101.3.4.4.3).
 
 The parameters for ML-KEM keys SHALL be absent.
 
 When encoded, the AlgorithmIdentifier for ML-KEM keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
 
-* For id-alg-ml-kem-512, `300b0609608648016503040401`.
-* For id-alg-ml-kem-768, `300b0609608648016503040402`.
-* For id-alg-ml-kem-1024, `300b0609608648016503040403`.
+* For ML-KEM-512, `300b0609608648016503040401`.
+* For ML-KEM-768, `300b0609608648016503040402`.
+* For ML-KEM-1024, `300b0609608648016503040403`.
 
 #### 7.1.3.2 Signature AlgorithmIdentifier
 
@@ -2189,11 +2189,11 @@ If the signing key is Curve448, the signature algorithm SHALL be id-Ed448 (OID: 
 
 The CA SHALL use the appropriate signature algorithm and encoding based upon the signing key used.
 
-If the signing key is ML-DSA-44, the signature algorithm SHALL be sa-ml-dsa-44 (OID: --). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `--`.
+If the signing key is ML-DSA-44, the signature algorithm SHALL be id-ml-dsa-44 (OID: --). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300b0609608648016503040311`.
 
-If the signing key is ML-DSA-65, the signature algorithm SHALL be sa-ml-dsa-65 (OID: --). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `--`.
+If the signing key is ML-DSA-65, the signature algorithm SHALL be id-ml-dsa-65 (OID: --). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300b0609608648016503040312`.
 
-If the signing key is ML-DSA-87, the signature algorithm SHALL be sa-ml-dsa-87 (OID: --). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `--`.
+If the signing key is ML-DSA-87, the signature algorithm SHALL be id-ml-dsa-87 (OID: --). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300b0609608648016503040313`.
 
 ### 7.1.4 Name forms
 
