@@ -2084,9 +2084,9 @@ The parameters for ML-DSA keys SHALL be absent. The CA MUST NOT use HashML-DSA; 
 
 When encoded, the AlgorithmIdentifier for ML-DSA keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
 
-* For ML-DSA-44, `000`.
-* For ML-DSA-65, `000`.
-* For ML-DSA-87, `000`.
+* For ML-DSA-44, `300b0609608648016503040311`.
+* For ML-DSA-65, `300b0609608648016503040312`.
+* For ML-DSA-87, `300b0609608648016503040313`.
 
 ##### 7.1.3.2.5 ML-KEM
 
@@ -2100,9 +2100,9 @@ The parameters for ML-KEM keys SHALL be absent.
 
 When encoded, the AlgorithmIdentifier for ML-KEM keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
 
-* For ML-KEM-512, `000`.
-* For ML-KEM-768, `000`.
-* For ML-KEM-1024, `000`.
+* For ML-KEM-512, `300b0609608648016503040401`.
+* For ML-KEM-768, `300b0609608648016503040402`.
+* For ML-KEM-1024, `300b0609608648016503040403`.
 
 #### 7.1.3.2 Signature AlgorithmIdentifier
 
@@ -2184,6 +2184,16 @@ The CA SHALL use the appropriate signature algorithm and encoding based upon the
 If the signing key is Curve25519, the signature algorithm SHALL be id-Ed25519 (OID: 1.3.101.112). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300506032b6570`.
 
 If the signing key is Curve448, the signature algorithm SHALL be id-Ed448 (OID: 1.3.101.113). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300506032b6571`.
+
+##### 7.1.3.2.4 ML-DSA
+
+The CA SHALL use the appropriate signature algorithm and encoding based upon the signing key used.
+
+If the signing key is --, the signature algorithm SHALL be sa-ml-dsa-44 (OID: --). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `--`.
+
+If the signing key is --, the signature algorithm SHALL be sa-ml-dsa-65 (OID: --). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `--`.
+
+If the signing key is --, the signature algorithm SHALL be sa-ml-dsa-87 (OID: --). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `--`.
 
 ### 7.1.4 Name forms
 
