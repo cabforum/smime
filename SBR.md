@@ -2100,9 +2100,9 @@ The parameters for ML-KEM keys SHALL be absent.
 
 When encoded, the AlgorithmIdentifier for ML-KEM keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
 
-* For ML-KEM-512, `300b0609608648016503040401`.
-* For ML-KEM-768, `300b0609608648016503040402`.
-* For ML-KEM-1024, `300b0609608648016503040403`.
+* For id-alg-ml-kem-512, `300b0609608648016503040401`.
+* For id-alg-ml-kem-768, `300b0609608648016503040402`.
+* For id-alg-ml-kem-1024, `300b0609608648016503040403`.
 
 #### 7.1.3.2 Signature AlgorithmIdentifier
 
