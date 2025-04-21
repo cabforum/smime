@@ -1947,10 +1947,14 @@ e. `keyUsage` (SHALL be present)
 
    | Generation | `rsaEncryption`       | `id-ecPublicKey`            |`id-Ed25519` and `id-Ed448`            |
    |------|-----------------------|-----------------------------|-----------------------------|
-   | Strict | For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement`, MAY be set for `nonRepudiation`, and MAY be set for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).| Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`. |
+   | Strict | Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement`, MAY be set for `nonRepudiation`, and MAY be set for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).| Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`. |
    | Multipurpose<br> and Legacy | For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment` and MAY be set for `dataEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment`, MAY be set for `nonRepudiation`, and MAY be set for `dataEncipherment`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement`, MAY be set for `nonRepudiation`, and MAY be set for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).| Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`. |
 
-   Other bit positions SHALL NOT be set.
+  Other bit positions SHALL NOT be set.
+
+   | Generation | `id-ml-dsa`       | `id-ml-kem`            |
+   |------|-----------------------|-----------------------------|
+   | Legacy and <br>Multipurpose<br> and Strict | Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br> Other bit positions SHALL NOT be set. | `keyEncipherment` SHALL be the only key usage set. |
 
 f. `extKeyUsage` (SHALL be present)
 
