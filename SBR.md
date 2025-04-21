@@ -2093,7 +2093,7 @@ When encoded, the AlgorithmIdentifier for ML-DSA keys SHALL be byte-for-byte ide
 The CA SHALL indicate an ML-KEM key using one of the following algorithm identifiers below:
 
   * ML-KEM-512 (OID: 2.16.840.1.101.3.4.4.1), or
-  * ML_KEM-768 (OID: 2.16.840.1.101.3.4.4.2), or
+  * ML-KEM-768 (OID: 2.16.840.1.101.3.4.4.2), or
   * ML-KEM-1024 (OID: 2.16.840.1.101.3.4.4.3).
 
 The parameters for ML-KEM keys SHALL be absent.
