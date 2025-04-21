@@ -1663,6 +1663,13 @@ For ML-DSA key pairs, the CA SHALL:
   * ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), or
   * ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or
   * ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19).
+
+For ML-KEM key pairs, the CA SHALL:
+
+* Ensure the Key uses one of the following parameter sets:
+  * ML-KEM-512 (OID: 2.16.840.1.101.3.4.4.1), or
+  * ML-KEM-768 (OID: 2.16.840.1.101.3.4.4.2), or
+  * ML-KEM-1024 (OID: 2.16.840.1.101.3.4.4.3).
   
 No other algorithms or key sizes are permitted.
 
