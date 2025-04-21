@@ -1681,6 +1681,10 @@ For ECDSA key pairs: the CA SHOULD confirm the validity of all keys using either
 
 For EdDSA key pairs: no stipulation.
 
+For ML-DSA key pairs: no stipulation.
+
+For ML-KEM key pairs: no stipulation.
+
 ### 6.1.7 Key usage purposes (as per X.509 v3 key usage field)
 
 Private Keys corresponding to Root CA Certificates SHALL NOT be used to sign Certificates except in the following cases:
