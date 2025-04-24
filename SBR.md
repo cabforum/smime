@@ -1669,7 +1669,7 @@ For ECDSA key pairs, the CA SHALL:
 
 For EdDSA key pairs, the CA SHALL:
 
-* Ensure that the key represents a valid point on the curve25519 or curve 448 elliptic curve.
+* Ensure that the key represents a valid point on the curve25519 or curve448 elliptic curve.
   
 No other algorithms or key sizes are permitted.
 
