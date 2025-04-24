@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.X
+subtitle: Version TBD
 author:
   - CA/Browser Forum
-date: XX YY, 2025
+date: TBD
 copyright: |
   Copyright 2025 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -87,6 +87,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.6   | SMC08    |Deprecate Legacy Generation Profiles and Minor Updates | August 29, 2024 |
 | 1.0.7   | SMC09    |Update to WebTrust requirements, require linting, minor edits | November 22, 2024 |
 | 1.0.8   | SMC010   |Introduction of Multi-Perspective Issuance Corroboration | December 22, 2024 |
+| 1.0.X   | TBD      |ACME for S/MIME Automation | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -133,7 +134,7 @@ The CA MAY delegate to an Enterprise Registration Authority (RA) to verify Certi
 
 The CA SHALL impose these limitations as a contractual requirement on the Enterprise RA and monitor compliance by the Enterprise RA in accordance with [Section 8.8](#88-review-of-delegated-parties).
 
-An Enterprise RA MAY also submit Certificate Requests using the `Mailbox-validated` profile for users whose email domain(s) are not under the delegated organization’s authorization or control.  In this case, the CA SHALL confirm that the mailbox holder has control of the requested Mailbox Address(es) in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
+An Enterprise RA MAY also submit Certificate Requests using the `Mailbox-validated` profile for users whose email domain(s) are not under the delegated organization’s authorization or control.  In this case, the CA SHALL confirm that the mailbox holder has control of the requested Mailbox Address(es) in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email) or [Section 3.2.2.4](#3224-validating-control-over-mailbox-using-acme).
 
 ### 1.3.3 Subscribers
 
@@ -459,11 +460,15 @@ RFC 5280, Request for Comments: 5280, Internet X.509 Public Key Infrastructure: 
 
 RFC 6818, Updates to the Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile, P. Yee. January 2013.
 
-RFC 6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP. S. Santesson, et al. June 2013.
+RFC 6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP, S. Santesson, et al. June 2013.
+
+RFC 8823, Request for Comments: 8823, Extensions to Automatic Certificate Management Environment for End-User S/MIME Certificates, A. Melnikov. April 2021.
+
+RFC 8555,  Request for Comments: 8555, Automatic Certificate Management Environment (ACME), R. Barnes et al. March 2019.
 
 RFC 9598, Request for Comments: 9598, Internationalized Email Addresses in X.509 Certificates, A. Melnikov, et al. May 2024.
 
-RFC 8499, Request for Comments: 8499, DNS Terminology. P. Hoffman, et al. January 2019.
+RFC 8499, Request for Comments: 8499, DNS Terminology, P. Hoffman, et al. January 2019.
 
 RFC 9495, Request for Comments: 9495, Certification Authority Authorization (CAA) Processing for Email Addresses, C. Bonnell. October 2023.
 
@@ -610,6 +615,16 @@ The Random Value SHALL be reset upon each instance of the email sent by the CA t
 The CA MAY confirm the Applicant's control over each Mailbox Field to be included in the Certificate by confirming control of the SMTP FQDN to which a message delivered to the Mailbox Address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given Mailbox Address. If more than one SMTP FQDN has been discovered, the CA SHALL verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA SHALL NOT be used for this validation method.
 
 To confirm the Applicant's control of the SMTP FQDN, the CA SHALL use only the currently-approved methods in [Section 3.2.2.4](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) of the TLS Baseline Requirements.
+
+#### 3.2.2.4 Validating control over mailbox using ACME extensions
+
+The CA MAY confirm the Applicant's control over each Mailbox Field to be included in a Certificate using ACME for S/MIME as defined in RFC 8823. The CA's ACME server MAY respond to a POST request by sending the Random Value token components via email and SMTP, and then receiving a confirming response utilizing the generated Random Value, in accordance with RFC 8823.
+
+Control over each Mailbox Address SHALL be confirmed using a newly-generated Random Value. The Random Value token components SHALL only be shared in accordance with RFC 8823. As defined by RFC 8823, `token-part1` SHALL contain at least 128 bits of entropy and `token-part2` SHOULD contain at least 128 bits of entropy.
+
+The Random Value SHALL NOT be reused by the CA for other Certificate Requests. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CA MAY specify a shorter validity period for Random Values in its CP and/or CPS.
+
+Implementations MAY use ACME External Account Binding as defined by RFC 8555.  
 
 ### 3.2.3 Authentication of organization identity
 
@@ -1654,7 +1669,7 @@ For ECDSA key pairs, the CA SHALL:
 
 For EdDSA key pairs, the CA SHALL:
 
-* Ensure that the key represents a valid point on the curve25519 or curve 448 elliptic curve.
+* Ensure that the key represents a valid point on the curve25519 or curve448 elliptic curve.
   
 No other algorithms or key sizes are permitted.
 
