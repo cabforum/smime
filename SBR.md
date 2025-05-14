@@ -87,7 +87,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.6   | SMC08    |Deprecate Legacy Generation Profiles and Minor Updates | August 29, 2024 |
 | 1.0.7   | SMC09    |Update to WebTrust requirements, require linting, minor edits | November 22, 2024 |
 | 1.0.8   | SMC010   |Introduction of Multi-Perspective Issuance Corroboration | December 22, 2024 |
-| 1.0.9   | SMC011   |Add EUID as Registration Reference | TBD |
+| 1.0.9   | SMC011   |Add EUID as Registration Reference | May 14, 2025 |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
