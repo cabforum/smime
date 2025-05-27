@@ -1792,39 +1792,77 @@ No stipulation.
 
 ## 7.1 Certificate profile
 
-The CA SHALL meet the technical requirements set forth in [Section 2.2](#22-publication-of-certification-information), [Section 6.1.5](#615-key-sizes), and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking).
+The CA SHALL meet the technical requirements set forth in [Section 6.1.5 - Key Sizes](#615-key-sizes), and [Section 6.1.6 - Public Key Parameters Generation and Quality Checking](#616-public-key-parameters-generation-and-quality-checking).
 
 CAs SHALL generate non-sequential Certificate serial numbers greater than zero (0) and less than 2^159 containing at least 64 bits of output from a CSPRNG.
 
 ### 7.1.1 Version number(s)
 
-Certificates SHALL be of type X.509 v3.
+Certificates MUST be of type X.509 v3.
 
 ### 7.1.2 Certificate content and extensions; application of RFC 6818
 
-This section specifies the additional requirements for Certificate content and extensions for Certificates.
+If the CA asserts compliance with these Baseline Requirements, all certificates that it issues MUST comply with one of the following certificate profiles, which incorporate, and are derived from [RFC 5280](https://tools.ietf.org/html/rfc5280) and [RFC 8551](https://tools.ietf.org/html/rfc8551). Except as explicitly noted, all normative requirements imposed by RFC 5280 and RFC 8551 shall apply, in addition to the normative requirements imposed by this document. CAs SHOULD examine [RFC 5280, Appendix B](https://tools.ietf.org/html/rfc5280#appendix-B) and [RFC 8551, Appendix B](https://datatracker.ietf.org/doc/html/rfc8551#appendix-B) for further issues to be aware of.
 
-#### 7.1.2.1 Root CA certificates
+### 7.1.2 Certificate content and extensions
 
-a. `basicConstraints` (SHALL be present)
+If the CA asserts compliance with these Baseline Requirements, all certificates that it issues MUST comply with one of the following certificate profiles, which incorporate, and are derived from [RFC 5280](https://tools.ietf.org/html/rfc5280) and [RFC 8551](https://tools.ietf.org/html/rfc8551). Except as explicitly noted, all normative requirements imposed by RFC 5280 and RFC 8551 shall apply, in addition to the normative requirements imposed by this document. CAs SHOULD examine [RFC 5280, Appendix B](https://tools.ietf.org/html/rfc5280#appendix-B) and [RFC 8551, Appendix B](https://datatracker.ietf.org/doc/html/rfc8551#appendix-B) for further issues to be aware of.
 
-   This extension SHALL be marked critical. The `cA` field SHALL be set true. The `pathLenConstraint` field SHOULD NOT be present.
+#### 7.1.2.1 Root CA certificate profile
 
-b. `keyUsage` (SHALL be present)
+| __Field__                  | __Description__ |
+| ---                        | ------          |
+| `tbsCertificate`           | |
+|     `version`              | MUST be v3(2) |
+|     `serialNumber`         | MUST be a non-sequential number greater than zero (0) and less than 2¹⁵⁹ containing at least 64 bits of output from a CSPRNG. |
+|     `signature`            | See [Section 7.1.3.2](#7132-signature-algorithmidentifier) |
+|     `issuer`               | Encoded value MUST be byte-for-byte identical to the encoded `subject` |
+|     `validity`             | See [Section 7.1.2.1.1](#71211-root-ca-validity) |
+|     `subject`              | See [Section 7.1.2.10.2](#712102-ca-certificate-naming) |
+|     `subjectPublicKeyInfo` | See [Section 7.1.3.1](#7131-subjectpublickeyinfo) |
+|     `issuerUniqueID`       | MUST NOT be present |
+|     `subjectUniqueID`      | MUST NOT be present |
+|     `extensions`           | See [Section 7.1.2.1.2](#71212-root-ca-extensions) |
+| `signatureAlgorithm`       | Encoded value MUST be byte-for-byte identical to the `tbsCertificate.signature`. |
+| `signature`                | |
 
-   This extension SHALL be marked critical. Bit positions for `keyCertSign` and `cRLSign` SHALL be set. If the Root CA Private Key is used for signing OCSP responses, then the `digitalSignature` bit SHALL be set.
+##### 7.1.2.1.1 Root CA Validity
 
-c. `certificatePolicies` (SHOULD NOT be present)
+| __Field__   | __Minimum__ | __Maximum__ |
+| -           | ----        | ----        |
+| `notBefore` | One day prior to the time of signing | The time of signing |
+| `notAfter`  | 2922 days (approx. 8 years)  | 9132 days (approx. 25 years) |
 
-   This extension SHOULD NOT be present.
+**Note**: This restriction applies even in the event of generating a new Root CA Certificate for an existing `subject` and `subjectPublicKeyInfo` (e.g. reissuance). The new CA Certificate MUST conform to these rules.
 
-d. `extKeyUsage` (SHALL NOT be present)
+##### 7.1.2.1.2 Root CA Extensions
 
-   This extension SHALL NOT be present.
+| __Extension__                     | __Presence__    | __Critical__ | __Description__ |
+| ----                              | -               | -            | ----- |
+| `authorityKeyIdentifier`          | RECOMMENDED     | N            | See [Section 7.1.2.1.3](#71213-root-ca-authority-key-identifier) |
+| `basicConstraints`                | MUST            | Y            | See [Section 7.1.2.1.4](#71214-root-ca-basic-constraints) |
+| `keyUsage`                        | MUST            | Y            | See [Section 7.1.2.10.7](#712107-ca-certificate-key-usage) |
+| `subjectKeyIdentifier`            | MUST            | N            | See [Section 7.1.2.11.4](#712114-subject-key-identifier) |
+| `extKeyUsage`                     | MUST NOT        | -            | - |
+| `certificatePolicies`             | NOT RECOMMENDED | N            | See [Section 7.1.2.10.5](#712105-ca-certificate-certificate-policies) |
+| Signed Certificate Timestamp List | MAY             | N            | See [Section 7.1.2.11.3](#712113-signed-certificate-timestamp-list) |
+| Any other extension               | NOT RECOMMENDED | -            | See [Section 7.1.2.11.5](#712115-other-extensions) |
 
-e. `subjectKeyIdentifier` (SHALL be present)
+##### 7.1.2.1.3 Root CA Authority Key Identifier
 
-   This extension SHALL NOT be marked critical. It SHALL contain a value that is included in the `keyIdentifier` field of the `authorityKeyIdentifier` extension in Certificates issued by the Root CA.
+| __Field__                   | __Description__ |
+| ---                         | ------- |
+| `keyIdentifier`             | MUST be present. MUST be identical to the `subjectKeyIdentifier` field. |
+| `authorityCertIssuer`       | MUST NOT be present |
+| `authorityCertSerialNumber` | MUST NOT be present |
+
+##### 7.1.2.1.4 Root CA Basic Constraints
+
+| __Field__           | __Description__ |
+| ---                 | ------- |
+| `cA`                | MUST be set TRUE |
+| `pathLenConstraint` | NOT RECOMMENDED |
+
 
 #### 7.1.2.2 Subordinate CA certificates
 
