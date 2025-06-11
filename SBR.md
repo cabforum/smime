@@ -1790,6 +1790,197 @@ No stipulation.
 
 # 7. CERTIFICATE, CRL, AND OCSP PROFILES
 
+**NEW CONTENT**
+
+## 7.1 Certificate profile
+
+### 7.1.1 Version number(s)
+
+### 7.1.2 Certificate content and extensions
+
+#### 7.1.2.1 Root CA certificate profile
+
+##### 7.1.2.1.1 Root CA validity
+
+##### 7.1.2.1.2 Root CA extensions
+
+##### 7.1.2.1.3 Root CA Authority Key Identifier
+
+##### 7.1.2.1.4 Root CA Basic Constraints
+
+#### 7.1.2.2 Cross-certified Subordinate TLS CA certificate profile
+
+Not applicable.
+
+##### 7.1.2.2.1 Cross-certified Subordinate TLS CA validity
+
+Not applicable.
+
+##### 7.1.2.2.2 Cross-certified Subordinate TLS CA naming
+
+Not applicable.
+
+##### 7.1.2.2.3 Cross-certified Subordinate TLS CA extensions
+
+Not applicable.
+
+##### 7.1.2.2.4 Cross-certified Subordinate TLS CA Extended Key Usage - unrestricted
+
+Not applicable.
+
+##### 7.1.2.2.5 Cross-certified Subordinate TLS CA Extended Key Usage - restricted
+
+Not applicable.
+
+##### 7.1.2.2.6 Cross-certified Subordinate TLS CA certificate policies
+
+Not applicable.
+
+#### 7.1.2.3 Technically Constrained S/MIME Subordinate CA Certificate Profile
+
+##### 7.1.2.3.1 Technically Constrained S/MIME Subordinate CA Extensions
+
+##### 7.1.2.3.2 Technically Constrained S/MIME Subordinate CA Certificate Policies
+
+##### 7.1.2.3.3 Technically Constrained S/MIME Subordinate CA Extended Key Usage
+
+#### 7.1.2.4 Technically Constrained Precertificate Signing CA Certificate Profile
+
+Not applicable.
+
+##### 7.1.2.4.1 Technically Constrained Precertificate Signing CA Extensions
+
+Not applicable.
+
+##### 7.1.2.4.2 Technically Constrained Precertificate Signing CA Extended Key Usage
+
+Not applicable.
+
+#### 7.1.2.5 Technically Constrained S/MIME Subordinate CA Certificate Profile
+
+##### 7.1.2.5.1 Technically Constrained S/MIME Subordinate CA Extensions
+
+##### 7.1.2.5.2 Technically Constrained S/MIME Subordinate CA Name Constraints
+
+#### 7.1.2.6 S/MIME Subordinate CA Certificate Profile
+
+##### 7.1.2.6.1 S/MIME Subordinate CA Extensions
+
+#### 7.1.2.7 Subscriber Certificate Profile
+
+##### 7.1.2.7.1 Subscriber Certificate Types
+
+##### 7.1.2.7.7 Subscriber Certificate Authority Information Access
+
+##### 7.1.2.7.8 Subscriber Certificate Basic Constraints
+
+##### 7.1.2.7.9 Subscriber Certificate Certificate Policies
+
+##### 7.1.2.7.10 Subscriber Certificate Extended Key Usage
+
+##### 7.1.2.7.11 Subscriber Certificate Key Usage
+
+##### 7.1.2.7.12 Subscriber Certificate Subject Alternative Name
+
+#### 7.1.2.8 OCSP Responder Certificate Profile
+
+##### 7.1.2.8.1 OCSP Responder Validity
+
+##### 7.1.2.8.2 OCSP Responder Extensions
+
+##### 7.1.2.8.3 OCSP Responder Authority Information Access
+
+##### 7.1.2.8.4 OCSP Responder Basic Constraints
+
+##### 7.1.2.8.5 OCSP Responder Extended Key Usage
+
+##### 7.1.2.8.6 OCSP Responder id-pkix-ocsp-nocheck
+
+##### 7.1.2.8.7 OCSP Responder Key Usage
+
+##### 7.1.2.8.8 OCSP Responder Certificate Policies
+
+#### 7.1.2.9 Precertificate Profile
+
+Not applicable.
+
+#### 7.1.2.10 Common CA Fields
+
+##### 7.1.2.10.1 CA Certificate Validity
+
+##### 7.1.2.10.2 CA Certificate Naming
+
+##### 7.1.2.10.3 CA Certificate Authority Information Access
+
+##### 7.1.2.10.4 CA Certificate Basic Constraints
+
+##### 7.1.2.10.5 CA Certificate Certificate Policies
+
+##### 7.1.2.10.6 CA Certificate Extended Key Usage
+
+##### 7.1.2.10.7 CA Certificate Key Usage
+
+##### 7.1.2.10.8 CA Certificate Name Constraints
+
+#### 7.1.2.11 Common Certificate Fields
+
+##### 7.1.2.11.1 Authority Key Identifier
+
+##### 7.1.2.11.2 CRL Distribution Points
+
+##### 7.1.2.11.3 Signed Certificate Timestamp List
+
+##### 7.1.2.11.4 Subject Key Identifier
+
+##### 7.1.2.11.5 Other Extensions
+
+### 7.1.3 Algorithm object identifiers
+
+#### 7.1.3.1 SubjectPublicKeyInfo
+
+#### 7.1.3.2 Signature AlgorithmIdentifier
+
+### 7.1.4 Name Forms
+
+#### 7.1.4.1 Name Encoding
+
+#### 7.1.4.2 Subject Attribute Encoding
+
+#### 7.1.4.3 Subscriber Certificate Common Name Attribute
+
+#### 7.1.4.4 Other Subject Attributes
+
+### 7.1.5 Name constraints
+
+### 7.1.6 Certificate policy object identifier
+
+#### 7.1.6.1 Reserved Certificate Policy Identifiers
+
+### 7.1.7 Usage of Policy Constraints extension
+
+### 7.1.8 Policy qualifiers syntax and semantics
+
+### 7.1.9 Processing semantics for the critical Certificate Policies extension
+
+## 7.2 CRL profile
+
+### 7.2.1 Version number(s)
+
+### 7.2.2 CRL and CRL entry extensions
+
+#### 7.2.2.1 CRL Issuing Distribution Point
+
+## 7.3 OCSP profile
+
+### 7.3.1 Version number(s)
+
+### 7.3.2 OCSP extensions
+
+
+------------------------
+
+**OLD CONTENT**
+
 ## 7.1 Certificate profile
 
 The CA SHALL meet the technical requirements set forth in [Section 6.1.5 - Key Sizes](#615-key-sizes), and [Section 6.1.6 - Public Key Parameters Generation and Quality Checking](#616-public-key-parameters-generation-and-quality-checking).
