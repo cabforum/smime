@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.10
+subtitle: Version TBD
 author:
   - CA/Browser Forum
-date: July 2, 2025
+date: TBD
 copyright: |
   Copyright 2025 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -89,6 +89,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.8   | SMC010   |Introduction of Multi-Perspective Issuance Corroboration | December 22, 2024 |
 | 1.0.9   | SMC011   |Add EUID as Registration Reference | May 14, 2025 |
 | 1.0.10  | SMC012   |ACME for S/MIME Automation | July 2, 2025 |
+| 1.0.X   | TBD   |Introduction of PQC Algorithms | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -1673,7 +1674,21 @@ For ECDSA key pairs, the CA SHALL:
 
 For EdDSA key pairs, the CA SHALL:
 
-* Ensure that the key represents a valid point on the curve25519 or curve448 elliptic curve.
+* Ensure that the key represents a valid point on the curve25519 or curve 448 elliptic curve.
+
+For ML-DSA key pairs, the CA SHALL:
+
+* Ensure the Key uses one of the following parameter sets:
+  * ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), or
+  * ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or
+  * ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19).
+
+For ML-KEM key pairs, the CA SHALL:
+
+* Ensure the Key uses one of the following parameter sets:
+  * ML-KEM-512 (OID: 2.16.840.1.101.3.4.4.1), or
+  * ML-KEM-768 (OID: 2.16.840.1.101.3.4.4.2), or
+  * ML-KEM-1024 (OID: 2.16.840.1.101.3.4.4.3).
   
 No other algorithms or key sizes are permitted.
 
@@ -1684,6 +1699,10 @@ For RSA key pairs: the CA SHALL confirm that the value of the public exponent is
 For ECDSA key pairs: the CA SHOULD confirm the validity of all keys using either the ECC Full Public Key Validation Routine or the ECC Partial Public Key Validation Routine. (See NIST SP 800-56A: Revision 2, Sections 5.6.2.3.2 and 5.6.2.3.3.)
 
 For EdDSA key pairs: no stipulation.
+
+For ML-DSA key pairs: no stipulation.
+
+For ML-KEM key pairs: no stipulation.
 
 ### 6.1.7 Key usage purposes (as per X.509 v3 key usage field)
 
@@ -1950,7 +1969,11 @@ e. `keyUsage` (SHALL be present)
    | Strict | For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement`, MAY be set for `nonRepudiation`, and MAY be set for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).| Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`. |
    | Multipurpose<br> and Legacy | For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment` and MAY be set for `dataEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment`, MAY be set for `nonRepudiation`, and MAY be set for `dataEncipherment`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement`, MAY be set for `nonRepudiation`, and MAY be set for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).| Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`. |
 
-   Other bit positions SHALL NOT be set.
+  Other bit positions SHALL NOT be set.
+
+   | Generation | `id-ml-dsa`       | `id-ml-kem`            |
+   |------|-----------------------|-----------------------------|
+   | Legacy and <br>Multipurpose<br> and Strict | Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br> Other bit positions SHALL NOT be set. | `keyEncipherment` SHALL be the only key usage set. |
 
 f. `extKeyUsage` (SHALL be present)
 
@@ -2068,6 +2091,38 @@ When encoded, the `AlgorithmIdentifier` for EdDSA keys SHALL be byte-for-byte id
 * For Curve25519 keys, `300506032b6570`.
 * For Curve448 keys, `300506032b6571`.
 
+##### 7.1.3.2.4 ML-DSA
+
+The CA SHALL indicate an ML-DSA key using one of the following algorithm identifiers below:
+
+  * ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), or
+  * ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or
+  * ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19).
+
+The parameters for ML-DSA keys SHALL be absent. The CA MUST NOT use HashML-DSA; only "pure" ML-DSA is permitted.
+
+When encoded, the AlgorithmIdentifier for ML-DSA keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
+
+* For ML-DSA-44, `300b0609608648016503040311`.
+* For ML-DSA-65, `300b0609608648016503040312`.
+* For ML-DSA-87, `300b0609608648016503040313`.
+
+##### 7.1.3.2.5 ML-KEM
+
+The CA SHALL indicate an ML-KEM key using one of the following algorithm identifiers below:
+
+  * ML-KEM-512 (OID: 2.16.840.1.101.3.4.4.1), or
+  * ML-KEM-768 (OID: 2.16.840.1.101.3.4.4.2), or
+  * ML-KEM-1024 (OID: 2.16.840.1.101.3.4.4.3).
+
+The parameters for ML-KEM keys SHALL be absent.
+
+When encoded, the AlgorithmIdentifier for ML-KEM keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
+
+* For ML-KEM-512, `300b0609608648016503040401`.
+* For ML-KEM-768, `300b0609608648016503040402`.
+* For ML-KEM-1024, `300b0609608648016503040403`.
+
 #### 7.1.3.2 Signature AlgorithmIdentifier
 
 All objects signed by a CA Private Key SHALL conform to these requirements on the use of the `AlgorithmIdentifier` or `AlgorithmIdentifier`-derived type in the context of signatures.
@@ -2148,6 +2203,16 @@ The CA SHALL use the appropriate signature algorithm and encoding based upon the
 If the signing key is Curve25519, the signature algorithm SHALL be id-Ed25519 (OID: 1.3.101.112). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300506032b6570`.
 
 If the signing key is Curve448, the signature algorithm SHALL be id-Ed448 (OID: 1.3.101.113). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300506032b6571`.
+
+##### 7.1.3.2.4 ML-DSA
+
+The CA SHALL use the appropriate signature algorithm and encoding based upon the signing key used.
+
+If the signing key is ML-DSA-44, the signature algorithm SHALL be id-ml-dsa-44 (OID: 2.16.840.1.101.3.4.3.17). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300b0609608648016503040311`.
+
+If the signing key is ML-DSA-65, the signature algorithm SHALL be id-ml-dsa-65 (OID: 2.16.840.1.101.3.4.3.18). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300b0609608648016503040312`.
+
+If the signing key is ML-DSA-87, the signature algorithm SHALL be id-ml-dsa-87 (OID: 2.16.840.1.101.3.4.3.19). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300b0609608648016503040313`.
 
 ### 7.1.4 Name forms
 
