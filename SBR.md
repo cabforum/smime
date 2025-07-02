@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version TBD
+subtitle: Version 1.0.10
 author:
   - CA/Browser Forum
-date: TBD
+date: July 2, 2025
 copyright: |
   Copyright 2025 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -88,7 +88,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.7   | SMC09    |Update to WebTrust requirements, require linting, minor edits | November 22, 2024 |
 | 1.0.8   | SMC010   |Introduction of Multi-Perspective Issuance Corroboration | December 22, 2024 |
 | 1.0.9   | SMC011   |Add EUID as Registration Reference | May 14, 2025 |
-| 1.0.X   | TBD      |ACME for S/MIME Automation | TBD |
+| 1.0.10  | SMC012   |ACME for S/MIME Automation | July 2, 2025 |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
