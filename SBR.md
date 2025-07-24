@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.10
+subtitle: Version 1.0.XX
 author:
   - CA/Browser Forum
-date: July 2, 2025
+date: TBD
 copyright: |
   Copyright 2025 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -947,7 +947,7 @@ CAs are permitted to treat a record lookup failure as permission to issue if:
 
 * the failure is outside the CA's infrastructure; and
 * the lookup has been retried at least once; and
-* the domain's zone does not have a DNSSEC validation chain to the ICANN root.
+* the CA has confirmed that the domain is "Insecure" as defined in [RFC 4035 Section 4.3](https://datatracker.ietf.org/doc/html/rfc4035#section-4.3).
 
 CAs MUST document potential issuances that were prevented by a CAA record in sufficient detail to provide feedback to the CA/Browser Forum on the circumstances, and SHOULD dispatch reports of such issuance requests to the contact(s) stipulated in the CAA iodef record(s), if present. CAs are not expected to support URL schemes in the iodef record other than mailto: or https:.
 
