@@ -89,6 +89,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.8   | SMC010   |Introduction of Multi-Perspective Issuance Corroboration | December 22, 2024 |
 | 1.0.9   | SMC011   |Add EUID as Registration Reference | May 14, 2025 |
 | 1.0.10  | SMC012   |ACME for S/MIME Automation | July 2, 2025 |
+| 1.0.XX  | TBD   |DNSSEC for CAA | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -105,6 +106,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.7 | SMC09  |SHALL implement pre-issuance linting of S/MIME Certificates | September 15, 2025 |
 | 1.0.8 | SMC010 | SHOULD implement MPIC | March 15, 2025 |
 | 1.0.8 | SMC010 | SHALL implement MPIC | May 15, 2025 |
+| 1.0.XX | TBD | SHALL implement DNSSEC for CAA | March 15, 2026 |
 
 ## 1.3 PKI participants
 
