@@ -634,13 +634,13 @@ To confirm the Applicant's control of the SMTP FQDN, the CA SHALL use only the c
 
 #### 3.2.2.4 Validating control over mailbox using ACME extensions
 
-The CA MAY confirm the Applicant's control over each Mailbox Field to be included in a Certificate using ACME for S/MIME as defined in RFC 8823. The CA's ACME server MAY respond to a POST request by sending the Random Value token components via email and SMTP, and then receiving a confirming response utilizing the generated Random Value, in accordance with RFC 8823.
+The CA MAY confirm the Applicant's control over each Mailbox Field to be included in a Certificate using ACME for S/MIME as defined in [RFC 8823](https://datatracker.ietf.org/doc/html/rfc8823). The CA's ACME server MAY respond to a POST request by sending the Random Value token components via email and SMTP, and then receiving a confirming response utilizing the generated Random Value, in accordance with [RFC 8823](https://datatracker.ietf.org/doc/html/rfc8823).
 
-Control over each Mailbox Address SHALL be confirmed using a newly-generated Random Value. The Random Value token components SHALL only be shared in accordance with RFC 8823. As defined by RFC 8823, `token-part1` SHALL contain at least 128 bits of entropy and `token-part2` SHOULD contain at least 128 bits of entropy.
+Control over each Mailbox Address SHALL be confirmed using a newly-generated Random Value. The Random Value token components SHALL only be shared in accordance with [RFC 8823](https://datatracker.ietf.org/doc/html/rfc8823). As defined by [RFC 8823](https://datatracker.ietf.org/doc/html/rfc8823), `token-part1` SHALL contain at least 128 bits of entropy and `token-part2` SHOULD contain at least 128 bits of entropy.
 
 The Random Value SHALL NOT be reused by the CA for other Certificate Requests. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CA MAY specify a shorter validity period for Random Values in its CP and/or CPS.
 
-Implementations MAY use ACME External Account Binding as defined by RFC 8555.  
+Implementations MAY use ACME External Account Binding as defined by [RFC 8555](https://datatracker.ietf.org/doc/html/rfc8555).  
 
 ### 3.2.3 Authentication of organization identity
 
