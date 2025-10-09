@@ -295,7 +295,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Mailbox Field**: In Subscriber Certificates contains a Mailbox Address of the Subject via `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension, or in Subordinate CA Certificates via `rfc822Name` in permittedSubtrees within the `nameConstraints` extension.
 
-**Mobile Driver License (mDL)**: An electronic driver license that is stored on a mobile device with the capability to be updated in real time. An mDL is issued by a government authority officially recognized in its jurisdiction for that purpose, and conforms to ISO/IEC 18013-5 and ISO/IEC 18013-7.
+**Mobile Driver License (mDL)**: An electronic driver license that is stored on a mobile device with the capability to be updated in real time. An mDL is issued by a government authority officially recognized in its jurisdiction for that purpose, and conforms to ISO/IEC 18013-3, ISO/IEC 18013-5, and ISO/IEC 18013-7.
 
 **Multi-Perspective Issuance Corroboration**: A process by which the determinations made during domain validation and CAA checking by the Primary Network Perspective are corroborated by other Network Perspectives before Certificate issuance.
 
