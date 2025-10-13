@@ -3,7 +3,7 @@ title: Baseline Requirements for the Issuance and Management of Publicly-Trusted
 subtitle: Version 1.0.12
 author:
   - CA/Browser Forum
-date: TBD
+date: October 13, 2025
 copyright: |
   Copyright 2025 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -90,7 +90,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.9   | SMC011   |Add EUID as Registration Reference | May 14, 2025 |
 | 1.0.10  | SMC012   |ACME for S/MIME Automation | July 2, 2025 |
 | 1.0.11  | SMC013   |Introduction of PQC Algorithms | August 22, 2025 |
-| 1.0.12  | SMC013   |DNSSEC for CAA | TBD |
+| 1.0.12  | SMC013   |DNSSEC for CAA | October 13, 2025 |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
