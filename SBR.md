@@ -87,6 +87,10 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.6   | SMC08    |Deprecate Legacy Generation Profiles and Minor Updates | August 29, 2024 |
 | 1.0.7   | SMC09    |Update to WebTrust requirements, require linting, minor edits | November 22, 2024 |
 | 1.0.8   | SMC010   |Introduction of Multi-Perspective Issuance Corroboration | December 22, 2024 |
+| 1.0.9   | SMC011   |Add EUID as Registration Reference | May 14, 2025 |
+| 1.0.10  | SMC012   |ACME for S/MIME Automation | July 2, 2025 |
+| 1.0.11  | SMC013   |Introduction of PQC Algorithms | August 22, 2025 |
+| 1.0.12  | SMC013   |DNSSEC for CAA | October 13, 2025 |
 | 1.0.X   | TBD      |Allow Mobile Driver License for authentication of individual identity | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
@@ -99,12 +103,12 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.3 | SMC05  | SHALL adoption of CAA for S/MIME | March 15, 2025|
 | 1.0.4 | SMC06  | Requirement to check Active status of Legal Entity Applicants | September 15, 2024|
 | 1.0.6 | SMC08  | S/MIME Subscriber Certificates SHALL NOT be issued using the Legacy Generation profiles | July 15, 2025 |
-| 1.0.6 | SMC08  | S/MIME Subscriber Certificates SHALL NOT be issued using the Legacy Generation profiles | July 15, 2025 |
 | 1.0.7 | SMC09  | WebTrust audits SHALL include WebTrust for Network Security  | April 1, 2025 |
 | 1.0.7 | SMC09  |SHOULD implement pre-issuance linting of S/MIME Certificates, and SHOULD implement use of Linting in Self-Audits | March 15, 2025 |
 | 1.0.7 | SMC09  |SHALL implement pre-issuance linting of S/MIME Certificates | September 15, 2025 |
 | 1.0.8 | SMC010 | SHOULD implement MPIC | March 15, 2025 |
 | 1.0.8 | SMC010 | SHALL implement MPIC | May 15, 2025 |
+| 1.0.12 | SMC014 | SHALL implement DNSSEC for CAA | March 15, 2026 |
 
 ## 1.3 PKI participants
 
@@ -134,7 +138,7 @@ The CA MAY delegate to an Enterprise Registration Authority (RA) to verify Certi
 
 The CA SHALL impose these limitations as a contractual requirement on the Enterprise RA and monitor compliance by the Enterprise RA in accordance with [Section 8.8](#88-review-of-delegated-parties).
 
-An Enterprise RA MAY also submit Certificate Requests using the `Mailbox-validated` profile for users whose email domain(s) are not under the delegated organization’s authorization or control.  In this case, the CA SHALL confirm that the mailbox holder has control of the requested Mailbox Address(es) in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email).
+An Enterprise RA MAY also submit Certificate Requests using the `Mailbox-validated` profile for users whose email domain(s) are not under the delegated organization’s authorization or control.  In this case, the CA SHALL confirm that the mailbox holder has control of the requested Mailbox Address(es) in accordance with [Section 3.2.2.2](#3222-validating-control-over-mailbox-via-email) or [Section 3.2.2.4](#3224-validating-control-over-mailbox-using-acme).
 
 ### 1.3.3 Subscribers
 
@@ -251,6 +255,8 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 **Electronic Identification (eID)**:  A credential containing Individual identification data and/or attributes and which is used for authentication for an online service. 
 
 **Enterprise RA**: An employee or agent of an organization unaffiliated with the CA who authorizes issuance of Certificates to that organization.
+
+**European Unique Identifier (EUID)**: The EUID uniquely identifies officially-registered organizations, Legal Entities, and branch offices within the European Union or the European Economic Area. The EUID is specified in chapter 9 of the Annex contained in the Implementing Regulation (EU) 2021/1042 which describes rules for the application of Directive (EU) 2017/1132 "relating to certain aspects of company law (codification)".
 
 **Expiry Date**: The "Not After" date in a Certificate that defines the end of a Certificate's validity period.
 
@@ -419,23 +425,27 @@ AAMVA, American Association of Motor Vehicle Administrators, Mobile Driver Licen
 
 eIDAS: Regulation (EU) No 910/2014 as amended by Regulation (EU) 2024/1183 and Directive (EU) 2022/2555
 
-ETSI EN 319 403, Electronic Signatures and Infrastructures (ESI); Trust Service Provider Conformity Assessment - Requirements for conformity assessment bodies assessing Trust Service Providers.
+AAMVA, American Association of Motor Vehicle Administrators, Mobile Driver License Digital Trust Service, https://www.aamva.org/identity/mobile-driver-license-digital-trust-service
 
-ETSI EN 319 403-1, Electronic Signatures and Infrastructures (ESI); Trust Service Provider Conformity Assessment; Part 1 - Requirements for conformity assessment bodies assessing Trust Service Providers.
+eIDAS: Regulation (EU) No 910/2014 as amended by Regulation (EU) 2024/1183 and Directive (EU) 2022/2555
 
-ETSI EN 319 411-1, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 1: General requirements.
+ETSI EN 319 403, Electronic Signatures and Trust Infrastructures (ESI); Trust Service Provider Conformity Assessment - Requirements for conformity assessment bodies assessing Trust Service Providers.
 
-ETSI EN 319 411-2, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 2: Requirements for trust service providers issuing EU qualified certificates.
+ETSI EN 319 403-1, Electronic Signatures and Trust Infrastructures (ESI); Trust Service Provider Conformity Assessment; Part 1 - Requirements for conformity assessment bodies assessing Trust Service Providers.
 
-ETSI EN 119 411-6, Electronic Signatures and Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 6: Requirements for Trust Service Providers issuing publicly trusted S/MIME certificates.
+ETSI EN 319 411-1, Electronic Signatures and Trust Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 1: General requirements.
 
-ETSI EN 319 412-1, Electronic Signatures and Infrastructures (ESI); Certificate Profiles; Part 1: Overview and common data structures.
+ETSI EN 319 411-2, Electronic Signatures and Trust Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 2: Requirements for trust service providers issuing EU qualified certificates.
 
-ETSI EN 319 412-5, Electronic Signatures and Infrastructures (ESI); Certificate Profiles; Part 5: QCStatements.
+ETSI EN 119 411-6, Electronic Signatures and Trust Infrastructures (ESI); Policy and security requirements for Trust Service Providers issuing certificates; Part 6: Requirements for Trust Service Providers issuing publicly trusted S/MIME certificates.
 
-ETSI TS 119 495, Electronic Signatures and Infrastructures (ESI); Sector Specific Requirements; Certificate Profiles and TSP Policy Requirements for Open Banking.
+ETSI EN 319 412-1, Electronic Signatures and Trust Infrastructures (ESI); Certificate Profiles; Part 1: Overview and common data structures.
 
-ETSI TS 119 172-4, Electronic Signatures and Infrastructures (ESI); Signature Policies;. Part 4: Signature applicability rules.
+ETSI EN 319 412-5, Electronic Signatures and Trust Infrastructures (ESI); Certificate Profiles; Part 5: QCStatements.
+
+ETSI TS 119 172-4, Electronic Signatures and Trust Infrastructures (ESI); Signature Policies;. Part 4: Signature applicability rules.
+
+ETSI TS 119 495, Electronic Signatures and Trust Infrastructures (ESI); Sector Specific Requirements; Certificate Profiles and TSP Policy Requirements for Open Banking.
 
 FIPS 140-2, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, May 25, 2001.
 
@@ -465,21 +475,37 @@ RFC 3647, Request for Comments: 3647, Internet X.509 Public Key Infrastructure: 
 
 RFC 3739, Request for Comments: 3739, Internet X.509 Public Key Infrastructure: Qualified Certificates Profile, S. Santesson, et al. March 2004.
 
+RFC4035, Request for Comments: 4035, Protocol Modifications for the DNS Security Extensions. R. Arends, et al. March 2005.
+
 RFC 4262, Request for Comments: 4262, X.509 Certificate Extension for Secure/Multipurpose Internet Mail Extensions (S/MIME) Capabilities, S. Santesson. December 2005.
+
+RFC4509, Request for Comments: 4509, Use of SHA-256 in DNSSEC Delegation Signer (DS) Resource Records (RRs). W. Hardaker. May 2006.
 
 RFC 5019, Request for Comments: 5019, The Lightweight Online Certificate Status Protocol (OCSP) Profile for High-Volume Environments, A. Deacon, et al. September 2007.
 
+RFC5155, Request for Comments: 5155, DNS Security (DNSSEC) Hashed Authenticated Denial of Existence. B. Laurie, et al. March 2008.
+
 RFC 5280, Request for Comments: 5280, Internet X.509 Public Key Infrastructure: Certificate and Certificate Revocation List (CRL) Profile, D. Cooper et al. May 2008.
+
+RFC5702, Request for Comments: 5702, Use of SHA-2 Algorithms with RSA in DNSKEY and RRSIG Resource Records for DNSSEC. J. Jansen. October 2009.
 
 RFC 6818, Updates to the Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile, P. Yee. January 2013.
 
-RFC 6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP. S. Santesson, et al. June 2013.
+RFC6840, Request for Comments: 6840, Clarifications and Implementation Notes for DNS Security (DNSSEC). S. Weiler, et al. February 2013.
+
+RFC 6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP, S. Santesson, et al. June 2013.
+
+RFC 8823, Request for Comments: 8823, Extensions to Automatic Certificate Management Environment for End-User S/MIME Certificates, A. Melnikov. April 2021.
+
+RFC 8555,  Request for Comments: 8555, Automatic Certificate Management Environment (ACME), R. Barnes et al. March 2019.
 
 RFC 9598, Request for Comments: 9598, Internationalized Email Addresses in X.509 Certificates, A. Melnikov, et al. May 2024.
 
-RFC 8499, Request for Comments: 8499, DNS Terminology. P. Hoffman, et al. January 2019.
+RFC 8499, Request for Comments: 8499, DNS Terminology, P. Hoffman, et al. January 2019.
 
 RFC 9495, Request for Comments: 9495, Certification Authority Authorization (CAA) Processing for Email Addresses, C. Bonnell. October 2023.
+
+RFC 9598, Request for Comments: 9598, Internationalized Email Addresses in X.509 Certificates, A. Melnikov, et al. May 2024.
 
 "TLS Baseline Requirements" means the current version of the CA/Browser Forum's "Baseline Requirements for the Issuance and Management of Publicly‐Trusted TLS Server Certificates". See https://cabforum.org/baseline-requirements-documents/
 
@@ -624,6 +650,16 @@ The Random Value SHALL be reset upon each instance of the email sent by the CA t
 The CA MAY confirm the Applicant's control over each Mailbox Field to be included in the Certificate by confirming control of the SMTP FQDN to which a message delivered to the Mailbox Address should be directed. The SMTP FQDN SHALL be identified using the address resolution algorithm defined in [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1) which determines which SMTP FQDNs are authoritative for a given Mailbox Address. If more than one SMTP FQDN has been discovered, the CA SHALL verify control of an SMTP FQDN following the selection process at [RFC 5321 Section 5.1](https://datatracker.ietf.org/doc/html/rfc5321#section-5.1). Aliases in MX record RDATA SHALL NOT be used for this validation method.
 
 To confirm the Applicant's control of the SMTP FQDN, the CA SHALL use only the currently-approved methods in [Section 3.2.2.4](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3224-validation-of-domain-authorization-or-control) of the TLS Baseline Requirements.
+
+#### 3.2.2.4 Validating control over mailbox using ACME extensions
+
+The CA MAY confirm the Applicant's control over each Mailbox Field to be included in a Certificate using ACME for S/MIME as defined in [RFC 8823](https://datatracker.ietf.org/doc/html/rfc8823). The CA's ACME server MAY respond to a POST request by sending the Random Value token components via email and SMTP, and then receiving a confirming response utilizing the generated Random Value, in accordance with [RFC 8823](https://datatracker.ietf.org/doc/html/rfc8823).
+
+Control over each Mailbox Address SHALL be confirmed using a newly-generated Random Value. The Random Value token components SHALL only be shared in accordance with [RFC 8823](https://datatracker.ietf.org/doc/html/rfc8823). As defined by [RFC 8823](https://datatracker.ietf.org/doc/html/rfc8823), `token-part1` SHALL contain at least 128 bits of entropy and `token-part2` SHOULD contain at least 128 bits of entropy.
+
+The Random Value SHALL NOT be reused by the CA for other Certificate Requests. The Random Value SHALL remain valid for use in a confirming response for no more than 24 hours from its creation. The CA MAY specify a shorter validity period for Random Values in its CP and/or CPS.
+
+Implementations MAY use ACME External Account Binding as defined by [RFC 8555](https://datatracker.ietf.org/doc/html/rfc8555).  
 
 ### 3.2.3 Authentication of organization identity
 
@@ -942,7 +978,7 @@ Starting on March 15, 2025 prior to issuing a Certificate that includes a Mailbo
 
 Some methods relied upon for validating the Applicant's control over the domain portion of the Mailbox Address to be used in the Certificate (see [Section 3.2.2.1](#3221-validating-authority-over-mailbox-via-domain) and [Section 3.2.2.3](#3223-validating-applicant-as-operator-of-associated-mail-servers)) require CAA records to be retrieved and processed from additional remote Network Perspectives before Certificate issuance (see [Section 4.2.2.2](#4222-multi-perspective-issuance-corroboration)). To corroborate the Primary Network Perspective, a remote Network Perspective's CAA check response MUST be interpreted as permission to issue, regardless of whether the responses from both Perspectives are byte-for-byte identical. Additionally, a CA MAY consider the response from a remote Network Perspective as corroborating if one or both of the Perspectives experience an acceptable CAA record lookup failure, as defined in this section.
 
-When processing CAA records, CAs SHALL process the `issuemail` property tag as specified in RFC 9495. Additional property tags MAY be supported, but SHALL NOT conflict with or supersede the authorizations to issue S/MIME Certificates as specified in the `issuemail` property tag. 
+When processing CAA records, CAs SHALL process the `issuemail` property tag as specified in [RFC 9495](https://datatracker.ietf.org/doc/html/rfc9495). Additional property tags MAY be supported, but SHALL NOT conflict with or supersede the authorizations to issue S/MIME Certificates as specified in the `issuemail` property tag. 
 
 If the CA issues a Certificate following a CAA check, they SHALL do so within the TTL of the CAA record, or 8 hours, whichever is greater. This stipulation does not prevent the CA from checking CAA records at any other time.
 
@@ -956,9 +992,26 @@ CAs are permitted to treat a record lookup failure as permission to issue if:
 
 * the failure is outside the CA's infrastructure; and
 * the lookup has been retried at least once; and
-* the domain's zone does not have a DNSSEC validation chain to the ICANN root.
+* the CA has confirmed that the domain is "Insecure" as defined in [RFC 4035 Section 4.3](https://datatracker.ietf.org/doc/html/rfc4035#section-4.3).
 
 CAs MUST document potential issuances that were prevented by a CAA record in sufficient detail to provide feedback to the CA/Browser Forum on the circumstances, and SHOULD dispatch reports of such issuance requests to the contact(s) stipulated in the CAA iodef record(s), if present. CAs are not expected to support URL schemes in the iodef record other than mailto: or https:.
+
+##### 4.2.2.1.1 DNSSEC validation of CAA records
+
+Effective March 15, 2026 DNSSEC validation back to the IANA DNSSEC root trust anchor MUST be performed on all DNS queries associated with CAA record lookups performed by the Primary Network Perspective. The DNS resolver used for all DNS queries associated with CAA record lookups performed by the Primary Network Perspective MUST:
+
+* perform DNSSEC validation using the algorithm defined in [RFC 4035 Section 5](https://datatracker.ietf.org/doc/html/rfc4035#section-5); and
+* support NSEC3 as defined in [RFC 5155](https://datatracker.ietf.org/doc/html/rfc5155); and 
+* support SHA-2 as defined in [RFC 4509](https://datatracker.ietf.org/doc/html/rfc4509) and [RFC 5702](https://datatracker.ietf.org/doc/html/rfc5702); and
+* properly handle the security concerns enumerated in [RFC 6840 Section 4](https://datatracker.ietf.org/doc/html/rfc6840#section-4).
+
+Effective March 15, 2026 CAs MUST NOT use local policy to disable DNSSEC validation on any DNS query associated with CAA record lookups.
+
+Effective March 15, 2026 DNSSEC-validation errors observed by the Primary Network Perspective (e.g., SERVFAIL) MUST NOT be treated as permission to issue.
+
+DNSSEC validation back to the IANA DNSSEC root trust anchor MAY be performed on all DNS queries associated with CAA record lookups performed by Remote Network Perspectives as part of Multi-Perspective Issuance Corroboration.
+
+DNSSEC validation back to the IANA DNSSEC root trust anchor is considered outside the scope of self-audits performed to fulfill the requirements in [Section 8.7](#87-self-audits).
 
 #### 4.2.2.2 Multi-perspective issuance corroboration
 
@@ -1683,6 +1736,20 @@ For ECDSA key pairs, the CA SHALL:
 For EdDSA key pairs, the CA SHALL:
 
 * Ensure that the key represents a valid point on the curve25519 or curve 448 elliptic curve.
+
+For ML-DSA key pairs, the CA SHALL:
+
+* Ensure the Key uses one of the following parameter sets:
+  * ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), or
+  * ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or
+  * ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19).
+
+For ML-KEM key pairs, the CA SHALL:
+
+* Ensure the Key uses one of the following parameter sets:
+  * ML-KEM-512 (OID: 2.16.840.1.101.3.4.4.1), or
+  * ML-KEM-768 (OID: 2.16.840.1.101.3.4.4.2), or
+  * ML-KEM-1024 (OID: 2.16.840.1.101.3.4.4.3).
   
 No other algorithms or key sizes are permitted.
 
@@ -1693,6 +1760,10 @@ For RSA key pairs: the CA SHALL confirm that the value of the public exponent is
 For ECDSA key pairs: the CA SHOULD confirm the validity of all keys using either the ECC Full Public Key Validation Routine or the ECC Partial Public Key Validation Routine. (See NIST SP 800-56A: Revision 2, Sections 5.6.2.3.2 and 5.6.2.3.3.)
 
 For EdDSA key pairs: no stipulation.
+
+For ML-DSA key pairs: no stipulation.
+
+For ML-KEM key pairs: no stipulation.
 
 ### 6.1.7 Key usage purposes (as per X.509 v3 key usage field)
 
@@ -1959,7 +2030,11 @@ e. `keyUsage` (SHALL be present)
    | Strict | For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment` and MAY be set for `nonRepudiation`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement`, MAY be set for `nonRepudiation`, and MAY be set for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).| Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`. |
    | Multipurpose<br> and Legacy | For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyEncipherment` and MAY be set for `dataEncipherment`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyEncipherment`, MAY be set for `nonRepudiation`, and MAY be set for `dataEncipherment`. |For signing only, bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br>For key management only, bit positions SHALL be set for `keyAgreement` and MAY be set for `encipherOnly` or `decipherOnly`.<br>For dual use, bit positions SHALL be set for `digitalSignature` and `keyAgreement`, MAY be set for `nonRepudiation`, and MAY be set for `encipherOnly` or `decipherOnly` (only if `keyAgreement` is set).| Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`. |
 
-   Other bit positions SHALL NOT be set.
+  Other bit positions SHALL NOT be set.
+
+   | Generation | `id-ml-dsa`       | `id-ml-kem`            |
+   |------|-----------------------|-----------------------------|
+   | Legacy and <br>Multipurpose<br> and Strict | Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br> Other bit positions SHALL NOT be set. | `keyEncipherment` SHALL be the only key usage set. |
 
 f. `extKeyUsage` (SHALL be present)
 
@@ -2077,6 +2152,38 @@ When encoded, the `AlgorithmIdentifier` for EdDSA keys SHALL be byte-for-byte id
 * For Curve25519 keys, `300506032b6570`.
 * For Curve448 keys, `300506032b6571`.
 
+##### 7.1.3.2.4 ML-DSA
+
+The CA SHALL indicate an ML-DSA key using one of the following algorithm identifiers below:
+
+  * ML-DSA-44 (OID: 2.16.840.1.101.3.4.3.17), or
+  * ML-DSA-65 (OID: 2.16.840.1.101.3.4.3.18), or
+  * ML-DSA-87 (OID: 2.16.840.1.101.3.4.3.19).
+
+The parameters for ML-DSA keys SHALL be absent. The CA MUST NOT use HashML-DSA; only "pure" ML-DSA is permitted.
+
+When encoded, the AlgorithmIdentifier for ML-DSA keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
+
+* For ML-DSA-44, `300b0609608648016503040311`.
+* For ML-DSA-65, `300b0609608648016503040312`.
+* For ML-DSA-87, `300b0609608648016503040313`.
+
+##### 7.1.3.2.5 ML-KEM
+
+The CA SHALL indicate an ML-KEM key using one of the following algorithm identifiers below:
+
+  * ML-KEM-512 (OID: 2.16.840.1.101.3.4.4.1), or
+  * ML-KEM-768 (OID: 2.16.840.1.101.3.4.4.2), or
+  * ML-KEM-1024 (OID: 2.16.840.1.101.3.4.4.3).
+
+The parameters for ML-KEM keys SHALL be absent.
+
+When encoded, the AlgorithmIdentifier for ML-KEM keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
+
+* For ML-KEM-512, `300b0609608648016503040401`.
+* For ML-KEM-768, `300b0609608648016503040402`.
+* For ML-KEM-1024, `300b0609608648016503040403`.
+
 #### 7.1.3.2 Signature AlgorithmIdentifier
 
 All objects signed by a CA Private Key SHALL conform to these requirements on the use of the `AlgorithmIdentifier` or `AlgorithmIdentifier`-derived type in the context of signatures.
@@ -2158,6 +2265,16 @@ If the signing key is Curve25519, the signature algorithm SHALL be id-Ed25519 (O
 
 If the signing key is Curve448, the signature algorithm SHALL be id-Ed448 (OID: 1.3.101.113). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300506032b6571`.
 
+##### 7.1.3.2.4 ML-DSA
+
+The CA SHALL use the appropriate signature algorithm and encoding based upon the signing key used.
+
+If the signing key is ML-DSA-44, the signature algorithm SHALL be id-ml-dsa-44 (OID: 2.16.840.1.101.3.4.3.17). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300b0609608648016503040311`.
+
+If the signing key is ML-DSA-65, the signature algorithm SHALL be id-ml-dsa-65 (OID: 2.16.840.1.101.3.4.3.18). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300b0609608648016503040312`.
+
+If the signing key is ML-DSA-87, the signature algorithm SHALL be id-ml-dsa-87 (OID: 2.16.840.1.101.3.4.3.19). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300b0609608648016503040313`.
+
 ### 7.1.4 Name forms
 
 Attribute values SHALL be encoded according to [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280).
@@ -2186,9 +2303,9 @@ __Contents:__ This extension SHALL contain at least one `GeneralName` entry of t
 * `Rfc822Name` and/or
 * `otherName` of type `id-on-SmtpUTF8Mailbox`, encoded in accordance with [RFC 9598](https://datatracker.ietf.org/doc/html/rfc9598)
 
-All Mailbox Addresses in the `subject` field or entries of type `dirName` of this extension SHALL be repeated as `rfc822Name` or `otherName` values of type `id-on-SmtpUTF8Mailbox` in this extension.
+All Mailbox Addresses in the `subject` field or entries of type `directoryName` of this extension SHALL be repeated as `rfc822Name` or `otherName` values of type `id-on-SmtpUTF8Mailbox` in this extension.
 
-The CA MAY include `GeneralName` entries of type `dirName` provided that the information contained in the `Name` complies with the requirements set forth in the appropriate subsection of [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields) according to the Certificate Type. Additionally, information contained in the `Name` SHALL be validated according to [Section 3.1](#31-naming), [Section 3.2.3](#323-authentication-of-organization-identity), and/or [Section 3.2.4](#324-authentication-of-individual-identity), as appropriate for the Certificate Type.
+The CA MAY include `GeneralName` entries of type `directoryName` provided that the information contained in the `Name` complies with the requirements set forth in Sections [7.1.4.2.2](#71422-subject-distinguished-name-fields) through [7.1.4.2.6](#71426-subject-dn-attributes-for-individual-validated-profile), according to the Certificate Type. Additionally, information contained in the `Name` SHALL be validated according to [Section 3.1](#31-naming), [Section 3.2.3](#323-authentication-of-organization-identity), and/or [Section 3.2.4](#324-authentication-of-individual-identity), as appropriate for the Certificate Type.
 
 For Legacy and Multipurpose Generation profiles, then the CA MAY include `otherName` entries of any type, provided that the CA has validated the field value according to its CP and/or CPS.
 
@@ -2225,30 +2342,46 @@ c. __Certificate Field:__ `subject:organizationalUnitName` (OID: 2.5.4.11)
    __Contents:__ If present, the CA SHALL confirm that the `subject:organizationalUnitName` is the full legal organization name of an Affiliate of the `subject:organizationName` in the Certificate and has been verified in accordance with the requirements of [Section 3.2.3](#323-authentication-of-organization-identity). The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations.
 
 d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)  
-   __Contents:__ If present, the `subject:organizationIdentifier` field SHALL contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. The Registration Reference SHOULD be unique where the Registration Scheme and jurisdiction provide unique identifiers. 
+   __Contents:__ If present, the `subject:organizationIdentifier` field SHALL contain a Registration Reference for a Legal Entity assigned in accordance to the identified Registration Scheme. The Registration Reference SHOULD be unique where the Registration Scheme and jurisdiction provide unique identifiers.
 
    The `subject:organizationIdentifier` SHALL be encoded as a PrintableString or UTF8String.
 
-   The Registration Scheme identified in the Certificate SHALL be the result of the verification performed in accordance with [Section 3.2.3](#323-authentication-of-organization-identity). The Registration Scheme SHALL be identified using the following structure in the presented order:
+   The Registration Scheme identified in the Certificate SHALL be the result of the verification performed in accordance with [Section 3.2.3](#323-authentication-of-organization-identity). 
+   
+   If the Registration Reference is assigned at the country level, the Registration Scheme SHALL be identified using the following structure in the presented order:
 
-    * 3 character Registration Scheme identifier;
-    * 2 character ISO 3166-1 country code for the nation in which the Registration Scheme is operated, or if the scheme is operated globally (such as LEI) then the ISO 3166-1 code "XG" SHALL be used;
-    * For the NTR Registration Scheme identifier, where registrations are administrated at the subdivision (state or province) level, a plus "+" (0x2B (ASCII), U+002B (UTF-8)) followed by an up-to-three alphanumeric character ISO 3166-2 identifier for the subdivision of the nation in which the Registration Scheme is operated;
-    * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8));
+    * 3 character Registration Scheme identifier; and
+    * 2 character ISO 3166-1 country code for the nation in which the Registration Scheme is operated, or as described in Note 1; and
+    * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8)); and
+    * Registration Reference allocated in accordance with the identified Registration Scheme (or as described in Note 3).
+
+If the Registration Reference is assigned at the subdivision (state or province) level and is not unique at the national level, the Registration Scheme SHALL be identified using the following structure in the presented order:
+
+    * 3 character Registration Scheme identifier; and
+    * 2 character ISO 3166-1 country code for the nation in which the Registration Scheme is operated; and
+    * plus "+" (0x2B (ASCII), U+002B (UTF-8)); and 
+    * up-to-3 character ISO 3166-2 identifier for the subdivision; and
+    * a hyphen-minus "-" (0x2D (ASCII), U+002D (UTF-8)); and
     * Registration Reference allocated in accordance with the identified Registration Scheme.
 
-   **Note 1**: Registration References MAY contain hyphens but Registration Schemes, ISO 3166-1 country codes, and ISO 3166-2 identifiers do not. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
+ Registration References MAY contain hyphens but Registration Schemes, ISO 3166-1 country codes, and ISO 3166-2 identifiers SHALL NOT contain hyphens. Therefore if more than one hyphen appears in the structure, the leftmost hyphen is a separator, and the remaining hyphens are part of the Registration Reference. For example:
 
     * `NTRGB-12345678` (NTR scheme, Great Britain, Registration Reference at Country level is 12345678).
     * `NTRUS+CA-12345678` (NTR Scheme, United States - California, Registration Reference at State level is 12345678).
-    * `VATDE-123456789` (VAT Scheme, Germany, Registration Reference at Country Level is 12345678).
-    * `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, NCA's identifier is NBB, Registration Reference assigned by the NCA is 1234.567.890).
+    * `PSDBE-NBB-1234.567.890` (PSD Scheme, Belgium, National Competent Authority identifier is NBB, Registration Reference assigned by the NCA is 1234.567.890).
+    * `VATEL-123456789` (VAT Scheme, Greece using EU Council Directive 2006/112/EC as amended, Registration Reference is 12345678).
 
    Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes) are recognized as valid under these Requirements. The CA SHALL:
 
    1. Confirm that the organization represented by the Registration Reference is the same as the organization named in the `organizationName` field as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields); and
    2. Further verify the Registration Reference matches other information verified in accordance with [Section 3.2.3](#323-authentication-of-organization-identity).
+   
+   **Note 1**: With the exception of the LEI and INT Registration Schemes, if a `subject:countryName` is present in the Certificate the country code used in the Registration Scheme identifier SHALL match that of the `subject:countryName` in the Certificate. 
 
+   For the VAT Registration Scheme, the country prefix described in Article 215 of EU Council Directive 2006/112/EC, as amended, MAY be used instead of the ISO 3166-1 country code. If the country prefix described in Article 215 of EU Council Directive 2006/112/EC is used, the `subject:countryName` attribute, if present, SHALL contain the corresponding ISO 3166-1 country code.
+   
+   For the LEI Registration Scheme, the ISO 3166-1 code "XG" SHALL be used. 
+   
    **Note 2**: For the following types of entities that do not have an identifier from the Registration Schemes listed in [Appendix A](#appendix-a---registration-schemes):
 
     * For Government Entities, the CA SHALL enter the Registration Scheme identifier ‘GOV’ followed by the 2 character ISO 3166-1 country code for the nation in which the Government Entity is located.  If the Government Entity is verified at a subdivision (state or province) level, then a plus "+" (0x2B (ASCII), U+002B (UTF-8)) followed by an ISO 3166-2 identifier for the subdivision (up to three alphanumeric characters) is added.
@@ -2259,7 +2392,15 @@ d. __Certificate Field:__ `subject:organizationIdentifier` (2.5.4.97)
     * GOVUS+CA (Government Entity, United States - California)
     * INTXG (International Organization)
 
-   **Note 3**: For the NTR Registration Scheme, where the Legal Entity is registered within a European country, the NTR Registration Scheme SHALL be assigned at the country level.
+   **Note 3**: For the NTR Registration Scheme, when the Organization or Legal Entity is registered in the European Union or the European Economic Area, the Registration Reference MAY use the EUID identifier. When the Organization or Legal Entity is registered in Germany, the Registration Reference SHOULD use the EUID identifier. The structure of the EUID SHALL be as follows:
+
+    * 2 character ISO 3166-1 country code, which must match the country code used in the leading string 'NTR'; and
+    * the business register identifier for the particular section or office of the domestic register that assigned the Registration Reference; and
+    * dot-sign ‘.’ (U+002E); and 
+    * the Registration Reference allocated by the domestic register.
+  
+    For example:
+    * NTRDE-DER3306.HRB12345 (DE is the country code for Germany, R3306 is the business register identifier for the district court in Cologne, and HRB12345 is the locally-assigned Registration Reference).
 
 e. __Certificate Field:__ `subject:givenName` (2.5.4.42) and/or `subject:surname` (2.5.4.4)  
    __Contents:__ If present, the `subject:givenName` field and `subject:surname` field SHALL contain a Natural Person Subject’s name as verified under [Section 3.2.4](#324-authentication-of-individual-identity). Subjects with a single legal name SHALL provide the name in the `subject:surname` attribute. The `subject:givenName` and/or `subject:surname` SHALL NOT be present if the `subject:pseudonym` is present.
@@ -2860,10 +3001,6 @@ No stipulation.
 ## A.1 organizationIdentifier
 
 The following Registration Schemes are recognized as valid under these Requirements for use in the `subject:organizationIdentifier` attribute described in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields), in addition to the GOV and INT identifiers described therein.
-
-With the exception of the LEI and INT Registration Schemes, as specified in [Section 7.1.4.2.2](#71422-subject-distinguished-name-fields), if a `subject:countryName` is present in the Certificate the country code used in the Registration Scheme identifier SHALL match that of the `subject:countryName` in the Certificate. 
-
-For the VAT Registration Scheme, for the purpose of identifying tax authorities, the country prefix described in Article 215 of EU Council Directive 2006/112/EC, as amended, MAY be used instead of the ISO 3166-1 country code. If the country prefix described in Article 215 of EU Council Directive 2006/112/EC is used, the `subject:countryName` attribute, if present, SHALL contain the corresponding ISO 3166-1 country code.
 
 * **NTR**: For an identifier allocated by a national or state trade register to the Legal Entity named in the `subject:organizationName`. 
 
