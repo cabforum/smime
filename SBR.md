@@ -740,15 +740,9 @@ This method does not include "eID" as described in Regulation (EU) 910/2014.
 
 3. **Using electronic identification schemes (eID)**
    
-If an eID or Mobile Driver License (mDL) is used as evidence, the CA or RA SHALL only accept:
+If an eID is used as evidence, the CA or RA SHALL only accept “notified” eID schemes according to Article 9 of the [eIDAS Regulation](https://eur-lex.europa.eu/eli/reg/2014/910/2024-05-20) and the eID shall conform to eIDAS LoA “Substantial” or “High”.
 
-  a. “notified” eID schemes according to Article 9 of the [eIDAS Regulation](https://eur-lex.europa.eu/eli/reg/2014/910/2024-05-20) and the eID shall conform to eIDAS LoA “Substantial” or “High”; or
-  b. mDLs with the following characteristics:
-   * The mDL SHALL be issued by a government authority officially recognized in its jurisdiction;
-   * The issuing authority SHALL demonstrate compliance with ISO/IEC 18013-5 and other applicable standards in the jurisdiction of the issuing authority; and
-   * The issuing authority SHALL maintain an accessible PKI to support digital signature validation of the mDL.
-
-The CA SHALL document and publish information describing the eID and mDL and associated attributes it accepts.
+The CA SHALL document and publish information describing the eID and associated eID attributes it accepts.
 
 4.	**From a certificate supporting a digital signature applied by the Applicant** 
 
@@ -780,7 +774,7 @@ In the case of `Sponsor-validated` Certificates approved by an Enterprise RA, re
 
 The Enterprise RA SHALL maintain records to satisfy the requirements of [Section 1.3.2](#132-registration-authorities) and [Section 8.8](#88-review-of-delegated-parties).
 
-1. **Affiliation from company attestation**
+6. **Affiliation from company attestation**
 
 In the case of `Sponsor-validated` Certificates not approved by an Enterprise RA, the CA or RA MAY verify the authority or affiliation of an Individual to represent an Organization to be included in the `subject:organizationName` of the Certificate using an Attestation provided by the Organization and verified in accordance with [Section 3.2.8](#328-reliability-of-verification-sources). 
 
@@ -804,6 +798,18 @@ Examples of this method include:
 * The CA MAY verify the address (but not the identity) of the Applicant using a utility bill, bank statement, credit card statement, government-issued tax document, or other form of identification that the CA determines to be reliable.
 
 The CA SHALL internally document the accepted reference sources, including a description of the documents or Attestations accepted as supplementary evidence.
+
+9. **Mobile Driver License (mDL)**
+
+If mDL is used as evidence, the CA or RA SHALL only accept an mDL that:
+
+* Whose Issuing Authority is authorized by the relevant government or jurisdiction to issue driving licences in accordance with applicable law; 
+* Conforms to ISO/IEC 18013-5 for the mDL application interface and data model; 
+* Implements the authentication and integrity mechanisms specified in ISO/IEC 18013-5, including the Mobile Security Object (MSO) signed by the Issuing Authority's Document Signer certificate; 
+* Supports validation through the verification protocols defined in ISO/IEC 18013-7; and
+* Can demonstrate a valid certificate chain from the Document Signer to an Issuing Authority Certificate that is verifiable through the issuing jurisdiction's published trust infrastructure.
+
+The CA SHALL document and publish information describing the mDL and associated attributes it accepts.
 
 #### 3.2.4.2 Validation of individual identity
 
