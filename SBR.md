@@ -799,7 +799,7 @@ Examples of this method include:
 
 The CA SHALL internally document the accepted reference sources, including a description of the documents or Attestations accepted as supplementary evidence.
 
-9. **Mobile Driver License (mDL)**
+9. **From a Mobile Driver License (mDL)**
 
 If an mDL is used as evidence, the CA or RA SHALL only accept an mDL that:
 
