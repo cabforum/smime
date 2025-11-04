@@ -801,7 +801,7 @@ The CA SHALL internally document the accepted reference sources, including a des
 
 9. **Mobile Driver License (mDL)**
 
-If mDL is used as evidence, the CA or RA SHALL only accept an mDL that:
+If an mDL is used as evidence, the CA or RA SHALL only accept an mDL that:
 
 * Whose Issuing Authority is authorized by the relevant government or jurisdiction to issue driving licences in accordance with applicable law; 
 * Conforms to ISO/IEC 18013-5 for the mDL application interface and data model; 
@@ -845,17 +845,9 @@ Automated and manual processes MAY be used in combination, (for example using au
 
 3. **Validation of eID**
    
-If authentication using an eID or mDL is used as evidence, the CA or RA SHALL confirm: 
+If authentication using an eID is used as evidence, the CA or RA SHALL confirm that the eID scheme is suitable (i.e., that the eID is accessible via a "notified" eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).
 
-  a. in the case of eID according to Article 9 of the [eIDAS Regulation](https://eur-lex.europa.eu/eli/reg/2014/910/2024-05-20), that the eID scheme is suitable (i.e., the eID is accessible via a "notified" eIDAS-Node).  
-  
-  b. in the case of mDL:
-   * the issuing authority is suitable (i.e., currently authorized by recognized trust frameworks for the jurisdiction of the issuing authority as a mobile drivers license); and
-   * the mDL attributes and digital signatures have been validated in accordance with ISO/IEC 18013-3, ISO/IEC 18013-7, and other applicable standards in the jurisdiction of the issuing authority.
-  
-  The CA or RA SHALL confirm that the individual eID or mDL is valid (i.e., not expired, suspended, or revoked).  
-
-The authentication using the eID or mDL SHALL be created as part of the identity validation process, and evidence of the validation with the eID or mDL's Identity Provider (IdP) SHALL be retained by the CA or RA.
+The authentication using the eID SHALL be created as part of the identity validation process, and evidence of the validation with the eID's Identity Provider (IdP) SHALL be retained by the CA or RA.
 
 4.	**Validation of digital signature with certificate** 
 
@@ -869,9 +861,19 @@ If required identity attributes to be collected are not present in the Certifica
 
 If an Attestation is used as evidence for the validation of Individual identity attributes, then the reliability of the Attestation SHALL be verified according to [Section 3.2.8](#328-reliability-of-verification-sources).
 
-1. **Validation using an Enterprise RA record**
+6. **Validation using an Enterprise RA record**
 
 An Enterprise RA issuing a Sponsor-validated Certificate SHALL validate all identity attributes of an Individual to be included in the Certificate. The Enterprise RA MAY rely upon existing internal records to validate Individual identity.
+
+7. **Validation of an mDL**
+
+If authentication using an mDL is used as evidence, the CA or RA SHALL:
+
+* Request mDL data in conformance with ISO/IEC 18013-7;
+* Verify the Mobile Security Object (MSO), including validate the certificate chain against the issuing jurisdiction's published trust anchor; and
+* Verify data integrity (i.e., confirm the data elements received match the digests in the signed MSO, verify the MSO's DocType matches "org.iso.18013.5.1.mDL", and check the MSO ValidityInfo dates.
+
+The authentication using the mDL SHALL be created as part of the identity validation process, and evidence of the validation (e.g., MSO signature, certificates used, timestamp) SHALL be retained by the CA or RA.
 
 ### 3.2.5 Non-verified subscriber information
 
