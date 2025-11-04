@@ -453,8 +453,6 @@ ISO 17442-1:2020, Financial services — Legal entity identifier (LEI) - Part 1:
 
 ISO 17442-2:2020, Financial services — Legal entity identifier (LEI) - Part 2: Application in digital certificates.
 
-ISO/IEC TS 18013-3, Information technology — Personal identification — ISO-compliant driving licence — Part 3: Access control, authentication and integrity validation.
-
 ISO/IEC TS 18013-5, Information technology — Personal identification — ISO-compliant driving licence — Part 5: Mobile driving licence (mDL) application.
 
 ISO/IEC TS 18013-7, Information technology — Personal identification — ISO-compliant driving licence — Part 7: Mobile Driving Licence (mDL) digital trust service.
