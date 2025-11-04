@@ -857,21 +857,29 @@ The CA or RA SHALL validate the digital signature and SHALL only use the signing
 
 If required identity attributes to be collected are not present in the Certificate, the CA or RA SHALL collect these attributes from other sources and validate them accordingly.
 
-5.	**Validation of an Attestation**
-
-If an Attestation is used as evidence for the validation of Individual identity attributes, then the reliability of the Attestation SHALL be verified according to [Section 3.2.8](#328-reliability-of-verification-sources).
-
-6. **Validation using an Enterprise RA record**
+5.	**Validation using an Enterprise RA record**
 
 An Enterprise RA issuing a Sponsor-validated Certificate SHALL validate all identity attributes of an Individual to be included in the Certificate. The Enterprise RA MAY rely upon existing internal records to validate Individual identity.
 
-7. **Validation of an mDL**
+6.  **Validation of a company attestation**
+
+If an Attestation is used as evidence for the validation of Individual identity attributes, then the reliability of the Attestation SHALL be verified according to [Section 3.2.8](#328-reliability-of-verification-sources).
+
+7.  **Validation of a general attestation**
+
+The reliability of the Attestation SHALL be verified according to [Section 3.2.8](#328-reliability-of-verification-sources).
+
+8.  **Validation of a supplementary evidence**
+
+No stipulation. 
+
+9. **Validation of an mDL**
 
 If authentication using an mDL is used as evidence, the CA or RA SHALL:
 
 * Request mDL data in conformance with ISO/IEC 18013-7;
 * Verify the Mobile Security Object (MSO), including validate the certificate chain against the issuing jurisdiction's published trust anchor; and
-* Verify data integrity (i.e., confirm the data elements received match the digests in the signed MSO, verify the MSO's DocType matches "org.iso.18013.5.1.mDL", and check the MSO ValidityInfo dates.
+* Verify data integrity (i.e., confirm the data elements received match the digests in the signed MSO, verify the MSO's DocType matches "org.iso.18013.5.1.mDL", and check the MSO ValidityInfo dates).
 
 The authentication using the mDL SHALL be created as part of the identity validation process, and evidence of the validation (e.g., MSO signature, certificates used, timestamp) SHALL be retained by the CA or RA.
 
