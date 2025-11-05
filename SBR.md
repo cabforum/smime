@@ -876,7 +876,7 @@ No stipulation.
 If authentication using an mDL is used to provide evidence, the CA or RA SHALL:
 
 * Request mDL data in conformance with ISO/IEC 18013-7;
-* Verify the Mobile Security Object (MSO), including validate the Document Signer's certificate chain against the issuing jurisdiction's published trust infrastructure; and
+* Verify the MSO, including validate the Document Signer's certificate chain against the issuing jurisdiction's published trust infrastructure; and
 * Verify data integrity (i.e., confirm the data elements received match the digests in the signed MSO, verify the MSO's DocType matches "org.iso.18013.5.1.mDL", and check the MSO ValidityInfo dates).
 
 The authentication using the mDL SHALL be created as part of the identity validation process, and evidence of the validation in accordance with ISO/IEC 18013-7 SHALL be retained by the CA or RA.
