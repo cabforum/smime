@@ -799,7 +799,7 @@ The CA SHALL internally document the accepted reference sources, including a des
 
 9. **From a Mobile Driver License (mDL)**
 
-If an mDL is used as evidence, the CA or RA SHALL only accept an mDL that:
+If an mDL is used to provide evidence, the CA or RA SHALL only accept an mDL that:
 
 * Whose Issuing Authority is authorized by the relevant government or jurisdiction to issue driving licences in accordance with applicable law; 
 * Conforms to ISO/IEC 18013-5 for the mDL application interface and data model; 
@@ -807,7 +807,7 @@ If an mDL is used as evidence, the CA or RA SHALL only accept an mDL that:
 * Supports validation through the verification protocols defined in ISO/IEC 18013-7; and
 * Can demonstrate a valid certificate chain from the Document Signer to an Issuing Authority Certificate that is verifiable through the issuing jurisdiction's published trust infrastructure.
 
-The CA SHALL document and publish information describing the mDL and associated attributes it accepts.
+The CA SHALL document and publish information describing the jurisdiction mDLs and associated attributes it accepts.
 
 #### 3.2.4.2 Validation of individual identity
 
@@ -879,7 +879,7 @@ If authentication using an mDL is used as evidence, the CA or RA SHALL:
 * Verify the Mobile Security Object (MSO), including validate the certificate chain against the issuing jurisdiction's published trust anchor; and
 * Verify data integrity (i.e., confirm the data elements received match the digests in the signed MSO, verify the MSO's DocType matches "org.iso.18013.5.1.mDL", and check the MSO ValidityInfo dates).
 
-The authentication using the mDL SHALL be created as part of the identity validation process, and evidence of the validation (e.g., MSO signature, certificates used, timestamp) SHALL be retained by the CA or RA.
+The authentication using the mDL SHALL be created as part of the identity validation process, and evidence of the validation in accordance with ISO/IEC 18013-7 SHALL be retained by the CA or RA.
 
 ### 3.2.5 Non-verified subscriber information
 
