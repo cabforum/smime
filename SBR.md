@@ -724,7 +724,7 @@ The CA SHALL document and publish the methods it uses to collect Individual iden
 
 1.	**From a physical identity document** 
 
-If physical identity documents are used as evidence, the CA or RA SHALL accept only government-issued passports or identity cards, and other official identity documents of comparable reliability (such as drivers license or military ID). 
+If physical identity documents are used to provide evidence, the CA or RA SHALL accept only government-issued passports or identity cards, and other official identity documents of comparable reliability (such as drivers license or military ID). 
 
 The physical identity document used as evidence SHALL contain a face photo and/or other information that can be compared with the Applicant's physical appearance.
 
@@ -732,19 +732,19 @@ The CA SHALL document and publish information describing the physical or digital
 
 2.	**From a digital identity document** 
 
-If digital identity documents (such as passports or national ID cards including a chip bearing digitally signed information about the holder) are used as evidence, the CA or RA SHALL only accept eMRTD digital identity documents according to ICAO 9303 part 10.
+If digital identity documents (such as passports or national ID cards including a chip bearing digitally signed information about the holder) are used to provide evidence, the CA or RA SHALL only accept eMRTD digital identity documents according to ICAO 9303 part 10.
 
 This method does not include "eID" as described in Regulation (EU) 910/2014.
 
 3. **Using electronic identification schemes (eID)**
    
-If an eID is used as evidence, the CA or RA SHALL only accept “notified” eID schemes according to Article 9 of the [eIDAS Regulation](https://eur-lex.europa.eu/eli/reg/2014/910/2024-05-20) and the eID shall conform to eIDAS LoA “Substantial” or “High”.
+If an eID is used to provide evidence, the CA or RA SHALL only accept “notified” eID schemes according to Article 9 of the [eIDAS Regulation](https://eur-lex.europa.eu/eli/reg/2014/910/2024-05-20) and the eID shall conform to eIDAS LoA “Substantial” or “High”.
 
 The CA SHALL document and publish information describing the eID and associated eID attributes it accepts.
 
 4.	**From a certificate supporting a digital signature applied by the Applicant** 
 
-If a digital signature is to be used as evidence, the CA or RA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under an Approved Framework described in this section. 
+If a digital signature is used to provide evidence, the CA or RA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under an Approved Framework described in this section. 
 
 Identity attributes are evidenced by the signing Certificate, not by the content of the signed document. The CA or RA SHALL only rely upon the signing Certificate as evidence for identity attributes if the digital signature is valid in accordance with the requirements of the relevant Approved Framework.
 
@@ -843,13 +843,13 @@ Automated and manual processes MAY be used in combination, (for example using au
 
 3. **Validation of eID**
    
-If authentication using an eID is used as evidence, the CA or RA SHALL confirm that the eID scheme is suitable (i.e., that the eID is accessible via a "notified" eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).
+If authentication using an eID is used to provide evidence, the CA or RA SHALL confirm that the eID scheme is suitable (i.e., that the eID is accessible via a "notified" eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).
 
 The authentication using the eID SHALL be created as part of the identity validation process, and evidence of the validation with the eID's Identity Provider (IdP) SHALL be retained by the CA or RA.
 
 4.	**Validation of digital signature with certificate** 
 
-If a digital signature with Certificate is used as evidence, the signature SHALL be created as part of the identity validation process.
+If a digital signature with Certificate is used to provide evidence, the signature SHALL be created as part of the identity validation process.
 
 The CA or RA SHALL validate the digital signature and SHALL only use the signing Certificate as evidence for identity attributes if the signature is valid.
 
@@ -861,7 +861,7 @@ An Enterprise RA issuing a Sponsor-validated Certificate SHALL validate all iden
 
 6.  **Validation of a company attestation**
 
-If an Attestation is used as evidence for the validation of Individual identity attributes, then the reliability of the Attestation SHALL be verified according to [Section 3.2.8](#328-reliability-of-verification-sources).
+If an Attestation is used to provide evidence for the validation of Individual identity attributes, then the reliability of the Attestation SHALL be verified according to [Section 3.2.8](#328-reliability-of-verification-sources).
 
 7.  **Validation of a general attestation**
 
@@ -873,10 +873,10 @@ No stipulation.
 
 9. **Validation of an mDL**
 
-If authentication using an mDL is used as evidence, the CA or RA SHALL:
+If authentication using an mDL is used to provide evidence, the CA or RA SHALL:
 
 * Request mDL data in conformance with ISO/IEC 18013-7;
-* Verify the Mobile Security Object (MSO), including validate the certificate chain against the issuing jurisdiction's published trust anchor; and
+* Verify the Mobile Security Object (MSO), including validate the Document Signer's certificate chain against the issuing jurisdiction's published trust infrastructure; and
 * Verify data integrity (i.e., confirm the data elements received match the digests in the signed MSO, verify the MSO's DocType matches "org.iso.18013.5.1.mDL", and check the MSO ValidityInfo dates).
 
 The authentication using the mDL SHALL be created as part of the identity validation process, and evidence of the validation in accordance with ISO/IEC 18013-7 SHALL be retained by the CA or RA.
