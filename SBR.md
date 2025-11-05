@@ -421,8 +421,6 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 ###  1.6.3 References
 
-AAMVA, American Association of Motor Vehicle Administrators, Mobile Driver License Digital Trust Service, https://www.aamva.org/identity/mobile-driver-license-digital-trust-service
-
 eIDAS: Regulation (EU) No 910/2014 as amended by Regulation (EU) 2024/1183 and Directive (EU) 2022/2555
 
 ETSI EN 319 403-1, Electronic Signatures and Trust Infrastructures (ESI); Trust Service Provider Conformity Assessment; Part 1 - Requirements for conformity assessment bodies assessing Trust Service Providers.
