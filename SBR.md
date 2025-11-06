@@ -732,7 +732,7 @@ The CA SHALL document and publish information describing the physical or digital
 
 2.	**From a digital identity document** 
 
-If digital identity documents (such as passports or national ID cards including a chip bearing digitally signed information about the holder) are used to provide evidence, the CA or RA SHALL only accept eMRTD digital identity documents in compliance with ICAO 9303 part 10.
+If digital identity documents (such as government-issued passports or national ID cards including a chip bearing digitally signed information about the holder) are used to provide evidence, the CA or RA SHALL only accept eMRTD digital identity documents in compliance with ICAO 9303 part 10.
 
 This method does not include "eID" as described in Regulation (EU) 910/2014.
 
@@ -833,7 +833,7 @@ Automated and manual processes MAY be used in combination, (for example the CA o
 
 2.	**Validation of a digital identity document**
 
-The CA or RA SHALL only accept digital identity documents if the issuer's digital signature on the document is successfully validatedagainst the relevant country signing certificates, (e.g., from the ICAO Public Key Database).
+The CA or RA SHALL only accept digital identity documents if the issuer's digital signature on the document is successfully validated against the relevant country signing certificates (e.g., from the [ICAO Public Key Database](https://www.icao.int/icao-pkd)).
 
 The CA or RA SHALL record information obtained from the digital identity document to evidence the identity proofing process. In addition to identity attributes and face photo, the following information SHALL be recorded: issuer, validity period, and the document's unique identification number.
 
