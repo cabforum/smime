@@ -803,9 +803,9 @@ If an mDL is used to provide evidence, the CA or RA SHALL only accept an mDL tha
 
 * Whose Issuing Authority is authorized by the relevant government or jurisdiction to issue driving licences in accordance with applicable law; 
 * Conforms to ISO/IEC 18013-5 for the mDL application interface and data model; 
-* Implements the authentication and integrity mechanisms specified in ISO/IEC 18013-5, including the Mobile Security Object (MSO) signed by the Issuing Authority's Document Signer certificate; 
+* Implements the authentication and integrity mechanisms specified in ISO/IEC 18013-5, including the Mobile Security Object (MSO) signed by the Issuing Authority's Document Signer Certificate; 
 * Supports validation through the verification protocols defined in ISO/IEC 18013-7; and
-* Can demonstrate a valid certificate chain from the Document Signer to an Issuing Authority Certificate that is verifiable through the issuing jurisdiction's published trust infrastructure.
+* Can demonstrate a valid Certificate chain from the Document Signer to an Issuing Authority Certificate that is verifiable through the issuing jurisdiction's published trust infrastructure.
 
 The CA SHALL document and publish information describing the jurisdiction mDLs and associated attributes it accepts.
 
@@ -833,7 +833,7 @@ Automated and manual processes MAY be used in combination, (for example the CA o
 
 2.	**Validation of a digital identity document**
 
-The CA or RA SHALL only accept digital identity documents if the issuer's digital signature on the document is successfully validated against the relevant country signing certificates (e.g., from the [ICAO Public Key Database](https://www.icao.int/icao-pkd)).
+The CA or RA SHALL only accept digital identity documents if the issuer's digital signature on the document is successfully validated against the relevant country signing Certificates (e.g., from the [ICAO Public Key Database](https://www.icao.int/icao-pkd)).
 
 The CA or RA SHALL record information obtained from the digital identity document to evidence the identity proofing process. In addition to identity attributes and face photo, the following information SHALL be recorded: issuer, validity period, and the document's unique identification number.
 
@@ -876,7 +876,7 @@ No stipulation.
 If authentication using an mDL is used to provide evidence, the CA or RA SHALL:
 
 * Request mDL data in conformance with ISO/IEC 18013-7;
-* Verify the MSO, including validate the Document Signer's certificate chain against the issuing jurisdiction's published trust infrastructure; and
+* Verify the MSO, including validate the Document Signer's Certificate chain against the issuing jurisdiction's published trust infrastructure; and
 * Verify data integrity (i.e., confirm the data elements received match the digests in the signed MSO, verify the MSO's DocType matches "org.iso.18013.5.1.mDL", and check the MSO ValidityInfo dates).
 
 The authentication using the mDL SHALL be created as part of the identity validation process, and evidence of the validation in accordance with ISO/IEC 18013-7 SHALL be retained by the CA or RA.
@@ -1056,7 +1056,7 @@ CAs are encouraged to contribute to open-source Linting projects, such as by:
 * Updating documentation of existing lints; and 
 * Generating test Certificates for positive/negative tests of specific lints.
 
-#### 4.3.1.3 Linting of issued Certificates
+#### 4.3.1.3 Linting of issued certificates
 
 CAs MAY use a Linting process to test each issued Certificate.
 
@@ -1806,7 +1806,7 @@ Parties other than the Subordinate CA SHALL NOT archive the Subordinate CA Priva
 
 ### 6.2.6 Private key transfer into or from a cryptographic module
 
-If the Issuing CA generated the Private Key on behalf of the Subordinate CA, then the Issuing CA SHALL encrypt the Private Key for transport to the Subordinate CA. If the Issuing CA becomes aware that a Subordinate CA's Private Key has been communicated to an unauthorized person or an organization not Affiliated with the Subordinate CA, then the Issuing CA SHALL revoke all certificates that include the Public Key corresponding to the communicated Private Key.
+If the Issuing CA generated the Private Key on behalf of the Subordinate CA, then the Issuing CA SHALL encrypt the Private Key for transport to the Subordinate CA. If the Issuing CA becomes aware that a Subordinate CA's Private Key has been communicated to an unauthorized person or an organization not Affiliated with the Subordinate CA, then the Issuing CA SHALL revoke all Certificates that include the Public Key corresponding to the communicated Private Key.
 
 ### 6.2.7 Private key storage on cryptographic module
 
@@ -1863,7 +1863,7 @@ No stipulation.
 
 ### 6.5.1 Specific computer security technical requirements
 
-The CA SHALL enforce multi-factor authentication for all accounts capable of directly causing certificate issuance.
+The CA SHALL enforce multi-factor authentication for all accounts capable of directly causing Certificate issuance.
 
 ### 6.5.2 Computer security rating
 
