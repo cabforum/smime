@@ -1884,21 +1884,122 @@ Not applicable.
 
 #### 7.1.2.8 OCSP Responder Certificate Profile
 
+If the Issuing CA does not directly sign OCSP responses, it MAY make use of an OCSP Authorized Responder, as defined by [RFC 6960](https://tools.ietf.org/html/rfc6960#section-4.2.2.2). The Issuing CA of the Responder MUST be the same as the Issuing CA for the Certificates it provides responses for.
+
+| __Field__                  | __Description__ |
+| ---                        | ------          |
+| `tbsCertificate`           | |
+|     `version`              | MUST be v3(2) |
+|     `serialNumber`         | MUST be a non-sequential number greater than zero (0) and less than 2¹⁵⁹ containing at least 64 bits of output from a CSPRNG. |
+|     `signature`            | See [Section 7.1.3.2](#7132-signature-algorithmidentifier) |
+|     `issuer`               | MUST be byte-for-byte identical to the `subject` field of the Issuing CA. See [Section 7.1.4.1](#7141-name-encoding) |
+|     `validity`             | See [Section 7.1.2.8.1](#71281-ocsp-responder-validity) |
+|     `subject`              | See [Section 7.1.2.10.2](#712102-ca-certificate-naming) |
+|     `subjectPublicKeyInfo` | See [Section 7.1.3.1](#7131-subjectpublickeyinfo) |
+|     `issuerUniqueID`       | MUST NOT be present |
+|     `subjectUniqueID`      | MUST NOT be present |
+|     `extensions`           | See [Section 7.1.2.8.2](#71282-ocsp-responder-extensions) |
+| `signatureAlgorithm`       | Encoded value MUST be byte-for-byte identical to the `tbsCertificate.signature`. |
+| `signature`                | |
+
 ##### 7.1.2.8.1 OCSP Responder Validity
+
+| __Field__   | __Minimum__                          | __Maximum__ |
+| --          | ----                                 | ----        |
+| `notBefore` | One day prior to the time of signing | The time of signing |
+| `notAfter`  | The time of signing                  | Unspecified |
 
 ##### 7.1.2.8.2 OCSP Responder Extensions
 
+| __Extension__                     | __Presence__    | __Critical__ | __Description__ |
+| ---                               | --              | --           | ---             |
+| `authorityKeyIdentifier`          | MUST            | N            | See [Section 7.1.2.11.1](#712111-authority-key-identifier) |
+| `extKeyUsage`                     | MUST            | -            | See [Section 7.1.2.8.5](#71285-ocsp-responder-extended-key-usage) |
+| `id-pkix-ocsp-nocheck`            | MUST            | N            | See [Section 7.1.2.8.6](#71286-ocsp-responder-id-pkix-ocsp-nocheck) |
+| `keyUsage`                        | MUST            | Y            | See [Section 7.1.2.8.7](#71287-ocsp-responder-key-usage) |
+| `basicConstraints`                | MAY             | Y            | See [Section 7.1.2.8.4](#71284-ocsp-responder-basic-constraints) |
+| `nameConstraints`                 | MUST NOT        | -            | - |
+| `subjectAltName`                  | MUST NOT        | -            | - |
+| `subjectKeyIdentifier`            | SHOULD          | N            | See [Section 7.1.2.11.4](#712114-subject-key-identifier) |
+| `authorityInformationAccess`      | NOT RECOMMENDED | N            | See [Section 7.1.2.8.3](#71283-ocsp-responder-authority-information-access) |
+| `certificatePolicies`             | MUST NOT        | N            | See [Section 7.1.2.8.8](#71288-ocsp-responder-certificate-policies) |
+| `crlDistributionPoints`           | MUST NOT        | N            | See [Section 7.1.2.11.2](#712112-crl-distribution-points) |
+| Signed Certificate Timestamp List | MAY             | N            | See [Section 7.1.2.11.3](#712113-signed-certificate-timestamp-list) |
+| Any other extension               | NOT RECOMMENDED | -            | See [Section 7.1.2.11.5](#712115-other-extensions) |
+
 ##### 7.1.2.8.3 OCSP Responder Authority Information Access
+
+For OCSP Responder certificates, this extension is NOT RECOMMENDED, as the Relying Party should already possess the necessary information. In order to validate the given Responder certificate, the Relying Party must have access to the Issuing CA's certificate, eliminating the need to provide `id-ad-caIssuers`. Similarly, because of the requirement for an OCSP Responder certificate to include the `id-pkix-ocsp-nocheck` extension, it is not necessary to provide `id-ad-ocsp`, as such responses will not be checked by Relying Parties.
+
+If present, the `AuthorityInfoAccessSyntax` MUST contain one or more `AccessDescription`s. Each `AccessDescription` MUST only contain a permitted `accessMethod`, as detailed below, and each `AuthorityInfoAccessSyntax` MUST contain all required `AccessDescription`s.
+
+| __Access Method__ | __OID__            | __Access Location__         | __Presence__    | __Maximum__ | __Description__ |
+| -                 | -                  | --                          | --              | -           | ---             |
+| `id-ad-ocsp`      | 1.3.6.1.5.5.7.48.1 | `uniformResourceIdentifier` | NOT RECOMMENDED | \*         | A HTTP URL of the Issuing CA's OCSP responder. |
+| Any other value   | -                  | -                           | MUST NOT        | -          | No other `accessMethod`s may be used. |
 
 ##### 7.1.2.8.4 OCSP Responder Basic Constraints
 
+OCSP Responder certificates MUST NOT be CA certificates. The issuing CA may indicate this one of two ways: by omission of the `basicConstraints` extension, or through the inclusion of a `basicConstraints` extension that sets the `cA` boolean to FALSE.
+
+| __Field__           | __Description__ |
+| ---                 | ------- |
+| `cA`                | MUST be FALSE |
+| `pathLenConstraint` | MUST NOT be present |
+
+**Note**: Due to DER encoding rules regarding the encoding of DEFAULT values within OPTIONAL fields, a `basicConstraints` extension that sets the `cA` boolean to FALSE MUST have an `extnValue` `OCTET STRING` which is exactly the hex-encoded bytes `3000`, the encoded representation of an empty ASN.1 `SEQUENCE` value.
+
 ##### 7.1.2.8.5 OCSP Responder Extended Key Usage
+
+| __Key Purpose__                    | __OID__                 | __Presence__ |
+| ----                               | ----                    | --           |
+| `id-kp-OCSPSigning`                | 1.3.6.1.5.5.7.3.9       | MUST         |
+| Any other value                    | -                       | MUST NOT     |
 
 ##### 7.1.2.8.6 OCSP Responder id-pkix-ocsp-nocheck
 
+The CA MUST include the `id-pkix-ocsp-nocheck` extension (OID: 1.3.6.1.5.5.7.48.1.5).
+
+This extension MUST have an `extnValue` `OCTET STRING` which is exactly the hex-encoded bytes `0500`, the encoded representation of the ASN.1 NULL value, as specified in [RFC 6960, Section 4.2.2.2.1](https://tools.ietf.org/html/rfc6960#section-4.2.2.2.1).
+
 ##### 7.1.2.8.7 OCSP Responder Key Usage
 
+| __Key Usage__      | __Permitted__ | __Required__     |
+| ------             | --            | --               |
+| `digitalSignature` | Y             | Y                |
+| `nonRepudiation`   | N             | --               |
+| `keyEncipherment`  | N             | --               |
+| `dataEncipherment` | N             | --               |
+| `keyAgreement`     | N             | --               |
+| `keyCertSign`      | N             | --               |
+| `cRLSign`          | N             | --               |
+| `encipherOnly`     | N             | --               |
+| `decipherOnly`     | N             | --               |
+
 ##### 7.1.2.8.8 OCSP Responder Certificate Policies
+
+If present, the Certificate Policies extension MUST contain at least one `PolicyInformation`. Each `PolicyInformation` MUST match the following profile:
+
+| __Field__                | __Presence__    | __Contents__ |
+| ---                      | --              | -----        |
+| `policyIdentifier`       | MUST            | One of the following policy identifiers: |
+|     A [Reserved Certificate Policy Identifier](#7161-reserved-certificate-policy-identifiers) | NOT RECOMMENDED | |
+|     `anyPolicy`          | NOT RECOMMENDED | |
+|     Any other identifier | NOT RECOMMENDED | If present, MUST be defined by the CA and documented by the CA in its Certificate Policy and/or Certification Practice Statement. |
+| `policyQualifiers`       | NOT RECOMMENDED | If present, MUST contain only permitted `policyQualifiers` from the table below. |
+
+
+Table: Permitted `policyQualifiers`
+
+| __Qualifier ID__                     | __Presence__ | __Field Type__ |  __Contents__ |
+| ---                                  | --           | --             | ---           |
+| `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1) | MAY          | `IA5String`    | The HTTP or HTTPS URL for the Issuing CA's Certificate Policies, Certification Practice Statement, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA. |
+| Any other qualifier                  | MUST NOT     | -              | -             |
+
+
+**Note**: See [Section 7.1.2.8.2](#71282-ocsp-responder-extensions) for applicable effective dates for when this extension may be included.
+
+**Note**: Because the Certificate Policies extension may be used to restrict the applicable usages for a Certificate, incorrect policies may result in OCSP Responder Certificates that fail to successfully validate, resulting in invalid OCSP Responses. Including the `anyPolicy` policy can reduce this risk, but add to client processing complexity and interoperability issues.
 
 #### 7.1.2.9 Precertificate Profile
 
