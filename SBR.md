@@ -2014,7 +2014,7 @@ This section contains several fields that are common among multiple CA Certifica
 | __Field__   | __Minimum__ | __Maximum__ |
 | --          | ----        | ----        |
 | `notBefore` | One day prior to the time of signing | The time of signing |
-| `notAfter`  | The time of signing | Unspecified |
+| `notAfter`  | The time of signing | The maximum allowed for the certificate type |
 
 ##### 7.1.2.10.2 CA Certificate Naming
 
