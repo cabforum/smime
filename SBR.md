@@ -2254,21 +2254,164 @@ Not applicable.
 
 #### 7.1.2.10 Common CA Fields
 
+This section contains several fields that are common among multiple CA Certificate profiles. However, these fields may not be common among all CA Certificate profiles. Before issuing a certificate, the CA MUST ensure the certificate contents, including the contents of each field, complies in whole with all of the requirements of at least one Certificate Profile documented in [Section 7.1.2](#712-certificate-content-and-extensions).
+
 ##### 7.1.2.10.1 CA Certificate Validity
+
+| __Field__   | __Minimum__ | __Maximum__ |
+| --          | ----        | ----        |
+| `notBefore` | One day prior to the time of signing | The time of signing |
+| `notAfter`  | The time of signing | The maximum allowed for the certificate type |
 
 ##### 7.1.2.10.2 CA Certificate Naming
 
+All `subject` names MUST be encoded as specified in [Section 7.1.4](#714-name-forms).
+
+The following table details the acceptable `AttributeType`s that may appear within the `type` field of an `AttributeTypeAndValue`, as well as the contents permitted within the `value` field.
+
+| __Attribute Name__       | __Presence__    | __Value__ | __Verification__ |
+| ---                      | --              | ----      | -                |
+| `countryName`            | MUST            | The two-letter ISO 3166-1 country code for the country in which the CA's place of business is located. | [Section 3.2.2.3](#3223-verification-of-country) |
+| `stateOrProvinceName`    | MAY             | If present, the CA's state or province information. | [Section 3.2.2.1](#3221-identity) |
+| `localityName`           | MAY             | If present, the CA's locality. | [Section 3.2.2.1](#3221-identity) |
+| `postalCode`             | MAY             | If present, the CA's zip or postal information. | [Section 3.2.2.1](#3221-identity) |
+| `streetAddress`          | MAY             | If present, the CA's street address. Multiple instances MAY be present. | [Section 3.2.2.1](#3221-identity) |
+| `organizationName`       | MUST            | The CA's name or DBA. The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g. if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". | [Section 3.2.2.2](#3222-dbatradename) |
+| `organizationalUnitName`  | This attribute MUST NOT be included in Root CA Certificates defined in [Section 7.1.2.1](#7121-root-ca-certificate-profile) or TLS Subordinate CA Certificates defined in [Section 7.1.2.5](#7125-technically-constrained-tls-subordinate-ca-certificate-profile) or Technically-Constrained TLS Subordinate CA Certificates defined in [Section 7.1.2.6](#7126-tls-subordinate-ca-certificate-profile). This attribute SHOULD NOT be included in other types of CA Certificates. | -           | -           |
+| `commonName`             | MUST            | The contents SHOULD be an identifier for the Certificate such that the Certificate's Name is unique across all Certificates issued by the issuing Certificate. | |
+| Any other attribute      | NOT RECOMMENDED | -           | See [Section 7.1.4.4](#7144-other-subject-attributes) |
+
+
 ##### 7.1.2.10.3 CA Certificate Authority Information Access
+
+If present, the `AuthorityInfoAccessSyntax` MUST contain one or more `AccessDescription`s. Each `AccessDescription` MUST only contain a permitted `accessMethod`, as detailed below, and each `accessLocation` MUST be encoded as the specified `GeneralName` type.
+
+The `AuthorityInfoAccessSyntax` MAY contain multiple `AccessDescription`s with the same `accessMethod`, if permitted for that `accessMethod`. When multiple `AccessDescription`s are present with the same `accessMethod`, each `accessLocation` MUST be unique, and each `AccessDescription` MUST be ordered in priority for that `accessMethod`, with the most-preferred `accessLocation` being the first `AccessDescription`. No ordering requirements are given for `AccessDescription`s that contain different `accessMethod`s, provided that previous requirement is satisfied.
+
+| __Access Method__ | __OID__            | __Access Location__         | __Presence__ | __Maximum__ | __Description__ |
+| -                 | -                  | ---                         | -            | -          | ---             |
+| `id-ad-ocsp`      | 1.3.6.1.5.5.7.48.1 | `uniformResourceIdentifier` | MAY          | \*         | A HTTP URL of the Issuing CA's OCSP responder. |
+| `id-ad-caIssuers` | 1.3.6.1.5.5.7.48.2 | `uniformResourceIdentifier` | MAY          | \*         | A HTTP URL of the Issuing CA's Certificate. |
+| Any other value   | -                  | -                           | MUST NOT     | -          | No other `accessMethod`s may be used. |
 
 ##### 7.1.2.10.4 CA Certificate Basic Constraints
 
+| __Field__           | __Description__ |
+| ---                 | ------- |
+| `cA`                | MUST be set TRUE |
+| `pathLenConstraint` | MAY be present |
+
 ##### 7.1.2.10.5 CA Certificate Certificate Policies
+
+If present, the Certificate Policies extension MUST contain at least one `PolicyInformation`. Each `PolicyInformation` MUST match the following profile:
+
+Table: No Policy Restrictions (Affiliated CA)
+
+| __Field__          | __Presence__    | __Contents__ |
+| ---                | --              | -----        |
+| `policyIdentifier` | MUST            | When the Issuing CA wishes to express that there are no policy restrictions, and if the Subordinate CA is an Affiliate of the Issuing CA, then the Issuing CA MAY use the `anyPolicy` Policy Identifier, which MUST be the only `PolicyInformation` value. |
+|     `anyPolicy`    | MUST            | |
+| `policyQualifiers` | NOT RECOMMENDED | If present, MUST contain only permitted `policyQualifiers` from the table below. |
+
+
+Table: Policy Restricted
+
+| __Field__                | __Presence__    | __Contents__ |
+| ---                      | --              | -----        |
+| `policyIdentifier`       | MUST            | One or more of the following policy identifiers: |
+|     One ore more [Reserved Certificate Policy Identifier](#7161-reserved-certificate-policy-identifiers) | MUST | The CA MUST include one or more Reserved Certificate Policy Identifiers (see [Section 7.1.6.1](#7161-reserved-certificate-policy-identifiers)) associated with the given Subscriber Certificate type(s) (see [Section 7.1.2.7.1](#71271-subscriber-certificate-types)) directly or transitively issued by this Certificate. |
+|     `anyPolicy`          | MUST NOT        | The `anyPolicy` Policy Identifier MUST NOT be present. |
+|     Any other identifier | MAY             | If present, MUST be defined by the CA and documented by the CA in its Certificate Policy and/or Certification Practice Statement. |
+| `policyQualifiers`       | NOT RECOMMENDED | If present, MUST contain only permitted `policyQualifiers` from the table below. |
+
+
+The Policy Restricted profile RECOMMENDS that the first `PolicyInformation` value within the Certificate Policies extension contains a Reserved Certificate Policy Identifier (see [7.1.6.1](#7161-reserved-certificate-policy-identifiers))[^first_policy_note].
+
+
+**Note**: policyQualifiers is NOT RECOMMENDED to be present in any Certificate issued under this Certificate Profile because this information increases the size of the Certificate without providing any value to a typical Relying Party, and the information may be obtained by other means when necessary.
+
+
+If the `policyQualifiers` is permitted and present within a `PolicyInformation` field, it MUST be formatted as follows:
+
+
+Table: Permitted `policyQualifiers`
+
+| __Qualifier ID__                     | __Presence__ | __Field Type__ |  __Contents__ |
+| ---                                  | -            | -              | -----         |
+| `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1) | MAY          | `IA5String`    | The HTTP or HTTPS URL for the Issuing CA's Certificate Policies, Certification Practice Statement, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA. |
+| Any other qualifier                  | MUST NOT     | -              | -             |
 
 ##### 7.1.2.10.6 CA Certificate Extended Key Usage
 
+| __Key Purpose__                    | __OID__                 | __Presence__    |
+| ----                               | ----                    | --              |
+| `id-kp-serverAuth`                 | 1.3.6.1.5.5.7.3.1       | MUST NOT        |
+| `id-kp-clientAuth`                 | 1.3.6.1.5.5.7.3.2       | MAY             |
+| `id-kp-codeSigning`                | 1.3.6.1.5.5.7.3.3       | MUST NOT        |
+| `id-kp-emailProtection`            | 1.3.6.1.5.5.7.3.4       | MUST            |
+| `id-kp-timeStamping`               | 1.3.6.1.5.5.7.3.8       | MUST NOT        |
+| `id-kp-OCSPSigning`                | 1.3.6.1.5.5.7.3.9       | MUST NOT        |
+| `anyExtendedKeyUsage`              | 2.5.29.37.0             | MUST NOT        |
+| Precertificate Signing Certificate | 1.3.6.1.4.1.11129.2.4.4 | MUST NOT        |
+| Any other value                    | -                       | NOT RECOMMENDED |
+
 ##### 7.1.2.10.7 CA Certificate Key Usage
 
+| __Key Usage__      | __Permitted__ | __Required__     |
+| ----               | -             | -                |
+| `digitalSignature` | Y             | N[^ocsp_signing] |
+| `nonRepudiation`   | N             | --               |
+| `keyEncipherment`  | N             | --               |
+| `dataEncipherment` | N             | --               |
+| `keyAgreement`     | N             | --               |
+| `keyCertSign`      | Y             | Y                |
+| `cRLSign`          | Y             | Y                |
+| `encipherOnly`     | N             | --               |
+| `decipherOnly`     | N             | --               |
+
+[^ocsp_signing]: If a CA Certificate does not assert the `digitalSignature` bit, the CA Private Key MUST NOT be used to sign an OCSP Response. See [Section 7.3](#73-ocsp-profile) for more information.
+
 ##### 7.1.2.10.8 CA Certificate Name Constraints
+
+If present, the Name Constraints extension MUST be encoded as follows. As an explicit exception from [RFC 5280](https://tools.ietf.org/html/rfc5280), this extension SHOULD be marked critical, but MAY be marked non-critical if compatibility with certain legacy applications that do not support Name Constraints is necessary.
+
+Table: `nameConstraints` requirements
+
+| __Field__               | __Description__ |
+| ---                     | -------         |
+| `permittedSubtrees`     | |
+|   `GeneralSubtree`      | The requirements for a `GeneralSubtree` that appears within a `permittedSubtrees`. |
+|     `base`              | See following table. |
+|     `minimum`           | MUST NOT be present. |
+|     `maximum`           | MUST NOT be present. |
+| `excludedSubtrees`      | |
+|   `GeneralSubtree`      | The requirements for a `GeneralSubtree` that appears within a `permittedSubtrees`. |
+|     `base`              | See following table. |
+|     `minimum`           | MUST NOT be present. |
+|     `maximum`           | MUST NOT be present. |
+
+The following table contains the requirements for the `GeneralName` that appears within the `base` of a `GeneralSubtree` in either the `permittedSubtrees` or `excludedSubtrees`.
+
+Table: `GeneralName` requirements for the `base` field
+
+| __Name Type__   | __Presence__    |  __Permitted Subtrees__ | __Excluded Subtrees__ |
+| ---             | --              | ---                     | --                    |
+| `directoryName` | MAY             | The CA MUST confirm the Applicant's and/or Subsidiary's name attributes such that all Certificates issued will comply with the relevant Certificate Profile (see [Section 7.1.2](#712-certificate-content-and-extensions)), including Name Forms (See [Section 7.1.4](#714-name-forms)). | It is NOT RECOMMENDED to include values within `excludedSubtrees`. |
+| `rfc822Name`    | MAY | The CA MAY constrain to a particular host, or any address within a domain, as specified within [RFC 5280, Section 4.2.1.10](https://tools.ietf.org/html/rfc5280#section-4.2.1.10). For each host, domain, or Domain portion of a Mailbox (as specified within [RFC 5280, Section 4.2.1.6](https://tools.ietf.org/html/rfc5280#section-4.2.1.6)), the CA MUST confirm that the Applicant has registered the domain or has been authorized by the domain registrant to act on the registrant's behalf. See [Section 3.2.2.4](#3224-validation-of-domain-authorization-or-control). SHALL NOT contain an email address. | If at least one `rfc822Name` instance is present in the `permittedSubtrees`, the CA MAY indicate one or more mailboxes, hosts, or domains to be excluded. | If no `rfc822Name` instance is present in the `permittedSubtrees`, then the CA MAY include a zero-length `rfc822Name` to indicate no mailboxes are permitted. |
+| `dNSName`       | MAY             | The CA MUST confirm that the Applicant has registered the `dNSName` or has been authorized by the domain registrant to act on the registrant's behalf. See [Section 3.2.2.4](#3224-validation-of-domain-authorization-or-control). | If at least one `dNSName` instance is present in the `permittedSubtrees`, the CA MAY indicate one or more subordinate domains to be excluded. |
+| `iPAddress`     | MAY             | The CA MUST confirm that the Applicant has been assigned the `iPAddress` range or has been authorized by the assigner to act on the asignee's behalf. See [Section 3.2.2.5](#3225-authentication-for-an-ip-address). | If at least one `iPAddress` instance is present in the `permittedSubtrees`, the CA MAY indicate one or more subdivisions of those ranges to be excluded. |
+| `otherName`     | NOT RECOMMENDED | See below                | See below             | See below                      |
+| Any other value | NOT RECOMMENDED | -                        | -                     | -                              |
+
+Any `otherName`, if present:
+
+  1. MUST apply in the context of the public Internet, unless:
+     a. the `type-id` falls within an OID arc for which the Applicant demonstrates ownership, or,
+     b. the Applicant can otherwise demonstrate the right to assert the data in a public context.
+  2. MUST NOT include semantics that will mislead the Relying Party about Certificate information verified by the CA.
+  3. MUST be DER encoded according to the relevant ASN.1 module defining the `otherName` `type-id` and `value`.
+
+CAs SHALL NOT include additional names unless the CA is aware of a reason for including the data in the Certificate.
 
 #### 7.1.2.11 Common Certificate Fields
 
@@ -2341,11 +2484,11 @@ Certificates MUST be of type X.509 v3.
 
 ### 7.1.2 Certificate content and extensions; application of RFC 6818
 
-If the CA asserts compliance with these Baseline Requirements, all certificates that it issues MUST comply with one of the following Certificate Profiles, which incorporate, and are derived from [RFC 5280](https://tools.ietf.org/html/rfc5280) and [RFC 8551](https://tools.ietf.org/html/rfc8551). Except as explicitly noted, all normative requirements imposed by RFC 5280 and RFC 8551 shall apply, in addition to the normative requirements imposed by this document. CAs SHOULD examine [RFC 5280, Appendix B](https://tools.ietf.org/html/rfc5280#appendix-B) and [RFC 8551, Appendix B](https://datatracker.ietf.org/doc/html/rfc8551#appendix-B) for further issues to be aware of.
+If the CA asserts compliance with these Baseline Requirements, all Certificates that it issues MUST comply with one of the following Certificate profiles, which incorporate, and are derived from [RFC 5280](https://tools.ietf.org/html/rfc5280) and [RFC 8551](https://tools.ietf.org/html/rfc8551). Except as explicitly noted, all normative requirements imposed by RFC 5280 and RFC 8551 shall apply, in addition to the normative requirements imposed by this document. CAs SHOULD examine [RFC 5280, Appendix B](https://tools.ietf.org/html/rfc5280#appendix-B) and [RFC 8551, Appendix B](https://datatracker.ietf.org/doc/html/rfc8551#appendix-B) for further issues to be aware of.
 
 ### 7.1.2 Certificate content and extensions
 
-If the CA asserts compliance with these Baseline Requirements, all certificates that it issues MUST comply with one of the following Certificate Profiles, which incorporate, and are derived from [RFC 5280](https://tools.ietf.org/html/rfc5280) and [RFC 8551](https://tools.ietf.org/html/rfc8551). Except as explicitly noted, all normative requirements imposed by RFC 5280 and RFC 8551 shall apply, in addition to the normative requirements imposed by this document. CAs SHOULD examine [RFC 5280, Appendix B](https://tools.ietf.org/html/rfc5280#appendix-B) and [RFC 8551, Appendix B](https://datatracker.ietf.org/doc/html/rfc8551#appendix-B) for further issues to be aware of.
+If the CA asserts compliance with these Baseline Requirements, all Certificates that it issues MUST comply with one of the following Certificate Profiles, which incorporate, and are derived from [RFC 5280](https://tools.ietf.org/html/rfc5280) and [RFC 8551](https://tools.ietf.org/html/rfc8551). Except as explicitly noted, all normative requirements imposed by RFC 5280 and RFC 8551 shall apply, in addition to the normative requirements imposed by this document. CAs SHOULD examine [RFC 5280, Appendix B](https://tools.ietf.org/html/rfc5280#appendix-B) and [RFC 8551, Appendix B](https://datatracker.ietf.org/doc/html/rfc8551#appendix-B) for further issues to be aware of.
 
 #### 7.1.2.1 Root CA certificate profile
 
