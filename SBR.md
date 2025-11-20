@@ -2031,7 +2031,7 @@ The following table details the acceptable `AttributeType`s that may appear with
 | `streetAddress`          | MAY             | If present, the CA's street address. Multiple instances MAY be present. | [Section 3.2.2.1](#3221-identity) |
 | `organizationName`       | MUST            | The CA's name or DBA. The CA MAY include information in this field that differs slightly from the verified name, such as common variations or abbreviations, provided that the CA documents the difference and any abbreviations used are locally accepted abbreviations; e.g. if the official record shows "Company Name Incorporated", the CA MAY use "Company Name Inc." or "Company Name". | [Section 3.2.2.2](#3222-dbatradename) |
 | `organizationalUnitName`  | This attribute MUST NOT be included in Root CA Certificates defined in [Section 7.1.2.1](#7121-root-ca-certificate-profile) or TLS Subordinate CA Certificates defined in [Section 7.1.2.5](#7125-technically-constrained-tls-subordinate-ca-certificate-profile) or Technically-Constrained TLS Subordinate CA Certificates defined in [Section 7.1.2.6](#7126-tls-subordinate-ca-certificate-profile). This attribute SHOULD NOT be included in other types of CA Certificates. | -           | -           |
-| `commonName`             | MUST            | The contents SHOULD be an identifier for the certificate such that the certificate's Name is unique across all certificates issued by the issuing certificate. | |
+| `commonName`             | MUST            | The contents SHOULD be an identifier for the Certificate such that the Certificate's Name is unique across all Certificates issued by the issuing Certificate. | |
 | Any other attribute      | NOT RECOMMENDED | -           | See [Section 7.1.4.4](#7144-other-subject-attributes) |
 
 
@@ -2044,7 +2044,7 @@ The `AuthorityInfoAccessSyntax` MAY contain multiple `AccessDescription`s with t
 | __Access Method__ | __OID__            | __Access Location__         | __Presence__ | __Maximum__ | __Description__ |
 | -                 | -                  | ---                         | -            | -          | ---             |
 | `id-ad-ocsp`      | 1.3.6.1.5.5.7.48.1 | `uniformResourceIdentifier` | MAY          | \*         | A HTTP URL of the Issuing CA's OCSP responder. |
-| `id-ad-caIssuers` | 1.3.6.1.5.5.7.48.2 | `uniformResourceIdentifier` | MAY          | \*         | A HTTP URL of the Issuing CA's certificate. |
+| `id-ad-caIssuers` | 1.3.6.1.5.5.7.48.2 | `uniformResourceIdentifier` | MAY          | \*         | A HTTP URL of the Issuing CA's Certificate. |
 | Any other value   | -                  | -                           | MUST NOT     | -          | No other `accessMethod`s may be used. |
 
 ##### 7.1.2.10.4 CA Certificate Basic Constraints
@@ -2126,7 +2126,7 @@ Table: Permitted `policyQualifiers`
 
 ##### 7.1.2.10.8 CA Certificate Name Constraints
 
-If present, the Name Constraints extension MUST be encoded as follows. As an explicit exception from RFC 5280, this extension SHOULD be marked critical, but MAY be marked non-critical if compatibility with certain legacy applications that do not support Name Constraints is necessary.
+If present, the Name Constraints extension MUST be encoded as follows. As an explicit exception from [RFC 5280](https://tools.ietf.org/html/rfc5280), this extension SHOULD be marked critical, but MAY be marked non-critical if compatibility with certain legacy applications that do not support Name Constraints is necessary.
 
 Table: `nameConstraints` requirements
 
@@ -2149,7 +2149,7 @@ Table: `GeneralName` requirements for the `base` field
 
 | __Name Type__   | __Presence__    |  __Permitted Subtrees__ | __Excluded Subtrees__ |
 | ---             | --              | ---                     | --                    |
-| `directoryName` | MAY             | The CA MUST confirm the Applicant's and/or Subsidiary's name attributes such that all certificates issued will comply with the relevant Certificate Profile (see [Section 7.1.2](#712-certificate-content-and-extensions)), including Name Forms (See [Section 7.1.4](#714-name-forms)). | It is NOT RECOMMENDED to include values within `excludedSubtrees`. |
+| `directoryName` | MAY             | The CA MUST confirm the Applicant's and/or Subsidiary's name attributes such that all Certificates issued will comply with the relevant Certificate Profile (see [Section 7.1.2](#712-certificate-content-and-extensions)), including Name Forms (See [Section 7.1.4](#714-name-forms)). | It is NOT RECOMMENDED to include values within `excludedSubtrees`. |
 | `rfc822Name`    | MAY | The CA MAY constrain to a particular host, or any address within a domain, as specified within [RFC 5280, Section 4.2.1.10](https://tools.ietf.org/html/rfc5280#section-4.2.1.10). For each host, domain, or Domain portion of a Mailbox (as specified within [RFC 5280, Section 4.2.1.6](https://tools.ietf.org/html/rfc5280#section-4.2.1.6)), the CA MUST confirm that the Applicant has registered the domain or has been authorized by the domain registrant to act on the registrant's behalf. See [Section 3.2.2.4](#3224-validation-of-domain-authorization-or-control). SHALL NOT contain an email address. | If at least one `rfc822Name` instance is present in the `permittedSubtrees`, the CA MAY indicate one or more mailboxes, hosts, or domains to be excluded. | If no `rfc822Name` instance is present in the `permittedSubtrees`, then the CA MAY include a zero-length `rfc822Name` to indicate no mailboxes are permitted. |
 | `dNSName`       | MAY             | The CA MUST confirm that the Applicant has registered the `dNSName` or has been authorized by the domain registrant to act on the registrant's behalf. See [Section 3.2.2.4](#3224-validation-of-domain-authorization-or-control). | If at least one `dNSName` instance is present in the `permittedSubtrees`, the CA MAY indicate one or more subordinate domains to be excluded. |
 | `iPAddress`     | MAY             | The CA MUST confirm that the Applicant has been assigned the `iPAddress` range or has been authorized by the assigner to act on the asignee's behalf. See [Section 3.2.2.5](#3225-authentication-for-an-ip-address). | If at least one `iPAddress` instance is present in the `permittedSubtrees`, the CA MAY indicate one or more subdivisions of those ranges to be excluded. |
@@ -2161,7 +2161,7 @@ Any `otherName`, if present:
   1. MUST apply in the context of the public Internet, unless:
      a. the `type-id` falls within an OID arc for which the Applicant demonstrates ownership, or,
      b. the Applicant can otherwise demonstrate the right to assert the data in a public context.
-  2. MUST NOT include semantics that will mislead the Relying Party about certificate information verified by the CA.
+  2. MUST NOT include semantics that will mislead the Relying Party about Certificate information verified by the CA.
   3. MUST be DER encoded according to the relevant ASN.1 module defining the `otherName` `type-id` and `value`.
 
 CAs SHALL NOT include additional names unless the CA is aware of a reason for including the data in the Certificate.
@@ -2237,11 +2237,11 @@ Certificates MUST be of type X.509 v3.
 
 ### 7.1.2 Certificate content and extensions; application of RFC 6818
 
-If the CA asserts compliance with these Baseline Requirements, all certificates that it issues MUST comply with one of the following certificate profiles, which incorporate, and are derived from [RFC 5280](https://tools.ietf.org/html/rfc5280) and [RFC 8551](https://tools.ietf.org/html/rfc8551). Except as explicitly noted, all normative requirements imposed by RFC 5280 and RFC 8551 shall apply, in addition to the normative requirements imposed by this document. CAs SHOULD examine [RFC 5280, Appendix B](https://tools.ietf.org/html/rfc5280#appendix-B) and [RFC 8551, Appendix B](https://datatracker.ietf.org/doc/html/rfc8551#appendix-B) for further issues to be aware of.
+If the CA asserts compliance with these Baseline Requirements, all Certificates that it issues MUST comply with one of the following Certificate profiles, which incorporate, and are derived from [RFC 5280](https://tools.ietf.org/html/rfc5280) and [RFC 8551](https://tools.ietf.org/html/rfc8551). Except as explicitly noted, all normative requirements imposed by RFC 5280 and RFC 8551 shall apply, in addition to the normative requirements imposed by this document. CAs SHOULD examine [RFC 5280, Appendix B](https://tools.ietf.org/html/rfc5280#appendix-B) and [RFC 8551, Appendix B](https://datatracker.ietf.org/doc/html/rfc8551#appendix-B) for further issues to be aware of.
 
 ### 7.1.2 Certificate content and extensions
 
-If the CA asserts compliance with these Baseline Requirements, all certificates that it issues MUST comply with one of the following certificate profiles, which incorporate, and are derived from [RFC 5280](https://tools.ietf.org/html/rfc5280) and [RFC 8551](https://tools.ietf.org/html/rfc8551). Except as explicitly noted, all normative requirements imposed by RFC 5280 and RFC 8551 shall apply, in addition to the normative requirements imposed by this document. CAs SHOULD examine [RFC 5280, Appendix B](https://tools.ietf.org/html/rfc5280#appendix-B) and [RFC 8551, Appendix B](https://datatracker.ietf.org/doc/html/rfc8551#appendix-B) for further issues to be aware of.
+If the CA asserts compliance with these Baseline Requirements, all Certificates that it issues MUST comply with one of the following Certificate Profiles, which incorporate, and are derived from [RFC 5280](https://tools.ietf.org/html/rfc5280) and [RFC 8551](https://tools.ietf.org/html/rfc8551). Except as explicitly noted, all normative requirements imposed by RFC 5280 and RFC 8551 shall apply, in addition to the normative requirements imposed by this document. CAs SHOULD examine [RFC 5280, Appendix B](https://tools.ietf.org/html/rfc5280#appendix-B) and [RFC 8551, Appendix B](https://datatracker.ietf.org/doc/html/rfc8551#appendix-B) for further issues to be aware of.
 
 #### 7.1.2.1 Root CA certificate profile
 
