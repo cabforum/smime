@@ -2083,13 +2083,86 @@ Table: Permitted `policyQualifiers`
 | `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1) | MAY          | `IA5String`    | The HTTP or HTTPS URL for the Issuing CA's Certificate Policies, Certification Practice Statement, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA. |
 | Any other qualifier                  | MUST NOT     | -              | -             |
 
-#### 7.1.2.3 Technically Constrained Subordinate CA Certificate Profile
+#### 7.1.2.3 Technically Constrained Non-S/MIME Subordinate CA Certificate Profile
 
-##### 7.1.2.3.1 Technically Constrained Subordinate CA Extensions
+This Certificate Profile MAY be used when issuing a CA Certificate that will be considered Technically Constrained, and which will not be used to issue S/MIME certificates directly or transitively.
 
-##### 7.1.2.3.2 Technically Constrained Subordinate CA Certificate Policies
+| __Field__                  | __Description__ |
+| ----                        | ------          |
+| `tbsCertificate`           | |
+|     `version`              | MUST be v3(2) |
+|     `serialNumber`         | MUST be a non-sequential number greater than zero (0) and less than 2¹⁵⁹ containing at least 64 bits of output from a CSPRNG. |
+|     `signature`            | See [Section 7.1.3.2](#7132-signature-algorithmidentifier) |
+|     `issuer`               | MUST be byte-for-byte identical to the `subject` field of the Issuing CA. See [Section 7.1.4.1](#7141-name-encoding) |
+|     `validity`             | See [Section 7.1.2.10.1](#712101-ca-certificate-validity) |
+|     `subject`              | See [Section 7.1.2.10.2](#712102-ca-certificate-naming) |
+|     `subjectPublicKeyInfo` | See [Section 7.1.3.1](#7131-subjectpublickeyinfo) |
+|     `issuerUniqueID`       | MUST NOT be present |
+|     `subjectUniqueID`      | MUST NOT be present |
+|     `extensions`           | See [Section 7.1.2.3.1](#71231-technically-constrained-non-tls-subordinate-ca-extensions) |
+| `signatureAlgorithm`       | Encoded value MUST be byte-for-byte identical to the `tbsCertificate.signature`. |
+| `signature`                | |
 
-##### 7.1.2.3.3 Technically Constrained Subordinate CA Extended Key Usage
+
+##### 7.1.2.3.1 Technically Constrained Non-S/MIME Subordinate CA Extensions
+
+| __Extension__                     | __Presence__    | __Critical__          | __Description__ |
+| ---                              | --               | --                     | --- |
+| `authorityKeyIdentifier`          | MUST            | N                     | See [Section 7.1.2.11.1](#712111-authority-key-identifier) |
+| `basicConstraints`                | MUST            | Y                     | See [Section 7.1.2.10.4](#712104-ca-certificate-basic-constraints) |
+| `crlDistributionPoints`           | MUST            | N                     | See [Section 7.1.2.11.2](#712112-crl-distribution-points) |
+| `keyUsage`                        | MUST            | Y                     | See [Section 7.1.2.10.7](#712107-ca-certificate-key-usage) |
+| `subjectKeyIdentifier`            | MUST            | N                     | See [Section 7.1.2.11.4](#712114-subject-key-identifier) |
+| `extKeyUsage`                     | MUST[^eku_ca]   | N                     | See [Section 7.1.2.3.3](#71233-technically-constrained-non-tls-subordinate-ca-extended-key-usage)|
+| `authorityInformationAccess`      | SHOULD          | N                     | See [Section 7.1.2.10.3](#712103-ca-certificate-authority-information-access) |
+| `certificatePolicies`             | MAY             | N                     | See [Section 7.1.2.3.2](#71232-technically-constrained-non-tls-subordinate-ca-certificate-policies) |
+| `nameConstraints`                 | MAY             | \*[^name_constraints] | See [Section 7.1.2.10.8](#712108-ca-certificate-name-constraints) |
+| Signed Certificate Timestamp List | MAY             | N                     | See [Section 7.1.2.11.3](#712113-signed-certificate-timestamp-list) |
+| Any other extension               | NOT RECOMMENDED | -                     | See [Section 7.1.2.11.5](#712115-other-extensions) |
+
+##### 7.1.2.3.2 Technically Constrained Non-S/MIME Subordinate CA Certificate Policies
+
+If present, the Certificate Policies extension MUST be formatted as one of the two tables below:
+
+Table: No Policy Restrictions (Affiliated CA)
+
+| __Field__          | __Presence__    | __Contents__ |
+| ---                | ---             | ----         |
+| `policyIdentifier` | MUST            | When the Issuing CA wishes to express that there are no policy restrictions, the Subordinate CA MUST be an Affiliate of the Issuing CA. The Certificate Policies extension MUST contain only a single `PolicyInformation` value, which MUST contain the `anyPolicy` Policy Identifier. |
+|     `anyPolicy`    | MUST            | |
+| `policyQualifiers` | NOT RECOMMENDED | If present, MUST contain only permitted `policyQualifiers` from the table below. |
+
+
+Table: Policy Restricted
+
+| __Field__                | __Presence__    | __Contents__ |
+| ---                      | ---             | ----         |
+| `policyIdentifier`       | MUST            | One of the following policy identifiers: |
+|     A [Reserved Certificate Policy Identifier](#7161-reserved-certificate-policy-identifiers) | MUST NOT | |
+|     `anyPolicy`          | MUST NOT        | The `anyPolicy` Policy Identifier MUST NOT be present. |
+|     Any other identifier | MAY             | If present, MUST be documented by the CA in its Certificate Policy and/or Certification Practice Statement. |
+| `policyQualifiers`       | NOT RECOMMENDED | If present, MUST contain only permitted `policyQualifiers` from the table below. |
+
+
+Table: Permitted `policyQualifiers`
+
+| __Qualifier ID__                     | __Presence__ | __Field Type__ |  __Contents__ |
+| ---                                  | --            | --              | ---         |
+| `id-qt-cps` (OID: 1.3.6.1.5.5.7.2.1) | MAY          | `IA5String`    | The HTTP or HTTPS URL for the Issuing CA's Certificate Policies, Certification Practice Statement, Relying Party Agreement, or other pointer to online policy information provided by the Issuing CA. |
+| Any other qualifier                  | MUST NOT     | -              | -             |
+
+
+##### 7.1.2.3.3 Technically Constrained Non-S/MIME Subordinate CA Extended Key Usage
+
+The Issuing CA MUST verify that the Subordinate CA Certificate is authorized to issue certificates for each included extended key usage purpose. Multiple, independent key purposes (e.g. `id-kp-timeStamping` and `id-kp-codeSigning`) are NOT RECOMMENDED.
+
+| __Key Purpose__                    | __OID__                 | __Presence__ |
+| ----                               | ----                    | --           |
+| `id-kp-emailProtection`            | 1.3.6.1.5.5.7.3.4       | MUST NOT     |
+| `id-kp-OCSPSigning`                | 1.3.6.1.5.5.7.3.9       | MUST NOT     |
+| `anyExtendedKeyUsage`              | 2.5.29.37.0             | MUST NOT     |
+| Precertificate Signing Certificate | 1.3.6.1.4.1.11129.2.4.4 | MUST NOT     |
+| Any other value                    | -                       | MAY          |
 
 #### 7.1.2.4 Technically Constrained Precertificate Signing CA Certificate Profile
 
@@ -2105,9 +2178,79 @@ Not applicable.
 
 #### 7.1.2.5 Technically Constrained S/MIME Subordinate CA Certificate Profile
 
+This Certificate Profile MAY be used when issuing a CA Certificate that will be considered Technically Constrained, and which will be used to issue S/MIME certificates directly or transitively.
+
+| __Field__                  | __Description__ |
+| ----                       | ------          |
+| `tbsCertificate`           | |
+|     `version`              | MUST be v3(2) |
+|     `serialNumber`         | MUST be a non-sequential number greater than zero (0) and less than 2¹⁵⁹ containing at least 64 bits of output from a CSPRNG. |
+|     `signature`            | See [Section 7.1.3.2](#7132-signature-algorithmidentifier) |
+|     `issuer`               | MUST be byte-for-byte identical to the `subject` field of the Issuing CA. See [Section 7.1.4.1](#7141-name-encoding) |
+|     `validity`             | See [Section 7.1.2.10.1](#712101-ca-certificate-validity) |
+|     `subject`              | See [Section 7.1.2.10.2](#712102-ca-certificate-naming) |
+|     `subjectPublicKeyInfo` | See [Section 7.1.3.1](#7131-subjectpublickeyinfo) |
+|     `issuerUniqueID`       | MUST NOT be present |
+|     `subjectUniqueID`      | MUST NOT be present |
+|     `extensions`           | See [Section 7.1.2.5.1](#71251-technically-constrained-tls-subordinate-ca-extensions) |
+| `signatureAlgorithm`       | Encoded value MUST be byte-for-byte identical to the `tbsCertificate.signature`. |
+| `signature`                | |
+
 ##### 7.1.2.5.1 Technically Constrained S/MIME Subordinate CA Extensions
 
+ __Extension__                     | __Presence__    | __Critical__          | __Description__ |
+| ----                              | --              | --                    | --              |
+| `authorityKeyIdentifier`          | MUST            | N                     | See [Section 7.1.2.11.1](#712111-authority-key-identifier) |
+| `basicConstraints`                | MUST            | Y                     | See [Section 7.1.2.10.4](#712104-ca-certificate-basic-constraints) |
+| `certificatePolicies`             | MUST            | N                     | See [Section 7.1.2.10.5](#712105-ca-certificate-certificate-policies) |
+| `crlDistributionPoints`           | MUST            | N                     | See [Section 7.1.2.11.2](#712112-crl-distribution-points) |
+| `keyUsage`                        | MUST            | Y                     | See [Section 7.1.2.10.7](#712107-ca-certificate-key-usage) |
+| `subjectKeyIdentifier`            | MUST            | N                     | See [Section 7.1.2.11.4](#712114-subject-key-identifier) |
+| `extKeyUsage`                     | MUST[^eku_ca]   | N                     | See [Section 7.1.2.10.6](#712106-ca-certificate-extended-key-usage) |
+| `nameConstraints`                 | MUST            | \*[^name_constraints] | See [Section 7.1.2.5.2](#71252-technically-constrained-tls-smime-subordinate-ca-name-constraints) |
+| `authorityInformationAccess`      | SHOULD          | N                     | See [Section 7.1.2.10.3](#712103-ca-certificate-authority-information-access) |
+| Signed Certificate Timestamp List | MAY             | N                     | See [Section 7.1.2.11.3](#712113-signed-certificate-timestamp-list) |
+| Any other extension               | NOT RECOMMENDED | -                     | See [Section 7.1.2.11.5](#712115-other-extensions) |
+
 ##### 7.1.2.5.2 Technically Constrained S/MIME Subordinate CA Name Constraints
+
+For an S/MIME Subordinate CA to be Technically Constrained, the Name Constraints extension MUST be encoded as follows. As an explicit exception from [RFC 5280](https://tools.ietf.org/html/rfc5280), this extension SHOULD be marked critical, but MAY be marked non-critical if compatibility is necessary with legacy applications that do not support Name Constraints.
+
+Table: `nameConstraints` requirements
+
+| __Field__             | __Description__ |
+| ----                  | ------          |
+| `permittedSubtrees`   | The `permittedSubtrees` MUST contain at least one `GeneralSubtree` for both the `rfc822Name` and `directoryName` name types, UNLESS the specified `GeneralName` name type appears within the `excludedSubtrees` to exclude all names of that name type. 
+|     `GeneralSubtree`  | The requirements for a `GeneralSubtree` that appears within a `permittedSubtrees`. |
+|         `base`        | See following table. |
+|         `minimum`     | MUST NOT be present. |
+|         `maximum`     | MUST NOT be present. |
+| `excludedSubtrees`    | The `excludedSubtrees` MUST contain at least one `GeneralSubtree` for each of the `rfc822Name` and `directoryName` name types, unless there is an instance present of that name type in the `permittedSubtrees`.  |
+|     `GeneralSubtree`  | The requirements for a `GeneralSubtree` that appears within a `permittedSubtrees`. |
+|         `base`        | See following table. |
+|         `minimum`     | MUST NOT be present. |
+|         `maximum`     | MUST NOT be present. |
+
+The following table contains the requirements for the `GeneralName` that appears within the `base` of a `GeneralSubtree` in either the `permittedSubtrees` or `excludedSubtrees`.
+
+Table: `GeneralName` requirements for the `base` field
+
+| __Name Type__   | __Presence__    |  __Permitted Subtrees__ | __Excluded Subtrees__ | __Entire Namespace Exclusion__ |
+| --------------- | -------------   | ----------------------- | ------------------------ | ------------------------    |
+| `rfc822Name`       | MUST            | The CA MUST confirm that the Applicant has registered the `rfc822Name` or has been authorized by the domain registrant to act on the registrant's behalf. See [Section 3.2.2.4](#3224-validation-of-domain-authorization-or-control). | If at least one `rfc822Name` instance is present in the `permittedSubtrees`, the CA MAY indicate one or more subordinate domains to be excluded. | If no `rfc822Name` instance is present in the `permittedSubtrees`, then the CA MUST include a zero-length `rfc822Name` to indicate no domain names are permitted. |
+| `directoryName`     | MUST            | The CA MUST confirm the Applicant's and/or Subsidiary's name attributes such that all certificates issued will comply with the relevant Certificate Profile (see [Section 7.1.2](#712-certificate-content-and-extensions)), including Name Forms (See [Section 7.1.4](#714-name-forms)). |  |  |
+| `otherName`     | NOT RECOMMENDED | See below           | See below             | See below                      |
+| Any other value | MUST NOT        | -                   | -                     | -                              |
+
+Any `otherName`, if present:
+
+  1. MUST apply in the context of the public Internet, unless:
+     a. the `type-id` falls within an OID arc for which the Applicant demonstrates ownership, or,
+     b. the Applicant can otherwise demonstrate the right to assert the data in a public context.
+  2. MUST NOT include semantics that will mislead the Relying Party about certificate information verified by the CA.
+  3. MUST be DER encoded according to the relevant ASN.1 module defining the `otherName` `type-id` and `value`.
+
+CAs SHALL NOT include additional names unless the CA is aware of a reason for including the data in the Certificate.
 
 #### 7.1.2.6 S/MIME Subordinate CA Certificate Profile
 
