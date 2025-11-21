@@ -2207,14 +2207,14 @@ This Certificate Profile MAY be used when issuing a CA Certificate that will be 
 | `keyUsage`                        | MUST            | Y                     | See [Section 7.1.2.10.7](#712107-ca-certificate-key-usage) |
 | `subjectKeyIdentifier`            | MUST            | N                     | See [Section 7.1.2.11.4](#712114-subject-key-identifier) |
 | `extKeyUsage`                     | MUST[^eku_ca]   | N                     | See [Section 7.1.2.10.6](#712106-ca-certificate-extended-key-usage) |
-| `nameConstraints`                 | MUST            | \*[^name_constraints] | See [Section 7.1.2.5.2](#71252-technically-constrained-tls-subordinate-ca-name-constraints) |
+| `nameConstraints`                 | MUST            | \*[^name_constraints] | See [Section 7.1.2.5.2](#71252-technically-constrained-tls-smime-subordinate-ca-name-constraints) |
 | `authorityInformationAccess`      | SHOULD          | N                     | See [Section 7.1.2.10.3](#712103-ca-certificate-authority-information-access) |
 | Signed Certificate Timestamp List | MAY             | N                     | See [Section 7.1.2.11.3](#712113-signed-certificate-timestamp-list) |
 | Any other extension               | NOT RECOMMENDED | -                     | See [Section 7.1.2.11.5](#712115-other-extensions) |
 
 ##### 7.1.2.5.2 Technically Constrained S/MIME Subordinate CA Name Constraints
 
-For an S/MIME Subordinate CA to be Technically Constrained, Name Constraints extension MUST be encoded as follows. As an explicit exception from RFC 5280, this extension SHOULD be marked critical, but MAY be marked non-critical if compatibility with certain legacy applications that do not support Name Constraints is necessary.
+For an S/MIME Subordinate CA to be Technically Constrained, the Name Constraints extension MUST be encoded as follows. As an explicit exception from [RFC 5280](https://tools.ietf.org/html/rfc5280), this extension SHOULD be marked critical, but MAY be marked non-critical if compatibility is necessary with legacy applications that do not support Name Constraints.
 
 Table: `nameConstraints` requirements
 
