@@ -981,6 +981,8 @@ DNSSEC validation back to the IANA DNSSEC root trust anchor MAY be performed on 
 
 DNSSEC validation back to the IANA DNSSEC root trust anchor is considered outside the scope of self-audits performed to fulfill the requirements in [Section 8.7](#87-self-audits).
 
+DNSSEC validation back to the IANA DNSSEC root trust anchor is considered outside the scope of the logging requirements of [Section 5.4.1](#541-types-of-events-recorded).
+
 #### 4.2.2.2 Multi-perspective issuance corroboration
 
 CAs SHOULD implement [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements before March 15, 2025. Effective May 15, 2025 CAs SHALL implement [Section 3.2.2.9](https://github.com/cabforum/servercert/blob/main/docs/BR.md#3229-multi-perspective-issuance-corroboration) of the TLS Baseline Requirements. This optional delay to the Phased Implementation Timeline for MPIC is intended to assist S/MIME Certificate Issuers with no TLS MPIC obligations.  
