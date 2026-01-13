@@ -784,7 +784,7 @@ Evidence for Individual identity attributes MAY be gathered using an Attestation
 
 8. **From authorized reference sources as supplementary evidence** 
    
-Evidence for Individual identity attributes SHALL use at least one of the following sources for authoritative evidence:  a physical or digital identity document, digital signature supported by certificate, Enterprise RA records, or suitable Attestation.
+Evidence for Individual identity attributes SHALL use at least one of the following sources for authoritative evidence:  a physical or digital identity document, an eligible eID, an eligible mDL, digital signature supported by certificate, Enterprise RA records, or suitable Attestation.
 
 The CA or RA MAY additionally gather and verify supplementary evidence using authorized sources such as additional official documents, government or regulatory registers, or national population registers.
 
