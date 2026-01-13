@@ -801,11 +801,11 @@ The CA SHALL internally document the accepted reference sources, including a des
 
 If an mDL is used to provide evidence, the CA or RA SHALL only accept an mDL that:
 
-* Whose Issuing Authority is authorized by the relevant government or jurisdiction to issue driving licences in accordance with applicable law; 
+* Is issued by an authority that is legally authorized by the relevant government or jurisdiction to issue driving licences; 
 * Conforms to ISO/IEC 18013-5 for the mDL application interface and data model; 
 * Implements the authentication and integrity mechanisms specified in ISO/IEC 18013-5, including the Mobile Security Object (MSO) signed by the Issuing Authority's Document Signer Certificate; 
 * Supports validation through the verification protocols defined in ISO/IEC 18013-7; and
-* Can demonstrate a valid Certificate chain from the Document Signer to an Issuing Authority Certificate that is verifiable through the issuing jurisdiction's published trust infrastructure.
+* Can demonstrate a valid Certificate chain from the Document Signer Certificate to an Issuing Authority Certificate that is verifiable through a publicly available trust anchor or trust list approved by the issuing jurisdiction.
 
 The CA SHALL document and publish information describing the jurisdiction mDLs and associated attributes it accepts.
 
