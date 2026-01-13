@@ -807,7 +807,7 @@ If an mDL is used to provide evidence, the CA or RA SHALL only accept an mDL tha
 * Supports validation through the verification protocols defined in ISO/IEC 18013-7; and
 * Can demonstrate a valid Certificate chain from the Document Signer Certificate to an Issuing Authority Certificate that is verifiable through a publicly available trust anchor or trust list approved by the issuing jurisdiction.
 
-The CA SHALL document and publish information describing the jurisdiction mDLs and associated attributes it accepts.
+The CA SHALL document and publish information describing the jurisdictions and mDL versions it accepts, including the specific ISO 18013-5 data elements required for identity verification.
 
 #### 3.2.4.2 Validation of individual identity
 
@@ -875,11 +875,14 @@ No stipulation.
 
 If authentication using an mDL is used to provide evidence, the CA or RA SHALL:
 
-* Request mDL data in conformance with ISO/IEC 18013-7;
-* Verify the MSO, including validate the Document Signer's Certificate chain against the issuing jurisdiction's published trust infrastructure; and
-* Verify data integrity (i.e., confirm the data elements received match the digests in the signed MSO, verify the MSO's DocType matches "org.iso.18013.5.1.mDL", and check the MSO ValidityInfo dates).
+* Authenticate to the mDL holder's device in conformance with ISO/IEC 18013-5 and request mDL data in conformance with ISO/IEC 18013-7;
+* Verify the MSO signature using the Document Signer Certificate;
+* Validate the Document Signer Certificate chain against the issuing jurisdiction's published trust infrastructure;
+* Verify the revocation status of the Document Signer Certificate;
+* Verify data integrity (i.e., confirm the data elements received match the digests in the signed MSO, verify the MSO's DocType matches "org.iso.18013.5.1.mDL", and check current date and time falls within the MSO ValidityInfo dates);
+* Verify that the mDL has not expired according to the expiry_date data element.
 
-The authentication using the mDL SHALL be created as part of the identity validation process, and evidence of the validation in accordance with ISO/IEC 18013-7 SHALL be retained by the CA or RA.
+The authentication using the mDL SHALL be created as part of the identity validation process, and SHALL NOT rely on previously captured mDL data. Evidence of the validation in accordance with ISO/IEC 18013-7 SHALL be retained by the CA or RA.
 
 ### 3.2.5 Non-verified subscriber information
 
