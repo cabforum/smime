@@ -858,9 +858,9 @@ If required identity attributes to be collected are not present in the Certifica
 
 An Enterprise RA issuing a Sponsor-validated Certificate SHALL validate all identity attributes of an Individual to be included in the Certificate. The Enterprise RA MAY rely upon existing internal records to validate Individual identity.
 
-6.  **Validation of a company attestation**
+6.  **Validation of affiliation from a company attestation**
 
-If an Attestation is used to provide evidence for the validation of Individual identity attributes, then the reliability of the Attestation SHALL be verified according to [Section 3.2.8](#328-reliability-of-verification-sources).
+The reliability of the Attestation SHALL be verified according to [Section 3.2.8](#328-reliability-of-verification-sources).
 
 7.  **Validation of a general attestation**
 
@@ -873,9 +873,10 @@ No stipulation.
 9. **Validation of an mDL**
 
 If an mDL is used to provide evidence, the CA or RA SHALL:
+
 * Authenticate to the mDL holder's device and request data in conformance with ISO/IEC 18013-5 and ISO/IEC 18013-7;
 * Verify the authenticity and integrity of the mDL data through validation of the Mobile Security Object (MSO) and its signature chain;
-* Validate the Document Signer Certificate chain against the issuing jurisdiction's published trust infrastructure;
+* Validate the Document Signer Certificate chain against the issuing jurisdiction's published trust infrastructure; and
 * Verify that the mDL is current and has not been revoked or expired.
 
 The mDL authentication SHALL be performed in real-time as part of the identity validation process, and SHALL NOT rely on previously captured mDL data.
