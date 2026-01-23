@@ -806,7 +806,7 @@ If an mDL is used to provide evidence, the CA or RA SHALL only accept an mDL tha
 * Supports validation through the verification protocols defined in ISO/IEC 18013-7; and
 * Can demonstrate a valid Certificate chain from the Document Signer Certificate to an Issuing Authority Certificate that is verifiable through a publicly available trust anchor or trust list approved by the issuing jurisdiction.
 
-The CA SHALL document and publish information describing the jurisdictions and mDL versions it accepts, including the specific ISO 18013-5 data elements required for identity verification.
+The CA SHALL document and publish information describing the issung jurisdictions and mDL versions it accepts.
 
 #### 3.2.4.2 Validation of individual identity
 
