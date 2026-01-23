@@ -872,16 +872,13 @@ No stipulation.
 
 9. **Validation of an mDL**
 
-If authentication using an mDL is used to provide evidence, the CA or RA SHALL:
-
-* Authenticate to the mDL holder's device in conformance with ISO/IEC 18013-5 and request mDL data in conformance with ISO/IEC 18013-7;
-* Verify the MSO signature using the Document Signer Certificate;
+If an mDL is used to provide evidence, the CA or RA SHALL:
+* Authenticate to the mDL holder's device and request data in conformance with ISO/IEC 18013-5 and ISO/IEC 18013-7;
+* Verify the authenticity and integrity of the mDL data through validation of the Mobile Security Object (MSO) and its signature chain;
 * Validate the Document Signer Certificate chain against the issuing jurisdiction's published trust infrastructure;
-* Verify the revocation status of the Document Signer Certificate;
-* Verify data integrity (i.e., confirm the data elements received match the digests in the signed MSO, verify the MSO's DocType matches "org.iso.18013.5.1.mDL", and check current date and time falls within the MSO ValidityInfo dates);
-* Verify that the mDL has not expired according to the expiry_date data element.
+* Verify that the mDL is current and has not been revoked or expired.
 
-The authentication using the mDL SHALL be created as part of the identity validation process, and SHALL NOT rely on previously captured mDL data. Evidence of the validation in accordance with ISO/IEC 18013-7 SHALL be retained by the CA or RA.
+The mDL authentication SHALL be performed in real-time as part of the identity validation process, and SHALL NOT rely on previously captured mDL data.
 
 ### 3.2.5 Non-verified subscriber information
 
