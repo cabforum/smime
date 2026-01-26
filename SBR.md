@@ -301,7 +301,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Mailbox Field**: In Subscriber Certificates contains a Mailbox Address of the Subject via `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension, or in Subordinate CA Certificates via `rfc822Name` in permittedSubtrees within the `nameConstraints` extension.
 
-**Mobile Driver License (mDL)**: A driver license that is issued in digital format by an Issuing Authority that is authorized by the relevant government or jurisdiction to issue driving licences in accordance with applicable law, and conforms to ISO/IEC 18013-5 and ISO/IEC 18013-7.
+**Mobile Driver License (mDL)**: A driver license that is issued in digital format by an Issuing Authority that is authorized by the relevant government or jurisdiction to issue driving licenses in accordance with applicable law, and conforms to ISO/IEC 18013-5 and ISO/IEC 18013-7.
 
 **Multi-Perspective Issuance Corroboration**: A process by which the determinations made during domain validation and CAA checking by the Primary Network Perspective are corroborated by other Network Perspectives before Certificate issuance.
 
@@ -451,7 +451,7 @@ ISO 17442-1:2020, Financial services — Legal entity identifier (LEI) - Part 1:
 
 ISO 17442-2:2020, Financial services — Legal entity identifier (LEI) - Part 2: Application in digital certificates.
 
-ISO/IEC TS 18013-5, Information technology — Personal identification — ISO-compliant driving licence — Part 5: Mobile driving licence (mDL) application.
+ISO/IEC TS 18013-5, Information technology — Personal identification — ISO-compliant driving licence — Part 5: Mobile Driving Licence (mDL) application.
 
 ISO/IEC TS 18013-7, Information technology — Personal identification — ISO-compliant driving licence — Part 7: Mobile Driving Licence (mDL) digital trust service.
 
@@ -801,7 +801,7 @@ The CA SHALL internally document the accepted reference sources, including a des
 
 If an mDL is used to provide evidence, the CA or RA SHALL only accept an mDL that:
 
-* Is issued by an Issuing Authority that is legally authorized by the relevant government or jurisdiction to issue driving licences; 
+* Is issued by an Issuing Authority that is legally authorized by the relevant government or jurisdiction to issue driving licenses; 
 * Conforms to ISO/IEC 18013-5; 
 * Supports validation through the verification protocols defined in ISO/IEC 18013-7; and
 * Can demonstrate a valid Certificate chain from the Document Signer Certificate to an Issuing Authority Certificate that is verifiable through a publicly available trust anchor or trust list approved by the issuing jurisdiction.
