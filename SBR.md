@@ -3006,4 +3006,4 @@ Following the Effective Date for v 1.0.0 of these Requirements (September 1, 202
 
 On or after September 15, 2024, all newly-issued Publicly-Trusted end entity S/MIME Certificates SHALL be issued from S/MIME Subordinate CAs that are compliant with these Requirements.
 
-For backwards compatibility, Extant S/MIME CA Certificates that share the same Public Keys with S/MIME Subordinate CAs that are compliant with these Requirements, or are no longer used for signing end entity S/MIME Certificates, are not required to be revoked, with the exeption of the required revocation of any Certificate contains containing `RSASSA-PKCS1-v1_5 with SHA-1` as per [Section 7.1.3.1.1](#71311-rsa).
+For backwards compatibility, Extant S/MIME CA Certificates that share the same Public Keys with S/MIME Subordinate CAs that are compliant with these Requirements, or are no longer used for signing end entity S/MIME Certificates, are not required to be revoked, with the exception of the required revocation of any Certificate containing `RSASSA-PKCS1-v1_5 with SHA-1` as described in [Section 7.1.3.1.1](#71311-rsa).
