@@ -2094,6 +2094,10 @@ The CA SHALL NOT use a different algorithm, such as the id-RSASSA-PSS (OID: 1.2.
 
 When encoded, the `AlgorithmIdentifier` for RSA keys SHALL be byte-for-byte identical with the following hex-encoded bytes: `300d06092a864886f70d0101010500`
 
+Effective 2026-09-15, the CA MUST NOT use the following signature algorithm and encoding: RSASSA-PKCS1-v1_5 with SHA-1
+
+Prior to 2026‐09‐15, the CA SHALL revoke any unexpired Subordinate CA Certificate that contains `RSASSA-PKCS1-v1_5 with SHA-1` within the Certificate.
+
 ##### 7.1.3.1.2 ECDSA
 
 The CA SHALL indicate an ECDSA key using the id-ecPublicKey (OID: 1.2.840.10045.2.1) algorithm identifier. The parameters SHALL use the `namedCurve` encoding.
@@ -3002,4 +3006,4 @@ Following the Effective Date for v 1.0.0 of these Requirements (September 1, 202
 
 On or after September 15, 2024, all newly-issued Publicly-Trusted end entity S/MIME Certificates SHALL be issued from S/MIME Subordinate CAs that are compliant with these Requirements.
 
-For backwards compatibility, Extant S/MIME CA Certificates that share the same Public Keys with S/MIME Subordinate CAs that are compliant with these Requirements, or are no longer used for signing end entity S/MIME Certificates, are not required to be revoked.
+For backwards compatibility, Extant S/MIME CA Certificates that share the same Public Keys with S/MIME Subordinate CAs that are compliant with these Requirements, or are no longer used for signing end entity S/MIME Certificates, are not required to be revoked, with the exeption of the required revocation of any Certificate contains containing `RSASSA-PKCS1-v1_5 with SHA-1` as per [Section 7.1.3.1.1](#71311-rsa).
