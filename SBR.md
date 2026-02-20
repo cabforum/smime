@@ -91,7 +91,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.10  | SMC012   |ACME for S/MIME Automation | July 2, 2025 |
 | 1.0.11  | SMC013   |Introduction of PQC Algorithms | August 22, 2025 |
 | 1.0.12  | SMC014   |DNSSEC for CAA | October 13, 2025 |
-| 1.0.14  | SMC016   |Ballots SC096 and SC097 | TBD |
+| 1.0.14  | SMC016   |Equivalence with Ballots SC096 and SC097 | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
