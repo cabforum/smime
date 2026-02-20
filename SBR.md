@@ -109,6 +109,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.8 | SMC010 | SHOULD implement MPIC | March 15, 2025 |
 | 1.0.8 | SMC010 | SHALL implement MPIC | May 15, 2025 |
 | 1.0.12 | SMC014 | SHALL implement DNSSEC for CAA | March 15, 2026 |
+| 1.0.14 | SMC016 | SHALL all remaining use of SHA-1 in Certificates and CRLs | September 15, 2026 |
 
 ## 1.3 PKI participants
 
@@ -2095,9 +2096,9 @@ The CA SHALL NOT use a different algorithm, such as the id-RSASSA-PSS (OID: 1.2.
 
 When encoded, the `AlgorithmIdentifier` for RSA keys SHALL be byte-for-byte identical with the following hex-encoded bytes: `300d06092a864886f70d0101010500`
 
-Effective 2026-09-15, the CA MUST NOT use the following signature algorithm and encoding: RSASSA-PKCS1-v1_5 with SHA-1
+Effective September 15, 2026 the CA MUST NOT use the following signature algorithm and encoding: RSASSA-PKCS1-v1_5 with SHA-1
 
-Prior to 2026‐09‐15, the CA SHALL revoke any unexpired Subordinate CA Certificate that contains `RSASSA-PKCS1-v1_5 with SHA-1` within the Certificate.
+Prior to September 15, 2026 the CA SHALL revoke any unexpired Subordinate CA Certificate that contains `RSASSA-PKCS1-v1_5 with SHA-1` within the Certificate.
 
 ##### 7.1.3.1.2 ECDSA
 
