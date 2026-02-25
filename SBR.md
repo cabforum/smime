@@ -2096,9 +2096,9 @@ The CA SHALL NOT use a different algorithm, such as the id-RSASSA-PSS (OID: 1.2.
 
 When encoded, the `AlgorithmIdentifier` for RSA keys SHALL be byte-for-byte identical with the following hex-encoded bytes: `300d06092a864886f70d0101010500`
 
-Effective September 15, 2026 the CA MUST NOT use the following signature algorithm and encoding: RSASSA-PKCS1-v1_5 with SHA-1
+Effective September 15, 2026 the CA MUST NOT use the following signature algorithm and encoding: RSASSA-PKCS1-v1_5 with SHA-1.
 
-Prior to September 15, 2026 the CA SHALL revoke any unexpired Subordinate CA Certificate that contains `RSASSA-PKCS1-v1_5 with SHA-1` within the Certificate.
+Prior to September 15, 2026 the CA SHALL revoke any unexpired Subordinate CA Certificate that contains RSASSA-PKCS1-v1_5 with SHA-1 within the Certificate.
 
 ##### 7.1.3.1.2 ECDSA
 
@@ -2138,7 +2138,7 @@ The CA SHALL indicate an ML-DSA key using one of the following algorithm identif
 
 The parameters for ML-DSA keys SHALL be absent. The CA MUST NOT use HashML-DSA; only "pure" ML-DSA is permitted.
 
-When encoded, the AlgorithmIdentifier for ML-DSA keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
+When encoded, the `AlgorithmIdentifier` for ML-DSA keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
 
 * For ML-DSA-44, `300b0609608648016503040311`.
 * For ML-DSA-65, `300b0609608648016503040312`.
@@ -2154,7 +2154,7 @@ The CA SHALL indicate an ML-KEM key using one of the following algorithm identif
 
 The parameters for ML-KEM keys SHALL be absent.
 
-When encoded, the AlgorithmIdentifier for ML-KEM keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
+When encoded, the `AlgorithmIdentifier` for ML-KEM keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
 
 * For ML-KEM-512, `300b0609608648016503040401`.
 * For ML-KEM-768, `300b0609608648016503040402`.
@@ -3008,4 +3008,4 @@ Following the Effective Date for v 1.0.0 of these Requirements (September 1, 202
 
 On or after September 15, 2024, all newly-issued Publicly-Trusted end entity S/MIME Certificates SHALL be issued from S/MIME Subordinate CAs that are compliant with these Requirements.
 
-For backwards compatibility, Extant S/MIME CA Certificates that share the same Public Keys with S/MIME Subordinate CAs that are compliant with these Requirements, or are no longer used for signing end entity S/MIME Certificates, are not required to be revoked, with the exception of the required revocation of any Certificate containing `RSASSA-PKCS1-v1_5 with SHA-1` as described in [Section 7.1.3.1.1](#71311-rsa).
+For backwards compatibility, Extant S/MIME CA Certificates that share the same Public Keys with S/MIME Subordinate CAs that are compliant with these Requirements, or are no longer used for signing end entity S/MIME Certificates, are not required to be revoked, with the exception of the required revocation of any Certificate containing RSASSA-PKCS1-v1_5 with SHA-1 as described in [Section 7.1.3.1.1](#71311-rsa).
