@@ -2096,7 +2096,7 @@ The CA SHALL NOT use a different algorithm, such as the id-RSASSA-PSS (OID: 1.2.
 
 When encoded, the `AlgorithmIdentifier` for RSA keys SHALL be byte-for-byte identical with the following hex-encoded bytes: `300d06092a864886f70d0101010500`
 
-Effective September 15, 2026 the CA MUST NOT sign a certificate using a signature algorithm that incorporates SHA-1.
+Effective September 15, 2026 the CA SHALL NOT sign a certificate using a signature algorithm that incorporates SHA-1.
 
 Prior to September 15, 2026 the CA SHALL revoke any unexpired Subordinate CA Certificate whose signature algorithm incorporates SHA-1.
 
