@@ -1,11 +1,11 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.12
+subtitle: Version 1.0.TKTK???
 author:
   - CA/Browser Forum
-date: October 13, 2025
+date: TKTK???
 copyright: |
-  Copyright 2025 CA/Browser Forum
+  Copyright 2026 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
 
@@ -91,7 +91,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.10  | SMC012   |ACME for S/MIME Automation | July 2, 2025 |
 | 1.0.11  | SMC013   |Introduction of PQC Algorithms | August 22, 2025 |
 | 1.0.12  | SMC014   |DNSSEC for CAA | October 13, 2025 |
-| XX  | SMC0XX  |Updates to Certificate Profiles | INSERTDATE |
+| TKTK-XX  | SMC0XX  |Updates to Certificate Profiles | TKTK-INSERTDATE |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -1930,7 +1930,7 @@ If the CA asserts compliance with these Requirements, all Certificates that it i
 
 The CA SHALL meet the technical requirements set forth in [Section 6.1.5](#615-key-sizes) for Key Sizes, and [Section 6.1.6](#616-public-key-parameters-generation-and-quality-checking) for Public Key Parameters Generation and Quality Checking.
 
-Prior to INSERTDATE, the CA SHALL issue Certificates in accordance with the profile specified in these Requirements or the profile specified in version XXX of these Requirements. Effective INSERTDATE, the CA SHALL issue Certificates in accordance with the profile specified in these Requirements.
+Prior to TKTK-INSERTDATE, the CA SHALL issue Certificates in accordance with the profile specified in these Requirements or the profile specified in version TKTK-XXX of these Requirements. Effective TKTK-INSERTDATE, the CA SHALL issue Certificates in accordance with the profile specified in these Requirements.
 
 #### 7.1.2.2 Cross-certified Subordinate CA certificate profile
 
