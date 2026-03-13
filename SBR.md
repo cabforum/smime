@@ -109,7 +109,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.8 | SMC010 | SHOULD implement MPIC | March 15, 2025 |
 | 1.0.8 | SMC010 | SHALL implement MPIC | May 15, 2025 |
 | 1.0.12 | SMC014 | SHALL implement DNSSEC for CAA | March 15, 2026 |
-| XX | SMC0XX | CAs SHALL use the updated Certificate Profiles passed in Version XX | INSERTDATE |
+| XX | SMC0XX | CAs SHALL use the updated Certificate Profiles passed in Version XX | TKTK-INSERTDATE |
 
 ## 1.3 PKI participants
 
@@ -2601,7 +2601,7 @@ CAs SHALL NOT include additional names unless the CA is aware of a reason for in
 
 ## 7.2 CRL profile
 
-Prior to INSERTDATE, the CA SHALL issue CRLs in accordance with the profile specified in these Requirements or the profile specified in Version XXX of these Requirements. Effective INSERTDATE, the CA SHALL issue CRLs in accordance with the profile specified in these Requirements.
+Prior to TKTK-INSERTDATE, the CA SHALL issue CRLs in accordance with the profile specified in these Requirements or the profile specified in Version XXX of these Requirements. Effective TKTK-INSERTDATE, the CA SHALL issue CRLs in accordance with the profile specified in these Requirements.
 
 If the CA asserts compliance with these Requirements, all CRLs that it issues SHALL comply with the following CRL profile, which incorporates, and is derived from [RFC 5280](https://tools.ietf.org/html/rfc5280). Except as explicitly noted, all normative requirements imposed by RFC 5280 shall apply, in addition to the normative requirements imposed by this document. CAs SHOULD examine [RFC 5280, Appendix B](https://tools.ietf.org/html/rfc5280#appendix-B) for further issues to be aware of.
 
