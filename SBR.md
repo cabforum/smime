@@ -1700,6 +1700,8 @@ For RSA key pairs the CA SHALL:
 * For Keys corresponding to Subscriber Certificates, ensure that the modulus size, when encoded, is at least 2048 bits; and
 * Ensure that the modulus size, in bits, is evenly divisible by 8.
 
+Effective September 15, 2028 the CA SHALL cease issuance using Subordinate CAs whose RSA Key modulus size, when encoded, is at less than 3072 bits.
+
 For ECDSA key pairs, the CA SHALL:
 
 * Ensure that the key represents a valid point on the NIST P-256, NIST P-384, or NIST P-521 elliptic curve.
