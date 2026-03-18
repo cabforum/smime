@@ -109,7 +109,8 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.8 | SMC010 | SHOULD implement MPIC | March 15, 2025 |
 | 1.0.8 | SMC010 | SHALL implement MPIC | May 15, 2025 |
 | 1.0.12 | SMC014 | SHALL implement DNSSEC for CAA | March 15, 2026 |
-| 1.0.17  | SMC017   |Increase minimum RSA CA key size | TBD |
+| 1.0.17  | SMC017   |New Root and Subordinate CA RSA Key SHALL be at least 3072 bits | September 15, 2026 |
+| 1.0.17  | SMC017   |SHALL cease issuance from Subordinate CA with RSA Key less than 3072 bits | September 15, 2028 |
 
 ## 1.3 PKI participants
 
