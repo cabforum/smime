@@ -1,11 +1,11 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.12
+subtitle: Version 1.0.15
 author:
   - CA/Browser Forum
-date: October 13, 2025
+date: TBD
 copyright: |
-  Copyright 2025 CA/Browser Forum
+  Copyright 2026 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
 
