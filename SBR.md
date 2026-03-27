@@ -1,11 +1,11 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.12
+subtitle: Version 1.0.13
 author:
   - CA/Browser Forum
-date: October 13, 2025
+date: March 27, 2026
 copyright: |
-  Copyright 2025 CA/Browser Forum
+  Copyright 2026 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
 ---
 
@@ -90,7 +90,8 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.9   | SMC011   |Add EUID as Registration Reference | May 14, 2025 |
 | 1.0.10  | SMC012   |ACME for S/MIME Automation | July 2, 2025 |
 | 1.0.11  | SMC013   |Introduction of PQC Algorithms | August 22, 2025 |
-| 1.0.12  | SMC013   |DNSSEC for CAA | October 13, 2025 |
+| 1.0.12  | SMC014   |DNSSEC for CAA | October 13, 2025 |
+| 1.0.13  | SMC015   |Allow mDL for Authentication of Individual Identity | March 27, 2026 |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -300,6 +301,8 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Mailbox Field**: In Subscriber Certificates contains a Mailbox Address of the Subject via `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension, or in Subordinate CA Certificates via `rfc822Name` in permittedSubtrees within the `nameConstraints` extension.
 
+**Mobile Driver License (mDL)**: A driver license that is issued in digital format by an Issuing Authority that is authorized by the relevant government or jurisdiction to issue driving licenses in accordance with applicable law, and conforms to ISO/IEC 18013-5 and ISO/IEC 18013-7.
+
 **Multi-Perspective Issuance Corroboration**: A process by which the determinations made during domain validation and CAA checking by the Primary Network Perspective are corroborated by other Network Perspectives before Certificate issuance.
 
 **Multipurpose Profile**: The S/MIME Multipurpose Generation profiles are aligned with the more defined Strict Profiles, but with additional options for `extKeyUsage` and other extensions. This is intended to allow flexibility for crossover use cases between document signing and secure email. 
@@ -405,6 +408,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 |FIPS	   |(US Government) Federal Information Processing Standard|
 |ICAO	   |International Civil Aviation Organization |
 |ISO	   |International Organization for Standardization |
+|mDL     |Mobile Driver License |
 |MPIC    |Multi-perspective issuance corroboration |
 |MV	   |Mailbox-validated |
 |NIST	   |(US Government) National Institute of Standards and Technology |
@@ -417,7 +421,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 ###  1.6.3 References
 
-ETSI EN 319 403, Electronic Signatures and Trust Infrastructures (ESI); Trust Service Provider Conformity Assessment - Requirements for conformity assessment bodies assessing Trust Service Providers.
+eIDAS: Regulation (EU) No 910/2014 as amended by Regulation (EU) 2024/1183 and Directive (EU) 2022/2555
 
 ETSI EN 319 403-1, Electronic Signatures and Trust Infrastructures (ESI); Trust Service Provider Conformity Assessment; Part 1 - Requirements for conformity assessment bodies assessing Trust Service Providers.
 
@@ -446,6 +450,10 @@ ISO 17065:2012, Conformity assessment — Requirements for bodies certifying pro
 ISO 17442-1:2020, Financial services — Legal entity identifier (LEI) - Part 1: Assignment.
 
 ISO 17442-2:2020, Financial services — Legal entity identifier (LEI) - Part 2: Application in digital certificates.
+
+ISO/IEC TS 18013-5, Information technology — Personal identification — ISO-compliant driving licence — Part 5: Mobile Driving Licence (mDL) application.
+
+ISO/IEC TS 18013-7, Information technology — Personal identification — ISO-compliant driving licence — Part 7: Mobile Driving Licence (mDL) digital trust service.
 
 Network and Certificate System Security Requirements, Version 2.0 or later. See https://cabforum.org/network-security-requirements/.
 
@@ -716,7 +724,7 @@ The CA SHALL document and publish the methods it uses to collect Individual iden
 
 1.	**From a physical identity document** 
 
-If physical identity documents are used as evidence, the CA or RA SHALL accept only government-issued passports or identity cards, and other official identity documents of comparable reliability (such as drivers license or military ID). 
+If physical identity documents are used to provide evidence, the CA or RA SHALL accept only government-issued passports or identity cards, and other official identity documents of comparable reliability (such as drivers license or military ID). 
 
 The physical identity document used as evidence SHALL contain a face photo and/or other information that can be compared with the Applicant's physical appearance.
 
@@ -724,19 +732,19 @@ The CA SHALL document and publish information describing the physical or digital
 
 2.	**From a digital identity document** 
 
-If digital identity documents (such as passports or national ID cards including a chip bearing digitally signed information about the holder) are used as evidence, the CA or RA SHALL only accept eMRTD digital identity documents according to ICAO 9303 part 10.
+If digital identity documents (such as government-issued passports or national ID cards including a chip bearing digitally signed information about the holder) are used to provide evidence, the CA or RA SHALL only accept eMRTD digital identity documents in compliance with ICAO 9303 part 10.
 
 This method does not include "eID" as described in Regulation (EU) 910/2014.
 
 3. **Using electronic identification schemes (eID)**
    
-If an eID is used as evidence, the CA or RA SHALL only accept “notified” eID schemes according to Article 9 of the [eIDAS Regulation](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2014.257.01.0073.01.ENG) and the eID shall conform to eIDAS LoA “Substantial” or “High”.
+If an eID is used to provide evidence, the CA or RA SHALL only accept “notified” eID schemes according to Article 9 of the [eIDAS Regulation](https://eur-lex.europa.eu/eli/reg/2014/910/2024-05-20) and the eID shall conform to eIDAS LoA “Substantial” or “High”.
 
 The CA SHALL document and publish information describing the eID and associated eID attributes it accepts.
 
 4.	**From a certificate supporting a digital signature applied by the Applicant** 
 
-If a digital signature is to be used as evidence, the CA or RA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under an Approved Framework described in this section. 
+If a digital signature is used to provide evidence, the CA or RA SHALL have the Applicant digitally sign the Certificate Request using a valid personal Certificate that was issued under an Approved Framework described in this section. 
 
 Identity attributes are evidenced by the signing Certificate, not by the content of the signed document. The CA or RA SHALL only rely upon the signing Certificate as evidence for identity attributes if the digital signature is valid in accordance with the requirements of the relevant Approved Framework.
 
@@ -776,7 +784,7 @@ Evidence for Individual identity attributes MAY be gathered using an Attestation
 
 8. **From authorized reference sources as supplementary evidence** 
    
-Evidence for Individual identity attributes SHALL use at least one of the following sources for authoritative evidence:  a physical or digital identity document, digital signature supported by certificate, Enterprise RA records, or suitable Attestation.
+Evidence for Individual identity attributes SHALL use at least one of the following sources for authoritative evidence:  a physical or digital identity document, an eligible eID, an eligible mDL, digital signature supported by certificate, Enterprise RA records, or suitable Attestation.
 
 The CA or RA MAY additionally gather and verify supplementary evidence using authorized sources such as additional official documents, government or regulatory registers, or national population registers.
 
@@ -788,6 +796,17 @@ Examples of this method include:
 * The CA MAY verify the address (but not the identity) of the Applicant using a utility bill, bank statement, credit card statement, government-issued tax document, or other form of identification that the CA determines to be reliable.
 
 The CA SHALL internally document the accepted reference sources, including a description of the documents or Attestations accepted as supplementary evidence.
+
+9. **From a Mobile Driver License (mDL)**
+
+If an mDL is used to provide evidence, the CA or RA SHALL only accept an mDL that:
+
+* Is issued by an Issuing Authority that is legally authorized by the relevant government or jurisdiction to issue driving licenses; 
+* Conforms to ISO/IEC 18013-5; 
+* Supports validation through the verification protocols defined in ISO/IEC 18013-7; and
+* Can demonstrate a valid Certificate chain from the Document Signer Certificate to an Issuing Authority Certificate that is verifiable through a publicly available trust anchor or trust list approved by the issuing jurisdiction.
+
+The CA SHALL document and publish information describing the issung jurisdictions and mDL versions it accepts.
 
 #### 3.2.4.2 Validation of individual identity
 
@@ -813,7 +832,7 @@ Automated and manual processes MAY be used in combination, (for example the CA o
 
 2.	**Validation of a digital identity document**
 
-The CA or RA SHALL only accept digital identity documents if the issuer's digital signature on the document is successfully validated according to ICAO 9303 part 11.
+The CA or RA SHALL only accept digital identity documents if the issuer's digital signature on the document is successfully validated against the relevant country signing Certificates (e.g., from the [ICAO Public Key Database](https://www.icao.int/icao-pkd)).
 
 The CA or RA SHALL record information obtained from the digital identity document to evidence the identity proofing process. In addition to identity attributes and face photo, the following information SHALL be recorded: issuer, validity period, and the document's unique identification number.
 
@@ -823,25 +842,44 @@ Automated and manual processes MAY be used in combination, (for example using au
 
 3. **Validation of eID**
    
-If authentication using an eID is used as evidence, the CA or RA SHALL confirm that the eID scheme is suitable (i.e., that the eID is accessible via a "notified" eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).  
+If authentication using an eID is used to provide evidence, the CA or RA SHALL confirm that the eID scheme is suitable (i.e., that the eID is accessible via a "notified" eIDAS-Node), and that the individual eID is valid (i.e., not expired, suspended, or revoked).
 
 The authentication using the eID SHALL be created as part of the identity validation process, and evidence of the validation with the eID's Identity Provider (IdP) SHALL be retained by the CA or RA.
 
 4.	**Validation of digital signature with certificate** 
 
-If a digital signature with Certificate is used as evidence, the signature SHALL be created as part of the identity validation process.
+If a digital signature with Certificate is used to provide evidence, the signature SHALL be created as part of the identity validation process.
 
 The CA or RA SHALL validate the digital signature and SHALL only use the signing Certificate as evidence for identity attributes if the signature is valid.
 
 If required identity attributes to be collected are not present in the Certificate, the CA or RA SHALL collect these attributes from other sources and validate them accordingly.
 
-5.	**Validation of an Attestation**
-
-If an Attestation is used as evidence for the validation of Individual identity attributes, then the reliability of the Attestation SHALL be verified according to [Section 3.2.8](#328-reliability-of-verification-sources).
-
-6. **Validation using an Enterprise RA record**
+5.	**Validation using an Enterprise RA record**
 
 An Enterprise RA issuing a Sponsor-validated Certificate SHALL validate all identity attributes of an Individual to be included in the Certificate. The Enterprise RA MAY rely upon existing internal records to validate Individual identity.
+
+6.  **Validation of affiliation from a company attestation**
+
+The reliability of the Attestation SHALL be verified according to [Section 3.2.8](#328-reliability-of-verification-sources).
+
+7.  **Validation of a general attestation**
+
+The reliability of the Attestation SHALL be verified according to [Section 3.2.8](#328-reliability-of-verification-sources).
+
+8.  **Validation of a supplementary evidence**
+
+No stipulation. 
+
+9. **Validation of an mDL**
+
+If an mDL is used to provide evidence, the CA or RA SHALL:
+
+* Authenticate to the mDL holder's device and request data in conformance with ISO/IEC 18013-5 and ISO/IEC 18013-7;
+* Verify the authenticity and integrity of the mDL data through validation of the Mobile Security Object (MSO) and its signature chain;
+* Validate the Document Signer Certificate chain against the issuing jurisdiction's published trust infrastructure; and
+* Verify that the mDL is current and has not been revoked or expired.
+
+The mDL authentication SHALL be performed in real-time as part of the identity validation process, and SHALL NOT rely on previously captured mDL data.
 
 ### 3.2.5 Non-verified subscriber information
 
@@ -1018,7 +1056,7 @@ CAs are encouraged to contribute to open-source Linting projects, such as by:
 * Updating documentation of existing lints; and 
 * Generating test Certificates for positive/negative tests of specific lints.
 
-#### 4.3.1.3 Linting of issued Certificates
+#### 4.3.1.3 Linting of issued certificates
 
 CAs MAY use a Linting process to test each issued Certificate.
 
@@ -1768,7 +1806,7 @@ Parties other than the Subordinate CA SHALL NOT archive the Subordinate CA Priva
 
 ### 6.2.6 Private key transfer into or from a cryptographic module
 
-If the Issuing CA generated the Private Key on behalf of the Subordinate CA, then the Issuing CA SHALL encrypt the Private Key for transport to the Subordinate CA. If the Issuing CA becomes aware that a Subordinate CA's Private Key has been communicated to an unauthorized person or an organization not Affiliated with the Subordinate CA, then the Issuing CA SHALL revoke all certificates that include the Public Key corresponding to the communicated Private Key.
+If the Issuing CA generated the Private Key on behalf of the Subordinate CA, then the Issuing CA SHALL encrypt the Private Key for transport to the Subordinate CA. If the Issuing CA becomes aware that a Subordinate CA's Private Key has been communicated to an unauthorized person or an organization not Affiliated with the Subordinate CA, then the Issuing CA SHALL revoke all Certificates that include the Public Key corresponding to the communicated Private Key.
 
 ### 6.2.7 Private key storage on cryptographic module
 
@@ -1825,7 +1863,7 @@ No stipulation.
 
 ### 6.5.1 Specific computer security technical requirements
 
-The CA SHALL enforce multi-factor authentication for all accounts capable of directly causing certificate issuance.
+The CA SHALL enforce multi-factor authentication for all accounts capable of directly causing Certificate issuance.
 
 ### 6.5.2 Computer security rating
 
@@ -2651,7 +2689,7 @@ The CA's audit SHALL be performed by a Qualified Auditor. A Qualified Auditor me
 1. Independence from the subject of the audit;
 2. The ability to conduct an audit that addresses the criteria specified in an Eligible Audit Scheme (see [Section 8.4](#84-topics-covered-by-assessment));
 3. Employs individuals who have proficiency in examining Public Key Infrastructure technology, information security tools and techniques, information technology and security auditing, and the third-party attestation function;
-4. (For audits conducted in accordance with any one of the ETSI standards) accredited in accordance with ISO 17065 applying the requirements specified in ETSI EN 319 403 or ETSI EN 319 403-1;
+4. (For audits conducted in accordance with any one of the ETSI standards) accredited in accordance with ISO 17065 applying the requirements specified in ETSI EN 319 403-1;
 5. (For audits conducted in accordance with the WebTrust standard) licensed for WebTrust by CPA Canada;
 6. Bound by law, government regulation, or professional code of ethics; and
 7. Except in the case of an Internal Government Auditing Agency, maintains Professional Liability/Errors & Omissions insurance with policy limits of at least one million US dollars in coverage.
