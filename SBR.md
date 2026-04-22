@@ -1735,7 +1735,7 @@ No stipulation.
 
 For RSA key pairs the CA SHALL:
 
-* For Keys corresponding to Root and Subordinate CAs created after September 15, 2026 ensure that the modulus size, when encoded, is at least 4096 bits; and
+* For Keys corresponding to Root and Subordinate CA Certificates signed on or after September 15, 2026 ensure that the modulus size, when encoded, is at least 4096 bits; and
 * For Keys corresponding to Subscriber Certificates, ensure that the modulus size, when encoded, is at least 2048 bits; and
 * Ensure that the modulus size, in bits, is evenly divisible by 8.
 
@@ -1747,7 +1747,7 @@ For ECDSA key pairs, the CA SHALL:
 
 For EdDSA key pairs, the CA SHALL:
 
-* Ensure that the key represents a valid point on the curve25519 or curve 448 elliptic curve.
+* Ensure that the key represents a valid point on the curve25519 or curve448 elliptic curve.
 
 For ML-DSA key pairs, the CA SHALL:
 
