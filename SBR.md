@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.14
+subtitle: Version 1.0.15
 author:
   - CA/Browser Forum
-date: May 5, 2026
+date: TBD
 copyright: |
   Copyright 2026 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -93,6 +93,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.12  | SMC014   |DNSSEC for CAA | October 13, 2025 |
 | 1.0.13  | SMC015   |Allow mDL for Authentication of Individual Identity | March 27, 2026 |
 | 1.0.14  | SMC016   |Equivalence with Ballots SC096 and SC097 | May 5, 2026 |
+| 1.0.15  | SMC017   |Increase Minimum RSA CA Key Size | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -111,6 +112,8 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.8 | SMC010 | SHALL implement MPIC | May 15, 2025 |
 | 1.0.12 | SMC014 | SHALL implement DNSSEC for CAA | March 15, 2026 |
 | 1.0.14 | SMC016 | SHALL sunset all remaining use of SHA-1 in Certificates and CRLs | September 15, 2026 |
+| 1.0.15  | SMC017   |New Root or Subordinate CA RSA Key SHALL be at least 4096 bits | September 15, 2026 |
+| 1.0.15  | SMC017   |SHALL cease issuance from Subordinate CA with RSA Key less than 4096 bits | September 15, 2027 |
 
 ## 1.3 PKI participants
 
@@ -1736,8 +1739,11 @@ No stipulation.
 
 For RSA key pairs the CA SHALL:
 
-* Ensure that the modulus size, when encoded, is at least 2048 bits; and
+* For Keys corresponding to Root and Subordinate CA Certificates signed on or after September 15, 2026 ensure that the modulus size, when encoded, is at least 4096 bits; and
+* For Keys corresponding to Subscriber Certificates, ensure that the modulus size, when encoded, is at least 2048 bits; and
 * Ensure that the modulus size, in bits, is evenly divisible by 8.
+
+Effective September 15, 2027 the CA SHALL NOT issue Certificates from any Subordinate CA whose RSA Key modulus size, when encoded, is less than 4096 bits.
 
 For ECDSA key pairs, the CA SHALL:
 
@@ -1745,7 +1751,7 @@ For ECDSA key pairs, the CA SHALL:
 
 For EdDSA key pairs, the CA SHALL:
 
-* Ensure that the key represents a valid point on the curve25519 or curve 448 elliptic curve.
+* Ensure that the key represents a valid point on the curve25519 or curve448 elliptic curve.
 
 For ML-DSA key pairs, the CA SHALL:
 
