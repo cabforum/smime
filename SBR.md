@@ -1743,7 +1743,10 @@ For RSA key pairs the CA SHALL:
 * For Keys corresponding to Subscriber Certificates, ensure that the modulus size, when encoded, is at least 2048 bits; and
 * Ensure that the modulus size, in bits, is evenly divisible by 8.
 
-Effective September 15, 2027 the CA SHALL NOT issue Certificates from any Subordinate CA whose RSA Key modulus size, when encoded, is less than 4096 bits.
+Effective September 15, 2027 the CA SHALL NOT issue Certificates from any Subordinate CA when:
+- the `tbsCertificate` contains the `extKeyUsage` extension with the value of `id-kp-emailProtection`;
+- the `tbsCertificate` contains `rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension., and;
+- the CA Certificates RSA Key modulus size, when encoded, is less than 3072 bits.
 
 For ECDSA key pairs, the CA SHALL:
 
