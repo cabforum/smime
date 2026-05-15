@@ -1744,9 +1744,9 @@ For RSA key pairs the CA SHALL:
 * Ensure that the modulus size, in bits, is evenly divisible by 8.
 
 Effective September 15, 2027 the CA SHALL NOT issue Certificates from any Subordinate CA when:
-- the `tbsCertificate` contains the `extKeyUsage` extension with the value of `id-kp-emailProtection`;
-- the `tbsCertificate` contains `rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension., and;
-- the CA Certificates RSA Key modulus size, when encoded, is less than 3072 bits.
+- the `tbsCertificate` contains `id-kp-emailProtection` in the `extKeyUsage` extension; and
+- the `tbsCertificate` contains a `subjectAltName` extension that complies with [Section 7.1.4.2.1](#71421-subject-alternative-name-extension); and
+- the CA Certificate's RSA Key modulus size, when encoded, is less than 3072 bits.
 
 For ECDSA key pairs, the CA SHALL:
 
