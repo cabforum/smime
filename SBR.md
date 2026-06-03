@@ -1739,7 +1739,7 @@ No stipulation.
 
 For RSA key pairs the CA SHALL:
 
-* For Keys corresponding to Root and Subordinate CA Certificates signed on or after September 15, 2026 ensure that the modulus size, when encoded, is at least 4096 bits; and
+* For Keys corresponding to CA Certificates (including Root, Subordinate and Cross Certificates) signed on or after September 15, 2026 ensure that the modulus size, when encoded, is at least 4096 bits; and
 * For Keys corresponding to Subscriber Certificates, ensure that the modulus size, when encoded, is at least 2048 bits; and
 * Ensure that the modulus size, in bits, is evenly divisible by 8.
 
