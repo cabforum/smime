@@ -113,7 +113,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.12 | SMC014 | SHALL implement DNSSEC for CAA | March 15, 2026 |
 | 1.0.14 | SMC016 | SHALL sunset all remaining use of SHA-1 in Certificates and CRLs | September 15, 2026 |
 | 1.0.15  | SMC017   |New Root or Subordinate CA RSA Key SHALL be at least 4096 bits | September 15, 2026 |
-| 1.0.15  | SMC017   |SHALL cease issuance from Subordinate CA with RSA Key less than 3072 bits | September 15, 2027 |
+| 1.0.15  | SMC017   |SHALL cease Subscriber Certificate issuance from Subordinate CA with RSA Key less than 3072 bits | September 15, 2027 |
 
 ## 1.3 PKI participants
 
