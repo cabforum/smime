@@ -1756,7 +1756,7 @@ For ECDSA key pairs, the CA SHALL:
 
 For EdDSA key pairs, the CA SHALL:
 
-* Ensure that the key represents a valid point on the curve25519 or curve448 elliptic curve.
+* Ensure that the key represents a valid point on the Curve25519 or Curve448 elliptic curve.
 
 For ML-DSA key pairs, the CA SHALL:
 
@@ -2167,8 +2167,8 @@ When encoded, the `AlgorithmIdentifier` for ECDSA keys SHALL be byte-for-byte id
 
 The CA SHALL indicate an EdDSA key using one of the following algorithm identifiers below:
 
-* For curve25519 keys, the `algorithm` SHALL be id-Ed25519 (OID: 1.3.101.112).
-* For curve448 keys, the `algorithm` SHALL be id-Ed448 (OID: 1.3.101.113).
+* For Curve25519 keys, the `algorithm` SHALL be id-Ed25519 (OID: 1.3.101.112).
+* For Curve448 keys, the `algorithm` SHALL be id-Ed448 (OID: 1.3.101.113).
 
 The parameters for EdDSA keys SHALL be absent.
 
