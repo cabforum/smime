@@ -1972,7 +1972,7 @@ f. `nameConstraints` (MAY be present)
 
 g. `extKeyUsage` (MAY be present for Cross Certificates; SHALL be present otherwise)
 
-   For Cross Certificates that share a Subject Distinguished Name and Subject Public Key with a Root CA Certificate operated in accordance with these Requirements, this extension MAY be present. If present, this extension SHOULD NOT be marked critical. This extension SHALL only contain usages for which the Issuing CA has verified the Cross Certificate is authorized to assert. This extension SHALL NOT contain the `anyExtendedKeyUsage` usage.
+   For Cross Certificates that share a Subject Distinguished Name and Subject Public Key with a Root CA Certificate operated in accordance with these Requirements, this extension MAY be present. If present, this extension SHOULD NOT be marked critical. This extension SHALL only contain usages for which the Issuing CA has verified the Cross Certificate is authorized to assert. In the event that the Issuer hierarchy is non-dedicated (i.e., supporting multiple purposes) and the Subject is dedicated to S/MIME, only the values `id-kp-emailProtection` or `id-kp-emailProtection`/`id-kp-clientAuth` SHALL be present. This extension SHALL NOT contain the `anyExtendedKeyUsage` usage.
 
    For all other Subordinate CA Certificates, including Technically Constrained Subordinate CA Certificates, this extension SHALL be present and SHOULD NOT be marked critical[^**].
 
