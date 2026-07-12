@@ -2668,21 +2668,21 @@ CAs SHALL NOT include a Mailbox Address in a Mailbox Field except as verified in
 
 | **Attribute**            | **OID**  | **Encoding Requirements** | **Max Length** |
 | ----                     | --       | --- | - |
-| `organizationIdentifier` | 2.5.4.97 | MUST use `PrintableString` or `UTF8String`. |  |
-| `commonName`             | 2.5.4.3  |  |  |
-| `emailAddress`           | 1.2.840.113549.1.9.1 |  |  |
-| `organizationName`       | 2.5.4.10 |  |  |
-| `organizationalUnitName` | 2.5.4.11 |  |  |
-| `givenName`              | 2.5.4.42 |  |  |
-| `surname`                | 2.5.4.4  |  |  |
-| `pseudonym`              | 2.5.4.65 |  |  |
-| `serialNumber`           | 2.5.4.5  |  |  |
-| `title`                  | 2.5.4.12 |  |  |
-| `streetAddress`          | 2.5.4.9  |  |  |
-| `localityName`           | 2.5.4.7  |  |  |
-| `stateOrProvinceName`    | 2.5.4.8  |  |  |
-| `postalCode`             | 2.5.4.17 |  |  |
-| `countryName`            | 2.5.4.6  |  |  |
+| `organizationIdentifier` | 2.5.4.97 | MUST use `PrintableString` or `UTF8String`. | None |
+| `commonName`             | 2.5.4.3  | MUST use `PrintableString` or `UTF8String`. | 64 |
+| `emailAddress`           | 1.2.840.113549.1.9.1 | ?? | ?? |
+| `organizationName`       | 2.5.4.10 | MUST use `PrintableString` or `UTF8String`. | 64 |
+| `organizationalUnitName` | 2.5.4.11 | MUST use `PrintableString` or `UTF8String`. | 64 |
+| `givenName`              | 2.5.4.42 | MUST use `PrintableString` or `UTF8String`. | 64 |
+| `surname`                | 2.5.4.4  | MUST use `PrintableString` or `UTF8String`. | 64 |
+| `pseudonym`              | 2.5.4.65 | ?? | ?? |
+| `serialNumber`           | 2.5.4.5  | MUST use `PrintableString` | 64 |
+| `title`                  | 2.5.4.12 | MUST use `PrintableString` or `UTF8String`. | ?? |
+| `streetAddress`          | 2.5.4.9  | MUST use `PrintableString` or `UTF8String`. | 128 |
+| `localityName`           | 2.5.4.7  | MUST use `PrintableString` or `UTF8String`. | 128 |
+| `stateOrProvinceName`    | 2.5.4.8  | MUST use `PrintableString` or `UTF8String`. | 128 |
+| `postalCode`             | 2.5.4.17 | MUST use `PrintableString` or `UTF8String`. | 40 |
+| `countryName`            | 2.5.4.6  | MUST use `PrintableString`. | 2 |
 
 #### 7.1.4.3 Subscriber Certificate Common Name Attribute
 
