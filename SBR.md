@@ -2697,7 +2697,7 @@ If present, `subject:commonName` SHALL contain one of the values permitted for t
 
 #### 7.1.4.4 Other Subject Attributes
 
-For Legacy Generation profiles, the "Other" attribute in the Subject DN MAY be present; for Multipurpose and Strict Generation profiles, "Other" attributes SHALL NOT be present (see Sections [7.1.2.7.2](#71272-mailbox-validated)–[7.1.2.7.5](#71275-individual-validated)). Where permitted, any information contained in a `directoryName` SHALL be validated according to Section [3.1](#31-naming)], Section [3.2.3](#323-authentication-of-organization-identity), and/or Section [3.2.4](#324-authentication-of-individual-identity), as appropriate for the Certificate Type.
+For Legacy Generation profiles, the "Other" attribute in the Subject DN MAY be present; for Multipurpose and Strict Generation profiles, "Other" attributes SHALL NOT be present (see Sections [7.1.2.7.2](#71272-mailbox-validated)–[7.1.2.7.5](#71275-individual-validated)). Where permitted, any information contained in a `directoryName` SHALL be validated according to [Section 3.1](#31-naming)], [Section 3.2.3](#323-authentication-of-organization-identity), and/or [Section 3.2.4](#324-authentication-of-individual-identity), as appropriate for the Certificate Type.
 
 ### 7.1.5 Name constraints
 
