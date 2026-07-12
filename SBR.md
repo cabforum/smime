@@ -2561,15 +2561,53 @@ CAs SHALL NOT include additional names unless the CA is aware of a reason for in
 
 #### 7.1.2.11 Common Certificate Fields
 
+This section contains fields that are common among multiple Certificate profiles. Before issuing a Certificate, the CA MUST ensure the Certificate contents comply in whole with all of the requirements of at least one Certificate Profile documented in [Section 7.1.2](#712-certificate-content-and-extensions).
+
 ##### 7.1.2.11.1 Authority Key Identifier
+
+Applies to Subordinate CA ([Section 7.1.2.2.1](#71221-subordinate-ca-extensions)) and Subscriber ([Section 7.1.2.7.6](#71276-subscriber-certificate-extensions)) Certificates.
+
+| **Field**                   | **Description** |
+| ---                         | ------- |
+| `keyIdentifier`             | SHALL be present. |
+| `authorityCertIssuer`       | SHALL NOT be present. |
+| `authorityCertSerialNumber` | SHALL NOT be present. |
 
 ##### 7.1.2.11.2 CRL Distribution Points
 
+**Subordinate CA Certificates**: SHALL contain the HTTP URL of the CA's CRL service.
+
+**Subscriber Certificates**: SHALL contain at least one `distributionPoint` whose `fullName` value includes a `GeneralName` of type `uniformResourceIdentifier` that includes a URI where the Issuing CA's CRL can be retrieved.
+
+Table: Subscriber Certificate `cRLDistributionPoints` URI scheme by Generation
+
+| **Generation**          | **Allowed URI scheme** |
+| ---                     | --- |
+| Strict and Multipurpose | Every `uniformResourceIdentifier` SHALL have the URI scheme HTTP. Other schemes SHALL NOT be present. |
+| Legacy                  | At least one `uniformResourceIdentifier` SHALL have the URI scheme HTTP. Other schemes (LDAP, FTP, …) MAY be present. |
+
 ##### 7.1.2.11.3 Signed Certificate Timestamp List
+
+Not applicable.
 
 ##### 7.1.2.11.4 Subject Key Identifier
 
+| **Certificate**                     | **Description** |
+| ---                                 | --- |
+| Root CA and Subordinate CA Certificates | SHALL contain a value that is included in the `keyIdentifier` field of the `authorityKeyIdentifier` extension in Certificates issued by that CA. |
+| Subscriber Certificates             | SHOULD contain a value that is derived from the Public Key included in the Subscriber Certificate. |
+
 ##### 7.1.2.11.5 Other Extensions
+
+All fields and extensions SHALL be set in accordance with RFC 5280. The CA SHALL NOT issue a Certificate that contains a `keyUsage` flag, `extKeyUsage` value, Certificate extension, or other data not specified in [Section 7.1.2.1](#7121-root-ca-certificate-profile), [Section 7.1.2.2](#7122-subordinate-ca-certificate-profile), or [Section 7.1.2.7](#7127-subscriber-certificate-profile) unless the CA is aware of a reason for including the data in the Certificate. If the CA includes fields or extensions that are not specified but are otherwise permitted by these Requirements, then the CA SHALL document the validation processes and procedures in its CP and/or CPS.
+
+CAs SHALL NOT issue a Certificate with:
+
+1. Extensions that do not apply in the context of the public Internet (such as an `extKeyUsage` value for a service that is only valid in the context of a privately managed network), unless:
+   i. such value falls within an OID arc for which the Applicant demonstrates ownership, or
+   ii. the Applicant can otherwise demonstrate the right to assert the data in a public context; or
+   iii. the extension is defined within an open standards specification and intended for use by other organizations. A Certificate that includes such an extension MUST conform to the specifications of the open standard and of these Requirements.
+2. Field or extension values which have not been validated according to the processes and procedures described in these Requirements or the CA's CP and/or CPS.
 
 ### 7.1.3 Algorithm object identifiers
 
