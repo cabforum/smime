@@ -2613,17 +2613,91 @@ CAs SHALL NOT issue a Certificate with:
 
 #### 7.1.3.1 SubjectPublicKeyInfo
 
+The following requirements apply to the `subjectPublicKeyInfo` field within a Certificate. No other encodings are permitted.
+
+| **Algorithm** | **Algorithm identifier (OID)** | **Parameters** | **Encoded `AlgorithmIdentifier` (hex)** |
+| ---           | ---                            | ---            | --- |
+| RSA           | `rsaEncryption` (1.2.840.113549.1.1.1) | SHALL be present and SHALL be an explicit NULL. The `id-RSASSA-PSS` (1.2.840.113549.1.1.10) identifier SHALL NOT be used. | `300d06092a864886f70d0101010500` |
+| ECDSA P-256   | `id-ecPublicKey` (1.2.840.10045.2.1) | `namedCurve` `secp256r1` (1.2.840.10045.3.1.7) | `301306072a8648ce3d020106082a8648ce3d030107` |
+| ECDSA P-384   | `id-ecPublicKey` (1.2.840.10045.2.1) | `namedCurve` `secp384r1` (1.3.132.0.34) | `301006072a8648ce3d020106052b81040022` |
+| ECDSA P-521   | `id-ecPublicKey` (1.2.840.10045.2.1) | `namedCurve` `secp521r1` (1.3.132.0.35) | `301006072a8648ce3d020106052b81040023` |
+| EdDSA Curve25519 | `id-Ed25519` (1.3.101.112) | SHALL be absent. | `300506032b6570` |
+| EdDSA Curve448   | `id-Ed448` (1.3.101.113)   | SHALL be absent. | `300506032b6571` |
+| ML-DSA-44     | 2.16.840.1.101.3.4.3.17 | SHALL be absent. HashML-DSA SHALL NOT be used; only "pure" ML-DSA is permitted. | `300b0609608648016503040311` |
+| ML-DSA-65     | 2.16.840.1.101.3.4.3.18 | SHALL be absent. HashML-DSA SHALL NOT be used; only "pure" ML-DSA is permitted. | `300b0609608648016503040312` |
+| ML-DSA-87     | 2.16.840.1.101.3.4.3.19 | SHALL be absent. HashML-DSA SHALL NOT be used; only "pure" ML-DSA is permitted. | `300b0609608648016503040313` |
+| ML-KEM-512    | 2.16.840.1.101.3.4.4.1  | SHALL be absent. | `300b0609608648016503040401` |
+| ML-KEM-768    | 2.16.840.1.101.3.4.4.2  | SHALL be absent. | `300b0609608648016503040402` |
+| ML-KEM-1024   | 2.16.840.1.101.3.4.4.3  | SHALL be absent. | `300b0609608648016503040403` |
+
 #### 7.1.3.2 Signature AlgorithmIdentifier
+
+These requirements apply to the `signatureAlgorithm` field of a Certificate; the `signature` field of a `TBSCertificate`; the `signatureAlgorithm` field of a `CertificateList`; the `signature` field of a `TBSCertList`; and the `signatureAlgorithm` field of a `BasicOCSPResponse`. No other encodings are permitted.
+
+| **Signature algorithm** | **Signing key** | **Encoded `AlgorithmIdentifier` (hex)** |
+| ---                     | ---             | --- |
+| RSASSA-PKCS1-v1_5 with SHA-256 | RSA | `300d06092a864886f70d01010b0500` |
+| RSASSA-PKCS1-v1_5 with SHA-384 | RSA | `300d06092a864886f70d01010c0500` |
+| RSASSA-PKCS1-v1_5 with SHA-512 | RSA | `300d06092a864886f70d01010d0500` |
+| RSASSA-PSS with SHA-256, MGF-1 with SHA-256, salt length 32 | RSA | `304106092a864886f70d01010a3034a00f300d06096086480165030402010500a11c301a06092a864886f70d010108300d06096086480165030402010500a203020120` |
+| RSASSA-PSS with SHA-384, MGF-1 with SHA-384, salt length 48 | RSA | `304106092a864886f70d01010a3034a00f300d06096086480165030402020500a11c301a06092a864886f70d010108300d06096086480165030402020500a203020130` |
+| RSASSA-PSS with SHA-512, MGF-1 with SHA-512, salt length 64 | RSA | `304106092a864886f70d01010a3034a00f300d06096086480165030402030500a11c301a06092a864886f70d010108300d06096086480165030402030500a203020140` |
+| ECDSA with SHA-256 | P-256 | `300a06082a8648ce3d040302` |
+| ECDSA with SHA-384 | P-384 | `300a06082a8648ce3d040303` |
+| ECDSA with SHA-512 | P-521 | `300a06082a8648ce3d040304` |
+| `id-Ed25519` (1.3.101.112) | Curve25519 | `300506032b6570` |
+| `id-Ed448` (1.3.101.113)   | Curve448   | `300506032b6571` |
+| `id-ml-dsa-44` (2.16.840.1.101.3.4.3.17) | ML-DSA-44 | `300b0609608648016503040311` |
+| `id-ml-dsa-65` (2.16.840.1.101.3.4.3.18) | ML-DSA-65 | `300b0609608648016503040312` |
+| `id-ml-dsa-87` (2.16.840.1.101.3.4.3.19) | ML-DSA-87 | `300b0609608648016503040313` |
 
 ### 7.1.4 Name Forms
 
+Attribute values SHALL be encoded according to RFC 5280.
+
 #### 7.1.4.1 Name Encoding
 
+For every valid Certification Path (as defined by RFC 5280, Section 6):
+
+- For each Certificate in the Certification Path, the encoded content of the Issuer Distinguished Name field of a Certificate SHALL be byte-for-byte identical with the encoded form of the Subject Distinguished Name field of the Issuing CA Certificate.
+- For each CA Certificate in the Certification Path, the encoded content of the Subject Distinguished Name field of a Certificate SHALL be byte-for-byte identical among all Certificates whose Subject Distinguished Names can be compared as equal according to RFC 5280, Section 7.1, and including expired and revoked Certificates.
+  
 #### 7.1.4.2 Subject Attribute Encoding
+
+CAs SHALL NOT include a Mailbox Address in a Mailbox Field except as verified in accordance with Section 3.2.2. Subject attributes SHALL NOT contain only metadata such as '.', '-', and ' ' (i.e., space) characters, and/or any other indication that the value is absent, incomplete, or not applicable.
+
+| **Attribute**            | **OID**  | **Encoding Requirements** | **Max Length** |
+| ----                     | --       | --- | - |
+| `organizationIdentifier` | 2.5.4.97 | MUST use `PrintableString` or `UTF8String`. |  |
+| `commonName`             | 2.5.4.3  |  |  |
+| `emailAddress`           | 1.2.840.113549.1.9.1 |  |  |
+| `organizationName`       | 2.5.4.10 |  |  |
+| `organizationalUnitName` | 2.5.4.11 |  |  |
+| `givenName`              | 2.5.4.42 |  |  |
+| `surname`                | 2.5.4.4  |  |  |
+| `pseudonym`              | 2.5.4.65 |  |  |
+| `serialNumber`           | 2.5.4.5  |  |  |
+| `title`                  | 2.5.4.12 |  |  |
+| `streetAddress`          | 2.5.4.9  |  |  |
+| `localityName`           | 2.5.4.7  |  |  |
+| `stateOrProvinceName`    | 2.5.4.8  |  |  |
+| `postalCode`             | 2.5.4.17 |  |  |
+| `countryName`            | 2.5.4.6  |  |  |
 
 #### 7.1.4.3 Subscriber Certificate Common Name Attribute
 
+If present, `subject:commonName` SHALL contain one of the values permitted for the Certificate Type (see Sections [7.1.2.7.2](#71272-mailbox-validated)–[7.1.2.7.5](#71275-individual-validated)), verified in accordance with Section 3.2:
+
+- If present, the Personal Name SHALL contain a name of the Subject. It SHOULD be presented as `subject:givenName` and/or `subject:surname`, but MAY be in a format preferred by the Subject, the CA, or the Enterprise RA, provided it remains a meaningful representation of the Subject's name as verified under Section 3.2.4.
+- If present, the Mailbox Address SHALL contain an `rfc822Name` or `otherName` value of type `id-on-SmtpUTF8Mailbox` from `extensions:subjectAltName`.
+- If the `subject:commonName` contains a Pseudonym, then `subject:givenName` and/or `subject:surname` SHALL NOT be present, and the Pseudonym SHALL contain the `subject:pseudonym` if that Subject attribute is also present.
+- If the `subject:commonName` contains a Personal Name, then the `subject:pseudonym` attribute SHALL NOT be present.
+
+**Note**: `subject:commonName` and `subject:emailAddress` SHALL comply with the attribute upper bounds defined in RFC 5280.
+
 #### 7.1.4.4 Other Subject Attributes
+
+For Legacy Generation profiles, the "Other" attribute in the Subject DN MAY be present; for Multipurpose and Strict Generation profiles, "Other" attributes SHALL NOT be present (see Sections [7.1.2.7.2](#71272-mailbox-validated)–[7.1.2.7.5](#71275-individual-validated)). Where permitted, any information contained in a `directoryName` SHALL be validated according to Section [3.1](#31-naming)], Section [3.2.3](#323-authentication-of-organization-identity), and/or Section [3.2.4](#324-authentication-of-individual-identity), as appropriate for the Certificate Type.
 
 ### 7.1.5 Name constraints
 
