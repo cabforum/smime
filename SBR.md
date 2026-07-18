@@ -2051,7 +2051,7 @@ f. `extKeyUsage` (SHALL be present)
    | Generation | `KeyPurposeId`      | 
    |------|-----------------------|
    | Strict | `id-kp-emailProtection` SHALL be present. Other values SHALL NOT be present. |
-  | Multipurpose and Legacy |`id-kp-emailProtection` SHALL be present. Other values MAY be present. |
+   | Multipurpose and Legacy |`id-kp-emailProtection` SHALL be present. `id-kp-clientAuth` MAY be present. Other values MAY be present in Certificates issued before July 1, 2027. |
 
    The values `id-kp-serverAuth`, `id-kp-codeSigning`, `id-kp-timeStamping`, and `anyExtendedKeyUsage` SHALL NOT be present.
 
