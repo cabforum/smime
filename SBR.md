@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.14
+subtitle: Version 1.0.16
 author:
   - CA/Browser Forum
-date: May 5, 2026
+date: TBD, 2026
 copyright: |
   Copyright 2026 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -93,6 +93,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.12  | SMC014   |DNSSEC for CAA | October 13, 2025 |
 | 1.0.13  | SMC015   |Allow mDL for Authentication of Individual Identity | March 27, 2026 |
 | 1.0.14  | SMC016   |Equivalence with Ballots SC096 and SC097 | May 5, 2026 |
+| 1.0.16  | SMC018   |Realignment of Multipurpose use cases | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -111,6 +112,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.8 | SMC010 | SHALL implement MPIC | May 15, 2025 |
 | 1.0.12 | SMC014 | SHALL implement DNSSEC for CAA | March 15, 2026 |
 | 1.0.14 | SMC016 | SHALL sunset all remaining use of SHA-1 in Certificates and CRLs | September 15, 2026 |
+| 1.0.16 | SMC018 | Only `id-kp-emailProtection` SHALL be and `id-kp-clientAuth` MAY be present in EKU of S/MIME Subordinate CA and Subscriber Certificates | July 1, 2027 |
 
 ## 1.3 PKI participants
 
@@ -291,7 +293,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Key Pair**: The Private Key and its associated Public Key.
 
-**Legacy Profile**: The S/MIME Legacy Generation profiles provide flexibility for existing reasonable S/MIME certificate practices to become auditable under the S/MIME Baseline Requirements. This includes options for Subject DN attributes, `extKeyUsage`, and other extensions. The Legacy Profiles will be deprecated in a future version of the S/MIME Baseline Requirements.
+**Legacy Profile**: The S/MIME Legacy Generation profiles provide flexibility for existing reasonable S/MIME certificate practices to become auditable under the S/MIME Baseline Requirements. This includes options for Subject DN attributes, `extKeyUsage`, and other extensions. Issuance using the Legacy Generation profiles was deprecated effective July 15, 2025.
 
 **Legal Entity**: An association, corporation, partnership, proprietorship, trust, government entity or other entity with legal standing in a country's legal system.
 
@@ -1972,11 +1974,11 @@ f. `nameConstraints` (MAY be present)
 
 g. `extKeyUsage` (MAY be present for Cross Certificates; SHALL be present otherwise)
 
-   For Cross Certificates that share a Subject Distinguished Name and Subject Public Key with a Root CA Certificate operated in accordance with these Requirements, this extension MAY be present. If present, this extension SHOULD NOT be marked critical. This extension SHALL only contain usages for which the Issuing CA has verified the Cross Certificate is authorized to assert. This extension SHALL NOT contain the `anyExtendedKeyUsage` usage.
+   For Cross Certificates that share a Subject Distinguished Name and Subject Public Key with a Root CA Certificate operated in accordance with these Requirements, this extension MAY be present. If present, this extension SHOULD NOT be marked critical. This extension SHALL only contain usages for which the Issuing CA has verified the Cross Certificate is authorized to assert. In the event that the Issuer hierarchy is non-dedicated (i.e., supporting multiple purposes) and the Subject is dedicated to S/MIME, only the values `id-kp-emailProtection`, or `id-kp-emailProtection` and `id-kp-clientAuth`, SHALL be present. This extension SHALL NOT contain the `anyExtendedKeyUsage` usage.
 
    For all other Subordinate CA Certificates, including Technically Constrained Subordinate CA Certificates, this extension SHALL be present and SHOULD NOT be marked critical[^**].
 
-   For Subordinate CA Certificates that will be used to issue S/MIME Certificates, the value `id-kp-emailProtection` SHALL be present. The values `id-kp-serverAuth`, `id-kp-codeSigning`, `id-kp-timeStamping`, and `anyExtendedKeyUsage` SHALL NOT be present. Other values MAY be present.
+   For Subordinate CA Certificates that will be used to issue S/MIME Certificates, the value `id-kp-emailProtection` SHALL be present and the value `id-kp-clientAuth` MAY be present. The values `id-kp-serverAuth`, `id-kp-codeSigning`, `id-kp-timeStamping`, and `anyExtendedKeyUsage` SHALL NOT be present. For Subordinate CA Certificates signed before July 1, 2027 other values MAY be present.
 
 [^**]: While [RFC 5280, Section 4.2.1.12](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12), notes that this extension will generally only appear within end-entity Certificates, these Requirements make use of this extension to further protect relying parties by limiting the scope of Subordinate Certificates, as implemented by a number of Application Software Suppliers.
 
@@ -2051,7 +2053,7 @@ f. `extKeyUsage` (SHALL be present)
    | Generation | `KeyPurposeId`      | 
    |------|-----------------------|
    | Strict | `id-kp-emailProtection` SHALL be present. Other values SHALL NOT be present. |
-  | Multipurpose and Legacy |`id-kp-emailProtection` SHALL be present. Other values MAY be present. |
+   | Multipurpose and Legacy |`id-kp-emailProtection` SHALL be present. `id-kp-clientAuth` MAY be present. Other values MAY be present in Certificates issued before July 1, 2027. |
 
    The values `id-kp-serverAuth`, `id-kp-codeSigning`, `id-kp-timeStamping`, and `anyExtendedKeyUsage` SHALL NOT be present.
 
