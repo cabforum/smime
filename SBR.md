@@ -94,6 +94,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.13  | SMC015   |Allow mDL for Authentication of Individual Identity | March 27, 2026 |
 | 1.0.14  | SMC016   |Equivalence with Ballots SC096 and SC097 | May 5, 2026 |
 | 1.0.15  | SMC017   |Increase Minimum RSA CA Key Size | July 30, 2026 |
+| 1.0.16  | SMC0XX   |Improve Recording of Validation Methods | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -113,6 +114,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.12 | SMC014 | SHALL implement DNSSEC for CAA | March 15, 2026 |
 | 1.0.14 | SMC016 | SHALL sunset all remaining use of SHA-1 in Certificates and CRLs | September 15, 2026 |
 | 1.0.15  | SMC017   |New Root or Subordinate CA RSA Key SHALL be at least 4096 bits | September 15, 2026 |
+| 1.0.16  | SMC0XX   |Audit logs of verification activities SHALL include specific information | March 15, 2027 |
 | 1.0.15  | SMC017   |SHALL cease Subscriber Certificate issuance from Subordinate CA with RSA Key less than 3072 bits | September 15, 2027 |
 
 ## 1.3 PKI participants
@@ -616,7 +618,7 @@ The CA SHALL verify that Applicant controls the email accounts associated with a
 
 The CA SHALL NOT delegate the verification of mailbox authorization or control.
 
-The CA's CP and/or CPS SHALL specify the procedures that the CA employs to perform this verification. CAs SHALL maintain a record of which validation method, including the relevant version number from the TLS Baseline Requirements or S/MIME Baseline Requirements, was used to validate every domain or email address in issued Certificates.
+The CA's CP and/or CPS SHALL specify the procedures that the CA employs to perform this verification.
 
 Completed validations of Applicant authority MAY be valid for the issuance of multiple Certificates over time. In all cases, the validation SHALL have been initiated within the time period specified in the relevant requirement (such as [Section 4.2.1](#421-performing-identification-and-authentication-functions)) prior to Certificate issuance.
 
@@ -1499,7 +1501,10 @@ The CA SHALL record at least the following events:
 
 2. Subscriber Certificate lifecycle management events, including:<br>
    i. Certificate requests, renewal, and re-key requests, and revocation;
-   ii. All verification activities stipulated in these Requirements and the CA's Certification Practice Statement;
+   ii. All verification activities stipulated in these Requirements and the CA's Certification Practice Statement. Effective March 15, 2027, records SHALL include at a minimum:
+       a. the information being validated (e.g., the Mailbox Address, the domain name, or the Organization name);
+       b. the domain name whose control was validated, if applicable and different from the domain portion of the Mailbox Address (e.g., the Authorization Domain Name or the SMTP FQDN); and
+       c. the validation method used (e.g., the section number of these Requirements or of the TLS Baseline Requirements, or the registered label of an ACME challenge type);
    iii. Approval and rejection of Certificate Requests;
    iv. Issuance of Certificates;
    v. Generation of Certificate Revocation Lists; and
