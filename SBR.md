@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.15
+subtitle: Version 1.0.17
 author:
   - CA/Browser Forum
-date: July 30, 2026
+date: TBD
 copyright: |
   Copyright 2026 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -94,6 +94,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.13  | SMC015   |Allow mDL for Authentication of Individual Identity | March 27, 2026 |
 | 1.0.14  | SMC016   |Equivalence with Ballots SC096 and SC097 | May 5, 2026 |
 | 1.0.15  | SMC017   |Increase Minimum RSA CA Key Size | July 30, 2026 |
+| 1.0.17  | SMC019   |Introduction of Composite ML-DSA Algorithms | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -227,6 +228,10 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Certificate Management Process**: Processes, practices, and procedures associated with the use of keys, software, and hardware, by which the CA verifies Certificate Data, issues Certificates, maintains a Repository, and revokes Certificates.
 
+**Composite ML-DSA**: A Post Quantum/Traditional hybrid digital signature algorithm that combines ML-DSA with a traditional digital signature algorithm into a single algorithm, as specified in the Composite ML-DSA Specification.
+
+**Composite ML-DSA Specification**: IETF draft-ietf-lamps-pq-composite-sigs, Composite Module-Lattice-Based Digital Signature Algorithm (ML-DSA) for use in X.509 Public Key Infrastructure, or the RFC that supersedes it.
+
 **Certificate Policy (or CP)**: A set of rules that indicates the applicability of a named Certificate to a particular community and/or PKI implementation with common security requirements.
 
 **Certification Practice Statement (or CPS)**: One of several documents forming the governance framework in which Certificates are created, issued, managed, and used.
@@ -288,7 +293,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Jurisdiction of Incorporation**: The country and (where applicable) the state or province or locality where the organization's legal existence was established by a filing with (or an act of) an appropriate government agency or entity (e.g., where it was incorporated). In the context of a Government Entity, the country and (where applicable) the state or province where the Entity's legal existence was created by law.
 
-**Key Compromise**: A Private Key is said to be compromised if its value has been disclosed to an unauthorized person, or an unauthorized person has had access to it.
+**Key Compromise**: A Private Key is said to be compromised if its value has been disclosed to an unauthorized person, or an unauthorized person has had access to it. For a Composite ML-DSA Key Pair, the Private Key is compromised if either of its component Private Keys is compromised.
 
 **Key Generation Script**: A documented plan of procedures for the generation of a CA Key Pair.
 
@@ -445,6 +450,12 @@ ETSI TS 119 172-4, Electronic Signatures and Trust Infrastructures (ESI); Signat
 ETSI TS 119 495, Electronic Signatures and Trust Infrastructures (ESI); Sector Specific Requirements; Certificate Profiles and TSP Policy Requirements for Open Banking.
 
 FIPS 140-2, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, May 25, 2001.
+
+FIPS 203, Federal Information Processing Standards Publication - Module-Lattice-Based Key-Encapsulation Mechanism Standard, National Institute of Standards and Technology, August 13, 2024.
+
+FIPS 204, Federal Information Processing Standards Publication - Module-Lattice-Based Digital Signature Standard, National Institute of Standards and Technology, August 13, 2024.
+
+IETF draft-ietf-lamps-pq-composite-sigs, Composite Module-Lattice-Based Digital Signature Algorithm (ML-DSA) for use in X.509 Public Key Infrastructure, M. Ounsworth, et al., or the RFC that supersedes it.
 
 ICAO DOC 9303, Machine Readable Travel Documents, Part 10, Logical Data Structure (LDS) for Storage of Biometrics and Other Data in the Contactless Integrated Circuit (IC), International Civil Aviation Organization, Eighth Edition, 2021.
 
@@ -1705,6 +1716,8 @@ The CA SHALL reject a Certificate Request if one or more of the following condit
 4. The CA has previously been made aware that the Applicant's Private Key has suffered a Key Compromise, such as through the provisions of [Section 4.9.1.1](#4911-reasons-for-revoking-a-subscriber-certificate);
 5. The CA is aware of a demonstrated or proven method to easily compute the Applicant's Private Key based on the Public Key (such as a Debian weak key, see <https://wiki.debian.org/SSLkeys>).
 
+For a Composite ML-DSA Key Pair, the CA SHOULD evaluate the conditions above against each component Public Key individually as well as against the composite Public Key.
+
 The CA or a Delegated Third Party MAY generate the Private Key on behalf of the Subscriber.
 
 ### 6.1.2 Private key delivery to subscriber
@@ -1771,7 +1784,26 @@ For ML-KEM key pairs, the CA SHALL:
   * ML-KEM-512 (OID: 2.16.840.1.101.3.4.4.1), or
   * ML-KEM-768 (OID: 2.16.840.1.101.3.4.4.2), or
   * ML-KEM-1024 (OID: 2.16.840.1.101.3.4.4.3).
-  
+
+For Composite ML-DSA key pairs, the CA SHALL:
+
+* Ensure the Key uses one of the following algorithms:
+  * id-MLDSA44-RSA2048-PSS-SHA256 (OID: 1.3.6.1.5.5.7.6.37), or
+  * id-MLDSA44-RSA2048-PKCS15-SHA256 (OID: 1.3.6.1.5.5.7.6.38), or
+  * id-MLDSA44-ECDSA-P256-SHA256 (OID: 1.3.6.1.5.5.7.6.40), or
+  * id-MLDSA65-RSA3072-PSS-SHA512 (OID: 1.3.6.1.5.5.7.6.41), or
+  * id-MLDSA65-RSA3072-PKCS15-SHA512 (OID: 1.3.6.1.5.5.7.6.42), or
+  * id-MLDSA65-RSA4096-PSS-SHA512 (OID: 1.3.6.1.5.5.7.6.43), or
+  * id-MLDSA65-RSA4096-PKCS15-SHA512 (OID: 1.3.6.1.5.5.7.6.44), or
+  * id-MLDSA65-ECDSA-P256-SHA512 (OID: 1.3.6.1.5.5.7.6.45), or
+  * id-MLDSA65-ECDSA-P384-SHA512 (OID: 1.3.6.1.5.5.7.6.46), or
+  * id-MLDSA87-ECDSA-P384-SHA512 (OID: 1.3.6.1.5.5.7.6.49), or
+  * id-MLDSA87-RSA3072-PSS-SHA512 (OID: 1.3.6.1.5.5.7.6.52), or
+  * id-MLDSA87-RSA4096-PSS-SHA512 (OID: 1.3.6.1.5.5.7.6.53), or
+  * id-MLDSA87-ECDSA-P521-SHA512 (OID: 1.3.6.1.5.5.7.6.54);
+* For Keys corresponding to CA Certificates (including Root, Subordinate and Cross Certificates), ensure that if the traditional component algorithm is RSA, the Key uses one of id-MLDSA65-RSA4096-PSS-SHA512, id-MLDSA65-RSA4096-PKCS15-SHA512, or id-MLDSA87-RSA4096-PSS-SHA512; and
+* Ensure that both component Keys are freshly generated for the Composite ML-DSA Key Pair. A component Key SHALL NOT be reused as a standalone Key or as a component of any other Composite ML-DSA Key Pair.
+
 No other algorithms or key sizes are permitted.
 
 ### 6.1.6 Public key parameters generation and quality checking
@@ -1785,6 +1817,8 @@ For EdDSA key pairs: no stipulation.
 For ML-DSA key pairs: no stipulation.
 
 For ML-KEM key pairs: no stipulation.
+
+For Composite ML-DSA key pairs: the CA SHOULD apply the stipulations above for the traditional component algorithm to the traditional component Key.
 
 ### 6.1.7 Key usage purposes (as per X.509 v3 key usage field)
 
@@ -2053,7 +2087,7 @@ e. `keyUsage` (SHALL be present)
 
   Other bit positions SHALL NOT be set.
 
-   | Generation | `id-ml-dsa`       | `id-ml-kem`            |
+   | Generation | `id-ml-dsa` and Composite ML-DSA       | `id-ml-kem`            |
    |------|-----------------------|-----------------------------|
    | Legacy and <br>Multipurpose<br> and Strict | Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br> Other bit positions SHALL NOT be set. | `keyEncipherment` SHALL be the only key usage set. |
 
@@ -2177,7 +2211,7 @@ When encoded, the `AlgorithmIdentifier` for EdDSA keys SHALL be byte-for-byte id
 * For Curve25519 keys, `300506032b6570`.
 * For Curve448 keys, `300506032b6571`.
 
-##### 7.1.3.2.4 ML-DSA
+##### 7.1.3.1.4 ML-DSA
 
 The CA SHALL indicate an ML-DSA key using one of the following algorithm identifiers below:
 
@@ -2193,7 +2227,7 @@ When encoded, the `AlgorithmIdentifier` for ML-DSA keys SHALL be byte-for-byte i
 * For ML-DSA-65, `300b0609608648016503040312`.
 * For ML-DSA-87, `300b0609608648016503040313`.
 
-##### 7.1.3.2.5 ML-KEM
+##### 7.1.3.1.5 ML-KEM
 
 The CA SHALL indicate an ML-KEM key using one of the following algorithm identifiers below:
 
@@ -2208,6 +2242,31 @@ When encoded, the `AlgorithmIdentifier` for ML-KEM keys SHALL be byte-for-byte i
 * For ML-KEM-512, `300b0609608648016503040401`.
 * For ML-KEM-768, `300b0609608648016503040402`.
 * For ML-KEM-1024, `300b0609608648016503040403`.
+
+##### 7.1.3.1.6 Composite ML-DSA
+
+The CA SHALL indicate a Composite ML-DSA key using one of the algorithm identifiers permitted by [Section 6.1.5](#615-key-sizes).
+
+The parameters for Composite ML-DSA keys SHALL be absent. The `subjectPublicKey` SHALL contain the serialized composite public key as specified in the Composite ML-DSA Specification, without additional ASN.1 wrapping.
+
+When encoded, the `AlgorithmIdentifier` for Composite ML-DSA keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
+
+* For id-MLDSA44-RSA2048-PSS-SHA256, `300a06082b06010505070625`.
+* For id-MLDSA44-RSA2048-PKCS15-SHA256, `300a06082b06010505070626`.
+* For id-MLDSA44-Ed25519-SHA512, `300a06082b06010505070627`.
+* For id-MLDSA44-ECDSA-P256-SHA256, `300a06082b06010505070628`.
+* For id-MLDSA65-RSA3072-PSS-SHA512, `300a06082b06010505070629`.
+* For id-MLDSA65-RSA3072-PKCS15-SHA512, `300a06082b0601050507062a`.
+* For id-MLDSA65-RSA4096-PSS-SHA512, `300a06082b0601050507062b`.
+* For id-MLDSA65-RSA4096-PKCS15-SHA512, `300a06082b0601050507062c`.
+* For id-MLDSA65-ECDSA-P256-SHA512, `300a06082b0601050507062d`.
+* For id-MLDSA65-ECDSA-P384-SHA512, `300a06082b0601050507062e`.
+* For id-MLDSA65-Ed25519-SHA512, `300a06082b06010505070630`.
+* For id-MLDSA87-ECDSA-P384-SHA512, `300a06082b06010505070631`.
+* For id-MLDSA87-Ed448-SHAKE256, `300a06082b06010505070633`.
+* For id-MLDSA87-RSA3072-PSS-SHA512, `300a06082b06010505070634`.
+* For id-MLDSA87-RSA4096-PSS-SHA512, `300a06082b06010505070635`.
+* For id-MLDSA87-ECDSA-P521-SHA512, `300a06082b06010505070636`.
 
 #### 7.1.3.2 Signature AlgorithmIdentifier
 
@@ -2299,6 +2358,12 @@ If the signing key is ML-DSA-44, the signature algorithm SHALL be id-ml-dsa-44 (
 If the signing key is ML-DSA-65, the signature algorithm SHALL be id-ml-dsa-65 (OID: 2.16.840.1.101.3.4.3.18). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300b0609608648016503040312`.
 
 If the signing key is ML-DSA-87, the signature algorithm SHALL be id-ml-dsa-87 (OID: 2.16.840.1.101.3.4.3.19). When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the following hex-encoded bytes: `300b0609608648016503040313`.
+
+##### 7.1.3.2.5 Composite ML-DSA
+
+The CA SHALL use the appropriate signature algorithm and encoding based upon the signing key used.
+
+If the signing key is a Composite ML-DSA key, the signature algorithm SHALL be the same algorithm identifier as that of the `subjectPublicKeyInfo` of the signing CA's Certificate, and the parameters SHALL be absent. When encoded, the `AlgorithmIdentifier` SHALL be byte-for-byte identical with the corresponding hex-encoded bytes specified in [Section 7.1.3.1.6](#71316-composite-ml-dsa). The `signatureValue` SHALL contain the serialized composite signature value as specified in the Composite ML-DSA Specification, without additional ASN.1 wrapping.
 
 ### 7.1.4 Name forms
 
