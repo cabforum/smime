@@ -3,7 +3,7 @@ title: Baseline Requirements for the Issuance and Management of Publicly-Trusted
 subtitle: Version 1.0.16
 author:
   - CA/Browser Forum
-date: TBD, 2026
+date: September 28, 2026
 copyright: |
   Copyright 2026 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -93,7 +93,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.12  | SMC014   |DNSSEC for CAA | October 13, 2025 |
 | 1.0.13  | SMC015   |Allow mDL for Authentication of Individual Identity | March 27, 2026 |
 | 1.0.14  | SMC016   |Equivalence with Ballots SC096 and SC097 | May 5, 2026 |
-| 1.0.16  | SMC018   |Realignment of Multipurpose use cases | TBD |
+| 1.0.16  | SMC018   |Realignment of Multipurpose use cases | September 28, 2026 |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
