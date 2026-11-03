@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.16
+subtitle: Version 1.0.18
 author:
   - CA/Browser Forum
-date: September 28, 2026
+date: TBD
 copyright: |
   Copyright 2026 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -15,7 +15,7 @@ copyright: |
 
 This S/MIME Baseline Requirements document describes an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements that are necessary for the issuance and management of Publicly-Trusted S/MIME Certificates.
 
-An S/MIME Certificate for the purposes of this document can be identified by the existence of an Extended Key Usage (EKU) for `id-kp-emailProtection` (OID: 1.3.6.1.5.5.7.3.4) and the inclusion of a `rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension.
+An S/MIME Subscriber Certificate and an S/MIME Subordinate CA Certificate for the purposes of this document can be identified by the existence of the Extended Key Usage (EKU) for id-kp-emailProtection (OID: 1.3.6.1.5.5.7.3.4) in the Certificate.
 
 **Notice for Readers**
 
