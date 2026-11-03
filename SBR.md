@@ -1961,6 +1961,8 @@ e. `subjectKeyIdentifier` (SHALL be present)
 
 The issuance of end entity S/MIME Certificates by Extant S/MIME CAs is described in [Appendix B](#appendix-b---transition-of-extant-smime-cas).
 
+Effective [TBD], a Subordinate CA whose Certificate contains `id-kp-emailProtection` SHALL NOT issue a Subscriber Certificate containing `id-kp-emailProtection` that does not conform to [Section 7.1.2.3](#7123-subscriber-certificates).
+
 a. `certificatePolicies` (SHALL be present)
 
    This extension SHOULD NOT be marked critical.
