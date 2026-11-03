@@ -972,6 +972,8 @@ A CA may rely on a previously verified Certificate Request to issue a replacemen
 
 Applicant information SHALL include, but not be limited to, at least one Mailbox Field to be included in the Certificate's `subjectAltName` extension.
 
+Effective [TBD], the CA SHALL NOT issue a Certificate containing `id-kp-emailProtection` in the `extKeyUsage` extension unless each Mailbox Field in the Certificate has been validated in accordance with Section 3.2.2.
+
 [Section 6.3.2](#632-certificate-operational-periods-and-key-pair-usage-periods) limits the validity period of Subscriber Certificates. 
 
 The CA MAY reuse completed validations and/or supporting evidence performed in accordance with [Section 3.2](#32-initial-identity-validation) within the following limits:
