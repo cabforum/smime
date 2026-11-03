@@ -124,7 +124,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.15  | SMC017   |New Root or Subordinate CA RSA Key SHALL be at least 4096 bits | September 15, 2026 |
 | 1.0.15  | SMC017   |SHALL cease Subscriber Certificate issuance from Subordinate CA with RSA Key less than 3072 bits | September 15, 2027 |
 | 1.0.16 | SMC018 | Only `id-kp-emailProtection` SHALL be and `id-kp-clientAuth` MAY be present in EKU of S/MIME Subordinate CA and Subscriber Certificates | July 1, 2027 |
-| 1.0.18  | SMC021   |Clarify scope of the S/MIME BR | TBD |
+| 1.0.18  | SMC021   | S/MIME Subscriber Certificates containing `id-kp-emailProtection` SHALL include at least one Mailbox Field, and S/MIME Subordinate CA Certificates SHALL NOT issue Subscriber Certificates containing `id-kp-emailProtection` that do not comply with these Requirements | TBD |
 
 ## 1.3 PKI participants
 
