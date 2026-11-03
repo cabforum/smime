@@ -487,23 +487,23 @@ RFC 3647, Request for Comments: 3647, Internet X.509 Public Key Infrastructure: 
 
 RFC 3739, Request for Comments: 3739, Internet X.509 Public Key Infrastructure: Qualified Certificates Profile, S. Santesson, et al. March 2004.
 
-RFC4035, Request for Comments: 4035, Protocol Modifications for the DNS Security Extensions. R. Arends, et al. March 2005.
+RFC 4035, Request for Comments: 4035, Protocol Modifications for the DNS Security Extensions. R. Arends, et al. March 2005.
 
 RFC 4262, Request for Comments: 4262, X.509 Certificate Extension for Secure/Multipurpose Internet Mail Extensions (S/MIME) Capabilities, S. Santesson. December 2005.
 
-RFC4509, Request for Comments: 4509, Use of SHA-256 in DNSSEC Delegation Signer (DS) Resource Records (RRs). W. Hardaker. May 2006.
+RFC 4509, Request for Comments: 4509, Use of SHA-256 in DNSSEC Delegation Signer (DS) Resource Records (RRs). W. Hardaker. May 2006.
 
 RFC 5019, Request for Comments: 5019, The Lightweight Online Certificate Status Protocol (OCSP) Profile for High-Volume Environments, A. Deacon, et al. September 2007.
 
-RFC5155, Request for Comments: 5155, DNS Security (DNSSEC) Hashed Authenticated Denial of Existence. B. Laurie, et al. March 2008.
+RFC 5155, Request for Comments: 5155, DNS Security (DNSSEC) Hashed Authenticated Denial of Existence. B. Laurie, et al. March 2008.
 
 RFC 5280, Request for Comments: 5280, Internet X.509 Public Key Infrastructure: Certificate and Certificate Revocation List (CRL) Profile, D. Cooper et al. May 2008.
 
-RFC5702, Request for Comments: 5702, Use of SHA-2 Algorithms with RSA in DNSKEY and RRSIG Resource Records for DNSSEC. J. Jansen. October 2009.
+RFC 5702, Request for Comments: 5702, Use of SHA-2 Algorithms with RSA in DNSKEY and RRSIG Resource Records for DNSSEC. J. Jansen. October 2009.
 
 RFC 6818, Updates to the Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile, P. Yee. January 2013.
 
-RFC6840, Request for Comments: 6840, Clarifications and Implementation Notes for DNS Security (DNSSEC). S. Weiler, et al. February 2013.
+RFC 6840, Request for Comments: 6840, Clarifications and Implementation Notes for DNS Security (DNSSEC). S. Weiler, et al. February 2013.
 
 RFC 6960, Request for Comments: 6960, X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP, S. Santesson, et al. June 2013.
 
@@ -511,13 +511,15 @@ RFC 8823, Request for Comments: 8823, Extensions to Automatic Certificate Manage
 
 RFC 8555,  Request for Comments: 8555, Automatic Certificate Management Environment (ACME), R. Barnes et al. March 2019.
 
-RFC 9598, Request for Comments: 9598, Internationalized Email Addresses in X.509 Certificates, A. Melnikov, et al. May 2024.
-
 RFC 8499, Request for Comments: 8499, DNS Terminology, P. Hoffman, et al. January 2019.
 
 RFC 9495, Request for Comments: 9495, Certification Authority Authorization (CAA) Processing for Email Addresses, C. Bonnell. October 2023.
 
 RFC 9598, Request for Comments: 9598, Internationalized Email Addresses in X.509 Certificates, A. Melnikov, et al. May 2024.
+
+RFC 9881, Request for Comments: 9881, Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the Module-Lattice-Based Digital Signature Algorithm (ML-DSA), J. Massimo, et al. October 2025.
+
+RFC 9935, Request for Comments: 9935, Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), S. Turner, et al. March 2026.
 
 "TLS Baseline Requirements" means the current version of the CA/Browser Forum's "Baseline Requirements for the Issuance and Management of Publicly‐Trusted TLS Server Certificates". See https://cabforum.org/baseline-requirements-documents/
 
@@ -1809,7 +1811,7 @@ For Composite ML-DSA key pairs, the CA SHALL:
   * id-MLDSA87-Ed448-SHAKE256 (OID: 1.3.6.1.5.5.7.6.51), or
   * id-MLDSA87-RSA3072-PSS-SHA512 (OID: 1.3.6.1.5.5.7.6.52), or
   * id-MLDSA87-RSA4096-PSS-SHA512 (OID: 1.3.6.1.5.5.7.6.53), or
-  * id-MLDSA87-ECDSA-P521-SHA512 (OID: 1.3.6.1.5.5.7.6.54);
+  * id-MLDSA87-ECDSA-P521-SHA512 (OID: 1.3.6.1.5.5.7.6.54).
 * For Keys corresponding to CA Certificates (including Root, Subordinate and Cross Certificates), ensure that if the traditional component algorithm is RSA, the Key uses one of id-MLDSA65-RSA4096-PSS-SHA512, id-MLDSA65-RSA4096-PKCS15-SHA512, or id-MLDSA87-RSA4096-PSS-SHA512; and
 * Ensure that both component Keys are freshly generated for the Composite ML-DSA Key Pair. A component Key SHALL NOT be reused as a standalone Key or as a component of any other Composite ML-DSA Key Pair.
 
@@ -1823,7 +1825,7 @@ For Composite ML-KEM key pairs, the CA SHALL:
   * id-MLKEM768-ECDH-P384-SHA3-256 (OID: 1.3.6.1.5.5.7.6.60), or
   * id-MLKEM1024-RSA3072-SHA3-256 (OID: 1.3.6.1.5.5.7.6.62), or
   * id-MLKEM1024-ECDH-P384-SHA3-256 (OID: 1.3.6.1.5.5.7.6.63), or
-  * id-MLKEM1024-ECDH-P521-SHA3-256 (OID: 1.3.6.1.5.5.7.6.66);
+  * id-MLKEM1024-ECDH-P521-SHA3-256 (OID: 1.3.6.1.5.5.7.6.66).
 * Ensure that both component Keys are freshly generated for the Composite ML-KEM Key Pair. A component Key SHALL NOT be reused as a standalone Key or as a component of any other Composite ML-KEM or Composite ML-DSA Key Pair.
 
 No other algorithms or key sizes are permitted.
