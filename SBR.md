@@ -94,7 +94,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.13  | SMC015   |Allow mDL for Authentication of Individual Identity | March 27, 2026 |
 | 1.0.14  | SMC016   |Equivalence with Ballots SC096 and SC097 | May 5, 2026 |
 | 1.0.15  | SMC017   |Increase Minimum RSA CA Key Size | July 30, 2026 |
-| 1.0.17  | SMC019   |Introduction of Composite ML-DSA Algorithms | TBD |
+| 1.0.17  | SMC019   |Introduction of Composite ML-DSA and Composite ML-KEM Algorithms | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -232,6 +232,10 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Composite ML-DSA Specification**: IETF draft-ietf-lamps-pq-composite-sigs, Composite Module-Lattice-Based Digital Signature Algorithm (ML-DSA) for use in X.509 Public Key Infrastructure, or the RFC that supersedes it.
 
+**Composite ML-KEM**: A Post Quantum/Traditional hybrid key encapsulation mechanism that combines ML-KEM with a traditional key establishment algorithm into a single algorithm, as specified in the Composite ML-KEM Specification.
+
+**Composite ML-KEM Specification**: IETF draft-ietf-lamps-pq-composite-kem, Composite ML-KEM for use in X.509 Public Key Infrastructure, or the RFC that supersedes it.
+
 **Certificate Policy (or CP)**: A set of rules that indicates the applicability of a named Certificate to a particular community and/or PKI implementation with common security requirements.
 
 **Certification Practice Statement (or CPS)**: One of several documents forming the governance framework in which Certificates are created, issued, managed, and used.
@@ -293,7 +297,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Jurisdiction of Incorporation**: The country and (where applicable) the state or province or locality where the organization's legal existence was established by a filing with (or an act of) an appropriate government agency or entity (e.g., where it was incorporated). In the context of a Government Entity, the country and (where applicable) the state or province where the Entity's legal existence was created by law.
 
-**Key Compromise**: A Private Key is said to be compromised if its value has been disclosed to an unauthorized person, or an unauthorized person has had access to it. For a Composite ML-DSA Key Pair, the Private Key is compromised if either of its component Private Keys is compromised.
+**Key Compromise**: A Private Key is said to be compromised if its value has been disclosed to an unauthorized person, or an unauthorized person has had access to it. For a Composite ML-DSA or Composite ML-KEM Key Pair, the Private Key is compromised if either of its component Private Keys is compromised.
 
 **Key Generation Script**: A documented plan of procedures for the generation of a CA Key Pair.
 
@@ -456,6 +460,8 @@ FIPS 203, Federal Information Processing Standards Publication - Module-Lattice-
 FIPS 204, Federal Information Processing Standards Publication - Module-Lattice-Based Digital Signature Standard, National Institute of Standards and Technology, August 13, 2024.
 
 IETF draft-ietf-lamps-pq-composite-sigs, Composite Module-Lattice-Based Digital Signature Algorithm (ML-DSA) for use in X.509 Public Key Infrastructure, M. Ounsworth, et al., or the RFC that supersedes it.
+
+IETF draft-ietf-lamps-pq-composite-kem, Composite ML-KEM for use in X.509 Public Key Infrastructure, M. Ounsworth, et al., or the RFC that supersedes it.
 
 ICAO DOC 9303, Machine Readable Travel Documents, Part 10, Logical Data Structure (LDS) for Storage of Biometrics and Other Data in the Contactless Integrated Circuit (IC), International Civil Aviation Organization, Eighth Edition, 2021.
 
@@ -1716,7 +1722,7 @@ The CA SHALL reject a Certificate Request if one or more of the following condit
 4. The CA has previously been made aware that the Applicant's Private Key has suffered a Key Compromise, such as through the provisions of [Section 4.9.1.1](#4911-reasons-for-revoking-a-subscriber-certificate);
 5. The CA is aware of a demonstrated or proven method to easily compute the Applicant's Private Key based on the Public Key (such as a Debian weak key, see <https://wiki.debian.org/SSLkeys>).
 
-For a Composite ML-DSA Key Pair, the CA SHOULD evaluate the conditions above against each component Public Key individually as well as against the composite Public Key.
+For a Composite ML-DSA or Composite ML-KEM Key Pair, the CA SHOULD evaluate the conditions above against each component Public Key individually as well as against the composite Public Key.
 
 The CA or a Delegated Third Party MAY generate the Private Key on behalf of the Subscriber.
 
@@ -1804,6 +1810,19 @@ For Composite ML-DSA key pairs, the CA SHALL:
 * For Keys corresponding to CA Certificates (including Root, Subordinate and Cross Certificates), ensure that if the traditional component algorithm is RSA, the Key uses one of id-MLDSA65-RSA4096-PSS-SHA512, id-MLDSA65-RSA4096-PKCS15-SHA512, or id-MLDSA87-RSA4096-PSS-SHA512; and
 * Ensure that both component Keys are freshly generated for the Composite ML-DSA Key Pair. A component Key SHALL NOT be reused as a standalone Key or as a component of any other Composite ML-DSA Key Pair.
 
+For Composite ML-KEM key pairs, the CA SHALL:
+
+* Ensure the Key uses one of the following algorithms:
+  * id-MLKEM768-RSA2048-SHA3-256 (OID: 1.3.6.1.5.5.7.6.55), or
+  * id-MLKEM768-RSA3072-SHA3-256 (OID: 1.3.6.1.5.5.7.6.56), or
+  * id-MLKEM768-RSA4096-SHA3-256 (OID: 1.3.6.1.5.5.7.6.57), or
+  * id-MLKEM768-ECDH-P256-SHA3-256 (OID: 1.3.6.1.5.5.7.6.59), or
+  * id-MLKEM768-ECDH-P384-SHA3-256 (OID: 1.3.6.1.5.5.7.6.60), or
+  * id-MLKEM1024-RSA3072-SHA3-256 (OID: 1.3.6.1.5.5.7.6.62), or
+  * id-MLKEM1024-ECDH-P384-SHA3-256 (OID: 1.3.6.1.5.5.7.6.63), or
+  * id-MLKEM1024-ECDH-P521-SHA3-256 (OID: 1.3.6.1.5.5.7.6.66);
+* Ensure that both component Keys are freshly generated for the Composite ML-KEM Key Pair. A component Key SHALL NOT be reused as a standalone Key or as a component of any other Composite ML-KEM or Composite ML-DSA Key Pair.
+
 No other algorithms or key sizes are permitted.
 
 ### 6.1.6 Public key parameters generation and quality checking
@@ -1819,6 +1838,8 @@ For ML-DSA key pairs: no stipulation.
 For ML-KEM key pairs: no stipulation.
 
 For Composite ML-DSA key pairs: the CA SHOULD apply the stipulations above for the traditional component algorithm to the traditional component Key.
+
+For Composite ML-KEM key pairs: the CA SHOULD apply the stipulations above for the traditional component algorithm to the traditional component Key.
 
 ### 6.1.7 Key usage purposes (as per X.509 v3 key usage field)
 
@@ -2087,7 +2108,7 @@ e. `keyUsage` (SHALL be present)
 
   Other bit positions SHALL NOT be set.
 
-   | Generation | `id-ml-dsa` and Composite ML-DSA       | `id-ml-kem`            |
+   | Generation | `id-ml-dsa` and Composite ML-DSA       | `id-ml-kem` and Composite ML-KEM |
    |------|-----------------------|-----------------------------|
    | Legacy and <br>Multipurpose<br> and Strict | Bit positions SHALL be set for `digitalSignature` and MAY be set for `nonRepudiation`.<br> Other bit positions SHALL NOT be set. | `keyEncipherment` SHALL be the only key usage set. |
 
@@ -2268,6 +2289,23 @@ When encoded, the `AlgorithmIdentifier` for Composite ML-DSA keys SHALL be byte-
 * For id-MLDSA87-RSA4096-PSS-SHA512, `300a06082b06010505070635`.
 * For id-MLDSA87-ECDSA-P521-SHA512, `300a06082b06010505070636`.
 
+##### 7.1.3.1.7 Composite ML-KEM
+
+The CA SHALL indicate a Composite ML-KEM key using one of the algorithm identifiers permitted by [Section 6.1.5](#615-key-sizes).
+
+The parameters for Composite ML-KEM keys SHALL be absent. The `subjectPublicKey` SHALL contain the serialized composite public key as specified in the Composite ML-KEM Specification, without additional ASN.1 wrapping.
+
+When encoded, the `AlgorithmIdentifier` for Composite ML-KEM keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
+
+* For id-MLKEM768-RSA2048-SHA3-256, `300a06082b06010505070637`.
+* For id-MLKEM768-RSA3072-SHA3-256, `300a06082b06010505070638`.
+* For id-MLKEM768-RSA4096-SHA3-256, `300a06082b06010505070639`.
+* For id-MLKEM768-ECDH-P256-SHA3-256, `300a06082b0601050507063b`.
+* For id-MLKEM768-ECDH-P384-SHA3-256, `300a06082b0601050507063c`.
+* For id-MLKEM1024-RSA3072-SHA3-256, `300a06082b0601050507063e`.
+* For id-MLKEM1024-ECDH-P384-SHA3-256, `300a06082b0601050507063f`.
+* For id-MLKEM1024-ECDH-P521-SHA3-256, `300a06082b06010505070642`.
+
 #### 7.1.3.2 Signature AlgorithmIdentifier
 
 All objects signed by a CA Private Key SHALL conform to these requirements on the use of the `AlgorithmIdentifier` or `AlgorithmIdentifier`-derived type in the context of signatures.
@@ -2281,6 +2319,8 @@ In particular, it applies to all of the following objects and fields:
 * The `signatureAlgorithm` field of a BasicOCSPResponse.
 
 No other encodings are permitted for these fields.
+
+ML-KEM and Composite ML-KEM keys SHALL NOT be used to sign any of the objects listed above.
 
 ##### 7.1.3.2.1 RSA
 
