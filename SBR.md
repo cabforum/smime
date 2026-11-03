@@ -455,10 +455,6 @@ ETSI TS 119 495, Electronic Signatures and Trust Infrastructures (ESI); Sector S
 
 FIPS 140-2, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, May 25, 2001.
 
-FIPS 203, Federal Information Processing Standards Publication - Module-Lattice-Based Key-Encapsulation Mechanism Standard, National Institute of Standards and Technology, August 13, 2024.
-
-FIPS 204, Federal Information Processing Standards Publication - Module-Lattice-Based Digital Signature Standard, National Institute of Standards and Technology, August 13, 2024.
-
 IETF draft-ietf-lamps-pq-composite-sigs, Composite Module-Lattice-Based Digital Signature Algorithm (ML-DSA) for use in X.509 Public Key Infrastructure, M. Ounsworth, et al., or the RFC that supersedes it.
 
 IETF draft-ietf-lamps-pq-composite-kem, Composite ML-KEM for use in X.509 Public Key Infrastructure, M. Ounsworth, et al., or the RFC that supersedes it.
