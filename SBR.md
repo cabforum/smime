@@ -15,7 +15,14 @@ copyright: |
 
 This S/MIME Baseline Requirements document describes an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements that are necessary for the issuance and management of Publicly-Trusted S/MIME Certificates.
 
-An S/MIME Subscriber Certificate and an S/MIME Subordinate CA Certificate for the purposes of this document can be identified by the existence of the Extended Key Usage (EKU) for id-kp-emailProtection (OID: 1.3.6.1.5.5.7.3.4) in the Certificate.
+For the purposes of these Requirements:
+
+1. An S/MIME Subscriber Certificate is an end-entity Certificate that contains `id-kp-emailProtection` (OID: 1.3.6.1.5.5.7.3.4) in the `extKeyUsage` extension.
+2. An S/MIME Subordinate CA Certificate is a Subordinate CA Certificate that contains `id-kp-emailProtection` in the `extKeyUsage` extension.
+
+S/MIME Subscriber Certificates and S/MIME Subordinate CA Certificates are collectively referred to as S/MIME Certificates.
+
+**Note:** Prior to [TBD], an end-entity Certificate containing `id-kp-emailProtection` that did not include a Mailbox Field in the `subjectAltName` extension was outside the scope of these Requirements. Such Certificates issued prior to [TBD] are not rendered non-compliant by this change.
 
 **Notice for Readers**
 
