@@ -2089,6 +2089,8 @@ h. `subjectAlternativeName` (SHALL be present)
 
    The value of this extension SHALL be encoded as specified in [Section 7.1.4.2.1](#71421-subject-alternative-name-extension).
 
+   For Certificates issued on or after [TBD] that contain `id-kp-emailProtection` in the `extKeyUsage` extension, this extension SHALL be present and SHALL contain at least one GeneralName of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.
+
 i. `smimeCapabilities` (optional)
 
    This extension MAY be present and SHALL NOT be marked critical. May indicate cryptographic capabilities of the sender of a signed S/MIME message, defined in [RFC 4262](https://datatracker.ietf.org/doc/html/rfc4262).
