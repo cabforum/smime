@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.16
+subtitle: Version 1.0.18
 author:
   - CA/Browser Forum
-date: September 28, 2026
+date: TBD
 copyright: |
   Copyright 2026 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -15,7 +15,14 @@ copyright: |
 
 This S/MIME Baseline Requirements document describes an integrated set of technologies, protocols, identity-proofing, lifecycle management, and auditing requirements that are necessary for the issuance and management of Publicly-Trusted S/MIME Certificates.
 
-An S/MIME Certificate for the purposes of this document can be identified by the existence of an Extended Key Usage (EKU) for `id-kp-emailProtection` (OID: 1.3.6.1.5.5.7.3.4) and the inclusion of a `rfc822Name` or an `otherName` of type `id-on-SmtpUTF8Mailbox` in the `subjectAltName` extension.
+For the purposes of these Requirements:
+
+1. An S/MIME Subscriber Certificate is an end-entity Certificate that contains `id-kp-emailProtection` (OID: 1.3.6.1.5.5.7.3.4) in the `extKeyUsage` extension.
+2. An S/MIME Subordinate CA Certificate is a Subordinate CA Certificate that contains `id-kp-emailProtection` in the `extKeyUsage` extension.
+
+S/MIME Subscriber Certificates and S/MIME Subordinate CA Certificates are collectively referred to as S/MIME Certificates.
+
+**Note:** Prior to [TBD], an end-entity Certificate containing `id-kp-emailProtection` that did not include a Mailbox Field in the `subjectAltName` extension was outside the scope of these Requirements. Such Certificates issued prior to [TBD] are not rendered non-compliant by this change.
 
 **Notice for Readers**
 
@@ -95,6 +102,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.14  | SMC016   |Equivalence with Ballots SC096 and SC097 | May 5, 2026 |
 | 1.0.15  | SMC017   |Increase Minimum RSA CA Key Size | July 30, 2026 |
 | 1.0.16  | SMC018   |Realignment of Multipurpose use cases | September 28, 2026 |
+| 1.0.18  | SMC021   |Clarify scope of the S/MIME BR | TBD |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -116,6 +124,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.15  | SMC017   |New Root or Subordinate CA RSA Key SHALL be at least 4096 bits | September 15, 2026 |
 | 1.0.15  | SMC017   |SHALL cease Subscriber Certificate issuance from Subordinate CA with RSA Key less than 3072 bits | September 15, 2027 |
 | 1.0.16 | SMC018 | Only `id-kp-emailProtection` SHALL be and `id-kp-clientAuth` MAY be present in EKU of S/MIME Subordinate CA and Subscriber Certificates | July 1, 2027 |
+| 1.0.18  | SMC021   | S/MIME Subscriber Certificates containing `id-kp-emailProtection` SHALL include at least one Mailbox Field, and S/MIME Subordinate CA Certificates SHALL NOT issue Subscriber Certificates containing `id-kp-emailProtection` that do not comply with these Requirements | TBD |
 
 ## 1.3 PKI participants
 
@@ -962,6 +971,8 @@ A CA may rely on a previously verified Certificate Request to issue a replacemen
 ### 4.2.1 Performing identification and authentication functions
 
 Applicant information SHALL include, but not be limited to, at least one Mailbox Field to be included in the Certificate's `subjectAltName` extension.
+
+Effective [TBD], the CA SHALL NOT issue a Certificate containing `id-kp-emailProtection` in the `extKeyUsage` extension unless each Mailbox Field in the Certificate has been validated in accordance with Section 3.2.2.
 
 [Section 6.3.2](#632-certificate-operational-periods-and-key-pair-usage-periods) limits the validity period of Subscriber Certificates. 
 
@@ -1950,6 +1961,8 @@ e. `subjectKeyIdentifier` (SHALL be present)
 
 The issuance of end entity S/MIME Certificates by Extant S/MIME CAs is described in [Appendix B](#appendix-b---transition-of-extant-smime-cas).
 
+Effective [TBD], a Subordinate CA whose Certificate contains `id-kp-emailProtection` SHALL NOT issue a Subscriber Certificate containing `id-kp-emailProtection` that does not conform to [Section 7.1.2.3](#7123-subscriber-certificates).
+
 a. `certificatePolicies` (SHALL be present)
 
    This extension SHOULD NOT be marked critical.
@@ -2077,6 +2090,8 @@ h. `subjectAlternativeName` (SHALL be present)
    This extension SHOULD NOT be marked critical unless the `subject` field is an empty sequence.
 
    The value of this extension SHALL be encoded as specified in [Section 7.1.4.2.1](#71421-subject-alternative-name-extension).
+
+   For Certificates issued on or after [TBD] that contain `id-kp-emailProtection` in the `extKeyUsage` extension, this extension SHALL be present and SHALL contain at least one GeneralName of type `rfc822Name` or `otherName` of type `id-on-SmtpUTF8Mailbox`.
 
 i. `smimeCapabilities` (optional)
 
