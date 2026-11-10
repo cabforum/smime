@@ -228,13 +228,7 @@ The Definitions found in the [CA/Browser Forum's Network and Certificate System 
 
 **Certificate Management Process**: Processes, practices, and procedures associated with the use of keys, software, and hardware, by which the CA verifies Certificate Data, issues Certificates, maintains a Repository, and revokes Certificates.
 
-**Composite ML-DSA**: A Post Quantum/Traditional hybrid digital signature algorithm that combines ML-DSA with a traditional digital signature algorithm into a single algorithm, as specified in the Composite ML-DSA Specification.
-
-**Composite ML-DSA Specification**: IETF draft-ietf-lamps-pq-composite-sigs, Composite Module-Lattice-Based Digital Signature Algorithm (ML-DSA) for use in X.509 Public Key Infrastructure, or the RFC that supersedes it.
-
-**Composite ML-KEM**: A Post Quantum/Traditional hybrid key encapsulation mechanism that combines ML-KEM with a traditional key establishment algorithm into a single algorithm, as specified in the Composite ML-KEM Specification.
-
-**Composite ML-KEM Specification**: IETF draft-ietf-lamps-pq-composite-kem, Composite ML-KEM for use in X.509 Public Key Infrastructure, or the RFC that supersedes it.
+**Composite Certificate**: A Post Quantum/Traditional hybrid digital signature algorithm that combines ML-DSA or ML-KEM with a traditional digital signature algorithm into a single algorithm.
 
 **Certificate Policy (or CP)**: A set of rules that indicates the applicability of a named Certificate to a particular community and/or PKI implementation with common security requirements.
 
@@ -455,8 +449,6 @@ ETSI TS 119 495, Electronic Signatures and Trust Infrastructures (ESI); Sector S
 
 FIPS 140-2, Federal Information Processing Standards Publication - Security Requirements For Cryptographic Modules, Information Technology Laboratory, National Institute of Standards and Technology, May 25, 2001.
 
-IETF draft-ietf-lamps-pq-composite-sigs, Composite Module-Lattice-Based Digital Signature Algorithm (ML-DSA) for use in X.509 Public Key Infrastructure, M. Ounsworth, et al., or the RFC that supersedes it.
-
 IETF draft-ietf-lamps-pq-composite-kem, Composite ML-KEM for use in X.509 Public Key Infrastructure, M. Ounsworth, et al., or the RFC that supersedes it.
 
 ICAO DOC 9303, Machine Readable Travel Documents, Part 10, Logical Data Structure (LDS) for Storage of Biometrics and Other Data in the Contactless Integrated Circuit (IC), International Civil Aviation Organization, Eighth Edition, 2021.
@@ -476,6 +468,8 @@ ISO/IEC TS 18013-7, Information technology — Personal identification — ISO-c
 Network and Certificate System Security Requirements, Version 2.0 or later. See https://cabforum.org/network-security-requirements/.
 
 NIST SP 800-89, Recommendation for Obtaining Assurances for Digital Signature Applications.
+
+RFC 10073, Composite Module-Lattice-Based Digital Signature Algorithm (ML-DSA) for use in X.509 Public Key Infrastructure, M. Ounsworth, et al. November 2026.
 
 RFC 2119, Request for Comments: 2119, Key words for use in RFCs to Indicate Requirement Levels, S. Bradner. March 1997.
 
