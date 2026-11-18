@@ -1786,8 +1786,6 @@ For ML-KEM key pairs, the CA SHALL:
 For Composite ML-DSA key pairs, the CA SHALL:
 
 * Ensure the Key uses one of the following algorithms:
-  * id-MLDSA44-RSA2048-PSS-SHA256 (OID: 1.3.6.1.5.5.7.6.37), or
-  * id-MLDSA44-RSA2048-PKCS15-SHA256 (OID: 1.3.6.1.5.5.7.6.38), or
   * id-MLDSA44-Ed25519-SHA512 (OID: 1.3.6.1.5.5.7.6.39), or
   * id-MLDSA44-ECDSA-P256-SHA256 (OID: 1.3.6.1.5.5.7.6.40), or
   * id-MLDSA65-RSA3072-PSS-SHA512 (OID: 1.3.6.1.5.5.7.6.41), or
@@ -1808,7 +1806,6 @@ For Composite ML-DSA key pairs, the CA SHALL:
 For Composite ML-KEM key pairs, the CA SHALL:
 
 * Ensure the Key uses one of the following algorithms:
-  * id-MLKEM768-RSA2048-SHA3-256 (OID: 1.3.6.1.5.5.7.6.55), or
   * id-MLKEM768-RSA3072-SHA3-256 (OID: 1.3.6.1.5.5.7.6.56), or
   * id-MLKEM768-RSA4096-SHA3-256 (OID: 1.3.6.1.5.5.7.6.57), or
   * id-MLKEM768-ECDH-P256-SHA3-256 (OID: 1.3.6.1.5.5.7.6.59), or
@@ -1832,9 +1829,9 @@ For ML-DSA key pairs: no stipulation.
 
 For ML-KEM key pairs: no stipulation.
 
-For Composite ML-DSA key pairs: the CA SHOULD apply the stipulations above for the traditional component algorithm to the traditional component Key.
+For Composite ML-DSA key pairs: the CA SHALL apply the stipulations above for the traditional component algorithm to the traditional component Key.
 
-For Composite ML-KEM key pairs: the CA SHOULD apply the stipulations above for the traditional component algorithm to the traditional component Key.
+For Composite ML-KEM key pairs: the CA SHALL apply the stipulations above for the traditional component algorithm to the traditional component Key.
 
 ### 6.1.7 Key usage purposes (as per X.509 v3 key usage field)
 
