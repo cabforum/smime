@@ -2264,8 +2264,6 @@ The parameters for Composite ML-DSA keys SHALL be absent. The `subjectPublicKey`
 
 When encoded, the `AlgorithmIdentifier` for Composite ML-DSA keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
 
-* For id-MLDSA44-RSA2048-PSS-SHA256, `300a06082b06010505070625`.
-* For id-MLDSA44-RSA2048-PKCS15-SHA256, `300a06082b06010505070626`.
 * For id-MLDSA44-Ed25519-SHA512, `300a06082b06010505070627`.
 * For id-MLDSA44-ECDSA-P256-SHA256, `300a06082b06010505070628`.
 * For id-MLDSA65-RSA3072-PSS-SHA512, `300a06082b06010505070629`.
@@ -2289,7 +2287,6 @@ The parameters for Composite ML-KEM keys SHALL be absent. The `subjectPublicKey`
 
 When encoded, the `AlgorithmIdentifier` for Composite ML-KEM keys SHALL be byte-for-byte identical with the following hex-encoded bytes:
 
-* For id-MLKEM768-RSA2048-SHA3-256, `300a06082b06010505070637`.
 * For id-MLKEM768-RSA3072-SHA3-256, `300a06082b06010505070638`.
 * For id-MLKEM768-RSA4096-SHA3-256, `300a06082b06010505070639`.
 * For id-MLKEM768-ECDH-P256-SHA3-256, `300a06082b0601050507063b`.
