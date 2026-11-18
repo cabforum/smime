@@ -1801,7 +1801,7 @@ For Composite ML-DSA key pairs, the CA SHALL:
   * id-MLDSA87-RSA4096-PSS-SHA512 (OID: 1.3.6.1.5.5.7.6.53), or
   * id-MLDSA87-ECDSA-P521-SHA512 (OID: 1.3.6.1.5.5.7.6.54).
 * For Keys corresponding to CA Certificates (including Root, Subordinate and Cross Certificates), ensure that if the traditional component algorithm is RSA, the Key uses one of id-MLDSA65-RSA4096-PSS-SHA512, id-MLDSA65-RSA4096-PKCS15-SHA512, or id-MLDSA87-RSA4096-PSS-SHA512; and
-* Ensure that both component Keys are freshly generated for the Composite ML-DSA Key Pair. A component Key SHALL NOT be reused as a standalone Key or as a component of any other Composite ML-DSA Key Pair.
+* Ensure that both component Keys are freshly generated for the Composite ML-DSA Key Pair. A component Key SHALL NOT be reused as a standalone Key or as a component of any other Composite ML-DSA or Composite ML-KEM Key Pair.
 
 For Composite ML-KEM key pairs, the CA SHALL:
 
