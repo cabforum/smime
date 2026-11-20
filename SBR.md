@@ -1,9 +1,9 @@
 ---
 title: Baseline Requirements for the Issuance and Management of Publicly-Trusted S/MIME Certificates
-subtitle: Version 1.0.16
+subtitle: Version 1.0.17
 author:
   - CA/Browser Forum
-date: September 28, 2026
+date: November 20, 2026
 copyright: |
   Copyright 2026 CA/Browser Forum
   This work is licensed under the Creative Commons Attribution 4.0 International license.
@@ -95,7 +95,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.14  | SMC016   |Equivalence with Ballots SC096 and SC097 | May 5, 2026 |
 | 1.0.15  | SMC017   |Increase Minimum RSA CA Key Size | July 30, 2026 |
 | 1.0.16  | SMC018   |Realignment of Multipurpose use cases | September 28, 2026 |
-| 1.0.17  | SMC020   |Improve Recording of Validation Methods | TBD |
+| 1.0.17  | SMC020   |Improve Recording of Validation Methods | November 20, 2026 |
 
 \* Publication Date is the date the new version was published following the Intellectual Property Review.
 
@@ -116,7 +116,7 @@ The following Certificate Policy identifiers are reserved for use by CAs as a me
 | 1.0.14 | SMC016 | SHALL sunset all remaining use of SHA-1 in Certificates and CRLs | September 15, 2026 |
 | 1.0.15  | SMC017   |New Root or Subordinate CA RSA Key SHALL be at least 4096 bits | September 15, 2026 |
 | 1.0.15  | SMC017   |SHALL cease Subscriber Certificate issuance from Subordinate CA with RSA Key less than 3072 bits | September 15, 2027 |
-| 1.0.16 | SMC018 | Only `id-kp-emailProtection` SHALL be and `id-kp-clientAuth` MAY be present in EKU of S/MIME Subordinate CA and Subscriber Certificates | July 1, 2027 |
+| 1.0.16  | SMC018   |Only `id-kp-emailProtection` SHALL be and `id-kp-clientAuth` MAY be present in EKU of S/MIME Subordinate CA and Subscriber Certificates | July 1, 2027 |
 | 1.0.17  | SMC020   |Audit logs of verification activities SHALL include specific information | March 15, 2027 |
 
 ## 1.3 PKI participants
